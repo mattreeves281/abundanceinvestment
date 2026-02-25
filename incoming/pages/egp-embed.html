@@ -1,0 +1,471 @@
+<!-- =====================================================
+     Abundance EGP Component — single-paste CMS embed
+     Change data-loan-name to match the loan for this page.
+     The component automatically switches between the full
+     project list and the 'no projects yet' view based on
+     live data from the API.
+     ===================================================== -->
+
+<style>
+  #egp-root .egp-scope {
+    padding-top: 2.5rem;
+  }
+  #egp-root .egp-scope *,
+  #egp-root .egp-scope *::before,
+  #egp-root .egp-scope *::after {
+    box-sizing: border-box;
+  }
+
+  /* --- Summary header block --- */
+  #egp-root .egp-summary {
+    margin: 0;
+    padding: 1.25rem 1.5rem 1.1rem;
+    border-radius: 10px 10px 0 0;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-bottom: none;
+    font-family: inherit;
+    color: inherit;
+  }
+  #egp-root .egp-summary__title {
+    margin: 0.75rem 0 1rem;
+    font-size: 48px;
+    font-weight: 600;
+    font-family: "Euclid Semi-bold", "Euclid", inherit;
+    color: #454543;
+  }
+  #egp-root .egp-summary__desc {
+    margin: 0 0 1.5rem;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #454543;
+  }
+  #egp-root .egp-summary__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    align-items: baseline;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: 0.9rem;
+  }
+  #egp-root .egp-summary__stat { min-width: 100px; }
+  #egp-root .egp-summary__label {
+    font-size: 16px;
+    margin: 0 0 0.15rem;
+  }
+  #egp-root .egp-summary__value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #454543;
+  }
+
+  /* --- Category badge --- */
+  #egp-root .egp-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #fff;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  #egp-root .egp-badge--pink   { background: #e26da6; }
+  #egp-root .egp-badge--blue   { background: #00a4b6; }
+  #egp-root .egp-badge--yellow { background: #e2961c; }
+
+  /* --- Row list (projects variant) --- */
+  #egp-root .egp-list {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-family: inherit;
+    color: inherit;
+  }
+
+  /* --- Individual row --- */
+  #egp-root .egp-row {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  #egp-root .egp-row:last-child { border-bottom: none; }
+
+  #egp-root .egp-row__trigger {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    transition: background 0.15s ease;
+  }
+  #egp-root .egp-row__trigger:hover { background: rgba(0,0,0,0.025); }
+  #egp-root .egp-row--open .egp-row__trigger { background: rgba(0,164,182,0.04); }
+
+  #egp-root .egp-row__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    flex: 1;
+    min-width: 0;
+  }
+  #egp-root .egp-row__name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #454543;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+  }
+  #egp-root .egp-row--open .egp-row__name { white-space: normal; }
+
+  #egp-root .egp-row__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    flex-shrink: 0;
+    min-width: 100px;
+  }
+  #egp-root .egp-row__spend {
+    font-size: 18px;
+    font-weight: 600;
+    color: #454543;
+    white-space: nowrap;
+  }
+
+  #egp-root .egp-row__progress-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  #egp-root .egp-row__progress-fill {
+    height: 100%;
+    background: #00a4b6;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  #egp-root .egp-row__chevron-col {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    color: #343a40;
+  }
+  #egp-root .egp-row__chevron-icon {
+    display: block;
+    transition: transform 0.2s ease;
+  }
+  #egp-root .egp-row--open .egp-row__chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  #egp-root .egp-row__body {
+    padding: 0.6rem 1rem 0.85rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  #egp-root .egp-row__body p {
+    margin: 0 0 0.5rem;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #454543;
+  }
+  #egp-root .egp-row__body p:last-child { margin-bottom: 0; }
+  #egp-root .egp-row__bullets {
+    margin: 0 0 0.5rem 1.25rem;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #454543;
+  }
+  #egp-root .egp-row__bullets:last-child { margin-bottom: 0; }
+  #egp-root .egp-row__bullets li { margin: 0; }
+
+  /* --- Info block (no projects variant) --- */
+  #egp-root .egp-info {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    background: #fff;
+    padding: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  #egp-root .egp-info__icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    color: #00a4b6;
+  }
+  #egp-root .egp-info__text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #454543;
+  }
+
+  /* --- Loading skeleton --- */
+  #egp-root .egp-loading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  #egp-root .egp-loading__item {
+    height: 64px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: egp-shimmer 1.4s infinite;
+  }
+  @keyframes egp-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* --- Error state --- */
+  #egp-root .egp-error {
+    padding: 1.25rem 1.5rem;
+    background: rgba(226,109,166,0.08);
+    border: 1px solid rgba(226,109,166,0.3);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #454543;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 600px) {
+    #egp-root .egp-summary { padding: 1rem 1rem 0.9rem; }
+    #egp-root .egp-summary__stats { gap: 0.75rem 1.5rem; }
+    #egp-root .egp-row__trigger { padding: 0.75rem 0.85rem; gap: 0.65rem; }
+    #egp-root .egp-row__name { font-size: 16px; }
+    #egp-root .egp-row__right { min-width: 80px; }
+    #egp-root .egp-row__spend { font-size: 16px; }
+    #egp-root .egp-row__body { padding: 0.5rem 0.85rem 0.75rem; }
+    #egp-root .egp-info { padding: 1.25rem; gap: 0.75rem; }
+    #egp-root .egp-info__text { font-size: 16px; }
+  }
+</style>
+
+<div id="egp-root" data-loan-id="recjRRM2T5oyiqZFm">
+  <div class="egp-scope"></div>
+</div>
+
+<script>
+(function () {
+  var API_URL = 'https://data.abundanceinvestment.com/projects';
+
+  var CATEGORY_COLOURS = {
+    'Clean Transportation':         'blue',
+    'Living and Natural Resources': 'pink',
+    'Energy Efficiency':            'yellow',
+    'Renewable Energy':             'blue',
+    'Biodiversity':                 'pink',
+    'Waste Management':             'yellow',
+    'Water Management':             'blue',
+  };
+
+  function badgeColour(category) {
+    return CATEGORY_COLOURS[category] || 'yellow';
+  }
+
+  function formatGBP(value) {
+    if (value == null) return null;
+    var hasPence = value % 1 !== 0;
+    return new Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: 'GBP',
+      minimumFractionDigits: hasPence ? 2 : 0,
+      maximumFractionDigits: hasPence ? 2 : 0,
+    }).format(value);
+  }
+
+  function sumSpend(projects) {
+    return projects.reduce(function (acc, r) {
+      return acc + (r.fields.totalSpent || 0);
+    }, 0);
+  }
+
+  var INFO_SVG = '<svg class="egp-info__icon" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M11 10v6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><circle cx="11" cy="7" r="0.75" fill="currentColor" stroke="currentColor" stroke-width="0.5"/></svg>';
+
+  var CHEVRON_SVG = '<svg class="egp-row__chevron-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 6.5L9 12L14.5 6.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  /* --- Summary block (shared by both variants) --- */
+  function renderSummary(projects, hasProjects) {
+    var totalSpend = hasProjects ? sumSpend(projects) : null;
+    var totalLeft  = hasProjects && projects[0] && projects[0].fields.totalLeft != null
+                       ? projects[0].fields.totalLeft
+                       : null;
+    var spendStr   = formatGBP(totalSpend) || '—';
+    var leftStr    = formatGBP(totalLeft)  || '—';
+    var count      = hasProjects ? projects.length : 0;
+
+    return '<div class="egp-summary">'
+      + '<h2 class="egp-summary__title">Projects financed</h2>'
+      + '<p class="egp-summary__desc">This is a list of the projects funded by the money raised in this investment, as reported by the council. The council will periodically update Abundance as more of the money is spent on specific projects over time.</p>'
+      + '<div class="egp-summary__stats">'
+      + '<div class="egp-summary__stat"><div class="egp-summary__label">Projects funded</div><div class="egp-summary__value">' + count + '</div></div>'
+      + '<div class="egp-summary__stat"><div class="egp-summary__label">Spent so far</div><div class="egp-summary__value">' + spendStr + '</div></div>'
+      + '<div class="egp-summary__stat"><div class="egp-summary__label">Left to spend</div><div class="egp-summary__value">' + leftStr + '</div></div>'
+      + '</div>'
+      + '</div>';
+  }
+
+  /* --- No-projects info block --- */
+  function renderNoProjects() {
+    return '<div class="egp-info">'
+      + INFO_SVG
+      + '<p class="egp-info__text">The council has not yet reported on the projects financed by this investment. This is not unusual as it can take some time following the close of the investment for the council to confirm exactly which projects it wants to allocate the funding to and report it to Abundance. Check back soon to see any updates from the council.</p>'
+      + '</div>';
+  }
+
+  /* --- Description: split on \n, render paragraphs or bullet items --- */
+  function renderDescription(text) {
+    if (!text) return '';
+    return text
+      .split('\n')
+      .map(function (line) { return line.trim(); })
+      .filter(function (line) { return line.length > 0; })
+      .map(function (line) {
+        if (/^\\?-\s/.test(line)) {
+          return '<ul class="egp-row__bullets"><li>' + line.replace(/^\\?-\s*/, '') + '</li></ul>';
+        }
+        return '<p>' + line + '</p>';
+      })
+      .join('');
+  }
+
+  /* --- Project row --- */
+  function renderRow(project, totalSpend) {
+    var f          = project.fields;
+    var colour     = badgeColour(f.category);
+    var spendStr   = formatGBP(f.totalSpent);
+    var progressPct = (totalSpend && f.totalSpent)
+                        ? Math.min(100, Math.round((f.totalSpent / totalSpend) * 100))
+                        : 0;
+
+    var rightHtml = '';
+    if (spendStr) {
+      rightHtml += '<span class="egp-row__spend">' + spendStr + '</span>';
+    }
+    if (progressPct > 0) {
+      rightHtml += '<div class="egp-row__progress-track">'
+        + '<div class="egp-row__progress-fill" style="width:' + progressPct + '%"></div>'
+        + '</div>';
+    }
+
+    return '<article class="egp-row" data-id="' + project.id + '">'
+      + '<button class="egp-row__trigger" aria-expanded="false">'
+      + '<div class="egp-row__left">'
+      + '<span class="egp-badge egp-badge--' + colour + '">' + (f.category || '') + '</span>'
+      + '<span class="egp-row__name">' + (f.projectName || '') + '</span>'
+      + '</div>'
+      + '<div class="egp-row__right">' + rightHtml + '</div>'
+      + '<div class="egp-row__chevron-col" aria-hidden="true">' + CHEVRON_SVG + '</div>'
+      + '</button>'
+      + (f.description
+          ? '<div class="egp-row__body" hidden>' + renderDescription(f.description) + '</div>'
+          : '')
+      + '</article>';
+  }
+
+  function bindToggle(scope) {
+    scope.addEventListener('click', function (e) {
+      var btn = e.target.closest('.egp-row__trigger');
+      if (!btn) return;
+      var row  = btn.closest('.egp-row');
+      var body = row.querySelector('.egp-row__body');
+      var open = row.classList.toggle('egp-row--open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (body) body.hidden = !open;
+    });
+  }
+
+  /* --- Render: projects variant --- */
+  function renderWithProjects(scope, projects) {
+    var totalSpend = sumSpend(projects);
+    scope.innerHTML = renderSummary(projects, true)
+      + '<div class="egp-list">'
+      + projects.map(function (p) { return renderRow(p, totalSpend); }).join('')
+      + '</div>';
+    bindToggle(scope);
+  }
+
+  /* --- Render: no projects variant --- */
+  function renderEmpty(scope) {
+    scope.innerHTML = renderSummary([], false) + renderNoProjects();
+  }
+
+  function showLoading(scope) {
+    scope.innerHTML = '<div class="egp-loading">'
+      + '<div class="egp-loading__item"></div>'
+      + '<div class="egp-loading__item"></div>'
+      + '<div class="egp-loading__item"></div>'
+      + '</div>';
+  }
+
+  function showError(scope, msg) {
+    scope.innerHTML = '<div class="egp-error"><strong>Unable to load projects.</strong> '
+      + (msg || 'Please try refreshing the page.') + '</div>';
+  }
+
+  /* --- Boot --- */
+  var root = document.getElementById('egp-root');
+  if (!root) return;
+
+  var loanId = root.getAttribute('data-loan-id') || '';
+  var scope  = root.querySelector('.egp-scope');
+  if (!scope) return;
+
+  if (!loanId) { renderEmpty(scope); return; }
+
+  showLoading(scope);
+
+  fetch(API_URL)
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      var records  = data.records || [];
+      var filtered = records.filter(function (r) {
+        return Array.isArray(r.fields.loanID)
+          && r.fields.loanID.indexOf(loanId) !== -1;
+      });
+
+      if (filtered.length === 0) {
+        // No projects reported yet — show the info block variant
+        renderEmpty(scope);
+        return;
+      }
+
+      // Sort highest spend first
+      filtered.sort(function (a, b) {
+        return (b.fields.totalSpent || 0) - (a.fields.totalSpent || 0);
+      });
+
+      renderWithProjects(scope, filtered);
+    })
+    .catch(function (err) {
+      showError(scope, err.message);
+    });
+})();
+</script>
