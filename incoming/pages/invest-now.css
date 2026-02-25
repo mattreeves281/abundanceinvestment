@@ -1,0 +1,242 @@
+<style>
+/* =========================================================
+   Minimal tile drop-in (Open investments + Council tiles)
+   - Full-card clickable (overlay link)
+   - Badge rows swipe-scroll on mobile (iOS safe)
+   ========================================================= */
+
+/* Optional wrapper */
+.ai-custom{
+  max-width:960px;
+  margin:0 auto;
+  padding:0 1rem;
+  box-sizing:border-box;
+}
+@media (max-width:768px){
+  .ai-custom{ max-width:100vw; overflow-x:hidden; }
+  .ai-custom, .ai-custom *{ overflow-wrap:break-word; word-break:break-word; }
+}
+
+/* ---- Tile base ---- */
+.ai-invest-tick{
+  position:relative; /* needed for overlay link */
+  display:flex;
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.04);
+  margin:1.25rem 0;
+}
+
+/* Hover */
+.ai-invest-tick:hover,
+.ai-invest-tick:focus-within{
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  border-color:rgba(0,0,0,.14);
+}
+
+/* Media area */
+.ai-invest-tick__media{
+  flex:0 0 160px;
+  max-width:160px;
+  position:relative;
+  background:#f3f3f3;
+}
+.ai-invest-tick__media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Council tile media option: solid bg + centered logo */
+.ai-logo-tile{
+  background: var(--tile-bg, #0f172a);
+  display:grid;
+  place-items:center;
+}
+.ai-logo-tile img.ai-logo-tile__logo{
+  position:relative;
+  inset:auto;
+  width:min(72%, 140px);
+  height:auto;
+  max-height:70%;
+  object-fit:contain;
+  display:block;
+}
+@media (max-width:768px){
+  .ai-logo-tile img.ai-logo-tile__logo{
+    width:min(78%, 120px);
+    max-height:74%;
+  }
+}
+
+/* Content */
+.ai-invest-tick__content{
+  flex:1;
+  min-width:0;
+  padding:1rem 2.5rem 1rem 1.1rem; /* room for chevron */
+}
+.ai-invest-tick__title{
+  margin:0 0 .25rem;
+  font-size:1.1rem;
+  font-weight:700;
+  color:#454543;
+}
+.ai-invest-tick__desc{
+  margin:.25rem 0 0;
+  font-size:.95rem;
+  opacity:.88;
+  color:#454543;
+}
+
+/* Badges */
+.ai-invest-tick__stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:0 0 .6rem;
+}
+.ai-invest-tick__badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.32rem .6rem;
+  font-size:.85rem;
+  font-weight:700;
+  line-height:1.2;
+  color:#fff;
+  white-space:nowrap;
+}
+.ai-invest-tick__badge--pink{ background:#e26da6; }
+.ai-invest-tick__badge--blue{ background:#00a4b6; }
+.ai-invest-tick__badge--yellow{ background:#e2961c; }
+
+/* Whole-row clickable overlay link */
+.ai-invest-tick__link{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  text-indent:-9999px;
+  overflow:hidden;
+  white-space:nowrap;
+  border-radius:12px;
+}
+
+/* Chevron */
+.ai-invest-tick__chevron{
+  position:absolute;
+  right:1rem;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.8rem;
+  line-height:1;
+  color:#e26da6;
+  pointer-events:none;
+  z-index:5;
+}
+.ai-invest-tick:hover .ai-invest-tick__chevron{
+  transform:translateY(-50%) translateX(4px);
+}
+
+/* ---- Mobile: left image, hide chevron for space if desired ---- */
+@media (max-width:768px){
+  .ai-invest-tick{ flex-direction:row; align-items:stretch; }
+  .ai-invest-tick__media{
+    flex:0 0 120px;
+    max-width:120px;
+  }
+  .ai-invest-tick__content{ padding:.95rem 2.9rem .95rem 1rem; }
+}
+
+/* Ultra-small screens */
+@media (max-width:420px){
+  .ai-invest-tick__media{ flex-basis:96px; max-width:96px; }
+  .ai-invest-tick__content{ padding-right:2.8rem; }
+}
+
+/* =========================================================
+   FIX: swipe-scroll badges on mobile WITHOUT losing full-card click
+   - Badge lane above overlay (z-index)
+   - Badges themselves pass taps through to overlay
+   ========================================================= */
+@media (max-width:768px){
+  .ai-invest-tick__stats{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:6px;
+    padding-bottom:6px;
+    position:relative;
+    z-index:6; /* ABOVE overlay link */
+    scrollbar-width:none;
+  }
+  .ai-invest-tick__stats::-webkit-scrollbar{ display:none; }
+
+  .ai-invest-tick__badge{
+    flex:0 0 auto;
+    font-size:.75rem;
+    padding:4px 8px;
+    pointer-events:none; /* taps click card; swipe still works on row */
+  }
+}
+</style>
+<style>
+/* =========================================================
+   Council logo hybrid:
+   - Desktop: fixed square logo box (consistent, tall logos scale down)
+   - Mobile: logo box stretches to full card height (no white gap)
+   ========================================================= */
+
+/* Always: stop cover-cropping for council logo images */
+.ai-invest-tick__media.ai-logo-tile img{
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  max-width: 78% !important;
+  max-height: 78% !important;
+}
+
+/* Desktop (and tablets): fixed square box */
+@media (min-width:769px){
+  .ai-invest-tick__media.ai-logo-tile{
+    height: 160px;                 /* fixed square */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+
+/* Mobile: stretch to match tile height (prevents white gap) */
+@media (max-width:768px){
+  .ai-invest-tick__media.ai-logo-tile{
+    height: auto !important;       /* important: undo fixed height */
+    align-self: stretch;           /* fill the card height */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* Mobile sizing (your previous behaviour) */
+  .ai-invest-tick__media.ai-logo-tile img{
+    max-width: 78% !important;
+    max-height: 74% !important;
+  }
+}
+
+/* Ultra-small mobile */
+@media (max-width:420px){
+  .ai-invest-tick__media.ai-logo-tile img{
+    max-width: 80% !important;
+    max-height: 74% !important;
+  }
+}
+</style>
