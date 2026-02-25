@@ -1,0 +1,244 @@
+<style>
+  /* =========================================================
+     Council bar chart — CLEAN FINAL CSS (no clashing overrides)
+     Summary uses 3 stacked “pill” stats + larger logo tile
+     ========================================================= */
+
+  /* Use Inter Display across the entire asset */
+  #council-bar-chart,
+  #council-bar-chart *{
+    font-family:"Inter Display", sans-serif;
+  }
+
+  #council-bar-chart{
+    max-width:900px;
+    margin:40px auto;
+  }
+
+  /* Single card wrapper */
+  #council-bar-chart .cbc-card{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+    padding:22px 24px;
+  }
+
+  /* Controls (dropdown) */
+  #council-bar-chart .cbc-controls{
+    margin:0 0 18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    font-size:.95rem;
+  }
+  #council-bar-chart .cbc-controls label{
+    font-weight:600;
+    margin-right:4px;
+    color:#111827;
+  }
+  #council-bar-chart .cbc-controls select{
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid #d1d5db;
+    font-size:.95rem;
+    background:#fff;
+  }
+
+  /* Summary container */
+  #council-bar-chart .cbc-summary{
+    margin:0 0 18px;
+  }
+
+  /* Summary layout: logo | pills */
+  #council-bar-chart .cbc-summary-inner{
+    display:grid;
+    grid-template-columns:128px minmax(0, 1fr); /* larger logo column */
+    column-gap:28px;
+    padding:10px 8px;
+    border-radius:14px;
+    background:#fff;
+    align-items:start;
+  }
+
+  /* Larger logo tile */
+  #council-bar-chart .cbc-summary-logo{
+    width:128px;
+    height:128px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-start;
+  }
+  #council-bar-chart .cbc-logo-badge{
+    width:112px;
+    height:112px;
+    border-radius:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(15,23,42,.08);
+    border:1px solid rgba(15,23,42,.06);
+    background:#f3f4f6;
+  }
+  #council-bar-chart .cbc-logo-badge img{
+    width:78%;
+    height:78%;
+    object-fit:contain;
+    display:block;
+  }
+
+  /* Summary pills: 3-row vertical stack (robust vs global CSS) */
+  #council-bar-chart .cbc-summary-lines{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    padding-top:6px;
+    text-align:left !important;
+  }
+
+  #council-bar-chart .cbc-summary-line{
+    display:inline-flex;
+    align-items:center;
+    border-radius:999px;
+    padding:.36rem .7rem;
+    font-size:.9rem;
+    font-weight:700;
+    line-height:1.2;
+    color:#fff;
+    white-space:nowrap;
+    margin:0 !important;
+  }
+
+  /* Colour mapping */
+  #council-bar-chart .cbc-summary-line:nth-child(1){ background:#e26da6; } /* investments */
+  #council-bar-chart .cbc-summary-line:nth-child(2){ background:#00a4b6; } /* spent */
+  #council-bar-chart .cbc-summary-line:nth-child(3){ background:#e2961c; } /* projects */
+
+  /* Chart */
+  #council-bar-chart .cbc-chart{
+    width:100%;
+    margin:0;
+  }
+  #council-bar-chart .cbc-row{
+    display:flex;
+    align-items:center;
+    margin-bottom:12px;
+  }
+  #council-bar-chart .cbc-label{
+    flex:0 0 32%;
+    padding-right:10px;
+    font-size:.95rem;
+    color:#111827;
+  }
+  #council-bar-chart .cbc-bar-wrapper{
+    flex:1 1 auto;
+    position:relative;
+    height:42px;
+    background:#f3f4f6;
+    border-radius:999px;
+    overflow:hidden;
+  }
+  #council-bar-chart .cbc-bar-fill{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    padding-left:14px;
+    box-sizing:border-box;
+    white-space:nowrap;
+    transition:width .8s ease, transform .2s ease-out, box-shadow .2s ease-out;
+  }
+  #council-bar-chart .cbc-bar-value{
+    color:#111827;
+    font-weight:600;
+    font-size:.9rem;
+  }
+  #council-bar-chart .cbc-bar-wrapper:hover .cbc-bar-fill{
+    transform:scaleY(1.06);
+    box-shadow:0 2px 6px rgba(15,23,42,.24);
+  }
+
+  /* No data state */
+  #council-bar-chart .cbc-empty{
+    padding:64px 14px;
+    font-size:1.1rem;
+    font-weight:500;
+    color:#454543;
+    text-align:center;
+    background:#f9fafb;
+    border-radius:16px;
+  }
+
+  /* Mobile */
+  @media (max-width:640px){
+    #council-bar-chart .cbc-card{
+      padding:18px 16px;
+    }
+
+    #council-bar-chart .cbc-controls{
+      margin-bottom:18px;
+    }
+
+    #council-bar-chart .cbc-summary{
+      margin-bottom:18px;
+    }
+
+    /* Keep 2-column summary on mobile */
+    #council-bar-chart .cbc-summary-inner{
+      grid-template-columns:112px minmax(0, 1fr);
+      column-gap:14px;
+    }
+
+    /* Slightly smaller logo on mobile */
+    #council-bar-chart .cbc-summary-logo{
+      width:112px;
+      height:112px;
+    }
+    #council-bar-chart .cbc-logo-badge{
+      width:96px;
+      height:96px;
+      border-radius:20px;
+    }
+    #council-bar-chart .cbc-logo-badge img{
+      width:80%;
+      height:80%;
+    }
+
+    /* Pills: tighter on mobile */
+    #council-bar-chart .cbc-summary-lines{
+      padding-top:2px;
+      gap:8px !important;
+    }
+    #council-bar-chart .cbc-summary-line{
+      font-size:.85rem;
+      padding:.34rem .62rem;
+    }
+
+    /* Chart on mobile */
+    #council-bar-chart .cbc-row{
+      flex-direction:column;
+      align-items:stretch;
+    }
+    #council-bar-chart .cbc-label{
+      margin-bottom:4px;
+    }
+  }
+
+/* FIX: iOS mobile picker text too small */
+#council-bar-chart .cbc-controls select{
+  font-size: 16px; /* prevents iOS from shrinking picker text */
+}
+
+@media (max-width: 640px){
+  #council-bar-chart .cbc-controls select{
+    font-size: 16px; /* keep native picker readable */
+  }
+}
+
+</style>
