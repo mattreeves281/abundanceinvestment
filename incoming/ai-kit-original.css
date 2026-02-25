@@ -1,0 +1,921 @@
+/* Source: /mnt/data/ai-kit.clean.css */
+/* ============================================================
+   Abundance CMS UI Kit (ai-*)
+   Clean, de-duped CSS — includes final components from this chat
+   (Excludes older open-investment variants; keeps only the latest
+   ai-invest-tick--media clickable card with badges + chevron)
+   ============================================================ */
+
+/* ----------------------------
+   Base wrapper + safety
+   ---------------------------- */
+
+.ai-custom{
+  font-family:inherit;
+  color:inherit;
+  max-width:960px;
+  margin:0 auto;
+  padding:0 1rem;
+  box-sizing:border-box;
+}
+
+@media (max-width:768px){
+  .ai-custom{
+    max-width:100vw;
+    overflow-x:hidden;
+  }
+  .ai-custom,
+  .ai-custom *{
+    overflow-wrap:break-word;
+    word-break:break-word;
+  }
+}
+
+.ai-divider{
+  margin:3rem 0;
+  height:1px;
+  background:rgba(0,0,0,0.1);
+}
+
+/* Optional: house-style small button helper (scoped) */
+.ai-custom .btn.btn--sm{
+  font-size:.9rem;
+  padding:.45rem 1.1rem;
+  line-height:1.2;
+}
+.ai-custom .btn.btn--sm.btn--icon{
+  padding-left:1rem;
+  padding-right:1rem;
+}
+
+/* ----------------------------
+   Hero
+   ---------------------------- */
+
+.ai-hero{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  margin:2.5rem 0;
+}
+.ai-hero img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.ai-hero__overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
+.ai-hero__content{
+  position:absolute;
+  bottom:2rem;
+  left:2rem;
+  right:2rem;
+  color:#fff;
+}
+.ai-hero__title{
+  font-size:2rem;
+  margin:0 0 .5rem;
+}
+
+@media (max-width:600px){
+  .ai-hero__overlay{background:rgba(0,0,0,.25);}
+  .ai-hero__content{
+    position:static;
+    padding-top:1rem;
+    color:inherit;
+    text-align:left;
+  }
+  .ai-hero__title{font-size:1.4rem;}
+}
+
+/* ----------------------------
+   Brand row (tick list) — with/without small button
+   ---------------------------- */
+
+.ai-brand-row{
+  margin:2rem 0;
+  display:flex;
+  gap:1.5rem;
+  align-items:center;
+  padding:1.5rem 0;
+  box-sizing:border-box;
+}
+.ai-brand-row--reverse{flex-direction:row-reverse;}
+.ai-brand-row__media{
+  flex:0 0 260px;
+  max-width:260px;
+}
+.ai-brand-row__media img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:8px;
+}
+.ai-brand-row__body{flex:1;min-width:0;}
+.ai-brand-row__eyebrow{
+  text-transform:uppercase;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  opacity:.7;
+  margin:0 0 .25rem;
+}
+.ai-brand-row__title{
+  margin:0 0 .5rem;
+  font-size:1.35rem;
+}
+.ai-brand-row__list{
+  list-style:none;
+  padding:0;
+  margin:.5rem 0 0;
+}
+.ai-brand-row__list li{
+  display:flex;
+  gap:.5rem;
+  align-items:flex-start;
+  margin:0 0 .35rem;
+  font-size:.95rem;
+}
+.ai-brand-row__bullet{
+  margin-top:.1rem;
+  font-size:.85rem;
+  color:#00a4b6;
+}
+
+@media (max-width:768px){
+  .ai-brand-row{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:1.25rem 0;
+  }
+  .ai-brand-row__media{max-width:100%;flex:0 0 auto;}
+  .ai-brand-row__title{font-size:1.2rem;}
+}
+
+/* ----------------------------
+   Brand card
+   ---------------------------- */
+
+.ai-brand-card{
+  margin:2rem 0;
+  background:#fff;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 4px 16px rgba(0,0,0,.04);
+  overflow:hidden;
+}
+.ai-brand-card__image img{width:100%;display:block;height:auto;}
+.ai-brand-card__body{padding:1.5rem 1.5rem 1.25rem;}
+.ai-brand-card__eyebrow{
+  text-transform:uppercase;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  opacity:.7;
+  margin:0 0 .25rem;
+}
+.ai-brand-card__title{margin:0 0 .5rem;font-size:1.35rem;}
+.ai-brand-card__text{margin:0 0 .75rem;font-size:.98rem;}
+
+@media (max-width:768px){
+  .ai-brand-card__body{padding:1.25rem 1.25rem 1rem;}
+  .ai-brand-card__title{font-size:1.2rem;}
+}
+
+/* ----------------------------
+   Brand strip (slim promo)
+   ---------------------------- */
+
+.ai-brand-strip{
+  margin:1.75rem 0;
+  padding:1rem 1.25rem;
+  border-radius:8px;
+  background:rgba(0,0,0,.03);
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  box-sizing:border-box;
+}
+.ai-brand-strip__media{flex:0 0 80px;max-width:80px;}
+.ai-brand-strip__media img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:6px;
+}
+.ai-brand-strip__body{flex:1;min-width:0;font-size:.95rem;}
+.ai-brand-strip__title{margin:0 0 .25rem;font-size:1.05rem;font-weight:600;}
+.ai-brand-strip__link{
+  display:inline-block;
+  margin-top:.35rem;
+  font-size:.9rem;
+  color:#e26da6;
+  text-decoration:none;
+}
+.ai-brand-strip__link:hover{text-decoration:underline;}
+
+/* ----------------------------
+   Process steps
+   ---------------------------- */
+
+.ai-steps{
+  display:grid;
+  gap:2rem;
+  margin:3rem 0;
+}
+.ai-step{
+  position:relative;
+  padding-left:3.5rem;
+}
+.ai-step__number{
+  position:absolute;
+  left:0;
+  top:.1rem;
+  width:2.2rem;
+  height:2.2rem;
+  border-radius:50%;
+  background:#00a4b6;
+  color:#fff;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+}
+.ai-step__title{
+  font-size:1.2rem;
+  margin:0 0 .25rem;
+  font-weight:600;
+}
+
+/* ----------------------------
+   Timeline (dotless spine)
+   ---------------------------- */
+
+.ai-timeline{
+  margin:3rem 0;
+  padding-left:1.75rem;
+  border-left:2px solid rgba(0,0,0,.12);
+}
+.ai-timeline-item{
+  padding:.75rem 0 1.5rem;
+}
+.ai-timeline-item:last-child{padding-bottom:.75rem;}
+
+/* ----------------------------
+   Features table
+   ---------------------------- */
+
+.ai-table-wrapper{
+  margin:2.5rem 0;
+  overflow-x:auto;
+}
+table.ai-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.95rem;
+}
+.ai-table th,
+.ai-table td{
+  padding:.75rem 1rem;
+  border-bottom:1px solid rgba(0,0,0,.08);
+  text-align:left;
+  vertical-align:top;
+}
+.ai-table th{font-weight:600;white-space:nowrap;}
+.ai-table__icon{width:3.5rem;text-align:center;}
+.ai-table__icon img{width:32px;height:32px;display:inline-block;}
+.ai-table--striped tbody tr:nth-child(even){background:rgba(0,0,0,.02);}
+
+/* ----------------------------
+   Stat strip
+   ---------------------------- */
+
+.ai-stat-strip{
+  display:flex;
+  gap:1.5rem;
+  flex-wrap:wrap;
+  margin:2.5rem 0;
+}
+.ai-stat-strip__item{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}
+.ai-stat-strip__icon img{width:32px;height:32px;}
+.ai-stat-strip__label{
+  font-size:.8rem;
+  opacity:.8;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.ai-stat-strip__value{font-size:1.15rem;font-weight:600;}
+
+/* ----------------------------
+   Testimonial
+   ---------------------------- */
+
+.ai-testimonial{
+  display:flex;
+  gap:1.25rem;
+  align-items:flex-start;
+  margin:2.5rem 0;
+  padding:1.5rem;
+  border-radius:10px;
+  background:rgba(0,0,0,.03);
+}
+.ai-testimonial__avatar{
+  flex:0 0 64px;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  overflow:hidden;
+}
+.ai-testimonial__avatar img{width:100%;height:100%;object-fit:cover;}
+.ai-testimonial__quote{font-size:1.05rem;margin:0 0 .5rem;}
+.ai-testimonial__name{font-weight:600;}
+.ai-testimonial__role{font-size:.9rem;opacity:.75;}
+
+/* ----------------------------
+   Structures / pricing
+   ---------------------------- */
+
+.ai-pricing{
+  margin:3rem 0;
+  display:block;
+}
+.ai-pricing__plan{
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.08);
+  padding:1.75rem;
+  background:#fff;
+  box-shadow:0 4px 16px rgba(0,0,0,.04);
+  margin-bottom:1.5rem;
+}
+.ai-pricing__plan--highlight{
+  border-color:#00a4b6;
+  box-shadow:0 0 0 2px rgba(0,164,182,.15);
+}
+.ai-pricing__title{font-size:1.2rem;margin:0 0 .25rem;font-weight:600;}
+.ai-pricing__price{font-size:1.8rem;font-weight:600;margin:.5rem 0;}
+.ai-pricing__meta{font-size:.85rem;opacity:.8;margin:0 0 1rem;}
+.ai-pricing ul{list-style:none;padding:0;margin:0 0 1.25rem;}
+.ai-pricing li{margin:0 0 .4rem;font-size:.95rem;}
+
+@media (min-width:768px){
+  .ai-pricing{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:1.5rem;
+  }
+  .ai-pricing__plan{margin-bottom:0;}
+}
+
+/* ----------------------------
+   Narrative: inline image + pink quote
+   ---------------------------- */
+
+.ai-inline-image{
+  float:right;
+  width:40%;
+  max-width:260px;
+  margin:0 0 1rem 1.5rem;
+  border-radius:8px;
+  overflow:hidden;
+}
+.ai-inline-image img{width:100%;height:auto;display:block;}
+
+@media (max-width:768px){
+  .ai-inline-image{
+    float:none;
+    width:100%;
+    margin:1rem 0;
+    max-width:none;
+  }
+}
+
+.ai-quote{
+  border-left:4px solid #e26da6;
+  padding:1rem 1.5rem;
+  margin:2rem 0;
+  font-size:1.15rem;
+  font-weight:500;
+  line-height:1.5;
+  background:rgba(226,109,166,.06);
+}
+
+/* ----------------------------
+   Checklist
+   ---------------------------- */
+
+.ai-checklist{
+  margin:2rem 0;
+  padding:1.5rem;
+  border-radius:10px;
+  background:rgba(0,0,0,.03);
+}
+.ai-checklist ul{list-style:none;margin:0;padding:0;}
+.ai-checklist li{
+  display:flex;
+  gap:.75rem;
+  margin:0 0 .5rem;
+  align-items:flex-start;
+}
+.ai-checklist li:before{
+  content:"✓";
+  color:#00a4b6;
+  font-weight:700;
+}
+
+/* ----------------------------
+   Feature box
+   ---------------------------- */
+
+.ai-feature-box{
+  padding:1.75rem;
+  background:rgba(0,164,182,.08);
+  border-left:4px solid #00a4b6;
+  border-radius:8px;
+  margin:2rem 0;
+}
+
+/* ----------------------------
+   Numbered grid (1–2–3) (pink numbers)
+   ---------------------------- */
+
+.ai-num-grid{
+  margin:3rem 0;
+  display:grid;
+  gap:1.5rem;
+}
+@media (min-width:768px){
+  .ai-num-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+}
+.ai-num-grid__item{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  padding:1.5rem;
+  border-radius:10px;
+}
+.ai-num-grid__num{
+  font-size:2rem;
+  font-weight:700;
+  color:#e26da6;
+  margin:0 0 .5rem;
+}
+
+/* ----------------------------
+   Tip
+   ---------------------------- */
+
+.ai-tip{
+  padding:1rem 1.5rem;
+  background:rgba(255,192,0,.15);
+  border-left:4px solid #e2961c;
+  border-radius:6px;
+  margin:2rem 0;
+}
+
+/* ----------------------------
+   Metric card (pink main stat)
+   ---------------------------- */
+
+.ai-metric-card{
+  background:#fff;
+  border-radius:10px;
+  padding:1.75rem;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+  text-align:center;
+  margin:2rem 0;
+}
+.ai-metric-card__value{
+  font-size:2rem;
+  font-weight:700;
+  color:#e26da6;
+}
+.ai-metric-card__label{opacity:.75;}
+
+/* ----------------------------
+   CTA banner (pink background + white button)
+   ---------------------------- */
+
+.ai-cta-banner{
+  padding:2rem 1.5rem;
+  border-radius:12px;
+  background:#e26da6;
+  color:#fff;
+  text-align:center;
+  margin:3rem 0;
+}
+.ai-cta-banner h2{margin:0 0 .75rem;}
+.ai-cta-banner p{margin:0;}
+.ai-cta-banner .btn{
+  background:#fff;
+  color:#e26da6;
+  border-color:#fff;
+  font-weight:600;
+  margin-top:1.25rem; /* more distance */
+}
+
+/* ----------------------------
+   Takeaways (pink bullets)
+   ---------------------------- */
+
+.ai-takeaways{
+  margin:3rem 0;
+  padding:1.75rem;
+  background:rgba(0,0,0,.04);
+  border-radius:10px;
+}
+.ai-takeaways h3{margin:0;}
+.ai-takeaways ul{margin:1rem 0 0;padding:0;list-style:none;}
+.ai-takeaways li{
+  margin:0 0 .5rem;
+  display:flex;
+  gap:.5rem;
+}
+.ai-takeaways li:before{
+  content:"•";
+  color:#e26da6;
+  font-weight:700;
+}
+
+/* ----------------------------
+   Investment summary band (global meta above lists)
+   ---------------------------- */
+
+.ai-invest-summary{
+  margin:2.5rem 0 1.5rem;
+  padding:1.5rem 1.5rem 1.25rem;
+  border-radius:12px;
+  background:rgba(226,109,166,.06);
+  border:1px solid rgba(226,109,166,.25);
+}
+.ai-invest-summary__eyebrow{
+  text-transform:uppercase;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  opacity:.75;
+  margin:0 0 .25rem;
+}
+.ai-invest-summary__title{
+  margin:0 0 .75rem;
+  font-size:1.25rem;
+  font-weight:600;
+}
+.ai-invest-summary__stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem 2.5rem;
+  align-items:baseline;
+}
+.ai-invest-summary__stat{min-width:140px;}
+.ai-invest-summary__label{
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  opacity:.75;
+  margin:0 0 .15rem;
+}
+.ai-invest-summary__value{font-size:1.1rem;font-weight:600;}
+.ai-invest-summary__stat--rate .ai-invest-summary__value{
+  font-size:1.6rem;
+  font-weight:700;
+  color:#e26da6;
+}
+.ai-invest-summary__note{
+  margin:.75rem 0 0;
+  font-size:.8rem;
+  opacity:.8;
+}
+@media (max-width:768px){
+  .ai-invest-summary{padding:1.25rem 1.25rem 1rem;}
+  .ai-invest-summary__stats{flex-direction:column;gap:.75rem;}
+}
+
+/* ----------------------------
+   3-up feature list (Option 1): icon + title + copy + link
+   ---------------------------- */
+
+.ai-feature-grid{
+  display:grid;
+  gap:2rem;
+  margin:3rem 0;
+}
+@media (min-width:768px){
+  .ai-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+.ai-feature{display:flex;flex-direction:column;}
+.ai-feature__icon{width:40px;height:40px;margin:0 0 .75rem;}
+.ai-feature__icon img{width:100%;height:100%;object-fit:contain;display:block;}
+.ai-feature__title{font-size:1.1rem;font-weight:600;margin:0 0 .4rem;}
+.ai-feature__body{font-size:.95rem;opacity:.85;margin:0 0 .75rem;}
+.ai-feature__link{
+  font-size:.9rem;
+  color:#e26da6;
+  text-decoration:none;
+  font-weight:500;
+}
+.ai-feature__link:hover{text-decoration:underline;}
+
+/* ----------------------------
+   3-up feature list (Option 2): numbered grid + link
+   ---------------------------- */
+
+.ai-feature-num-grid{
+  display:grid;
+  gap:2rem;
+  margin:3rem 0;
+}
+@media (min-width:768px){
+  .ai-feature-num-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+.ai-feature-num{
+  position:relative;
+  padding-left:3rem;
+}
+.ai-feature-num__number{
+  position:absolute;
+  left:0;
+  top:.1rem;
+  font-size:1.6rem;
+  font-weight:600;
+  color:#e26da6;
+}
+.ai-feature-num__title{font-size:1.1rem;font-weight:600;margin:0 0 .4rem;}
+.ai-feature-num__body{font-size:.95rem;opacity:.85;margin:0 0 .75rem;}
+.ai-feature-num__link{
+  font-size:.9rem;
+  color:#e26da6;
+  text-decoration:none;
+  font-weight:500;
+}
+.ai-feature-num__link:hover{text-decoration:underline;}
+
+/* ----------------------------
+   FINAL Open investment card (only variant kept):
+   ai-invest-tick--media (full-bleed left image) + badges + chevron
+   Whole row clickable (overlay link)
+   ---------------------------- */
+
+.ai-invest-tick{
+  display:flex;
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.04);
+  margin:1.25rem 0;
+}
+
+.ai-invest-tick__media{
+  flex:0 0 160px;
+  max-width:160px;
+  position:relative;
+  background:#f3f3f3;
+}
+.ai-invest-tick__media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+
+/* Logo tile media: solid background + centered white PNG logo */
+.ai-logo-tile{
+  background: var(--tile-bg, #0f172a);
+  display:grid;
+  place-items:center;
+}
+
+.ai-logo-tile img.ai-logo-tile__logo{
+  position:relative;
+  inset:auto;
+  width:min(72%, 140px);
+  height:auto;
+  max-height:70%;
+  object-fit:contain;
+  display:block;
+}
+
+@media (max-width:768px){
+  .ai-logo-tile img.ai-logo-tile__logo{
+    width:min(78%, 120px);
+    max-height:74%;
+  }
+}
+
+.ai-invest-tick__content{
+  flex:1;
+  min-width:0;
+  padding:1rem 2.5rem 1rem 1.1rem; /* extra right space for chevron */
+}
+
+.ai-invest-tick__stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:0 0 .6rem;
+}
+
+.ai-invest-tick__badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.32rem .6rem;
+  font-size:.85rem;
+  font-weight:600;
+  line-height:1.2;
+  color:#fff;
+}
+
+.ai-invest-tick__badge--pink{background:#e26da6;}
+.ai-invest-tick__badge--blue{background:#00a4b6;}
+.ai-invest-tick__badge--yellow{background:#e2961c;}
+
+.ai-invest-tick__title{
+  margin:0 0 .25rem;
+  font-size:1.1rem;
+  font-weight:600;
+}
+
+.ai-invest-tick__desc{
+  margin:.25rem 0 0;
+  font-size:.95rem;
+  opacity:.85;
+}
+
+/* Clickable overlay link */
+.ai-invest-tick--clickable{position:relative;}
+.ai-invest-tick--clickable .ai-invest-tick__link{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  text-indent:-9999px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+/* Chevron */
+.ai-invest-tick__chevron{
+  position:absolute;
+  right:1rem;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.6rem;
+  line-height:1;
+  color:#e26da6;
+  pointer-events:none;
+  z-index:1;
+}
+
+.ai-invest-tick--clickable:hover,
+.ai-invest-tick--clickable:focus-within{
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  border-color:rgba(0,0,0,.14);
+}
+
+.ai-invest-tick--clickable:hover .ai-invest-tick__chevron{
+  transform:translateY(-50%) translateX(4px);
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .ai-invest-tick{
+    flex-direction:row;
+    align-items:stretch;
+  }
+  .ai-invest-tick__media{
+    flex:0 0 120px;
+    max-width:120px;
+    width:auto;
+    height:auto;
+  }
+  .ai-invest-tick__content{
+    padding:.95rem 3rem .95rem 1rem;
+  }
+  .ai-invest-tick__chevron{
+    display:block;
+    font-size:1.8rem;
+    right:.9rem;
+  }
+
+  /* Keep badges on one line */
+  .ai-invest-tick__stats{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    gap:6px;
+  }
+  .ai-invest-tick__badge{
+    white-space:nowrap;
+    font-size:.75rem;
+    padding:4px 8px;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width:420px){
+  .ai-invest-tick__media{
+    flex-basis:96px;
+    max-width:96px;
+  }
+  .ai-invest-tick__content{
+    padding-right:2.8rem;
+  }
+}
+
+/* =========================================================
+   ai-hdrA: Compact brand-dot header (base)
+   ========================================================= */
+.ai-hdrA{
+  background:#faf8f8;
+  padding: 1.1rem 0 1.2rem;
+}
+
+.ai-hdrA__bc{ margin:0 0 .6rem; }
+.ai-hdrA__bc a{
+  font-size:.82rem;
+  font-weight:600;
+  color:#454543;
+  opacity:.65;
+  text-decoration:none;
+}
+.ai-hdrA__bc a:hover{ text-decoration:underline; opacity:.8; }
+
+.ai-hdrA__grid{
+  display:grid;
+  gap: 18px;
+  align-items:center;
+}
+@media (min-width:820px){
+  .ai-hdrA__grid{ grid-template-columns: 1.25fr .75fr; }
+}
+
+.ai-hdrA__title{
+  margin:0 0 .85rem;
+  font-size: 2.8rem;
+  line-height: 1.0;
+  font-weight: 950;
+  letter-spacing:-0.015em;
+  color:#454543;
+}
+@media (min-width:820px){
+  .ai-hdrA__title{ font-size: 3.3rem; }
+}
+.ai-hdrA__title .ai-w1{ color:#e2961c; }
+.ai-hdrA__title .ai-w2{ color:#00a4b6; }
+
+.ai-hdrA__subtitle{
+  margin:0;
+  font-family:"Inter Display","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size: 1.18rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color:#454543;
+  max-width: 62ch;
+}
+@media (min-width:820px){
+  .ai-hdrA__subtitle{ font-size: 1.3rem; }
+}
+
+/* Dot blob uses exact Dot.svg encoded */
+.ai-hdrA__dot{
+  justify-self:start;
+  width: 240px;
+  height: 240px;
+  display:grid;
+  place-items:center;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22%23F8D9E8%22/%3E%3C/svg%3E");
+}
+@media (min-width:820px){
+  .ai-hdrA__dot{ justify-self:end; width: 300px; height: 300px; }
+}
+.ai-hdrA__dot img{
+  width: 56%;
+  height: 56%;
+  object-fit: contain;
+  display:block;
+}
+
+@media (max-width:520px){
+  .ai-hdrA{ padding: .95rem 0 1.05rem; }
+  .ai-hdrA__dot{ width: 190px; height: 190px; }
+  .ai-hdrA__title{ font-size: 2.3rem; }
+  .ai-hdrA__subtitle{ font-size: 1.05rem; }
+}
+
+/* ai-divider (kit) */
+.ai-divider{
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,.12), transparent);
+}
