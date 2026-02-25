@@ -1,0 +1,548 @@
+<!-- Source: /mnt/data/ai-kit-snippets.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ai-* CMS kit snippets</title>
+</head>
+<body>
+
+<div class="ai-custom">
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section>
+    <div class="ai-hero">
+      <img src="https://via.placeholder.com/1200x450?text=Hero+Image" alt="Hero image">
+      <div class="ai-hero__overlay"></div>
+      <div class="ai-hero__content">
+        <h1 class="ai-hero__title">Finance your climate ambitions</h1>
+        <p>Connect residents to local net-zero projects with transparent, regulated investment offers.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       BRAND ROW — tick list, no button
+       ========================================================= -->
+  <section>
+    <div class="ai-brand-row ai-brand-row--reverse">
+      <div class="ai-brand-row__media">
+        <img src="https://cdn4.sharein.com/abundance/4d700cc2-c3bc-44be-9c73-54aac4916c6b.png" alt="Council artwork">
+      </div>
+
+      <div class="ai-brand-row__body">
+        <div class="ai-brand-row__eyebrow">For councils</div>
+        <h2 class="ai-brand-row__title">Raise money from residents and the wider public</h2>
+        <ul class="ai-brand-row__list">
+          <li><span class="ai-brand-row__bullet">✓</span><span>Regulated platform and end-to-end support</span></li>
+          <li><span class="ai-brand-row__bullet">✓</span><span>Clear offers that residents can understand</span></li>
+          <li><span class="ai-brand-row__bullet">✓</span><span>Ongoing reporting and investor servicing</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       BRAND ROW — tick list + small button
+       ========================================================= -->
+  <section>
+    <div class="ai-brand-row">
+      <div class="ai-brand-row__media">
+        <img src="https://cdn4.sharein.com/abundance/4d700cc2-c3bc-44be-9c73-54aac4916c6b.png" alt="Council artwork">
+      </div>
+
+      <div class="ai-brand-row__body">
+        <div class="ai-brand-row__eyebrow">Climate investment programmes</div>
+        <h2 class="ai-brand-row__title">Use public investment to fund your climate plan</h2>
+        <ul class="ai-brand-row__list">
+          <li><span class="ai-brand-row__bullet">✓</span><span>Resident engagement built in</span></li>
+          <li><span class="ai-brand-row__bullet">✓</span><span>Portfolio or single-project options</span></li>
+          <li><span class="ai-brand-row__bullet">✓</span><span>Templates and reporting tools included</span></li>
+        </ul>
+
+        <p style="margin-top:.85rem;">
+          <a href="#" class="btn btn-primary--bordered btn--icon btn--sm">Learn more</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       BRAND CARD (small button)
+       ========================================================= -->
+  <section>
+    <div class="ai-brand-card">
+      <div class="ai-brand-card__image">
+        <img src="https://via.placeholder.com/1200x450?text=Brand+Card+Image" alt="Brand card image">
+      </div>
+      <div class="ai-brand-card__body">
+        <div class="ai-brand-card__eyebrow">For councils</div>
+        <h2 class="ai-brand-card__title">Build your local saver and investor market</h2>
+        <p class="ai-brand-card__text">
+          Tap into local savings by offering regulated investment opportunities aligned with your climate plan.
+        </p>
+        <a href="#" class="btn btn-primary--bordered btn--icon btn--sm">Talk to our team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       BRAND STRIP
+       ========================================================= -->
+  <section>
+    <div class="ai-brand-strip">
+      <div class="ai-brand-strip__media">
+        <img src="https://cdn4.sharein.com/abundance/4d700cc2-c3bc-44be-9c73-54aac4916c6b.png" alt="Strip image">
+      </div>
+      <div class="ai-brand-strip__body">
+        <div class="ai-brand-strip__title">A simple way to make direct green investments</div>
+        <div>
+          A compact promo strip you can drop between sections.
+          <br>
+          <a href="#" class="ai-brand-strip__link">Find out more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       FEATURE GRID (Option 1) — Icon + title + copy + link
+       ========================================================= -->
+  <section>
+    <h2>A simple way to make direct green investments</h2>
+
+    <div class="ai-feature-grid">
+      <div class="ai-feature">
+        <div class="ai-feature__icon"><img src="https://via.placeholder.com/40?text=✓" alt=""></div>
+        <h3 class="ai-feature__title">Invest locally</h3>
+        <p class="ai-feature__body">Back renewable energy, retrofit and visible infrastructure in your area.</p>
+        <a class="ai-feature__link" href="#">Learn more</a>
+      </div>
+
+      <div class="ai-feature">
+        <div class="ai-feature__icon"><img src="https://via.placeholder.com/40?text=£" alt=""></div>
+        <h3 class="ai-feature__title">Earn a fair return</h3>
+        <p class="ai-feature__body">Fixed interest with straightforward terms and clear communications.</p>
+        <a class="ai-feature__link" href="#">View open investments</a>
+      </div>
+
+      <div class="ai-feature">
+        <div class="ai-feature__icon"><img src="https://via.placeholder.com/40?text=🌍" alt=""></div>
+        <h3 class="ai-feature__title">Back trusted issuers</h3>
+        <p class="ai-feature__body">Offers issued by councils, supported by a regulated investment platform.</p>
+        <a class="ai-feature__link" href="#">How it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FEATURE GRID (Option 2) — Numbered + link
+       ========================================================= -->
+  <section>
+    <h2>How direct council investment works</h2>
+
+    <div class="ai-feature-num-grid">
+      <div class="ai-feature-num">
+        <div class="ai-feature-num__number">01</div>
+        <h3 class="ai-feature-num__title">Councils raise capital</h3>
+        <p class="ai-feature-num__body">Local authorities issue regulated investment offers to fund projects.</p>
+        <a class="ai-feature-num__link" href="#">See council offers</a>
+      </div>
+
+      <div class="ai-feature-num">
+        <div class="ai-feature-num__number">02</div>
+        <h3 class="ai-feature-num__title">Residents invest</h3>
+        <p class="ai-feature-num__body">People invest from as little as £5, earning interest while backing their area.</p>
+        <a class="ai-feature-num__link" href="#">Who can invest?</a>
+      </div>
+
+      <div class="ai-feature-num">
+        <div class="ai-feature-num__number">03</div>
+        <h3 class="ai-feature-num__title">Projects are delivered</h3>
+        <p class="ai-feature-num__body">Funds are used for visible local projects, with ongoing reporting and updates.</p>
+        <a class="ai-feature-num__link" href="#">View impact reporting</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       PROCESS STEPS
+       ========================================================= -->
+  <section>
+    <h2>How it works</h2>
+    <div class="ai-steps">
+      <div class="ai-step">
+        <div class="ai-step__number">1</div>
+        <div class="ai-step__title">Explore your pipeline</div>
+        <p>We review your projects and identify what fits a public offer.</p>
+      </div>
+      <div class="ai-step">
+        <div class="ai-step__number">2</div>
+        <div class="ai-step__title">Design the offer</div>
+        <p>Agree structure, terms and messaging that works for councils and residents.</p>
+      </div>
+      <div class="ai-step">
+        <div class="ai-step__number">3</div>
+        <div class="ai-step__title">Launch to investors</div>
+        <p>Campaign goes live with communications support and platform operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TIMELINE (dotless)
+       ========================================================= -->
+  <section>
+    <h2>Example project timeline</h2>
+    <div class="ai-timeline">
+      <div class="ai-timeline-item">
+        <h3>Month 1 – Scoping</h3>
+        <p>Pipeline review and structure agreed.</p>
+      </div>
+      <div class="ai-timeline-item">
+        <h3>Months 2–3 – Preparation</h3>
+        <p>Due diligence, documentation and marketing prepared.</p>
+      </div>
+      <div class="ai-timeline-item">
+        <h3>Months 4–5 – Live offer</h3>
+        <p>Offer open with regular progress updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       FEATURES TABLE
+       ========================================================= -->
+  <section>
+    <h2>Key features at a glance</h2>
+    <div class="ai-table-wrapper">
+      <table class="ai-table ai-table--striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Feature</th>
+            <th>What it means for you</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ai-table__icon"><img src="https://via.placeholder.com/32?text=R" alt=""></td>
+            <td>Regulated platform</td>
+            <td>We handle onboarding, payments and administration.</td>
+          </tr>
+          <tr>
+            <td class="ai-table__icon"><img src="https://via.placeholder.com/32?text=C" alt=""></td>
+            <td>Climate focus</td>
+            <td>Offers align to local climate strategies with outcome reporting.</td>
+          </tr>
+          <tr>
+            <td class="ai-table__icon"><img src="https://via.placeholder.com/32?text=P" alt=""></td>
+            <td>Public engagement</td>
+            <td>Designed to help residents feel involved — not just informed.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STAT STRIP
+       ========================================================= -->
+  <section>
+    <div class="ai-stat-strip">
+      <div class="ai-stat-strip__item">
+        <div class="ai-stat-strip__icon"><img src="https://via.placeholder.com/32?text=%25" alt=""></div>
+        <div>
+          <div class="ai-stat-strip__label">Average subscription rate</div>
+          <div class="ai-stat-strip__value">95%</div>
+        </div>
+      </div>
+      <div class="ai-stat-strip__item">
+        <div class="ai-stat-strip__icon"><img src="https://via.placeholder.com/32?text=£" alt=""></div>
+        <div>
+          <div class="ai-stat-strip__label">Average investment</div>
+          <div class="ai-stat-strip__value">£800</div>
+        </div>
+      </div>
+      <div class="ai-stat-strip__item">
+        <div class="ai-stat-strip__icon"><img src="https://via.placeholder.com/32?text=CO2" alt=""></div>
+        <div>
+          <div class="ai-stat-strip__label">Estimated CO₂e saved</div>
+          <div class="ai-stat-strip__value">XX,XXX t</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       TESTIMONIAL
+       ========================================================= -->
+  <section>
+    <h2>What councils say</h2>
+    <div class="ai-testimonial">
+      <div class="ai-testimonial__avatar"><img src="https://via.placeholder.com/64?text=AV" alt=""></div>
+      <div>
+        <p class="ai-testimonial__quote">“Working with Abundance helped us accelerate delivery and bring residents along with us.”</p>
+        <div class="ai-testimonial__name">Jane Doe</div>
+        <div class="ai-testimonial__role">Head of Climate, Example Council</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STRUCTURES / PRICING
+       ========================================================= -->
+  <section>
+    <h2>Illustrative structures</h2>
+    <div class="ai-pricing">
+      <div class="ai-pricing__plan">
+        <div class="ai-pricing__title">Pilot offer</div>
+        <div class="ai-pricing__price">£1–3m</div>
+        <div class="ai-pricing__meta">Ideal for first public raises.</div>
+        <ul>
+          <li>Single project or small portfolio</li>
+          <li>Simple marketing and reporting</li>
+          <li>Designed to test resident appetite</li>
+        </ul>
+        <a href="#" class="btn btn-primary--bordered btn--icon btn--sm">Talk about a pilot</a>
+      </div>
+
+      <div class="ai-pricing__plan ai-pricing__plan--highlight">
+        <div class="ai-pricing__title">Programme offer</div>
+        <div class="ai-pricing__price">£5–10m</div>
+        <div class="ai-pricing__meta">For councils ready to scale.</div>
+        <ul>
+          <li>Multiple projects bundled together</li>
+          <li>Stronger narrative around long-term plans</li>
+          <li>Potential for repeat issuance</li>
+        </ul>
+        <a href="#" class="btn btn-primary--bordered btn--icon btn--sm">Explore options</a>
+      </div>
+
+      <div class="ai-pricing__plan">
+        <div class="ai-pricing__title">Bespoke structure</div>
+        <div class="ai-pricing__price">Custom</div>
+        <div class="ai-pricing__meta">For specialist requirements.</div>
+        <ul>
+          <li>Tailored documentation</li>
+          <li>Custom reporting</li>
+          <li>Works alongside other funding</li>
+        </ul>
+        <a href="#" class="btn btn-primary--bordered btn--icon btn--sm">Discuss</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       NARRATIVE
+       ========================================================= -->
+  <section>
+    <h2>Narrative block</h2>
+
+    <div class="ai-inline-image">
+      <img src="https://via.placeholder.com/520x360?text=Inline+Image" alt="Inline image">
+    </div>
+
+    <p>Residents want to see where money is going and how it connects to the places they live and work.</p>
+    <p>Using investment as a tool for engagement strengthens trust while unlocking new sources of funding.</p>
+
+    <div class="ai-quote">
+      “When residents invest in local projects, they’re not just observers — they become partners in your climate journey.”
+    </div>
+
+    <p>This complements traditional routes, helping you move faster with broader support.</p>
+  </section>
+
+  <!-- =========================================================
+       CHECKLIST
+       ========================================================= -->
+  <section class="ai-checklist">
+    <h3>Is a public offer right for you?</h3>
+    <ul>
+      <li>You have a clear pipeline of climate projects</li>
+      <li>You want to deepen engagement with residents</li>
+      <li>You’re open to complementary funding routes</li>
+    </ul>
+  </section>
+
+  <!-- =========================================================
+       FEATURE BOX
+       ========================================================= -->
+  <section class="ai-feature-box">
+    <h3>Why use Abundance?</h3>
+    <p>We combine regulated investment infrastructure with experience delivering council-led programmes.</p>
+  </section>
+
+  <!-- =========================================================
+       NUMBERED GRID (ai-num-grid)
+       ========================================================= -->
+  <section>
+    <h2>Three ways we help</h2>
+    <div class="ai-num-grid">
+      <div class="ai-num-grid__item">
+        <div class="ai-num-grid__num">1</div>
+        <h3>Structure</h3>
+        <p>Design offers that work for councils and residents.</p>
+      </div>
+      <div class="ai-num-grid__item">
+        <div class="ai-num-grid__num">2</div>
+        <h3>Launch</h3>
+        <p>Run regulated campaigns with clear messaging.</p>
+      </div>
+      <div class="ai-num-grid__item">
+        <div class="ai-num-grid__num">3</div>
+        <h3>Support</h3>
+        <p>Handle servicing, reporting and ongoing engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TIP
+       ========================================================= -->
+  <section class="ai-tip">
+    <strong>Tip:</strong> Start with a pilot offer to build confidence internally and with residents.
+  </section>
+
+  <!-- =========================================================
+       METRIC CARD
+       ========================================================= -->
+  <section class="ai-metric-card">
+    <div class="ai-metric-card__value">£100m+</div>
+    <div class="ai-metric-card__label">Raised for green and social projects</div>
+  </section>
+
+  <!-- =========================================================
+       CTA BANNER
+       ========================================================= -->
+  <section class="ai-cta-banner">
+    <h2>Ready to fund your climate programme?</h2>
+    <p>Talk to our team about using public investment alongside traditional borrowing.</p>
+    <a href="#" class="btn btn-primary--bordered btn--icon btn--lg">Get in touch</a>
+  </section>
+
+  <!-- =========================================================
+       TAKEAWAYS
+       ========================================================= -->
+  <section class="ai-takeaways">
+    <h3>Key takeaways</h3>
+    <ul>
+      <li>Resident investment can complement traditional borrowing.</li>
+      <li>Offers can be structured around your climate plans.</li>
+      <li>We support you from idea through to ongoing reporting.</li>
+    </ul>
+  </section>
+
+  <div class="ai-divider"></div>
+
+  <!-- =========================================================
+       INVESTMENT SUMMARY BAND (global terms)
+       ========================================================= -->
+  <section class="ai-invest-summary">
+    <div class="ai-invest-summary__eyebrow">Current council offers</div>
+    <h2 class="ai-invest-summary__title">The same core terms across all open investments</h2>
+    <div class="ai-invest-summary__stats">
+      <div class="ai-invest-summary__stat ai-invest-summary__stat--rate">
+        <div class="ai-invest-summary__label">Fixed rate</div>
+        <div class="ai-invest-summary__value">4.1% a year</div>
+      </div>
+      <div class="ai-invest-summary__stat">
+        <div class="ai-invest-summary__label">Term</div>
+        <div class="ai-invest-summary__value">5 years</div>
+      </div>
+      <div class="ai-invest-summary__stat">
+        <div class="ai-invest-summary__label">Rate available until</div>
+        <div class="ai-invest-summary__value">1 March 2026</div>
+      </div>
+    </div>
+    <p class="ai-invest-summary__note">
+      Capital at risk. Investments are long term and may not be readily realisable.
+    </p>
+  </section>
+
+  <!-- =========================================================
+       FINAL OPEN INVESTMENT CARD (latest chosen direction)
+       ========================================================= -->
+  <section>
+    <h2>Open investments (final card)</h2>
+
+    <article class="ai-invest-tick ai-invest-tick--media ai-invest-tick--clickable">
+      <a class="ai-invest-tick__link" href="/invest/sheffield-climate-investment-1">Sheffield Climate Investment 1</a>
+
+      <div class="ai-invest-tick__media">
+        <img src="https://cdn4.sharein.com/abundance/4d700cc2-c3bc-44be-9c73-54aac4916c6b.png" alt="Sheffield Climate Investment">
+      </div>
+
+      <div class="ai-invest-tick__content">
+        <div class="ai-invest-tick__stats" aria-label="Investment terms">
+          <span class="ai-invest-tick__badge ai-invest-tick__badge--pink">4.1% a year</span>
+          <span class="ai-invest-tick__badge ai-invest-tick__badge--blue">5-year term</span>
+          <span class="ai-invest-tick__badge ai-invest-tick__badge--yellow">Capital at maturity</span>
+        </div>
+
+        <h3 class="ai-invest-tick__title">Sheffield Climate Investment 1</h3>
+        <p class="ai-invest-tick__desc">
+          Invest in a portfolio of council climate projects, from renewables to building upgrades.
+        </p>
+      </div>
+
+      <span class="ai-invest-tick__chevron" aria-hidden="true">›</span>
+    </article>
+
+  </section>
+
+</div>
+
+</body>
+</html>
+
+<!-- =========================================================
+     ai-hdrA: Compact brand-dot page header (base)
+     ========================================================= -->
+<header class="ai-hdrA">
+  <div class="ai-custom">
+    <p class="ai-hdrA__bc">
+      <a href="/green-loan-principles/">‹ Back to Green Loan Principles</a>
+    </p>
+
+    <div class="ai-hdrA__grid">
+      <div>
+        <h1 class="ai-hdrA__title">
+          <span class="ai-w1">Eligible</span> <span class="ai-w2">green</span> projects
+        </h1>
+
+        <p class="ai-hdrA__subtitle">
+          The categories of projects councils can fund — with examples under each one.
+        </p>
+      </div>
+
+      <div class="ai-hdrA__dot" aria-hidden="true">
+        <img
+          src="https://cdn4.sharein.com/abundance/6761bf65-51cb-48b5-8661-64fcb66d25a3.png"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ai-divider" aria-hidden="true"></div>
