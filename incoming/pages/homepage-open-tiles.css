@@ -1,0 +1,105 @@
+<style>
+/* =========================================================
+   Homepage – Open investments (single image square tiles)
+   CLEAN complete CSS drop-in
+   - Centers nicely when fewer tiles than a full row
+   - Prevents flex parents from shrinking the section (fixes “vertical column”)
+   - 4-up desktop, 3-up mid, 2-up mobile
+   ========================================================= */
+
+.ai-oi-img{
+  width:100%;                 /* ✅ critical: prevents shrink-to-fit in flex parents */
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 1rem;
+  box-sizing:border-box;
+}
+
+.ai-oi-img__title{
+  margin:0 0 .85rem;
+  font-size:1.35rem;
+  font-weight:650;
+  color:#454543;
+  letter-spacing:.2px;
+  text-align:center;
+}
+
+.ai-oi-img__grid{
+  width:100%;                 /* ✅ critical: gives the grid real room */
+  display:grid;
+  gap:.85rem;
+
+  /* ✅ auto-fit means “only create as many columns as can fit” */
+  grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+
+  /* ✅ centers the whole run of columns when there’s spare space */
+  justify-content:center;
+}
+
+/* Optional: cap tile width so they don't get huge on very wide screens */
+@media (min-width: 901px){
+  .ai-oi-img__grid{
+    grid-template-columns:repeat(auto-fit, minmax(190px, 260px));
+  }
+}
+
+@media (max-width: 900px){
+  .ai-oi-img__grid{
+    grid-template-columns:repeat(auto-fit, minmax(170px, 240px));
+  }
+}
+
+@media (max-width: 640px){
+  .ai-oi-img__grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    justify-content:stretch;
+  }
+}
+
+/* Tile link (whole tile clickable) */
+.ai-oi-img__tile{
+  position:relative;
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1;
+  border-radius:16px;
+  overflow:hidden;
+
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 4px 12px rgba(0,0,0,.04);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+/* Fallback for older browsers */
+@supports not (aspect-ratio: 1 / 1){
+  .ai-oi-img__tile{ height:0; padding-bottom:100%; }
+  .ai-oi-img__img{ position:absolute; inset:0; }
+}
+
+/* Image fills the square */
+.ai-oi-img__img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+/* Hover/focus affordance */
+.ai-oi-img__tile:hover,
+.ai-oi-img__tile:focus-visible{
+  transform: translateY(-2px);
+  box-shadow:0 10px 22px rgba(0,0,0,.08);
+}
+
+/* Touch active */
+@media (hover: none){
+  .ai-oi-img__tile:active{
+    transform: translateY(0);
+    box-shadow:0 6px 16px rgba(0,0,0,.07);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .ai-oi-img__tile{ transition:none; }
+}
+</style>
