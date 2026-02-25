@@ -1,0 +1,182 @@
+<!-- =========================
+     DROP-IN: HTML
+     Keep your placeholders as-is
+     ========================= -->
+
+<!-- Hidden CMS variables -->
+<div hidden>
+  <div data-ai-council-reference>{{content-1}}</div>
+  <div data-ai-no-open-header>{{content-1}}</div>
+  <div data-ai-no-open-words>{{content-1}}</div>
+<div data-ai-no-open-button-text>{{content-1}}</div>
+<div data-ai-no-open-button-url>{{content-1}}</div>
+<div data-ai-no-past-invest-header>{{content-1}}</div>
+  <div data-ai-no-past-invest-copy>{{content-1}}</div>
+  <div data-ai-no-past-invest-button-url>{{content-1}}</div>
+  <div data-ai-no-past-invest-button-text>{{content-1}}</div>
+<div data-ai-no-chart-img-url>{{content-1}}</div>
+<div data-ai-no-chart-img-alt>{{content-1}}</div>
+<div data-ai-no-chart-img-caption>{{content-2}}</div>
+</div>
+
+<!-- CMS HERO (rendered locally for performance) -->
+<section
+  class="position-relative bg-colour--primary-surface p-t-spacer-4xl type-white ai-hero"
+  style="background: {{content-1}};"
+>
+  <div class="container">
+    <div class="row brand-media-box align-items-start">
+      <div class="col-12 col-md-8">
+        <h1
+          class="text-choke-md--640 text-center--md font-secondary"
+          style="color: {{content-1}};"
+        >
+          {{content-1}}
+        </h1>
+
+        <p
+          class="body--xl text-choke-md--640 text-center--md m-b-spacer-sm"
+          style="color: {{content-1}};"
+        >
+          {{content-2}}
+        </p>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="ai-heroLogoRail">
+          <img
+            class="image-responsive hero-header__illustration brand-media-box__img"
+            src="{{content-188}}"
+            alt="{{content-1}}"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom convex mask (same background as hero) -->
+<div
+  class="bg-colour--primary-surface bg-mask bg-mask--b-convex m-b-spacer-2xl ai-hero-mask"
+  style="background: {{content-1}};"
+></div>
+
+<section class="m-b-spacer-md">
+  <div class="container text-choke-960">
+    <div class="row">
+      <div class="col-12 text-center">
+        {{content-2}} <!-- leave as-is -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="ai-scope-wrap" hidden>
+
+<div class="bg-colour--primary-surface bg-mask bg-mask--t-convex ai-no-open-mask ai-scope"></div>
+
+<section class="home-green-investing position-relative p-y-spacer-xs bg-colour--primary-surface ai-no-open ai-scope">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="flex-center">
+          <h2 class="text-center m-b-spacer-sm"></h2>
+        </div>
+        <div class="flex-center">
+          <p class="body--lg text-center choke-800 m-b-spacer-sm"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bg-colour--primary-surface bg-mask bg-mask--b-convex ai-no-open-mask ai-scope"></div>
+
+<div class="bg-colour--primary-surface bg-mask bg-mask--t-convex ai-open-bg ai-scope"></div>
+
+<section class="home-green-investing position-relative p-y-spacer-xs ai-open-bg ai-scope">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="flex-center">
+          <h2 class="text-center m-b-spacer-sm">
+            {{content-1}}
+          </h2>
+        </div>
+
+        <div class="flex-center">
+          <div class="ai-custom ai-open-investments">
+            <div id="ai-open-councils"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bg-colour--primary-surface bg-mask bg-mask--b-convex ai-open-bg ai-scope"></div>
+
+<section class="home-financial m-y-spacer-md p-y-spacer-xl mx-auto choke-800 ai-scope">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="flex-center">
+                    <h2 class="text-center">
+                        {{content-1}}
+                    </h2>
+                </div>
+                <div class="flex-center">
+                    <p class="body--lg text-center choke-800 m-b-spacer-lg">
+                        <span>
+                            {{content-2}}
+                        </span>
+                    </p>
+                </div>
+                <div class="flex-center ai-uof-wrap">
+  <div id="ai-use-of-funds"></div>
+</div>
+            </div>
+        </div>
+</div>
+</section>
+<div class="bg-colour--primary-surface bg-mask bg-mask--t-convex ai-scope"></div>
+
+<section class="home-green-investing position-relative p-y-spacer-xs bg-colour--primary-surface ai-past-wrap ai-scope">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- JS will inject either the table OR the CTA variant below -->
+        <div id="ai-past-investments"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="bg-colour--primary-surface bg-mask bg-mask--b-convex ai-scope"></div>
+<section class="home-financial m-y-spacer-md p-y-spacer-xl mx-auto choke-800 ai-scope">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="flex-center">
+                    <h2 class="text-center">
+                        {{content-1}}
+                    </h2>
+                </div>
+                <div class="flex-center">
+                    <p class="body--lg text-center choke-800 m-b-spacer-lg">
+                        <span>
+                            {{content-2}}
+                        </span>
+                    </p>
+                </div>
+                <div class="flex flex-center">
+                            <figure class="brand-figure w-100">
+                                <img src="{{content-188}}" width="800" height="450" alt="{{content-1}}" loading="lazy">
+                                <figcaption>{{content-2}}</figcaption>
+                            </figure>
+                        </div>
+        </div>
+</div>
+</section>
+</div>
