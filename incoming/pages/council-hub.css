@@ -1,0 +1,800 @@
+<style>
+
+/* =========================================================
+   AI Council page — consolidated CSS
+   Includes:
+   - Open investment tiles (ai-invest-tick)
+   - Hero logo rail tweaks
+   - Use-of-funds chart (cbc-*)
+   - Open-investments grey band
+   - Investment history table sizing
+   - Page-level loader
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1) Shared wrapper helpers
+   --------------------------------------------------------- */
+
+.ai-custom{
+  max-width:960px;
+  margin:0 auto;
+  padding:0 1rem;
+  box-sizing:border-box;
+}
+@media (max-width:768px){
+  .ai-custom{ max-width:100vw; overflow-x:hidden; }
+  .ai-custom, .ai-custom *{ overflow-wrap:break-word; word-break:break-word; }
+}
+
+/* ---------------------------------------------------------
+   2) Open investment tiles (ai-invest-tick) + logo hybrid
+   --------------------------------------------------------- */
+
+.ai-invest-tick{
+  position:relative;
+  display:flex;
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.04);
+  margin:1.25rem 0;
+}
+.ai-invest-tick:hover,
+.ai-invest-tick:focus-within{
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  border-color:rgba(0,0,0,.14);
+}
+
+/* Media area */
+.ai-invest-tick__media{
+  flex:0 0 160px;
+  max-width:160px;
+  position:relative;
+  background:#f3f3f3;
+}
+.ai-invest-tick__media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Solid bg + centered logo variant */
+.ai-logo-tile{
+  background: var(--tile-bg, #0f172a);
+  display:grid;
+  place-items:center;
+}
+.ai-logo-tile img.ai-logo-tile__logo{
+  position:relative;
+  inset:auto;
+  width:min(72%, 140px);
+  height:auto;
+  max-height:70%;
+  object-fit:contain;
+  display:block;
+}
+
+/* Content */
+.ai-invest-tick__content{
+  flex:1;
+  min-width:0;
+  padding:1rem 2.5rem 1rem 1.1rem;
+}
+.ai-invest-tick__title{
+  margin:0 0 .25rem;
+  font-size:1.1rem;
+  font-weight:700;
+  color:#454543;
+}
+.ai-invest-tick__desc{
+  margin:.25rem 0 0;
+  font-size:.95rem;
+  opacity:.88;
+  color:#454543;
+}
+
+/* Badges */
+.ai-invest-tick__stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:0 0 .6rem;
+}
+.ai-invest-tick__badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.32rem .6rem;
+  font-size:.85rem;
+  font-weight:700;
+  line-height:1.2;
+  color:#fff;
+  white-space:nowrap;
+}
+.ai-invest-tick__badge--pink{ background:#e26da6; }
+.ai-invest-tick__badge--blue{ background:#00a4b6; }
+.ai-invest-tick__badge--yellow{ background:#e2961c; }
+
+/* Whole-row overlay link */
+.ai-invest-tick__link{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  text-indent:-9999px;
+  overflow:hidden;
+  white-space:nowrap;
+  border-radius:12px;
+}
+
+/* Chevron */
+.ai-invest-tick__chevron{
+  position:absolute;
+  right:1rem;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.8rem;
+  line-height:1;
+  color:#e26da6;
+  pointer-events:none;
+  z-index:5;
+}
+.ai-invest-tick:hover .ai-invest-tick__chevron{
+  transform:translateY(-50%) translateX(4px);
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .ai-invest-tick{ flex-direction:row; align-items:stretch; }
+  .ai-invest-tick__media{ flex:0 0 120px; max-width:120px; }
+  .ai-invest-tick__content{ padding:.95rem 2.9rem .95rem 1rem; }
+
+  /* Swipe-scroll badges */
+  .ai-invest-tick__stats{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:6px;
+    padding-bottom:6px;
+    position:relative;
+    z-index:6;
+    scrollbar-width:none;
+  }
+  .ai-invest-tick__stats::-webkit-scrollbar{ display:none; }
+  .ai-invest-tick__badge{
+    flex:0 0 auto;
+    font-size:.75rem;
+    padding:4px 8px;
+    pointer-events:none;
+  }
+
+  .ai-logo-tile img.ai-logo-tile__logo{
+    width:min(78%, 120px);
+    max-height:74%;
+  }
+}
+@media (max-width:420px){
+  .ai-invest-tick__media{ flex-basis:96px; max-width:96px; }
+  .ai-invest-tick__content{ padding-right:2.8rem; }
+}
+
+/* Council logo hybrid scaling (locked-in behaviour) */
+.ai-invest-tick__media.ai-logo-tile img{
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  max-width: 78% !important;
+  max-height: 78% !important;
+}
+@media (min-width:769px){
+  .ai-invest-tick__media.ai-logo-tile{
+    height:160px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+@media (max-width:768px){
+  .ai-invest-tick__media.ai-logo-tile{
+    height:auto !important;
+    align-self:stretch;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .ai-invest-tick__media.ai-logo-tile img{
+    max-width:78% !important;
+    max-height:74% !important;
+  }
+}
+@media (max-width:420px){
+  .ai-invest-tick__media.ai-logo-tile img{
+    max-width:80% !important;
+    max-height:74% !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   3) Hero logo rail tweaks
+   --------------------------------------------------------- */
+
+/* If you are no longer using ai-hero--pending, you can delete this line */
+.ai-hero--pending{ display:none !important; }
+
+.ai-hero .brand-media-box{ align-items:flex-start !important; }
+
+.ai-hero .ai-heroLogoRail{
+  display:block !important;
+  text-align:right !important;
+}
+.ai-hero .ai-heroLogoRail img{
+  display:inline-block !important;
+  width:200px !important;
+  max-width:200px !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+
+@media (max-width:767.98px){
+  .ai-hero .ai-heroLogoRail{
+    display:flex !important;
+    justify-content:center !important;
+    text-align:center !important;
+    margin-bottom:1.25rem !important;
+  }
+
+  .ai-hero .brand-media-box > .col-12.col-md-8{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    padding-top:0 !important;
+  }
+
+  .ai-hero .brand-media-box > .col-12.col-md-8 h1,
+  .ai-hero .brand-media-box > .col-12.col-md-8 p{
+    max-width:34ch;
+  }
+}
+
+/* ---------------------------------------------------------
+   4) Use-of-funds chart (cbc-*)
+   --------------------------------------------------------- */
+
+#council-bar-chart,
+#council-bar-chart *{
+  font-family:"Inter Display", sans-serif;
+}
+
+#council-bar-chart{
+  max-width:900px;
+  margin:40px auto;
+}
+
+#council-bar-chart .cbc-card{
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(15,23,42,.06);
+  padding:22px 24px;
+}
+
+#council-bar-chart .cbc-summary{ margin:0 0 18px; }
+
+#council-bar-chart .cbc-summary-inner{
+  display:grid;
+  grid-template-columns:128px minmax(0, 1fr);
+  column-gap:28px;
+  padding:10px 8px;
+  border-radius:14px;
+  background:#fff;
+  align-items:start;
+}
+
+#council-bar-chart .cbc-summary-logo{
+  width:128px;
+  height:128px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+#council-bar-chart .cbc-logo-badge{
+  width:112px;
+  height:112px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(15,23,42,.08);
+  border:1px solid rgba(15,23,42,.06);
+  background:#f3f4f6;
+}
+#council-bar-chart .cbc-logo-badge img{
+  width:78%;
+  height:78%;
+  object-fit:contain;
+  display:block;
+}
+
+/* Summary pills */
+#council-bar-chart .cbc-summary-lines{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+  padding-top:6px;
+  text-align:left !important;
+}
+#council-bar-chart .cbc-summary-line{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.36rem .7rem;
+  font-size:.9rem;
+  font-weight:700;
+  line-height:1.2;
+  color:#fff;
+  white-space:nowrap;
+  margin:0 !important;
+}
+#council-bar-chart .cbc-summary-line:nth-child(1){ background:#e26da6; }
+#council-bar-chart .cbc-summary-line:nth-child(2){ background:#00a4b6; }
+#council-bar-chart .cbc-summary-line:nth-child(3){ background:#e2961c; }
+
+/* Chart rows */
+#council-bar-chart .cbc-chart{ width:100%; margin:0; }
+#council-bar-chart .cbc-row{
+  display:flex;
+  align-items:center;
+  margin-bottom:12px;
+}
+#council-bar-chart .cbc-label{
+  flex:0 0 32%;
+  padding-right:10px;
+  font-size:.95rem;
+  color:#111827;
+}
+#council-bar-chart .cbc-bar-wrapper{
+  flex:1 1 auto;
+  position:relative;
+  height:42px;
+  background:#f3f4f6;
+  border-radius:999px;
+  overflow:hidden;
+}
+#council-bar-chart .cbc-bar-fill{
+  position:absolute;
+  top:0; bottom:0; left:0;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  padding-left:14px;
+  box-sizing:border-box;
+  white-space:nowrap;
+  transition:width .8s ease, transform .2s ease-out, box-shadow .2s ease-out;
+}
+#council-bar-chart .cbc-bar-value{
+  color:#111827;
+  font-weight:600;
+  font-size:.9rem;
+}
+#council-bar-chart .cbc-bar-wrapper:hover .cbc-bar-fill{
+  transform:scaleY(1.06);
+  box-shadow:0 2px 6px rgba(15,23,42,.24);
+}
+
+/* Empty state */
+#council-bar-chart .cbc-empty{
+  padding:64px 14px;
+  font-size:1.1rem;
+  font-weight:500;
+  color:#454543;
+  text-align:center;
+  background:#f9fafb;
+  border-radius:16px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  #council-bar-chart{ margin:24px auto; }
+  #council-bar-chart .cbc-card{ padding:18px 16px; }
+
+  #council-bar-chart .cbc-summary-inner{
+    grid-template-columns:112px minmax(0, 1fr);
+    column-gap:14px;
+  }
+  #council-bar-chart .cbc-summary-logo{ width:112px; height:112px; }
+  #council-bar-chart .cbc-logo-badge{ width:96px; height:96px; border-radius:20px; }
+  #council-bar-chart .cbc-logo-badge img{ width:80%; height:80%; }
+
+  #council-bar-chart .cbc-summary-lines{ padding-top:2px; gap:8px !important; }
+  #council-bar-chart .cbc-summary-line{ font-size:.85rem; padding:.34rem .62rem; }
+
+  #council-bar-chart .cbc-row{ flex-direction:column; align-items:stretch; }
+  #council-bar-chart .cbc-label{ margin-bottom:4px; }
+}
+
+/* iOS select text size safeguard (kept, harmless if no select exists) */
+#council-bar-chart .cbc-controls select{ font-size:16px; }
+
+/* Use-of-funds: make chart fill column even inside flex-center wrappers */
+.home-financial .ai-uof-wrap{
+  width:100%;
+  justify-content:stretch;
+  align-items:stretch;
+}
+.home-financial .ai-uof-wrap #ai-use-of-funds{
+  width:100%;
+  flex:1 1 100%;
+}
+.home-financial #ai-use-of-funds #council-bar-chart{
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+}
+.home-financial #ai-use-of-funds #council-bar-chart .cbc-card{
+  width:100% !important;
+}
+
+/* ---------------------------------------------------------
+   5) Open-investments grey band
+   --------------------------------------------------------- */
+
+:root{
+  --ai-open-bg: #e9e4e3; /* change this to test other greys */
+}
+.ai-open-bg{ background-color: var(--ai-open-bg); }
+.ai-open-bg h2,
+.ai-open-bg p{ color:#454543; }
+.ai-open-bg .ai-invest-tick{ box-shadow:0 8px 24px rgba(0,0,0,.08); }
+
+/* Allow tiles to use full content width */
+.ai-open-investments{
+  width:100%;
+  max-width:800px; /* match choke-800 */
+}
+.home-green-investing .flex-center .ai-open-investments{
+  flex:1 1 auto;
+}
+
+/* ---------------------------------------------------------
+   6) Investment history table sizing (your requested tweak)
+   --------------------------------------------------------- */
+
+.ai-past-table-choke{
+  width:100%;
+  max-width:800px; /* match choke-800 */
+}
+
+/* Body copy smaller */
+.ai-past-table-choke .brand-table{
+  font-size:1rem;   /* ⬅ smaller table copy */
+  line-height:1.35;
+}
+
+/* Larger header row */
+.ai-past-table-choke .brand-table thead th{
+  font-size:1.2rem;   /* ⬅ larger headers */
+  letter-spacing:0;
+}
+
+/* Tighter rows */
+.ai-past-table-choke .brand-table th,
+.ai-past-table-choke .brand-table td{
+  padding-top:0.55rem;
+  padding-bottom:0.55rem;
+}
+
+/* Prevent wrapping in key columns */
+.ai-past-table-choke .brand-table td[data-title="Investment"] a,
+.ai-past-table-choke .brand-table td[data-title="Interest"],
+.ai-past-table-choke .brand-table td[data-title="Term"],
+.ai-past-table-choke .brand-table td[data-title="Amount raised"],
+.ai-past-table-choke .brand-table td[data-title="Close date"]{
+  white-space:nowrap;
+}
+
+/* Numeric alignment nicety */
+.ai-past-table-choke .brand-table td[data-title="Interest"]{
+  font-feature-settings:"tnum" 1;
+}
+
+@media (max-width:768px){
+  /* Slightly larger on mobile for readability */
+  .ai-past-table-choke .brand-table{ font-size:0.85rem; }
+  .ai-past-table-choke .brand-table thead th{ font-size:0.98rem; }
+}
+
+/* ---------------------------------------------------------
+   7) Page-level loader (AI scope)
+   --------------------------------------------------------- */
+
+html.ai-loading .ai-scope{ display:none !important; }
+
+.ai-page-loader{ padding:3rem 1rem; }
+html:not(.ai-loading) .ai-page-loader{ display:none !important; }
+
+.ai-page-loader__inner{
+  max-width:960px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.ai-spinner{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:4px solid rgba(0,0,0,.12);
+  border-top-color: rgba(0,0,0,.45);
+  animation: aiSpin 0.9s linear infinite;
+}
+@keyframes aiSpin{ to{ transform:rotate(360deg); } }
+
+#ai-scope-wrap[hidden]{ display:none !important; }
+
+/* Force Investment history table typography (override global .brand-table rules) */
+.ai-past-table-choke table.brand-table td,
+.ai-past-table-choke table.brand-table tbody th{
+  font-size: 1rem !important;  /* body copy */
+  line-height: 1.35 !important;
+}
+
+.ai-past-table-choke table.brand-table thead th{
+  font-size: 1.1rem !important;   /* header row */
+  line-height: 1.15 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Keep it tight */
+.ai-past-table-choke table.brand-table td,
+.ai-past-table-choke table.brand-table th{
+  padding-top: 0.55rem !important;
+  padding-bottom: 0.55rem !important;
+}
+
+/* Prevent wrapping in key columns */
+.ai-past-table-choke table.brand-table td[data-title="Investment"] a,
+.ai-past-table-choke table.brand-table td[data-title="Interest"],
+.ai-past-table-choke table.brand-table td[data-title="Term"],
+.ai-past-table-choke table.brand-table td[data-title="Amount raised"],
+.ai-past-table-choke table.brand-table td[data-title="Close date"]{
+  white-space: nowrap !important;
+}
+
+/* HERO logo: hard clamp size (wins against framework rules) */
+.ai-hero .ai-heroLogoRail{
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:flex-start !important;
+}
+
+.ai-hero .ai-heroLogoRail img{
+  width: 220px !important;      /* pick your size */
+  max-width: 220px !important;
+  height: auto !important;      /* stop stretching */
+  max-height: 220px !important; /* <- key: clamps "massive" height */
+  object-fit: contain !important;
+}
+
+/* If a wrapper is forcing height, neutralise it */
+.ai-hero .col-12.col-md-4{
+  align-self:flex-start !important;
+}
+
+/* Desktop: keep right-aligned */
+.ai-hero .ai-heroLogoRail{
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:flex-start !important;
+}
+
+/* Tablet + mobile: center it */
+@media (max-width: 991.98px){
+  .ai-hero .ai-heroLogoRail{
+    justify-content:center !important;
+  }
+  .ai-hero .ai-heroLogoRail img{
+    display:block !important;
+    margin: 0 auto 1.25rem !important;
+  }
+}
+
+/* =========================================================
+   Use-of-funds — Top projects by spend (cbc-projects)
+   DROP-IN OVERRIDES (paste AFTER your base CSS)
+   ========================================================= */
+
+#council-bar-chart .cbc-projects{
+  margin-top:28px;
+}
+
+#council-bar-chart .cbc-projects__title{
+  margin:0 0 12px;
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+}
+
+/* Outer list container (one card containing up to 3 rows) */
+#council-bar-chart .cbc-projects__list{
+  background:#fff;
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(15,23,42,.06);
+}
+
+/* Each accordion row */
+#council-bar-chart .cbc-proj{
+  margin:0;
+  border-bottom:1px solid rgba(15,23,42,.08);
+}
+#council-bar-chart .cbc-proj:last-child{ border-bottom:none; }
+
+/* Click row */
+#council-bar-chart .cbc-proj__sum{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 16px;
+  display:block;
+  background:#fff;
+}
+#council-bar-chart .cbc-proj__sum::-webkit-details-marker{ display:none; }
+
+/* Category pill */
+#council-bar-chart .cbc-proj__pill{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.1;
+  color:#fff;
+  margin:0 0 8px;
+  white-space:nowrap;
+}
+#council-bar-chart .cbc-proj__pill--orange{ background:#e2961c; }
+#council-bar-chart .cbc-proj__pill--pink{ background:#e26da6; }
+#council-bar-chart .cbc-proj__pill--blue{ background:#00a4b6; }
+#council-bar-chart .cbc-proj__pill--purple{ background:#724795; }
+#council-bar-chart .cbc-proj__pill--teal{ background:#07828f; }
+#council-bar-chart .cbc-proj__pill--grey{ background:#6b7280; }
+
+/* Title row: name left, amount + chevron right */
+#council-bar-chart .cbc-proj__titleRow{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:14px;
+}
+
+#council-bar-chart .cbc-proj__name{
+  margin:0;
+  font-size:.95rem;
+  font-weight:700;
+  color:#454543;
+  line-height:1.25;
+  flex:1 1 auto;
+  min-width:0;
+}
+
+#council-bar-chart .cbc-proj__right{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  flex:0 0 auto;
+}
+
+/* Amount: bold text, no pill */
+#council-bar-chart .cbc-proj__spent{
+  display:inline-block;
+  font-size:1rem;
+  font-weight:900;
+  color:#454543;
+  line-height:1.1;
+  white-space:nowrap;
+}
+
+/* Chevron */
+#council-bar-chart .cbc-proj__chev{
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  color:#111827;
+  opacity:.7;
+  transform:rotate(0deg);
+  transition:transform .2s ease;
+}
+#council-bar-chart .cbc-proj[open] .cbc-proj__chev{
+  transform:rotate(180deg);
+}
+
+/* Expanded description */
+#council-bar-chart .cbc-proj__body{
+  padding:0 16px 16px;
+  color:#454543;
+  opacity:.92;
+  line-height:1.45;
+}
+
+/* Optional small helper line (only used if you choose to show it) */
+#council-bar-chart .cbc-projects__note{
+  margin:10px 2px 0;
+  font-size:.9rem;
+  font-weight:650;
+  color:#6b7280;
+}
+
+@media (max-width:640px){
+  #council-bar-chart .cbc-proj__sum{ padding:12px 14px; }
+  #council-bar-chart .cbc-proj__name{ font-size:.92rem; }
+  #council-bar-chart .cbc-proj__spent{ font-size:.98rem; }
+}
+
+/* Pills now take their background colour inline from JS */
+#council-bar-chart .cbc-proj__pill{
+  color:#111827;                 /* dark text for pastel backgrounds */
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+  border:1px solid rgba(17,24,39,.10);
+}
+
+/* Top projects description */
+.cbc-proj__body {
+  font-size: 0.95rem;          /* slightly smaller */
+  line-height: 1.55;           /* tighter but still readable */
+  color: #4c4c4a;              /* optional – keeps it softer than title */
+}
+
+/* Improve spacing when <br> exists in description */
+.cbc-proj__body br {
+  content: "";
+  display: block;
+  margin-bottom: 0.75rem;   /* creates "double line break" effect */
+}
+
+.cbc-proj__body {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #4c4c4a;
+}
+
+.cbc-proj__body p {
+  margin: 0 0 0.9rem 0;
+}
+
+.cbc-proj__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Divider between chart and top projects */
+.cbc-projects {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    rgba(0,0,0,0.04),
+    rgba(0,0,0,0.12),
+    rgba(0,0,0,0.04)
+  ) 1;
+}
+
+/* TEMP: hide Top projects financed block */
+#council-bar-chart .cbc-projects {
+  display: none !important;
+}
+
+</style>
