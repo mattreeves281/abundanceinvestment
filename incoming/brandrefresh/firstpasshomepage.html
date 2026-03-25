@@ -75,6 +75,10 @@
       0 100%
     );
 
+/* ---------- DOT SHAPE (BASE TOKEN) ---------- */
+
+  --ai-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
+
     /* mobile system tokens */
     --ai-mobile-gutter:24px;
     --ai-mobile-copy-rail:392px;
@@ -571,17 +575,23 @@
   }
 
   .ai-features__inner::after{
-    content:"";
-    position:absolute;
-    top:-300px;
-    right:10%;
-    width:min(40vw, 340px);
-    aspect-ratio:1/1;
-    background:var(--ai-yellow);
-    border-radius:50%;
-    z-index:0;
-    pointer-events:none;
-  }
+  content:"";
+  position:absolute;
+
+  width:min(40vw, 340px);
+  aspect-ratio:1/1;
+
+  background-image:var(--ai-dot-svg);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  background-color:var(--ai-yellow);
+
+  border-radius:0;
+  z-index:0;
+  pointer-events:none;
+}
 
   .ai-features__intro,
   .ai-features__grid,
@@ -613,22 +623,28 @@
   }
 
   .ai-feature__num{
-    display:grid;
-    place-items:center;
-    width:76px;
-    height:76px;
-    margin-bottom:14px;
-    border-radius:50%;
-    font-family:var(--ai-serif);
-    font-size:2.2rem;
-    font-weight:600;
-    line-height:1;
-    color:var(--ai-white);
-  }
+  display:grid;
+  place-items:center;
+  width:76px;
+  height:76px;
+  margin:0 auto 10px;
 
-  .ai-feature:nth-child(1) .ai-feature__num{ background:#e774ad; }
-  .ai-feature:nth-child(2) .ai-feature__num{ background:#efb52a; }
-  .ai-feature:nth-child(3) .ai-feature__num{ background:#1ea4b8; }
+  background-image:var(--ai-dot-svg);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  color:#fff;
+  font-family:var(--ai-serif);
+  font-size:2rem;
+  font-weight:600;
+  line-height:1;
+}
+
+/* colour via background-color layer */
+.ai-feature:nth-child(1) .ai-feature__num{ background-color:#e774ad; }
+.ai-feature:nth-child(2) .ai-feature__num{ background-color:#efb52a; }
+.ai-feature:nth-child(3) .ai-feature__num{ background-color:#1ea4b8; }
 
   .ai-feature .ai-h3{
     margin-bottom:8px;
@@ -1428,6 +1444,80 @@
 
 }  
 
+/* ---------- FEATURES DOT SHAPES ---------- */
+
+.ai-features__inner::after{
+  content:"";
+  position:absolute;
+  top:-300px;
+  right:10%;
+  width:min(40vw, 340px);
+  aspect-ratio:1/1;
+  background-color:var(--ai-yellow);
+
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+
+  z-index:0;
+  pointer-events:none;
+}
+
+.ai-feature__num{
+  display:grid;
+  place-items:center;
+  width:76px;
+  height:76px;
+  margin-bottom:14px;
+
+  background-color:#e774ad;
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+
+  font-family:var(--ai-serif);
+  font-size:2.2rem;
+  font-weight:600;
+  line-height:1;
+  color:var(--ai-white);
+}
+
+.ai-feature:nth-child(1) .ai-feature__num{ background-color:#e774ad; }
+.ai-feature:nth-child(2) .ai-feature__num{ background-color:#efb52a; }
+.ai-feature:nth-child(3) .ai-feature__num{ background-color:#1ea4b8; }
+
+@media (max-width:979px){
+  .ai-features__inner::after{
+    width:min(62vw, 300px);
+    top:-18px;
+    right:-6px;
+  }
+}
+
+@media (max-width:759px){
+  .ai-features__inner::after{
+    width:min(50vw, 184px);
+    top:-74px;
+    right:14px;
+  }
+
+  .ai-feature__num{
+    width:58px;
+    height:58px;
+    margin:0 auto 10px;
+    font-size:1.8rem;
+  }
+}
 </style> 
 
 <div class="ai-home">
