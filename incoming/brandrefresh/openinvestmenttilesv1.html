@@ -1,0 +1,561 @@
+<section class="ai-sec ai-open-now">
+  <div class="ai-wrap">
+    <div class="ai-open-now__intro ai-stack">
+      <h2 class="ai-h2">Investments open now</h2>
+      <p class="ai-body">
+        Choose from the municipal investments currently available and put your money
+        to work in real places, real projects and real local outcomes.
+      </p>
+    </div>
+
+    <div id="ai-open-now-grid" class="ai-open-now__grid">
+      <div class="ai-open-now__loading">Loading open municipal investments...</div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* =========================================================
+OPEN INVESTMENTS — V2 EDITORIAL ROW
+final homepage version
+========================================================= */
+
+.ai-open-now{
+  position:relative;
+  z-index:1;
+  padding-top:72px;
+  padding-bottom:108px;
+  background:#fff;
+}
+
+.ai-open-now__intro{
+  width:min(100%, 760px);
+  margin:0 auto 28px;
+  text-align:center;
+}
+
+.ai-open-now__intro.ai-stack > * + *{
+  margin-top:16px;
+}
+
+.ai-open-now__intro .ai-body{
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ai-open-now__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  width:min(100%, 1040px);
+  margin:0 auto;
+}
+
+.ai-open-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:164px minmax(0,620px) 1fr;
+  justify-content:start;
+  align-items:center;
+  column-gap:42px;
+  padding:22px 0;
+  border:0;
+  border-bottom:1px solid rgba(38,38,37,.12);
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  transition:background .2s ease;
+}
+
+.ai-open-card:first-child{
+  border-top:1px solid rgba(38,38,37,.12);
+}
+
+.ai-open-card:hover,
+.ai-open-card:focus-within{
+  background:rgba(248,245,247,.32);
+}
+
+.ai-open-card__link{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  text-indent:-9999px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.ai-open-card__media{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:164px;
+  height:164px;
+  margin-left:10px;
+  border-radius:30px;
+  background:var(--card-bg, #0f172a);
+  overflow:hidden;
+}
+
+.ai-open-card__media::before{
+  content:"";
+  position:absolute;
+  inset:auto 16px 16px auto;
+  width:58px;
+  height:58px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  pointer-events:none;
+}
+
+.ai-open-card__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+  pointer-events:none;
+}
+
+.ai-open-card__logo{
+  position:relative;
+  z-index:1;
+  width:min(100%, 106px);
+  max-height:86px;
+  object-fit:contain;
+}
+
+.ai-open-card__body{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  max-width:620px;
+  min-width:0;
+  padding:0;
+}
+
+.ai-open-card__kicker{
+  display:inline-block;
+  margin:0 0 7px;
+  font-family:var(--ai-ui);
+  font-size:.7rem;
+  line-height:1;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ai-pink);
+}
+
+.ai-open-card__title{
+  margin:0 0 8px;
+  max-width:none;
+  font-family:var(--ai-serif);
+  font-weight:600;
+  font-size:clamp(1.22rem, 1.45vw, 1.54rem);
+  line-height:.96;
+  letter-spacing:-.03em;
+  color:var(--ai-ink);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.ai-open-card__desc{
+  margin:0 0 12px;
+  max-width:31ch;
+  font-family:var(--ai-sans);
+  font-size:1rem;
+  line-height:1.4;
+  color:var(--ai-text);
+}
+
+.ai-open-card__meta{
+  position:relative;
+  z-index:5;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  margin-bottom:14px;
+  font-family:var(--ai-ui);
+  font-size:.8rem;
+  line-height:1.35;
+  color:var(--ai-text);
+}
+
+.ai-open-card__pill{
+  display:inline-flex;
+  align-items:center;
+  padding:0;
+  min-height:0;
+  border:0;
+  border-radius:0;
+  background:transparent !important;
+  font:inherit;
+  white-space:nowrap;
+}
+
+.ai-open-card__pill::after{
+  content:"·";
+  margin:0 11px;
+  color:rgba(38,38,37,.35);
+}
+
+.ai-open-card__pill:last-child::after{
+  display:none;
+}
+
+.ai-open-card__pill--rate{ color:#b24e82; }
+.ai-open-card__pill--term{ color:#207f8e; }
+.ai-open-card__pill--capital{ color:#a87509; }
+
+.ai-open-card__cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:0 16px;
+  border:1.8px solid var(--ai-pink);
+  border-radius:999px;
+  background:transparent;
+  font-family:var(--ai-ui);
+  font-size:.8rem;
+  line-height:1;
+  color:var(--ai-pink);
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.ai-open-card__cta::after{
+  display:none;
+}
+
+.ai-open-card:hover .ai-open-card__cta,
+.ai-open-card:focus-within .ai-open-card__cta{
+  background:rgba(223,115,173,.08);
+  color:var(--ai-pink);
+  border-color:var(--ai-pink);
+}
+
+.ai-open-now__empty,
+.ai-open-now__loading,
+.ai-open-now__error{
+  width:min(100%, 760px);
+  margin:0 auto;
+  padding:24px 28px;
+  border-radius:22px;
+  background:#faf8f8;
+  text-align:center;
+  color:var(--ai-text);
+  font-family:var(--ai-sans);
+  font-size:1rem;
+  line-height:1.55;
+}
+
+/* ---------- tablet ---------- */
+
+@media (max-width:979px){
+  .ai-open-now{
+    padding-top:58px;
+    padding-bottom:90px;
+  }
+
+  .ai-open-now__intro{
+    margin-bottom:24px;
+  }
+
+  .ai-open-now__grid{
+    width:min(100%, 940px);
+  }
+
+  .ai-open-card{
+    grid-template-columns:138px minmax(0,560px) 1fr;
+    column-gap:28px;
+    padding:18px 0;
+  }
+
+  .ai-open-card__media{
+    width:138px;
+    height:138px;
+    margin-left:0;
+    border-radius:24px;
+  }
+
+  .ai-open-card__media::before{
+    right:14px;
+    bottom:14px;
+    width:48px;
+    height:48px;
+  }
+
+  .ai-open-card__media::after{
+    border-radius:24px;
+  }
+
+  .ai-open-card__logo{
+    width:min(100%, 94px);
+    max-height:74px;
+  }
+
+  .ai-open-card__body{
+    max-width:560px;
+  }
+
+  .ai-open-card__title{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+  }
+
+  .ai-open-card__desc{
+    max-width:34ch;
+  }
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width:759px){
+  .ai-open-now{
+    padding-top:48px;
+    padding-bottom:78px;
+  }
+
+  .ai-open-now__intro{
+    width:min(calc(100% - var(--ai-mobile-gutter)), var(--ai-mobile-copy-rail));
+    margin:0 auto 20px;
+    text-align:left;
+  }
+
+  .ai-open-now__intro .ai-body{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .ai-open-card{
+    grid-template-columns:104px minmax(0,1fr);
+    align-items:start;
+    column-gap:16px;
+    padding:14px 0;
+  }
+
+  .ai-open-card__media{
+    width:96px;
+    height:96px;
+    margin-left:0;
+    border-radius:20px;
+  }
+
+  .ai-open-card__media::before{
+    right:10px;
+    bottom:10px;
+    width:28px;
+    height:28px;
+  }
+
+  .ai-open-card__media::after{
+    border-radius:20px;
+  }
+
+  .ai-open-card__logo{
+    width:min(100%, 66px);
+    max-height:52px;
+  }
+
+  .ai-open-card__body{
+    max-width:none;
+  }
+
+  .ai-open-card__title{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    font-size:1.24rem;
+  }
+
+  .ai-open-card__desc{
+    max-width:none;
+    font-size:.92rem;
+    margin-bottom:8px;
+  }
+
+  .ai-open-card__meta{
+    display:block;
+    margin-bottom:10px;
+    font-size:.76rem;
+    line-height:1.42;
+  }
+
+  .ai-open-card__pill{
+    display:inline;
+    white-space:normal;
+  }
+
+  .ai-open-card__pill::after{
+    display:inline;
+    margin:0 8px;
+  }
+
+  .ai-open-card__cta{
+    min-height:34px;
+    padding:0 14px;
+    font-size:.74rem;
+  }
+
+  .ai-open-now__empty,
+  .ai-open-now__loading,
+  .ai-open-now__error{
+    width:min(calc(100% - var(--ai-mobile-gutter)), var(--ai-mobile-copy-rail));
+    padding:22px 18px;
+    text-align:left;
+  }
+}
+</style>
+
+<script>
+(function () {
+  var ENDPOINT = "https://data.abundanceinvestment.com/loans";
+  var CONTAINER_ID = "ai-open-now-grid";
+
+  function getValue(obj, key) {
+    if (!obj) return undefined;
+    if (obj.fields && typeof obj.fields === "object" && Object.prototype.hasOwnProperty.call(obj.fields, key)) {
+      return obj.fields[key];
+    }
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      return obj[key];
+    }
+    return undefined;
+  }
+
+  function getFirstString(v) {
+    if (!v) return "";
+    if (typeof v === "string") return v;
+    if (Array.isArray(v) && v.length && typeof v[0] === "string") return v[0];
+    return "";
+  }
+
+  function getUrl(obj, key) {
+    var v = getValue(obj, key);
+    if (!v) return "";
+    if (typeof v === "string") return v;
+    if (Array.isArray(v) && v.length) {
+      if (v[0] && typeof v[0] === "object" && v[0].url) return v[0].url;
+      if (typeof v[0] === "string") return v[0];
+    }
+    if (v && v.url) return v.url;
+    return "";
+  }
+
+  function safeNumber(v) {
+    if (typeof v === "number" && isFinite(v)) return v;
+    if (typeof v === "string") {
+      var cleaned = v.replace(/[^0-9.\-]/g, "");
+      var n = Number(cleaned);
+      return isFinite(n) ? n : 0;
+    }
+    return 0;
+  }
+
+  function roundTo(num, dp) {
+    var p = Math.pow(10, dp);
+    return Math.round(num * p) / p;
+  }
+
+  function percentFromDecimal(dec, dp) {
+    return roundTo(safeNumber(dec) * 100, typeof dp === "number" ? dp : 1);
+  }
+
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function isOpenStatus(v) {
+    return String(v || "").toLowerCase() === "open";
+  }
+
+  function buildMetaItem(type, text) {
+    return '<span class="ai-open-card__pill ai-open-card__pill--' + type + '">' + escapeHtml(text) + "</span>";
+  }
+
+  function buildCard(record) {
+    var name = getValue(record, "investmentName") || "Investment";
+    var desc = getValue(record, "strapline") || "Municipal investment opportunity";
+    var href = getValue(record, "url") || "/invest-now";
+    var bg = getFirstString(getValue(record, "hex")) || "#0f172a";
+    var logo = getUrl(record, "whiteLogo");
+
+    var meta = [];
+
+    var rate = getValue(record, "rateOfReturn");
+    if (rate !== null && rate !== undefined && rate !== "") {
+      meta.push(buildMetaItem("rate", percentFromDecimal(rate, 1) + "% a year"));
+    }
+
+    var term = safeNumber(getValue(record, "termLength"));
+    if (term) {
+      meta.push(buildMetaItem("term", term + " year term"));
+    }
+
+    var cap = String(getValue(record, "capitalRepayment") || "").toLowerCase();
+    if (cap === "maturity") {
+      meta.push(buildMetaItem("capital", "Capital at maturity"));
+    } else if (cap === "annuity") {
+      meta.push(buildMetaItem("capital", "Capital 6 monthly"));
+    }
+
+    return (
+      '<article class="ai-open-card">' +
+        '<a class="ai-open-card__link" href="' + escapeHtml(href) + '" aria-label="Go to ' + escapeHtml(name) + '">' + escapeHtml(name) + "</a>" +
+        '<div class="ai-open-card__media" style="--card-bg:' + escapeHtml(bg) + ';">' +
+          (logo ? '<img class="ai-open-card__logo" src="' + escapeHtml(logo) + '" alt="' + escapeHtml(name) + ' logo">' : "") +
+        "</div>" +
+        '<div class="ai-open-card__body">' +
+          '<div class="ai-open-card__kicker">Open now</div>' +
+          '<h3 class="ai-open-card__title">' + escapeHtml(name) + "</h3>" +
+          '<p class="ai-open-card__desc">' + escapeHtml(desc) + "</p>" +
+          (meta.length ? '<div class="ai-open-card__meta">' + meta.join("") + "</div>" : "") +
+          '<span class="ai-open-card__cta">View investment</span>' +
+        "</div>" +
+      "</article>"
+    );
+  }
+
+  function init() {
+    var container = document.getElementById(CONTAINER_ID);
+    if (!container) return;
+
+    container.innerHTML = '<div class="ai-open-now__loading">Loading open municipal investments...</div>';
+
+    fetch(ENDPOINT, { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var records = Array.isArray(data) ? data : (data.records || []);
+        var open = records.filter(function (record) {
+          return isOpenStatus(getValue(record, "raiseStatus"));
+        });
+
+        container.innerHTML = open.length
+          ? open.map(buildCard).join("")
+          : '<div class="ai-open-now__empty">There are no open municipal investments at the moment. Please check again later.</div>';
+      })
+      .catch(function () {
+        container.innerHTML = '<div class="ai-open-now__error">Sorry — we couldn’t load municipal investments right now.</div>';
+      });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
