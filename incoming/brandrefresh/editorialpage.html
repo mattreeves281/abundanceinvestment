@@ -1,3 +1,4 @@
+
 <style>
   @font-face{
     font-family:"New Kansas";
@@ -870,34 +871,42 @@
       width:min(100%, 660px);
     }
 
-    .ai-ed-divider{
-      width:min(100%, 860px);
-      min-height:190px;
-    }
+    @media (max-width:759px){
 
-    .ai-ed-divider__blob{
-      width:260px;
-    }
+  .ai-ed-divider{
+    width:100%;
+    max-width:var(--ai-mobile-copy-rail);
+    min-height:0;
+    margin:26px auto 22px;
+    padding-top:0;
+    display:block;
+    overflow:visible;
+  }
 
-    .ai-ed-divider--left .ai-ed-divider__blob{
-      left:-8px;
-    }
+  .ai-ed-divider__blob{
+    position:relative;
+    width:138px;
+    margin:0 0 0 -44px;
+    left:0 !important;
+    right:auto !important;
+    top:auto;
+  }
 
-    .ai-ed-divider--right .ai-ed-divider__blob{
-      right:-8px;
-    }
+  .ai-ed-divider__title,
+  .ai-ed-divider--left .ai-ed-divider__title,
+  .ai-ed-divider--right .ai-ed-divider__title{
+    position:relative;
+    z-index:2;
+    width:auto;
+    max-width:9.5ch;
+    margin:-48px 0 0 0;
+    padding-top:0;
+    font-size:1.85rem;
+    line-height:.95;
+    text-align:left;
+  }
 
-    .ai-ed-divider--left .ai-ed-divider__title{
-      width:360px;
-      margin-left:70px;
-      padding-top:74px;
-    }
-
-    .ai-ed-divider--right .ai-ed-divider__title{
-      width:360px;
-      margin-right:70px;
-      padding-top:74px;
-    }
+}
 
     .footer{
       padding-top:42px !important;
@@ -1128,6 +1137,60 @@
       padding-left:0 !important;
     }
   }
+
+@media (max-width:759px){
+
+  .ai-ed-divider{
+    overflow:visible !important;
+    margin:0 auto 18px !important;
+  }
+
+  .ai-ed-divider__blob{
+    position:relative !important;
+    width:300px !important;
+    height:300px !important;
+    margin:0 !important;
+  }
+
+  .ai-ed-divider__blob::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    background:var(--ai-yellow) !important;
+    transform:translate(-130px, 80px) !important;
+  }
+
+  .ai-ed-divider__title,
+  .ai-ed-divider--left .ai-ed-divider__title,
+  .ai-ed-divider--right .ai-ed-divider__title{
+    position:relative;
+    z-index:2;
+
+    /* KEY CHANGES */
+    margin:-140px 0 0 0 !important;   /* ← pull UP hard into blob */
+    max-width:16ch !important;        /* ← wider, less “stacky” */
+
+    padding-top:0 !important;
+    text-align:left !important;
+
+    font-size:1.95rem;
+    line-height:.95;
+  }
+
+}
+
+@media (max-width:759px){
+
+  .ai-ed-divider__blob--pink::before{
+    background:var(--ai-pink) !important;
+  }
+
+  .ai-ed-divider__blob--teal::before{
+    background:var(--ai-teal) !important;
+  }
+
+}
+
 </style>
 
 <div class="ai-editorial">
@@ -1184,7 +1247,7 @@
     </section>
 
     <section class="ai-ed-divider ai-ed-divider--right" aria-hidden="true">
-      <div class="ai-ed-divider__blob"></div>
+      <div class="ai-ed-divider__blob ai-ed-divider__blob--teal"></div>
       <h2 class="ai-ed-divider__title">Nature returning to shared spaces</h2>
     </section>
 
