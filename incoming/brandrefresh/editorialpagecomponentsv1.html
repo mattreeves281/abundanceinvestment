@@ -1,0 +1,4204 @@
+<style>
+  @font-face{
+    font-family:"New Kansas";
+    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/258554e0-7d5c-40cd-a6a2-80d5eb9fdd2f.woff2") format("woff2");
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  @font-face{
+    font-family:"Sohne Buch";
+    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/0976f15f-54f3-4c7c-a261-c8a91b64dbfb.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  @font-face{
+    font-family:"Sohne Kraftig";
+    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/cab3babc-20c2-4152-bcf5-dc28aa6f2df4.woff2") format("woff2");
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  :root{
+    --ai-bg:#ffffff;
+    --ai-white:#ffffff;
+    --ai-ink:#262625;
+    --ai-text:#4d4a46;
+    --ai-pink:#df73ad;
+    --ai-yellow:#efb52a;
+    --ai-teal:#12a9bb;
+    --ai-editorial-bg:#ffffff;
+
+    --ai-wrap:1180px;
+    --ai-editorial-rail:760px;
+    --ai-editorial-copy:58ch;
+    --ai-mobile-copy-rail:392px;
+
+    --ai-serif:"New Kansas", Georgia, serif;
+    --ai-sans:"Sohne Buch", Arial, sans-serif;
+    --ai-ui:"Sohne Kraftig", Arial, sans-serif;
+
+    --ai-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
+  }
+
+  html,
+  body{
+    overflow-x:hidden;
+    background:var(--ai-editorial-bg);
+  }
+
+  body{
+    margin:0;
+    color:var(--ai-ink);
+    font-family:var(--ai-sans);
+  }
+
+  .main-content,
+  .page-content,
+  .content-wrapper{
+    background:var(--ai-editorial-bg) !important;
+  }
+
+  /* =========================================================
+     NAV
+     ========================================================= */
+
+  .site-navbar{
+    background:#fff !important;
+    border-bottom:0 !important;
+    box-shadow:none !important;
+    padding:14px 0 10px;
+  }
+
+  .site-navbar::after{ display:none !important; }
+
+  .site-navbar,
+  .site-navbar .brand-navbar,
+  .site-navbar .container,
+  .site-navbar .navbar{
+    border:0 !important;
+    box-shadow:none !important;
+    background:#fff !important;
+  }
+
+  .site-navbar .container{
+    width:min(calc(100% - 34px), 1240px);
+    max-width:none;
+  }
+
+  .site-navbar .brand-navbar{
+    min-height:68px;
+    margin:0;
+  }
+
+  .site-navbar .brand-navbar-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:68px;
+  }
+
+  .site-navbar .logo-wrapper{
+    display:flex;
+    align-items:center;
+    padding:0;
+  }
+
+  .site-navbar .logo{
+    width:124px;
+    height:auto;
+    max-width:none;
+    content:url("https://shareinmicrosite.blob.core.windows.net/abundance/30747a8f-bc62-45f9-9ae6-d8734ddc645b.png");
+  }
+
+  .site-navbar #navbar{
+    background:transparent;
+    border:0;
+    box-shadow:none;
+  }
+
+  .site-navbar .navbar-is-collapsed{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+
+  .site-navbar .navbar-main{
+    display:flex;
+    align-items:center;
+    gap:34px;
+    float:none;
+    margin:0 auto;
+    padding:0;
+  }
+
+  .site-navbar .navbar-main > li{
+    float:none;
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link{
+    padding:10px 0 !important;
+    padding-right:0 !important;
+    font-family:var(--ai-ui);
+    font-size:.9rem;
+    line-height:1;
+    color:var(--ai-ink) !important;
+    background:none !important;
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link:hover{
+    color:var(--ai-pink) !important;
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link svg,
+  .site-navbar .brand-navbar-nav__parent-item-link i,
+  .site-navbar .brand-navbar-nav__parent-item-link .fa,
+  .site-navbar .brand-navbar-nav__parent-item-link .icon,
+  .site-navbar .brand-navbar-nav__parent-item-link::after{
+    display:none !important;
+  }
+
+  .site-navbar .brand-navbar--account-partial{
+    display:flex;
+    align-items:center;
+    margin:0;
+    padding:0;
+  }
+
+  .site-navbar .brand-navbar__auth-btn-wrapper{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  .site-navbar .brand-navbar__login-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    font-family:var(--ai-ui) !important;
+    font-size:.9rem !important;
+    line-height:1 !important;
+    color:var(--ai-pink) !important;
+    text-decoration:none !important;
+  }
+
+  .site-navbar .btn.btn-primary--bordered{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:0 22px !important;
+    border:1.8px solid var(--ai-pink) !important;
+    border-radius:999px !important;
+    background:transparent !important;
+    color:var(--ai-ink) !important;
+    font-family:var(--ai-ui) !important;
+    font-size:.84rem !important;
+    line-height:1 !important;
+    box-shadow:none !important;
+  }
+
+  /* =========================================================
+     EDITORIAL PAGE
+     ========================================================= */
+
+  .ai-editorial,
+  .ai-editorial *{
+    box-sizing:border-box;
+  }
+
+  .ai-editorial{
+    position:relative;
+    overflow:hidden;
+    background:var(--ai-editorial-bg);
+    color:var(--ai-ink);
+  }
+
+  .ai-editorial img{
+    display:block;
+    max-width:100%;
+    height:auto;
+  }
+
+  .ai-editorial__wrap{
+    position:relative;
+    width:min(calc(100% - 40px), var(--ai-wrap));
+    margin:0 auto;
+    padding:34px 0 0;
+  }
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+
+  .ai-ed-hero{
+    position:relative;
+    width:min(100%, 1040px);
+    margin:0 auto;
+    padding:10px 0 150px;
+    overflow:visible;
+  }
+
+  .ai-ed-hero__copy{
+    position:relative;
+    z-index:2;
+    width:min(100%, 760px);
+    margin-left:84px;
+  }
+
+  .ai-ed-hero__title{
+    margin:0;
+    max-width:14ch;
+    font-family:var(--ai-serif);
+    font-weight:600;
+    letter-spacing:-.035em;
+    font-size:clamp(2.7rem, 5.1vw, 4.35rem);
+    line-height:.92;
+    color:var(--ai-ink);
+  }
+
+  .ai-ed-hero__intro{
+    margin:26px 0 0;
+    max-width:60ch;
+    font-family:var(--ai-sans);
+    font-size:1.18rem;
+    line-height:1.72;
+    color:var(--ai-text);
+  }
+
+  .ai-ed-hero__actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:24px;
+    max-width:60ch;
+  }
+
+  .ai-ed-hero__actions .ai-btn{
+    white-space:nowrap;
+  }
+
+  .ai-ed-hero::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:100vw;
+    height:138px;
+    background:var(--ai-pink);
+    z-index:0;
+    pointer-events:none;
+    clip-path:polygon(
+      0 84%,
+      0 100%,
+      33% 36%,
+      100% 76%,
+      100% 60%,
+      33% 20%
+    );
+  }
+
+  /* =========================================================
+     CONTENT RAIL / COPY
+     ========================================================= */
+
+  .ai-ed-rail{
+    position:relative;
+    width:min(100%, var(--ai-editorial-rail));
+    margin:0 auto;
+    z-index:2;
+  }
+
+  .ai-ed-section{
+    margin-top:12px;
+  }
+
+  .ai-ed-copy > *{
+    margin:0;
+  }
+
+  .ai-ed-copy > * + *{
+    margin-top:20px;
+  }
+
+  .ai-ed-copy > p,
+  .ai-ed-copy > ul,
+  .ai-ed-copy > .ai-ed-cta{
+    width:min(100%, var(--ai-editorial-copy));
+  }
+
+  .ai-ed-copy p,
+  .ai-ed-copy li{
+    font-family:var(--ai-sans);
+    font-size:1.03rem;
+    line-height:1.68;
+    color:var(--ai-text);
+  }
+
+  .ai-ed-copy ul{
+    margin:4px 0 0;
+    padding:0;
+    list-style:none;
+    width:min(100%, var(--ai-editorial-copy));
+  }
+
+  .ai-ed-copy li{
+    position:relative;
+    padding-left:1.35rem;
+  }
+
+  .ai-ed-copy li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.72em;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--ai-pink);
+    transform:translateY(-50%);
+  }
+
+  .ai-ed-copy li + li{
+    margin-top:14px;
+  }
+
+  /* =========================================================
+     MEDIA
+     ========================================================= */
+
+  .ai-media{
+    position:relative;
+    width:100%;
+    margin:42px 0 56px;
+  }
+
+  .ai-media--video{
+    margin:38px 0 52px;
+  }
+
+  .ai-media__frame{
+    overflow:hidden;
+    border-radius:24px;
+    background:#ddd7d2;
+  }
+
+  .ai-media__frame img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+  .ai-media--video .ai-media__frame{
+    border-radius:12px;
+    background:#000;
+  }
+
+  .ai-media__embed{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    overflow:hidden;
+    border-radius:12px;
+    background:#000;
+  }
+
+  .ai-media__embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* =========================================================
+     DIVIDER FAMILY
+     ========================================================= */
+
+  .ai-ed-band{
+    position:relative;
+    width:100vw;
+    height:138px;
+    margin:18px 0 24px;
+    margin-left:calc(50% - 50vw);
+    pointer-events:none;
+  }
+
+  .ai-ed-band--pink-rise{
+    background:var(--ai-pink);
+    clip-path:polygon(
+      0 84%,
+      0 100%,
+      33% 36%,
+      100% 76%,
+      100% 60%,
+      33% 20%
+    );
+  }
+
+  .ai-ed-band--yellow-right{
+    background:var(--ai-yellow);
+    clip-path:polygon(
+      0 78%,
+      0 94%,
+      66% 30%,
+      100% 48%,
+      100% 32%,
+      66% 14%
+    );
+  }
+
+  .ai-ed-band--teal-fall{
+    background:var(--ai-teal);
+    clip-path:polygon(
+      0 30%,
+      0 46%,
+      33% 82%,
+      100% 42%,
+      100% 26%,
+      33% 66%
+    );
+  }
+
+  .ai-ed-band--tight{
+    margin-top:8px;
+    margin-bottom:12px;
+  }
+
+  .ai-ed-band--loose{
+    margin-top:34px;
+    margin-bottom:34px;
+  }
+
+  /* =========================================================
+     BLOB DIVIDERS
+     ========================================================= */
+
+  .ai-ed-divider{
+    position:relative;
+    width:min(100%, 980px);
+    min-height:220px;
+    margin:34px auto 28px;
+  }
+
+  .ai-ed-divider--intro{
+    margin:18px auto 10px;
+  }
+
+  .ai-ed-divider__blob{
+    position:absolute;
+    top:0;
+    width:340px;
+    aspect-ratio:1 / 1;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  .ai-ed-divider__blob::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--ai-yellow);
+    -webkit-mask-image:var(--ai-dot-mask);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    -webkit-mask-size:contain;
+    mask-image:var(--ai-dot-mask);
+    mask-repeat:no-repeat;
+    mask-position:center;
+    mask-size:contain;
+  }
+
+  .ai-ed-divider__blob--pink::before{
+    background:var(--ai-pink);
+  }
+
+  .ai-ed-divider__blob--teal::before{
+    background:var(--ai-teal);
+  }
+
+  .ai-ed-divider__title{
+    position:relative;
+    z-index:2;
+    margin:0;
+    max-width:11ch;
+    font-family:var(--ai-serif);
+    font-weight:600;
+    letter-spacing:-.03em;
+    font-size:clamp(2.15rem, 3.2vw, 3rem);
+    line-height:.95;
+    color:var(--ai-ink);
+  }
+
+  .ai-ed-divider--left .ai-ed-divider__blob{
+    left:-40px;
+  }
+
+  .ai-ed-divider--left .ai-ed-divider__title{
+    width:420px;
+    margin-left:86px;
+    padding-top:74px;
+    text-align:left;
+  }
+
+  .ai-ed-divider--right{
+    display:flex;
+    justify-content:flex-end;
+  }
+
+  .ai-ed-divider--right .ai-ed-divider__blob{
+    right:-26px;
+  }
+
+  .ai-ed-divider--right .ai-ed-divider__title{
+    width:420px;
+    margin-left:auto;
+    margin-right:86px;
+    padding-top:88px;
+    text-align:right;
+  }
+
+  /* =========================================================
+     SUPPORT PANEL
+     ========================================================= */
+
+  .ai-ed-panel{
+    position:relative;
+    overflow:hidden;
+    width:min(100%, 820px);
+    margin:48px auto;
+    padding:34px 36px;
+    border-radius:26px;
+    background:#dff1f3;
+  }
+
+  .ai-ed-panel::after{
+    content:"";
+    position:absolute;
+    right:-60px;
+    bottom:-60px;
+    width:220px;
+    aspect-ratio:1 / 1;
+    background:var(--ai-teal);
+    opacity:.18;
+    -webkit-mask-image:var(--ai-dot-mask);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    -webkit-mask-size:contain;
+    mask-image:var(--ai-dot-mask);
+    mask-repeat:no-repeat;
+    mask-position:center;
+    mask-size:contain;
+  }
+
+  .ai-ed-panel__inner{
+    position:relative;
+    z-index:1;
+    max-width:56ch;
+  }
+
+  .ai-ed-panel h3{
+    margin:0 0 14px;
+    font-family:var(--ai-serif);
+    font-size:1.8rem;
+    line-height:1;
+    color:var(--ai-ink);
+  }
+
+  .ai-ed-panel p{
+    margin:0;
+    font-family:var(--ai-sans);
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--ai-text);
+  }
+
+  .ai-ed-panel .ai-btn{
+    margin-top:18px;
+  }
+
+  /* =========================================================
+     BUTTONS
+     ========================================================= */
+
+  .ai-ed-cta{
+    padding-top:8px;
+  }
+
+  .ai-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:46px;
+    padding:12px 20px;
+    border:0;
+    border-radius:999px;
+    background:var(--ai-pink);
+    color:#fff;
+    font-family:var(--ai-ui);
+    font-size:.84rem;
+    line-height:1;
+    text-decoration:none;
+    box-shadow:none;
+  }
+
+  .ai-btn:hover{
+    text-decoration:none;
+    color:#fff;
+  }
+
+  .ai-btn--secondary{
+    background:transparent;
+    color:var(--ai-pink);
+    border:1.8px solid var(--ai-pink);
+  }
+
+  .ai-btn--secondary:hover{
+    background:transparent;
+    color:var(--ai-pink);
+  }
+
+  /* =========================================================
+     FOOTER WEDGE + FOOTER
+     ========================================================= */
+
+  .ai-footer-wedge{
+    position:relative;
+    z-index:1;
+    height:160px;
+    margin-top:0;
+    margin-bottom:-2px;
+    overflow:hidden;
+    background:transparent;
+  }
+
+  .ai-footer-wedge__shape{
+    position:absolute;
+    inset:0;
+    background:var(--ai-yellow);
+    clip-path:polygon(
+      0 100%,
+      0 82%,
+      33% 30%,
+      100% 82%,
+      100% 100%
+    );
+  }
+
+  .bg-colour--neutral--300.bg-mask.bg-mask--t-convex{
+    display:none !important;
+  }
+
+  .footer{
+    position:relative;
+    z-index:2;
+    margin-top:0 !important;
+    padding-top:48px !important;
+    background:var(--ai-yellow) !important;
+    color:var(--ai-ink) !important;
+    border:0 !important;
+    overflow:hidden;
+  }
+
+  .footer::before,
+  .footer::after{
+    content:none !important;
+  }
+
+  .footer > .container,
+  .footer .footer-links > .container,
+  .footer .footer-copyright > .container{
+    position:relative;
+    z-index:1;
+    width:min(calc(100% - 36px), 1180px);
+    max-width:none;
+  }
+
+  .footer .footer__risk{
+    position:relative;
+    max-width:1200px;
+    padding:0 0 42px 230px !important;
+    font-family:var(--ai-sans);
+    font-size:.97rem;
+    line-height:1.62;
+    color:var(--ai-ink);
+  }
+
+  .footer .footer__risk::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:18px;
+    width:180px;
+    height:150px;
+    background:url("https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png") left top / contain no-repeat;
+    pointer-events:none;
+  }
+
+  .footer .footer-links{
+    position:relative;
+    background:transparent !important;
+    border-top:0 !important;
+    padding-top:24px;
+    padding-bottom:18px;
+  }
+
+  .footer .footer-links::before{
+    display:none !important;
+  }
+
+  .footer .footer-links .row:first-child{
+    align-items:flex-start;
+  }
+
+  .footer .footer-links .col-12{
+    padding-top:0 !important;
+  }
+
+  .footer h2.heading-4{
+    margin:0 0 12px;
+    font-family:var(--ai-ui);
+    font-size:1rem;
+    line-height:1.1;
+    color:var(--ai-ink);
+  }
+
+  .footer a,
+  .footer address,
+  .footer p,
+  .footer span{
+    font-family:var(--ai-sans);
+    font-size:.94rem;
+    line-height:1.56;
+    color:var(--ai-ink) !important;
+  }
+
+  .footer address{
+    font-style:normal;
+    margin:0;
+  }
+
+  .footer .footer-links--support,
+  .footer .footer-links--company,
+  .footer .footer-links--legal{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+
+  .footer .footer-links .row + .row{
+    margin-top:34px;
+  }
+
+  .footer .footer-copyright{
+    background:transparent !important;
+    border-top:0 !important;
+    padding:14px 0 16px !important;
+    margin-top:0 !important;
+  }
+
+  .footer .footer-copyright-wrapper{
+    justify-content:flex-end;
+    min-height:28px;
+    border-top:1px solid rgba(38,38,37,.22);
+    padding-top:14px;
+  }
+
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+
+  @media (max-width:979px){
+    .site-navbar .container{
+      width:min(calc(100% - 24px), 1240px);
+    }
+
+    .site-navbar .brand-navbar-header{
+      min-height:62px;
+    }
+
+    .site-navbar .logo{
+      width:114px;
+    }
+
+    .site-navbar .navbar-is-collapsed{
+      display:block;
+    }
+
+    .site-navbar .navbar-main{
+      gap:20px;
+    }
+
+    .ai-editorial__wrap{
+      width:min(calc(100% - 28px), var(--ai-wrap));
+    }
+
+    .ai-ed-hero{
+      padding-bottom:122px;
+    }
+
+    .ai-ed-hero__copy{
+      width:min(100%, 700px);
+      margin-left:0;
+    }
+
+    .ai-ed-hero__title{
+      max-width:13ch;
+    }
+
+    .ai-ed-hero__intro{
+      font-size:1.1rem;
+      line-height:1.66;
+    }
+
+    .ai-ed-hero::after,
+    .ai-ed-band{
+      height:112px;
+    }
+
+    .ai-ed-rail{
+      width:min(100%, 660px);
+    }
+
+    @media (max-width:759px){
+
+  .ai-ed-divider{
+    width:100%;
+    max-width:var(--ai-mobile-copy-rail);
+    min-height:0;
+    margin:26px auto 22px;
+    padding-top:0;
+    display:block;
+    overflow:visible;
+  }
+
+  .ai-ed-divider__blob{
+    position:relative;
+    width:138px;
+    margin:0 0 0 -44px;
+    left:0 !important;
+    right:auto !important;
+    top:auto;
+  }
+
+  .ai-ed-divider__title,
+  .ai-ed-divider--left .ai-ed-divider__title,
+  .ai-ed-divider--right .ai-ed-divider__title{
+    position:relative;
+    z-index:2;
+    width:auto;
+    max-width:9.5ch;
+    margin:-48px 0 0 0;
+    padding-top:0;
+    font-size:1.85rem;
+    line-height:.95;
+    text-align:left;
+  }
+
+}
+
+    .footer{
+      padding-top:42px !important;
+    }
+
+    .footer .footer__risk{
+      max-width:none;
+      padding:0 0 34px 140px !important;
+    }
+
+    .footer .footer__risk::before{
+      width:110px;
+      height:92px;
+      top:10px;
+    }
+  }
+
+  @media (max-width:759px){
+    .site-navbar{
+      padding:12px 0 8px;
+    }
+
+    .site-navbar .container{
+      width:min(calc(100% - 20px), 1240px);
+    }
+
+    .site-navbar .brand-navbar,
+    .site-navbar .brand-navbar-header{
+      min-height:54px;
+    }
+
+    .site-navbar .logo{
+      width:98px;
+    }
+
+    .site-navbar #navbar{
+      background:#fff !important;
+    }
+
+    .site-navbar .brand-navbar__hamburger-toggle{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:32px;
+      padding:0 14px;
+      border:1.4px solid rgba(223,115,173,.45);
+      border-radius:999px;
+      background:#fff !important;
+      gap:6px;
+    }
+
+    .site-navbar .navbar-is-collapsed{
+      display:block;
+      margin-top:12px;
+      padding:12px 14px 14px;
+      border:1px solid rgba(223,115,173,.16);
+      border-radius:22px;
+      background:#fff;
+    }
+
+    .site-navbar .navbar-main{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .site-navbar .brand-navbar-nav__parent-item-link{
+      padding:10px 12px !important;
+      border-radius:14px;
+    }
+
+    .site-navbar .dropdown-menu.brand-dropdown-menu{
+      margin-top:6px;
+      padding:6px;
+      border-radius:16px;
+      background:#f8f5f7;
+    }
+
+    .site-navbar .dropdown-menu.brand-dropdown-menu a{
+      padding:10px 12px !important;
+      border-radius:12px;
+    }
+
+    .ai-editorial__wrap{
+      width:min(calc(100% - 22px), var(--ai-wrap));
+      padding-top:14px;
+    }
+
+    .ai-ed-hero{
+      width:100%;
+      max-width:var(--ai-mobile-copy-rail);
+      padding:6px 0 72px;
+    }
+
+    .ai-ed-hero__copy{
+      width:100%;
+      max-width:var(--ai-mobile-copy-rail);
+      margin:0 auto;
+    }
+
+    .ai-ed-hero__title{
+      max-width:10ch;
+      font-size:2.35rem;
+      line-height:.95;
+    }
+
+    .ai-ed-hero__intro{
+      max-width:none;
+      font-size:1rem;
+      line-height:1.58;
+      margin-top:20px;
+    }
+
+    .ai-ed-hero__actions{
+      gap:10px;
+      margin-top:22px;
+    }
+
+    .ai-ed-hero__actions .ai-btn{
+      min-height:44px;
+    }
+
+    .ai-ed-hero::after,
+    .ai-ed-band{
+      height:70px;
+    }
+
+    .ai-ed-band{
+      margin-top:14px;
+      margin-bottom:18px;
+    }
+
+    .ai-ed-rail{
+      width:100%;
+      max-width:var(--ai-mobile-copy-rail);
+    }
+
+    .ai-ed-copy > p,
+    .ai-ed-copy > ul,
+    .ai-ed-copy > .ai-ed-cta{
+      width:100%;
+      max-width:none;
+    }
+
+    .ai-ed-copy p,
+    .ai-ed-copy li{
+      max-width:none;
+      font-size:.98rem;
+      line-height:1.56;
+    }
+
+    .ai-media__frame{
+      border-radius:18px;
+    }
+
+    .ai-media--video .ai-media__frame,
+    .ai-media__embed{
+      border-radius:10px;
+    }
+
+    .ai-ed-divider{
+      width:100%;
+      max-width:var(--ai-mobile-copy-rail);
+      min-height:0;
+      margin:26px auto 18px;
+      padding-top:0;
+      display:block;
+    }
+
+    .ai-ed-divider__blob{
+      position:relative;
+      width:min(76vw, 250px);
+      margin:0 auto 10px;
+      left:auto !important;
+      right:auto !important;
+      top:auto;
+    }
+
+    .ai-ed-divider__title,
+    .ai-ed-divider--left .ai-ed-divider__title,
+    .ai-ed-divider--right .ai-ed-divider__title{
+      width:auto;
+      margin:0;
+      padding-top:0;
+      max-width:11ch;
+      font-size:1.85rem;
+      text-align:left;
+    }
+
+    .ai-ed-panel{
+      margin:36px auto;
+      padding:24px 22px;
+      border-radius:22px;
+    }
+
+    .ai-ed-panel h3{
+      font-size:1.55rem;
+    }
+
+    .ai-ed-panel p{
+      font-size:.98rem;
+      line-height:1.56;
+    }
+
+    .ai-ed-cta{
+      text-align:left;
+    }
+
+    .ai-footer-wedge{
+      height:86px;
+    }
+
+    .ai-footer-wedge__shape{
+      clip-path:polygon(
+        0 100%,
+        0 88%,
+        33% 52%,
+        100% 88%,
+        100% 100%
+      );
+    }
+
+    .footer{
+      padding-top:38px !important;
+    }
+
+    .footer .footer__risk{
+      padding-left:0 !important;
+    }
+  }
+
+@media (max-width:759px){
+
+  .ai-ed-divider{
+    overflow:visible !important;
+    margin:0 auto 18px !important;
+  }
+
+  .ai-ed-divider__blob{
+    position:relative !important;
+    width:300px !important;
+    height:300px !important;
+    margin:0 !important;
+  }
+
+  .ai-ed-divider__blob::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    background:var(--ai-yellow) !important;
+    transform:translate(-130px, 80px) !important;
+  }
+
+  .ai-ed-divider__title,
+  .ai-ed-divider--left .ai-ed-divider__title,
+  .ai-ed-divider--right .ai-ed-divider__title{
+    position:relative;
+    z-index:2;
+
+    /* KEY CHANGES */
+    margin:-140px 0 0 0 !important;   /* ← pull UP hard into blob */
+    max-width:16ch !important;        /* ← wider, less “stacky” */
+
+    padding-top:0 !important;
+    text-align:left !important;
+
+    font-size:1.95rem;
+    line-height:.95;
+  }
+
+}
+
+@media (max-width:759px){
+
+  .ai-ed-divider__blob--pink::before{
+    background:var(--ai-pink) !important;
+  }
+
+  .ai-ed-divider__blob--teal::before{
+    background:var(--ai-teal) !important;
+  }
+
+}
+
+/* =========================================================
+   EDITORIAL SYSTEM ADD-ON
+   cleaned consolidation pass
+   ========================================================= */
+
+/* =========================================================
+   TYPE SAFETY
+   ========================================================= */
+
+.ai-editorial h1,
+.ai-editorial h2,
+.ai-editorial h3,
+.ai-editorial h4,
+.ai-editorial h5{
+  font-family:var(--ai-serif);
+  font-weight:600;
+  letter-spacing:-.03em;
+  color:var(--ai-ink);
+}
+
+.ai-card__eyebrow,
+.ai-compare__label,
+.ai-toc__meta,
+.ai-btn,
+.ai-jumpbar__link{
+  font-family:var(--ai-ui);
+}
+
+.ai-compare__heading{
+  font-family:var(--ai-serif);
+}
+
+.ai-lino{
+  display:none !important;
+}
+
+/* =========================================================
+   SHARED SUPPORTING TEXT
+   ========================================================= */
+
+.ai-inline-note{
+  margin:14px 0 0;
+  font-size:.92rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.72);
+}
+
+.ai-footnote{
+  margin:12px 0 0;
+  font-size:.88rem;
+  line-height:1.5;
+  color:rgba(38,38,37,.72);
+}
+
+.ai-dev-slot{
+  margin:22px 0;
+  padding:16px 18px;
+  border:1.5px dashed rgba(38,38,37,.18);
+  border-radius:18px;
+  background:rgba(239,181,42,.08);
+  color:var(--ai-text);
+  font-family:var(--ai-ui);
+  font-size:.92rem;
+  line-height:1.45;
+}
+
+.ai-dev-slot strong{
+  color:var(--ai-ink);
+}
+
+.ai-fine-print{
+  margin-top:22px;
+  font-size:.82rem;
+  line-height:1.6;
+  color:rgba(38,38,37,.72);
+}
+
+/* =========================================================
+   CAPTIONS / MEDIA TIDY
+   ========================================================= */
+
+.ai-media__frame{
+  background:#e5e1dc;
+}
+
+.ai-media--video .ai-media__frame{
+  background:#111;
+}
+
+.ai-media__caption{
+  margin-top:12px;
+  max-width:min(100%, 680px);
+  padding-left:14px;
+  border-left:2px solid rgba(38,38,37,.10);
+  font-family:var(--ai-sans);
+  font-size:.82rem;
+  line-height:1.5;
+  color:rgba(38,38,37,.68);
+}
+
+/* =========================================================
+   BLOB / DECORATIVE UTILITIES
+   ========================================================= */
+
+.ai-card--with-blob{
+  position:relative;
+  overflow:visible;
+}
+
+.ai-card--with-blob::after{
+  content:"";
+  position:absolute;
+  top:-36px;
+  right:-36px;
+  width:150px;
+  height:135px;
+  opacity:.16;
+  background:var(--ai-teal);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-card--blob-anchor,
+.ai-slab--blob-anchor,
+.ai-navcard--blob-anchor,
+.ai-riskcard--blob-anchor,
+.ai-ctacard--blob-anchor{
+  position:relative;
+  overflow:visible;
+  z-index:1;
+}
+
+.ai-card--blob-anchor::before,
+.ai-slab--blob-anchor::before,
+.ai-navcard--blob-anchor::before,
+.ai-riskcard--blob-anchor::before,
+.ai-ctacard--blob-anchor::before{
+  content:"";
+  position:absolute;
+  top:-42px;
+  right:-42px;
+  width:180px;
+  height:160px;
+  z-index:-1;
+  background:var(--ai-teal);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-card--blob-anchor.ai-card--blob-anchor-pink::before,
+.ai-slab--blob-anchor.ai-slab--blob-anchor-pink::before,
+.ai-navcard--blob-anchor.ai-navcard--blob-anchor-pink::before,
+.ai-riskcard--blob-anchor.ai-riskcard--blob-anchor-pink::before,
+.ai-ctacard--blob-anchor.ai-ctacard--blob-anchor-pink::before{
+  background:var(--ai-pink);
+}
+
+.ai-card--blob-anchor.ai-card--blob-anchor-yellow::before,
+.ai-slab--blob-anchor.ai-slab--blob-anchor-yellow::before,
+.ai-navcard--blob-anchor.ai-navcard--blob-anchor-yellow::before,
+.ai-riskcard--blob-anchor.ai-riskcard--blob-anchor-yellow::before,
+.ai-ctacard--blob-anchor.ai-ctacard--blob-anchor-yellow::before{
+  background:var(--ai-yellow);
+}
+
+/* =========================================================
+   EYEBROW COLOUR SYSTEM
+   ========================================================= */
+
+.ai-card__eyebrow{
+  display:inline-block;
+  margin:0 0 10px;
+  padding:5px 10px;
+  border-radius:999px;
+  background:rgba(0,164,182,.10);
+  color:#07828f;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.01em;
+}
+
+.ai-card__eyebrow--compare{
+  background:rgba(0,164,182,.12);
+  color:#07828f;
+}
+
+.ai-card__eyebrow--risk{
+  background:rgba(226,109,166,.12);
+  color:#a93f77;
+}
+
+.ai-card__eyebrow--data{
+  background:rgba(239,181,42,.16);
+  color:#8d6707;
+}
+
+/* =========================================================
+   BULLETS — BLOB MASK LANGUAGE
+   ========================================================= */
+
+.ai-ed-copy ul{
+  list-style:none;
+  padding:0;
+  margin:4px 0 0;
+}
+
+.ai-ed-copy li{
+  position:relative;
+  padding-left:1.5rem;
+}
+
+.ai-ed-copy li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.78em;
+  width:10px;
+  height:8px;
+  transform:translateY(-50%);
+  background:var(--ai-pink);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-ed-copy ol{
+  counter-reset:ai-ol;
+  list-style:none;
+  padding:0;
+  margin:4px 0 0;
+  width:min(100%, var(--ai-editorial-copy));
+}
+
+.ai-ed-copy ol li{
+  counter-increment:ai-ol;
+  position:relative;
+  padding-left:2.2rem;
+}
+
+.ai-ed-copy ol li::before{
+  content:counter(ai-ol) ".";
+  position:absolute;
+  left:0;
+  top:0;
+  width:auto;
+  height:auto;
+  background:none;
+  transform:none;
+  font-family:var(--ai-sans);
+  font-size:1.03rem;
+  line-height:1.68;
+  color:var(--ai-text);
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+
+.ai-ed-copy ol li::after{
+  content:"";
+  position:absolute;
+  left:1.15rem;
+  top:.82em;
+  width:9px;
+  height:7px;
+  transform:translateY(-50%);
+  background:var(--ai-pink);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-compare__list,
+.ai-procon__list,
+.ai-fit__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.ai-compare__list li,
+.ai-procon__list li,
+.ai-fit__list li{
+  position:relative;
+  padding-left:18px;
+}
+
+.ai-compare__list li::before,
+.ai-procon__list li::before,
+.ai-fit__list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.82em;
+  width:9px;
+  height:7px;
+  transform:translateY(-50%);
+  background:var(--ai-pink);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-compare__list li{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-top:1px solid rgba(38,38,37,.08);
+  line-height:1.55;
+}
+
+.ai-compare__list li:first-child{
+  border-top:0;
+  padding-top:0;
+}
+
+.ai-compare__list li:first-child::before{
+  top:.42em;
+}
+
+.ai-procon__list li,
+.ai-fit__list li{
+  margin:0 0 10px;
+}
+
+.ai-procon__list li:last-child,
+.ai-fit__list li:last-child{
+  margin-bottom:0;
+}
+
+/* =========================================================
+   DECISION SUPPORT
+   ========================================================= */
+
+.ai-decision{
+  margin:26px 0 34px;
+}
+
+.ai-decision > * + *{
+  margin-top:18px;
+}
+
+.ai-card{
+  border:1.5px solid rgba(38,38,37,.12);
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.05);
+}
+
+.ai-card__inner{
+  padding:24px 24px 22px;
+}
+
+.ai-card__title{
+  margin:0 0 10px;
+  font-size:clamp(1.25rem,2vw,1.55rem);
+  line-height:1.15;
+}
+
+.ai-card__intro{
+  margin:0;
+}
+
+/* compare */
+
+.ai-compare{
+  overflow:hidden;
+}
+
+.ai-compare__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid rgba(38,38,37,.10);
+}
+
+.ai-compare__col{
+  padding:22px 24px 24px;
+}
+
+.ai-compare__col + .ai-compare__col{
+  border-left:1px solid rgba(38,38,37,.10);
+}
+
+.ai-compare__label{
+  margin:0 0 12px;
+  font-size:.78rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.62);
+}
+
+.ai-compare__heading{
+  display:block;
+  margin:0 0 12px;
+  font-size:1.15rem;
+  line-height:1.18;
+}
+
+.ai-compare__note{
+  margin:0;
+  padding:16px 24px 20px;
+  border-top:1px solid rgba(38,38,37,.10);
+  font-size:.95rem;
+  color:rgba(38,38,37,.78);
+}
+
+/* pro/con */
+
+.ai-procon{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.ai-procon__col{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  padding:20px 20px 18px;
+  background:#fff;
+}
+
+.ai-procon__col--pros{
+  background:rgba(0,164,182,.06);
+}
+
+.ai-procon__col--cons{
+  background:rgba(226,109,166,.06);
+}
+
+.ai-procon__title{
+  display:block;
+  margin:0 0 12px;
+  font-size:1.02rem;
+  line-height:1.2;
+}
+
+/* fit */
+
+.ai-fit{
+  overflow:hidden;
+}
+
+.ai-fit__top{
+  padding:24px 24px 18px;
+}
+
+.ai-fit__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid rgba(38,38,37,.10);
+}
+
+.ai-fit__pane{
+  padding:20px 24px 22px;
+}
+
+.ai-fit__pane + .ai-fit__pane{
+  border-left:1px solid rgba(38,38,37,.10);
+}
+
+.ai-fit__pane--yes{
+  background:rgba(0,164,182,.04);
+}
+
+.ai-fit__pane--no{
+  background:rgba(226,109,166,.05);
+}
+
+.ai-fit__heading{
+  display:block;
+  margin:0 0 12px;
+  font-size:1rem;
+  line-height:1.2;
+}
+
+.ai-fit__footer{
+  padding:16px 24px 22px;
+  border-top:1px solid rgba(38,38,37,.10);
+  font-size:.95rem;
+  color:rgba(38,38,37,.78);
+}
+
+/* faq */
+
+.ai-faq{
+  display:grid;
+  gap:12px;
+}
+
+.ai-faq__item{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:18px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.ai-faq__item summary{
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+  padding:18px 52px 18px 18px;
+  font-family:var(--ai-ui);
+  font-weight:700;
+  line-height:1.4;
+}
+
+.ai-faq__item summary::-webkit-details-marker{
+  display:none;
+}
+
+.ai-faq__item summary::after{
+  content:"+";
+  position:absolute;
+  right:18px;
+  top:50%;
+  width:22px;
+  height:18px;
+  transform:translateY(-50%);
+  background:rgba(239,181,42,.18);
+  color:transparent;
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-faq__item[open] summary::after{
+  color:transparent;
+}
+
+.ai-faq__answer{
+  padding:0 18px 18px;
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.ai-faq__answer p{
+  margin:14px 0 0;
+}
+
+/* =========================================================
+   DATA / FINANCIAL
+   ========================================================= */
+
+.ai-data{
+  margin:26px 0 34px;
+}
+
+.ai-data > * + *{
+  margin-top:18px;
+}
+
+.ai-slab{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.ai-slab__inner{
+  padding:22px 22px 20px;
+}
+
+.ai-slab__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.ai-slab__intro{
+  margin:0;
+}
+
+/* stats */
+
+.ai-stats{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:14px;
+}
+
+.ai-stat{
+  padding:18px 16px 18px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:22px;
+  background:#faf8f8;
+  box-shadow:none;
+}
+
+.ai-stat:nth-child(1){ background:#f8d9e8; }
+.ai-stat:nth-child(2){ background:#dff4f6; }
+.ai-stat:nth-child(3){ background:#f6e7c8; }
+.ai-stat:nth-child(4){ background:#f3edf9; }
+
+.ai-stat__label{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin:0 0 10px;
+  font-size:.78rem;
+  line-height:1.28;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:rgba(38,38,37,.72);
+}
+
+.ai-stat__value{
+  margin:0 0 8px;
+  font-family:var(--ai-serif);
+  font-weight:600;
+  font-size:clamp(1.55rem,2vw,2rem);
+  line-height:.96;
+  letter-spacing:-.03em;
+  color:var(--ai-ink);
+}
+
+.ai-stat__note{
+  margin:0;
+  font-size:.95rem;
+  line-height:1.52;
+  color:rgba(38,38,37,.78);
+}
+
+/* table */
+
+.ai-table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.ai-table{
+  width:100%;
+  min-width:560px;
+  border-collapse:separate;
+  border-spacing:0;
+  font-size:.96rem;
+  line-height:1.45;
+}
+
+.ai-table th,
+.ai-table td{
+  padding:14px;
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid rgba(38,38,37,.08);
+}
+
+.ai-table thead th{
+  font-family:var(--ai-ui);
+  font-size:.76rem;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:rgba(38,38,37,.64);
+  background:rgba(248,245,247,.7);
+}
+
+.ai-table tbody tr:first-child td{
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.ai-table tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.ai-table__muted{
+  color:rgba(38,38,37,.68);
+}
+
+.ai-table__strong{
+  font-family:var(--ai-ui);
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+/* glossary */
+
+.ai-glossary{
+  display:grid;
+  gap:12px;
+}
+
+.ai-glossary__item{
+  padding:16px 18px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fffdfa;
+}
+
+.ai-glossary__term{
+  margin:0 0 6px;
+  font-family:var(--ai-ui);
+  font-size:.95rem;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+.ai-glossary__def{
+  margin:0;
+  color:rgba(38,38,37,.82);
+}
+
+/* details */
+
+.ai-details{
+  display:grid;
+  gap:12px;
+}
+
+.ai-details__item{
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.ai-details__item summary{
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+  padding:16px 48px 16px 18px;
+  font-family:var(--ai-ui);
+  font-size:.95rem;
+  line-height:1.35;
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+.ai-details__item summary::-webkit-details-marker{
+  display:none;
+}
+
+.ai-details__item summary::after{
+  content:"+";
+  position:absolute;
+  right:16px;
+  top:50%;
+  width:22px;
+  height:18px;
+  transform:translateY(-50%);
+  background:rgba(0,164,182,.15);
+  color:transparent;
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-details__item[open] summary::after{
+  color:transparent;
+}
+
+.ai-details__body{
+  padding:0 18px 18px;
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.ai-details__body > *:first-child{
+  margin-top:14px;
+}
+
+.ai-details__body > *:last-child{
+  margin-bottom:0;
+}
+
+/* investment insert */
+
+.ai-invest-insert{
+  overflow:hidden;
+}
+
+.ai-invest-insert__row{
+  display:grid;
+  grid-template-columns:128px minmax(0,1fr) auto;
+  align-items:center;
+  gap:20px;
+}
+
+.ai-invest-insert__media{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:128px;
+  height:128px;
+  border-radius:24px;
+  background:var(--ai-invest-bg, #724795);
+  overflow:hidden;
+}
+
+.ai-invest-insert__media::before{
+  content:"";
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  width:34px;
+  height:34px;
+  background:rgba(255,255,255,.16);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-invest-insert__logo{
+  position:relative;
+  z-index:1;
+  width:min(100%, 82px);
+  max-height:64px;
+  object-fit:contain;
+}
+
+.ai-invest-insert__body{
+  min-width:0;
+}
+
+.ai-invest-insert__kicker{
+  display:inline-block;
+  margin:0 0 7px;
+  font-family:var(--ai-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ai-pink);
+}
+
+.ai-invest-insert__title{
+  margin:0 0 8px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.02;
+}
+
+.ai-invest-insert__desc{
+  margin:0 0 10px;
+  max-width:42ch;
+}
+
+.ai-invest-insert__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  font-family:var(--ai-ui);
+  font-size:.8rem;
+  line-height:1.35;
+  color:var(--ai-text);
+}
+
+.ai-invest-insert__pill{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.ai-invest-insert__pill::after{
+  content:"·";
+  margin:0 10px;
+  color:rgba(38,38,37,.34);
+}
+
+.ai-invest-insert__pill:last-child::after{
+  display:none;
+}
+
+.ai-invest-insert__pill--rate{ color:#b24e82; }
+.ai-invest-insert__pill--term{ color:#207f8e; }
+.ai-invest-insert__pill--capital{ color:#a87509; }
+
+.ai-invest-insert__cta{
+  align-self:center;
+}
+
+.ai-invest-insert__cta .ai-btn{
+  white-space:nowrap;
+}
+
+/* =========================================================
+   NAV / READING AIDS
+   ========================================================= */
+
+.ai-navzone{
+  margin:26px 0 34px;
+}
+
+.ai-navzone > * + *{
+  margin-top:18px;
+}
+
+.ai-navcard{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.ai-navcard__inner{
+  padding:22px 22px 20px;
+}
+
+.ai-navcard__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.ai-navcard__intro{
+  margin:0;
+}
+
+.ai-toc{
+  display:grid;
+  gap:10px;
+}
+
+.ai-toc__link{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:16px;
+  background:#fffdfa;
+  text-decoration:none;
+  color:var(--ai-ink);
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.ai-toc__link:hover{
+  transform:translateY(-1px);
+  border-color:rgba(226,109,166,.34);
+  background:#fff;
+}
+
+.ai-toc__label{
+  font-family:var(--ai-ui);
+  font-size:.96rem;
+  line-height:1.4;
+  font-weight:700;
+}
+
+.ai-toc__meta{
+  flex:0 0 auto;
+  font-size:.76rem;
+  line-height:1.2;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.54);
+  margin-top:2px;
+}
+
+.ai-jumpbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.ai-jumpbar__link{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:10px 14px;
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:999px;
+  background:#fff;
+  text-decoration:none;
+  font-size:.84rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--ai-text);
+  transition:border-color .18s ease, background .18s ease, color .18s ease;
+}
+
+.ai-jumpbar__link:hover{
+  border-color:rgba(0,164,182,.38);
+  background:rgba(0,164,182,.06);
+  color:var(--ai-ink);
+}
+
+.ai-related{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:14px;
+}
+
+.ai-related__card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:18px 18px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fff;
+  text-decoration:none;
+  color:inherit;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.ai-related__card:hover{
+  transform:translateY(-1px);
+  border-color:rgba(114,71,149,.28);
+  box-shadow:0 10px 24px rgba(38,38,37,.06);
+}
+
+.ai-related__type{
+  display:inline-block;
+  margin:0 0 10px;
+  font-family:var(--ai-ui);
+  font-size:.72rem;
+  line-height:1;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:#724795;
+}
+
+.ai-related__title{
+  display:block;
+  margin:0 0 8px;
+  font-size:1.08rem;
+  line-height:1.14;
+}
+
+.ai-related__desc{
+  margin:0 0 14px;
+  font-size:.94rem;
+  line-height:1.48;
+  color:rgba(38,38,37,.78);
+}
+
+.ai-related__cta{
+  margin-top:auto;
+  font-family:var(--ai-ui);
+  font-size:.82rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--ai-pink);
+}
+
+.ai-backtop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:18px 20px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#faf8f8;
+}
+
+.ai-backtop__copy{
+  min-width:0;
+}
+
+.ai-backtop__title{
+  margin:0 0 4px;
+  font-family:var(--ai-ui);
+  font-size:.96rem;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+.ai-backtop__text{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.45;
+  color:rgba(38,38,37,.74);
+}
+
+.ai-backtop__link{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1.5px solid rgba(38,38,37,.10);
+  background:#fff;
+  text-decoration:none;
+  font-family:var(--ai-ui);
+  font-size:.84rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+.ai-backtop__link:hover{
+  border-color:rgba(226,109,166,.34);
+  color:var(--ai-pink);
+}
+
+/* =========================================================
+   RISK / LEGAL
+   ========================================================= */
+
+.ai-riskzone{
+  margin:26px 0 34px;
+}
+
+.ai-riskzone > * + *{
+  margin-top:18px;
+}
+
+.ai-riskcard{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.ai-riskcard__inner{
+  padding:22px 22px 20px;
+}
+
+.ai-riskcard__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.ai-riskcard__intro{
+  margin:0;
+}
+
+.ai-risk-primary{
+  overflow:hidden;
+}
+
+.ai-risk-primary__band{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px 22px;
+  border-top:1px solid rgba(38,38,37,.08);
+  background:rgba(226,109,166,.08);
+}
+
+.ai-risk-primary__icon{
+  flex:0 0 auto;
+  width:34px;
+  height:26px;
+  display:grid;
+  place-items:center;
+  background:rgba(226,109,166,.16);
+  color:#8f3d69;
+  font-family:var(--ai-ui);
+  font-size:1rem;
+  font-weight:700;
+  line-height:1;
+  clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
+}
+
+.ai-risk-primary__body{
+  min-width:0;
+}
+
+.ai-risk-primary__headline{
+  margin:0 0 6px;
+  font-family:var(--ai-ui);
+  font-size:1rem;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+.ai-risk-primary__text{
+  margin:0;
+  color:rgba(38,38,37,.82);
+}
+
+.ai-warning{
+  display:grid;
+  gap:12px;
+}
+
+.ai-warning__item{
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  padding:14px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:16px;
+  background:#fffdfa;
+}
+
+.ai-warning__mark{
+  width:30px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  background:rgba(239,181,42,.22);
+  color:#7c5b0a;
+  font-family:var(--ai-ui);
+  font-size:.88rem;
+  font-weight:700;
+  line-height:1;
+  clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
+}
+
+.ai-warning__title{
+  margin:0 0 4px;
+  font-family:var(--ai-ui);
+  font-size:.94rem;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+.ai-warning__text{
+  margin:0;
+  font-size:.94rem;
+  line-height:1.48;
+  color:rgba(38,38,37,.78);
+}
+
+.ai-inline-disclaimer{
+  margin:18px 0 0;
+  padding:14px 16px;
+  border-left:4px solid rgba(226,109,166,.7);
+  background:rgba(248,245,247,.72);
+  border-radius:0 14px 14px 0;
+  font-size:.92rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.8);
+}
+
+.ai-inline-disclaimer strong{
+  color:var(--ai-ink);
+}
+
+.ai-legalnotes{
+  display:grid;
+  gap:10px;
+}
+
+.ai-legalnotes__row{
+  padding:14px 16px;
+  border:1px solid rgba(38,38,37,.08);
+  border-radius:14px;
+  background:#faf8f6;
+}
+
+.ai-legalnotes__label{
+  display:block;
+  margin:0 0 5px;
+  font-family:var(--ai-ui);
+  font-size:.74rem;
+  line-height:1.1;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.58);
+}
+
+.ai-legalnotes__text{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.72);
+}
+
+.ai-legalnotes__text a{
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:2px;
+}
+
+/* =========================================================
+   CTA PATTERNS
+   ========================================================= */
+
+.ai-ctazone{
+  margin:26px 0 34px;
+}
+
+.ai-ctazone > * + *{
+  margin-top:18px;
+}
+
+.ai-ctacard{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.ai-ctacard__inner{
+  padding:22px 22px 20px;
+}
+
+.ai-ctacard__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.ai-ctacard__intro{
+  margin:0;
+}
+
+.ai-inline-cta{
+  color:var(--ai-pink);
+  font-family:var(--ai-ui);
+  font-weight:700;
+  text-decoration:none;
+  border-bottom:1px solid rgba(226,109,166,.35);
+  transition:border-color .18s ease, color .18s ease;
+}
+
+.ai-inline-cta:hover{
+  color:#b24e82;
+  border-color:#b24e82;
+}
+
+.ai-panel-cta{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  padding:20px 22px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#faf8f8;
+}
+
+.ai-panel-cta__copy{
+  min-width:0;
+}
+
+.ai-panel-cta__kicker{
+  display:inline-block;
+  margin:0 0 8px;
+  font-family:var(--ai-ui);
+  font-size:.74rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#b24e82;
+}
+
+.ai-panel-cta__title{
+  margin:0 0 6px;
+  font-size:1.12rem;
+  line-height:1.16;
+}
+
+.ai-panel-cta__text{
+  margin:0;
+  color:rgba(38,38,37,.78);
+}
+
+.ai-panel-cta__action{
+  flex:0 0 auto;
+}
+
+.ai-end-cta{
+  overflow:hidden;
+}
+
+.ai-end-cta__band{
+  padding:22px 22px 24px;
+  border-top:1px solid rgba(38,38,37,.08);
+  background:#f3f9fa;
+}
+
+.ai-end-cta__title{
+  display:block;
+  margin:0 0 8px;
+  font-size:clamp(1.3rem,2vw,1.6rem);
+  line-height:1.08;
+}
+
+.ai-end-cta__text{
+  margin:0;
+  max-width:44ch;
+  color:rgba(38,38,37,.8);
+}
+
+.ai-end-cta__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+
+.ai-nextstep{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  padding:20px 22px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fffdfa;
+}
+
+.ai-nextstep__copy{
+  min-width:0;
+}
+
+.ai-nextstep__label{
+  display:inline-block;
+  margin:0 0 7px;
+  font-family:var(--ai-ui);
+  font-size:.74rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#724795;
+}
+
+.ai-nextstep__title{
+  margin:0 0 6px;
+  font-size:1.08rem;
+  line-height:1.16;
+}
+
+.ai-nextstep__text{
+  margin:0;
+  color:rgba(38,38,37,.78);
+}
+
+.ai-nextstep__meta{
+  margin-top:10px;
+  font-family:var(--ai-ui);
+  font-size:.82rem;
+  line-height:1.35;
+  color:rgba(38,38,37,.62);
+}
+
+.ai-nextstep__action{
+  flex:0 0 auto;
+}
+
+.ai-cta-list{
+  display:grid;
+  gap:12px;
+}
+
+.ai-cta-list__row{
+  padding:14px 16px;
+  border:1px solid rgba(38,38,37,.08);
+  border-radius:14px;
+  background:#faf8f6;
+}
+
+.ai-cta-list__title{
+  margin:0 0 4px;
+  font-family:var(--ai-ui);
+  font-size:.92rem;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--ai-ink);
+}
+
+.ai-cta-list__text{
+  margin:0;
+  font-size:.9rem;
+  line-height:1.5;
+  color:rgba(38,38,37,.74);
+}
+
+/* =========================================================
+   LEFT ILLUSTRATED TOP BLOB
+   ========================================================= */
+
+.ai-ed-illus-top{
+  position:relative;
+  width:min(100%, 980px);
+  height:250px;
+  margin:18px auto -62px;
+  pointer-events:none;
+}
+
+.ai-ed-illus-top__blob{
+  position:absolute;
+  left:-34px;
+  top:0;
+  width:360px;
+  aspect-ratio:1 / 1;
+}
+
+.ai-ed-illus-top__blob::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:var(--ai-pink);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-ed-illus-top__blob--teal::before{
+  background:var(--ai-teal);
+}
+
+.ai-ed-illus-top__blob--yellow::before{
+  background:var(--ai-yellow);
+}
+
+.ai-ed-illus-top__lino{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
+  width:68%;
+  max-width:260px;
+  height:auto;
+  object-fit:contain;
+  opacity:.9;
+  pointer-events:none;
+  transform:translate(-50%, -56%);
+}
+
+.ai-ed-section--illus-overlap{
+  position:relative;
+}
+
+.ai-ed-section--illus-overlap .ai-ed-rail{
+  position:relative;
+  z-index:3;
+}
+
+.ai-ed-section--illus-overlap .ai-ed-copy > h3:first-child{
+  position:relative;
+  margin-top:110px;
+  margin-left:0;
+  margin-bottom:18px;
+  max-width:18ch;
+  transform:none;
+}
+
+/* =========================================================
+   RHS DECORATIVE LINO SPACER
+   ========================================================= */
+
+.ai-ed-rhs-lino-spacer{
+  position:relative;
+  width:min(100%, 980px);
+  height:180px;
+  margin:18px auto -42px;
+  pointer-events:none;
+}
+
+.ai-ed-rhs-lino-spacer__blob{
+  position:absolute;
+  top:-8px;
+  right:-52px;
+  width:360px;
+  aspect-ratio:1 / 1;
+}
+
+.ai-ed-rhs-lino-spacer__blob::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:var(--ai-teal);
+  -webkit-mask-image:var(--ai-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--ai-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.ai-ed-rhs-lino-spacer__blob--pink::before{
+  background:var(--ai-pink);
+}
+
+.ai-ed-rhs-lino-spacer__blob--yellow::before{
+  background:var(--ai-yellow);
+}
+
+.ai-ed-rhs-lino-spacer__lino{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
+  width:52%;
+  max-width:180px;
+  height:auto;
+  object-fit:contain;
+  opacity:.92;
+  display:block;
+  transform:translate(-50%, -52%);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width:979px){
+  .ai-stats{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .ai-invest-insert__row{
+    grid-template-columns:112px minmax(0,1fr);
+  }
+
+  .ai-invest-insert__cta{
+    grid-column:2;
+  }
+
+  .ai-invest-insert__media{
+    width:112px;
+    height:112px;
+    border-radius:22px;
+  }
+
+  .ai-invest-insert__logo{
+    width:min(100%, 74px);
+    max-height:58px;
+  }
+
+  .ai-related{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:759px){
+  .ai-media__caption{
+    padding-left:12px;
+    font-size:.78rem;
+    line-height:1.48;
+  }
+
+  .ai-card__inner,
+  .ai-compare__col,
+  .ai-fit__top,
+  .ai-fit__pane,
+  .ai-fit__footer,
+  .ai-slab__inner,
+  .ai-navcard__inner,
+  .ai-riskcard__inner,
+  .ai-ctacard__inner{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .ai-slab__inner,
+  .ai-navcard__inner,
+  .ai-riskcard__inner,
+  .ai-ctacard__inner{
+    padding-top:18px;
+    padding-bottom:17px;
+  }
+
+  .ai-compare__grid,
+  .ai-procon,
+  .ai-fit__grid{
+    grid-template-columns:1fr;
+  }
+
+  .ai-compare__col + .ai-compare__col,
+  .ai-fit__pane + .ai-fit__pane{
+    border-left:0;
+    border-top:1px solid rgba(38,38,37,.10);
+  }
+
+  .ai-stats{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .ai-stat{
+    border-radius:20px;
+    padding:16px 15px 16px;
+  }
+
+  .ai-stat__label{
+    font-size:.74rem;
+    gap:6px;
+  }
+
+  .ai-stat__value{
+    font-size:1.7rem;
+  }
+
+  .ai-stat__note{
+    font-size:.92rem;
+    line-height:1.48;
+  }
+
+  .ai-table{
+    min-width:520px;
+    font-size:.92rem;
+  }
+
+  .ai-invest-insert__row{
+    grid-template-columns:96px minmax(0,1fr);
+    gap:14px;
+    align-items:start;
+  }
+
+  .ai-invest-insert__media{
+    width:96px;
+    height:96px;
+    border-radius:20px;
+  }
+
+  .ai-invest-insert__media::before{
+    width:28px;
+    height:28px;
+  }
+
+  .ai-invest-insert__logo{
+    width:min(100%, 62px);
+    max-height:48px;
+  }
+
+  .ai-invest-insert__title{
+    font-size:1.22rem;
+  }
+
+  .ai-invest-insert__desc{
+    max-width:none;
+    font-size:.92rem;
+    line-height:1.42;
+  }
+
+  .ai-invest-insert__meta{
+    display:block;
+    font-size:.76rem;
+    line-height:1.42;
+  }
+
+  .ai-invest-insert__pill{
+    display:inline;
+    white-space:normal;
+  }
+
+  .ai-invest-insert__pill::after{
+    display:inline;
+    margin:0 8px;
+  }
+
+  .ai-invest-insert__cta{
+    grid-column:1 / -1;
+    margin-top:2px;
+  }
+
+  .ai-toc__link{
+    padding:13px 14px;
+  }
+
+  .ai-toc__label{
+    font-size:.92rem;
+  }
+
+  .ai-backtop{
+    display:block;
+  }
+
+  .ai-backtop__link{
+    margin-top:12px;
+  }
+
+  .ai-risk-primary__band{
+    padding:16px 18px;
+    gap:12px;
+  }
+
+  .ai-risk-primary__icon{
+    font-size:.92rem;
+  }
+
+  .ai-warning__item{
+    grid-template-columns:24px minmax(0,1fr);
+    gap:10px;
+    padding:13px 14px;
+  }
+
+  .ai-warning__mark{
+    font-size:.8rem;
+  }
+
+  .ai-panel-cta,
+  .ai-nextstep{
+    grid-template-columns:1fr;
+    gap:14px;
+    padding:18px;
+  }
+
+  .ai-end-cta__band{
+    padding:18px 18px 20px;
+  }
+
+  .ai-end-cta__actions{
+    display:grid;
+    gap:10px;
+  }
+
+  .ai-card--blob-anchor::before,
+  .ai-slab--blob-anchor::before,
+  .ai-navcard--blob-anchor::before,
+  .ai-riskcard--blob-anchor::before,
+  .ai-ctacard--blob-anchor::before,
+  .ai-card--with-blob::after{
+    top:-24px;
+    right:-18px;
+    width:120px;
+    height:108px;
+  }
+
+  .ai-ed-illus-top{
+    width:100%;
+    max-width:var(--ai-mobile-copy-rail);
+    height:210px;
+    margin:8px auto -44px;
+  }
+
+  .ai-ed-illus-top__blob{
+    left:-28px;
+    width:300px;
+  }
+
+  .ai-ed-illus-top__lino{
+    width:50%;
+    max-width:none;
+    transform:translate(-50%, -56%);
+  }
+
+  .ai-ed-section--illus-overlap .ai-ed-copy > h3:first-child{
+    margin-top:48px;
+    margin-left:0;
+    max-width:12ch;
+    transform:none;
+  }
+
+  .ai-ed-rhs-lino-spacer{
+    width:100%;
+    max-width:var(--ai-mobile-copy-rail);
+    height:120px;
+    margin:10px auto -24px;
+  }
+
+  .ai-ed-rhs-lino-spacer__blob{
+    top:0;
+    right:-28px;
+    width:300px;
+    height:300px;
+  }
+
+  .ai-ed-rhs-lino-spacer__lino{
+    width:50%;
+    max-width:none;
+    transform:translate(-50%, -52%);
+  }
+}
+
+</style>
+
+
+
+<div class="ai-editorial" id="top">
+  <div class="ai-editorial__wrap">
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="ai-ed-hero">
+      <div class="ai-ed-hero__copy">
+        <h1 class="ai-ed-hero__title">How local investment can fund visible change</h1>
+        <p class="ai-ed-hero__intro">
+          This is a working editorial playground page for the Abundance v2 long-form system.
+          It is designed to test reusable content components across articles, explainers,
+          council pages and decision-support content without breaking reading flow.
+        </p>
+
+        <div class="ai-ed-hero__actions">
+          <a class="ai-btn" href="#start-here">Start reading</a>
+          <a class="ai-btn ai-btn--secondary" href="#decision-support">Jump to decision support</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         INTRO DIVIDER
+         ========================================================= -->
+    <section class="ai-ed-divider ai-ed-divider--left ai-ed-divider--intro" aria-hidden="true">
+      <div class="ai-ed-divider__blob"></div>
+      <h2 class="ai-ed-divider__title">A calmer way to explain financial choices</h2>
+    </section>
+
+    <!-- =========================================================
+         INTRO COPY
+         ========================================================= -->
+    <section class="ai-ed-section" id="start-here">
+      <div class="ai-ed-rail ai-ed-copy">
+        <p>
+          Editorial pages often need to do more than present information. They need to help a reader
+          understand what something is, why it matters, what the risks are, and what to do next.
+          This test page gives us one place to trial those building blocks inside a consistent reading experience.
+        </p>
+
+        <p>
+          The aim is not to mimic a landing page. It is to support long-form reading with components that
+          feel native to an article: clear, well-spaced, informative and easy to insert between paragraphs,
+          media and section breaks.
+        </p>
+
+        <ul>
+          <li>Use this page to test article components in one continuous flow</li>
+          <li>Swap placeholder copy for live content later</li>
+          <li>Insert future modules where marked without restructuring the page</li>
+        </ul>
+
+        <figure class="ai-media ai-media--image">
+          <div class="ai-media__frame">
+            <img src="https://shareinmicrosite.blob.core.windows.net/abundance/60837d49-e6e9-4a92-bdb6-63bba7d20e6d.jpg" alt="Example editorial image with illustration overlay" />
+          </div>
+          <figcaption class="ai-media__caption">
+            Example caption: use media blocks to support the reading flow rather than interrupt it.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="ai-ed-band ai-ed-band--teal-fall ai-ed-band--tight" aria-hidden="true"></div>
+
+    <!-- =========================================================
+         PANEL CTA / KEY MESSAGE
+         ========================================================= -->
+    <div class="ai-ed-band ai-ed-band--yellow-right ai-ed-band--loose" aria-hidden="true"></div>
+
+    <section class="ai-ed-panel ai-ed-panel--lino">
+      <div class="ai-ed-panel__inner">
+        <h3>A reusable editorial panel can carry a key message</h3>
+        <p>
+          This area is useful for summaries, supporting context, or a soft CTA that sits within the article
+          rather than breaking away into a campaign block.
+        </p>
+        <a class="ai-btn" href="#cta-zone">See CTA examples</a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: ARTICLE BODY / SUBSECTIONS
+         ========================================================= -->
+    <section class="ai-ed-divider ai-ed-divider--right" aria-hidden="true">
+      <div class="ai-ed-divider__blob ai-ed-divider__blob--teal"></div>
+      <h2 class="ai-ed-divider__title">Article body, subsections and supporting media</h2>
+    </section>
+
+    <section class="ai-ed-section">
+      <div class="ai-ed-rail ai-ed-copy">
+        <h3>Subsection heading example</h3>
+
+        <p>
+          This subsection is here to test hierarchy inside the main rail. It should work for ordinary article
+          copy, but also for council pages and explainers where the user needs a clear sense of progression.
+        </p>
+
+        <p>
+          Financial and civic content often benefits from supportive structure: short subheads, well-contained
+          lists, and occasional callouts that help people scan before they commit to reading in full.
+        </p>
+
+        <ol>
+          <li>Start with what the product or concept is</li>
+          <li>Explain how it works in practice</li>
+          <li>Set out risks, trade-offs and next steps clearly</li>
+        </ol>
+
+        <figure class="ai-media ai-media--video">
+          <div class="ai-media__frame">
+            <div class="ai-media__embed">
+              <iframe
+                src="https://www.youtube.com/embed/n3u5jmgtlhs"
+                title="Placeholder editorial video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <figcaption class="ai-media__caption">
+            Example caption: embedded media should still feel like part of the article.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LINO CUT / SECTION BREAK TEST
+         ========================================================= -->
+    <div class="ai-ed-illus-top" aria-hidden="true">
+  <div class="ai-ed-illus-top__blob ai-ed-illus-top__blob--pink">
+    <img
+      class="ai-ed-illus-top__lino"
+      src="https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+      alt=""
+    />
+  </div>
+</div>
+
+<section class="ai-ed-section ai-ed-section--illus-overlap">
+  <div class="ai-ed-rail ai-ed-copy">
+    <h3>Illustration-led section break</h3>
+
+    <p>
+      This is a useful zone for testing the lino cut layer. It can work as a textural editorial device
+      between sections, especially when paired with shorter copy or a thematic transition.
+    </p>
+
+    <p>
+      In later iterations we can test whether smaller lino cuts should sit inline with text, beside
+      definition lists, or as part of related-content and decision-support blocks.
+    </p>
+  </div>
+</section>
+
+    <section class="ai-ed-section">
+      <div class="ai-ed-rail ai-ed-copy">
+        <p>
+          This is a useful zone for testing the lino cut layer. It can work as a textural editorial device
+          between sections, especially when paired with shorter copy or a thematic transition.
+        </p>
+
+        <figure class="ai-media ai-media--image">
+          <div class="ai-media__frame">
+            <img src="https://shareinmicrosite.blob.core.windows.net/abundance/d3394a82-712b-4b5d-b059-be8384d2d092.png" alt="Large lino cut illustration example" />
+          </div>
+          <figcaption class="ai-media__caption">
+            Placeholder lino cut image block for testing scale, spacing and rhythm.
+          </figcaption>
+        </figure>
+
+        <p>
+          In later iterations we can test whether smaller lino cuts should sit inline with text, beside
+          definition lists, or as part of related-content and decision-support blocks.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DECISION SUPPORT PLACEHOLDER ZONE
+         ========================================================= -->
+    <div class="ai-ed-rhs-lino-spacer" aria-hidden="true">
+  <div class="ai-ed-rhs-lino-spacer__blob ai-ed-rhs-lino-spacer__blob--teal">
+    <img
+      class="ai-ed-rhs-lino-spacer__lino"
+      src="https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png"
+      alt=""
+    />
+  </div>
+</div>
+
+    <section class="ai-ed-section">
+      <div class="ai-ed-rail ai-ed-copy">
+        <div class="ai-decision">
+
+          <!-- =========================================
+               1. COMPARISON BLOCK
+               ========================================= -->
+          <section class="ai-card ai-compare ai-card--with-blob">
+            <div class="ai-card__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--compare">Comparison</p>
+              <h3 class="ai-card__title">Two ways to approach the same outcome</h3>
+              <p class="ai-card__intro">
+                Some readers want control over individual choices. Others want a more regular, lower-effort route.
+                This block helps explain the difference without shifting out of editorial mode.
+              </p>
+            </div>
+
+            <div class="ai-compare__grid">
+              <div class="ai-compare__col">
+                <p class="ai-compare__label">Option one</p>
+                <h4 class="ai-compare__heading">
+                  <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                  Choose individual investments
+                </h4>
+                <ul class="ai-compare__list">
+                  <li>You can select specific offers that match your interests</li>
+                  <li>You see each investment as a separate decision</li>
+                  <li>This may suit readers who value visibility and choice</li>
+                  <li>It can take more active comparison and decision-making</li>
+                </ul>
+              </div>
+
+              <div class="ai-compare__col">
+                <p class="ai-compare__label">Option two</p>
+                <h4 class="ai-compare__heading">
+                  <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                  Use a regular investing route
+                </h4>
+                <ul class="ai-compare__list">
+                  <li>You make one initial choice, then contribute on a repeating basis</li>
+                  <li>The process can feel simpler and easier to maintain</li>
+                  <li>This may suit readers who prefer convenience over active selection</li>
+                  <li>You may feel less connected to each individual underlying choice</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="ai-compare__note">
+              Useful for explainers, gateway pages, and any point where a reader needs help understanding two legitimate paths rather than a “right answer”.
+            </p>
+          </section>
+
+          <!-- =========================================
+               2. PROS / CONS
+               ========================================= -->
+          <section class="ai-card">
+            <div class="ai-card__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--compare">Pros and cons</p>
+              <h3 class="ai-card__title">What a reader might value — and where they may hesitate</h3>
+              <p class="ai-card__intro">
+                This pattern is good for trade-offs, especially where the user needs reassurance that the page is being balanced and honest.
+              </p>
+            </div>
+
+            <div class="ai-card__inner" style="padding-top:0;">
+              <div class="ai-procon">
+                <div class="ai-procon__col ai-procon__col--pros">
+                  <h4 class="ai-procon__title">
+                    <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                    Potential advantages
+                  </h4>
+                  <ul class="ai-procon__list">
+                    <li>Can make a financial product feel more understandable</li>
+                    <li>Useful when local impact is part of the decision</li>
+                    <li>Supports scanning for readers who are short on time</li>
+                    <li>Can sit naturally within longer-form guidance content</li>
+                  </ul>
+                </div>
+
+                <div class="ai-procon__col ai-procon__col--cons">
+                  <h4 class="ai-procon__title">
+                    <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                    Things to think about
+                  </h4>
+                  <ul class="ai-procon__list">
+                    <li>Readers may still need definitions or examples nearby</li>
+                    <li>Trade-offs should not be oversimplified</li>
+                    <li>Risk information may need its own supporting block</li>
+                    <li>It works best when paired with next-step guidance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. IS THIS RIGHT FOR YOU?
+               ========================================= -->
+          <section class="ai-card ai-fit">
+            <div class="ai-fit__top">
+              <p class="ai-card__eyebrow ai-card__eyebrow--compare">Self-selection</p>
+              <h3 class="ai-card__title">Is this right for you?</h3>
+              <p class="ai-card__intro">
+                This component helps readers decide whether to continue, without forcing the answer.
+                It is especially useful on product explainers and high-intent educational pages.
+              </p>
+            </div>
+
+            <div class="ai-fit__grid">
+              <div class="ai-fit__pane ai-fit__pane--yes">
+                <h4 class="ai-fit__heading">May suit you if…</h4>
+                <ul class="ai-fit__list">
+                  <li>You want a clearer link between your money and real-world outcomes</li>
+                  <li>You are comfortable reading a little more before making a decision</li>
+                  <li>You value structure, explanation and visible next steps</li>
+                  <li>You are comparing more than one possible route</li>
+                </ul>
+              </div>
+
+              <div class="ai-fit__pane ai-fit__pane--no">
+                <h4 class="ai-fit__heading">May be less suitable if…</h4>
+                <ul class="ai-fit__list">
+                  <li>You want to make a decision with minimal reading or comparison</li>
+                  <li>You are looking for a product with no investment risk</li>
+                  <li>You prefer highly short-term access to your money</li>
+                  <li>You need certainty rather than a balance of return and impact</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="ai-fit__footer">
+              This works well just before a CTA, because it helps the reader identify themselves before deciding what to do next.
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. FAQ / ACCORDION
+               ========================================= -->
+          <section class="ai-card">
+            <div class="ai-card__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--compare">FAQ</p>
+              <h3 class="ai-card__title">Common questions</h3>
+              <p class="ai-card__intro">
+                A compact accordion is useful when the page needs to answer practical objections without overloading the main narrative.
+              </p>
+            </div>
+
+            <div class="ai-card__inner" style="padding-top:0;">
+              <div class="ai-faq">
+                <details class="ai-faq__item">
+                  <summary>How is this different from an ordinary savings account?</summary>
+                  <div class="ai-faq__answer">
+                    <p>
+                      A savings account is typically designed around capital security and access. An investment product usually involves different risk, return and time-horizon considerations.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="ai-faq__item">
+                  <summary>Do I need to understand every financial term before continuing?</summary>
+                  <div class="ai-faq__answer">
+                    <p>
+                      Not necessarily. This system can pair FAQs with glossary or definition blocks so readers can get the level of explanation they need without leaving the page.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="ai-faq__item">
+                  <summary>Where should risk information sit in relation to these components?</summary>
+                  <div class="ai-faq__answer">
+                    <p>
+                      Usually adjacent to the decision-support area or just before a CTA. It should feel easy to find, not buried beneath promotional copy.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="ai-faq__item">
+                  <summary>Can these components also work on council and explainer pages?</summary>
+                  <div class="ai-faq__answer">
+                    <p>
+                      Yes. They are designed as insertable editorial blocks, so they can sit inside articles, explainers, place-based pages and decision-support content without changing the page’s overall rhythm.
+                    </p>
+                  </div>
+                </details>
+              </div>
+
+              <p class="ai-inline-note">
+                Note: if your CMS has awkward default styling for <code>details</code> or <code>summary</code>, we can harden this component further in the next pass.
+              </p>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DATA / FINANCIAL INFO PLACEHOLDER ZONE
+         ========================================================= -->
+    <div class="ai-ed-band ai-ed-band--yellow-right ai-ed-band--loose" aria-hidden="true"></div>
+
+    <section class="ai-ed-divider ai-ed-divider--left" aria-hidden="true" id="data-zone">
+      <div class="ai-ed-divider__blob"></div>
+      <h2 class="ai-ed-divider__title">Data, terms and financial detail</h2>
+    </section>
+
+    <section class="ai-ed-section">
+      <div class="ai-ed-rail ai-ed-copy">
+        <div class="ai-data">
+
+          <!-- =========================================
+               1. KEY STATS LIST
+               ========================================= -->
+          <section class="ai-slab">
+            <div class="ai-slab__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--data">Key stats</p>
+              <h3 class="ai-slab__title">A quick view of the numbers</h3>
+              <p class="ai-slab__intro">
+                A compact stats block helps readers get the practical shape of an offer or topic before they read in more detail.
+              </p>
+            </div>
+
+            <div class="ai-slab__inner" style="padding-top:0;">
+              <div class="ai-stats">
+                <div class="ai-stat">
+                  <p class="ai-stat__label">
+                    <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                    Rate of return
+                  </p>
+                  <p class="ai-stat__value">4.2%</p>
+                  <p class="ai-stat__note">Fixed yearly return for the example offer shown here.</p>
+                </div>
+
+                <div class="ai-stat">
+                  <p class="ai-stat__label">Term length</p>
+                  <p class="ai-stat__value">5 yrs</p>
+                  <p class="ai-stat__note">Useful for setting time-horizon expectations early.</p>
+                </div>
+
+                <div class="ai-stat">
+                  <p class="ai-stat__label">Minimum investment</p>
+                  <p class="ai-stat__value">£5</p>
+                  <p class="ai-stat__note">A small threshold can reduce perceived barriers to entry.</p>
+                </div>
+
+                <div class="ai-stat">
+                  <p class="ai-stat__label">
+                    <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                    Capital repayment
+                  </p>
+                  <p class="ai-stat__value">6m</p>
+                  <p class="ai-stat__note">Shorthand here can sit alongside a fuller explanation below.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. SIMPLE TABLE
+               ========================================= -->
+          <section class="ai-slab">
+            <div class="ai-slab__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--data">Table</p>
+              <h3 class="ai-slab__title">Simple terms comparison</h3>
+              <p class="ai-slab__intro">
+                This is useful where readers need a clearer side-by-side understanding of two or three routes.
+              </p>
+            </div>
+
+            <div class="ai-slab__inner" style="padding-top:0;">
+              <div class="ai-table-wrap">
+                <table class="ai-table">
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Return</th>
+                      <th>Term</th>
+                      <th>Capital</th>
+                      <th>Best for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="ai-table__strong">Individual investment</td>
+                      <td>4.2% a year</td>
+                      <td>5 years</td>
+                      <td>At maturity</td>
+                      <td class="ai-table__muted">Readers who want visibility and choice</td>
+                    </tr>
+                    <tr>
+                      <td class="ai-table__strong">Regular investing route</td>
+                      <td>Varies</td>
+                      <td>Ongoing</td>
+                      <td class="ai-table__muted">Depends on underlying investments</td>
+                      <td class="ai-table__muted">Readers who prefer convenience</td>
+                    </tr>
+                    <tr>
+                      <td class="ai-table__strong">Cash savings</td>
+                      <td>Varies</td>
+                      <td>Flexible</td>
+                      <td>Usually accessible</td>
+                      <td class="ai-table__muted">Readers prioritising short-term access</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="ai-footnote">
+                Example only. This block is for visual testing rather than live product disclosure.
+              </p>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. GLOSSARY / DEFINITION LIST
+               ========================================= -->
+          <section class="ai-slab">
+            <div class="ai-slab__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--data">Glossary</p>
+              <h3 class="ai-slab__title">Plain-language financial definitions</h3>
+              <p class="ai-slab__intro">
+                This can sit beside FAQs and decision-support blocks to stop the reader hitting jargon walls.
+              </p>
+            </div>
+
+            <div class="ai-slab__inner" style="padding-top:0;">
+              <dl class="ai-glossary">
+                <div class="ai-glossary__item">
+                  <dt class="ai-glossary__term">Rate of return</dt>
+                  <dd class="ai-glossary__def">
+                    The amount an investment is expected to pay over time, usually shown as a yearly percentage.
+                  </dd>
+                </div>
+
+                <div class="ai-glossary__item">
+                  <dt class="ai-glossary__term">Capital at risk</dt>
+                  <dd class="ai-glossary__def">
+                    A reminder that the money invested is not guaranteed and could be worth less than the amount put in.
+                  </dd>
+                </div>
+
+                <div class="ai-glossary__item">
+                  <dt class="ai-glossary__term">Term length</dt>
+                  <dd class="ai-glossary__def">
+                    The period over which the investment is intended to run before final repayment.
+                  </dd>
+                </div>
+
+                <div class="ai-glossary__item">
+                  <dt class="ai-glossary__term">Capital repayment</dt>
+                  <dd class="ai-glossary__def">
+                    How and when the original amount invested is returned — for example gradually or at the end of the term.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. EXPANDABLE DETAILS
+               ========================================= -->
+          <section class="ai-slab">
+            <div class="ai-slab__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--data">Expandable detail</p>
+              <h3 class="ai-slab__title">More detail without overloading the main page</h3>
+              <p class="ai-slab__intro">
+                Useful for additional practical explanation, worked examples or edge-case information.
+              </p>
+            </div>
+
+            <div class="ai-slab__inner" style="padding-top:0;">
+              <div class="ai-details">
+                <details class="ai-details__item">
+                  <summary>How might repayments work in practice?</summary>
+                  <div class="ai-details__body">
+                    <p>
+                      Some investments return capital only at the end of the term, while others return part of the capital at set intervals during the life of the investment.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="ai-details__item">
+                  <summary>Why do term and liquidity need to be explained separately?</summary>
+                  <div class="ai-details__body">
+                    <p>
+                      A product can have a fixed term and still differ in how easily an investor can access their money before that term ends. Readers often conflate these ideas.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="ai-details__item">
+                  <summary>When should this component be used instead of an FAQ?</summary>
+                  <div class="ai-details__body">
+                    <p>
+                      Use expandable detail when the content is supplementary depth, rather than a common objection or direct question the majority of readers are likely to have.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               5. EDITORIAL OPEN INVESTMENT TILE
+               ========================================= -->
+          <section class="ai-slab ai-invest-insert" style="--ai-invest-bg:#724795;">
+            <div class="ai-slab__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--data">Related opportunity</p>
+              <h3 class="ai-slab__title">An editorial-context version of the open investment tile</h3>
+              <p class="ai-slab__intro">
+                This adapts the homepage tile language into a contained article insert, so it can sit inside a council page or explainer without becoming a full browse module.
+              </p>
+            </div>
+
+            <div class="ai-slab__inner" style="padding-top:0;">
+              <article class="ai-invest-insert__row ai-card--with-blob">
+                <div class="ai-invest-insert__media">
+                  <img
+                    class="ai-invest-insert__logo"
+                    src="https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+                    alt="Example investment or council logo"
+                  />
+                </div>
+
+                <div class="ai-invest-insert__body">
+                  <div class="ai-invest-insert__kicker">Open now</div>
+                  <h4 class="ai-invest-insert__title">Green infrastructure investment</h4>
+                  <p class="ai-invest-insert__desc">
+                    A contained tile pattern for placing a live or related opportunity inside editorial content.
+                  </p>
+
+                  <div class="ai-invest-insert__meta">
+                    <span class="ai-invest-insert__pill ai-invest-insert__pill--rate">4.2% a year</span>
+                    <span class="ai-invest-insert__pill ai-invest-insert__pill--term">5 year term</span>
+                    <span class="ai-invest-insert__pill ai-invest-insert__pill--capital">Capital at maturity</span>
+                  </div>
+                </div>
+
+                <div class="ai-invest-insert__cta">
+                  <a class="ai-btn ai-btn--secondary" href="/invest-now">View investment</a>
+                </div>
+              </article>
+
+              <p class="ai-footnote">
+                Later we can wire this into the live loan endpoint, or create a compact multi-card version if editorial pages need more than one related offer.
+              </p>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         NAVIGATION / READING AIDS PLACEHOLDER ZONE
+         ========================================================= -->
+    <div class="ai-ed-band ai-ed-band--yellow-right ai-ed-band--tight" aria-hidden="true"></div>
+
+    <section class="ai-ed-divider ai-ed-divider--right" aria-hidden="true">
+      <div class="ai-ed-divider__blob ai-ed-divider__blob--teal"></div>
+      <h2 class="ai-ed-divider__title">Reading aids and navigation</h2>
+    </section>
+
+    <section class="ai-ed-section">
+      <div class="ai-ed-rail ai-ed-copy">
+        <div class="ai-navzone">
+
+          <!-- =========================================
+               1. TABLE OF CONTENTS
+               ========================================= -->
+          <section class="ai-navcard">
+            <div class="ai-navcard__inner">
+              <p class="ai-card__eyebrow">Contents</p>
+              <h3 class="ai-navcard__title">A simple table of contents for long pages</h3>
+              <p class="ai-navcard__intro">
+                This gives readers a quick sense of page structure and lets them jump to the part that matters most to them.
+              </p>
+            </div>
+
+            <div class="ai-navcard__inner" style="padding-top:0;">
+              <nav class="ai-toc" aria-label="Table of contents">
+                <a class="ai-toc__link" href="#start-here">
+                  <span class="ai-toc__label">Introduction and page purpose</span>
+                  <span class="ai-toc__meta">Intro</span>
+                </a>
+
+                <a class="ai-toc__link" href="#decision-support">
+                  <span class="ai-toc__label">Decision support components</span>
+                  <span class="ai-toc__meta">Guide</span>
+                </a>
+
+                <a class="ai-toc__link" href="#data-zone">
+                  <span class="ai-toc__label">Data, terms and financial detail</span>
+                  <span class="ai-toc__meta">Detail</span>
+                </a>
+
+                <a class="ai-toc__link" href="#risk-zone">
+                  <span class="ai-toc__label">Risk, legal and fine print</span>
+                  <span class="ai-toc__meta">Important</span>
+                </a>
+
+                <a class="ai-toc__link" href="#cta-zone">
+                  <span class="ai-toc__label">Editorial CTA patterns</span>
+                  <span class="ai-toc__meta">Next step</span>
+                </a>
+              </nav>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. JUMP LINK ROW
+               ========================================= -->
+          <section class="ai-navcard">
+            <div class="ai-navcard__inner">
+              <p class="ai-card__eyebrow">Jump links</p>
+              <h3 class="ai-navcard__title">A lighter-weight navigation pattern</h3>
+              <p class="ai-navcard__intro">
+                This is useful when a full contents list feels too formal, but the page still benefits from a little orientation.
+              </p>
+            </div>
+
+            <div class="ai-navcard__inner" style="padding-top:0;">
+              <nav class="ai-jumpbar" aria-label="Jump links">
+                <a class="ai-jumpbar__link" href="#start-here">Overview</a>
+                <a class="ai-jumpbar__link" href="#decision-support">Decision support</a>
+                <a class="ai-jumpbar__link" href="#data-zone">Data &amp; terms</a>
+                <a class="ai-jumpbar__link" href="#risk-zone">Risk info</a>
+                <a class="ai-jumpbar__link" href="#cta-zone">Next step</a>
+              </nav>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. RELATED CONTENT
+               ========================================= -->
+          <section class="ai-navcard">
+            <div class="ai-navcard__inner">
+              <p class="ai-card__eyebrow">Related content</p>
+              <h3 class="ai-navcard__title">Helpful follow-on reading</h3>
+              <p class="ai-navcard__intro">
+                This pattern works well near the end of an article, or mid-page where readers may want adjacent explainers.
+              </p>
+            </div>
+
+            <div class="ai-navcard__inner" style="padding-top:0;">
+              <div class="ai-related">
+                <a class="ai-related__card" href="/invest-now">
+                  <span class="ai-related__type">Guide</span>
+                  <h4 class="ai-related__title">
+                    <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                    How the investment process works
+                  </h4>
+                  <p class="ai-related__desc">
+                    A practical walkthrough for readers who want to understand the steps before they continue.
+                  </p>
+                  <span class="ai-related__cta">Read more</span>
+                </a>
+
+                <a class="ai-related__card" href="/impact">
+                  <span class="ai-related__type">Explainer</span>
+                  <h4 class="ai-related__title">What local impact can look like in practice</h4>
+                  <p class="ai-related__desc">
+                    An example of how supportive editorial content can connect the financial decision to visible outcomes.
+                  </p>
+                  <span class="ai-related__cta">Explore article</span>
+                </a>
+
+                <a class="ai-related__card" href="/about">
+                  <span class="ai-related__type">FAQ</span>
+                  <h4 class="ai-related__title">Common questions about risk, return and time horizon</h4>
+                  <p class="ai-related__desc">
+                    A nearby content route for readers who still need reassurance or practical clarification.
+                  </p>
+                  <span class="ai-related__cta">View FAQs</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. BACK TO TOP
+               ========================================= -->
+          <section class="ai-navcard">
+            <div class="ai-navcard__inner" style="padding-top:18px;">
+              <div class="ai-backtop">
+                <div class="ai-backtop__copy">
+                  <h3 class="ai-backtop__title">Back to the top of the article</h3>
+                  <p class="ai-backtop__text">
+                    A small utility block that works well near the bottom of long pages, especially once more modules are in play.
+                  </p>
+                </div>
+
+                <a class="ai-backtop__link" href="#top">Back to top</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LEGAL / RISK PLACEHOLDER ZONE
+         ========================================================= -->
+    <section class="ai-ed-divider ai-ed-divider--left" aria-hidden="true" id="risk-zone">
+      <div class="ai-ed-divider__blob ai-ed-divider__blob--pink"></div>
+      <h2 class="ai-ed-divider__title">Risk, legal and fine print patterns</h2>
+    </section>
+
+    <section class="ai-ed-section">
+      <div class="ai-ed-rail ai-ed-copy">
+        <div class="ai-riskzone">
+
+          <!-- =========================================
+               1. PRIMARY RISK DISCLOSURE
+               ========================================= -->
+          <section class="ai-riskcard ai-risk-primary">
+            <div class="ai-riskcard__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--risk">Risk disclosure</p>
+              <h3 class="ai-riskcard__title">A prominent but in-family way to state the key risk message</h3>
+              <p class="ai-riskcard__intro">
+                This is the main risk pattern for pages where the caution needs to be easy to see without visually overwhelming the rest of the article.
+              </p>
+            </div>
+
+            <div class="ai-risk-primary__band">
+              <div class="ai-risk-primary__icon">!</div>
+              <div class="ai-risk-primary__body">
+                <p class="ai-risk-primary__headline">Capital is at risk and returns are not guaranteed</p>
+                <p class="ai-risk-primary__text">
+                  The value of investments can go down as well as up, and readers should understand the product, time horizon and risks before deciding what to do.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. WARNING PANEL / CHECKLIST
+               ========================================= -->
+          <section class="ai-riskcard">
+            <div class="ai-riskcard__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--risk">Important to check</p>
+              <h3 class="ai-riskcard__title">A checklist-style warning panel</h3>
+              <p class="ai-riskcard__intro">
+                This version is useful when the page needs to highlight several cautionary factors rather than one headline statement.
+              </p>
+            </div>
+
+            <div class="ai-riskcard__inner" style="padding-top:0;">
+              <div class="ai-warning">
+                <div class="ai-warning__item">
+                  <div class="ai-warning__mark">1</div>
+                  <div>
+                    <p class="ai-warning__title">Time horizon matters</p>
+                    <p class="ai-warning__text">
+                      Some investment products are designed to be held over a fixed period, which may not suit readers who need quick access to their money.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="ai-warning__item">
+                  <div class="ai-warning__mark">2</div>
+                  <div>
+                    <p class="ai-warning__title">Risk and return should be read together</p>
+                    <p class="ai-warning__text">
+                      A higher quoted return may be meaningful only when understood alongside the level of risk and the conditions attached to the offer.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="ai-warning__item">
+                  <div class="ai-warning__mark">3</div>
+                  <div>
+                    <p class="ai-warning__title">Readers may need the full offer document</p>
+                    <p class="ai-warning__text">
+                      Editorial pages can explain and guide, but some decisions still require the reader to consult the detailed product documentation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. INLINE DISCLAIMER TREATMENT
+               ========================================= -->
+          <section class="ai-riskcard">
+            <div class="ai-riskcard__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--risk">Inline disclaimer</p>
+              <h3 class="ai-riskcard__title">A lighter treatment for caution within body flow</h3>
+              <p class="ai-riskcard__intro">
+                This pattern works well when a paragraph or claim needs a nearby qualification without becoming a full separate warning module.
+              </p>
+
+              <div class="ai-inline-disclaimer">
+                <strong>Example disclaimer:</strong> Any quoted return, term or repayment approach shown on this page is illustrative here and should not be read as a live offer unless clearly stated elsewhere on the page.
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. FINE PRINT / LEGAL NOTES
+               ========================================= -->
+          <section class="ai-riskcard">
+            <div class="ai-riskcard__inner">
+              <p class="ai-card__eyebrow ai-card__eyebrow--risk">Fine print</p>
+              <h3 class="ai-riskcard__title">Small-print styling that still feels readable</h3>
+              <p class="ai-riskcard__intro">
+                This gives you a way to present supporting legal or practical notes without dropping into a harsh or overly compressed style.
+              </p>
+            </div>
+
+            <div class="ai-riskcard__inner" style="padding-top:0;">
+              <div class="ai-legalnotes">
+                <div class="ai-legalnotes__row">
+                  <span class="ai-legalnotes__label">Illustrative content</span>
+                  <p class="ai-legalnotes__text">
+                    All figures, time horizons and descriptions shown in this playground are placeholders for layout testing only.
+                  </p>
+                </div>
+
+                <div class="ai-legalnotes__row">
+                  <span class="ai-legalnotes__label">Documentation</span>
+                  <p class="ai-legalnotes__text">
+                    In a live context, this area could point readers toward offer documents, terms, FAQs or a risk summary page.
+                  </p>
+                </div>
+
+                <div class="ai-legalnotes__row">
+                  <span class="ai-legalnotes__label">Links</span>
+                  <p class="ai-legalnotes__text">
+                    You can include lower-emphasis supporting links here, such as <a href="/about">how it works</a> or <a href="/invest-now">further investment information</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CTA ZONE
+         ========================================================= -->
+    <div class="ai-ed-band ai-ed-band--teal-fall ai-ed-band--loose" aria-hidden="true"></div>
+
+    <section class="ai-ed-divider ai-ed-divider--right" aria-hidden="true" id="cta-zone">
+      <div class="ai-ed-divider__blob ai-ed-divider__blob--teal"></div>
+      <h2 class="ai-ed-divider__title">Editorial CTA patterns</h2>
+    </section>
+
+    <section class="ai-ed-section">
+      <div class="ai-ed-rail ai-ed-copy">
+        <div class="ai-ctazone">
+
+          <!-- =========================================
+               1. INLINE CTA
+               ========================================= -->
+          <section class="ai-ctacard">
+            <div class="ai-ctacard__inner">
+              <p class="ai-card__eyebrow">Inline CTA</p>
+              <h3 class="ai-ctacard__title">A link treatment that can live naturally within article copy</h3>
+              <p class="ai-ctacard__intro">
+                This is useful when the page needs a soft next step inside the reading flow, such as
+                <a class="ai-inline-cta" href="/invest-now">exploring current investments</a>
+                or moving into a more practical explainer.
+              </p>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. PANEL CTA
+               ========================================= -->
+          <section class="ai-ctacard">
+            <div class="ai-ctacard__inner">
+              <p class="ai-card__eyebrow">Panel CTA</p>
+              <h3 class="ai-ctacard__title">A contained CTA that still feels editorial</h3>
+              <p class="ai-ctacard__intro">
+                This format is useful mid-page when the reader has enough context to act, but the page should not shift fully into campaign mode.
+              </p>
+            </div>
+
+            <div class="ai-ctacard__inner" style="padding-top:0;">
+              <div class="ai-panel-cta">
+                <div class="ai-panel-cta__copy">
+                  <span class="ai-panel-cta__kicker">Ready for the next step?</span>
+                  <h4 class="ai-panel-cta__title">See what open opportunities look like right now</h4>
+                  <p class="ai-panel-cta__text">
+                    A useful bridge between long-form explanation and a more practical browse or action page.
+                  </p>
+                </div>
+
+                <div class="ai-panel-cta__action">
+                  <a class="ai-btn" href="/invest-now">Explore now</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. END OF ARTICLE CTA
+               ========================================= -->
+          <section class="ai-ctacard ai-end-cta">
+            <div class="ai-ctacard__inner">
+              <p class="ai-card__eyebrow">End of article</p>
+              <h3 class="ai-ctacard__title">A stronger finish once the reader reaches the end</h3>
+              <p class="ai-ctacard__intro">
+                This should feel like a natural continuation of the article rather than a hard visual break into a sales module.
+              </p>
+            </div>
+
+            <div class="ai-end-cta__band">
+              <h3 class="ai-end-cta__title">
+                <span class="ai-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                Take the next step when you’re ready
+              </h3>
+              <p class="ai-end-cta__text">
+                Readers who have made it this far often want either practical detail or a route into action. This block can offer both without overcomplicating the choice.
+              </p>
+
+              <div class="ai-end-cta__actions">
+                <a class="ai-btn" href="/invest-now">View investments</a>
+                <a class="ai-btn ai-btn--secondary" href="/about">Read how it works</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. NEXT STEP BLOCK
+               ========================================= -->
+          <section class="ai-ctacard">
+            <div class="ai-ctacard__inner">
+              <p class="ai-card__eyebrow">Next step</p>
+              <h3 class="ai-ctacard__title">A directional block for readers who need one clear route</h3>
+              <p class="ai-ctacard__intro">
+                This is useful where the content naturally funnels toward one recommended follow-on action.
+              </p>
+            </div>
+
+            <div class="ai-ctacard__inner" style="padding-top:0;">
+              <div class="ai-nextstep">
+                <div class="ai-nextstep__copy">
+                  <span class="ai-nextstep__label">Recommended next step</span>
+                  <h4 class="ai-nextstep__title">Compare current investment options</h4>
+                  <p class="ai-nextstep__text">
+                    A good option for readers who understand the concept and now want to look at the practical opportunities available.
+                  </p>
+                  <div class="ai-nextstep__meta">
+                    Best used near the end of an explainer, FAQ page or council article.
+                  </div>
+                </div>
+
+                <div class="ai-nextstep__action">
+                  <a class="ai-btn ai-btn--secondary" href="/invest-now">Go to opportunities</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               5. SUPPORTING CTA NOTES
+               ========================================= -->
+          <section class="ai-ctacard">
+            <div class="ai-ctacard__inner">
+              <p class="ai-card__eyebrow">Usage notes</p>
+              <h3 class="ai-ctacard__title">Different CTA strengths for different moments</h3>
+              <p class="ai-ctacard__intro">
+                This final support block helps us test whether the system has enough variation without introducing a second design language.
+              </p>
+            </div>
+
+            <div class="ai-ctacard__inner" style="padding-top:0;">
+              <div class="ai-cta-list">
+                <div class="ai-cta-list__row">
+                  <p class="ai-cta-list__title">Inline CTA</p>
+                  <p class="ai-cta-list__text">Best for low-friction onward movement within body copy.</p>
+                </div>
+
+                <div class="ai-cta-list__row">
+                  <p class="ai-cta-list__title">Panel CTA</p>
+                  <p class="ai-cta-list__text">Best for mid-article moments where the reader may be ready to act.</p>
+                </div>
+
+                <div class="ai-cta-list__row">
+                  <p class="ai-cta-list__title">End-of-article CTA</p>
+                  <p class="ai-cta-list__text">Best for a more conclusive finish with one or two clear onward routes.</p>
+                </div>
+
+                <div class="ai-cta-list__row">
+                  <p class="ai-cta-list__title">Next step block</p>
+                  <p class="ai-cta-list__text">Best when the content should channel the reader toward one recommended follow-on page.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="ai-footer-wedge" aria-hidden="true">
+    <div class="ai-footer-wedge__shape"></div>
+  </div>
+</div>
