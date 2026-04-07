@@ -70,22 +70,22 @@
     var count = hasProjects ? projects.length : 0;
 
     return ''
-      + '<div class="ai-slab__inner ai-egp__top">'
-      +   '<p class="ai-card__eyebrow ai-card__eyebrow--data ai-egp__eyebrow">Green projects</p>'
-      +   '<h3 class="ai-slab__title ai-egp__title">Projects financed</h3>'
-      +   '<p class="ai-slab__intro ai-egp__intro">This is a list of the projects funded by the money raised in this investment, as reported by the council. The council will periodically update Abundance as more of the money is spent on specific projects over time.</p>'
-      +   '<div class="ai-egp__stats">'
-      +     '<div class="ai-egp__stat">'
-      +       '<span class="ai-egp__stat-label">Projects funded</span>'
-      +       '<p class="ai-egp__stat-value">' + count + '</p>'
+      + '<div class="abv2-slab__inner abv2-egp__top">'
+      +   '<p class="abv2-card__eyebrow abv2-card__eyebrow--data abv2-egp__eyebrow">Green projects</p>'
+      +   '<h3 class="abv2-slab__title abv2-egp__title">Projects financed</h3>'
+      +   '<p class="abv2-slab__intro abv2-egp__intro">This is a list of the projects funded by the money raised in this investment, as reported by the council. The council will periodically update Abundance as more of the money is spent on specific projects over time.</p>'
+      +   '<div class="abv2-egp__stats">'
+      +     '<div class="abv2-egp__stat">'
+      +       '<span class="abv2-egp__stat-label">Projects funded</span>'
+      +       '<p class="abv2-egp__stat-value">' + count + '</p>'
       +     '</div>'
-      +     '<div class="ai-egp__stat">'
-      +       '<span class="ai-egp__stat-label">Spent so far</span>'
-      +       '<p class="ai-egp__stat-value">' + spendStr + '</p>'
+      +     '<div class="abv2-egp__stat">'
+      +       '<span class="abv2-egp__stat-label">Spent so far</span>'
+      +       '<p class="abv2-egp__stat-value">' + spendStr + '</p>'
       +     '</div>'
-      +     '<div class="ai-egp__stat">'
-      +       '<span class="ai-egp__stat-label">Left to spend</span>'
-      +       '<p class="ai-egp__stat-value">' + leftStr + '</p>'
+      +     '<div class="abv2-egp__stat">'
+      +       '<span class="abv2-egp__stat-label">Left to spend</span>'
+      +       '<p class="abv2-egp__stat-value">' + leftStr + '</p>'
       +     '</div>'
       +   '</div>'
       + '</div>';
@@ -103,53 +103,53 @@
 
     var rightHtml = '';
     if (spendStr) {
-      rightHtml += '<span class="ai-egp__spend">' + spendStr + '</span>';
+      rightHtml += '<span class="abv2-egp__spend">' + spendStr + '</span>';
     }
     if (progressPct > 0) {
-      rightHtml += '<div class="ai-egp__progress"><div class="ai-egp__progress-fill" style="width:' + progressPct + '%"></div></div>';
+      rightHtml += '<div class="abv2-egp__progress"><div class="abv2-egp__progress-fill" style="width:' + progressPct + '%"></div></div>';
     }
 
     return ''
-      + '<article class="ai-egp__row" data-id="' + escapeHtml(project.id) + '">'
-      +   '<button class="ai-egp__trigger" aria-expanded="false" type="button">'
-      +     '<div class="ai-egp__left">'
-      +       '<span class="ai-egp__category ai-egp__category--' + colour + '">' + category + '</span>'
-      +       '<span class="ai-egp__name">' + projectName + '</span>'
+      + '<article class="abv2-egp__row" data-id="' + escapeHtml(project.id) + '">'
+      +   '<button class="abv2-egp__trigger" aria-expanded="false" type="button">'
+      +     '<div class="abv2-egp__left">'
+      +       '<span class="abv2-egp__category abv2-egp__category--' + colour + '">' + category + '</span>'
+      +       '<span class="abv2-egp__name">' + projectName + '</span>'
       +     '</div>'
-      +     '<div class="ai-egp__right">' + rightHtml + '</div>'
-      +     '<div class="ai-egp__chevron">' + chevronSvg() + '</div>'
+      +     '<div class="abv2-egp__right">' + rightHtml + '</div>'
+      +     '<div class="abv2-egp__chevron">' + chevronSvg() + '</div>'
       +   '</button>'
       +   (f.description
-            ? '<div class="ai-egp__body" hidden><div class="ai-egp__body-inner">' + renderDescription(f.description) + '</div></div>'
+            ? '<div class="abv2-egp__body" hidden><div class="abv2-egp__body-inner">' + renderDescription(f.description) + '</div></div>'
             : '')
       + '</article>';
   }
 
   function renderList(projects) {
     var totalSpend = sumSpend(projects);
-    return '<div class="ai-slab__inner" style="padding-top:18px;"><div class="ai-egp__list">'
+    return '<div class="abv2-slab__inner" style="padding-top:18px;"><div class="abv2-egp__list">'
       + projects.map(function (p) { return renderRow(p, totalSpend); }).join('')
       + '</div></div>';
   }
 
   function renderEmpty() {
     return ''
-      + '<div class="ai-slab__inner" style="padding-top:18px;">'
-      +   '<div class="ai-egp__empty">'
-      +     '<div class="ai-egp__empty-mark">i</div>'
-      +     '<p class="ai-egp__empty-text">The council has not yet reported on the projects financed by this investment. This is not unusual as it can take some time following the close of the investment for the council to confirm exactly which projects it wants to allocate the funding to and report it to Abundance. Check back soon to see any updates from the council.</p>'
+      + '<div class="abv2-slab__inner" style="padding-top:18px;">'
+      +   '<div class="abv2-egp__empty">'
+      +     '<div class="abv2-egp__empty-mark">i</div>'
+      +     '<p class="abv2-egp__empty-text">The council has not yet reported on the projects financed by this investment. This is not unusual as it can take some time following the close of the investment for the council to confirm exactly which projects it wants to allocate the funding to and report it to Abundance. Check back soon to see any updates from the council.</p>'
       +   '</div>'
       + '</div>';
   }
 
   function bindToggle(scope) {
     scope.addEventListener('click', function (e) {
-      var btn = e.target.closest('.ai-egp__trigger');
+      var btn = e.target.closest('.abv2-egp__trigger');
       if (!btn) return;
 
-      var row = btn.closest('.ai-egp__row');
-      var body = row.querySelector('.ai-egp__body');
-      var open = row.classList.toggle('ai-egp__row--open');
+      var row = btn.closest('.abv2-egp__row');
+      var body = row.querySelector('.abv2-egp__body');
+      var open = row.classList.toggle('abv2-egp__row--open');
 
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       if (body) body.hidden = !open;
@@ -158,16 +158,16 @@
 
   function showLoading(scope) {
     scope.innerHTML = ''
-      + '<div class="ai-slab ai-egp__card ai-slab--blob-anchor">'
-      +   '<div class="ai-slab__inner">'
-      +     '<p class="ai-card__eyebrow ai-card__eyebrow--data">Green projects</p>'
-      +     '<h3 class="ai-slab__title">Projects financed</h3>'
+      + '<div class="abv2-slab abv2-egp__card abv2-slab--blob-anchor">'
+      +   '<div class="abv2-slab__inner">'
+      +     '<p class="abv2-card__eyebrow abv2-card__eyebrow--data">Green projects</p>'
+      +     '<h3 class="abv2-slab__title">Projects financed</h3>'
       +   '</div>'
-      +   '<div class="ai-slab__inner" style="padding-top:0;">'
-      +     '<div class="ai-egp__loading">'
-      +       '<div class="ai-egp__loading-item"></div>'
-      +       '<div class="ai-egp__loading-item"></div>'
-      +       '<div class="ai-egp__loading-item"></div>'
+      +   '<div class="abv2-slab__inner" style="padding-top:0;">'
+      +     '<div class="abv2-egp__loading">'
+      +       '<div class="abv2-egp__loading-item"></div>'
+      +       '<div class="abv2-egp__loading-item"></div>'
+      +       '<div class="abv2-egp__loading-item"></div>'
       +     '</div>'
       +   '</div>'
       + '</div>';
@@ -175,14 +175,14 @@
 
   function showError(scope, msg) {
     scope.innerHTML = ''
-      + '<div class="ai-egp__error"><strong>Unable to load projects.</strong> '
+      + '<div class="abv2-egp__error"><strong>Unable to load projects.</strong> '
       + (msg || 'Please try refreshing the page.')
       + '</div>';
   }
 
   function renderWithProjects(scope, projects) {
     scope.innerHTML = ''
-      + '<section class="ai-slab ai-egp__card ai-slab--blob-anchor ai-slab--blob-anchor-yellow">'
+      + '<section class="abv2-slab abv2-egp__card abv2-slab--blob-anchor abv2-slab--blob-anchor-yellow">'
       + renderTop(projects, true)
       + renderList(projects)
       + '</section>';
@@ -191,17 +191,17 @@
 
   function renderEmptyState(scope) {
     scope.innerHTML = ''
-      + '<section class="ai-slab ai-egp__card ai-slab--blob-anchor ai-slab--blob-anchor-yellow">'
+      + '<section class="abv2-slab abv2-egp__card abv2-slab--blob-anchor abv2-slab--blob-anchor-yellow">'
       + renderTop([], false)
       + renderEmpty()
       + '</section>';
   }
 
-  var root = document.getElementById('ai-egp-root');
+  var root = document.getElementById('abv2-egp-root');
   if (!root) return;
 
   var loanId = root.getAttribute('data-loan-id') || '';
-  var scope = root.querySelector('.ai-egp-scope');
+  var scope = root.querySelector('.abv2-egp-scope');
   if (!scope) return;
 
   if (!loanId) {
