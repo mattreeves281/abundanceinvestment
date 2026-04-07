@@ -24,43 +24,43 @@
   }
 
   :root{
-    --ai-bg:#ffffff;
-    --ai-white:#ffffff;
-    --ai-ink:#262625;
-    --ai-text:#4d4a46;
-    --ai-pink:#df73ad;
-    --ai-yellow:#efb52a;
-    --ai-teal:#12a9bb;
-    --ai-editorial-bg:#ffffff;
+    --abv2-bg:#ffffff;
+    --abv2-white:#ffffff;
+    --abv2-ink:#262625;
+    --abv2-text:#4d4a46;
+    --abv2-pink:#df73ad;
+    --abv2-yellow:#efb52a;
+    --abv2-teal:#12a9bb;
+    --abv2-editorial-bg:#ffffff;
 
-    --ai-wrap:1180px;
-    --ai-editorial-rail:760px;
-    --ai-editorial-copy:58ch;
-    --ai-mobile-copy-rail:392px;
+    --abv2-wrap:1180px;
+    --abv2-editorial-rail:760px;
+    --abv2-editorial-copy:58ch;
+    --abv2-mobile-copy-rail:392px;
 
-    --ai-serif:"New Kansas", Georgia, serif;
-    --ai-sans:"Sohne Buch", Arial, sans-serif;
-    --ai-ui:"Sohne Kraftig", Arial, sans-serif;
+    --abv2-serif:"New Kansas", Georgia, serif;
+    --abv2-sans:"Sohne Buch", Arial, sans-serif;
+    --abv2-ui:"Sohne Kraftig", Arial, sans-serif;
 
-    --ai-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
+    --abv2-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
   }
 
   html,
   body{
     overflow-x:hidden;
-    background:var(--ai-editorial-bg);
+    background:var(--abv2-editorial-bg);
   }
 
   body{
     margin:0;
-    color:var(--ai-ink);
-    font-family:var(--ai-sans);
+    color:var(--abv2-ink);
+    font-family:var(--abv2-sans);
   }
 
   .main-content,
   .page-content,
   .content-wrapper{
-    background:var(--ai-editorial-bg) !important;
+    background:var(--abv2-editorial-bg) !important;
   }
 
   /* =========================================================
@@ -144,15 +144,15 @@
   .site-navbar .brand-navbar-nav__parent-item-link{
     padding:10px 0 !important;
     padding-right:0 !important;
-    font-family:var(--ai-ui);
+    font-family:var(--abv2-ui);
     font-size:.9rem;
     line-height:1;
-    color:var(--ai-ink) !important;
+    color:var(--abv2-ink) !important;
     background:none !important;
   }
 
   .site-navbar .brand-navbar-nav__parent-item-link:hover{
-    color:var(--ai-pink) !important;
+    color:var(--abv2-pink) !important;
   }
 
   .site-navbar .brand-navbar-nav__parent-item-link svg,
@@ -184,10 +184,10 @@
     border:0 !important;
     background:transparent !important;
     box-shadow:none !important;
-    font-family:var(--ai-ui) !important;
+    font-family:var(--abv2-ui) !important;
     font-size:.9rem !important;
     line-height:1 !important;
-    color:var(--ai-pink) !important;
+    color:var(--abv2-pink) !important;
     text-decoration:none !important;
   }
 
@@ -197,11 +197,11 @@
     justify-content:center;
     min-height:44px;
     padding:0 22px !important;
-    border:1.8px solid var(--ai-pink) !important;
+    border:1.8px solid var(--abv2-pink) !important;
     border-radius:999px !important;
     background:transparent !important;
-    color:var(--ai-ink) !important;
-    font-family:var(--ai-ui) !important;
+    color:var(--abv2-ink) !important;
+    font-family:var(--abv2-ui) !important;
     font-size:.84rem !important;
     line-height:1 !important;
     box-shadow:none !important;
@@ -211,27 +211,27 @@
      EDITORIAL PAGE
      ========================================================= */
 
-  .ai-editorial,
-  .ai-editorial *{
+  .abv2-editorial,
+  .abv2-editorial *{
     box-sizing:border-box;
   }
 
-  .ai-editorial{
+  .abv2-editorial{
     position:relative;
     overflow:hidden;
-    background:var(--ai-editorial-bg);
-    color:var(--ai-ink);
+    background:var(--abv2-editorial-bg);
+    color:var(--abv2-ink);
   }
 
-  .ai-editorial img{
+  .abv2-editorial img{
     display:block;
     max-width:100%;
     height:auto;
   }
 
-  .ai-editorial__wrap{
+  .abv2-editorial__wrap{
     position:relative;
-    width:min(calc(100% - 40px), var(--ai-wrap));
+    width:min(calc(100% - 40px), var(--abv2-wrap));
     margin:0 auto;
     padding:34px 0 0;
   }
@@ -240,7 +240,7 @@
      HERO
      ========================================================= */
 
-  .ai-ed-hero{
+  .abv2-ed-hero{
     position:relative;
     width:min(100%, 1040px);
     margin:0 auto;
@@ -248,34 +248,34 @@
     overflow:visible;
   }
 
-  .ai-ed-hero__copy{
+  .abv2-ed-hero__copy{
     position:relative;
     z-index:2;
     width:min(100%, 760px);
     margin-left:84px;
   }
 
-  .ai-ed-hero__title{
+  .abv2-ed-hero__title{
     margin:0;
     max-width:14ch;
-    font-family:var(--ai-serif);
+    font-family:var(--abv2-serif);
     font-weight:600;
     letter-spacing:-.035em;
     font-size:clamp(2.7rem, 5.1vw, 4.35rem);
     line-height:.92;
-    color:var(--ai-ink);
+    color:var(--abv2-ink);
   }
 
-  .ai-ed-hero__intro{
+  .abv2-ed-hero__intro{
     margin:26px 0 0;
     max-width:60ch;
-    font-family:var(--ai-sans);
+    font-family:var(--abv2-sans);
     font-size:1.18rem;
     line-height:1.72;
-    color:var(--ai-text);
+    color:var(--abv2-text);
   }
 
-  .ai-ed-hero__actions{
+  .abv2-ed-hero__actions{
     display:flex;
     gap:14px;
     flex-wrap:wrap;
@@ -283,11 +283,11 @@
     max-width:60ch;
   }
 
-  .ai-ed-hero__actions .ai-btn{
+  .abv2-ed-hero__actions .abv2-btn{
     white-space:nowrap;
   }
 
-  .ai-ed-hero::after{
+  .abv2-ed-hero::after{
     content:"";
     position:absolute;
     left:50%;
@@ -295,7 +295,7 @@
     transform:translateX(-50%);
     width:100vw;
     height:138px;
-    background:var(--ai-pink);
+    background:var(--abv2-pink);
     z-index:0;
     pointer-events:none;
     clip-path:polygon(
@@ -312,52 +312,52 @@
      CONTENT RAIL / COPY
      ========================================================= */
 
-  .ai-ed-rail{
+  .abv2-ed-rail{
     position:relative;
-    width:min(100%, var(--ai-editorial-rail));
+    width:min(100%, var(--abv2-editorial-rail));
     margin:0 auto;
     z-index:2;
   }
 
-  .ai-ed-section{
+  .abv2-ed-section{
     margin-top:12px;
   }
 
-  .ai-ed-copy > *{
+  .abv2-ed-copy > *{
     margin:0;
   }
 
-  .ai-ed-copy > * + *{
+  .abv2-ed-copy > * + *{
     margin-top:20px;
   }
 
-  .ai-ed-copy > p,
-  .ai-ed-copy > ul,
-  .ai-ed-copy > .ai-ed-cta{
-    width:min(100%, var(--ai-editorial-copy));
+  .abv2-ed-copy > p,
+  .abv2-ed-copy > ul,
+  .abv2-ed-copy > .abv2-ed-cta{
+    width:min(100%, var(--abv2-editorial-copy));
   }
 
-  .ai-ed-copy p,
-  .ai-ed-copy li{
-    font-family:var(--ai-sans);
+  .abv2-ed-copy p,
+  .abv2-ed-copy li{
+    font-family:var(--abv2-sans);
     font-size:1.03rem;
     line-height:1.68;
-    color:var(--ai-text);
+    color:var(--abv2-text);
   }
 
-  .ai-ed-copy ul{
+  .abv2-ed-copy ul{
     margin:4px 0 0;
     padding:0;
     list-style:none;
-    width:min(100%, var(--ai-editorial-copy));
+    width:min(100%, var(--abv2-editorial-copy));
   }
 
-  .ai-ed-copy li{
+  .abv2-ed-copy li{
     position:relative;
     padding-left:1.35rem;
   }
 
-  .ai-ed-copy li::before{
+  .abv2-ed-copy li::before{
     content:"";
     position:absolute;
     left:0;
@@ -365,11 +365,11 @@
     width:7px;
     height:7px;
     border-radius:50%;
-    background:var(--ai-pink);
+    background:var(--abv2-pink);
     transform:translateY(-50%);
   }
 
-  .ai-ed-copy li + li{
+  .abv2-ed-copy li + li{
     margin-top:14px;
   }
 
@@ -377,34 +377,34 @@
      MEDIA
      ========================================================= */
 
-  .ai-media{
+  .abv2-media{
     position:relative;
     width:100%;
     margin:42px 0 56px;
   }
 
-  .ai-media--video{
+  .abv2-media--video{
     margin:38px 0 52px;
   }
 
-  .ai-media__frame{
+  .abv2-media__frame{
     overflow:hidden;
     border-radius:24px;
     background:#ddd7d2;
   }
 
-  .ai-media__frame img{
+  .abv2-media__frame img{
     display:block;
     width:100%;
     height:auto;
   }
 
-  .ai-media--video .ai-media__frame{
+  .abv2-media--video .abv2-media__frame{
     border-radius:12px;
     background:#000;
   }
 
-  .ai-media__embed{
+  .abv2-media__embed{
     position:relative;
     width:100%;
     padding-top:56.25%;
@@ -413,7 +413,7 @@
     background:#000;
   }
 
-  .ai-media__embed iframe{
+  .abv2-media__embed iframe{
     position:absolute;
     inset:0;
     width:100%;
@@ -425,7 +425,7 @@
      DIVIDER FAMILY
      ========================================================= */
 
-  .ai-ed-band{
+  .abv2-ed-band{
     position:relative;
     width:100vw;
     height:138px;
@@ -434,8 +434,8 @@
     pointer-events:none;
   }
 
-  .ai-ed-band--pink-rise{
-    background:var(--ai-pink);
+  .abv2-ed-band--pink-rise{
+    background:var(--abv2-pink);
     clip-path:polygon(
       0 84%,
       0 100%,
@@ -446,8 +446,8 @@
     );
   }
 
-  .ai-ed-band--yellow-right{
-    background:var(--ai-yellow);
+  .abv2-ed-band--yellow-right{
+    background:var(--abv2-yellow);
     clip-path:polygon(
       0 78%,
       0 94%,
@@ -458,8 +458,8 @@
     );
   }
 
-  .ai-ed-band--teal-fall{
-    background:var(--ai-teal);
+  .abv2-ed-band--teal-fall{
+    background:var(--abv2-teal);
     clip-path:polygon(
       0 30%,
       0 46%,
@@ -470,12 +470,12 @@
     );
   }
 
-  .ai-ed-band--tight{
+  .abv2-ed-band--tight{
     margin-top:8px;
     margin-bottom:12px;
   }
 
-  .ai-ed-band--loose{
+  .abv2-ed-band--loose{
     margin-top:34px;
     margin-bottom:34px;
   }
@@ -484,18 +484,18 @@
      BLOB DIVIDERS
      ========================================================= */
 
-  .ai-ed-divider{
+  .abv2-ed-divider{
     position:relative;
     width:min(100%, 980px);
     min-height:220px;
     margin:34px auto 28px;
   }
 
-  .ai-ed-divider--intro{
+  .abv2-ed-divider--intro{
     margin:18px auto 10px;
   }
 
-  .ai-ed-divider__blob{
+  .abv2-ed-divider__blob{
     position:absolute;
     top:0;
     width:340px;
@@ -504,63 +504,63 @@
     pointer-events:none;
   }
 
-  .ai-ed-divider__blob::before{
+  .abv2-ed-divider__blob::before{
     content:"";
     position:absolute;
     inset:0;
-    background:var(--ai-yellow);
-    -webkit-mask-image:var(--ai-dot-mask);
+    background:var(--abv2-yellow);
+    -webkit-mask-image:var(--abv2-dot-mask);
     -webkit-mask-repeat:no-repeat;
     -webkit-mask-position:center;
     -webkit-mask-size:contain;
-    mask-image:var(--ai-dot-mask);
+    mask-image:var(--abv2-dot-mask);
     mask-repeat:no-repeat;
     mask-position:center;
     mask-size:contain;
   }
 
-  .ai-ed-divider__blob--pink::before{
-    background:var(--ai-pink);
+  .abv2-ed-divider__blob--pink::before{
+    background:var(--abv2-pink);
   }
 
-  .ai-ed-divider__blob--teal::before{
-    background:var(--ai-teal);
+  .abv2-ed-divider__blob--teal::before{
+    background:var(--abv2-teal);
   }
 
-  .ai-ed-divider__title{
+  .abv2-ed-divider__title{
     position:relative;
     z-index:2;
     margin:0;
     max-width:11ch;
-    font-family:var(--ai-serif);
+    font-family:var(--abv2-serif);
     font-weight:600;
     letter-spacing:-.03em;
     font-size:clamp(2.15rem, 3.2vw, 3rem);
     line-height:.95;
-    color:var(--ai-ink);
+    color:var(--abv2-ink);
   }
 
-  .ai-ed-divider--left .ai-ed-divider__blob{
+  .abv2-ed-divider--left .abv2-ed-divider__blob{
     left:-40px;
   }
 
-  .ai-ed-divider--left .ai-ed-divider__title{
+  .abv2-ed-divider--left .abv2-ed-divider__title{
     width:420px;
     margin-left:86px;
     padding-top:74px;
     text-align:left;
   }
 
-  .ai-ed-divider--right{
+  .abv2-ed-divider--right{
     display:flex;
     justify-content:flex-end;
   }
 
-  .ai-ed-divider--right .ai-ed-divider__blob{
+  .abv2-ed-divider--right .abv2-ed-divider__blob{
     right:-26px;
   }
 
-  .ai-ed-divider--right .ai-ed-divider__title{
+  .abv2-ed-divider--right .abv2-ed-divider__title{
     width:420px;
     margin-left:auto;
     margin-right:86px;
@@ -572,7 +572,7 @@
      SUPPORT PANEL
      ========================================================= */
 
-  .ai-ed-panel{
+  .abv2-ed-panel{
     position:relative;
     overflow:hidden;
     width:min(100%, 820px);
@@ -582,48 +582,48 @@
     background:#dff1f3;
   }
 
-  .ai-ed-panel::after{
+  .abv2-ed-panel::after{
     content:"";
     position:absolute;
     right:-60px;
     bottom:-60px;
     width:220px;
     aspect-ratio:1 / 1;
-    background:var(--ai-teal);
+    background:var(--abv2-teal);
     opacity:.18;
-    -webkit-mask-image:var(--ai-dot-mask);
+    -webkit-mask-image:var(--abv2-dot-mask);
     -webkit-mask-repeat:no-repeat;
     -webkit-mask-position:center;
     -webkit-mask-size:contain;
-    mask-image:var(--ai-dot-mask);
+    mask-image:var(--abv2-dot-mask);
     mask-repeat:no-repeat;
     mask-position:center;
     mask-size:contain;
   }
 
-  .ai-ed-panel__inner{
+  .abv2-ed-panel__inner{
     position:relative;
     z-index:1;
     max-width:56ch;
   }
 
-  .ai-ed-panel h3{
+  .abv2-ed-panel h3{
     margin:0 0 14px;
-    font-family:var(--ai-serif);
+    font-family:var(--abv2-serif);
     font-size:1.8rem;
     line-height:1;
-    color:var(--ai-ink);
+    color:var(--abv2-ink);
   }
 
-  .ai-ed-panel p{
+  .abv2-ed-panel p{
     margin:0;
-    font-family:var(--ai-sans);
+    font-family:var(--abv2-sans);
     font-size:1rem;
     line-height:1.6;
-    color:var(--ai-text);
+    color:var(--abv2-text);
   }
 
-  .ai-ed-panel .ai-btn{
+  .abv2-ed-panel .abv2-btn{
     margin-top:18px;
   }
 
@@ -631,11 +631,11 @@
      BUTTONS
      ========================================================= */
 
-  .ai-ed-cta{
+  .abv2-ed-cta{
     padding-top:8px;
   }
 
-  .ai-btn{
+  .abv2-btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -643,36 +643,36 @@
     padding:12px 20px;
     border:0;
     border-radius:999px;
-    background:var(--ai-pink);
+    background:var(--abv2-pink);
     color:#fff;
-    font-family:var(--ai-ui);
+    font-family:var(--abv2-ui);
     font-size:.84rem;
     line-height:1;
     text-decoration:none;
     box-shadow:none;
   }
 
-  .ai-btn:hover{
+  .abv2-btn:hover{
     text-decoration:none;
     color:#fff;
   }
 
-  .ai-btn--secondary{
+  .abv2-btn--secondary{
     background:transparent;
-    color:var(--ai-pink);
-    border:1.8px solid var(--ai-pink);
+    color:var(--abv2-pink);
+    border:1.8px solid var(--abv2-pink);
   }
 
-  .ai-btn--secondary:hover{
+  .abv2-btn--secondary:hover{
     background:transparent;
-    color:var(--ai-pink);
+    color:var(--abv2-pink);
   }
 
   /* =========================================================
      FOOTER WEDGE + FOOTER
      ========================================================= */
 
-  .ai-footer-wedge{
+  .abv2-footer-wedge{
     position:relative;
     z-index:1;
     height:160px;
@@ -682,10 +682,10 @@
     background:transparent;
   }
 
-  .ai-footer-wedge__shape{
+  .abv2-footer-wedge__shape{
     position:absolute;
     inset:0;
-    background:var(--ai-yellow);
+    background:var(--abv2-yellow);
     clip-path:polygon(
       0 100%,
       0 82%,
@@ -704,8 +704,8 @@
     z-index:2;
     margin-top:0 !important;
     padding-top:48px !important;
-    background:var(--ai-yellow) !important;
-    color:var(--ai-ink) !important;
+    background:var(--abv2-yellow) !important;
+    color:var(--abv2-ink) !important;
     border:0 !important;
     overflow:hidden;
   }
@@ -728,10 +728,10 @@
     position:relative;
     max-width:1200px;
     padding:0 0 42px 230px !important;
-    font-family:var(--ai-sans);
+    font-family:var(--abv2-sans);
     font-size:.97rem;
     line-height:1.62;
-    color:var(--ai-ink);
+    color:var(--abv2-ink);
   }
 
   .footer .footer__risk::before{
@@ -767,20 +767,20 @@
 
   .footer h2.heading-4{
     margin:0 0 12px;
-    font-family:var(--ai-ui);
+    font-family:var(--abv2-ui);
     font-size:1rem;
     line-height:1.1;
-    color:var(--ai-ink);
+    color:var(--abv2-ink);
   }
 
   .footer a,
   .footer address,
   .footer p,
   .footer span{
-    font-family:var(--ai-sans);
+    font-family:var(--abv2-sans);
     font-size:.94rem;
     line-height:1.56;
-    color:var(--ai-ink) !important;
+    color:var(--abv2-ink) !important;
   }
 
   .footer address{
@@ -839,42 +839,42 @@
       gap:20px;
     }
 
-    .ai-editorial__wrap{
-      width:min(calc(100% - 28px), var(--ai-wrap));
+    .abv2-editorial__wrap{
+      width:min(calc(100% - 28px), var(--abv2-wrap));
     }
 
-    .ai-ed-hero{
+    .abv2-ed-hero{
       padding-bottom:122px;
     }
 
-    .ai-ed-hero__copy{
+    .abv2-ed-hero__copy{
       width:min(100%, 700px);
       margin-left:0;
     }
 
-    .ai-ed-hero__title{
+    .abv2-ed-hero__title{
       max-width:13ch;
     }
 
-    .ai-ed-hero__intro{
+    .abv2-ed-hero__intro{
       font-size:1.1rem;
       line-height:1.66;
     }
 
-    .ai-ed-hero::after,
-    .ai-ed-band{
+    .abv2-ed-hero::after,
+    .abv2-ed-band{
       height:112px;
     }
 
-    .ai-ed-rail{
+    .abv2-ed-rail{
       width:min(100%, 660px);
     }
 
     @media (max-width:759px){
 
-  .ai-ed-divider{
+  .abv2-ed-divider{
     width:100%;
-    max-width:var(--ai-mobile-copy-rail);
+    max-width:var(--abv2-mobile-copy-rail);
     min-height:0;
     margin:26px auto 22px;
     padding-top:0;
@@ -882,7 +882,7 @@
     overflow:visible;
   }
 
-  .ai-ed-divider__blob{
+  .abv2-ed-divider__blob{
     position:relative;
     width:138px;
     margin:0 0 0 -44px;
@@ -891,9 +891,9 @@
     top:auto;
   }
 
-  .ai-ed-divider__title,
-  .ai-ed-divider--left .ai-ed-divider__title,
-  .ai-ed-divider--right .ai-ed-divider__title{
+  .abv2-ed-divider__title,
+  .abv2-ed-divider--left .abv2-ed-divider__title,
+  .abv2-ed-divider--right .abv2-ed-divider__title{
     position:relative;
     z-index:2;
     width:auto;
@@ -989,93 +989,93 @@
       border-radius:12px;
     }
 
-    .ai-editorial__wrap{
-      width:min(calc(100% - 22px), var(--ai-wrap));
+    .abv2-editorial__wrap{
+      width:min(calc(100% - 22px), var(--abv2-wrap));
       padding-top:14px;
     }
 
-    .ai-ed-hero{
+    .abv2-ed-hero{
       width:100%;
-      max-width:var(--ai-mobile-copy-rail);
+      max-width:var(--abv2-mobile-copy-rail);
       padding:6px 0 72px;
     }
 
-    .ai-ed-hero__copy{
+    .abv2-ed-hero__copy{
       width:100%;
-      max-width:var(--ai-mobile-copy-rail);
+      max-width:var(--abv2-mobile-copy-rail);
       margin:0 auto;
     }
 
-    .ai-ed-hero__title{
+    .abv2-ed-hero__title{
       max-width:10ch;
       font-size:2.35rem;
       line-height:.95;
     }
 
-    .ai-ed-hero__intro{
+    .abv2-ed-hero__intro{
       max-width:none;
       font-size:1rem;
       line-height:1.58;
       margin-top:20px;
     }
 
-    .ai-ed-hero__actions{
+    .abv2-ed-hero__actions{
       gap:10px;
       margin-top:22px;
     }
 
-    .ai-ed-hero__actions .ai-btn{
+    .abv2-ed-hero__actions .abv2-btn{
       min-height:44px;
     }
 
-    .ai-ed-hero::after,
-    .ai-ed-band{
+    .abv2-ed-hero::after,
+    .abv2-ed-band{
       height:70px;
     }
 
-    .ai-ed-band{
+    .abv2-ed-band{
       margin-top:14px;
       margin-bottom:18px;
     }
 
-    .ai-ed-rail{
+    .abv2-ed-rail{
       width:100%;
-      max-width:var(--ai-mobile-copy-rail);
+      max-width:var(--abv2-mobile-copy-rail);
     }
 
-    .ai-ed-copy > p,
-    .ai-ed-copy > ul,
-    .ai-ed-copy > .ai-ed-cta{
+    .abv2-ed-copy > p,
+    .abv2-ed-copy > ul,
+    .abv2-ed-copy > .abv2-ed-cta{
       width:100%;
       max-width:none;
     }
 
-    .ai-ed-copy p,
-    .ai-ed-copy li{
+    .abv2-ed-copy p,
+    .abv2-ed-copy li{
       max-width:none;
       font-size:.98rem;
       line-height:1.56;
     }
 
-    .ai-media__frame{
+    .abv2-media__frame{
       border-radius:18px;
     }
 
-    .ai-media--video .ai-media__frame,
-    .ai-media__embed{
+    .abv2-media--video .abv2-media__frame,
+    .abv2-media__embed{
       border-radius:10px;
     }
 
-    .ai-ed-divider{
+    .abv2-ed-divider{
       width:100%;
-      max-width:var(--ai-mobile-copy-rail);
+      max-width:var(--abv2-mobile-copy-rail);
       min-height:0;
       margin:26px auto 18px;
       padding-top:0;
       display:block;
     }
 
-    .ai-ed-divider__blob{
+    .abv2-ed-divider__blob{
       position:relative;
       width:min(76vw, 250px);
       margin:0 auto 10px;
@@ -1084,9 +1084,9 @@
       top:auto;
     }
 
-    .ai-ed-divider__title,
-    .ai-ed-divider--left .ai-ed-divider__title,
-    .ai-ed-divider--right .ai-ed-divider__title{
+    .abv2-ed-divider__title,
+    .abv2-ed-divider--left .abv2-ed-divider__title,
+    .abv2-ed-divider--right .abv2-ed-divider__title{
       width:auto;
       margin:0;
       padding-top:0;
@@ -1095,30 +1095,30 @@
       text-align:left;
     }
 
-    .ai-ed-panel{
+    .abv2-ed-panel{
       margin:36px auto;
       padding:24px 22px;
       border-radius:22px;
     }
 
-    .ai-ed-panel h3{
+    .abv2-ed-panel h3{
       font-size:1.55rem;
     }
 
-    .ai-ed-panel p{
+    .abv2-ed-panel p{
       font-size:.98rem;
       line-height:1.56;
     }
 
-    .ai-ed-cta{
+    .abv2-ed-cta{
       text-align:left;
     }
 
-    .ai-footer-wedge{
+    .abv2-footer-wedge{
       height:86px;
     }
 
-    .ai-footer-wedge__shape{
+    .abv2-footer-wedge__shape{
       clip-path:polygon(
         0 100%,
         0 88%,
@@ -1139,29 +1139,29 @@
 
 @media (max-width:759px){
 
-  .ai-ed-divider{
+  .abv2-ed-divider{
     overflow:visible !important;
     margin:0 auto 18px !important;
   }
 
-  .ai-ed-divider__blob{
+  .abv2-ed-divider__blob{
     position:relative !important;
     width:300px !important;
     height:300px !important;
     margin:0 !important;
   }
 
-  .ai-ed-divider__blob::before{
+  .abv2-ed-divider__blob::before{
     content:"" !important;
     position:absolute !important;
     inset:0 !important;
-    background:var(--ai-yellow) !important;
+    background:var(--abv2-yellow) !important;
     transform:translate(-130px, 80px) !important;
   }
 
-  .ai-ed-divider__title,
-  .ai-ed-divider--left .ai-ed-divider__title,
-  .ai-ed-divider--right .ai-ed-divider__title{
+  .abv2-ed-divider__title,
+  .abv2-ed-divider--left .abv2-ed-divider__title,
+  .abv2-ed-divider--right .abv2-ed-divider__title{
     position:relative;
     z-index:2;
 
@@ -1180,12 +1180,12 @@
 
 @media (max-width:759px){
 
-  .ai-ed-divider__blob--pink::before{
-    background:var(--ai-pink) !important;
+  .abv2-ed-divider__blob--pink::before{
+    background:var(--abv2-pink) !important;
   }
 
-  .ai-ed-divider__blob--teal::before{
-    background:var(--ai-teal) !important;
+  .abv2-ed-divider__blob--teal::before{
+    background:var(--abv2-teal) !important;
   }
 
 }
@@ -1340,25 +1340,25 @@
 
 </style>
 
-<div class="ai-editorial">
-  <div class="ai-editorial__wrap">
+<div class="abv2-editorial">
+  <div class="abv2-editorial__wrap">
 
-    <section class="ai-ed-hero">
-      <div class="ai-ed-hero__copy">
-        <h1 class="ai-ed-hero__title">Greening the grey in Hammersmith &amp; Fulham</h1>
-        <p class="ai-ed-hero__intro">
+    <section class="abv2-ed-hero">
+      <div class="abv2-ed-hero__copy">
+        <h1 class="abv2-ed-hero__title">Greening the grey in Hammersmith &amp; Fulham</h1>
+        <p class="abv2-ed-hero__intro">
           Hammersmith &amp; Fulham is now on its third Green Investment with Abundance, having already raised over £2 million from its first two offers. The council has put some of the earlier proceeds to work to expand its ‘greening the grey’ programme. This initiative focuses on transforming hard, grey spaces into vibrant green areas, enhancing biodiversity, improving climate resilience and making the borough a more pleasant place to live and work.
         </p>
-        <div class="ai-ed-hero__actions">
-          <a class="ai-btn" href="/invest-now">Explore investments</a>
-          <a class="ai-btn ai-btn--secondary" href="/how-it-works">How it works</a>
+        <div class="abv2-ed-hero__actions">
+          <a class="abv2-btn" href="/invest-now">Explore investments</a>
+          <a class="abv2-btn abv2-btn--secondary" href="/how-it-works">How it works</a>
         </div>
       </div>
     </section>
 
-    <section class="ai-ed-divider ai-ed-divider--left ai-ed-divider--intro" aria-hidden="true">
-      <div class="ai-ed-divider__blob"></div>
-      <h2 class="ai-ed-divider__title">Rain gardens across the borough</h2>
+    <section class="abv2-ed-divider abv2-ed-divider--left abv2-ed-divider--intro" aria-hidden="true">
+      <div class="abv2-ed-divider__blob"></div>
+      <h2 class="abv2-ed-divider__title">Rain gardens across the borough</h2>
     </section>
 
 <aside class="rail-cta">
@@ -1382,8 +1382,8 @@
   </div>
 </aside>
 
-    <section class="ai-ed-section">
-      <div class="ai-ed-rail ai-ed-copy">
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
         <p>
           Part of this involves the creation of rainwater gardens which add greenery to the local streetscape while creating natural flood defences and supporting biodiversity. These are being rolled out across the area, for example in:
         </p>
@@ -1394,40 +1394,40 @@
           <li>Edith Road in Hammersmith where four rain gardens are being created, turning unused highway space into natural drainage systems</li>
         </ul>
 
-        <figure class="ai-media ai-media--image">
-          <div class="ai-media__frame">
+        <figure class="abv2-media abv2-media--image">
+          <div class="abv2-media__frame">
             <img src="https://cdn4.sharein.com/abundance/4b328dca-c0c2-4759-9546-306d89a33713.png" alt="Rain garden and greened streetscape in Hammersmith &amp; Fulham" />
           </div>
         </figure>
       </div>
     </section>
 
-    <div class="ai-ed-band ai-ed-band--yellow-right ai-ed-band--loose" aria-hidden="true"></div>
+    <div class="abv2-ed-band abv2-ed-band--yellow-right abv2-ed-band--loose" aria-hidden="true"></div>
 
-    <section class="ai-ed-panel">
-      <div class="ai-ed-panel__inner">
+    <section class="abv2-ed-panel">
+      <div class="abv2-ed-panel__inner">
         <h3>Invest in real places, not abstractions</h3>
         <p>
           Abundance investments fund tangible local projects — from greener streets to community spaces — helping councils deliver real change while offering investors a fixed return.
         </p>
-        <a class="ai-btn" href="/invest-now">Explore investments</a>
+        <a class="abv2-btn" href="/invest-now">Explore investments</a>
       </div>
     </section>
 
-    <section class="ai-ed-divider ai-ed-divider--right" aria-hidden="true">
-      <div class="ai-ed-divider__blob ai-ed-divider__blob--teal"></div>
-      <h2 class="ai-ed-divider__title">Nature returning to shared spaces</h2>
+    <section class="abv2-ed-divider abv2-ed-divider--right" aria-hidden="true">
+      <div class="abv2-ed-divider__blob abv2-ed-divider__blob--teal"></div>
+      <h2 class="abv2-ed-divider__title">Nature returning to shared spaces</h2>
     </section>
 
-    <section class="ai-ed-section">
-      <div class="ai-ed-rail ai-ed-copy">
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
         <p>
           A host of other exciting efforts to bring nature into the city include the transformation of Eelbrook Common from concrete paddling pool to green sanctuary. Formerly a magnet for anti-social behaviour, the area was replanted by local volunteers last Spring and is now a lush natural oasis and a safer, more welcoming space for local people.
         </p>
 
-        <figure class="ai-media ai-media--video">
-          <div class="ai-media__frame">
-            <div class="ai-media__embed">
+        <figure class="abv2-media abv2-media--video">
+          <div class="abv2-media__frame">
+            <div class="abv2-media__embed">
               <iframe
                 src="https://www.youtube.com/embed/n3u5jmgtlhs"
                 title="Green Investment video"
@@ -1441,15 +1441,15 @@
       </div>
     </section>
 
-    <div class="ai-ed-band ai-ed-band--teal-fall ai-ed-band--tight" aria-hidden="true"></div>
+    <div class="abv2-ed-band abv2-ed-band--teal-fall abv2-ed-band--tight" aria-hidden="true"></div>
 
-    <section class="ai-ed-divider ai-ed-divider--left" aria-hidden="true">
-      <div class="ai-ed-divider__blob ai-ed-divider__blob--pink"></div>
-      <h2 class="ai-ed-divider__title">Community investment in action</h2>
+    <section class="abv2-ed-divider abv2-ed-divider--left" aria-hidden="true">
+      <div class="abv2-ed-divider__blob abv2-ed-divider__blob--pink"></div>
+      <h2 class="abv2-ed-divider__title">Community investment in action</h2>
     </section>
 
-    <section class="ai-ed-section">
-      <div class="ai-ed-rail ai-ed-copy">
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
         <p>
           £400k was used last year to make a new community garden in Frank Banfield Park, which includes the borough’s fourth Tiny Forest, a wildflower meadow and an accessible toilet made from recycled shipping containers. A gang of local volunteers was recruited to do most of the planting and the new area will be kept looking lovely thanks to proceeds of the Green Investment.
         </p>
@@ -1458,9 +1458,9 @@
           These projects are great examples of how this raised through Hammersmith &amp; Fulham’s Green Investments are engaging the community directly in building greener, more resilient urban environments.
         </p>
 
-        <figure class="ai-media ai-media--video">
-          <div class="ai-media__frame">
-            <div class="ai-media__embed">
+        <figure class="abv2-media abv2-media--video">
+          <div class="abv2-media__frame">
+            <div class="abv2-media__embed">
               <iframe
                 src="https://www.youtube.com/embed/L_bX5fMYDuY"
                 title="Investor story video"
@@ -1472,8 +1472,8 @@
           </div>
         </figure>
 
-        <div class="ai-ed-cta">
-          <a class="ai-btn" href="/invest-now">Learn More</a>
+        <div class="abv2-ed-cta">
+          <a class="abv2-btn" href="/invest-now">Learn More</a>
         </div>
       </div>
     </section>
@@ -1518,7 +1518,7 @@
 
   </div>
 
-  <div class="ai-footer-wedge" aria-hidden="true">
-    <div class="ai-footer-wedge__shape"></div>
+  <div class="abv2-footer-wedge" aria-hidden="true">
+    <div class="abv2-footer-wedge__shape"></div>
   </div>
 </div>
