@@ -1,0 +1,45 @@
+/* ========================================
+COMPONENT: abv2-legalnotes
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RISK / LEGAL
+========================================================= */
+.abv2-legalnotes{
+  display:grid;
+  gap:10px;
+}
+
+.abv2-legalnotes__row{
+  padding:14px 16px;
+  border:1px solid rgba(38,38,37,.08);
+  border-radius:14px;
+  background:#faf8f6;
+}
+
+.abv2-legalnotes__label{
+  display:block;
+  margin:0 0 5px;
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1.1;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.58);
+}
+
+.abv2-legalnotes__text{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.72);
+}
+
+.abv2-legalnotes__text a{
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:2px;
+}

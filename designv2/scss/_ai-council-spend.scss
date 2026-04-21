@@ -1,0 +1,46 @@
+/* ========================================
+COMPONENT: ai-council-spend
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / spending / impact
+========================================================= */
+.ai-council-spend{
+  padding:74px 0 72px;
+  background:#f6f3f2;
+}
+
+.ai-council-spend__rail{
+  width:min(calc(100% - 36px), 860px);
+  margin:0 auto;
+  text-align:center;
+}
+
+.ai-council-spend__title{
+  margin:0 0 18px;
+  font-family:"Sohne Kraftig", Arial, sans-serif;
+  font-size:clamp(2rem,3vw,2.5rem);
+  line-height:1.05;
+  color:#454543;
+}
+
+.ai-council-spend__lead,
+.ai-council-spend__body{
+  margin:0 auto;
+  max-width:76ch;
+  font-family:"Sohne Buch", Arial, sans-serif;
+  font-size:1rem;
+  line-height:1.62;
+  color:#4d4a46;
+}
+
+.ai-council-spend__body + .ai-council-spend__body{
+  margin-top:18px;
+}
+
+.ai-council-spend__chart{
+  margin:34px auto 0;
+  width:min(100%, 700px);
+  text-align:left;
+}

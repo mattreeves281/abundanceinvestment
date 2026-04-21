@@ -1,0 +1,28 @@
+/* ========================================
+COMPONENT: abv2-navcard
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / NAV / READING AIDS
+========================================================= */
+.abv2-navcard{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.abv2-navcard__inner{
+  padding:22px 22px 20px;
+}
+
+.abv2-navcard__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.abv2-navcard__intro{
+  margin:0;
+}

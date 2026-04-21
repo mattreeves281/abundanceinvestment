@@ -1,0 +1,183 @@
+/* ========================================
+COMPONENT: ai-invest-tick
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 2) Open investment tiles (ai-invest-tick) + logo hybrid
+========================================================= */
+.ai-invest-tick{
+  position:relative;
+  display:flex;
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.04);
+  margin:1.25rem 0;
+}
+
+.ai-invest-tick:hover,
+.ai-invest-tick:focus-within{
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  border-color:rgba(0,0,0,.14);
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Media area
+========================================================= */
+.ai-invest-tick__media{
+  flex:0 0 160px;
+  max-width:160px;
+  position:relative;
+  background:#f3f3f3;
+}
+
+.ai-invest-tick__media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Content
+========================================================= */
+.ai-invest-tick__content{
+  flex:1;
+  min-width:0;
+  padding:1rem 2.5rem 1rem 1.1rem;
+}
+
+.ai-invest-tick__title{
+  margin:0 0 .25rem;
+  font-size:1.1rem;
+  font-weight:700;
+  color:#454543;
+}
+
+.ai-invest-tick__desc{
+  margin:.25rem 0 0;
+  font-size:.95rem;
+  opacity:.88;
+  color:#454543;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Badges
+========================================================= */
+.ai-invest-tick__stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:0 0 .6rem;
+}
+
+.ai-invest-tick__badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.32rem .6rem;
+  font-size:.85rem;
+  font-weight:700;
+  line-height:1.2;
+  color:#fff;
+  white-space:nowrap;
+}
+
+.ai-invest-tick__badge--pink{ background:#e26da6; }
+
+.ai-invest-tick__badge--blue{ background:#00a4b6; }
+
+.ai-invest-tick__badge--yellow{ background:#e2961c; }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Whole-row overlay link
+========================================================= */
+.ai-invest-tick__link{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  text-indent:-9999px;
+  overflow:hidden;
+  white-space:nowrap;
+  border-radius:12px;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Chevron
+========================================================= */
+.ai-invest-tick__chevron{
+  position:absolute;
+  right:1rem;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.8rem;
+  line-height:1;
+  color:#e26da6;
+  pointer-events:none;
+  z-index:5;
+}
+
+.ai-invest-tick:hover .ai-invest-tick__chevron{
+  transform:translateY(-50%) translateX(4px);
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Mobile
+========================================================= */
+@media (max-width:768px){
+  .ai-invest-tick{ flex-direction:row; align-items:stretch; }
+}
+
+@media (max-width:768px){
+  .ai-invest-tick__media{ flex:0 0 120px; max-width:120px; }
+}
+
+@media (max-width:768px){
+  .ai-invest-tick__content{ padding:.95rem 2.9rem .95rem 1rem; }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Swipe-scroll badges
+========================================================= */
+@media (max-width:768px){
+  .ai-invest-tick__stats{
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      gap:6px;
+      padding-bottom:6px;
+      position:relative;
+      z-index:6;
+      scrollbar-width:none;
+    }
+}
+
+@media (max-width:768px){
+  .ai-invest-tick__stats::-webkit-scrollbar{ display:none; }
+}
+
+@media (max-width:768px){
+  .ai-invest-tick__badge{
+      flex:0 0 auto;
+      font-size:.75rem;
+      padding:4px 8px;
+      pointer-events:none;
+    }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Mobile
+========================================================= */
+@media (max-width:420px){
+  .ai-invest-tick__media{ flex-basis:96px; max-width:96px; }
+}
+
+@media (max-width:420px){
+  .ai-invest-tick__content{ padding-right:2.8rem; }
+}

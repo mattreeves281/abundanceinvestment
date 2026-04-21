@@ -1,0 +1,558 @@
+/* ========================================
+COMPONENT: abv2-teal
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
+========================================================= */
+.abv2-teal{
+    position:relative;
+    overflow:hidden;
+    background:var(--abv2-teal);
+    color:var(--abv2-white);
+    padding-top:198px;
+    padding-bottom:188px;
+    clip-path:var(--abv2-teal-clip);
+  }
+
+.abv2-teal > *{
+    position:relative;
+    z-index:1;
+  }
+
+.abv2-teal__grid{
+    display:grid;
+    grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
+    gap:52px;
+    align-items:center;
+  }
+
+.abv2-teal__media{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+  }
+
+.abv2-teal__frame{
+    width:min(100%, 500px);
+    border-radius:48px;
+    overflow:hidden;
+    box-shadow:none;
+    transform:translateY(0);
+  }
+
+.abv2-teal__frame img{
+    width:100%;
+    aspect-ratio:1.45/1;
+    object-fit:cover;
+    border-radius:48px;
+  }
+
+.abv2-teal__copy{
+    max-width:680px;
+  }
+
+.abv2-teal__copy > div:last-child{
+    margin-top:30px;
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / FOOTER
+========================================================= */
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal{
+        clip-path:polygon(
+          0 12%,
+          21% 17%,
+          100% 0,
+          100% 93%,
+          74% 87%,
+          0 100%
+        );
+        padding-top:108px;
+        padding-bottom:86px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__grid{
+        grid-template-columns:minmax(280px,.84fr) minmax(0,1.16fr);
+        gap:40px;
+        align-items:center;
+        padding-left:34px;
+        padding-right:10px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__frame{
+        width:min(100%, 410px);
+        border-radius:30px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__frame img{
+        border-radius:30px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy{
+        max-width:620px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy > div:last-child{
+        margin-top:6px;
+      }
+}
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal{
+        clip-path:polygon(
+          0 10%,
+          18% 14%,
+          100% 0,
+          100% 94%,
+          74% 88%,
+          0 100%
+        );
+        padding-top:102px;
+        padding-bottom:90px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__grid{
+        grid-template-columns:minmax(280px, .76fr) minmax(0, 1.24fr);
+        gap:34px;
+        align-items:center;
+        padding-left:44px;
+        padding-right:12px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__media{
+        justify-content:flex-start;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__frame{
+        width:min(100%, 320px);
+        border-radius:28px;
+        transform:none;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__frame img{
+        border-radius:28px;
+        aspect-ratio:1.1 / 1;
+        object-fit:cover;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy{
+        max-width:620px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy > div:last-child{
+        margin-top:10px;
+      }
+}
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-teal{
+        padding-top:114px;
+        padding-bottom:84px;
+        clip-path:var(--abv2-teal-clip-mobile);
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__grid{
+        display:grid;
+        grid-template-columns:1fr !important;
+        gap:22px !important;
+        justify-items:center;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__media{
+        width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+        margin:0 auto;
+        justify-content:center;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__frame{
+        width:100%;
+        max-width:none;
+        border-radius:48px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__frame img{
+        border-radius:48px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__copy{
+        width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+        margin:0 auto;
+        max-width:none;
+        text-align:left;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__copy > div:last-child{
+        margin-top:4px;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / TEAL SECTION
+========================================================= */
+.abv2-teal{
+    position:relative;
+    overflow:hidden;
+    background:var(--abv2-teal);
+    color:var(--abv2-white);
+    padding-top:198px;
+    padding-bottom:188px;
+    clip-path:var(--abv2-teal-clip);
+  }
+
+.abv2-teal > *{
+    position:relative;
+    z-index:1;
+  }
+
+.abv2-teal__grid{
+    display:grid;
+    grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
+    gap:52px;
+    align-items:center;
+  }
+
+.abv2-teal__media{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+  }
+
+.abv2-teal__frame{
+    width:min(100%, 500px);
+    border-radius:48px;
+    overflow:hidden;
+    box-shadow:none;
+    transform:translateY(0);
+  }
+
+.abv2-teal__frame img{
+    width:100%;
+    aspect-ratio:1.45/1;
+    object-fit:cover;
+    border-radius:48px;
+  }
+
+.abv2-teal__copy{
+    max-width:680px;
+  }
+
+.abv2-teal__copy > div:last-child{
+    margin-top:30px;
+  }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / FOOTER
+========================================================= */
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal{
+        clip-path:polygon(
+          0 12%,
+          21% 17%,
+          100% 0,
+          100% 93%,
+          74% 87%,
+          0 100%
+        );
+        padding-top:108px;
+        padding-bottom:86px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__grid{
+        grid-template-columns:minmax(280px,.84fr) minmax(0,1.16fr);
+        gap:40px;
+        align-items:center;
+        padding-left:34px;
+        padding-right:10px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__frame{
+        width:min(100%, 410px);
+        border-radius:30px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__frame img{
+        border-radius:30px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy{
+        max-width:620px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy > div:last-child{
+        margin-top:6px;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal{
+        clip-path:polygon(
+          0 10%,
+          18% 14%,
+          100% 0,
+          100% 94%,
+          74% 88%,
+          0 100%
+        );
+        padding-top:102px;
+        padding-bottom:90px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__grid{
+        grid-template-columns:minmax(280px, .76fr) minmax(0, 1.24fr);
+        gap:34px;
+        align-items:center;
+        padding-left:44px;
+        padding-right:12px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__media{
+        justify-content:flex-start;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__frame{
+        width:min(100%, 320px);
+        border-radius:28px;
+        transform:none;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__frame img{
+        border-radius:28px;
+        aspect-ratio:1.1 / 1;
+        object-fit:cover;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy{
+        max-width:620px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy > div:last-child{
+        margin-top:10px;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-teal{
+        padding-top:114px;
+        padding-bottom:84px;
+        clip-path:var(--abv2-teal-clip-mobile);
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__grid{
+        display:grid;
+        grid-template-columns:1fr !important;
+        gap:22px !important;
+        justify-items:center;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__media{
+        width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+        margin:0 auto;
+        justify-content:center;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__frame{
+        width:100%;
+        max-width:none;
+        border-radius:48px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__frame img{
+        border-radius:48px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__copy{
+        width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+        margin:0 auto;
+        max-width:none;
+        text-align:left;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__copy > div:last-child{
+        margin-top:4px;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / TEAL SECTION
+========================================================= */
+.abv2-teal{
+    position:relative;
+    overflow:hidden;
+    background:var(--abv2-teal);
+    color:var(--abv2-white);
+    padding-top:220px;
+    padding-bottom:210px;
+    clip-path:var(--abv2-teal-clip);
+  }
+
+.abv2-teal > *{
+    position:relative;
+    z-index:1;
+  }
+
+.abv2-teal__grid{
+    display:grid;
+    grid-template-columns:minmax(320px,.88fr) minmax(0,1.12fr);
+    gap:56px;
+    align-items:center;
+  }
+
+.abv2-teal__media{
+    display:flex;
+    justify-content:flex-start;
+  }
+
+.abv2-teal__frame{
+    width:min(100%, 520px);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:none;
+  }
+
+.abv2-teal__frame img{
+    width:100%;
+    aspect-ratio:1.45/1;
+    object-fit:cover;
+  }
+
+.abv2-teal__copy{
+    max-width:740px;
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-teal{
+        padding-top:150px;
+        padding-bottom:135px;
+        clip-path:var(--abv2-teal-clip-mobile);
+      }
+}
+
+@media (max-width:979px){
+  .abv2-teal__grid{
+        gap:30px;
+      }
+}
+
+@media (max-width:979px){
+  .abv2-teal__frame{
+        width:min(100%, 460px);
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / TEAL
+========================================================= */
+@media (max-width:759px){
+  .abv2-teal{
+      padding-top:116px;
+      padding-bottom:96px;
+      clip-path:var(--abv2-teal-clip-mobile);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-teal__grid{
+      grid-template-columns:1fr;
+      gap:22px;
+      justify-items:center;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-teal__media{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-teal__frame{
+      width:100%;
+    }
+}

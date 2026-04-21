@@ -1,0 +1,177 @@
+/* ========================================
+COMPONENT: cbc-proj
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Each accordion row
+========================================================= */
+#council-bar-chart .cbc-proj{
+  margin:0;
+  border-bottom:1px solid rgba(15,23,42,.08);
+}
+
+#council-bar-chart .cbc-proj:last-child{ border-bottom:none; }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Click row
+========================================================= */
+#council-bar-chart .cbc-proj__sum{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 16px;
+  display:block;
+  background:#fff;
+}
+
+#council-bar-chart .cbc-proj__sum::-webkit-details-marker{ display:none; }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Category pill
+========================================================= */
+#council-bar-chart .cbc-proj__pill{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.28rem .62rem;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.1;
+  color:#fff;
+  margin:0 0 8px;
+  white-space:nowrap;
+}
+
+#council-bar-chart .cbc-proj__pill--orange{ background:#e2961c; }
+
+#council-bar-chart .cbc-proj__pill--pink{ background:#e26da6; }
+
+#council-bar-chart .cbc-proj__pill--blue{ background:#00a4b6; }
+
+#council-bar-chart .cbc-proj__pill--purple{ background:#724795; }
+
+#council-bar-chart .cbc-proj__pill--teal{ background:#07828f; }
+
+#council-bar-chart .cbc-proj__pill--grey{ background:#6b7280; }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Title row: name left, amount + chevron right
+========================================================= */
+#council-bar-chart .cbc-proj__titleRow{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:14px;
+}
+
+#council-bar-chart .cbc-proj__name{
+  margin:0;
+  font-size:.95rem;
+  font-weight:700;
+  color:#454543;
+  line-height:1.25;
+  flex:1 1 auto;
+  min-width:0;
+}
+
+#council-bar-chart .cbc-proj__right{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  flex:0 0 auto;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Amount: bold text, no pill
+========================================================= */
+#council-bar-chart .cbc-proj__spent{
+  display:inline-block;
+  font-size:1rem;
+  font-weight:900;
+  color:#454543;
+  line-height:1.1;
+  white-space:nowrap;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Chevron
+========================================================= */
+#council-bar-chart .cbc-proj__chev{
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  color:#111827;
+  opacity:.7;
+  transform:rotate(0deg);
+  transition:transform .2s ease;
+}
+
+#council-bar-chart .cbc-proj[open] .cbc-proj__chev{
+  transform:rotate(180deg);
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Expanded description
+========================================================= */
+#council-bar-chart .cbc-proj__body{
+  padding:0 16px 16px;
+  color:#454543;
+  opacity:.92;
+  line-height:1.45;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Optional small helper line (only used if you choose to show it)
+========================================================= */
+@media (max-width:640px){
+  #council-bar-chart .cbc-proj__sum{ padding:12px 14px; }
+}
+
+@media (max-width:640px){
+  #council-bar-chart .cbc-proj__name{ font-size:.92rem; }
+}
+
+@media (max-width:640px){
+  #council-bar-chart .cbc-proj__spent{ font-size:.98rem; }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Pills now take their background colour inline from JS
+========================================================= */
+#council-bar-chart .cbc-proj__pill{
+  color:#111827;                 /* dark text for pastel backgrounds */
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+  border:1px solid rgba(17,24,39,.10);
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Top projects description
+========================================================= */
+.cbc-proj__body {
+  font-size: 0.95rem;          /* slightly smaller */
+  line-height: 1.55;           /* tighter but still readable */
+  color: #4c4c4a;              /* optional – keeps it softer than title */
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Improve spacing when <br> exists in description
+========================================================= */
+.cbc-proj__body br {
+  content: "";
+  display: block;
+  margin-bottom: 0.75rem;   /* creates "double line break" effect */
+}
+
+.cbc-proj__body {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #4c4c4a;
+}
+
+.cbc-proj__body p {
+  margin: 0 0 0.9rem 0;
+}
+
+.cbc-proj__body p:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,303 @@
+/* ========================================
+COMPONENT: abv2-ed-open-invest
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / EDITORIAL OPEN INVESTMENT CARD add-on only
+========================================================= */
+.abv2-ed-open-invest{
+  position:relative;
+  overflow:visible;
+  border-color:rgba(38,38,37,.09);
+  background:linear-gradient(180deg, #fffdfa 0%, #ffffff 100%);
+  box-shadow:0 12px 30px rgba(38,38,37,.045);
+}
+
+.abv2-ed-open-invest__inner{
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.abv2-ed-open-invest__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:0 0 16px;
+}
+
+.abv2-ed-open-invest__status{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(226,109,166,.10);
+  color:#a93f77;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.abv2-ed-open-invest__row{
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+}
+
+.abv2-ed-open-invest__media{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:120px;
+  height:120px;
+  border-radius:24px;
+  background:var(--abv2-invest-bg, #724795);
+  overflow:hidden;
+}
+
+.abv2-ed-open-invest__media::before{
+  content:"";
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  width:34px;
+  height:34px;
+  background:rgba(255,255,255,.16);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-open-invest__logo{
+  position:relative;
+  z-index:1;
+  width:min(100%, 76px);
+  max-height:58px;
+  object-fit:contain;
+}
+
+.abv2-ed-open-invest__body{
+  min-width:0;
+}
+
+.abv2-ed-open-invest__title{
+  margin:0 0 8px;
+  font-size:clamp(1.32rem, 2vw, 1.68rem);
+  line-height:1.02;
+}
+
+.abv2-ed-open-invest__desc{
+  margin:0 0 12px;
+  max-width:42ch;
+  color:var(--abv2-text);
+}
+
+.abv2-ed-open-invest__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  font-family:var(--abv2-ui);
+  font-size:.8rem;
+  line-height:1.35;
+  color:var(--abv2-text);
+}
+
+.abv2-ed-open-invest__pill{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.abv2-ed-open-invest__pill::after{
+  content:"·";
+  margin:0 10px;
+  color:rgba(38,38,37,.34);
+}
+
+.abv2-ed-open-invest__pill:last-child::after{
+  display:none;
+}
+
+.abv2-ed-open-invest__pill--rate{ color:#b24e82; }
+
+.abv2-ed-open-invest__pill--term{ color:#207f8e; }
+
+.abv2-ed-open-invest__pill--capital{ color:#a87509; }
+
+.abv2-ed-open-invest__note{
+  margin:10px 0 0;
+  font-size:.84rem;
+  line-height:1.45;
+  color:rgba(38,38,37,.64);
+}
+
+.abv2-ed-open-invest__action{
+  align-self:center;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / subtle editorial inset rhythm
+========================================================= */
+.abv2-ed-open-invest::after{
+  content:"";
+  position:absolute;
+  left:22px;
+  right:22px;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg, rgba(226,109,166,.24), rgba(18,169,187,.12), rgba(239,181,42,.18));
+  opacity:.9;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / tablet
+========================================================= */
+@media (max-width:979px){
+  .abv2-ed-open-invest__row{
+      grid-template-columns:104px minmax(0,1fr);
+      gap:16px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-ed-open-invest__action{
+      grid-column:2;
+      margin-top:2px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-ed-open-invest__media{
+      width:104px;
+      height:104px;
+      border-radius:22px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-ed-open-invest__logo{
+      width:min(100%, 68px);
+      max-height:52px;
+    }
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / mobile
+========================================================= */
+@media (max-width:759px){
+  .abv2-ed-open-invest__inner{
+      padding-top:18px;
+      padding-bottom:18px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__top{
+      align-items:flex-start;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom:14px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__row{
+      grid-template-columns:88px minmax(0,1fr);
+      gap:14px;
+      align-items:start;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__media{
+      width:88px;
+      height:88px;
+      border-radius:20px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__media::before{
+      width:26px;
+      height:26px;
+      right:9px;
+      bottom:9px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__logo{
+      width:min(100%, 58px);
+      max-height:44px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__title{
+      font-size:1.22rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__desc{
+      max-width:none;
+      margin-bottom:10px;
+      font-size:.92rem;
+      line-height:1.45;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__meta{
+      display:block;
+      font-size:.76rem;
+      line-height:1.42;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__pill{
+      display:inline;
+      white-space:normal;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__pill::after{
+      display:inline;
+      margin:0 8px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__note{
+      font-size:.8rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__action{
+      grid-column:1 / -1;
+      margin-top:2px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-ed-open-invest::after{
+      left:18px;
+      right:18px;
+    }
+}

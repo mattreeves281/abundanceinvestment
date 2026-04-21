@@ -1,0 +1,20 @@
+/* ========================================
+COMPONENT: abv2-ed-cta
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / BUTTONS
+========================================================= */
+.abv2-ed-cta{
+    padding-top:8px;
+  }
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-ed-cta{
+        text-align:left;
+      }
+}

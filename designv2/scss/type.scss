@@ -1,0 +1,994 @@
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html
+========================================================= */
+.abv2-h1,
+  .abv2-h2,
+  .abv2-h3,
+  .abv2-stat__value{
+    margin:0;
+    font-family:var(--abv2-serif);
+    font-weight:600;
+    letter-spacing:-.03em;
+  }
+
+.abv2-h1{
+    font-size:clamp(1.95rem, 3.05vw, 3.2rem);
+    line-height:.95;
+  }
+
+.abv2-h2{
+    font-size:clamp(1.78rem, 2.8vw, 2.9rem);
+    line-height:.98;
+  }
+
+.abv2-h3{
+    font-size:clamp(1.14rem, 1.22vw, 1.28rem);
+    line-height:1.08;
+  }
+
+.abv2-body{
+    margin:0;
+    font-family:var(--abv2-sans);
+    font-size:clamp(1.05rem, 1.18vw, 1.18rem);
+    line-height:1.62;
+    color:var(--abv2-text);
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / HERO
+========================================================= */
+.abv2-hero__copy .abv2-h1{
+    max-width:15ch;
+  }
+
+.abv2-hero__copy .abv2-body{
+    max-width:620px;
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / PINK SECTION
+========================================================= */
+.abv2-pink__copy .abv2-h2,
+  .abv2-pink__copy .abv2-body{
+    color:var(--abv2-white);
+  }
+
+.abv2-pink__copy .abv2-body{
+    max-width:620px;
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / FEATURES
+========================================================= */
+.abv2-features__intro .abv2-body{
+    max-width:580px;
+  }
+
+.abv2-feature .abv2-h3{
+    margin-bottom:6px;
+    font-size:1.22rem;
+  }
+
+.abv2-feature .abv2-body{
+    max-width:215px;
+    font-size:1rem;
+    line-height:1.52;
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
+========================================================= */
+.abv2-teal__copy .abv2-h2,
+  .abv2-teal__copy .abv2-body{
+    color:var(--abv2-white);
+  }
+
+.abv2-teal__copy .abv2-body{
+    max-width:600px;
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / FOOTER
+========================================================= */
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-hero__copy .abv2-h1{
+        max-width:14ch;
+        font-size:clamp(1.96rem, 2.35vw, 2.24rem);
+        line-height:.93;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-hero__copy .abv2-body{
+        max-width:39ch;
+        font-size:clamp(1rem, 1vw, 1.02rem);
+        line-height:1.56;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy .abv2-body{
+        max-width:38ch;
+      }
+}
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-h1{
+        font-size:clamp(2.15rem, 4vw, 2.7rem);
+        line-height:.93;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-h2{
+        font-size:clamp(2rem, 4.2vw, 2.45rem);
+        line-height:.95;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-body{
+        font-size:1.02rem;
+        line-height:1.58;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-hero__copy .abv2-h1{
+        max-width:13ch;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-hero__copy .abv2-body{
+        max-width:36ch;
+        font-size:1.03rem;
+        line-height:1.56;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy .abv2-h2{
+        max-width:14ch;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy .abv2-body{
+        max-width:42ch;
+        font-size:1.02rem;
+        line-height:1.58;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-features__intro .abv2-h2{
+        max-width:none;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-features__intro .abv2-body{
+        max-width:44ch;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature .abv2-h3{
+        margin-bottom:6px;
+        font-size:1.08rem;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature .abv2-body{
+        max-width:20ch;
+        font-size:.95rem;
+        line-height:1.48;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy .abv2-h2{
+        max-width:16ch;
+        line-height:.94;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy .abv2-body{
+        max-width:36ch;
+        font-size:1rem;
+        line-height:1.58;
+      }
+}
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-h1{
+        font-size:2.24rem;
+        line-height:.94;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-h2{
+        font-size:2rem;
+        line-height:.96;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-body{
+        font-size:.98rem;
+        line-height:1.5;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-hero__copy .abv2-h1,
+      .abv2-pink__copy .abv2-h2,
+      .abv2-features__intro .abv2-h2,
+      .abv2-teal__copy .abv2-h2{
+        width:100%;
+        max-width:none;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature .abv2-h3{
+        display:block !important;
+        width:100% !important;
+        margin:0 auto 8px !important;
+        text-align:center !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature .abv2-body{
+        display:block !important;
+        width:100% !important;
+        max-width:26ch !important;
+        margin:0 auto !important;
+        text-align:center !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__copy .abv2-h2,
+      .abv2-teal__copy .abv2-body{
+        max-width:none;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html
+========================================================= */
+.abv2-h1,
+  .abv2-h2,
+  .abv2-h3,
+  .abv2-stat__value{
+    margin:0;
+    font-family:var(--abv2-serif);
+    font-weight:600;
+    letter-spacing:-.03em;
+  }
+
+.abv2-h1{
+    font-size:clamp(1.95rem, 3.05vw, 3.2rem);
+    line-height:.95;
+  }
+
+.abv2-h2{
+    font-size:clamp(1.78rem, 2.8vw, 2.9rem);
+    line-height:.98;
+  }
+
+.abv2-h3{
+    font-size:clamp(1.14rem, 1.22vw, 1.28rem);
+    line-height:1.08;
+  }
+
+.abv2-body{
+    margin:0;
+    font-family:var(--abv2-sans);
+    font-size:clamp(1.05rem, 1.18vw, 1.18rem);
+    line-height:1.62;
+    color:var(--abv2-text);
+  }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / HERO
+========================================================= */
+.abv2-hero__copy .abv2-h1{
+    max-width:15ch;
+  }
+
+.abv2-hero__copy .abv2-body{
+    max-width:620px;
+  }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / PINK SECTION
+========================================================= */
+.abv2-pink__copy .abv2-h2,
+  .abv2-pink__copy .abv2-body{
+    color:var(--abv2-white);
+  }
+
+.abv2-pink__copy .abv2-body{
+    max-width:620px;
+  }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / FEATURES
+========================================================= */
+.abv2-features__intro .abv2-body{
+    max-width:580px;
+  }
+
+.abv2-feature .abv2-h3{
+    margin-bottom:6px;
+    font-size:1.22rem;
+  }
+
+.abv2-feature .abv2-body{
+    max-width:215px;
+    font-size:1rem;
+    line-height:1.52;
+  }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / TEAL SECTION
+========================================================= */
+.abv2-teal__copy .abv2-h2,
+  .abv2-teal__copy .abv2-body{
+    color:var(--abv2-white);
+  }
+
+.abv2-teal__copy .abv2-body{
+    max-width:600px;
+  }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / FOOTER
+========================================================= */
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-hero__copy .abv2-h1{
+        max-width:14ch;
+        font-size:clamp(1.96rem, 2.35vw, 2.24rem);
+        line-height:.93;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-hero__copy .abv2-body{
+        max-width:39ch;
+        font-size:clamp(1rem, 1vw, 1.02rem);
+        line-height:1.56;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy .abv2-body{
+        max-width:38ch;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-h1{
+        font-size:clamp(2.15rem, 4vw, 2.7rem);
+        line-height:.93;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-h2{
+        font-size:clamp(2rem, 4.2vw, 2.45rem);
+        line-height:.95;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-body{
+        font-size:1.02rem;
+        line-height:1.58;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-hero__copy .abv2-h1{
+        max-width:13ch;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-hero__copy .abv2-body{
+        max-width:36ch;
+        font-size:1.03rem;
+        line-height:1.56;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy .abv2-h2{
+        max-width:14ch;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy .abv2-body{
+        max-width:42ch;
+        font-size:1.02rem;
+        line-height:1.58;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-features__intro .abv2-h2{
+        max-width:none;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-features__intro .abv2-body{
+        max-width:44ch;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature .abv2-h3{
+        margin-bottom:6px;
+        font-size:1.08rem;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature .abv2-body{
+        max-width:20ch;
+        font-size:.95rem;
+        line-height:1.48;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy .abv2-h2{
+        max-width:16ch;
+        line-height:.94;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy .abv2-body{
+        max-width:36ch;
+        font-size:1rem;
+        line-height:1.58;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-h1{
+        font-size:2.24rem;
+        line-height:.94;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-h2{
+        font-size:2rem;
+        line-height:.96;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-body{
+        font-size:.98rem;
+        line-height:1.5;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-hero__copy .abv2-h1,
+      .abv2-pink__copy .abv2-h2,
+      .abv2-features__intro .abv2-h2,
+      .abv2-teal__copy .abv2-h2{
+        width:100%;
+        max-width:none;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature .abv2-h3{
+        display:block !important;
+        width:100% !important;
+        margin:0 auto 8px !important;
+        text-align:center !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature .abv2-body{
+        display:block !important;
+        width:100% !important;
+        max-width:26ch !important;
+        margin:0 auto !important;
+        text-align:center !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__copy .abv2-h2,
+      .abv2-teal__copy .abv2-body{
+        max-width:none;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html
+========================================================= */
+.abv2-h1,
+  .abv2-h2,
+  .abv2-h3,
+  .abv2-stat__value{
+    margin:0;
+    font-family:var(--abv2-serif);
+    font-weight:600;
+    letter-spacing:-.03em;
+  }
+
+.abv2-h1{
+    font-size:clamp(1.95rem, 3.05vw, 3.2rem);
+    line-height:.95;
+  }
+
+.abv2-h2{
+    font-size:clamp(1.78rem, 2.8vw, 2.9rem);
+    line-height:.98;
+  }
+
+.abv2-h3{
+    font-size:clamp(1.14rem, 1.22vw, 1.28rem);
+    line-height:1.08;
+  }
+
+.abv2-body{
+    margin:0;
+    font-family:var(--abv2-sans);
+    font-size:clamp(1.05rem, 1.18vw, 1.18rem);
+    line-height:1.62;
+    color:var(--abv2-text);
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HERO
+========================================================= */
+.abv2-hero__copy .abv2-h1{
+    max-width:15ch;
+  }
+
+.abv2-hero__copy .abv2-body{
+    max-width:620px;
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / PINK SECTION
+========================================================= */
+.abv2-pink__copy .abv2-h2,
+  .abv2-pink__copy .abv2-body{
+    color:var(--abv2-white);
+  }
+
+.abv2-pink__copy .abv2-body{
+    max-width:620px;
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURES
+========================================================= */
+.abv2-features__intro .abv2-body{
+    max-width:580px;
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / colour via background-color layer
+========================================================= */
+.abv2-feature .abv2-h3{
+    margin-bottom:8px;
+    font-size:1.22rem;
+  }
+
+.abv2-feature .abv2-body{
+    max-width:215px;
+    font-size:1rem;
+    line-height:1.52;
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / TEAL SECTION
+========================================================= */
+.abv2-teal__copy .abv2-h2,
+  .abv2-teal__copy .abv2-body{
+    color:var(--abv2-white);
+  }
+
+.abv2-teal__copy .abv2-body{
+    max-width:640px;
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:1150px){
+  .abv2-hero__copy .abv2-h1{
+        max-width:12.5ch;
+      }
+}
+
+@media (max-width:979px){
+  .abv2-hero__copy .abv2-h1{
+        font-size:clamp(2.2rem, 6vw, 3rem);
+        max-width:11.5ch;
+      }
+}
+
+@media (max-width:979px){
+  .abv2-hero__copy .abv2-body{
+        max-width:560px;
+      }
+}
+
+@media (max-width:979px){
+  .abv2-feature .abv2-body{
+        max-width:none;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / GLOBAL MOBILE SYSTEM
+========================================================= */
+@media (max-width:759px){
+  .abv2-h1{ font-size:2.24rem; line-height:.94; }
+}
+
+@media (max-width:759px){
+  .abv2-h2{ font-size:2rem; line-height:.96; }
+}
+
+@media (max-width:759px){
+  .abv2-body{ font-size:.98rem; line-height:1.5; }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / shared copy rail
+========================================================= */
+@media (max-width:759px){
+  .abv2-hero__copy .abv2-h1,
+    .abv2-pink__copy .abv2-h2,
+    .abv2-features__intro .abv2-h2,
+    .abv2-teal__copy .abv2-h2{
+      width:100%;
+      max-width:none;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURES
+========================================================= */
+@media (max-width:759px){
+  .abv2-feature .abv2-body{
+      max-width:26ch;
+      margin:0 auto;
+      text-align:center;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in addition for homepage testing
+========================================================= */
+.abv2-open-now__intro .abv2-body{
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+@media (max-width:759px){
+  .abv2-open-now__intro .abv2-body{
+      margin-left:0;
+      margin-right:0;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL STACK REVISION
+========================================================= */
+.abv2-open-now__intro .abv2-body{
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+@media (max-width:759px){
+  .abv2-open-now__intro .abv2-body{
+      margin-left:0;
+      margin-right:0;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact editorial card with lightweight spec line
+========================================================= */
+.abv2-open-now__intro .abv2-body{
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+@media (max-width:759px){
+  .abv2-open-now__intro .abv2-body{
+      margin-left:0;
+      margin-right:0;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweight featured-list treatment
+========================================================= */
+.abv2-open-now__intro .abv2-body{
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+@media (max-width:759px){
+  .abv2-open-now__intro .abv2-body{
+      margin-left:0;
+      margin-right:0;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DUAL-PATH HERO
+========================================================= */
+.abv2-hero__intro .abv2-h1{
+  max-width:11.5ch;
+}
+
+.abv2-hero__intro .abv2-body{
+  max-width:620px;
+}
+
+.abv2-path .abv2-h2{
+  font-size:clamp(1.34rem, 1.72vw, 1.78rem);
+  line-height:.98;
+}
+
+.abv2-path .abv2-body{
+  max-width:34ch;
+  font-size:1rem;
+  line-height:1.5;
+}
+
+.abv2-path--secondary .abv2-h2{
+  max-width:15ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOW IT WORKS
+========================================================= */
+.abv2-how__intro .abv2-h2,
+.abv2-how__intro .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-how-step__content .abv2-h3,
+.abv2-how-step__content .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-how-step__content .abv2-body{
+  font-size:1rem;
+  line-height:1.5;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DECISION BLOCK
+========================================================= */
+.abv2-decision__path .abv2-h3{
+  font-size:clamp(1.28rem, 1.56vw, 1.52rem);
+  line-height:1;
+  max-width:16ch;
+}
+
+.abv2-decision__path .abv2-body{
+  max-width:33ch;
+  font-size:1rem;
+  line-height:1.5;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-hero__intro .abv2-h1{
+      max-width:10.5ch;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-hero__intro .abv2-h1{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-path .abv2-body{
+      max-width:none;
+      font-size:.96rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-how-step__content .abv2-body{
+      font-size:.94rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__path .abv2-body,
+    .abv2-decision__list li{
+      max-width:none;
+      font-size:.94rem;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / CASE STUDY / IMPACT SPOTLIGHT
+========================================================= */
+.abv2-case__copy .abv2-h2,
+.abv2-case__copy .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-case__copy .abv2-body{
+  max-width:36ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / PRIMARY CTA BAND
+========================================================= */
+.abv2-cta-band__copy .abv2-h2,
+.abv2-cta-band__copy .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-cta-band__copy .abv2-body{
+  max-width:36ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-case__copy .abv2-body{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-cta-band__copy .abv2-body{
+      max-width:none;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / PATCH — FORCE NEW KANSAS ACROSS V2 MEGA PAGE
+========================================================= */
+.abv2-home .abv2-h1,
+.abv2-home .abv2-h2,
+.abv2-home .abv2-h3,
+.abv2-home .abv2-stat__value,
+.abv2-home .abv2-proof-band__value,
+.abv2-home .abv2-quote__text,
+.abv2-home .abv2-case-stat__value,
+.abv2-home .abv2-end-cta__title,
+.abv2-home .abv2-cta-band__copy .abv2-h2,
+.abv2-home .abv2-case__copy .abv2-h2,
+.abv2-home .abv2-how__intro .abv2-h2,
+.abv2-home .abv2-how-step__content .abv2-h3,
+.abv2-home .abv2-path .abv2-h2,
+.abv2-home .abv2-decision__path .abv2-h3,
+.abv2-home .abv2-compare__heading,
+.abv2-home .abv2-related__title,
+.abv2-home .abv2-subnav__title,
+.abv2-home .home-choice-v2__title,
+.abv2-home .home-choice-v2__heading,
+.abv2-home .home-cta__title{
+  font-family:"New Kansas", Georgia, serif !important;
+  font-weight:600 !important;
+  letter-spacing:-.03em;
+  font-style:normal !important;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / SPLIT INTRO
+========================================================= */
+.abv2-intro-split__lead .abv2-h2{
+  max-width:10ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURE + ILLUSTRATION
+========================================================= */
+.abv2-feature-illo__copy .abv2-h2,
+.abv2-feature-illo__copy .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-feature-illo__copy .abv2-body{
+  max-width:35ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DUAL-PATH HERO VARIANT
+========================================================= */
+.abv2-hero__intro .abv2-h1{
+  max-width:11.2ch;
+}
+
+.abv2-hero__intro .abv2-body{
+  max-width:620px;
+}
+
+.abv2-path .abv2-h2{
+  font-size:clamp(1.34rem, 1.72vw, 1.78rem);
+  line-height:.98;
+}
+
+.abv2-path .abv2-body{
+  max-width:34ch;
+  font-size:1rem;
+  line-height:1.5;
+}
+
+.abv2-path--secondary .abv2-h2{
+  max-width:15ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-intro-split__lead .abv2-h2{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-illo__copy .abv2-body{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-hero__intro .abv2-h1{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-path .abv2-body{
+      max-width:none;
+      font-size:.96rem;
+    }
+}

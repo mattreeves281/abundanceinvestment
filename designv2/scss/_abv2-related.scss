@@ -1,0 +1,230 @@
+/* ========================================
+COMPONENT: abv2-related
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
+========================================================= */
+.abv2-related{
+  position:relative;
+  overflow:hidden;
+  background:var(--abv2-teal);
+  color:var(--abv2-white);
+  padding-top:142px;
+  padding-bottom:132px;
+  clip-path:var(--abv2-teal-clip);
+}
+
+.abv2-related > *{
+  position:relative;
+  z-index:1;
+}
+
+.abv2-related__inner{
+  display:grid;
+  grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);
+  gap:42px;
+  align-items:start;
+}
+
+.abv2-related__intro{
+  max-width:260px;
+}
+
+.abv2-related__eyebrow{
+  margin:0 0 10px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.84);
+}
+
+.abv2-related__title{
+  margin:0;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.6rem, 2.2vw, 2.24rem);
+  line-height:.98;
+  letter-spacing:-.03em;
+  color:var(--abv2-white);
+}
+
+.abv2-related__grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:20px;
+}
+
+.abv2-related__item{
+  position:relative;
+  padding-top:12px;
+}
+
+.abv2-related__item::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:38px;
+  height:1px;
+  background:rgba(255,255,255,.28);
+}
+
+.abv2-related__link{
+  display:block;
+  text-decoration:none;
+}
+
+.abv2-related__link:hover .abv2-related__label,
+.abv2-related__link:focus .abv2-related__label{
+  color:#fff6d9;
+}
+
+.abv2-related__label{
+  margin:0 0 8px;
+  font-family:var(--abv2-ui);
+  font-size:.92rem;
+  line-height:1.22;
+  color:var(--abv2-white);
+  transition:color .2s ease;
+}
+
+.abv2-related__desc{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:.94rem;
+  line-height:1.48;
+  color:rgba(255,255,255,.88);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-related{
+      padding-top:118px;
+      padding-bottom:106px;
+      clip-path:var(--abv2-teal-clip-mobile);
+    }
+}
+
+@media (max-width:979px){
+  .abv2-related__inner{
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-related__grid{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+}
+
+@media (max-width:759px){
+  .abv2-related{
+      padding-top:108px;
+      padding-bottom:84px;
+      clip-path:var(--abv2-teal-clip-mobile);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-related__intro{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-related__grid{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-related__label{
+      font-size:.88rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-related__desc{
+      font-size:.9rem;
+    }
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / NAV / READING AIDS
+========================================================= */
+.abv2-related{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:14px;
+}
+
+.abv2-related__card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:18px 18px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fff;
+  text-decoration:none;
+  color:inherit;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.abv2-related__card:hover{
+  transform:translateY(-1px);
+  border-color:rgba(114,71,149,.28);
+  box-shadow:0 10px 24px rgba(38,38,37,.06);
+}
+
+.abv2-related__type{
+  display:inline-block;
+  margin:0 0 10px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:#724795;
+}
+
+.abv2-related__title{
+  display:block;
+  margin:0 0 8px;
+  font-size:1.08rem;
+  line-height:1.14;
+}
+
+.abv2-related__desc{
+  margin:0 0 14px;
+  font-size:.94rem;
+  line-height:1.48;
+  color:rgba(38,38,37,.78);
+}
+
+.abv2-related__cta{
+  margin-top:auto;
+  font-family:var(--abv2-ui);
+  font-size:.82rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--abv2-pink);
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-related{
+      grid-template-columns:1fr;
+    }
+}

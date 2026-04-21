@@ -1,0 +1,74 @@
+/* ========================================
+COMPONENT: ai-council-heroBadge
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council homepage hero — formal logo badge paste AFTER your current council overrides
+========================================================= */
+.ai-council-heroBadge{
+  width:min(100%, 320px);
+  margin-left:auto;
+}
+
+.ai-council-heroBadge__box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:250px;
+  padding:30px;
+  border-radius:28px;
+  background:#ffffff; /* keep logo on clean white */
+  box-shadow:0 12px 28px rgba(15,23,42,.08);
+  border:1px solid rgba(15,23,42,.08);
+}
+
+.ai-council-heroBadge__box--solid{
+  background:#f3f4f6; /* optional alternative if you want a solid colour field */
+}
+
+.ai-council-heroBadge__box img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:78%;
+  max-height:170px;
+  object-fit:contain;
+}
+
+.ai-council-heroBadge__meta{
+  margin-top:12px;
+  text-align:right;
+  font-family:"Sohne Kraftig", Arial, sans-serif;
+  font-size:.76rem;
+  line-height:1.2;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#4d4a46;
+}
+
+@media (max-width:991.98px){
+  .ai-council-heroBadge{
+      margin:0 auto 1.25rem;
+    }
+}
+
+@media (max-width:991.98px){
+  .ai-council-heroBadge__meta{
+      text-align:center;
+    }
+}
+
+@media (max-width:991.98px){
+  .ai-council-heroBadge__box{
+      min-height:220px;
+      max-width:320px;
+      margin:0 auto;
+    }
+}
+
+@media (max-width:991.98px){
+  .ai-council-heroBadge__box img{
+      max-height:150px;
+    }
+}

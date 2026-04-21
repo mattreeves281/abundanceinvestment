@@ -1,0 +1,72 @@
+/* ========================================
+COMPONENT: abv2-ed-band
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / DIVIDER FAMILY
+========================================================= */
+.abv2-ed-band{
+    position:relative;
+    width:100vw;
+    height:138px;
+    margin:18px 0 24px;
+    margin-left:calc(50% - 50vw);
+    pointer-events:none;
+  }
+
+.abv2-ed-band--pink-rise{
+    background:var(--abv2-pink);
+    clip-path:polygon(
+      0 84%,
+      0 100%,
+      33% 36%,
+      100% 76%,
+      100% 60%,
+      33% 20%
+    );
+  }
+
+.abv2-ed-band--yellow-right{
+    background:var(--abv2-yellow);
+    clip-path:polygon(
+      0 78%,
+      0 94%,
+      66% 30%,
+      100% 48%,
+      100% 32%,
+      66% 14%
+    );
+  }
+
+.abv2-ed-band--teal-fall{
+    background:var(--abv2-teal);
+    clip-path:polygon(
+      0 30%,
+      0 46%,
+      33% 82%,
+      100% 42%,
+      100% 26%,
+      33% 66%
+    );
+  }
+
+.abv2-ed-band--tight{
+    margin-top:8px;
+    margin-bottom:12px;
+  }
+
+.abv2-ed-band--loose{
+    margin-top:34px;
+    margin-bottom:34px;
+  }
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-ed-band{
+        margin-top:14px;
+        margin-bottom:18px;
+      }
+}

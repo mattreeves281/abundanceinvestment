@@ -1,0 +1,31 @@
+/* ========================================
+COMPONENT: cbc-summary
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 4) Use-of-funds chart (cbc-*)
+========================================================= */
+#council-bar-chart .cbc-summary{ margin:0 0 18px; }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes the "dashboard card" feeling
+========================================================= */
+#council-bar-chart .cbc-summary{
+  margin:0 0 24px;
+  padding:0 0 24px;
+  border-bottom:1px solid;
+  border-image:linear-gradient(
+    to right,
+    rgba(0,0,0,.04),
+    rgba(0,0,0,.14),
+    rgba(0,0,0,.04)
+  ) 1;
+}
+
+@media (max-width:640px){
+  #council-bar-chart .cbc-summary{
+      margin-bottom:20px;
+      padding-bottom:20px;
+    }
+}

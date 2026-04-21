@@ -1,0 +1,41 @@
+/* ========================================
+COMPONENT: ai-council-intro
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / intro/video section
+========================================================= */
+.ai-council-intro{
+  padding:62px 0 48px;
+  background:#f6f3f2;
+}
+
+.ai-council-intro__rail{
+  width:min(calc(100% - 36px), 860px);
+  margin:0 auto;
+  text-align:center;
+}
+
+.ai-council-intro__rail > * + *{
+  margin-top:28px;
+}
+
+.ai-council-intro__body{
+  margin:0 auto;
+  max-width:78ch;
+  font-family:"Sohne Buch", Arial, sans-serif;
+  font-size:1.02rem;
+  line-height:1.62;
+  color:#4d4a46;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / mobile
+========================================================= */
+@media (max-width: 759px){
+  .ai-council-intro{
+      padding-top:44px;
+      padding-bottom:34px;
+    }
+}

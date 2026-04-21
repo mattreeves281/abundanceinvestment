@@ -1,0 +1,119 @@
+/* ========================================
+COMPONENT: abv2-feature-stat
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
+========================================================= */
+.abv2-feature-stat{
+  position:relative;
+  z-index:1;
+  padding-top:76px;
+  padding-bottom:82px;
+  background:#fff;
+}
+
+.abv2-feature-stat__inner{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(220px,.7fr);
+  gap:44px;
+  align-items:end;
+  width:min(100%, 980px);
+  margin:0 auto;
+}
+
+.abv2-feature-stat__copy{
+  max-width:620px;
+}
+
+.abv2-feature-stat__eyebrow{
+  margin:0 0 10px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--abv2-pink);
+}
+
+.abv2-feature-stat__body{
+  max-width:36ch;
+}
+
+.abv2-feature-stat__stat{
+  position:relative;
+  padding-top:14px;
+}
+
+.abv2-feature-stat__stat::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:44px;
+  height:1px;
+  background:rgba(38,38,37,.18);
+}
+
+.abv2-feature-stat__value{
+  margin:0 0 8px;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(2rem, 3vw, 3rem);
+  line-height:.94;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
+}
+
+.abv2-feature-stat__label{
+  margin:0;
+  max-width:14ch;
+  font-family:var(--abv2-sans);
+  font-size:.96rem;
+  line-height:1.44;
+  color:var(--abv2-text);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-feature-stat{
+      padding-top:60px;
+      padding-bottom:66px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-feature-stat__inner{
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-stat{
+      padding-top:48px;
+      padding-bottom:52px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-stat__copy,
+    .abv2-feature-stat__body{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-stat__value{
+      font-size:2rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-stat__label{
+      font-size:.9rem;
+    }
+}

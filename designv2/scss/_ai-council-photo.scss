@@ -1,0 +1,50 @@
+/* ========================================
+COMPONENT: ai-council-photo
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / image panel
+========================================================= */
+.ai-council-photo{
+  padding:74px 0 82px;
+  background:#f6f3f2;
+}
+
+.ai-council-photo__inner{
+  width:min(calc(100% - 36px), 860px);
+  margin:0 auto;
+}
+
+.ai-council-photo__card{
+  width:min(100%, 560px);
+  margin:0 auto;
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:none;
+}
+
+.ai-council-photo__card img{
+  width:100%;
+  display:block;
+}
+
+.ai-council-photo__caption{
+  margin:0;
+  padding:12px 14px 14px;
+  font-family:"Sohne Buch", Arial, sans-serif;
+  font-size:.84rem;
+  line-height:1.45;
+  color:#4d4a46;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / mobile
+========================================================= */
+@media (max-width: 759px){
+  .ai-council-photo{
+      padding-top:48px;
+      padding-bottom:56px;
+    }
+}

@@ -1,0 +1,27 @@
+/* ========================================
+COMPONENT: cbc-row
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Chart rows
+========================================================= */
+#council-bar-chart .cbc-row{
+  display:flex;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Mobile
+========================================================= */
+@media (max-width:640px){
+  #council-bar-chart .cbc-row{ flex-direction:column; align-items:stretch; }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes the "dashboard card" feeling
+========================================================= */
+#council-bar-chart .cbc-row{
+  margin-bottom:14px;
+}

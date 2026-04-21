@@ -1,0 +1,35 @@
+/* ========================================
+COMPONENT: abv2-procon
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / pro/con
+========================================================= */
+.abv2-procon{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.abv2-procon__col{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  padding:20px 20px 18px;
+  background:#fff;
+}
+
+.abv2-procon__col--pros{
+  background:rgba(0,164,182,.06);
+}
+
+.abv2-procon__col--cons{
+  background:rgba(226,109,166,.06);
+}
+
+.abv2-procon__title{
+  display:block;
+  margin:0 0 12px;
+  font-size:1.02rem;
+  line-height:1.2;
+}

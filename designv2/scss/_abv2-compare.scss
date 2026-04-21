@@ -1,0 +1,294 @@
+/* ========================================
+COMPONENT: abv2-compare
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / EXPANDED COMPARISON
+========================================================= */
+.abv2-compare{
+  position:relative;
+  z-index:1;
+  padding-top:84px;
+  padding-bottom:92px;
+  background:#fff;
+}
+
+.abv2-compare__intro{
+  width:min(100%, 720px);
+  margin-left:clamp(40px, 10vw, 140px);
+  margin-bottom:40px;
+}
+
+.abv2-compare__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:56px;
+  width:min(100% - clamp(40px, 10vw, 140px), 940px);
+  margin-left:clamp(40px, 10vw, 140px);
+  align-items:start;
+}
+
+.abv2-compare__col{
+  position:relative;
+  max-width:390px;
+}
+
+.abv2-compare__col--primary{
+  margin-top:34px;
+}
+
+.abv2-compare__col--primary::before{
+  content:"";
+  position:absolute;
+  right:-30px;
+  top:-22px;
+  width:146px;
+  height:146px;
+  background:rgba(18,169,187,.12);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+  pointer-events:none;
+}
+
+.abv2-compare__kicker{
+  margin:0 0 8px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.abv2-compare__col--manual .abv2-compare__kicker{
+  color:var(--abv2-pink);
+}
+
+.abv2-compare__col--primary .abv2-compare__kicker{
+  color:var(--abv2-teal);
+}
+
+.abv2-compare__heading{
+  margin:0 0 12px;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.45rem, 1.8vw, 1.86rem);
+  line-height:.98;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
+}
+
+.abv2-compare__body{
+  margin:0 0 16px;
+  max-width:32ch;
+  font-family:var(--abv2-sans);
+  font-size:1rem;
+  line-height:1.52;
+  color:var(--abv2-text);
+}
+
+.abv2-compare__table{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+
+.abv2-compare__row{
+  display:grid;
+  grid-template-columns:140px minmax(0,1fr);
+  gap:14px;
+  align-items:start;
+  padding-top:10px;
+  border-top:1px solid rgba(38,38,37,.12);
+}
+
+.abv2-compare__term{
+  margin:0;
+  font-family:var(--abv2-ui);
+  font-size:.82rem;
+  line-height:1.25;
+  color:var(--abv2-ink);
+}
+
+.abv2-compare__value{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:.94rem;
+  line-height:1.48;
+  color:var(--abv2-text);
+}
+
+.abv2-compare__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-compare{
+      padding-top:68px;
+      padding-bottom:76px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-compare__intro,
+    .abv2-compare__grid{
+      width:100%;
+      max-width:none;
+      margin-left:0;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-compare__grid{
+      gap:34px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-compare__col--primary{
+      margin-top:0;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare{
+      padding-top:52px;
+      padding-bottom:60px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__intro{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto 26px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__grid{
+      grid-template-columns:1fr;
+      gap:28px;
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__col{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__col--primary::before{
+      right:-8px;
+      top:-14px;
+      width:104px;
+      height:104px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__body{
+      max-width:none;
+      font-size:.94rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__row{
+      grid-template-columns:1fr;
+      gap:4px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__term,
+    .abv2-compare__value{
+      font-size:.9rem;
+    }
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / TYPE SAFETY
+========================================================= */
+.abv2-compare__heading{
+  font-family:var(--abv2-serif);
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
+========================================================= */
+.abv2-compare__list li{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-top:1px solid rgba(38,38,37,.08);
+  line-height:1.55;
+}
+
+.abv2-compare__list li:first-child{
+  border-top:0;
+  padding-top:0;
+}
+
+.abv2-compare__list li:first-child::before{
+  top:.42em;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / compare
+========================================================= */
+.abv2-compare{
+  overflow:hidden;
+}
+
+.abv2-compare__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-compare__col{
+  padding:22px 24px 24px;
+}
+
+.abv2-compare__col + .abv2-compare__col{
+  border-left:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-compare__label{
+  margin:0 0 12px;
+  font-size:.78rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.62);
+}
+
+.abv2-compare__heading{
+  display:block;
+  margin:0 0 12px;
+  font-size:1.15rem;
+  line-height:1.18;
+}
+
+.abv2-compare__note{
+  margin:0;
+  padding:16px 24px 20px;
+  border-top:1px solid rgba(38,38,37,.10);
+  font-size:.95rem;
+  color:rgba(38,38,37,.78);
+}

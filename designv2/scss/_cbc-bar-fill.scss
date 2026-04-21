@@ -1,0 +1,26 @@
+/* ========================================
+COMPONENT: cbc-bar-fill
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Chart rows
+========================================================= */
+#council-bar-chart .cbc-bar-fill{
+  position:absolute;
+  top:0; bottom:0; left:0;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  padding-left:14px;
+  box-sizing:border-box;
+  white-space:nowrap;
+  transition:width .8s ease, transform .2s ease-out, box-shadow .2s ease-out;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes the "dashboard card" feeling
+========================================================= */
+#council-bar-chart .cbc-bar-fill{
+  box-shadow:none !important;
+}

@@ -1,0 +1,22 @@
+/* ========================================
+COMPONENT: abv2-inline-disclaimer
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RISK / LEGAL
+========================================================= */
+.abv2-inline-disclaimer{
+  margin:18px 0 0;
+  padding:14px 16px;
+  border-left:4px solid rgba(226,109,166,.7);
+  background:rgba(248,245,247,.72);
+  border-radius:0 14px 14px 0;
+  font-size:.92rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.8);
+}
+
+.abv2-inline-disclaimer strong{
+  color:var(--abv2-ink);
+}

@@ -1,0 +1,15 @@
+/* ========================================
+COMPONENT: abv2-riskzone
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RISK / LEGAL
+========================================================= */
+.abv2-riskzone{
+  margin:26px 0 34px;
+}
+
+.abv2-riskzone > * + *{
+  margin-top:18px;
+}

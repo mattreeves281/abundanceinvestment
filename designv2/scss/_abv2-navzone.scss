@@ -1,0 +1,15 @@
+/* ========================================
+COMPONENT: abv2-navzone
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / NAV / READING AIDS
+========================================================= */
+.abv2-navzone{
+  margin:26px 0 34px;
+}
+
+.abv2-navzone > * + *{
+  margin-top:18px;
+}

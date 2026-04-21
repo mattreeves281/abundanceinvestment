@@ -1,0 +1,286 @@
+/* ========================================
+COMPONENT: abv2-decision
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DECISION BLOCK (MID PAGE)
+========================================================= */
+.abv2-decision{
+  position:relative;
+  padding-top:100px;
+  padding-bottom:120px;
+  background:#fff;
+}
+
+.abv2-decision__intro{
+  width:min(100%, 680px);
+  margin-left:clamp(40px, 10vw, 140px);
+  margin-bottom:44px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / layout
+========================================================= */
+.abv2-decision__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:60px;
+  width:min(100% - clamp(40px, 10vw, 140px), 920px);
+  margin-left:clamp(40px, 10vw, 140px);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / paths
+========================================================= */
+.abv2-decision__path{
+  max-width:360px;
+}
+
+.abv2-decision__path--auto{
+  position:relative;
+}
+
+.abv2-decision__path--auto::after{
+  content:"";
+  position:absolute;
+  right:-40px;
+  top:-30px;
+  width:180px;
+  height:180px;
+  background:var(--abv2-teal);
+  opacity:.06;
+
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-size:contain;
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+
+  mask-image:var(--abv2-dot-mask);
+  mask-size:contain;
+  mask-repeat:no-repeat;
+  mask-position:center;
+
+  pointer-events:none;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / vertical misalignment = asymmetry
+========================================================= */
+.abv2-decision__path--manual{
+  margin-top:46px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / MOBILE
+========================================================= */
+@media (max-width:759px){
+  .abv2-decision{
+      padding-top:64px;
+      padding-bottom:78px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__intro{
+      margin:0 auto 28px;
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__grid{
+      grid-template-columns:1fr;
+      gap:28px;
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__path--manual{
+      margin-top:0;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__path--auto::after{
+      right:-10px;
+      top:-20px;
+      width:120px;
+      height:120px;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DECISION BLOCK
+========================================================= */
+.abv2-decision{
+  position:relative;
+  z-index:1;
+  padding-top:92px;
+  padding-bottom:104px;
+  background:#fff;
+}
+
+.abv2-decision__intro{
+  width:min(100%, 700px);
+  margin-left:clamp(40px, 10vw, 140px);
+  margin-bottom:40px;
+}
+
+.abv2-decision__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:60px;
+  width:min(100% - clamp(40px, 10vw, 140px), 920px);
+  margin-left:clamp(40px, 10vw, 140px);
+  align-items:start;
+}
+
+.abv2-decision__path{
+  position:relative;
+  max-width:370px;
+}
+
+.abv2-decision__path--primary{
+  margin-top:42px;
+}
+
+.abv2-decision__path--primary::before{
+  content:"";
+  position:absolute;
+  right:-34px;
+  top:-24px;
+  width:152px;
+  height:152px;
+  background:rgba(239,181,42,.16);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+  pointer-events:none;
+}
+
+.abv2-decision__list{
+  margin:4px 0 2px 0;
+  padding:0;
+  list-style:none;
+}
+
+.abv2-decision__list li{
+  position:relative;
+  margin:0;
+  padding:0 0 0 16px;
+  font-family:var(--abv2-sans);
+  font-size:.98rem;
+  line-height:1.55;
+  color:var(--abv2-text);
+}
+
+.abv2-decision__list li + li{
+  margin-top:6px;
+}
+
+.abv2-decision__list li::before{
+  content:"•";
+  position:absolute;
+  left:0;
+  top:0;
+  color:var(--abv2-pink);
+}
+
+.abv2-decision__path--primary .abv2-decision__list li::before{
+  color:var(--abv2-teal);
+}
+
+.abv2-decision__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:4px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-decision{
+      padding-top:72px;
+      padding-bottom:84px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-decision__intro,
+    .abv2-decision__grid{
+      width:100%;
+      max-width:none;
+      margin-left:0;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-decision__grid{
+      gap:34px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-decision__path--primary{
+      margin-top:0;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision{
+      padding-top:54px;
+      padding-bottom:64px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__intro{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto 26px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__grid{
+      grid-template-columns:1fr;
+      gap:28px;
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__path{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-decision__path--primary::before{
+      right:-10px;
+      top:-16px;
+      width:108px;
+      height:108px;
+    }
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / DECISION SUPPORT
+========================================================= */
+.abv2-decision{
+  margin:26px 0 34px;
+}
+
+.abv2-decision > * + *{
+  margin-top:18px;
+}

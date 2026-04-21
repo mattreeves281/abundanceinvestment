@@ -1,0 +1,70 @@
+/* ========================================
+COMPONENT: abv2-warning
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RISK / LEGAL
+========================================================= */
+.abv2-warning{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-warning__item{
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  padding:14px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:16px;
+  background:#fffdfa;
+}
+
+.abv2-warning__mark{
+  width:30px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  background:rgba(239,181,42,.22);
+  color:#7c5b0a;
+  font-family:var(--abv2-ui);
+  font-size:.88rem;
+  font-weight:700;
+  line-height:1;
+  clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
+}
+
+.abv2-warning__title{
+  margin:0 0 4px;
+  font-family:var(--abv2-ui);
+  font-size:.94rem;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-warning__text{
+  margin:0;
+  font-size:.94rem;
+  line-height:1.48;
+  color:rgba(38,38,37,.78);
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-warning__item{
+      grid-template-columns:24px minmax(0,1fr);
+      gap:10px;
+      padding:13px 14px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-warning__mark{
+      font-size:.8rem;
+    }
+}

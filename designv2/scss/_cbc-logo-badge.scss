@@ -1,0 +1,57 @@
+/* ========================================
+COMPONENT: cbc-logo-badge
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 4) Use-of-funds chart (cbc-*)
+========================================================= */
+#council-bar-chart .cbc-logo-badge{
+  width:112px;
+  height:112px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(15,23,42,.08);
+  border:1px solid rgba(15,23,42,.06);
+  background:#f3f4f6;
+}
+
+#council-bar-chart .cbc-logo-badge img{
+  width:78%;
+  height:78%;
+  object-fit:contain;
+  display:block;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Mobile
+========================================================= */
+@media (max-width:640px){
+  #council-bar-chart .cbc-logo-badge{ width:96px; height:96px; border-radius:20px; }
+}
+
+@media (max-width:640px){
+  #council-bar-chart .cbc-logo-badge img{ width:80%; height:80%; }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes the "dashboard card" feeling
+========================================================= */
+#council-bar-chart .cbc-logo-badge{
+  width:96px;
+  height:96px;
+  border-radius:20px;
+  box-shadow:none;
+  border:1px solid rgba(15,23,42,.08);
+  background:#ffffff;
+}
+
+@media (max-width:640px){
+  #council-bar-chart .cbc-logo-badge{
+      width:84px;
+      height:84px;
+    }
+}

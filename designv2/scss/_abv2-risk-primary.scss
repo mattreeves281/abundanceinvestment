@@ -1,0 +1,69 @@
+/* ========================================
+COMPONENT: abv2-risk-primary
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RISK / LEGAL
+========================================================= */
+.abv2-risk-primary{
+  overflow:hidden;
+}
+
+.abv2-risk-primary__band{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px 22px;
+  border-top:1px solid rgba(38,38,37,.08);
+  background:rgba(226,109,166,.08);
+}
+
+.abv2-risk-primary__icon{
+  flex:0 0 auto;
+  width:34px;
+  height:26px;
+  display:grid;
+  place-items:center;
+  background:rgba(226,109,166,.16);
+  color:#8f3d69;
+  font-family:var(--abv2-ui);
+  font-size:1rem;
+  font-weight:700;
+  line-height:1;
+  clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
+}
+
+.abv2-risk-primary__body{
+  min-width:0;
+}
+
+.abv2-risk-primary__headline{
+  margin:0 0 6px;
+  font-family:var(--abv2-ui);
+  font-size:1rem;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-risk-primary__text{
+  margin:0;
+  color:rgba(38,38,37,.82);
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-risk-primary__band{
+      padding:16px 18px;
+      gap:12px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-risk-primary__icon{
+      font-size:.92rem;
+    }
+}

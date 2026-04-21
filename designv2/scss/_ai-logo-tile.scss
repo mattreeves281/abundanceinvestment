@@ -1,0 +1,33 @@
+/* ========================================
+COMPONENT: ai-logo-tile
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Solid bg + centered logo variant
+========================================================= */
+.ai-logo-tile{
+  background: var(--tile-bg, #0f172a);
+  display:grid;
+  place-items:center;
+}
+
+.ai-logo-tile img.ai-logo-tile__logo{
+  position:relative;
+  inset:auto;
+  width:min(72%, 140px);
+  height:auto;
+  max-height:70%;
+  object-fit:contain;
+  display:block;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Swipe-scroll badges
+========================================================= */
+@media (max-width:768px){
+  .ai-logo-tile img.ai-logo-tile__logo{
+      width:min(78%, 120px);
+      max-height:74%;
+    }
+}

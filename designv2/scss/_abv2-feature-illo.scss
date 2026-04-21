@@ -1,0 +1,101 @@
+/* ========================================
+COMPONENT: abv2-feature-illo
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURE + ILLUSTRATION
+========================================================= */
+.abv2-feature-illo{
+  position:relative;
+  overflow:hidden;
+  background:var(--abv2-pink);
+  color:var(--abv2-white);
+  padding-top:168px;
+  padding-bottom:154px;
+  clip-path:var(--abv2-pink-clip);
+}
+
+.abv2-feature-illo > *{
+  position:relative;
+  z-index:1;
+}
+
+.abv2-feature-illo__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.86fr);
+  gap:54px;
+  align-items:center;
+}
+
+.abv2-feature-illo__copy{
+  max-width:640px;
+}
+
+.abv2-feature-illo__eyebrow{
+  margin:0 0 10px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.84);
+}
+
+.abv2-feature-illo__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:6px;
+}
+
+.abv2-feature-illo__art{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.abv2-feature-illo__art img{
+  width:min(100%, 280px);
+  height:auto;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-feature-illo{
+      padding-top:134px;
+      padding-bottom:118px;
+      clip-path:var(--abv2-pink-clip-mobile);
+    }
+}
+
+@media (max-width:979px){
+  .abv2-feature-illo__grid{
+      grid-template-columns:1fr;
+      gap:26px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-illo{
+      padding-top:112px;
+      padding-bottom:88px;
+      clip-path:var(--abv2-pink-clip-mobile);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-illo__copy,
+    .abv2-feature-illo__art{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature-illo__art img{
+      width:min(100%, 190px);
+    }
+}

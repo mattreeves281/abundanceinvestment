@@ -1,0 +1,152 @@
+/* ========================================
+COMPONENT: abv2-subnav
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / LIGHTWEIGHT SUBNAV
+========================================================= */
+.abv2-subnav{
+  position:relative;
+  z-index:1;
+  padding-top:48px;
+  padding-bottom:52px;
+  background:#faf8f8;
+}
+
+.abv2-subnav__inner{
+  display:grid;
+  grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);
+  gap:34px;
+  align-items:start;
+  width:min(100%, 1020px);
+  margin:0 auto;
+}
+
+.abv2-subnav__intro{
+  max-width:240px;
+}
+
+.abv2-subnav__eyebrow{
+  margin:0 0 10px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--abv2-pink);
+}
+
+.abv2-subnav__title{
+  margin:0;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.5rem, 2vw, 2rem);
+  line-height:.98;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
+}
+
+.abv2-subnav__links{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:22px;
+}
+
+.abv2-subnav__item{
+  position:relative;
+  padding-top:10px;
+}
+
+.abv2-subnav__item::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:34px;
+  height:1px;
+  background:rgba(38,38,37,.18);
+}
+
+.abv2-subnav__link{
+  display:block;
+  text-decoration:none;
+}
+
+.abv2-subnav__link:hover .abv2-subnav__label,
+.abv2-subnav__link:focus .abv2-subnav__label{
+  color:var(--abv2-pink);
+}
+
+.abv2-subnav__label{
+  margin:0 0 6px;
+  font-family:var(--abv2-ui);
+  font-size:.9rem;
+  line-height:1.2;
+  color:var(--abv2-ink);
+  transition:color .2s ease;
+}
+
+.abv2-subnav__desc{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:.94rem;
+  line-height:1.48;
+  color:var(--abv2-text);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-subnav{
+      padding-top:38px;
+      padding-bottom:42px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-subnav__inner{
+      grid-template-columns:1fr;
+      gap:22px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-subnav__links{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:18px 22px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-subnav{
+      padding-top:32px;
+      padding-bottom:34px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-subnav__intro{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-subnav__links{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-subnav__label{
+      font-size:.86rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-subnav__desc{
+      font-size:.9rem;
+    }
+}

@@ -1,0 +1,527 @@
+/* ========================================
+COMPONENT: abv2-pink
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / PINK SECTION
+========================================================= */
+.abv2-pink{
+    position:relative;
+    z-index:2;
+    overflow:hidden;
+    background:var(--abv2-pink);
+    color:var(--abv2-white);
+    padding-top:248px;
+    padding-bottom:170px;
+    clip-path:var(--abv2-pink-clip);
+  }
+
+.abv2-pink > *{
+    position:relative;
+    z-index:3;
+  }
+
+.abv2-pink__grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.18fr) minmax(180px,.82fr);
+    gap:36px;
+    align-items:center;
+  }
+
+.abv2-pink__copy{
+    max-width:720px;
+  }
+
+.abv2-pink__stats{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:34px;
+    max-width:560px;
+    margin-top:20px;
+    margin-bottom:30px;
+  }
+
+.abv2-pink__art{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    padding-top:0;
+  }
+
+.abv2-pink__art img{
+    width:min(100%, 180px);
+    transform:translate(10px, 34px);
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / FOOTER
+========================================================= */
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink{
+        clip-path:polygon(
+          0 12%,
+          21% 17%,
+          100% 0,
+          100% 93%,
+          74% 87%,
+          0 100%
+        );
+        padding-top:112px;
+        padding-bottom:84px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__grid{
+        grid-template-columns:minmax(0,1fr) 150px;
+        gap:28px;
+        align-items:center;
+        padding-left:34px;
+        padding-right:10px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__copy{
+        max-width:640px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__stats{
+        margin-top:10px;
+        margin-bottom:8px;
+        gap:22px 28px;
+        max-width:460px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__art{
+        justify-content:center;
+        align-items:flex-end;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__art img{
+        width:122px;
+        transform:translate(0, 10px);
+      }
+}
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink{
+        clip-path:polygon(
+          0 10%,
+          18% 14%,
+          100% 0,
+          100% 94%,
+          74% 88%,
+          0 100%
+        );
+        padding-top:106px;
+        padding-bottom:88px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__grid{
+        grid-template-columns:minmax(0, 1.14fr) 140px;
+        gap:24px;
+        align-items:center;
+        padding-left:44px;
+        padding-right:12px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy{
+        max-width:720px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__stats{
+        max-width:480px;
+        gap:20px 28px;
+        margin-top:6px;
+        margin-bottom:6px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__art{
+        justify-content:center;
+        align-items:flex-end;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__art img{
+        width:118px;
+        transform:translate(0, 8px);
+      }
+}
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-pink{
+        position:relative;
+        z-index:5 !important;
+        padding-top:138px;
+        padding-bottom:86px;
+        background:var(--abv2-pink);
+        clip-path:var(--abv2-pink-clip-mobile);
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__stats{
+        max-width:340px;
+        gap:14px 18px;
+        margin-top:16px;
+        margin-bottom:22px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__art{
+        display:none;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / PINK SECTION
+========================================================= */
+.abv2-pink{
+    position:relative;
+    z-index:2;
+    overflow:hidden;
+    background:var(--abv2-pink);
+    color:var(--abv2-white);
+    padding-top:248px;
+    padding-bottom:170px;
+    clip-path:var(--abv2-pink-clip);
+  }
+
+.abv2-pink > *{
+    position:relative;
+    z-index:3;
+  }
+
+.abv2-pink__grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.18fr) minmax(180px,.82fr);
+    gap:36px;
+    align-items:center;
+  }
+
+.abv2-pink__copy{
+    max-width:720px;
+  }
+
+.abv2-pink__stats{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:34px;
+    max-width:560px;
+    margin-top:20px;
+    margin-bottom:30px;
+  }
+
+.abv2-pink__art{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    padding-top:0;
+  }
+
+.abv2-pink__art img{
+    width:min(100%, 180px);
+    transform:translate(10px, 34px);
+  }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / FOOTER
+========================================================= */
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink{
+        clip-path:polygon(
+          0 12%,
+          21% 17%,
+          100% 0,
+          100% 93%,
+          74% 87%,
+          0 100%
+        );
+        padding-top:112px;
+        padding-bottom:84px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__grid{
+        grid-template-columns:minmax(0,1fr) 150px;
+        gap:28px;
+        align-items:center;
+        padding-left:34px;
+        padding-right:10px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__copy{
+        max-width:640px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__stats{
+        margin-top:10px;
+        margin-bottom:8px;
+        gap:22px 28px;
+        max-width:460px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__art{
+        justify-content:center;
+        align-items:flex-end;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__art img{
+        width:122px;
+        transform:translate(0, 10px);
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink{
+        clip-path:polygon(
+          0 10%,
+          18% 14%,
+          100% 0,
+          100% 94%,
+          74% 88%,
+          0 100%
+        );
+        padding-top:106px;
+        padding-bottom:88px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__grid{
+        grid-template-columns:minmax(0, 1.14fr) 140px;
+        gap:24px;
+        align-items:center;
+        padding-left:44px;
+        padding-right:12px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy{
+        max-width:720px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__stats{
+        max-width:480px;
+        gap:20px 28px;
+        margin-top:6px;
+        margin-bottom:6px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__art{
+        justify-content:center;
+        align-items:flex-end;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-pink__art img{
+        width:118px;
+        transform:translate(0, 8px);
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-pink{
+        position:relative;
+        z-index:5 !important;
+        padding-top:138px;
+        padding-bottom:86px;
+        background:var(--abv2-pink);
+        clip-path:var(--abv2-pink-clip-mobile);
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__stats{
+        max-width:340px;
+        gap:14px 18px;
+        margin-top:16px;
+        margin-bottom:22px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__art{
+        display:none;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / PINK SECTION
+========================================================= */
+.abv2-pink{
+    position:relative;
+    z-index:2;
+    overflow:hidden;
+    background:var(--abv2-pink);
+    color:var(--abv2-white);
+    padding-top:260px;
+    padding-bottom:180px;
+    clip-path:var(--abv2-pink-clip);
+  }
+
+.abv2-pink > *{
+    position:relative;
+    z-index:3;
+  }
+
+.abv2-pink__grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.18fr) minmax(180px,.82fr);
+    gap:54px;
+    align-items:center;
+  }
+
+.abv2-pink__copy{
+    max-width:780px;
+  }
+
+.abv2-pink__stats{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:34px;
+    max-width:560px;
+    margin-top:20px;
+    margin-bottom:26px;
+  }
+
+.abv2-pink__art{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+  }
+
+.abv2-pink__art img{
+    width:min(100%, 220px);
+    transform:translateY(-8px);
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-pink{
+        padding-top:148px;
+        padding-bottom:112px;
+        clip-path:var(--abv2-pink-clip-mobile);
+      }
+}
+
+@media (max-width:979px){
+  .abv2-pink__stats{
+        max-width:470px;
+        gap:22px;
+      }
+}
+
+@media (max-width:979px){
+  .abv2-pink__art{
+        justify-content:flex-start;
+      }
+}
+
+@media (max-width:979px){
+  .abv2-pink__art img{
+        width:156px;
+        transform:none;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / PINK (FIXED SHAPE)
+========================================================= */
+@media (max-width:759px){
+  .abv2-pink{
+      position:relative;
+      z-index:5 !important;
+      padding-top:132px;
+      padding-bottom:90px;
+      background:var(--abv2-pink);
+      clip-path:var(--abv2-pink-clip-mobile);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-pink__grid{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-pink__stats{
+      max-width:340px;
+      gap:14px 18px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-pink__art{
+      justify-content:center;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-pink__art img{
+      width:90px;
+    }
+}

@@ -1,0 +1,64 @@
+/* ========================================
+COMPONENT: abv2-toc
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / NAV / READING AIDS
+========================================================= */
+.abv2-toc{
+  display:grid;
+  gap:10px;
+}
+
+.abv2-toc__link{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:16px;
+  background:#fffdfa;
+  text-decoration:none;
+  color:var(--abv2-ink);
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.abv2-toc__link:hover{
+  transform:translateY(-1px);
+  border-color:rgba(226,109,166,.34);
+  background:#fff;
+}
+
+.abv2-toc__label{
+  font-family:var(--abv2-ui);
+  font-size:.96rem;
+  line-height:1.4;
+  font-weight:700;
+}
+
+.abv2-toc__meta{
+  flex:0 0 auto;
+  font-size:.76rem;
+  line-height:1.2;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.54);
+  margin-top:2px;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-toc__link{
+      padding:13px 14px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-toc__label{
+      font-size:.92rem;
+    }
+}

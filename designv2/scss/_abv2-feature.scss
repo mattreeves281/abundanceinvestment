@@ -1,0 +1,290 @@
+/* ========================================
+COMPONENT: abv2-feature
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / FEATURES
+========================================================= */
+.abv2-feature{
+    max-width:260px;
+  }
+
+.abv2-feature__num{
+    display:grid;
+    place-items:center;
+    width:76px;
+    height:76px;
+    margin-bottom:12px;
+    background-color:#e774ad;
+    -webkit-mask-image:var(--abv2-dot-mask);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    -webkit-mask-size:contain;
+    mask-image:var(--abv2-dot-mask);
+    mask-repeat:no-repeat;
+    mask-position:center;
+    mask-size:contain;
+    font-family:var(--abv2-serif);
+    font-size:2.2rem;
+    font-weight:600;
+    line-height:1;
+    color:var(--abv2-white);
+  }
+
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature,
+      .abv2-feature:nth-child(3){
+        max-width:none;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature:nth-child(3){
+        grid-column:auto;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature__num{
+        width:62px;
+        height:62px;
+        margin:0 0 10px;
+        font-size:1.8rem;
+      }
+}
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-feature{
+        display:block !important;
+        width:min(calc(100% - 40px), 320px) !important;
+        max-width:320px !important;
+        margin:0 auto 30px !important;
+        padding:0 !important;
+        text-align:center !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature:last-child{
+        margin-bottom:0 !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature__num{
+        display:grid !important;
+        place-items:center !important;
+        width:58px;
+        height:58px;
+        margin:0 auto 14px !important;
+        font-size:1.8rem;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / FEATURES
+========================================================= */
+.abv2-feature{
+    max-width:260px;
+  }
+
+.abv2-feature__num{
+    display:grid;
+    place-items:center;
+    width:76px;
+    height:76px;
+    margin-bottom:12px;
+    background-color:#e774ad;
+    -webkit-mask-image:var(--abv2-dot-mask);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    -webkit-mask-size:contain;
+    mask-image:var(--abv2-dot-mask);
+    mask-repeat:no-repeat;
+    mask-position:center;
+    mask-size:contain;
+    font-family:var(--abv2-serif);
+    font-size:2.2rem;
+    font-weight:600;
+    line-height:1;
+    color:var(--abv2-white);
+  }
+
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 760–979 TABLET
+========================================================= */
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature,
+      .abv2-feature:nth-child(3){
+        max-width:none;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature:nth-child(3){
+        grid-column:auto;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature__num{
+        width:62px;
+        height:62px;
+        margin:0 0 10px;
+        font-size:1.8rem;
+      }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-feature{
+        display:block !important;
+        width:min(calc(100% - 40px), 320px) !important;
+        max-width:320px !important;
+        margin:0 auto 30px !important;
+        padding:0 !important;
+        text-align:center !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature:last-child{
+        margin-bottom:0 !important;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-feature__num{
+        display:grid !important;
+        place-items:center !important;
+        width:58px;
+        height:58px;
+        margin:0 auto 14px !important;
+        font-size:1.8rem;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURES
+========================================================= */
+.abv2-feature{
+    max-width:260px;
+  }
+
+.abv2-feature__num{
+  display:grid;
+  place-items:center;
+  width:76px;
+  height:76px;
+  margin:0 auto 10px;
+
+  background-image:var(--abv2-dot-svg);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  color:#fff;
+  font-family:var(--abv2-serif);
+  font-size:2rem;
+  font-weight:600;
+  line-height:1;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / colour via background-color layer
+========================================================= */
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-feature{
+        max-width:none;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURES
+========================================================= */
+@media (max-width:759px){
+  .abv2-feature{
+      max-width:292px;
+      text-align:center;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-feature__num{
+      width:58px;
+      height:58px;
+      margin:0 auto 10px;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / FEATURES DOT SHAPES
+========================================================= */
+.abv2-feature__num{
+  display:grid;
+  place-items:center;
+  width:76px;
+  height:76px;
+  margin-bottom:14px;
+
+  background-color:#e774ad;
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+
+  font-family:var(--abv2-serif);
+  font-size:2.2rem;
+  font-weight:600;
+  line-height:1;
+  color:var(--abv2-white);
+}
+
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+
+@media (max-width:759px){
+  .abv2-feature__num{
+      width:58px;
+      height:58px;
+      margin:0 auto 10px;
+      font-size:1.8rem;
+    }
+}

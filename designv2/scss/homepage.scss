@@ -1,0 +1,451 @@
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html
+========================================================= */
+.abv2-home,
+  .abv2-home *{
+    box-sizing:border-box;
+  }
+
+.abv2-home{
+    position:relative;
+    background:#fff;
+    color:var(--abv2-ink);
+  }
+
+.abv2-home img{
+    display:block;
+    max-width:100%;
+    height:auto;
+  }
+
+.abv2-home a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+/* =========================================================
+SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
+========================================================= */
+@media (max-width:759px){
+  .abv2-hero__copy,
+      .abv2-pink__copy,
+      .abv2-features__intro,
+      .abv2-teal__copy,
+      .abv2-features__cta{
+        width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+        margin:0 auto;
+        text-align:left;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html
+========================================================= */
+.abv2-home,
+  .abv2-home *{
+    box-sizing:border-box;
+  }
+
+.abv2-home{
+    position:relative;
+    background:#fff;
+    color:var(--abv2-ink);
+  }
+
+.abv2-home img{
+    display:block;
+    max-width:100%;
+    height:auto;
+  }
+
+.abv2-home a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-hero__grid,
+      .abv2-pink__grid,
+      .abv2-teal__grid{
+        grid-template-columns:1fr;
+        gap:28px;
+      }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / shared copy rail
+========================================================= */
+@media (max-width:759px){
+  .abv2-hero__copy,
+    .abv2-pink__copy,
+    .abv2-features__intro,
+    .abv2-teal__copy,
+    .abv2-features__cta{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+      text-align:left;
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOMEPAGE CTA (TEAL / PINK SECTION STYLE)
+========================================================= */
+.home-cta{
+  position:relative;
+  overflow:hidden;
+  padding:180px 0 180px;
+  color:#fff;
+}
+
+.home-cta--teal{
+  background:#12a9bb;
+  clip-path:polygon(
+    0 12%,
+    34% 24%,
+    100% 0,
+    100% 84%,
+    60% 72%,
+    0 100%
+  );
+}
+
+.home-cta--pink{
+  background:#df73ad;
+  clip-path:polygon(
+    0 18%,
+    30% 28%,
+    100% 0,
+    100% 84%,
+    60% 72%,
+    0 100%
+  );
+}
+
+.home-cta__wrap{
+  width:min(calc(100% - 36px), 1180px);
+  margin:0 auto;
+}
+
+.home-cta__grid{
+  display:grid;
+  grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);
+  gap:56px;
+  align-items:center;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / media
+========================================================= */
+.home-cta__frame{
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.home-cta__frame img{
+  width:100%;
+  aspect-ratio:1.4/1;
+  object-fit:cover;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / content
+========================================================= */
+.home-cta__eyebrow{
+  font-family:"Sohne Kraftig", Arial, sans-serif;
+  font-size:.75rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  opacity:.9;
+}
+
+.home-cta__title{
+  font-family:"New Kansas", Georgia, serif;
+  font-weight:600;
+  letter-spacing:-.03em;
+
+  font-size:clamp(2.2rem, 4vw, 3rem);
+  line-height:.92;
+  max-width:12ch;
+}
+
+.home-cta__body{
+  margin-top:20px;
+  max-width:54ch;
+
+  font-family:"Sohne Buch", Arial, sans-serif;
+  font-size:1.05rem;
+  line-height:1.7;
+  opacity:.95;
+}
+
+.home-cta__actions{
+  display:flex;
+  gap:14px;
+  margin-top:28px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / buttons
+========================================================= */
+.home-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:0 20px;
+
+  border-radius:999px;
+  border:1.8px solid rgba(255,255,255,.9);
+
+  background:transparent;
+  color:#fff;
+
+  font-family:"Sohne Kraftig", Arial, sans-serif;
+  font-size:.84rem;
+  text-decoration:none;
+}
+
+.home-btn--light:hover{
+  background:rgba(255,255,255,.12);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOMEPAGE CHOICE BLOCK
+========================================================= */
+.home-choice{
+  padding:120px 0;
+  position:relative;
+}
+
+.home-choice__wrap{
+  width:min(calc(100% - 36px), 1180px);
+  margin:0 auto;
+}
+
+.home-choice__title{
+  font-family:"New Kansas", Georgia, serif;
+  font-size:clamp(2.2rem, 3.5vw, 3rem);
+  line-height:.95;
+  max-width:14ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / grid
+========================================================= */
+.home-choice__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  margin-top:60px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / item
+========================================================= */
+.home-choice__item{
+  max-width:420px;
+}
+
+.home-choice__item--accent{
+  margin-top:60px; /* 👈 offset = personality */
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / text
+========================================================= */
+.home-choice__eyebrow{
+  font-family:"Sohne Kraftig";
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:#df73ad;
+  margin-bottom:12px;
+}
+
+.home-choice__heading{
+  font-family:"New Kansas";
+  font-size:1.6rem;
+  line-height:1;
+  margin-bottom:12px;
+}
+
+.home-choice__body{
+  font-family:"Sohne Buch";
+  font-size:1rem;
+  line-height:1.6;
+  color:#4d4a46;
+  margin-bottom:18px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOMEPAGE DECISION BLOCK V2
+========================================================= */
+.home-choice-v2{
+  padding:140px 0;
+  position:relative;
+}
+
+.home-choice-v2__wrap{
+  width:min(calc(100% - 36px), 1180px);
+  margin:0 auto;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / title
+========================================================= */
+.home-choice-v2__title{
+  font-family:"New Kansas";
+  font-size:clamp(2.4rem, 3.6vw, 3.2rem);
+  line-height:.95;
+  max-width:13ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / grid
+========================================================= */
+.home-choice-v2__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+  margin-top:70px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / item
+========================================================= */
+.home-choice-v2__item{
+  max-width:420px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / primary emphasis (VERY subtle)
+========================================================= */
+.home-choice-v2__item--primary{
+  transform:translateY(40px);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / text
+========================================================= */
+.home-choice-v2__eyebrow{
+  font-family:"Sohne Kraftig";
+  font-size:.75rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#df73ad;
+  margin-bottom:12px;
+}
+
+.home-choice-v2__heading{
+  font-family:"New Kansas";
+  font-size:1.7rem;
+  line-height:1;
+  margin-bottom:12px;
+}
+
+.home-choice-v2__body{
+  font-family:"Sohne Buch";
+  font-size:1rem;
+  line-height:1.6;
+  color:#4d4a46;
+  margin-bottom:18px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / list
+========================================================= */
+.home-choice-v2__list{
+  list-style:none;
+  padding:0;
+  margin:0 0 22px;
+}
+
+.home-choice-v2__list li{
+  position:relative;
+  padding-left:18px;
+  margin-bottom:10px;
+  font-size:.95rem;
+  color:#4d4a46;
+}
+
+.home-choice-v2__list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.6em;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#df73ad;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DECISION BLOCK
+========================================================= */
+.abv2-decision__path .abv2-path__kicker{
+  margin-bottom:0;
+}
+
+.abv2-decision__path--manual .abv2-path__kicker{
+  color:var(--abv2-pink);
+}
+
+.abv2-decision__path--primary .abv2-path__kicker{
+  color:var(--abv2-teal);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-hero__intro,
+    .abv2-proof-band__intro,
+    .abv2-how__intro,
+    .abv2-decision__intro{
+      width:100%;
+      max-width:none;
+      margin-left:0;
+      margin-right:0;
+      text-align:left;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-jump__inner,
+    .abv2-subnav__inner,
+    .abv2-related__inner{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / useful if CMS/global rules are restyling heading tags directly
+========================================================= */
+.abv2-home h1,
+.abv2-home h2,
+.abv2-home h3{
+  font-style:normal;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-intro-centre__inner,
+    .abv2-intro-split__inner,
+    .abv2-feature-stat__inner,
+    .abv2-inline-cta__inner{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    }
+}
+
+@media (max-width:759px){
+  .abv2-hero__intro,
+    .abv2-path__inner{
+      max-width:none;
+    }
+}

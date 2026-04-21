@@ -1,0 +1,94 @@
+/* ========================================
+COMPONENT: abv2-how
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOW IT WORKS
+========================================================= */
+.abv2-how{
+  position:relative;
+  overflow:hidden;
+  background:var(--abv2-pink);
+  color:var(--abv2-white);
+  padding-top:178px;
+  padding-bottom:164px;
+  clip-path:var(--abv2-pink-clip);
+}
+
+.abv2-how > *{
+  position:relative;
+  z-index:1;
+}
+
+.abv2-how__grid{
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:54px;
+  align-items:start;
+}
+
+.abv2-how__intro{
+  max-width:360px;
+}
+
+.abv2-how__eyebrow{
+  margin:0;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.82);
+}
+
+.abv2-how__steps{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:26px;
+  max-width:640px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-how{
+      padding-top:140px;
+      padding-bottom:120px;
+      clip-path:var(--abv2-pink-clip-mobile);
+    }
+}
+
+@media (max-width:979px){
+  .abv2-how__grid{
+      grid-template-columns:1fr;
+      gap:26px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-how__intro{
+      max-width:600px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-how{
+      padding-top:118px;
+      padding-bottom:88px;
+      clip-path:var(--abv2-pink-clip-mobile);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-how__grid{
+      gap:24px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-how__steps{
+      gap:22px;
+    }
+}

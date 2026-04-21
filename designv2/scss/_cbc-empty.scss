@@ -1,0 +1,26 @@
+/* ========================================
+COMPONENT: cbc-empty
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Empty state
+========================================================= */
+#council-bar-chart .cbc-empty{
+  padding:64px 14px;
+  font-size:1.1rem;
+  font-weight:500;
+  color:#454543;
+  text-align:center;
+  background:#f9fafb;
+  border-radius:16px;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes the "dashboard card" feeling
+========================================================= */
+#council-bar-chart .cbc-empty{
+  background:transparent;
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:18px;
+}

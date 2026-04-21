@@ -1,0 +1,15 @@
+/* ========================================
+COMPONENT: abv2-data
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / DATA / FINANCIAL
+========================================================= */
+.abv2-data{
+  margin:26px 0 34px;
+}
+
+.abv2-data > * + *{
+  margin-top:18px;
+}

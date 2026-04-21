@@ -1,0 +1,76 @@
+/* ========================================
+COMPONENT: abv2-backtop
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / NAV / READING AIDS
+========================================================= */
+.abv2-backtop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:18px 20px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#faf8f8;
+}
+
+.abv2-backtop__copy{
+  min-width:0;
+}
+
+.abv2-backtop__title{
+  margin:0 0 4px;
+  font-family:var(--abv2-ui);
+  font-size:.96rem;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-backtop__text{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.45;
+  color:rgba(38,38,37,.74);
+}
+
+.abv2-backtop__link{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1.5px solid rgba(38,38,37,.10);
+  background:#fff;
+  text-decoration:none;
+  font-family:var(--abv2-ui);
+  font-size:.84rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-backtop__link:hover{
+  border-color:rgba(226,109,166,.34);
+  color:var(--abv2-pink);
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-backtop{
+      display:block;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-backtop__link{
+      margin-top:12px;
+    }
+}

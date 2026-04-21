@@ -1,0 +1,16 @@
+/* ========================================
+COMPONENT: cbc-chart
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Chart rows
+========================================================= */
+#council-bar-chart .cbc-chart{ width:100%; margin:0; }
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes the "dashboard card" feeling
+========================================================= */
+#council-bar-chart .cbc-chart{
+  padding-top:4px;
+}

@@ -1,0 +1,82 @@
+/* ========================================
+COMPONENT: abv2-ed-panel
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / SUPPORT PANEL
+========================================================= */
+.abv2-ed-panel{
+    position:relative;
+    overflow:hidden;
+    width:min(100%, 820px);
+    margin:48px auto;
+    padding:34px 36px;
+    border-radius:26px;
+    background:#dff1f3;
+  }
+
+.abv2-ed-panel::after{
+    content:"";
+    position:absolute;
+    right:-60px;
+    bottom:-60px;
+    width:220px;
+    aspect-ratio:1 / 1;
+    background:var(--abv2-teal);
+    opacity:.18;
+    -webkit-mask-image:var(--abv2-dot-mask);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    -webkit-mask-size:contain;
+    mask-image:var(--abv2-dot-mask);
+    mask-repeat:no-repeat;
+    mask-position:center;
+    mask-size:contain;
+  }
+
+.abv2-ed-panel__inner{
+    position:relative;
+    z-index:1;
+    max-width:56ch;
+  }
+
+.abv2-ed-panel h3{
+    margin:0 0 14px;
+    font-family:var(--abv2-serif);
+    font-size:1.8rem;
+    line-height:1;
+    color:var(--abv2-ink);
+  }
+
+.abv2-ed-panel p{
+    margin:0;
+    font-family:var(--abv2-sans);
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--abv2-text);
+  }
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-ed-panel{
+        margin:36px auto;
+        padding:24px 22px;
+        border-radius:22px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-ed-panel h3{
+        font-size:1.55rem;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-ed-panel p{
+        font-size:.98rem;
+        line-height:1.56;
+      }
+}

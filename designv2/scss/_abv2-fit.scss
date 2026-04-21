@@ -1,0 +1,52 @@
+/* ========================================
+COMPONENT: abv2-fit
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / fit
+========================================================= */
+.abv2-fit{
+  overflow:hidden;
+}
+
+.abv2-fit__top{
+  padding:24px 24px 18px;
+}
+
+.abv2-fit__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-fit__pane{
+  padding:20px 24px 22px;
+}
+
+.abv2-fit__pane + .abv2-fit__pane{
+  border-left:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-fit__pane--yes{
+  background:rgba(0,164,182,.04);
+}
+
+.abv2-fit__pane--no{
+  background:rgba(226,109,166,.05);
+}
+
+.abv2-fit__heading{
+  display:block;
+  margin:0 0 12px;
+  font-size:1rem;
+  line-height:1.2;
+}
+
+.abv2-fit__footer{
+  padding:16px 24px 22px;
+  border-top:1px solid rgba(38,38,37,.10);
+  font-size:.95rem;
+  color:rgba(38,38,37,.78);
+}

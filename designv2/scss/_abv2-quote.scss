@@ -1,0 +1,133 @@
+/* ========================================
+COMPONENT: abv2-quote
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / QUOTE / TESTIMONIAL
+========================================================= */
+.abv2-quote{
+  position:relative;
+  z-index:1;
+  padding-top:68px;
+  padding-bottom:76px;
+  background:#fff;
+}
+
+.abv2-quote__inner{
+  position:relative;
+  width:min(100%, 980px);
+  margin:0 auto;
+}
+
+.abv2-quote__inner::before{
+  content:"";
+  position:absolute;
+  left:-26px;
+  top:-28px;
+  width:128px;
+  height:128px;
+  background:rgba(239,181,42,.14);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+  pointer-events:none;
+}
+
+.abv2-quote__mark{
+  margin:0 0 14px;
+  font-family:var(--abv2-serif);
+  font-size:4rem;
+  line-height:.7;
+  color:var(--abv2-pink);
+}
+
+.abv2-quote__text{
+  max-width:19ch;
+  margin:0 0 18px;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.9rem, 3vw, 3rem);
+  line-height:.96;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
+}
+
+.abv2-quote__meta{
+  max-width:34ch;
+}
+
+.abv2-quote__name{
+  margin:0 0 4px;
+  font-family:var(--abv2-ui);
+  font-size:.88rem;
+  line-height:1.2;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--abv2-ink);
+}
+
+.abv2-quote__role{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:.98rem;
+  line-height:1.5;
+  color:var(--abv2-text);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-quote{
+      padding-top:54px;
+      padding-bottom:60px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-quote__text{
+      max-width:16ch;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-quote{
+      padding-top:42px;
+      padding-bottom:48px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-quote__inner{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    }
+}
+
+@media (max-width:759px){
+  .abv2-quote__inner::before{
+      left:-10px;
+      top:-14px;
+      width:86px;
+      height:86px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-quote__mark{
+      margin-bottom:10px;
+      font-size:3rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-quote__text{
+      max-width:none;
+      font-size:2rem;
+    }
+}

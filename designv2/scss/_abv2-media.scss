@@ -1,0 +1,100 @@
+/* ========================================
+COMPONENT: abv2-media
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / MEDIA
+========================================================= */
+.abv2-media{
+    position:relative;
+    width:100%;
+    margin:42px 0 56px;
+  }
+
+.abv2-media--video{
+    margin:38px 0 52px;
+  }
+
+.abv2-media__frame{
+    overflow:hidden;
+    border-radius:24px;
+    background:#ddd7d2;
+  }
+
+.abv2-media__frame img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+.abv2-media--video .abv2-media__frame{
+    border-radius:12px;
+    background:#000;
+  }
+
+.abv2-media__embed{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    overflow:hidden;
+    border-radius:12px;
+    background:#000;
+  }
+
+.abv2-media__embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-media__frame{
+        border-radius:18px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-media--video .abv2-media__frame,
+      .abv2-media__embed{
+        border-radius:10px;
+      }
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / CAPTIONS / MEDIA TIDY
+========================================================= */
+.abv2-media__frame{
+  background:#e5e1dc;
+}
+
+.abv2-media--video .abv2-media__frame{
+  background:#111;
+}
+
+.abv2-media__caption{
+  margin-top:12px;
+  max-width:min(100%, 680px);
+  padding-left:14px;
+  border-left:2px solid rgba(38,38,37,.10);
+  font-family:var(--abv2-sans);
+  font-size:.82rem;
+  line-height:1.5;
+  color:rgba(38,38,37,.68);
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-media__caption{
+      padding-left:12px;
+      font-size:.78rem;
+      line-height:1.48;
+    }
+}

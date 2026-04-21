@@ -1,0 +1,85 @@
+/* ========================================
+COMPONENT: abv2-card
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / BLOB / DECORATIVE UTILITIES
+========================================================= */
+.abv2-card--with-blob{
+  position:relative;
+  overflow:visible;
+}
+
+.abv2-card--with-blob::after{
+  content:"";
+  position:absolute;
+  top:-36px;
+  right:-36px;
+  width:150px;
+  height:135px;
+  opacity:.16;
+  background:var(--abv2-teal);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
+========================================================= */
+.abv2-card__eyebrow{
+  display:inline-block;
+  margin:0 0 10px;
+  padding:5px 10px;
+  border-radius:999px;
+  background:rgba(0,164,182,.10);
+  color:#07828f;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.01em;
+}
+
+.abv2-card__eyebrow--compare{
+  background:rgba(0,164,182,.12);
+  color:#07828f;
+}
+
+.abv2-card__eyebrow--risk{
+  background:rgba(226,109,166,.12);
+  color:#a93f77;
+}
+
+.abv2-card__eyebrow--data{
+  background:rgba(239,181,42,.16);
+  color:#8d6707;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / DECISION SUPPORT
+========================================================= */
+.abv2-card{
+  border:1.5px solid rgba(38,38,37,.12);
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.05);
+}
+
+.abv2-card__inner{
+  padding:24px 24px 22px;
+}
+
+.abv2-card__title{
+  margin:0 0 10px;
+  font-size:clamp(1.25rem,2vw,1.55rem);
+  line-height:1.15;
+}
+
+.abv2-card__intro{
+  margin:0;
+}

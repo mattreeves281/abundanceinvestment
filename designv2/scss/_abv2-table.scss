@@ -1,0 +1,63 @@
+/* ========================================
+COMPONENT: abv2-table
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / table
+========================================================= */
+.abv2-table{
+  width:100%;
+  min-width:560px;
+  border-collapse:separate;
+  border-spacing:0;
+  font-size:.96rem;
+  line-height:1.45;
+}
+
+.abv2-table th,
+.abv2-table td{
+  padding:14px;
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid rgba(38,38,37,.08);
+}
+
+.abv2-table thead th{
+  font-family:var(--abv2-ui);
+  font-size:.76rem;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:rgba(38,38,37,.64);
+  background:rgba(248,245,247,.7);
+}
+
+.abv2-table tbody tr:first-child td{
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.abv2-table tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.abv2-table__muted{
+  color:rgba(38,38,37,.68);
+}
+
+.abv2-table__strong{
+  font-family:var(--abv2-ui);
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-table{
+      min-width:520px;
+      font-size:.92rem;
+    }
+}
