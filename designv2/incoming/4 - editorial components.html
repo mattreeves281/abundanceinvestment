@@ -1,0 +1,4929 @@
+<style>
+  @font-face{
+    font-family:"New Kansas";
+    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/258554e0-7d5c-40cd-a6a2-80d5eb9fdd2f.woff2") format("woff2");
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  @font-face{
+    font-family:"Sohne Buch";
+    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/0976f15f-54f3-4c7c-a261-c8a91b64dbfb.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  @font-face{
+    font-family:"Sohne Kraftig";
+    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/cab3babc-20c2-4152-bcf5-dc28aa6f2df4.woff2") format("woff2");
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  :root{
+    --abv2-bg:#ffffff;
+    --abv2-white:#ffffff;
+    --abv2-ink:#262625;
+    --abv2-text:#4d4a46;
+    --abv2-pink:#df73ad;
+    --abv2-yellow:#efb52a;
+    --abv2-teal:#12a9bb;
+    --abv2-editorial-bg:#ffffff;
+
+    --abv2-wrap:1180px;
+    --abv2-editorial-rail:760px;
+    --abv2-editorial-copy:58ch;
+    --abv2-mobile-copy-rail:392px;
+
+    --abv2-serif:"New Kansas", Georgia, serif;
+    --abv2-sans:"Sohne Buch", Arial, sans-serif;
+    --abv2-ui:"Sohne Kraftig", Arial, sans-serif;
+
+    --abv2-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
+  }
+
+  html,
+  body{
+    overflow-x:hidden;
+    background:var(--abv2-editorial-bg);
+  }
+
+  body{
+    margin:0;
+    color:var(--abv2-ink);
+    font-family:var(--abv2-sans);
+  }
+
+  .main-content,
+  .page-content,
+  .content-wrapper{
+    background:var(--abv2-editorial-bg) !important;
+  }
+
+  /* =========================================================
+     NAV
+     ========================================================= */
+
+  .site-navbar{
+    background:#fff !important;
+    border-bottom:0 !important;
+    box-shadow:none !important;
+    padding:14px 0 10px;
+  }
+
+  .site-navbar::after{ display:none !important; }
+
+  .site-navbar,
+  .site-navbar .brand-navbar,
+  .site-navbar .container,
+  .site-navbar .navbar{
+    border:0 !important;
+    box-shadow:none !important;
+    background:#fff !important;
+  }
+
+  .site-navbar .container{
+    width:min(calc(100% - 34px), 1240px);
+    max-width:none;
+  }
+
+  .site-navbar .brand-navbar{
+    min-height:68px;
+    margin:0;
+  }
+
+  .site-navbar .brand-navbar-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:68px;
+  }
+
+  .site-navbar .logo-wrapper{
+    display:flex;
+    align-items:center;
+    padding:0;
+  }
+
+  .site-navbar .logo{
+    width:124px;
+    height:auto;
+    max-width:none;
+    content:url("https://shareinmicrosite.blob.core.windows.net/abundance/30747a8f-bc62-45f9-9ae6-d8734ddc645b.png");
+  }
+
+  .site-navbar #navbar{
+    background:transparent;
+    border:0;
+    box-shadow:none;
+  }
+
+  .site-navbar .navbar-is-collapsed{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+
+  .site-navbar .navbar-main{
+    display:flex;
+    align-items:center;
+    gap:34px;
+    float:none;
+    margin:0 auto;
+    padding:0;
+  }
+
+  .site-navbar .navbar-main > li{
+    float:none;
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link{
+    padding:10px 0 !important;
+    padding-right:0 !important;
+    font-family:var(--abv2-ui);
+    font-size:.9rem;
+    line-height:1;
+    color:var(--abv2-ink) !important;
+    background:none !important;
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link:hover{
+    color:var(--abv2-pink) !important;
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link svg,
+  .site-navbar .brand-navbar-nav__parent-item-link i,
+  .site-navbar .brand-navbar-nav__parent-item-link .fa,
+  .site-navbar .brand-navbar-nav__parent-item-link .icon,
+  .site-navbar .brand-navbar-nav__parent-item-link::after{
+    display:none !important;
+  }
+
+  .site-navbar .brand-navbar--account-partial{
+    display:flex;
+    align-items:center;
+    margin:0;
+    padding:0;
+  }
+
+  .site-navbar .brand-navbar__auth-btn-wrapper{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  .site-navbar .brand-navbar__login-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    font-family:var(--abv2-ui) !important;
+    font-size:.9rem !important;
+    line-height:1 !important;
+    color:var(--abv2-pink) !important;
+    text-decoration:none !important;
+  }
+
+  .site-navbar .btn.btn-primary--bordered{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:0 22px !important;
+    border:1.8px solid var(--abv2-pink) !important;
+    border-radius:999px !important;
+    background:transparent !important;
+    color:var(--abv2-ink) !important;
+    font-family:var(--abv2-ui) !important;
+    font-size:.84rem !important;
+    line-height:1 !important;
+    box-shadow:none !important;
+  }
+
+  /* =========================================================
+     EDITORIAL PAGE
+     ========================================================= */
+
+  .abv2-editorial,
+  .abv2-editorial *{
+    box-sizing:border-box;
+  }
+
+  .abv2-editorial{
+    position:relative;
+    overflow:hidden;
+    background:var(--abv2-editorial-bg);
+    color:var(--abv2-ink);
+  }
+
+  .abv2-editorial img{
+    display:block;
+    max-width:100%;
+    height:auto;
+  }
+
+  .abv2-editorial__wrap{
+    position:relative;
+    width:min(calc(100% - 40px), var(--abv2-wrap));
+    margin:0 auto;
+    padding:34px 0 0;
+  }
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+
+  .abv2-ed-hero{
+    position:relative;
+    width:min(100%, 1040px);
+    margin:0 auto;
+    padding:10px 0 150px;
+    overflow:visible;
+  }
+
+  .abv2-ed-hero__copy{
+    position:relative;
+    z-index:2;
+    width:min(100%, 760px);
+    margin-left:84px;
+  }
+
+  .abv2-ed-hero__title{
+    margin:0;
+    max-width:14ch;
+    font-family:var(--abv2-serif);
+    font-weight:600;
+    letter-spacing:-.035em;
+    font-size:clamp(2.7rem, 5.1vw, 4.35rem);
+    line-height:.92;
+    color:var(--abv2-ink);
+  }
+
+  .abv2-ed-hero__intro{
+    margin:26px 0 0;
+    max-width:60ch;
+    font-family:var(--abv2-sans);
+    font-size:1.18rem;
+    line-height:1.72;
+    color:var(--abv2-text);
+  }
+
+  .abv2-ed-hero__actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:24px;
+    max-width:60ch;
+  }
+
+  .abv2-ed-hero__actions .abv2-btn{
+    white-space:nowrap;
+  }
+
+  .abv2-ed-hero::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:100vw;
+    height:138px;
+    background:var(--abv2-pink);
+    z-index:0;
+    pointer-events:none;
+    clip-path:polygon(
+      0 84%,
+      0 100%,
+      33% 36%,
+      100% 76%,
+      100% 60%,
+      33% 20%
+    );
+  }
+
+  /* =========================================================
+     CONTENT RAIL / COPY
+     ========================================================= */
+
+  .abv2-ed-rail{
+    position:relative;
+    width:min(100%, var(--abv2-editorial-rail));
+    margin:0 auto;
+    z-index:2;
+  }
+
+  .abv2-ed-section{
+    margin-top:12px;
+  }
+
+  .abv2-ed-copy > *{
+    margin:0;
+  }
+
+  .abv2-ed-copy > * + *{
+    margin-top:20px;
+  }
+
+  .abv2-ed-copy > p,
+  .abv2-ed-copy > ul,
+  .abv2-ed-copy > .abv2-ed-cta{
+    width:min(100%, var(--abv2-editorial-copy));
+  }
+
+  .abv2-ed-copy p,
+  .abv2-ed-copy li{
+    font-family:var(--abv2-sans);
+    font-size:1.03rem;
+    line-height:1.68;
+    color:var(--abv2-text);
+  }
+
+  .abv2-ed-copy ul{
+    margin:4px 0 0;
+    padding:0;
+    list-style:none;
+    width:min(100%, var(--abv2-editorial-copy));
+  }
+
+  .abv2-ed-copy li{
+    position:relative;
+    padding-left:1.35rem;
+  }
+
+  .abv2-ed-copy li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.72em;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--abv2-pink);
+    transform:translateY(-50%);
+  }
+
+  .abv2-ed-copy li + li{
+    margin-top:14px;
+  }
+
+  /* =========================================================
+     MEDIA
+     ========================================================= */
+
+  .abv2-media{
+    position:relative;
+    width:100%;
+    margin:42px 0 56px;
+  }
+
+  .abv2-media--video{
+    margin:38px 0 52px;
+  }
+
+  .abv2-media__frame{
+    overflow:hidden;
+    border-radius:24px;
+    background:#ddd7d2;
+  }
+
+  .abv2-media__frame img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+  .abv2-media--video .abv2-media__frame{
+    border-radius:12px;
+    background:#000;
+  }
+
+  .abv2-media__embed{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    overflow:hidden;
+    border-radius:12px;
+    background:#000;
+  }
+
+  .abv2-media__embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* =========================================================
+     DIVIDER FAMILY
+     ========================================================= */
+
+  .abv2-ed-band{
+    position:relative;
+    width:100vw;
+    height:138px;
+    margin:18px 0 24px;
+    margin-left:calc(50% - 50vw);
+    pointer-events:none;
+  }
+
+  .abv2-ed-band--pink-rise{
+    background:var(--abv2-pink);
+    clip-path:polygon(
+      0 84%,
+      0 100%,
+      33% 36%,
+      100% 76%,
+      100% 60%,
+      33% 20%
+    );
+  }
+
+  .abv2-ed-band--yellow-right{
+    background:var(--abv2-yellow);
+    clip-path:polygon(
+      0 78%,
+      0 94%,
+      66% 30%,
+      100% 48%,
+      100% 32%,
+      66% 14%
+    );
+  }
+
+  .abv2-ed-band--teal-fall{
+    background:var(--abv2-teal);
+    clip-path:polygon(
+      0 30%,
+      0 46%,
+      33% 82%,
+      100% 42%,
+      100% 26%,
+      33% 66%
+    );
+  }
+
+  .abv2-ed-band--tight{
+    margin-top:8px;
+    margin-bottom:12px;
+  }
+
+  .abv2-ed-band--loose{
+    margin-top:34px;
+    margin-bottom:34px;
+  }
+
+  /* =========================================================
+     BLOB DIVIDERS
+     ========================================================= */
+
+  .abv2-ed-divider{
+    position:relative;
+    width:min(100%, 980px);
+    min-height:220px;
+    margin:34px auto 28px;
+  }
+
+  .abv2-ed-divider--intro{
+    margin:18px auto 10px;
+  }
+
+  .abv2-ed-divider__blob{
+    position:absolute;
+    top:0;
+    width:340px;
+    aspect-ratio:1 / 1;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  .abv2-ed-divider__blob::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--abv2-yellow);
+    -webkit-mask-image:var(--abv2-dot-mask);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    -webkit-mask-size:contain;
+    mask-image:var(--abv2-dot-mask);
+    mask-repeat:no-repeat;
+    mask-position:center;
+    mask-size:contain;
+  }
+
+  .abv2-ed-divider__blob--pink::before{
+    background:var(--abv2-pink);
+  }
+
+  .abv2-ed-divider__blob--teal::before{
+    background:var(--abv2-teal);
+  }
+
+  .abv2-ed-divider__title{
+    position:relative;
+    z-index:2;
+    margin:0;
+    max-width:11ch;
+    font-family:var(--abv2-serif);
+    font-weight:600;
+    letter-spacing:-.03em;
+    font-size:clamp(2.15rem, 3.2vw, 3rem);
+    line-height:.95;
+    color:var(--abv2-ink);
+  }
+
+  .abv2-ed-divider--left .abv2-ed-divider__blob{
+    left:-40px;
+  }
+
+  .abv2-ed-divider--left .abv2-ed-divider__title{
+    width:420px;
+    margin-left:86px;
+    padding-top:74px;
+    text-align:left;
+  }
+
+  .abv2-ed-divider--right{
+    display:flex;
+    justify-content:flex-end;
+  }
+
+  .abv2-ed-divider--right .abv2-ed-divider__blob{
+    right:-26px;
+  }
+
+  .abv2-ed-divider--right .abv2-ed-divider__title{
+    width:420px;
+    margin-left:auto;
+    margin-right:86px;
+    padding-top:88px;
+    text-align:right;
+  }
+
+  /* =========================================================
+     SUPPORT PANEL
+     ========================================================= */
+
+  .abv2-ed-panel{
+    position:relative;
+    overflow:hidden;
+    width:min(100%, 820px);
+    margin:48px auto;
+    padding:34px 36px;
+    border-radius:26px;
+    background:#dff1f3;
+  }
+
+  .abv2-ed-panel::after{
+    content:"";
+    position:absolute;
+    right:-60px;
+    bottom:-60px;
+    width:220px;
+    aspect-ratio:1 / 1;
+    background:var(--abv2-teal);
+    opacity:.18;
+    -webkit-mask-image:var(--abv2-dot-mask);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    -webkit-mask-size:contain;
+    mask-image:var(--abv2-dot-mask);
+    mask-repeat:no-repeat;
+    mask-position:center;
+    mask-size:contain;
+  }
+
+  .abv2-ed-panel__inner{
+    position:relative;
+    z-index:1;
+    max-width:56ch;
+  }
+
+  .abv2-ed-panel h3{
+    margin:0 0 14px;
+    font-family:var(--abv2-serif);
+    font-size:1.8rem;
+    line-height:1;
+    color:var(--abv2-ink);
+  }
+
+  .abv2-ed-panel p{
+    margin:0;
+    font-family:var(--abv2-sans);
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--abv2-text);
+  }
+
+  .abv2-ed-panel .abv2-btn{
+    margin-top:18px;
+  }
+
+  /* =========================================================
+     BUTTONS
+     ========================================================= */
+
+  .abv2-ed-cta{
+    padding-top:8px;
+  }
+
+  .abv2-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:46px;
+    padding:12px 20px;
+    border:0;
+    border-radius:999px;
+    background:var(--abv2-pink);
+    color:#fff;
+    font-family:var(--abv2-ui);
+    font-size:.84rem;
+    line-height:1;
+    text-decoration:none;
+    box-shadow:none;
+  }
+
+  .abv2-btn:hover{
+    text-decoration:none;
+    color:#fff;
+  }
+
+  .abv2-btn--secondary{
+    background:transparent;
+    color:var(--abv2-pink);
+    border:1.8px solid var(--abv2-pink);
+  }
+
+  .abv2-btn--secondary:hover{
+    background:transparent;
+    color:var(--abv2-pink);
+  }
+
+  /* =========================================================
+     FOOTER WEDGE + FOOTER
+     ========================================================= */
+
+  .abv2-footer-wedge{
+    position:relative;
+    z-index:1;
+    height:160px;
+    margin-top:0;
+    margin-bottom:-2px;
+    overflow:hidden;
+    background:transparent;
+  }
+
+  .abv2-footer-wedge__shape{
+    position:absolute;
+    inset:0;
+    background:var(--abv2-yellow);
+    clip-path:polygon(
+      0 100%,
+      0 82%,
+      33% 30%,
+      100% 82%,
+      100% 100%
+    );
+  }
+
+  .bg-colour--neutral--300.bg-mask.bg-mask--t-convex{
+    display:none !important;
+  }
+
+  .footer{
+    position:relative;
+    z-index:2;
+    margin-top:0 !important;
+    padding-top:48px !important;
+    background:var(--abv2-yellow) !important;
+    color:var(--abv2-ink) !important;
+    border:0 !important;
+    overflow:hidden;
+  }
+
+  .footer::before,
+  .footer::after{
+    content:none !important;
+  }
+
+  .footer > .container,
+  .footer .footer-links > .container,
+  .footer .footer-copyright > .container{
+    position:relative;
+    z-index:1;
+    width:min(calc(100% - 36px), 1180px);
+    max-width:none;
+  }
+
+  .footer .footer__risk{
+    position:relative;
+    max-width:1200px;
+    padding:0 0 42px 230px !important;
+    font-family:var(--abv2-sans);
+    font-size:.97rem;
+    line-height:1.62;
+    color:var(--abv2-ink);
+  }
+
+  .footer .footer__risk::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:18px;
+    width:180px;
+    height:150px;
+    background:url("https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png") left top / contain no-repeat;
+    pointer-events:none;
+  }
+
+  .footer .footer-links{
+    position:relative;
+    background:transparent !important;
+    border-top:0 !important;
+    padding-top:24px;
+    padding-bottom:18px;
+  }
+
+  .footer .footer-links::before{
+    display:none !important;
+  }
+
+  .footer .footer-links .row:first-child{
+    align-items:flex-start;
+  }
+
+  .footer .footer-links .col-12{
+    padding-top:0 !important;
+  }
+
+  .footer h2.heading-4{
+    margin:0 0 12px;
+    font-family:var(--abv2-ui);
+    font-size:1rem;
+    line-height:1.1;
+    color:var(--abv2-ink);
+  }
+
+  .footer a,
+  .footer address,
+  .footer p,
+  .footer span{
+    font-family:var(--abv2-sans);
+    font-size:.94rem;
+    line-height:1.56;
+    color:var(--abv2-ink) !important;
+  }
+
+  .footer address{
+    font-style:normal;
+    margin:0;
+  }
+
+  .footer .footer-links--support,
+  .footer .footer-links--company,
+  .footer .footer-links--legal{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+
+  .footer .footer-links .row + .row{
+    margin-top:34px;
+  }
+
+  .footer .footer-copyright{
+    background:transparent !important;
+    border-top:0 !important;
+    padding:14px 0 16px !important;
+    margin-top:0 !important;
+  }
+
+  .footer .footer-copyright-wrapper{
+    justify-content:flex-end;
+    min-height:28px;
+    border-top:1px solid rgba(38,38,37,.22);
+    padding-top:14px;
+  }
+
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+
+  @media (max-width:979px){
+    .site-navbar .container{
+      width:min(calc(100% - 24px), 1240px);
+    }
+
+    .site-navbar .brand-navbar-header{
+      min-height:62px;
+    }
+
+    .site-navbar .logo{
+      width:114px;
+    }
+
+    .site-navbar .navbar-is-collapsed{
+      display:block;
+    }
+
+    .site-navbar .navbar-main{
+      gap:20px;
+    }
+
+    .abv2-editorial__wrap{
+      width:min(calc(100% - 28px), var(--abv2-wrap));
+    }
+
+    .abv2-ed-hero{
+      padding-bottom:122px;
+    }
+
+    .abv2-ed-hero__copy{
+      width:min(100%, 700px);
+      margin-left:0;
+    }
+
+    .abv2-ed-hero__title{
+      max-width:13ch;
+    }
+
+    .abv2-ed-hero__intro{
+      font-size:1.1rem;
+      line-height:1.66;
+    }
+
+    .abv2-ed-hero::after,
+    .abv2-ed-band{
+      height:112px;
+    }
+
+    .abv2-ed-rail{
+      width:min(100%, 660px);
+    }
+
+    @media (max-width:759px){
+
+  .abv2-ed-divider{
+    width:100%;
+    max-width:var(--abv2-mobile-copy-rail);
+    min-height:0;
+    margin:26px auto 22px;
+    padding-top:0;
+    display:block;
+    overflow:visible;
+  }
+
+  .abv2-ed-divider__blob{
+    position:relative;
+    width:138px;
+    margin:0 0 0 -44px;
+    left:0 !important;
+    right:auto !important;
+    top:auto;
+  }
+
+  .abv2-ed-divider__title,
+  .abv2-ed-divider--left .abv2-ed-divider__title,
+  .abv2-ed-divider--right .abv2-ed-divider__title{
+    position:relative;
+    z-index:2;
+    width:auto;
+    max-width:9.5ch;
+    margin:-48px 0 0 0;
+    padding-top:0;
+    font-size:1.85rem;
+    line-height:.95;
+    text-align:left;
+  }
+
+}
+
+    .footer{
+      padding-top:42px !important;
+    }
+
+    .footer .footer__risk{
+      max-width:none;
+      padding:0 0 34px 140px !important;
+    }
+
+    .footer .footer__risk::before{
+      width:110px;
+      height:92px;
+      top:10px;
+    }
+  }
+
+  @media (max-width:759px){
+    .site-navbar{
+      padding:12px 0 8px;
+    }
+
+    .site-navbar .container{
+      width:min(calc(100% - 20px), 1240px);
+    }
+
+    .site-navbar .brand-navbar,
+    .site-navbar .brand-navbar-header{
+      min-height:54px;
+    }
+
+    .site-navbar .logo{
+      width:98px;
+    }
+
+    .site-navbar #navbar{
+      background:#fff !important;
+    }
+
+    .site-navbar .brand-navbar__hamburger-toggle{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:32px;
+      padding:0 14px;
+      border:1.4px solid rgba(223,115,173,.45);
+      border-radius:999px;
+      background:#fff !important;
+      gap:6px;
+    }
+
+    .site-navbar .navbar-is-collapsed{
+      display:block;
+      margin-top:12px;
+      padding:12px 14px 14px;
+      border:1px solid rgba(223,115,173,.16);
+      border-radius:22px;
+      background:#fff;
+    }
+
+    .site-navbar .navbar-main{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .site-navbar .brand-navbar-nav__parent-item-link{
+      padding:10px 12px !important;
+      border-radius:14px;
+    }
+
+    .site-navbar .dropdown-menu.brand-dropdown-menu{
+      margin-top:6px;
+      padding:6px;
+      border-radius:16px;
+      background:#f8f5f7;
+    }
+
+    .site-navbar .dropdown-menu.brand-dropdown-menu a{
+      padding:10px 12px !important;
+      border-radius:12px;
+    }
+
+    .abv2-editorial__wrap{
+      width:min(calc(100% - 22px), var(--abv2-wrap));
+      padding-top:14px;
+    }
+
+    .abv2-ed-hero{
+      width:100%;
+      max-width:var(--abv2-mobile-copy-rail);
+      padding:6px 0 72px;
+    }
+
+    .abv2-ed-hero__copy{
+      width:100%;
+      max-width:var(--abv2-mobile-copy-rail);
+      margin:0 auto;
+    }
+
+    .abv2-ed-hero__title{
+      max-width:10ch;
+      font-size:2.35rem;
+      line-height:.95;
+    }
+
+    .abv2-ed-hero__intro{
+      max-width:none;
+      font-size:1rem;
+      line-height:1.58;
+      margin-top:20px;
+    }
+
+    .abv2-ed-hero__actions{
+      gap:10px;
+      margin-top:22px;
+    }
+
+    .abv2-ed-hero__actions .abv2-btn{
+      min-height:44px;
+    }
+
+    .abv2-ed-hero::after,
+    .abv2-ed-band{
+      height:70px;
+    }
+
+    .abv2-ed-band{
+      margin-top:14px;
+      margin-bottom:18px;
+    }
+
+    .abv2-ed-rail{
+      width:100%;
+      max-width:var(--abv2-mobile-copy-rail);
+    }
+
+    .abv2-ed-copy > p,
+    .abv2-ed-copy > ul,
+    .abv2-ed-copy > .abv2-ed-cta{
+      width:100%;
+      max-width:none;
+    }
+
+    .abv2-ed-copy p,
+    .abv2-ed-copy li{
+      max-width:none;
+      font-size:.98rem;
+      line-height:1.56;
+    }
+
+    .abv2-media__frame{
+      border-radius:18px;
+    }
+
+    .abv2-media--video .abv2-media__frame,
+    .abv2-media__embed{
+      border-radius:10px;
+    }
+
+    .abv2-ed-divider{
+      width:100%;
+      max-width:var(--abv2-mobile-copy-rail);
+      min-height:0;
+      margin:26px auto 18px;
+      padding-top:0;
+      display:block;
+    }
+
+    .abv2-ed-divider__blob{
+      position:relative;
+      width:min(76vw, 250px);
+      margin:0 auto 10px;
+      left:auto !important;
+      right:auto !important;
+      top:auto;
+    }
+
+    .abv2-ed-divider__title,
+    .abv2-ed-divider--left .abv2-ed-divider__title,
+    .abv2-ed-divider--right .abv2-ed-divider__title{
+      width:auto;
+      margin:0;
+      padding-top:0;
+      max-width:11ch;
+      font-size:1.85rem;
+      text-align:left;
+    }
+
+    .abv2-ed-panel{
+      margin:36px auto;
+      padding:24px 22px;
+      border-radius:22px;
+    }
+
+    .abv2-ed-panel h3{
+      font-size:1.55rem;
+    }
+
+    .abv2-ed-panel p{
+      font-size:.98rem;
+      line-height:1.56;
+    }
+
+    .abv2-ed-cta{
+      text-align:left;
+    }
+
+    .abv2-footer-wedge{
+      height:86px;
+    }
+
+    .abv2-footer-wedge__shape{
+      clip-path:polygon(
+        0 100%,
+        0 88%,
+        33% 52%,
+        100% 88%,
+        100% 100%
+      );
+    }
+
+    .footer{
+      padding-top:38px !important;
+    }
+
+    .footer .footer__risk{
+      padding-left:0 !important;
+    }
+  }
+
+@media (max-width:759px){
+
+  .abv2-ed-divider{
+    overflow:visible !important;
+    margin:0 auto 18px !important;
+  }
+
+  .abv2-ed-divider__blob{
+    position:relative !important;
+    width:300px !important;
+    height:300px !important;
+    margin:0 !important;
+  }
+
+  .abv2-ed-divider__blob::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    background:var(--abv2-yellow) !important;
+    transform:translate(-130px, 80px) !important;
+  }
+
+  .abv2-ed-divider__title,
+  .abv2-ed-divider--left .abv2-ed-divider__title,
+  .abv2-ed-divider--right .abv2-ed-divider__title{
+    position:relative;
+    z-index:2;
+
+    /* KEY CHANGES */
+    margin:-140px 0 0 0 !important;   /* ← pull UP hard into blob */
+    max-width:16ch !important;        /* ← wider, less “stacky” */
+
+    padding-top:0 !important;
+    text-align:left !important;
+
+    font-size:1.95rem;
+    line-height:.95;
+  }
+
+}
+
+@media (max-width:759px){
+
+  .abv2-ed-divider__blob--pink::before{
+    background:var(--abv2-pink) !important;
+  }
+
+  .abv2-ed-divider__blob--teal::before{
+    background:var(--abv2-teal) !important;
+  }
+
+}
+
+/* =========================================================
+   EDITORIAL SYSTEM ADD-ON
+   cleaned consolidation pass
+   ========================================================= */
+
+/* =========================================================
+   TYPE SAFETY
+   ========================================================= */
+
+.abv2-editorial h1,
+.abv2-editorial h2,
+.abv2-editorial h3,
+.abv2-editorial h4,
+.abv2-editorial h5{
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
+}
+
+.abv2-card__eyebrow,
+.abv2-compare__label,
+.abv2-toc__meta,
+.abv2-btn,
+.abv2-jumpbar__link{
+  font-family:var(--abv2-ui);
+}
+
+.abv2-compare__heading{
+  font-family:var(--abv2-serif);
+}
+
+.abv2-lino{
+  display:none !important;
+}
+
+/* =========================================================
+   SHARED SUPPORTING TEXT
+   ========================================================= */
+
+.abv2-inline-note{
+  margin:14px 0 0;
+  font-size:.92rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.72);
+}
+
+.abv2-footnote{
+  margin:12px 0 0;
+  font-size:.88rem;
+  line-height:1.5;
+  color:rgba(38,38,37,.72);
+}
+
+.abv2-dev-slot{
+  margin:22px 0;
+  padding:16px 18px;
+  border:1.5px dashed rgba(38,38,37,.18);
+  border-radius:18px;
+  background:rgba(239,181,42,.08);
+  color:var(--abv2-text);
+  font-family:var(--abv2-ui);
+  font-size:.92rem;
+  line-height:1.45;
+}
+
+.abv2-dev-slot strong{
+  color:var(--abv2-ink);
+}
+
+.abv2-fine-print{
+  margin-top:22px;
+  font-size:.82rem;
+  line-height:1.6;
+  color:rgba(38,38,37,.72);
+}
+
+/* =========================================================
+   CAPTIONS / MEDIA TIDY
+   ========================================================= */
+
+.abv2-media__frame{
+  background:#e5e1dc;
+}
+
+.abv2-media--video .abv2-media__frame{
+  background:#111;
+}
+
+.abv2-media__caption{
+  margin-top:12px;
+  max-width:min(100%, 680px);
+  padding-left:14px;
+  border-left:2px solid rgba(38,38,37,.10);
+  font-family:var(--abv2-sans);
+  font-size:.82rem;
+  line-height:1.5;
+  color:rgba(38,38,37,.68);
+}
+
+/* =========================================================
+   BLOB / DECORATIVE UTILITIES
+   ========================================================= */
+
+.abv2-card--with-blob{
+  position:relative;
+  overflow:visible;
+}
+
+.abv2-card--with-blob::after{
+  content:"";
+  position:absolute;
+  top:-36px;
+  right:-36px;
+  width:150px;
+  height:135px;
+  opacity:.16;
+  background:var(--abv2-teal);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-card--blob-anchor,
+.abv2-slab--blob-anchor,
+.abv2-navcard--blob-anchor,
+.abv2-riskcard--blob-anchor,
+.abv2-ctacard--blob-anchor{
+  position:relative;
+  overflow:visible;
+  z-index:1;
+}
+
+.abv2-card--blob-anchor::before,
+.abv2-slab--blob-anchor::before,
+.abv2-navcard--blob-anchor::before,
+.abv2-riskcard--blob-anchor::before,
+.abv2-ctacard--blob-anchor::before{
+  content:"";
+  position:absolute;
+  top:-42px;
+  right:-42px;
+  width:180px;
+  height:160px;
+  z-index:-1;
+  background:var(--abv2-teal);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-card--blob-anchor.abv2-card--blob-anchor-pink::before,
+.abv2-slab--blob-anchor.abv2-slab--blob-anchor-pink::before,
+.abv2-navcard--blob-anchor.abv2-navcard--blob-anchor-pink::before,
+.abv2-riskcard--blob-anchor.abv2-riskcard--blob-anchor-pink::before,
+.abv2-ctacard--blob-anchor.abv2-ctacard--blob-anchor-pink::before{
+  background:var(--abv2-pink);
+}
+
+.abv2-card--blob-anchor.abv2-card--blob-anchor-yellow::before,
+.abv2-slab--blob-anchor.abv2-slab--blob-anchor-yellow::before,
+.abv2-navcard--blob-anchor.abv2-navcard--blob-anchor-yellow::before,
+.abv2-riskcard--blob-anchor.abv2-riskcard--blob-anchor-yellow::before,
+.abv2-ctacard--blob-anchor.abv2-ctacard--blob-anchor-yellow::before{
+  background:var(--abv2-yellow);
+}
+
+/* =========================================================
+   EYEBROW COLOUR SYSTEM
+   ========================================================= */
+
+.abv2-card__eyebrow{
+  display:inline-block;
+  margin:0 0 10px;
+  padding:5px 10px;
+  border-radius:999px;
+  background:rgba(0,164,182,.10);
+  color:#07828f;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.01em;
+}
+
+.abv2-card__eyebrow--compare{
+  background:rgba(0,164,182,.12);
+  color:#07828f;
+}
+
+.abv2-card__eyebrow--risk{
+  background:rgba(226,109,166,.12);
+  color:#a93f77;
+}
+
+.abv2-card__eyebrow--data{
+  background:rgba(239,181,42,.16);
+  color:#8d6707;
+}
+
+/* =========================================================
+   BULLETS — BLOB MASK LANGUAGE
+   ========================================================= */
+
+.abv2-ed-copy ul{
+  list-style:none;
+  padding:0;
+  margin:4px 0 0;
+}
+
+.abv2-ed-copy li{
+  position:relative;
+  padding-left:1.5rem;
+}
+
+.abv2-ed-copy li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.78em;
+  width:10px;
+  height:8px;
+  transform:translateY(-50%);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-copy ol{
+  counter-reset:abv2-ol;
+  list-style:none;
+  padding:0;
+  margin:4px 0 0;
+  width:min(100%, var(--abv2-editorial-copy));
+}
+
+.abv2-ed-copy ol li{
+  counter-increment:abv2-ol;
+  position:relative;
+  padding-left:2.2rem;
+}
+
+.abv2-ed-copy ol li::before{
+  content:counter(abv2-ol) ".";
+  position:absolute;
+  left:0;
+  top:0;
+  width:auto;
+  height:auto;
+  background:none;
+  transform:none;
+  font-family:var(--abv2-sans);
+  font-size:1.03rem;
+  line-height:1.68;
+  color:var(--abv2-text);
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+
+.abv2-ed-copy ol li::after{
+  content:"";
+  position:absolute;
+  left:1.15rem;
+  top:.82em;
+  width:9px;
+  height:7px;
+  transform:translateY(-50%);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-compare__list,
+.abv2-procon__list,
+.abv2-fit__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.abv2-compare__list li,
+.abv2-procon__list li,
+.abv2-fit__list li{
+  position:relative;
+  padding-left:18px;
+}
+
+.abv2-compare__list li::before,
+.abv2-procon__list li::before,
+.abv2-fit__list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.82em;
+  width:9px;
+  height:7px;
+  transform:translateY(-50%);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-compare__list li{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-top:1px solid rgba(38,38,37,.08);
+  line-height:1.55;
+}
+
+.abv2-compare__list li:first-child{
+  border-top:0;
+  padding-top:0;
+}
+
+.abv2-compare__list li:first-child::before{
+  top:.42em;
+}
+
+.abv2-procon__list li,
+.abv2-fit__list li{
+  margin:0 0 10px;
+}
+
+.abv2-procon__list li:last-child,
+.abv2-fit__list li:last-child{
+  margin-bottom:0;
+}
+
+/* =========================================================
+   DECISION SUPPORT
+   ========================================================= */
+
+.abv2-decision{
+  margin:26px 0 34px;
+}
+
+.abv2-decision > * + *{
+  margin-top:18px;
+}
+
+.abv2-card{
+  border:1.5px solid rgba(38,38,37,.12);
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.05);
+}
+
+.abv2-card__inner{
+  padding:24px 24px 22px;
+}
+
+.abv2-card__title{
+  margin:0 0 10px;
+  font-size:clamp(1.25rem,2vw,1.55rem);
+  line-height:1.15;
+}
+
+.abv2-card__intro{
+  margin:0;
+}
+
+/* compare */
+
+.abv2-compare{
+  overflow:hidden;
+}
+
+.abv2-compare__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-compare__col{
+  padding:22px 24px 24px;
+}
+
+.abv2-compare__col + .abv2-compare__col{
+  border-left:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-compare__label{
+  margin:0 0 12px;
+  font-size:.78rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.62);
+}
+
+.abv2-compare__heading{
+  display:block;
+  margin:0 0 12px;
+  font-size:1.15rem;
+  line-height:1.18;
+}
+
+.abv2-compare__note{
+  margin:0;
+  padding:16px 24px 20px;
+  border-top:1px solid rgba(38,38,37,.10);
+  font-size:.95rem;
+  color:rgba(38,38,37,.78);
+}
+
+/* pro/con */
+
+.abv2-procon{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.abv2-procon__col{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  padding:20px 20px 18px;
+  background:#fff;
+}
+
+.abv2-procon__col--pros{
+  background:rgba(0,164,182,.06);
+}
+
+.abv2-procon__col--cons{
+  background:rgba(226,109,166,.06);
+}
+
+.abv2-procon__title{
+  display:block;
+  margin:0 0 12px;
+  font-size:1.02rem;
+  line-height:1.2;
+}
+
+/* fit */
+
+.abv2-fit{
+  overflow:hidden;
+}
+
+.abv2-fit__top{
+  padding:24px 24px 18px;
+}
+
+.abv2-fit__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-fit__pane{
+  padding:20px 24px 22px;
+}
+
+.abv2-fit__pane + .abv2-fit__pane{
+  border-left:1px solid rgba(38,38,37,.10);
+}
+
+.abv2-fit__pane--yes{
+  background:rgba(0,164,182,.04);
+}
+
+.abv2-fit__pane--no{
+  background:rgba(226,109,166,.05);
+}
+
+.abv2-fit__heading{
+  display:block;
+  margin:0 0 12px;
+  font-size:1rem;
+  line-height:1.2;
+}
+
+.abv2-fit__footer{
+  padding:16px 24px 22px;
+  border-top:1px solid rgba(38,38,37,.10);
+  font-size:.95rem;
+  color:rgba(38,38,37,.78);
+}
+
+/* faq */
+
+.abv2-faq{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-faq__item{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:18px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.abv2-faq__item summary{
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+  padding:18px 52px 18px 18px;
+  font-family:var(--abv2-ui);
+  font-weight:700;
+  line-height:1.4;
+}
+
+.abv2-faq__item summary::-webkit-details-marker{
+  display:none;
+}
+
+.abv2-faq__item summary::after{
+  content:"+";
+  position:absolute;
+  right:18px;
+  top:50%;
+  width:22px;
+  height:18px;
+  transform:translateY(-50%);
+  background:rgba(239,181,42,.18);
+  color:transparent;
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-faq__item[open] summary::after{
+  color:transparent;
+}
+
+.abv2-faq__answer{
+  padding:0 18px 18px;
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.abv2-faq__answer p{
+  margin:14px 0 0;
+}
+
+/* =========================================================
+   DATA / FINANCIAL
+   ========================================================= */
+
+.abv2-data{
+  margin:26px 0 34px;
+}
+
+.abv2-data > * + *{
+  margin-top:18px;
+}
+
+.abv2-slab{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.abv2-slab__inner{
+  padding:22px 22px 20px;
+}
+
+.abv2-slab__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.abv2-slab__intro{
+  margin:0;
+}
+
+/* stats */
+
+.abv2-stats{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:14px;
+}
+
+.abv2-stat{
+  padding:18px 16px 18px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:22px;
+  background:#faf8f8;
+  box-shadow:none;
+}
+
+.abv2-stat:nth-child(1){ background:#f8d9e8; }
+.abv2-stat:nth-child(2){ background:#dff4f6; }
+.abv2-stat:nth-child(3){ background:#f6e7c8; }
+.abv2-stat:nth-child(4){ background:#f3edf9; }
+
+.abv2-stat__label{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin:0 0 10px;
+  font-size:.78rem;
+  line-height:1.28;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:rgba(38,38,37,.72);
+}
+
+.abv2-stat__value{
+  margin:0 0 8px;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.55rem,2vw,2rem);
+  line-height:.96;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
+}
+
+.abv2-stat__note{
+  margin:0;
+  font-size:.95rem;
+  line-height:1.52;
+  color:rgba(38,38,37,.78);
+}
+
+/* table */
+
+.abv2-table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.abv2-table{
+  width:100%;
+  min-width:560px;
+  border-collapse:separate;
+  border-spacing:0;
+  font-size:.96rem;
+  line-height:1.45;
+}
+
+.abv2-table th,
+.abv2-table td{
+  padding:14px;
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid rgba(38,38,37,.08);
+}
+
+.abv2-table thead th{
+  font-family:var(--abv2-ui);
+  font-size:.76rem;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:rgba(38,38,37,.64);
+  background:rgba(248,245,247,.7);
+}
+
+.abv2-table tbody tr:first-child td{
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.abv2-table tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.abv2-table__muted{
+  color:rgba(38,38,37,.68);
+}
+
+.abv2-table__strong{
+  font-family:var(--abv2-ui);
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+/* glossary */
+
+.abv2-glossary{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-glossary__item{
+  padding:16px 18px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fffdfa;
+}
+
+.abv2-glossary__term{
+  margin:0 0 6px;
+  font-family:var(--abv2-ui);
+  font-size:.95rem;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-glossary__def{
+  margin:0;
+  color:rgba(38,38,37,.82);
+}
+
+/* details */
+
+.abv2-details{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-details__item{
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.abv2-details__item summary{
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+  padding:16px 48px 16px 18px;
+  font-family:var(--abv2-ui);
+  font-size:.95rem;
+  line-height:1.35;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-details__item summary::-webkit-details-marker{
+  display:none;
+}
+
+.abv2-details__item summary::after{
+  content:"+";
+  position:absolute;
+  right:16px;
+  top:50%;
+  width:22px;
+  height:18px;
+  transform:translateY(-50%);
+  background:rgba(0,164,182,.15);
+  color:transparent;
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-details__item[open] summary::after{
+  color:transparent;
+}
+
+.abv2-details__body{
+  padding:0 18px 18px;
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.abv2-details__body > *:first-child{
+  margin-top:14px;
+}
+
+.abv2-details__body > *:last-child{
+  margin-bottom:0;
+}
+
+/* investment insert */
+
+.abv2-invest-insert{
+  overflow:hidden;
+}
+
+.abv2-invest-insert__row{
+  display:grid;
+  grid-template-columns:128px minmax(0,1fr) auto;
+  align-items:center;
+  gap:20px;
+}
+
+.abv2-invest-insert__media{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:128px;
+  height:128px;
+  border-radius:24px;
+  background:var(--abv2-invest-bg, #724795);
+  overflow:hidden;
+}
+
+.abv2-invest-insert__media::before{
+  content:"";
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  width:34px;
+  height:34px;
+  background:rgba(255,255,255,.16);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-invest-insert__logo{
+  position:relative;
+  z-index:1;
+  width:min(100%, 82px);
+  max-height:64px;
+  object-fit:contain;
+}
+
+.abv2-invest-insert__body{
+  min-width:0;
+}
+
+.abv2-invest-insert__kicker{
+  display:inline-block;
+  margin:0 0 7px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--abv2-pink);
+}
+
+.abv2-invest-insert__title{
+  margin:0 0 8px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.02;
+}
+
+.abv2-invest-insert__desc{
+  margin:0 0 10px;
+  max-width:42ch;
+}
+
+.abv2-invest-insert__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  font-family:var(--abv2-ui);
+  font-size:.8rem;
+  line-height:1.35;
+  color:var(--abv2-text);
+}
+
+.abv2-invest-insert__pill{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.abv2-invest-insert__pill::after{
+  content:"·";
+  margin:0 10px;
+  color:rgba(38,38,37,.34);
+}
+
+.abv2-invest-insert__pill:last-child::after{
+  display:none;
+}
+
+.abv2-invest-insert__pill--rate{ color:#b24e82; }
+.abv2-invest-insert__pill--term{ color:#207f8e; }
+.abv2-invest-insert__pill--capital{ color:#a87509; }
+
+.abv2-invest-insert__cta{
+  align-self:center;
+}
+
+.abv2-invest-insert__cta .abv2-btn{
+  white-space:nowrap;
+}
+
+/* =========================================================
+   NAV / READING AIDS
+   ========================================================= */
+
+.abv2-navzone{
+  margin:26px 0 34px;
+}
+
+.abv2-navzone > * + *{
+  margin-top:18px;
+}
+
+.abv2-navcard{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.abv2-navcard__inner{
+  padding:22px 22px 20px;
+}
+
+.abv2-navcard__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.abv2-navcard__intro{
+  margin:0;
+}
+
+.abv2-toc{
+  display:grid;
+  gap:10px;
+}
+
+.abv2-toc__link{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:16px;
+  background:#fffdfa;
+  text-decoration:none;
+  color:var(--abv2-ink);
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.abv2-toc__link:hover{
+  transform:translateY(-1px);
+  border-color:rgba(226,109,166,.34);
+  background:#fff;
+}
+
+.abv2-toc__label{
+  font-family:var(--abv2-ui);
+  font-size:.96rem;
+  line-height:1.4;
+  font-weight:700;
+}
+
+.abv2-toc__meta{
+  flex:0 0 auto;
+  font-size:.76rem;
+  line-height:1.2;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.54);
+  margin-top:2px;
+}
+
+.abv2-jumpbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.abv2-jumpbar__link{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:10px 14px;
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:999px;
+  background:#fff;
+  text-decoration:none;
+  font-size:.84rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--abv2-text);
+  transition:border-color .18s ease, background .18s ease, color .18s ease;
+}
+
+.abv2-jumpbar__link:hover{
+  border-color:rgba(0,164,182,.38);
+  background:rgba(0,164,182,.06);
+  color:var(--abv2-ink);
+}
+
+.abv2-related{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:14px;
+}
+
+.abv2-related__card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:18px 18px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fff;
+  text-decoration:none;
+  color:inherit;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.abv2-related__card:hover{
+  transform:translateY(-1px);
+  border-color:rgba(114,71,149,.28);
+  box-shadow:0 10px 24px rgba(38,38,37,.06);
+}
+
+.abv2-related__type{
+  display:inline-block;
+  margin:0 0 10px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:#724795;
+}
+
+.abv2-related__title{
+  display:block;
+  margin:0 0 8px;
+  font-size:1.08rem;
+  line-height:1.14;
+}
+
+.abv2-related__desc{
+  margin:0 0 14px;
+  font-size:.94rem;
+  line-height:1.48;
+  color:rgba(38,38,37,.78);
+}
+
+.abv2-related__cta{
+  margin-top:auto;
+  font-family:var(--abv2-ui);
+  font-size:.82rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--abv2-pink);
+}
+
+.abv2-backtop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:18px 20px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#faf8f8;
+}
+
+.abv2-backtop__copy{
+  min-width:0;
+}
+
+.abv2-backtop__title{
+  margin:0 0 4px;
+  font-family:var(--abv2-ui);
+  font-size:.96rem;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-backtop__text{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.45;
+  color:rgba(38,38,37,.74);
+}
+
+.abv2-backtop__link{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1.5px solid rgba(38,38,37,.10);
+  background:#fff;
+  text-decoration:none;
+  font-family:var(--abv2-ui);
+  font-size:.84rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-backtop__link:hover{
+  border-color:rgba(226,109,166,.34);
+  color:var(--abv2-pink);
+}
+
+/* =========================================================
+   RISK / LEGAL
+   ========================================================= */
+
+.abv2-riskzone{
+  margin:26px 0 34px;
+}
+
+.abv2-riskzone > * + *{
+  margin-top:18px;
+}
+
+.abv2-riskcard{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.abv2-riskcard__inner{
+  padding:22px 22px 20px;
+}
+
+.abv2-riskcard__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.abv2-riskcard__intro{
+  margin:0;
+}
+
+.abv2-risk-primary{
+  overflow:hidden;
+}
+
+.abv2-risk-primary__band{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px 22px;
+  border-top:1px solid rgba(38,38,37,.08);
+  background:rgba(226,109,166,.08);
+}
+
+.abv2-risk-primary__icon{
+  flex:0 0 auto;
+  width:34px;
+  height:26px;
+  display:grid;
+  place-items:center;
+  background:rgba(226,109,166,.16);
+  color:#8f3d69;
+  font-family:var(--abv2-ui);
+  font-size:1rem;
+  font-weight:700;
+  line-height:1;
+  clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
+}
+
+.abv2-risk-primary__body{
+  min-width:0;
+}
+
+.abv2-risk-primary__headline{
+  margin:0 0 6px;
+  font-family:var(--abv2-ui);
+  font-size:1rem;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-risk-primary__text{
+  margin:0;
+  color:rgba(38,38,37,.82);
+}
+
+.abv2-warning{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-warning__item{
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  padding:14px 16px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:16px;
+  background:#fffdfa;
+}
+
+.abv2-warning__mark{
+  width:30px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  background:rgba(239,181,42,.22);
+  color:#7c5b0a;
+  font-family:var(--abv2-ui);
+  font-size:.88rem;
+  font-weight:700;
+  line-height:1;
+  clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
+}
+
+.abv2-warning__title{
+  margin:0 0 4px;
+  font-family:var(--abv2-ui);
+  font-size:.94rem;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-warning__text{
+  margin:0;
+  font-size:.94rem;
+  line-height:1.48;
+  color:rgba(38,38,37,.78);
+}
+
+.abv2-inline-disclaimer{
+  margin:18px 0 0;
+  padding:14px 16px;
+  border-left:4px solid rgba(226,109,166,.7);
+  background:rgba(248,245,247,.72);
+  border-radius:0 14px 14px 0;
+  font-size:.92rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.8);
+}
+
+.abv2-inline-disclaimer strong{
+  color:var(--abv2-ink);
+}
+
+.abv2-legalnotes{
+  display:grid;
+  gap:10px;
+}
+
+.abv2-legalnotes__row{
+  padding:14px 16px;
+  border:1px solid rgba(38,38,37,.08);
+  border-radius:14px;
+  background:#faf8f6;
+}
+
+.abv2-legalnotes__label{
+  display:block;
+  margin:0 0 5px;
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1.1;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:rgba(38,38,37,.58);
+}
+
+.abv2-legalnotes__text{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.55;
+  color:rgba(38,38,37,.72);
+}
+
+.abv2-legalnotes__text a{
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:2px;
+}
+
+/* =========================================================
+   CTA PATTERNS
+   ========================================================= */
+
+.abv2-ctazone{
+  margin:26px 0 34px;
+}
+
+.abv2-ctazone > * + *{
+  margin-top:18px;
+}
+
+.abv2-ctacard{
+  border:1.5px solid rgba(38,38,37,.10);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(38,38,37,.04);
+}
+
+.abv2-ctacard__inner{
+  padding:22px 22px 20px;
+}
+
+.abv2-ctacard__title{
+  margin:0 0 10px;
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.14;
+}
+
+.abv2-ctacard__intro{
+  margin:0;
+}
+
+.abv2-inline-cta{
+  color:var(--abv2-pink);
+  font-family:var(--abv2-ui);
+  font-weight:700;
+  text-decoration:none;
+  border-bottom:1px solid rgba(226,109,166,.35);
+  transition:border-color .18s ease, color .18s ease;
+}
+
+.abv2-inline-cta:hover{
+  color:#b24e82;
+  border-color:#b24e82;
+}
+
+.abv2-panel-cta{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  padding:20px 22px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#faf8f8;
+}
+
+.abv2-panel-cta__copy{
+  min-width:0;
+}
+
+.abv2-panel-cta__kicker{
+  display:inline-block;
+  margin:0 0 8px;
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#b24e82;
+}
+
+.abv2-panel-cta__title{
+  margin:0 0 6px;
+  font-size:1.12rem;
+  line-height:1.16;
+}
+
+.abv2-panel-cta__text{
+  margin:0;
+  color:rgba(38,38,37,.78);
+}
+
+.abv2-panel-cta__action{
+  flex:0 0 auto;
+}
+
+.abv2-end-cta{
+  overflow:hidden;
+}
+
+.abv2-end-cta__band{
+  padding:22px 22px 24px;
+  border-top:1px solid rgba(38,38,37,.08);
+  background:#f3f9fa;
+}
+
+.abv2-end-cta__title{
+  display:block;
+  margin:0 0 8px;
+  font-size:clamp(1.3rem,2vw,1.6rem);
+  line-height:1.08;
+}
+
+.abv2-end-cta__text{
+  margin:0;
+  max-width:44ch;
+  color:rgba(38,38,37,.8);
+}
+
+.abv2-end-cta__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+
+.abv2-nextstep{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  padding:20px 22px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fffdfa;
+}
+
+.abv2-nextstep__copy{
+  min-width:0;
+}
+
+.abv2-nextstep__label{
+  display:inline-block;
+  margin:0 0 7px;
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#724795;
+}
+
+.abv2-nextstep__title{
+  margin:0 0 6px;
+  font-size:1.08rem;
+  line-height:1.16;
+}
+
+.abv2-nextstep__text{
+  margin:0;
+  color:rgba(38,38,37,.78);
+}
+
+.abv2-nextstep__meta{
+  margin-top:10px;
+  font-family:var(--abv2-ui);
+  font-size:.82rem;
+  line-height:1.35;
+  color:rgba(38,38,37,.62);
+}
+
+.abv2-nextstep__action{
+  flex:0 0 auto;
+}
+
+.abv2-cta-list{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-cta-list__row{
+  padding:14px 16px;
+  border:1px solid rgba(38,38,37,.08);
+  border-radius:14px;
+  background:#faf8f6;
+}
+
+.abv2-cta-list__title{
+  margin:0 0 4px;
+  font-family:var(--abv2-ui);
+  font-size:.92rem;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-cta-list__text{
+  margin:0;
+  font-size:.9rem;
+  line-height:1.5;
+  color:rgba(38,38,37,.74);
+}
+
+/* =========================================================
+   LEFT ILLUSTRATED TOP BLOB
+   ========================================================= */
+
+.abv2-ed-illus-top{
+  position:relative;
+  width:min(100%, 980px);
+  height:250px;
+  margin:18px auto -62px;
+  pointer-events:none;
+}
+
+.abv2-ed-illus-top__blob{
+  position:absolute;
+  left:-34px;
+  top:0;
+  width:360px;
+  aspect-ratio:1 / 1;
+}
+
+.abv2-ed-illus-top__blob::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-illus-top__blob--teal::before{
+  background:var(--abv2-teal);
+}
+
+.abv2-ed-illus-top__blob--yellow::before{
+  background:var(--abv2-yellow);
+}
+
+.abv2-ed-illus-top__lino{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
+  width:68%;
+  max-width:260px;
+  height:auto;
+  object-fit:contain;
+  opacity:.9;
+  pointer-events:none;
+  transform:translate(-50%, -56%);
+}
+
+.abv2-ed-section--illus-overlap{
+  position:relative;
+}
+
+.abv2-ed-section--illus-overlap .abv2-ed-rail{
+  position:relative;
+  z-index:3;
+}
+
+.abv2-ed-section--illus-overlap .abv2-ed-copy > h3:first-child{
+  position:relative;
+  margin-top:110px;
+  margin-left:0;
+  margin-bottom:18px;
+  max-width:18ch;
+  transform:none;
+}
+
+/* =========================================================
+   RHS DECORATIVE LINO SPACER
+   ========================================================= */
+
+.abv2-ed-rhs-lino-spacer{
+  position:relative;
+  width:min(100%, 980px);
+  height:180px;
+  margin:18px auto -42px;
+  pointer-events:none;
+}
+
+.abv2-ed-rhs-lino-spacer__blob{
+  position:absolute;
+  top:-8px;
+  right:-52px;
+  width:360px;
+  aspect-ratio:1 / 1;
+}
+
+.abv2-ed-rhs-lino-spacer__blob::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:var(--abv2-teal);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-rhs-lino-spacer__blob--pink::before{
+  background:var(--abv2-pink);
+}
+
+.abv2-ed-rhs-lino-spacer__blob--yellow::before{
+  background:var(--abv2-yellow);
+}
+
+.abv2-ed-rhs-lino-spacer__lino{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
+  width:52%;
+  max-width:180px;
+  height:auto;
+  object-fit:contain;
+  opacity:.92;
+  display:block;
+  transform:translate(-50%, -52%);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width:979px){
+  .abv2-stats{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .abv2-invest-insert__row{
+    grid-template-columns:112px minmax(0,1fr);
+  }
+
+  .abv2-invest-insert__cta{
+    grid-column:2;
+  }
+
+  .abv2-invest-insert__media{
+    width:112px;
+    height:112px;
+    border-radius:22px;
+  }
+
+  .abv2-invest-insert__logo{
+    width:min(100%, 74px);
+    max-height:58px;
+  }
+
+  .abv2-related{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:759px){
+  .abv2-media__caption{
+    padding-left:12px;
+    font-size:.78rem;
+    line-height:1.48;
+  }
+
+  .abv2-card__inner,
+  .abv2-compare__col,
+  .abv2-fit__top,
+  .abv2-fit__pane,
+  .abv2-fit__footer,
+  .abv2-slab__inner,
+  .abv2-navcard__inner,
+  .abv2-riskcard__inner,
+  .abv2-ctacard__inner{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .abv2-slab__inner,
+  .abv2-navcard__inner,
+  .abv2-riskcard__inner,
+  .abv2-ctacard__inner{
+    padding-top:18px;
+    padding-bottom:17px;
+  }
+
+  .abv2-compare__grid,
+  .abv2-procon,
+  .abv2-fit__grid{
+    grid-template-columns:1fr;
+  }
+
+  .abv2-compare__col + .abv2-compare__col,
+  .abv2-fit__pane + .abv2-fit__pane{
+    border-left:0;
+    border-top:1px solid rgba(38,38,37,.10);
+  }
+
+  .abv2-stats{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .abv2-stat{
+    border-radius:20px;
+    padding:16px 15px 16px;
+  }
+
+  .abv2-stat__label{
+    font-size:.74rem;
+    gap:6px;
+  }
+
+  .abv2-stat__value{
+    font-size:1.7rem;
+  }
+
+  .abv2-stat__note{
+    font-size:.92rem;
+    line-height:1.48;
+  }
+
+  .abv2-table{
+    min-width:520px;
+    font-size:.92rem;
+  }
+
+  .abv2-invest-insert__row{
+    grid-template-columns:96px minmax(0,1fr);
+    gap:14px;
+    align-items:start;
+  }
+
+  .abv2-invest-insert__media{
+    width:96px;
+    height:96px;
+    border-radius:20px;
+  }
+
+  .abv2-invest-insert__media::before{
+    width:28px;
+    height:28px;
+  }
+
+  .abv2-invest-insert__logo{
+    width:min(100%, 62px);
+    max-height:48px;
+  }
+
+  .abv2-invest-insert__title{
+    font-size:1.22rem;
+  }
+
+  .abv2-invest-insert__desc{
+    max-width:none;
+    font-size:.92rem;
+    line-height:1.42;
+  }
+
+  .abv2-invest-insert__meta{
+    display:block;
+    font-size:.76rem;
+    line-height:1.42;
+  }
+
+  .abv2-invest-insert__pill{
+    display:inline;
+    white-space:normal;
+  }
+
+  .abv2-invest-insert__pill::after{
+    display:inline;
+    margin:0 8px;
+  }
+
+  .abv2-invest-insert__cta{
+    grid-column:1 / -1;
+    margin-top:2px;
+  }
+
+  .abv2-toc__link{
+    padding:13px 14px;
+  }
+
+  .abv2-toc__label{
+    font-size:.92rem;
+  }
+
+  .abv2-backtop{
+    display:block;
+  }
+
+  .abv2-backtop__link{
+    margin-top:12px;
+  }
+
+  .abv2-risk-primary__band{
+    padding:16px 18px;
+    gap:12px;
+  }
+
+  .abv2-risk-primary__icon{
+    font-size:.92rem;
+  }
+
+  .abv2-warning__item{
+    grid-template-columns:24px minmax(0,1fr);
+    gap:10px;
+    padding:13px 14px;
+  }
+
+  .abv2-warning__mark{
+    font-size:.8rem;
+  }
+
+  .abv2-panel-cta,
+  .abv2-nextstep{
+    grid-template-columns:1fr;
+    gap:14px;
+    padding:18px;
+  }
+
+  .abv2-end-cta__band{
+    padding:18px 18px 20px;
+  }
+
+  .abv2-end-cta__actions{
+    display:grid;
+    gap:10px;
+  }
+
+  .abv2-card--blob-anchor::before,
+  .abv2-slab--blob-anchor::before,
+  .abv2-navcard--blob-anchor::before,
+  .abv2-riskcard--blob-anchor::before,
+  .abv2-ctacard--blob-anchor::before,
+  .abv2-card--with-blob::after{
+    top:-24px;
+    right:-18px;
+    width:120px;
+    height:108px;
+  }
+
+  .abv2-ed-illus-top{
+    width:100%;
+    max-width:var(--abv2-mobile-copy-rail);
+    height:210px;
+    margin:8px auto -44px;
+  }
+
+  .abv2-ed-illus-top__blob{
+    left:-28px;
+    width:300px;
+  }
+
+  .abv2-ed-illus-top__lino{
+    width:50%;
+    max-width:none;
+    transform:translate(-50%, -56%);
+  }
+
+  .abv2-ed-section--illus-overlap .abv2-ed-copy > h3:first-child{
+    margin-top:48px;
+    margin-left:0;
+    max-width:12ch;
+    transform:none;
+  }
+
+  .abv2-ed-rhs-lino-spacer{
+    width:100%;
+    max-width:var(--abv2-mobile-copy-rail);
+    height:120px;
+    margin:10px auto -24px;
+  }
+
+  .abv2-ed-rhs-lino-spacer__blob{
+    top:0;
+    right:-28px;
+    width:300px;
+    height:300px;
+  }
+
+  .abv2-ed-rhs-lino-spacer__lino{
+    width:50%;
+    max-width:none;
+    transform:translate(-50%, -52%);
+  }
+}
+
+
+/* =========================================================
+   EDITORIAL OPEN INVESTMENT CARD
+   add-on only
+   ========================================================= */
+
+.abv2-ed-open-invest{
+  position:relative;
+  overflow:visible;
+  border-color:rgba(38,38,37,.09);
+  background:linear-gradient(180deg, #fffdfa 0%, #ffffff 100%);
+  box-shadow:0 12px 30px rgba(38,38,37,.045);
+}
+
+.abv2-ed-open-invest__inner{
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.abv2-ed-open-invest__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:0 0 16px;
+}
+
+.abv2-ed-open-invest__top .abv2-card__eyebrow{
+  margin:0;
+}
+
+.abv2-ed-open-invest__status{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(226,109,166,.10);
+  color:#a93f77;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.abv2-ed-open-invest__row{
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+}
+
+.abv2-ed-open-invest__media{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:120px;
+  height:120px;
+  border-radius:24px;
+  background:var(--abv2-invest-bg, #724795);
+  overflow:hidden;
+}
+
+.abv2-ed-open-invest__media::before{
+  content:"";
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  width:34px;
+  height:34px;
+  background:rgba(255,255,255,.16);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-open-invest__logo{
+  position:relative;
+  z-index:1;
+  width:min(100%, 76px);
+  max-height:58px;
+  object-fit:contain;
+}
+
+.abv2-ed-open-invest__body{
+  min-width:0;
+}
+
+.abv2-ed-open-invest__title{
+  margin:0 0 8px;
+  font-size:clamp(1.32rem, 2vw, 1.68rem);
+  line-height:1.02;
+}
+
+.abv2-ed-open-invest__desc{
+  margin:0 0 12px;
+  max-width:42ch;
+  color:var(--abv2-text);
+}
+
+.abv2-ed-open-invest__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  font-family:var(--abv2-ui);
+  font-size:.8rem;
+  line-height:1.35;
+  color:var(--abv2-text);
+}
+
+.abv2-ed-open-invest__pill{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.abv2-ed-open-invest__pill::after{
+  content:"·";
+  margin:0 10px;
+  color:rgba(38,38,37,.34);
+}
+
+.abv2-ed-open-invest__pill:last-child::after{
+  display:none;
+}
+
+.abv2-ed-open-invest__pill--rate{ color:#b24e82; }
+.abv2-ed-open-invest__pill--term{ color:#207f8e; }
+.abv2-ed-open-invest__pill--capital{ color:#a87509; }
+
+.abv2-ed-open-invest__note{
+  margin:10px 0 0;
+  font-size:.84rem;
+  line-height:1.45;
+  color:rgba(38,38,37,.64);
+}
+
+.abv2-ed-open-invest__action{
+  align-self:center;
+}
+
+.abv2-ed-open-invest__action .abv2-btn{
+  white-space:nowrap;
+}
+
+/* subtle editorial inset rhythm */
+.abv2-ed-open-invest::after{
+  content:"";
+  position:absolute;
+  left:22px;
+  right:22px;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg, rgba(226,109,166,.24), rgba(18,169,187,.12), rgba(239,181,42,.18));
+  opacity:.9;
+}
+
+/* ---------- tablet ---------- */
+
+@media (max-width:979px){
+  .abv2-ed-open-invest__row{
+    grid-template-columns:104px minmax(0,1fr);
+    gap:16px;
+  }
+
+  .abv2-ed-open-invest__action{
+    grid-column:2;
+    margin-top:2px;
+  }
+
+  .abv2-ed-open-invest__media{
+    width:104px;
+    height:104px;
+    border-radius:22px;
+  }
+
+  .abv2-ed-open-invest__logo{
+    width:min(100%, 68px);
+    max-height:52px;
+  }
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__inner{
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+
+  .abv2-ed-open-invest__top{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:14px;
+  }
+
+  .abv2-ed-open-invest__row{
+    grid-template-columns:88px minmax(0,1fr);
+    gap:14px;
+    align-items:start;
+  }
+
+  .abv2-ed-open-invest__media{
+    width:88px;
+    height:88px;
+    border-radius:20px;
+  }
+
+  .abv2-ed-open-invest__media::before{
+    width:26px;
+    height:26px;
+    right:9px;
+    bottom:9px;
+  }
+
+  .abv2-ed-open-invest__logo{
+    width:min(100%, 58px);
+    max-height:44px;
+  }
+
+  .abv2-ed-open-invest__title{
+    font-size:1.22rem;
+  }
+
+  .abv2-ed-open-invest__desc{
+    max-width:none;
+    margin-bottom:10px;
+    font-size:.92rem;
+    line-height:1.45;
+  }
+
+  .abv2-ed-open-invest__meta{
+    display:block;
+    font-size:.76rem;
+    line-height:1.42;
+  }
+
+  .abv2-ed-open-invest__pill{
+    display:inline;
+    white-space:normal;
+  }
+
+  .abv2-ed-open-invest__pill::after{
+    display:inline;
+    margin:0 8px;
+  }
+
+  .abv2-ed-open-invest__note{
+    font-size:.8rem;
+  }
+
+  .abv2-ed-open-invest__action{
+    grid-column:1 / -1;
+    margin-top:2px;
+  }
+
+  .abv2-ed-open-invest::after{
+    left:18px;
+    right:18px;
+  }
+}
+/* =========================================================
+   EDITORIAL GREEN PROJECTS COMPONENT
+   add-on only
+   ========================================================= */
+
+.abv2-egp,
+.abv2-egp *{
+  box-sizing:border-box;
+}
+
+.abv2-egp{
+  margin:26px 0 34px;
+}
+
+/* ---------- shell ---------- */
+
+.abv2-egp__card{
+  overflow:hidden;
+}
+
+.abv2-egp__top{
+  padding-bottom:0;
+}
+
+.abv2-egp__eyebrow{
+  margin:0 0 10px;
+}
+
+.abv2-egp__title{
+  margin:0 0 10px;
+  font-size:clamp(1.3rem, 2vw, 1.7rem);
+  line-height:1.08;
+}
+
+.abv2-egp__intro{
+  margin:0;
+  max-width:56ch;
+  color:rgba(38,38,37,.8);
+}
+
+/* ---------- stats ---------- */
+
+.abv2-egp__stats{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.abv2-egp__stat{
+  padding:16px 16px 15px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#faf8f8;
+}
+
+.abv2-egp__stat:nth-child(1){ background:#f8d9e8; }
+.abv2-egp__stat:nth-child(2){ background:#dff4f6; }
+.abv2-egp__stat:nth-child(3){ background:#f6e7c8; }
+
+.abv2-egp__stat-label{
+  display:block;
+  margin:0 0 8px;
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:rgba(38,38,37,.62);
+}
+
+.abv2-egp__stat-value{
+  margin:0;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.35rem,1.8vw,1.8rem);
+  line-height:.98;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
+}
+
+/* ---------- list ---------- */
+
+.abv2-egp__list{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-egp__row{
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fffdfa;
+  overflow:hidden;
+  transition:border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.abv2-egp__row:hover{
+  border-color:rgba(38,38,37,.14);
+}
+
+.abv2-egp__row--open{
+  background:#fff;
+  border-color:rgba(18,169,187,.22);
+  box-shadow:0 10px 24px rgba(38,38,37,.04);
+}
+
+.abv2-egp__trigger{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto 20px;
+  align-items:center;
+  gap:14px;
+  width:100%;
+  padding:16px 16px;
+  border:0;
+  background:none;
+  cursor:pointer;
+  text-align:left;
+  font:inherit;
+  color:inherit;
+}
+
+.abv2-egp__left{
+  min-width:0;
+}
+
+.abv2-egp__category{
+  display:inline-flex;
+  align-items:center;
+  min-height:25px;
+  margin:0 0 8px;
+  padding:5px 9px;
+  border-radius:999px;
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+
+.abv2-egp__category--pink{
+  background:rgba(226,109,166,.13);
+  color:#a93f77;
+}
+
+.abv2-egp__category--blue{
+  background:rgba(0,164,182,.12);
+  color:#07828f;
+}
+
+.abv2-egp__category--yellow{
+  background:rgba(239,181,42,.18);
+  color:#8d6707;
+}
+
+.abv2-egp__name{
+  display:block;
+  margin:0;
+  font-family:var(--abv2-ui);
+  font-size:1rem;
+  line-height:1.35;
+  font-weight:700;
+  color:var(--abv2-ink);
+}
+
+.abv2-egp__right{
+  min-width:110px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:8px;
+}
+
+.abv2-egp__spend{
+  white-space:nowrap;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:1.15rem;
+  line-height:1;
+  letter-spacing:-.02em;
+  color:var(--abv2-ink);
+}
+
+.abv2-egp__progress{
+  width:110px;
+  height:6px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(38,38,37,.08);
+}
+
+.abv2-egp__progress-fill{
+  height:100%;
+  border-radius:999px;
+  background:var(--abv2-teal);
+  transition:width .35s ease;
+}
+
+.abv2-egp__chevron{
+  width:20px;
+  height:20px;
+  color:rgba(38,38,37,.62);
+}
+
+.abv2-egp__chevron svg{
+  display:block;
+  width:100%;
+  height:100%;
+  transition:transform .2s ease;
+}
+
+.abv2-egp__row--open .abv2-egp__chevron svg{
+  transform:rotate(180deg);
+}
+
+.abv2-egp__body{
+  padding:0 16px 16px;
+  border-top:1px solid rgba(38,38,37,.08);
+}
+
+.abv2-egp__body-inner{
+  padding-top:14px;
+  width:min(100%, 54ch);
+}
+
+.abv2-egp__body p{
+  margin:0 0 10px;
+  font-family:var(--abv2-sans);
+  font-size:.98rem;
+  line-height:1.58;
+  color:var(--abv2-text);
+}
+
+.abv2-egp__body p:last-child{
+  margin-bottom:0;
+}
+
+.abv2-egp__body ul{
+  list-style:none;
+  margin:0 0 10px;
+  padding:0;
+}
+
+.abv2-egp__body ul:last-child{
+  margin-bottom:0;
+}
+
+.abv2-egp__body li{
+  position:relative;
+  padding-left:1.4rem;
+  margin:0 0 8px;
+  font-family:var(--abv2-sans);
+  font-size:.98rem;
+  line-height:1.58;
+  color:var(--abv2-text);
+}
+
+.abv2-egp__body li:last-child{
+  margin-bottom:0;
+}
+
+.abv2-egp__body li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.82em;
+  width:9px;
+  height:7px;
+  transform:translateY(-50%);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+/* ---------- empty state ---------- */
+
+.abv2-egp__empty{
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  gap:14px;
+  align-items:start;
+  padding:18px 18px;
+  border:1.5px solid rgba(38,38,37,.08);
+  border-radius:18px;
+  background:#fffdfa;
+}
+
+.abv2-egp__empty-mark{
+  width:32px;
+  height:26px;
+  display:grid;
+  place-items:center;
+  background:rgba(0,164,182,.12);
+  color:#07828f;
+  clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
+}
+
+.abv2-egp__empty-text{
+  margin:0;
+  font-size:.98rem;
+  line-height:1.58;
+  color:var(--abv2-text);
+}
+
+/* ---------- loading ---------- */
+
+.abv2-egp__loading{
+  display:grid;
+  gap:12px;
+}
+
+.abv2-egp__loading-item{
+  height:78px;
+  border-radius:18px;
+  background:linear-gradient(90deg, #f6f2ef 25%, #efe9e5 50%, #f6f2ef 75%);
+  background-size:200% 100%;
+  animation:abv2-egp-shimmer 1.4s infinite;
+}
+
+@keyframes abv2-egp-shimmer{
+  0%   { background-position:200% 0; }
+  100% { background-position:-200% 0; }
+}
+
+/* ---------- error ---------- */
+
+.abv2-egp__error{
+  padding:16px 18px;
+  border:1.5px solid rgba(226,109,166,.24);
+  border-radius:18px;
+  background:rgba(226,109,166,.08);
+  font-size:.94rem;
+  line-height:1.5;
+  color:var(--abv2-ink);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width:759px){
+  .abv2-egp__stats{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .abv2-egp__stat{
+    border-radius:16px;
+    padding:14px 14px 13px;
+  }
+
+  .abv2-egp__trigger{
+    grid-template-columns:minmax(0,1fr) 18px;
+    gap:12px;
+    padding:14px 14px;
+    align-items:start;
+  }
+
+  .abv2-egp__right{
+    grid-column:1 / -1;
+    min-width:0;
+    margin-top:2px;
+    align-items:flex-start;
+    gap:7px;
+  }
+
+  .abv2-egp__spend{
+    font-size:1.05rem;
+  }
+
+  .abv2-egp__progress{
+    width:100%;
+    max-width:180px;
+  }
+
+  .abv2-egp__body{
+    padding:0 14px 14px;
+  }
+
+  .abv2-egp__body p,
+  .abv2-egp__body li,
+  .abv2-egp__empty-text{
+    font-size:.94rem;
+    line-height:1.54;
+  }
+
+  .abv2-egp__empty{
+    grid-template-columns:26px minmax(0,1fr);
+    gap:12px;
+    padding:16px 14px;
+  }
+}
+
+</style>
+
+
+
+<div class="abv2-editorial" id="top">
+  <div class="abv2-editorial__wrap">
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="abv2-ed-hero">
+      <div class="abv2-ed-hero__copy">
+        <h1 class="abv2-ed-hero__title">How local investment can fund visible change</h1>
+        <p class="abv2-ed-hero__intro">
+          This is a working editorial playground page for the Abundance v2 long-form system.
+          It is designed to test reusable content components across articles, explainers,
+          council pages and decision-support content without breaking reading flow.
+        </p>
+
+        <div class="abv2-ed-hero__actions">
+          <a class="abv2-btn" href="#start-here">Start reading</a>
+          <a class="abv2-btn abv2-btn--secondary" href="#decision-support">Jump to decision support</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         INTRO DIVIDER
+         ========================================================= -->
+    <section class="abv2-ed-divider abv2-ed-divider--left abv2-ed-divider--intro" aria-hidden="true">
+      <div class="abv2-ed-divider__blob"></div>
+      <h2 class="abv2-ed-divider__title">A calmer way to explain financial choices</h2>
+    </section>
+
+    <!-- =========================================================
+         INTRO COPY
+         ========================================================= -->
+    <section class="abv2-ed-section" id="start-here">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <p>
+          Editorial pages often need to do more than present information. They need to help a reader
+          understand what something is, why it matters, what the risks are, and what to do next.
+          This test page gives us one place to trial those building blocks inside a consistent reading experience.
+        </p>
+
+        <p>
+          The aim is not to mimic a landing page. It is to support long-form reading with components that
+          feel native to an article: clear, well-spaced, informative and easy to insert between paragraphs,
+          media and section breaks.
+        </p>
+
+        <ul>
+          <li>Use this page to test article components in one continuous flow</li>
+          <li>Swap placeholder copy for live content later</li>
+          <li>Insert future modules where marked without restructuring the page</li>
+        </ul>
+
+        <figure class="abv2-media abv2-media--image">
+          <div class="abv2-media__frame">
+            <img src="https://shareinmicrosite.blob.core.windows.net/abundance/60837d49-e6e9-4a92-bdb6-63bba7d20e6d.jpg" alt="Example editorial image with illustration overlay" />
+          </div>
+          <figcaption class="abv2-media__caption">
+            Example caption: use media blocks to support the reading flow rather than interrupt it.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="abv2-ed-band abv2-ed-band--teal-fall abv2-ed-band--tight" aria-hidden="true"></div>
+
+    <!-- =========================================================
+         PANEL CTA / KEY MESSAGE
+         ========================================================= -->
+    <div class="abv2-ed-band abv2-ed-band--yellow-right abv2-ed-band--loose" aria-hidden="true"></div>
+
+    <section class="abv2-ed-panel abv2-ed-panel--lino">
+      <div class="abv2-ed-panel__inner">
+        <h3>A reusable editorial panel can carry a key message</h3>
+        <p>
+          This area is useful for summaries, supporting context, or a soft CTA that sits within the article
+          rather than breaking away into a campaign block.
+        </p>
+        <a class="abv2-btn" href="#cta-zone">See CTA examples</a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: ARTICLE BODY / SUBSECTIONS
+         ========================================================= -->
+    <section class="abv2-ed-divider abv2-ed-divider--right" aria-hidden="true">
+      <div class="abv2-ed-divider__blob abv2-ed-divider__blob--teal"></div>
+      <h2 class="abv2-ed-divider__title">Article body, subsections and supporting media</h2>
+    </section>
+
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <h3>Subsection heading example</h3>
+
+        <p>
+          This subsection is here to test hierarchy inside the main rail. It should work for ordinary article
+          copy, but also for council pages and explainers where the user needs a clear sense of progression.
+        </p>
+
+        <p>
+          Financial and civic content often benefits from supportive structure: short subheads, well-contained
+          lists, and occasional callouts that help people scan before they commit to reading in full.
+        </p>
+
+        <ol>
+          <li>Start with what the product or concept is</li>
+          <li>Explain how it works in practice</li>
+          <li>Set out risks, trade-offs and next steps clearly</li>
+        </ol>
+
+        <figure class="abv2-media abv2-media--video">
+          <div class="abv2-media__frame">
+            <div class="abv2-media__embed">
+              <iframe
+                src="https://www.youtube.com/embed/n3u5jmgtlhs"
+                title="Placeholder editorial video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <figcaption class="abv2-media__caption">
+            Example caption: embedded media should still feel like part of the article.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LINO CUT / SECTION BREAK TEST
+         ========================================================= -->
+    <div class="abv2-ed-illus-top" aria-hidden="true">
+  <div class="abv2-ed-illus-top__blob abv2-ed-illus-top__blob--pink">
+    <img
+      class="abv2-ed-illus-top__lino"
+      src="https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+      alt=""
+    />
+  </div>
+</div>
+
+<section class="abv2-ed-section abv2-ed-section--illus-overlap">
+  <div class="abv2-ed-rail abv2-ed-copy">
+    <h3>Illustration-led section break</h3>
+
+    <p>
+      This is a useful zone for testing the lino cut layer. It can work as a textural editorial device
+      between sections, especially when paired with shorter copy or a thematic transition.
+    </p>
+
+    <p>
+      In later iterations we can test whether smaller lino cuts should sit inline with text, beside
+      definition lists, or as part of related-content and decision-support blocks.
+    </p>
+  </div>
+</section>
+
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <p>
+          This is a useful zone for testing the lino cut layer. It can work as a textural editorial device
+          between sections, especially when paired with shorter copy or a thematic transition.
+        </p>
+
+        <figure class="abv2-media abv2-media--image">
+          <div class="abv2-media__frame">
+            <img src="https://shareinmicrosite.blob.core.windows.net/abundance/d3394a82-712b-4b5d-b059-be8384d2d092.png" alt="Large lino cut illustration example" />
+          </div>
+          <figcaption class="abv2-media__caption">
+            Placeholder lino cut image block for testing scale, spacing and rhythm.
+          </figcaption>
+        </figure>
+
+        <p>
+          In later iterations we can test whether smaller lino cuts should sit inline with text, beside
+          definition lists, or as part of related-content and decision-support blocks.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DECISION SUPPORT PLACEHOLDER ZONE
+         ========================================================= -->
+    <div class="abv2-ed-rhs-lino-spacer" aria-hidden="true">
+  <div class="abv2-ed-rhs-lino-spacer__blob abv2-ed-rhs-lino-spacer__blob--teal">
+    <img
+      class="abv2-ed-rhs-lino-spacer__lino"
+      src="https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png"
+      alt=""
+    />
+  </div>
+</div>
+
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <div class="abv2-decision">
+
+          <!-- =========================================
+               1. COMPARISON BLOCK
+               ========================================= -->
+          <section class="abv2-card abv2-compare abv2-card--with-blob">
+            <div class="abv2-card__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--compare">Comparison</p>
+              <h3 class="abv2-card__title">Two ways to approach the same outcome</h3>
+              <p class="abv2-card__intro">
+                Some readers want control over individual choices. Others want a more regular, lower-effort route.
+                This block helps explain the difference without shifting out of editorial mode.
+              </p>
+            </div>
+
+            <div class="abv2-compare__grid">
+              <div class="abv2-compare__col">
+                <p class="abv2-compare__label">Option one</p>
+                <h4 class="abv2-compare__heading">
+                  <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                  Choose individual investments
+                </h4>
+                <ul class="abv2-compare__list">
+                  <li>You can select specific offers that match your interests</li>
+                  <li>You see each investment as a separate decision</li>
+                  <li>This may suit readers who value visibility and choice</li>
+                  <li>It can take more active comparison and decision-making</li>
+                </ul>
+              </div>
+
+              <div class="abv2-compare__col">
+                <p class="abv2-compare__label">Option two</p>
+                <h4 class="abv2-compare__heading">
+                  <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                  Use a regular investing route
+                </h4>
+                <ul class="abv2-compare__list">
+                  <li>You make one initial choice, then contribute on a repeating basis</li>
+                  <li>The process can feel simpler and easier to maintain</li>
+                  <li>This may suit readers who prefer convenience over active selection</li>
+                  <li>You may feel less connected to each individual underlying choice</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="abv2-compare__note">
+              Useful for explainers, gateway pages, and any point where a reader needs help understanding two legitimate paths rather than a “right answer”.
+            </p>
+          </section>
+
+          <!-- =========================================
+               2. PROS / CONS
+               ========================================= -->
+          <section class="abv2-card">
+            <div class="abv2-card__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--compare">Pros and cons</p>
+              <h3 class="abv2-card__title">What a reader might value — and where they may hesitate</h3>
+              <p class="abv2-card__intro">
+                This pattern is good for trade-offs, especially where the user needs reassurance that the page is being balanced and honest.
+              </p>
+            </div>
+
+            <div class="abv2-card__inner" style="padding-top:0;">
+              <div class="abv2-procon">
+                <div class="abv2-procon__col abv2-procon__col--pros">
+                  <h4 class="abv2-procon__title">
+                    <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                    Potential advantages
+                  </h4>
+                  <ul class="abv2-procon__list">
+                    <li>Can make a financial product feel more understandable</li>
+                    <li>Useful when local impact is part of the decision</li>
+                    <li>Supports scanning for readers who are short on time</li>
+                    <li>Can sit naturally within longer-form guidance content</li>
+                  </ul>
+                </div>
+
+                <div class="abv2-procon__col abv2-procon__col--cons">
+                  <h4 class="abv2-procon__title">
+                    <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                    Things to think about
+                  </h4>
+                  <ul class="abv2-procon__list">
+                    <li>Readers may still need definitions or examples nearby</li>
+                    <li>Trade-offs should not be oversimplified</li>
+                    <li>Risk information may need its own supporting block</li>
+                    <li>It works best when paired with next-step guidance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. IS THIS RIGHT FOR YOU?
+               ========================================= -->
+          <section class="abv2-card abv2-fit">
+            <div class="abv2-fit__top">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--compare">Self-selection</p>
+              <h3 class="abv2-card__title">Is this right for you?</h3>
+              <p class="abv2-card__intro">
+                This component helps readers decide whether to continue, without forcing the answer.
+                It is especially useful on product explainers and high-intent educational pages.
+              </p>
+            </div>
+
+            <div class="abv2-fit__grid">
+              <div class="abv2-fit__pane abv2-fit__pane--yes">
+                <h4 class="abv2-fit__heading">May suit you if…</h4>
+                <ul class="abv2-fit__list">
+                  <li>You want a clearer link between your money and real-world outcomes</li>
+                  <li>You are comfortable reading a little more before making a decision</li>
+                  <li>You value structure, explanation and visible next steps</li>
+                  <li>You are comparing more than one possible route</li>
+                </ul>
+              </div>
+
+              <div class="abv2-fit__pane abv2-fit__pane--no">
+                <h4 class="abv2-fit__heading">May be less suitable if…</h4>
+                <ul class="abv2-fit__list">
+                  <li>You want to make a decision with minimal reading or comparison</li>
+                  <li>You are looking for a product with no investment risk</li>
+                  <li>You prefer highly short-term access to your money</li>
+                  <li>You need certainty rather than a balance of return and impact</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="abv2-fit__footer">
+              This works well just before a CTA, because it helps the reader identify themselves before deciding what to do next.
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. FAQ / ACCORDION
+               ========================================= -->
+          <section class="abv2-card">
+            <div class="abv2-card__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--compare">FAQ</p>
+              <h3 class="abv2-card__title">Common questions</h3>
+              <p class="abv2-card__intro">
+                A compact accordion is useful when the page needs to answer practical objections without overloading the main narrative.
+              </p>
+            </div>
+
+            <div class="abv2-card__inner" style="padding-top:0;">
+              <div class="abv2-faq">
+                <details class="abv2-faq__item">
+                  <summary>How is this different from an ordinary savings account?</summary>
+                  <div class="abv2-faq__answer">
+                    <p>
+                      A savings account is typically designed around capital security and access. An investment product usually involves different risk, return and time-horizon considerations.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="abv2-faq__item">
+                  <summary>Do I need to understand every financial term before continuing?</summary>
+                  <div class="abv2-faq__answer">
+                    <p>
+                      Not necessarily. This system can pair FAQs with glossary or definition blocks so readers can get the level of explanation they need without leaving the page.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="abv2-faq__item">
+                  <summary>Where should risk information sit in relation to these components?</summary>
+                  <div class="abv2-faq__answer">
+                    <p>
+                      Usually adjacent to the decision-support area or just before a CTA. It should feel easy to find, not buried beneath promotional copy.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="abv2-faq__item">
+                  <summary>Can these components also work on council and explainer pages?</summary>
+                  <div class="abv2-faq__answer">
+                    <p>
+                      Yes. They are designed as insertable editorial blocks, so they can sit inside articles, explainers, place-based pages and decision-support content without changing the page’s overall rhythm.
+                    </p>
+                  </div>
+                </details>
+              </div>
+
+              <p class="abv2-inline-note">
+                Note: if your CMS has awkward default styling for <code>details</code> or <code>summary</code>, we can harden this component further in the next pass.
+              </p>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DATA / FINANCIAL INFO PLACEHOLDER ZONE
+         ========================================================= -->
+    <div class="abv2-ed-band abv2-ed-band--yellow-right abv2-ed-band--loose" aria-hidden="true"></div>
+
+    <section class="abv2-ed-divider abv2-ed-divider--left" aria-hidden="true" id="data-zone">
+      <div class="abv2-ed-divider__blob"></div>
+      <h2 class="abv2-ed-divider__title">Data, terms and financial detail</h2>
+    </section>
+
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <div class="abv2-data">
+
+          <!-- =========================================
+               1. KEY STATS LIST
+               ========================================= -->
+          <section class="abv2-slab">
+            <div class="abv2-slab__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--data">Key stats</p>
+              <h3 class="abv2-slab__title">A quick view of the numbers</h3>
+              <p class="abv2-slab__intro">
+                A compact stats block helps readers get the practical shape of an offer or topic before they read in more detail.
+              </p>
+            </div>
+
+            <div class="abv2-slab__inner" style="padding-top:0;">
+              <div class="abv2-stats">
+                <div class="abv2-stat">
+                  <p class="abv2-stat__label">
+                    <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                    Rate of return
+                  </p>
+                  <p class="abv2-stat__value">4.2%</p>
+                  <p class="abv2-stat__note">Fixed yearly return for the example offer shown here.</p>
+                </div>
+
+                <div class="abv2-stat">
+                  <p class="abv2-stat__label">Term length</p>
+                  <p class="abv2-stat__value">5 yrs</p>
+                  <p class="abv2-stat__note">Useful for setting time-horizon expectations early.</p>
+                </div>
+
+                <div class="abv2-stat">
+                  <p class="abv2-stat__label">Minimum investment</p>
+                  <p class="abv2-stat__value">£5</p>
+                  <p class="abv2-stat__note">A small threshold can reduce perceived barriers to entry.</p>
+                </div>
+
+                <div class="abv2-stat">
+                  <p class="abv2-stat__label">
+                    <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                    Capital repayment
+                  </p>
+                  <p class="abv2-stat__value">6m</p>
+                  <p class="abv2-stat__note">Shorthand here can sit alongside a fuller explanation below.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. SIMPLE TABLE
+               ========================================= -->
+          <section class="abv2-slab">
+            <div class="abv2-slab__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--data">Table</p>
+              <h3 class="abv2-slab__title">Simple terms comparison</h3>
+              <p class="abv2-slab__intro">
+                This is useful where readers need a clearer side-by-side understanding of two or three routes.
+              </p>
+            </div>
+
+            <div class="abv2-slab__inner" style="padding-top:0;">
+              <div class="abv2-table-wrap">
+                <table class="abv2-table">
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Return</th>
+                      <th>Term</th>
+                      <th>Capital</th>
+                      <th>Best for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="abv2-table__strong">Individual investment</td>
+                      <td>4.2% a year</td>
+                      <td>5 years</td>
+                      <td>At maturity</td>
+                      <td class="abv2-table__muted">Readers who want visibility and choice</td>
+                    </tr>
+                    <tr>
+                      <td class="abv2-table__strong">Regular investing route</td>
+                      <td>Varies</td>
+                      <td>Ongoing</td>
+                      <td class="abv2-table__muted">Depends on underlying investments</td>
+                      <td class="abv2-table__muted">Readers who prefer convenience</td>
+                    </tr>
+                    <tr>
+                      <td class="abv2-table__strong">Cash savings</td>
+                      <td>Varies</td>
+                      <td>Flexible</td>
+                      <td>Usually accessible</td>
+                      <td class="abv2-table__muted">Readers prioritising short-term access</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="abv2-footnote">
+                Example only. This block is for visual testing rather than live product disclosure.
+              </p>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. GLOSSARY / DEFINITION LIST
+               ========================================= -->
+          <section class="abv2-slab">
+            <div class="abv2-slab__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--data">Glossary</p>
+              <h3 class="abv2-slab__title">Plain-language financial definitions</h3>
+              <p class="abv2-slab__intro">
+                This can sit beside FAQs and decision-support blocks to stop the reader hitting jargon walls.
+              </p>
+            </div>
+
+            <div class="abv2-slab__inner" style="padding-top:0;">
+              <dl class="abv2-glossary">
+                <div class="abv2-glossary__item">
+                  <dt class="abv2-glossary__term">Rate of return</dt>
+                  <dd class="abv2-glossary__def">
+                    The amount an investment is expected to pay over time, usually shown as a yearly percentage.
+                  </dd>
+                </div>
+
+                <div class="abv2-glossary__item">
+                  <dt class="abv2-glossary__term">Capital at risk</dt>
+                  <dd class="abv2-glossary__def">
+                    A reminder that the money invested is not guaranteed and could be worth less than the amount put in.
+                  </dd>
+                </div>
+
+                <div class="abv2-glossary__item">
+                  <dt class="abv2-glossary__term">Term length</dt>
+                  <dd class="abv2-glossary__def">
+                    The period over which the investment is intended to run before final repayment.
+                  </dd>
+                </div>
+
+                <div class="abv2-glossary__item">
+                  <dt class="abv2-glossary__term">Capital repayment</dt>
+                  <dd class="abv2-glossary__def">
+                    How and when the original amount invested is returned — for example gradually or at the end of the term.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. EXPANDABLE DETAILS
+               ========================================= -->
+          <section class="abv2-slab">
+            <div class="abv2-slab__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--data">Expandable detail</p>
+              <h3 class="abv2-slab__title">More detail without overloading the main page</h3>
+              <p class="abv2-slab__intro">
+                Useful for additional practical explanation, worked examples or edge-case information.
+              </p>
+            </div>
+
+            <div class="abv2-slab__inner" style="padding-top:0;">
+              <div class="abv2-details">
+                <details class="abv2-details__item">
+                  <summary>How might repayments work in practice?</summary>
+                  <div class="abv2-details__body">
+                    <p>
+                      Some investments return capital only at the end of the term, while others return part of the capital at set intervals during the life of the investment.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="abv2-details__item">
+                  <summary>Why do term and liquidity need to be explained separately?</summary>
+                  <div class="abv2-details__body">
+                    <p>
+                      A product can have a fixed term and still differ in how easily an investor can access their money before that term ends. Readers often conflate these ideas.
+                    </p>
+                  </div>
+                </details>
+
+                <details class="abv2-details__item">
+                  <summary>When should this component be used instead of an FAQ?</summary>
+                  <div class="abv2-details__body">
+                    <p>
+                      Use expandable detail when the content is supplementary depth, rather than a common objection or direct question the majority of readers are likely to have.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </section>
+
+<!-- =========================================================
+     EDITORIAL OPEN INVESTMENT CARD
+     add inside .abv2-ed-rail / .abv2-ed-copy
+     ========================================================= -->
+
+<section class="abv2-slab abv2-ed-open-invest abv2-slab--blob-anchor abv2-slab--blob-anchor-pink" style="--abv2-invest-bg:#724795;">
+  <div class="abv2-slab__inner abv2-ed-open-invest__inner">
+    <div class="abv2-ed-open-invest__top">
+      <p class="abv2-card__eyebrow abv2-card__eyebrow--data">Open investment</p>
+      <span class="abv2-ed-open-invest__status">Open now</span>
+    </div>
+
+    <div class="abv2-ed-open-invest__row">
+      <div class="abv2-ed-open-invest__media">
+        <img
+          class="abv2-ed-open-invest__logo"
+          src="https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+          alt="Example investment or council logo"
+        />
+      </div>
+
+      <div class="abv2-ed-open-invest__body">
+        <h3 class="abv2-ed-open-invest__title">Green infrastructure investment</h3>
+
+        <p class="abv2-ed-open-invest__desc">
+          A live investment opportunity presented in a calmer editorial format, so it can sit naturally
+          inside a long-form explainer, council story or guidance page.
+        </p>
+
+        <div class="abv2-ed-open-invest__meta" aria-label="Investment summary">
+          <span class="abv2-ed-open-invest__pill abv2-ed-open-invest__pill--rate">4.2% a year</span>
+          <span class="abv2-ed-open-invest__pill abv2-ed-open-invest__pill--term">5 year term</span>
+          <span class="abv2-ed-open-invest__pill abv2-ed-open-invest__pill--capital">Capital at maturity</span>
+        </div>
+
+        <p class="abv2-ed-open-invest__note">
+          Related to the topic of this article.
+        </p>
+      </div>
+
+      <div class="abv2-ed-open-invest__action">
+        <a class="abv2-btn abv2-btn--secondary" href="/invest-now">View investment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     Editorial EGP Component — v2 style
+     Drop inside an .abv2-ed-rail / .abv2-ed-copy area
+     ===================================================== -->
+
+<div id="abv2-egp-root" class="abv2-egp" data-loan-id="recjRRM2T5oyiqZFm">
+  <div class="abv2-egp-scope"></div>
+</div>
+
+          <!-- =========================================
+               5. EDITORIAL OPEN INVESTMENT TILE
+               ========================================= -->
+          <section class="abv2-slab abv2-invest-insert" style="--abv2-invest-bg:#724795;">
+            <div class="abv2-slab__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--data">Related opportunity</p>
+              <h3 class="abv2-slab__title">An editorial-context version of the open investment tile</h3>
+              <p class="abv2-slab__intro">
+                This adapts the homepage tile language into a contained article insert, so it can sit inside a council page or explainer without becoming a full browse module.
+              </p>
+            </div>
+
+            <div class="abv2-slab__inner" style="padding-top:0;">
+              <article class="abv2-invest-insert__row abv2-card--with-blob">
+                <div class="abv2-invest-insert__media">
+                  <img
+                    class="abv2-invest-insert__logo"
+                    src="https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+                    alt="Example investment or council logo"
+                  />
+                </div>
+
+                <div class="abv2-invest-insert__body">
+                  <div class="abv2-invest-insert__kicker">Open now</div>
+                  <h4 class="abv2-invest-insert__title">Green infrastructure investment</h4>
+                  <p class="abv2-invest-insert__desc">
+                    A contained tile pattern for placing a live or related opportunity inside editorial content.
+                  </p>
+
+                  <div class="abv2-invest-insert__meta">
+                    <span class="abv2-invest-insert__pill abv2-invest-insert__pill--rate">4.2% a year</span>
+                    <span class="abv2-invest-insert__pill abv2-invest-insert__pill--term">5 year term</span>
+                    <span class="abv2-invest-insert__pill abv2-invest-insert__pill--capital">Capital at maturity</span>
+                  </div>
+                </div>
+
+                <div class="abv2-invest-insert__cta">
+                  <a class="abv2-btn abv2-btn--secondary" href="/invest-now">View investment</a>
+                </div>
+              </article>
+
+              <p class="abv2-footnote">
+                Later we can wire this into the live loan endpoint, or create a compact multi-card version if editorial pages need more than one related offer.
+              </p>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         NAVIGATION / READING AIDS PLACEHOLDER ZONE
+         ========================================================= -->
+    <div class="abv2-ed-band abv2-ed-band--yellow-right abv2-ed-band--tight" aria-hidden="true"></div>
+
+    <section class="abv2-ed-divider abv2-ed-divider--right" aria-hidden="true">
+      <div class="abv2-ed-divider__blob abv2-ed-divider__blob--teal"></div>
+      <h2 class="abv2-ed-divider__title">Reading aids and navigation</h2>
+    </section>
+
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <div class="abv2-navzone">
+
+          <!-- =========================================
+               1. TABLE OF CONTENTS
+               ========================================= -->
+          <section class="abv2-navcard">
+            <div class="abv2-navcard__inner">
+              <p class="abv2-card__eyebrow">Contents</p>
+              <h3 class="abv2-navcard__title">A simple table of contents for long pages</h3>
+              <p class="abv2-navcard__intro">
+                This gives readers a quick sense of page structure and lets them jump to the part that matters most to them.
+              </p>
+            </div>
+
+            <div class="abv2-navcard__inner" style="padding-top:0;">
+              <nav class="abv2-toc" aria-label="Table of contents">
+                <a class="abv2-toc__link" href="#start-here">
+                  <span class="abv2-toc__label">Introduction and page purpose</span>
+                  <span class="abv2-toc__meta">Intro</span>
+                </a>
+
+                <a class="abv2-toc__link" href="#decision-support">
+                  <span class="abv2-toc__label">Decision support components</span>
+                  <span class="abv2-toc__meta">Guide</span>
+                </a>
+
+                <a class="abv2-toc__link" href="#data-zone">
+                  <span class="abv2-toc__label">Data, terms and financial detail</span>
+                  <span class="abv2-toc__meta">Detail</span>
+                </a>
+
+                <a class="abv2-toc__link" href="#risk-zone">
+                  <span class="abv2-toc__label">Risk, legal and fine print</span>
+                  <span class="abv2-toc__meta">Important</span>
+                </a>
+
+                <a class="abv2-toc__link" href="#cta-zone">
+                  <span class="abv2-toc__label">Editorial CTA patterns</span>
+                  <span class="abv2-toc__meta">Next step</span>
+                </a>
+              </nav>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. JUMP LINK ROW
+               ========================================= -->
+          <section class="abv2-navcard">
+            <div class="abv2-navcard__inner">
+              <p class="abv2-card__eyebrow">Jump links</p>
+              <h3 class="abv2-navcard__title">A lighter-weight navigation pattern</h3>
+              <p class="abv2-navcard__intro">
+                This is useful when a full contents list feels too formal, but the page still benefits from a little orientation.
+              </p>
+            </div>
+
+            <div class="abv2-navcard__inner" style="padding-top:0;">
+              <nav class="abv2-jumpbar" aria-label="Jump links">
+                <a class="abv2-jumpbar__link" href="#start-here">Overview</a>
+                <a class="abv2-jumpbar__link" href="#decision-support">Decision support</a>
+                <a class="abv2-jumpbar__link" href="#data-zone">Data &amp; terms</a>
+                <a class="abv2-jumpbar__link" href="#risk-zone">Risk info</a>
+                <a class="abv2-jumpbar__link" href="#cta-zone">Next step</a>
+              </nav>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. RELATED CONTENT
+               ========================================= -->
+          <section class="abv2-navcard">
+            <div class="abv2-navcard__inner">
+              <p class="abv2-card__eyebrow">Related content</p>
+              <h3 class="abv2-navcard__title">Helpful follow-on reading</h3>
+              <p class="abv2-navcard__intro">
+                This pattern works well near the end of an article, or mid-page where readers may want adjacent explainers.
+              </p>
+            </div>
+
+            <div class="abv2-navcard__inner" style="padding-top:0;">
+              <div class="abv2-related">
+                <a class="abv2-related__card" href="/invest-now">
+                  <span class="abv2-related__type">Guide</span>
+                  <h4 class="abv2-related__title">
+                    <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png')"></span>
+                    How the investment process works
+                  </h4>
+                  <p class="abv2-related__desc">
+                    A practical walkthrough for readers who want to understand the steps before they continue.
+                  </p>
+                  <span class="abv2-related__cta">Read more</span>
+                </a>
+
+                <a class="abv2-related__card" href="/impact">
+                  <span class="abv2-related__type">Explainer</span>
+                  <h4 class="abv2-related__title">What local impact can look like in practice</h4>
+                  <p class="abv2-related__desc">
+                    An example of how supportive editorial content can connect the financial decision to visible outcomes.
+                  </p>
+                  <span class="abv2-related__cta">Explore article</span>
+                </a>
+
+                <a class="abv2-related__card" href="/about">
+                  <span class="abv2-related__type">FAQ</span>
+                  <h4 class="abv2-related__title">Common questions about risk, return and time horizon</h4>
+                  <p class="abv2-related__desc">
+                    A nearby content route for readers who still need reassurance or practical clarification.
+                  </p>
+                  <span class="abv2-related__cta">View FAQs</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. BACK TO TOP
+               ========================================= -->
+          <section class="abv2-navcard">
+            <div class="abv2-navcard__inner" style="padding-top:18px;">
+              <div class="abv2-backtop">
+                <div class="abv2-backtop__copy">
+                  <h3 class="abv2-backtop__title">Back to the top of the article</h3>
+                  <p class="abv2-backtop__text">
+                    A small utility block that works well near the bottom of long pages, especially once more modules are in play.
+                  </p>
+                </div>
+
+                <a class="abv2-backtop__link" href="#top">Back to top</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LEGAL / RISK PLACEHOLDER ZONE
+         ========================================================= -->
+    <section class="abv2-ed-divider abv2-ed-divider--left" aria-hidden="true" id="risk-zone">
+      <div class="abv2-ed-divider__blob abv2-ed-divider__blob--pink"></div>
+      <h2 class="abv2-ed-divider__title">Risk, legal and fine print patterns</h2>
+    </section>
+
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <div class="abv2-riskzone">
+
+          <!-- =========================================
+               1. PRIMARY RISK DISCLOSURE
+               ========================================= -->
+          <section class="abv2-riskcard abv2-risk-primary">
+            <div class="abv2-riskcard__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--risk">Risk disclosure</p>
+              <h3 class="abv2-riskcard__title">A prominent but in-family way to state the key risk message</h3>
+              <p class="abv2-riskcard__intro">
+                This is the main risk pattern for pages where the caution needs to be easy to see without visually overwhelming the rest of the article.
+              </p>
+            </div>
+
+            <div class="abv2-risk-primary__band">
+              <div class="abv2-risk-primary__icon">!</div>
+              <div class="abv2-risk-primary__body">
+                <p class="abv2-risk-primary__headline">Capital is at risk and returns are not guaranteed</p>
+                <p class="abv2-risk-primary__text">
+                  The value of investments can go down as well as up, and readers should understand the product, time horizon and risks before deciding what to do.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. WARNING PANEL / CHECKLIST
+               ========================================= -->
+          <section class="abv2-riskcard">
+            <div class="abv2-riskcard__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--risk">Important to check</p>
+              <h3 class="abv2-riskcard__title">A checklist-style warning panel</h3>
+              <p class="abv2-riskcard__intro">
+                This version is useful when the page needs to highlight several cautionary factors rather than one headline statement.
+              </p>
+            </div>
+
+            <div class="abv2-riskcard__inner" style="padding-top:0;">
+              <div class="abv2-warning">
+                <div class="abv2-warning__item">
+                  <div class="abv2-warning__mark">1</div>
+                  <div>
+                    <p class="abv2-warning__title">Time horizon matters</p>
+                    <p class="abv2-warning__text">
+                      Some investment products are designed to be held over a fixed period, which may not suit readers who need quick access to their money.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="abv2-warning__item">
+                  <div class="abv2-warning__mark">2</div>
+                  <div>
+                    <p class="abv2-warning__title">Risk and return should be read together</p>
+                    <p class="abv2-warning__text">
+                      A higher quoted return may be meaningful only when understood alongside the level of risk and the conditions attached to the offer.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="abv2-warning__item">
+                  <div class="abv2-warning__mark">3</div>
+                  <div>
+                    <p class="abv2-warning__title">Readers may need the full offer document</p>
+                    <p class="abv2-warning__text">
+                      Editorial pages can explain and guide, but some decisions still require the reader to consult the detailed product documentation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. INLINE DISCLAIMER TREATMENT
+               ========================================= -->
+          <section class="abv2-riskcard">
+            <div class="abv2-riskcard__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--risk">Inline disclaimer</p>
+              <h3 class="abv2-riskcard__title">A lighter treatment for caution within body flow</h3>
+              <p class="abv2-riskcard__intro">
+                This pattern works well when a paragraph or claim needs a nearby qualification without becoming a full separate warning module.
+              </p>
+
+              <div class="abv2-inline-disclaimer">
+                <strong>Example disclaimer:</strong> Any quoted return, term or repayment approach shown on this page is illustrative here and should not be read as a live offer unless clearly stated elsewhere on the page.
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. FINE PRINT / LEGAL NOTES
+               ========================================= -->
+          <section class="abv2-riskcard">
+            <div class="abv2-riskcard__inner">
+              <p class="abv2-card__eyebrow abv2-card__eyebrow--risk">Fine print</p>
+              <h3 class="abv2-riskcard__title">Small-print styling that still feels readable</h3>
+              <p class="abv2-riskcard__intro">
+                This gives you a way to present supporting legal or practical notes without dropping into a harsh or overly compressed style.
+              </p>
+            </div>
+
+            <div class="abv2-riskcard__inner" style="padding-top:0;">
+              <div class="abv2-legalnotes">
+                <div class="abv2-legalnotes__row">
+                  <span class="abv2-legalnotes__label">Illustrative content</span>
+                  <p class="abv2-legalnotes__text">
+                    All figures, time horizons and descriptions shown in this playground are placeholders for layout testing only.
+                  </p>
+                </div>
+
+                <div class="abv2-legalnotes__row">
+                  <span class="abv2-legalnotes__label">Documentation</span>
+                  <p class="abv2-legalnotes__text">
+                    In a live context, this area could point readers toward offer documents, terms, FAQs or a risk summary page.
+                  </p>
+                </div>
+
+                <div class="abv2-legalnotes__row">
+                  <span class="abv2-legalnotes__label">Links</span>
+                  <p class="abv2-legalnotes__text">
+                    You can include lower-emphasis supporting links here, such as <a href="/about">how it works</a> or <a href="/invest-now">further investment information</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CTA ZONE
+         ========================================================= -->
+    <div class="abv2-ed-band abv2-ed-band--teal-fall abv2-ed-band--loose" aria-hidden="true"></div>
+
+    <section class="abv2-ed-divider abv2-ed-divider--right" aria-hidden="true" id="cta-zone">
+      <div class="abv2-ed-divider__blob abv2-ed-divider__blob--teal"></div>
+      <h2 class="abv2-ed-divider__title">Editorial CTA patterns</h2>
+    </section>
+
+    <section class="abv2-ed-section">
+      <div class="abv2-ed-rail abv2-ed-copy">
+        <div class="abv2-ctazone">
+
+          <!-- =========================================
+               1. INLINE CTA
+               ========================================= -->
+          <section class="abv2-ctacard">
+            <div class="abv2-ctacard__inner">
+              <p class="abv2-card__eyebrow">Inline CTA</p>
+              <h3 class="abv2-ctacard__title">A link treatment that can live naturally within article copy</h3>
+              <p class="abv2-ctacard__intro">
+                This is useful when the page needs a soft next step inside the reading flow, such as
+                <a class="abv2-inline-cta" href="/invest-now">exploring current investments</a>
+                or moving into a more practical explainer.
+              </p>
+            </div>
+          </section>
+
+          <!-- =========================================
+               2. PANEL CTA
+               ========================================= -->
+          <section class="abv2-ctacard">
+            <div class="abv2-ctacard__inner">
+              <p class="abv2-card__eyebrow">Panel CTA</p>
+              <h3 class="abv2-ctacard__title">A contained CTA that still feels editorial</h3>
+              <p class="abv2-ctacard__intro">
+                This format is useful mid-page when the reader has enough context to act, but the page should not shift fully into campaign mode.
+              </p>
+            </div>
+
+            <div class="abv2-ctacard__inner" style="padding-top:0;">
+              <div class="abv2-panel-cta">
+                <div class="abv2-panel-cta__copy">
+                  <span class="abv2-panel-cta__kicker">Ready for the next step?</span>
+                  <h4 class="abv2-panel-cta__title">See what open opportunities look like right now</h4>
+                  <p class="abv2-panel-cta__text">
+                    A useful bridge between long-form explanation and a more practical browse or action page.
+                  </p>
+                </div>
+
+                <div class="abv2-panel-cta__action">
+                  <a class="abv2-btn" href="/invest-now">Explore now</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               3. END OF ARTICLE CTA
+               ========================================= -->
+          <section class="abv2-ctacard abv2-end-cta">
+            <div class="abv2-ctacard__inner">
+              <p class="abv2-card__eyebrow">End of article</p>
+              <h3 class="abv2-ctacard__title">A stronger finish once the reader reaches the end</h3>
+              <p class="abv2-ctacard__intro">
+                This should feel like a natural continuation of the article rather than a hard visual break into a sales module.
+              </p>
+            </div>
+
+            <div class="abv2-end-cta__band">
+              <h3 class="abv2-end-cta__title">
+                <span class="abv2-lino" style="background-image:url('https://shareinmicrosite.blob.core.windows.net/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png')"></span>
+                Take the next step when you’re ready
+              </h3>
+              <p class="abv2-end-cta__text">
+                Readers who have made it this far often want either practical detail or a route into action. This block can offer both without overcomplicating the choice.
+              </p>
+
+              <div class="abv2-end-cta__actions">
+                <a class="abv2-btn" href="/invest-now">View investments</a>
+                <a class="abv2-btn abv2-btn--secondary" href="/about">Read how it works</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               4. NEXT STEP BLOCK
+               ========================================= -->
+          <section class="abv2-ctacard">
+            <div class="abv2-ctacard__inner">
+              <p class="abv2-card__eyebrow">Next step</p>
+              <h3 class="abv2-ctacard__title">A directional block for readers who need one clear route</h3>
+              <p class="abv2-ctacard__intro">
+                This is useful where the content naturally funnels toward one recommended follow-on action.
+              </p>
+            </div>
+
+            <div class="abv2-ctacard__inner" style="padding-top:0;">
+              <div class="abv2-nextstep">
+                <div class="abv2-nextstep__copy">
+                  <span class="abv2-nextstep__label">Recommended next step</span>
+                  <h4 class="abv2-nextstep__title">Compare current investment options</h4>
+                  <p class="abv2-nextstep__text">
+                    A good option for readers who understand the concept and now want to look at the practical opportunities available.
+                  </p>
+                  <div class="abv2-nextstep__meta">
+                    Best used near the end of an explainer, FAQ page or council article.
+                  </div>
+                </div>
+
+                <div class="abv2-nextstep__action">
+                  <a class="abv2-btn abv2-btn--secondary" href="/invest-now">Go to opportunities</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================================
+               5. SUPPORTING CTA NOTES
+               ========================================= -->
+          <section class="abv2-ctacard">
+            <div class="abv2-ctacard__inner">
+              <p class="abv2-card__eyebrow">Usage notes</p>
+              <h3 class="abv2-ctacard__title">Different CTA strengths for different moments</h3>
+              <p class="abv2-ctacard__intro">
+                This final support block helps us test whether the system has enough variation without introducing a second design language.
+              </p>
+            </div>
+
+            <div class="abv2-ctacard__inner" style="padding-top:0;">
+              <div class="abv2-cta-list">
+                <div class="abv2-cta-list__row">
+                  <p class="abv2-cta-list__title">Inline CTA</p>
+                  <p class="abv2-cta-list__text">Best for low-friction onward movement within body copy.</p>
+                </div>
+
+                <div class="abv2-cta-list__row">
+                  <p class="abv2-cta-list__title">Panel CTA</p>
+                  <p class="abv2-cta-list__text">Best for mid-article moments where the reader may be ready to act.</p>
+                </div>
+
+                <div class="abv2-cta-list__row">
+                  <p class="abv2-cta-list__title">End-of-article CTA</p>
+                  <p class="abv2-cta-list__text">Best for a more conclusive finish with one or two clear onward routes.</p>
+                </div>
+
+                <div class="abv2-cta-list__row">
+                  <p class="abv2-cta-list__title">Next step block</p>
+                  <p class="abv2-cta-list__text">Best when the content should channel the reader toward one recommended follow-on page.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="abv2-footer-wedge" aria-hidden="true">
+    <div class="abv2-footer-wedge__shape"></div>
+  </div>
+</div>
