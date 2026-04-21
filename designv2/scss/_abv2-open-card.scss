@@ -261,15 +261,6 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   border-color:rgba(38,38,37,.14);
 }
 
-.abv2-open-card__link{
-  position:absolute;
-  inset:0;
-  z-index:4;
-  text-indent:-9999px;
-  overflow:hidden;
-  white-space:nowrap;
-}
-
 .abv2-open-card__media{
   position:relative;
   display:flex;
@@ -487,9 +478,6 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 }
 
 @media (max-width:759px){
-  .abv2-open-card__meta::-webkit-scrollbar{
-      display:none;
-    }
 }
 
 @media (max-width:759px){
@@ -521,15 +509,6 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   transform:translateY(-2px);
   box-shadow:0 12px 28px rgba(38,38,37,.06);
   border-color:rgba(38,38,37,.14);
-}
-
-.abv2-open-card__link{
-  position:absolute;
-  inset:0;
-  z-index:4;
-  text-indent:-9999px;
-  overflow:hidden;
-  white-space:nowrap;
 }
 
 .abv2-open-card__media{
@@ -786,15 +765,6 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   background:rgba(248,245,247,.45);
 }
 
-.abv2-open-card__link{
-  position:absolute;
-  inset:0;
-  z-index:4;
-  text-indent:-9999px;
-  overflow:hidden;
-  white-space:nowrap;
-}
-
 .abv2-open-card__media{
   position:relative;
   display:flex;
@@ -895,10 +865,6 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   content:"·";
   margin:0 10px;
   color:rgba(38,38,37,.35);
-}
-
-.abv2-open-card__pill:last-child::after{
-  display:none;
 }
 
 .abv2-open-card__pill--rate{ color:var(--abv2-pink-b24e82); }
@@ -1015,10 +981,6 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 }
 
 @media (max-width:759px){
-  .abv2-open-card__pill::after{
-      display:inline;
-      margin:0 8px;
-    }
 }
 
 /* =========================================================
@@ -1442,10 +1404,6 @@ SOURCE: 3- homepage components.html / mobile
 }
 
 @media (max-width:759px){
-  .abv2-open-card__pill::after{
-      display:inline;
-      margin:0 8px;
-    }
 }
 
 @media (max-width:759px){

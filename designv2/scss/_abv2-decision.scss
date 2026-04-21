@@ -271,12 +271,6 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 }
 
 @media (max-width:759px){
-  .abv2-decision__grid{
-      grid-template-columns:1fr;
-      gap:28px;
-      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto;
-    }
 }
 
 @media (max-width:759px){

@@ -32,25 +32,9 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 ========================================================= */
 @media (max-width:759px){
-  .abv2-hero__copy,
-      .abv2-pink__copy,
-      .abv2-features__intro,
-      .abv2-teal__copy,
-      .abv2-features__cta{
-        width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-        margin:0 auto;
-        text-align:left;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-hero__copy .abv2-h1,
-      .abv2-pink__copy .abv2-h2,
-      .abv2-features__intro .abv2-h2,
-      .abv2-teal__copy .abv2-h2{
-        width:100%;
-        max-width:none;
-      }
 }
 
 /* =========================================================
@@ -69,25 +53,9 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 SOURCE: 3- homepage components.html / shared copy rail
 ========================================================= */
 @media (max-width:759px){
-  .abv2-hero__copy,
-    .abv2-pink__copy,
-    .abv2-features__intro,
-    .abv2-teal__copy,
-    .abv2-features__cta{
-      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto;
-      text-align:left;
-    }
 }
 
 @media (max-width:759px){
-  .abv2-hero__copy .abv2-h1,
-    .abv2-pink__copy .abv2-h2,
-    .abv2-features__intro .abv2-h2,
-    .abv2-teal__copy .abv2-h2{
-      width:100%;
-      max-width:none;
-    }
 }
 
 /* =========================================================

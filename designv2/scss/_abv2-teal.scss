@@ -264,11 +264,6 @@ SOURCE: 2 - council hub page.html / TEAL SECTION
     clip-path:var(--abv2-teal-clip);
   }
 
-.abv2-teal > *{
-    position:relative;
-    z-index:1;
-  }
-
 .abv2-teal__grid{
     display:grid;
     grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
@@ -305,135 +300,55 @@ SOURCE: 2 - council hub page.html / TEAL SECTION
     margin-top:24px;
   }
 
-.abv2-teal__copy > div:last-child{
-    margin-top:30px;
-  }
-
 /* =========================================================
 SOURCE: 2 - council hub page.html / FOOTER
 ========================================================= */
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-teal{
-        clip-path:polygon(
-          0 12%,
-          21% 17%,
-          100% 0,
-          100% 93%,
-          74% 87%,
-          0 100%
-        );
-        padding-top:108px;
-        padding-bottom:86px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-teal__grid{
-        grid-template-columns:minmax(280px,.84fr) minmax(0,1.16fr);
-        gap:40px;
-        align-items:center;
-        padding-left:34px;
-        padding-right:10px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-teal__frame{
-        width:min(100%, 410px);
-        border-radius:30px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-teal__frame img{
-        border-radius:30px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-teal__copy{
-        max-width:620px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-teal__copy.abv2-stack > * + *{
-        margin-top:22px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-teal__copy > div:last-child{
-        margin-top:6px;
-      }
 }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal{
-        clip-path:polygon(
-          0 10%,
-          18% 14%,
-          100% 0,
-          100% 94%,
-          74% 88%,
-          0 100%
-        );
-        padding-top:102px;
-        padding-bottom:90px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal__grid{
-        grid-template-columns:minmax(280px, .76fr) minmax(0, 1.24fr);
-        gap:34px;
-        align-items:center;
-        padding-left:44px;
-        padding-right:12px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal__media{
-        justify-content:flex-start;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal__frame{
-        width:min(100%, 320px);
-        border-radius:28px;
-        transform:none;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal__frame img{
-        border-radius:28px;
-        aspect-ratio:1.1 / 1;
-        object-fit:cover;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal__copy{
-        max-width:620px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal__copy.abv2-stack > * + *{
-        margin-top:22px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-teal__copy > div:last-child{
-        margin-top:10px;
-      }
 }
 
 /* =========================================================
@@ -473,30 +388,15 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 }
 
 @media (max-width:759px){
-  .abv2-teal__frame img{
-        border-radius:48px;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-teal__copy{
-        width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-        margin:0 auto;
-        max-width:none;
-        text-align:left;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-teal__copy.abv2-stack > * + *{
-        margin-top:20px;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-teal__copy > div:last-child{
-        margin-top:4px;
-      }
 }
 
 /* =========================================================
@@ -510,11 +410,6 @@ SOURCE: 3- homepage components.html / TEAL SECTION
     padding-top:220px;
     padding-bottom:210px;
     clip-path:var(--abv2-teal-clip);
-  }
-
-.abv2-teal > *{
-    position:relative;
-    z-index:1;
   }
 
 .abv2-teal__grid{

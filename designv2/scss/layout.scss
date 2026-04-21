@@ -47,71 +47,24 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 /* =========================================================
 SOURCE: 2 - council hub page.html
 ========================================================= */
-.abv2-wrap{
-    width:min(calc(100% - 36px), var(--abv2-wrap));
-    margin:0 auto;
-  }
-
-.abv2-wrap--narrow{
-    width:min(calc(100% - 36px), var(--abv2-wrap-narrow));
-    margin:0 auto;
-  }
-
-.abv2-sec{
-    position:relative;
-    padding:84px 0;
-  }
-
-.abv2-stack > * + *{
-    margin-top:28px;
-  }
-
 /* =========================================================
 SOURCE: 2 - council hub page.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
-  .abv2-sec{
-        padding:56px 0;
-      }
 }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 ========================================================= */
 @media (max-width:759px){
-  .abv2-sec{
-        padding:52px 0;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-stack > * + *{
-        margin-top:18px;
-      }
 }
 
 /* =========================================================
 SOURCE: 3- homepage components.html
 ========================================================= */
-.abv2-wrap{
-    width:min(calc(100% - 36px), var(--abv2-wrap));
-    margin:0 auto;
-  }
-
-.abv2-wrap--narrow{
-    width:min(calc(100% - 36px), var(--abv2-wrap-narrow));
-    margin:0 auto;
-  }
-
-.abv2-sec{
-    position:relative;
-    padding:84px 0;
-  }
-
-.abv2-stack > * + *{
-    margin-top:28px;
-  }
-
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
@@ -138,13 +91,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 SOURCE: 3- homepage components.html / GLOBAL MOBILE SYSTEM
 ========================================================= */
 @media (max-width:759px){
-  .abv2-sec{
-      padding:52px 0;
-    }
 }
 
 @media (max-width:759px){
-  .abv2-stack > * + *{
-      margin-top:18px;
-    }
 }

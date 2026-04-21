@@ -71,24 +71,12 @@ SOURCE: 2 - council hub page.html
     box-shadow:none;
   }
 
-.abv2-btn--light{ color:var(--abv2-white); }
-
-.abv2-btn--teal{ color:var(--abv2-teal); }
-
 /* =========================================================
 SOURCE: 2 - council hub page.html / PINK SECTION
 ========================================================= */
-.abv2-pink .abv2-btn{
-    margin-top:2px;
-  }
-
 /* =========================================================
 SOURCE: 2 - council hub page.html / TEAL SECTION
 ========================================================= */
-.abv2-teal .abv2-btn{
-    margin-top:2px;
-  }
-
 /* =========================================================
 SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 ========================================================= */
@@ -125,10 +113,6 @@ SOURCE: 3- homepage components.html
     box-shadow:none;
   }
 
-.abv2-btn--light{ color:var(--abv2-white); }
-
-.abv2-btn--teal{ color:var(--abv2-teal); }
-
 /* =========================================================
 SOURCE: 3- homepage components.html / PINK (FIXED SHAPE)
 ========================================================= */
@@ -162,11 +146,6 @@ SOURCE: 3- homepage components.html / DUAL-PATH HERO
 /* =========================================================
 SOURCE: 3- homepage components.html / DUAL-PATH HERO VARIANT
 ========================================================= */
-.abv2-path .abv2-btn{
-  min-height:40px;
-  padding:0 16px;
-}
-
 /* =========================================================
 SOURCE: 4 - editorial components.html / HERO
 ========================================================= */

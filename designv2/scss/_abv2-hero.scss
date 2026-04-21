@@ -254,183 +254,55 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 /* =========================================================
 SOURCE: 2 - council hub page.html / HERO
 ========================================================= */
-.abv2-hero{
-    position:relative;
-    z-index:1;
-    padding-top:52px;
-    padding-bottom:0;
-  }
-
-.abv2-hero__grid{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(720px,.78fr);
-    gap:20px;
-    align-items:start;
-  }
-
-.abv2-hero__art{
-    position:relative;
-    z-index:1;
-    align-self:end;
-    display:block;
-    width:100%;
-    margin-bottom:-285px;
-    overflow:visible;
-  }
-
-.abv2-hero__art-inner{
-    display:block;
-    width:135%;
-    max-width:none;
-    margin:0;
-    transform:translateY(20px);
-  }
-
-.abv2-hero__art img{
-    display:block;
-    width:100%;
-    max-width:none;
-    height:auto;
-    object-fit:contain;
-    object-position:left bottom;
-  }
-
-.abv2-hero__copy{
-    position:relative;
-    z-index:4;
-    align-self:start;
-    max-width:780px;
-    padding-top:0;
-    transform:translate(48px, 60px);
-  }
-
-.abv2-hero__copy.abv2-stack > * + *{
-    margin-top:20px;
-  }
-
 /* =========================================================
 SOURCE: 2 - council hub page.html / FOOTER
 ========================================================= */
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-hero{
-        padding-top:20px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-hero__grid{
-        grid-template-columns:minmax(360px, .86fr) minmax(620px, 1.06fr);
-        gap:46px;
-        align-items:start;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-hero__art{
-        width:100%;
-        max-width:410px;
-        align-self:end;
-        margin-left:34px;
-        margin-bottom:-108px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-hero__art-inner{
-        width:100%;
-        max-width:410px;
-        margin:0;
-        transform:translateY(8px);
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-hero__art img{
-        width:100%;
-        max-width:none;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-hero__copy{
-        max-width:760px;
-        padding-top:30px;
-        padding-left:10px;
-        padding-right:0;
-        transform:none;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-hero__copy.abv2-stack > * + *{
-        margin-top:18px;
-      }
 }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
-  .abv2-hero{
-        padding-top:18px;
-        padding-bottom:0;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-hero__grid{
-        display:grid;
-        grid-template-columns:minmax(290px, .82fr) minmax(0, 1.18fr);
-        gap:34px;
-        align-items:center;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-hero__art{
-        order:1;
-        max-width:none;
-        margin-left:18px;
-        margin-bottom:-88px;
-        align-self:end;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-hero__art-inner{
-        width:100%;
-        max-width:430px;
-        margin:0;
-        transform:translateY(10px);
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-hero__copy{
-        order:2;
-        max-width:620px;
-        padding-top:8px;
-        transform:none;
-        align-self:center;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-hero__copy.abv2-stack > * + *{
-        margin-top:18px;
-      }
 }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 ========================================================= */
 @media (max-width:759px){
-  .abv2-hero{
-        position:relative;
-        z-index:1;
-        padding-top:24px;
-        overflow:visible;
-      }
 }
 
 @media (max-width:759px){
@@ -450,9 +322,6 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 }
 
 @media (max-width:759px){
-  .abv2-hero__copy.abv2-stack > * + *{
-        margin-top:16px;
-      }
 }
 
 @media (max-width:759px){
@@ -502,60 +371,6 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 /* =========================================================
 SOURCE: 3- homepage components.html / HERO
 ========================================================= */
-.abv2-hero{
-    position:relative;
-    z-index:1;
-    padding-top:52px;
-    padding-bottom:0;
-  }
-
-.abv2-hero__grid{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(720px,.78fr);
-    gap:20px;
-    align-items:start;
-  }
-
-.abv2-hero__art{
-    position:relative;
-    z-index:1;
-    align-self:end;
-    display:block;
-    width:100%;
-    margin-bottom:-285px;
-    overflow:visible;
-  }
-
-.abv2-hero__art-inner{
-    display:block;
-    width:135%;
-    max-width:none;
-    margin:0;
-    transform:translateY(20px);
-  }
-
-.abv2-hero__art img{
-    display:block;
-    width:100%;
-    max-width:none;
-    height:auto;
-    object-fit:contain;
-    object-position:left bottom;
-  }
-
-.abv2-hero__copy{
-    position:relative;
-    z-index:4;
-    align-self:start;
-    max-width:780px;
-    padding-top:0;
-    transform:translate(48px, 60px);
-  }
-
-.abv2-hero__copy.abv2-stack > * + *{
-    margin-top:20px;
-  }
-
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
@@ -608,12 +423,6 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 SOURCE: 3- homepage components.html / HERO
 ========================================================= */
 @media (max-width:759px){
-  .abv2-hero{
-      position:relative;
-      z-index:1;
-      padding-top:24px;
-      overflow:visible;
-    }
 }
 
 @media (max-width:759px){
@@ -734,31 +543,6 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 /* =========================================================
 SOURCE: 3- homepage components.html / DUAL-PATH HERO VARIANT
 ========================================================= */
-.abv2-hero--decision{
-  position:relative;
-}
-
-.abv2-hero--decision .abv2-hero__grid{
-  align-items:start;
-}
-
-.abv2-hero__decision{
-  position:relative;
-  z-index:4;
-  align-self:start;
-  max-width:820px;
-  padding-top:0;
-  transform:translate(48px, 60px);
-}
-
-.abv2-hero__intro{
-  max-width:560px;
-}
-
-.abv2-hero__intro.abv2-stack > * + *{
-  margin-top:20px;
-}
-
 .abv2-hero__paths{
   display:grid;
   grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
@@ -771,25 +555,10 @@ SOURCE: 3- homepage components.html / DUAL-PATH HERO VARIANT
 SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
-  .abv2-hero__decision{
-      transform:none;
-      max-width:620px;
-      padding-top:40px;
-    }
 }
 
 @media (max-width:979px){
-  .abv2-hero__paths{
-      grid-template-columns:1fr;
-      gap:24px;
-      margin-top:28px;
-    }
 }
 
 @media (max-width:759px){
-  .abv2-hero__decision{
-      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto;
-      padding-top:0;
-    }
 }

@@ -154,135 +154,56 @@ SOURCE: 2 - council hub page.html / INVESTMENTS
     padding-bottom:118px;
   }
 
-.abv2-investments__inner{
-    width:min(calc(100% - 36px), 820px);
-    margin:0 auto;
-    text-align:center;
-  }
-
 .abv2-investments__title{
     margin-bottom:30px;
-  }
-
-.abv2-investments__grid{
-    display:grid;
-    grid-template-columns:repeat(2, 228px);
-    justify-content:center;
-    gap:26px;
-  }
-
-.abv2-investments__tile{
-    border-radius:14px;
-    overflow:hidden;
-  }
-
-.abv2-investments__tile img{
-    width:228px;
-    height:228px;
-    object-fit:cover;
-    border-radius:14px;
   }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / FOOTER
 ========================================================= */
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-investments{
-        padding-top:54px;
-        padding-bottom:92px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-investments__grid{
-        grid-template-columns:repeat(2, 184px);
-        gap:20px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-investments__tile img{
-        width:184px;
-        height:184px;
-      }
 }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
-  .abv2-wrap,
-      .abv2-wrap--narrow,
-      .abv2-investments__inner{
-        width:min(calc(100% - 40px), 920px);
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-investments{
-        padding-top:52px;
-        padding-bottom:92px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-investments__title{
-        margin-bottom:28px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-investments__grid{
-        grid-template-columns:repeat(2, 172px);
-        gap:20px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-investments__tile img{
-        width:172px;
-        height:172px;
-      }
 }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 ========================================================= */
 @media (max-width:759px){
-  .abv2-wrap,
-      .abv2-wrap--narrow,
-      .abv2-investments__inner{
-        width:min(calc(100% - 20px), var(--abv2-wrap));
-      }
 }
 
 @media (max-width:759px){
-  .abv2-investments{
-        padding-top:48px;
-        padding-bottom:84px;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-investments__title{
-        margin-bottom:24px;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-investments__grid{
-        grid-template-columns:1fr;
-        gap:22px;
-        justify-items:center;
-      }
 }
 
 @media (max-width:759px){
-  .abv2-investments__tile img{
-        width:var(--abv2-mobile-investment-tile);
-        height:var(--abv2-mobile-investment-tile);
-        border-radius:18px;
-      }
 }
 
 /* =========================================================
@@ -295,33 +216,8 @@ SOURCE: 3- homepage components.html / INVESTMENTS
     padding-bottom:140px;
   }
 
-.abv2-investments__inner{
-    width:min(calc(100% - 36px), 820px);
-    margin:0 auto;
-    text-align:center;
-  }
-
 .abv2-investments__title{
     margin-bottom:40px;
-  }
-
-.abv2-investments__grid{
-    display:grid;
-    grid-template-columns:repeat(2, 228px);
-    justify-content:center;
-    gap:26px;
-  }
-
-.abv2-investments__tile{
-    border-radius:14px;
-    overflow:hidden;
-  }
-
-.abv2-investments__tile img{
-    width:228px;
-    height:228px;
-    object-fit:cover;
-    border-radius:14px;
   }
 
 /* =========================================================
@@ -358,35 +254,16 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 SOURCE: 3- homepage components.html / GLOBAL MOBILE SYSTEM
 ========================================================= */
 @media (max-width:759px){
-  .abv2-wrap,
-    .abv2-wrap--narrow,
-    .abv2-investments__inner{
-      width:min(calc(100% - 20px), var(--abv2-wrap));
-    }
 }
 
 /* =========================================================
 SOURCE: 3- homepage components.html / INVESTMENTS
 ========================================================= */
 @media (max-width:759px){
-  .abv2-investments{
-      padding-top:48px;
-      padding-bottom:84px;
-    }
 }
 
 @media (max-width:759px){
-  .abv2-investments__grid{
-      grid-template-columns:1fr;
-      gap:22px;
-      justify-items:center;
-    }
 }
 
 @media (max-width:759px){
-  .abv2-investments__tile img{
-      width:var(--abv2-mobile-investment-tile);
-      height:var(--abv2-mobile-investment-tile);
-      border-radius:18px;
-    }
 }

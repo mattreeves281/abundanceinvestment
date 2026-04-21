@@ -95,69 +95,22 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 /* =========================================================
 SOURCE: 2 - council hub page.html / FOOTER WEDGE
 ========================================================= */
-.abv2-footer-wedge{
-    position:relative;
-    z-index:1;
-    height:160px;
-    margin-top:0;
-    margin-bottom:-2px;
-    overflow:hidden;
-    background:transparent;
-  }
-
-.abv2-footer-wedge__shape{
-    position:absolute;
-    inset:0;
-    background:var(--abv2-yellow);
-    clip-path:polygon(
-      0 100%,
-      0 82%,
-      33% 30%,
-      100% 82%,
-      100% 100%
-    );
-  }
-
 /* =========================================================
 SOURCE: 2 - council hub page.html / FOOTER
 ========================================================= */
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-footer-wedge{
-        height:86px;
-      }
 }
 
 @media (max-width:1159px) and (min-width:980px){
-  .abv2-footer-wedge__shape{
-        clip-path:polygon(
-          0 100%,
-          0 86%,
-          34% 64%,
-          100% 88%,
-          100% 100%
-        );
-      }
 }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
-  .abv2-footer-wedge{
-        height:78px;
-      }
 }
 
 @media (max-width:979px) and (min-width:760px){
-  .abv2-footer-wedge__shape{
-        clip-path:polygon(
-          0 100%,
-          0 88%,
-          34% 66%,
-          100% 88%,
-          100% 100%
-        );
-      }
 }
 
 /* =========================================================
@@ -184,29 +137,6 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 /* =========================================================
 SOURCE: 3- homepage components.html / FOOTER WEDGE
 ========================================================= */
-.abv2-footer-wedge{
-    position:relative;
-    z-index:1;
-    height:160px;
-    margin-top:0;
-    margin-bottom:-2px;
-    overflow:hidden;
-    background:transparent;
-  }
-
-.abv2-footer-wedge__shape{
-    position:absolute;
-    inset:0;
-    background:var(--abv2-yellow);
-    clip-path:polygon(
-      0 100%,
-      0 82%,
-      33% 30%,
-      100% 82%,
-      100% 100%
-    );
-  }
-
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
@@ -240,29 +170,6 @@ SOURCE: 3- homepage components.html / FOOTER
 /* =========================================================
 SOURCE: 4 - editorial components.html / FOOTER WEDGE + FOOTER
 ========================================================= */
-.abv2-footer-wedge{
-    position:relative;
-    z-index:1;
-    height:160px;
-    margin-top:0;
-    margin-bottom:-2px;
-    overflow:hidden;
-    background:transparent;
-  }
-
-.abv2-footer-wedge__shape{
-    position:absolute;
-    inset:0;
-    background:var(--abv2-yellow);
-    clip-path:polygon(
-      0 100%,
-      0 82%,
-      33% 30%,
-      100% 82%,
-      100% 100%
-    );
-  }
-
 /* =========================================================
 SOURCE: 4 - editorial components.html / RESPONSIVE
 ========================================================= */
