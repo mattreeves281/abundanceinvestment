@@ -1,0 +1,47 @@
+/* ========================================
+COMPONENT: ai-council-chart-skin
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / quieter chart skin
+========================================================= */
+.ai-council-page #council-bar-chart{
+  max-width:100%;
+  margin:0;
+}
+
+.ai-council-page #council-bar-chart .cbc-card{
+  background:var(--abv2-white);
+  border-radius:18px;
+  box-shadow:none;
+  padding:20px 22px;
+  border:1px solid rgba(15,23,42,.06);
+}
+
+.ai-council-page #council-bar-chart .cbc-summary{
+  margin:0 0 18px;
+  padding:0 0 16px;
+  border-bottom:1px solid rgba(15,23,42,.08);
+}
+
+.ai-council-page #council-bar-chart .cbc-summary-inner{
+  background:transparent;
+  padding:0;
+}
+
+.ai-council-page #council-bar-chart .cbc-logo-badge{
+  box-shadow:none;
+  background:var(--abv2-green-e6f0e3);
+  border:0;
+}
+
+.ai-council-page #council-bar-chart .cbc-bar-wrapper{
+  background:var(--abv2-stone-efebea);
+  height:34px;
+}
+
+.ai-council-page #council-bar-chart .cbc-bar-wrapper:hover .cbc-bar-fill{
+  transform:none;
+  box-shadow:none;
+}

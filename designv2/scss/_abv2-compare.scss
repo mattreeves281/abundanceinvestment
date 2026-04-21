@@ -20,6 +20,10 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
   margin-bottom:40px;
 }
 
+.abv2-compare__intro.abv2-stack > * + *{
+  margin-top:16px;
+}
+
 .abv2-compare__grid{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr);
@@ -226,25 +230,6 @@ SOURCE: 4 - editorial components.html / TYPE SAFETY
 ========================================================= */
 .abv2-compare__heading{
   font-family:var(--abv2-serif);
-}
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
-========================================================= */
-.abv2-compare__list li{
-  padding-top:10px;
-  padding-bottom:10px;
-  border-top:1px solid rgba(38,38,37,.08);
-  line-height:1.55;
-}
-
-.abv2-compare__list li:first-child{
-  border-top:0;
-  padding-top:0;
-}
-
-.abv2-compare__list li:first-child::before{
-  top:.42em;
 }
 
 /* =========================================================

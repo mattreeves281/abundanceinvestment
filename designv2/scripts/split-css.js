@@ -38,10 +38,9 @@ const LAYOUT_ROOTS = new Set([
   "abv2-sec",
   "abv2-stack",
   "abv2-editorial-wrap",
-  "abv2-ed-section",
-  "abv2-ed-rail",
-  "abv2-ed-copy",
 ]);
+
+const STRUCTURAL_ROOTS = new Set([...LAYOUT_ROOTS, "abv2-stack"]);
 
 const generatedFiles = new Set(["main.scss"]);
 
@@ -266,6 +265,128 @@ function routeFile(sourceMeta) {
 }
 
 function resolveDestination(selector, sourceMeta) {
+  if (/\.home-cta(?:__|--|\b)/.test(selector)) {
+    return "_home-cta.scss";
+  }
+
+  if (/\.home-btn(?:__|--|\b)/.test(selector)) {
+    return "_home-btn.scss";
+  }
+
+  if (/\.home-choice-v2(?:__|--|\b)/.test(selector)) {
+    return "_home-choice-v2.scss";
+  }
+
+  if (/\.home-choice(?:__|--|\b)/.test(selector)) {
+    return "_home-choice.scss";
+  }
+
+  if (
+    (selector.includes(".abv2-hero__grid") &&
+      selector.includes(".abv2-pink__grid") &&
+      selector.includes(".abv2-teal__grid")) ||
+    (selector.includes(".abv2-hero__copy") &&
+      selector.includes(".abv2-pink__copy") &&
+      selector.includes(".abv2-features__intro") &&
+      selector.includes(".abv2-teal__copy")) ||
+    (selector.includes(".abv2-hero__intro") &&
+      selector.includes(".abv2-proof-band__intro") &&
+      selector.includes(".abv2-how__intro") &&
+      selector.includes(".abv2-decision__intro")) ||
+    (selector.includes(".abv2-jump__inner") &&
+      selector.includes(".abv2-subnav__inner") &&
+      selector.includes(".abv2-related__inner")) ||
+    (selector.includes(".abv2-intro-centre__inner") &&
+      selector.includes(".abv2-intro-split__inner") &&
+      selector.includes(".abv2-feature-stat__inner") &&
+      selector.includes(".abv2-inline-cta__inner")) ||
+    (selector.includes(".abv2-hero__intro") && selector.includes(".abv2-path__inner"))
+  ) {
+    return "_abv2-homepage-shared.scss";
+  }
+
+  if (/\.abv2-decision__path\b.*\.abv2-path__kicker\b/.test(selector)) {
+    return "_abv2-decision.scss";
+  }
+
+  if (
+    /\.abv2-card--blob-anchor\b|\.abv2-slab--blob-anchor\b|\.abv2-navcard--blob-anchor\b|\.abv2-riskcard--blob-anchor\b|\.abv2-ctacard--blob-anchor\b|\.abv2-card--with-blob\b/.test(
+      selector
+    )
+  ) {
+    return "_abv2-blob-anchor.scss";
+  }
+
+  if (/\.abv2-compare__list\b|\.abv2-procon__list\b|\.abv2-fit__list\b/.test(selector)) {
+    return "_abv2-editorial-list-markers.scss";
+  }
+
+  if (/\.abv2-ed-hero::after\b|\.abv2-ed-band\b/.test(selector)) {
+    return "_abv2-ed-shell.scss";
+  }
+
+  if (/\.abv2-ed-section\b|\.abv2-ed-rail\b|\.abv2-ed-copy\b/.test(selector)) {
+    return "_abv2-ed-copy.scss";
+  }
+
+  if (selector.includes(".abv2-ed-open-invest__top") && selector.includes(".abv2-card__eyebrow")) {
+    return "_abv2-ed-open-invest.scss";
+  }
+
+  if (/@keyframes abv2-egp-shimmer\b/.test(selector)) {
+    return "_abv2-egp.scss";
+  }
+
+  if (/\.ai-custom\b/.test(selector)) {
+    return "_ai-custom.scss";
+  }
+
+  if (/\.ai-open-bg\b/.test(selector)) {
+    return "_ai-open-bg.scss";
+  }
+
+  if (/^#ai-scope-wrap\b|@keyframes aiSpin\b/.test(selector)) {
+    return "_ai-page-loader.scss";
+  }
+
+  if (/\.ai-heroLogoRail\b/.test(selector)) {
+    return "_ai-hero.scss";
+  }
+
+  if (/\.ai-invest-tick__media\.ai-logo-tile\b|img\.ai-logo-tile__logo\b/.test(selector)) {
+    return "_ai-logo-tile.scss";
+  }
+
+  if (/^#council-bar-chart\b|\.home-financial #ai-use-of-funds #council-bar-chart\b/.test(selector)) {
+    return "_council-bar-chart.scss";
+  }
+
+  if (/\.ai-council-page #council-bar-chart\b/.test(selector)) {
+    return "_ai-council-chart-skin.scss";
+  }
+
+  if (/\.ai-council-open \.ai-invest-tick\b/.test(selector)) {
+    return "_ai-council-open.scss";
+  }
+
+  if (
+    /\.ai-council-hero2[\s\S]*\.ai-council-photo/.test(selector) ||
+    /\.ai-council-intro__rail[\s\S]*\.ai-council-photo__inner/.test(selector) ||
+    /\.ai-council-open__intro h2[\s\S]*\.ai-council-history__title/.test(selector)
+  ) {
+    return "_ai-council-mobile.scss";
+  }
+
+  if (
+    /\.abv2-card__inner[\s\S]*\.abv2-ctacard__inner/.test(selector) ||
+    /\.abv2-slab__inner[\s\S]*\.abv2-ctacard__inner/.test(selector) ||
+    /\.abv2-compare__grid[\s\S]*\.abv2-fit__grid/.test(selector) ||
+    /\.abv2-compare__col \+ \.abv2-compare__col[\s\S]*\.abv2-fit__pane \+ \.abv2-fit__pane/.test(selector) ||
+    /\.abv2-panel-cta[\s\S]*\.abv2-nextstep/.test(selector)
+  ) {
+    return "_abv2-editorial-mobile-shared.scss";
+  }
+
   if (/@font-face\b/.test(selector) || /^:root\b/.test(selector)) {
     return "tokens.scss";
   }
@@ -290,7 +411,14 @@ function resolveDestination(selector, sourceMeta) {
     return "buttons.scss";
   }
 
-  if (/\.abv2-wrap(?:--|\b)|\.abv2-sec\b|\.abv2-stack\b|\.abv2-ed-section\b|\.abv2-ed-rail\b|\.abv2-ed-copy\b/.test(selector)) {
+  if (/\.abv2-wrap(?:--|\b)|\.abv2-sec\b|\.abv2-stack\b/.test(selector)) {
+    const roots = getRoots(selector);
+    const nonStructuralRoots = roots.filter((root) => !STRUCTURAL_ROOTS.has(root));
+
+    if (nonStructuralRoots.length === 1) {
+      return `_${sanitizeRootForFile(nonStructuralRoots[0])}.scss`;
+    }
+
     return "layout.scss";
   }
 

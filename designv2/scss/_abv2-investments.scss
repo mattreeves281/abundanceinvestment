@@ -70,6 +70,14 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
 SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
+  .abv2-wrap,
+      .abv2-wrap--narrow,
+      .abv2-investments__inner{
+        width:min(calc(100% - 40px), 920px);
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
   .abv2-investments{
         padding-top:52px;
         padding-bottom:92px;
@@ -99,6 +107,14 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 ========================================================= */
+@media (max-width:759px){
+  .abv2-wrap,
+      .abv2-wrap--narrow,
+      .abv2-investments__inner{
+        width:min(calc(100% - 20px), var(--abv2-wrap));
+      }
+}
+
 @media (max-width:759px){
   .abv2-investments{
         padding-top:48px;
@@ -195,6 +211,14 @@ SOURCE: 2 - council hub page.html / FOOTER
 SOURCE: 2 - council hub page.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
+  .abv2-wrap,
+      .abv2-wrap--narrow,
+      .abv2-investments__inner{
+        width:min(calc(100% - 40px), 920px);
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
   .abv2-investments{
         padding-top:52px;
         padding-bottom:92px;
@@ -224,6 +248,14 @@ SOURCE: 2 - council hub page.html / 760–979 TABLET
 /* =========================================================
 SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 ========================================================= */
+@media (max-width:759px){
+  .abv2-wrap,
+      .abv2-wrap--narrow,
+      .abv2-investments__inner{
+        width:min(calc(100% - 20px), var(--abv2-wrap));
+      }
+}
+
 @media (max-width:759px){
   .abv2-investments{
         padding-top:48px;
@@ -320,6 +352,17 @@ SOURCE: 3- homepage components.html / RESPONSIVE
         width:170px;
         height:170px;
       }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / GLOBAL MOBILE SYSTEM
+========================================================= */
+@media (max-width:759px){
+  .abv2-wrap,
+    .abv2-wrap--narrow,
+    .abv2-investments__inner{
+      width:min(calc(100% - 20px), var(--abv2-wrap));
+    }
 }
 
 /* =========================================================

@@ -59,6 +59,10 @@ SOURCE: 3- homepage components.html / CASE STUDY / IMPACT SPOTLIGHT
   color:rgba(255,255,255,.82);
 }
 
+.abv2-case__copy.abv2-stack > * + *{
+  margin-top:18px;
+}
+
 .abv2-case__stats{
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));

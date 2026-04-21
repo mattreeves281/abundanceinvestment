@@ -30,6 +30,10 @@ SOURCE: 3- homepage components.html / CENTRE-ALIGNED INTRO
   color:var(--abv2-pink);
 }
 
+.abv2-intro-centre__inner.abv2-stack > * + *{
+  margin-top:14px;
+}
+
 .abv2-intro-centre__body{
   max-width:34ch;
   margin-left:auto;

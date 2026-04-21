@@ -1,7 +1,31 @@
 /* ========================================
-COMPONENT: abv2-ed-band
+COMPONENT: abv2-ed-shell
 Status: unrefined (contains duplicates)
 ======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / HERO
+========================================================= */
+.abv2-ed-hero::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:100vw;
+    height:138px;
+    background:var(--abv2-pink);
+    z-index:0;
+    pointer-events:none;
+    clip-path:polygon(
+      0 84%,
+      0 100%,
+      33% 36%,
+      100% 76%,
+      100% 60%,
+      33% 20%
+    );
+  }
 
 /* =========================================================
 SOURCE: 4 - editorial components.html / DIVIDER FAMILY
@@ -64,6 +88,20 @@ SOURCE: 4 - editorial components.html / DIVIDER FAMILY
 /* =========================================================
 SOURCE: 4 - editorial components.html / RESPONSIVE
 ========================================================= */
+@media (max-width:979px){
+  .abv2-ed-hero::after,
+      .abv2-ed-band{
+        height:112px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-ed-hero::after,
+      .abv2-ed-band{
+        height:70px;
+      }
+}
+
 @media (max-width:759px){
   .abv2-ed-band{
         margin-top:14px;

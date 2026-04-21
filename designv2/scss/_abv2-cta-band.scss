@@ -42,6 +42,10 @@ SOURCE: 3- homepage components.html / PRIMARY CTA BAND
   color:rgba(255,255,255,.84);
 }
 
+.abv2-cta-band__copy.abv2-stack > * + *{
+  margin-top:18px;
+}
+
 .abv2-cta-band__actions{
   display:flex;
   flex-wrap:wrap;

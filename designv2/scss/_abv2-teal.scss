@@ -53,6 +53,10 @@ SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
     max-width:680px;
   }
 
+.abv2-teal__copy.abv2-stack > * + *{
+    margin-top:24px;
+  }
+
 .abv2-teal__copy > div:last-child{
     margin-top:30px;
   }
@@ -101,6 +105,12 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
 @media (max-width:1159px) and (min-width:980px){
   .abv2-teal__copy{
         max-width:620px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy.abv2-stack > * + *{
+        margin-top:22px;
       }
 }
 
@@ -167,6 +177,12 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 }
 
 @media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy.abv2-stack > * + *{
+        margin-top:22px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
   .abv2-teal__copy > div:last-child{
         margin-top:10px;
       }
@@ -220,6 +236,12 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
         margin:0 auto;
         max-width:none;
         text-align:left;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-teal__copy.abv2-stack > * + *{
+        margin-top:20px;
       }
 }
 
@@ -279,6 +301,10 @@ SOURCE: 2 - council hub page.html / TEAL SECTION
     max-width:680px;
   }
 
+.abv2-teal__copy.abv2-stack > * + *{
+    margin-top:24px;
+  }
+
 .abv2-teal__copy > div:last-child{
     margin-top:30px;
   }
@@ -327,6 +353,12 @@ SOURCE: 2 - council hub page.html / FOOTER
 @media (max-width:1159px) and (min-width:980px){
   .abv2-teal__copy{
         max-width:620px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-teal__copy.abv2-stack > * + *{
+        margin-top:22px;
       }
 }
 
@@ -393,6 +425,12 @@ SOURCE: 2 - council hub page.html / 760–979 TABLET
 }
 
 @media (max-width:979px) and (min-width:760px){
+  .abv2-teal__copy.abv2-stack > * + *{
+        margin-top:22px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
   .abv2-teal__copy > div:last-child{
         margin-top:10px;
       }
@@ -450,6 +488,12 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 }
 
 @media (max-width:759px){
+  .abv2-teal__copy.abv2-stack > * + *{
+        margin-top:20px;
+      }
+}
+
+@media (max-width:759px){
   .abv2-teal__copy > div:last-child{
         margin-top:4px;
       }
@@ -500,6 +544,10 @@ SOURCE: 3- homepage components.html / TEAL SECTION
 
 .abv2-teal__copy{
     max-width:740px;
+  }
+
+.abv2-teal__copy.abv2-stack > * + *{
+    margin-top:28px;
   }
 
 /* =========================================================

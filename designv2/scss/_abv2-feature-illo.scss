@@ -42,6 +42,10 @@ SOURCE: 3- homepage components.html / FEATURE + ILLUSTRATION
   color:rgba(255,255,255,.84);
 }
 
+.abv2-feature-illo__copy.abv2-stack > * + *{
+  margin-top:18px;
+}
+
 .abv2-feature-illo__actions{
   display:flex;
   flex-wrap:wrap;

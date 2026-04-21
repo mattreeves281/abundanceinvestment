@@ -4,41 +4,6 @@ Status: unrefined (contains duplicates)
 ======================================== */
 
 /* =========================================================
-SOURCE: 2 - council hub page.html / Use-of-funds — Top projects by spend (cbc-projects) DROP-IN OVERRIDES (paste AFTER your base CSS)
-========================================================= */
-#council-bar-chart .cbc-projects{
-  margin-top:28px;
-}
-
-#council-bar-chart .cbc-projects__title{
-  margin:0 0 12px;
-  font-size:1rem;
-  font-weight:900;
-  color:var(--abv2-navy-111827);
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / Outer list container (one card containing up to 3 rows)
-========================================================= */
-#council-bar-chart .cbc-projects__list{
-  background:var(--abv2-white);
-  border:1px solid rgba(15,23,42,.08);
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(15,23,42,.06);
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / Optional small helper line (only used if you choose to show it)
-========================================================= */
-#council-bar-chart .cbc-projects__note{
-  margin:10px 2px 0;
-  font-size:.9rem;
-  font-weight:650;
-  color:var(--abv2-grey-6b7280);
-}
-
-/* =========================================================
 SOURCE: 2 - council hub page.html / Divider between chart and top projects
 ========================================================= */
 .cbc-projects {
@@ -51,11 +16,4 @@ SOURCE: 2 - council hub page.html / Divider between chart and top projects
     rgba(0,0,0,0.12),
     rgba(0,0,0,0.04)
   ) 1;
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / TEMP: hide Top projects financed block
-========================================================= */
-#council-bar-chart .cbc-projects {
-  display: none !important;
 }

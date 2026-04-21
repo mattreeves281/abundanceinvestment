@@ -56,6 +56,10 @@ SOURCE: 1 - hompeage base responsive.html / HERO
     transform:translate(48px, 60px);
   }
 
+.abv2-hero__copy.abv2-stack > * + *{
+    margin-top:20px;
+  }
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / FOOTER
 ========================================================= */
@@ -109,6 +113,12 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
       }
 }
 
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-hero__copy.abv2-stack > * + *{
+        margin-top:18px;
+      }
+}
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 ========================================================= */
@@ -157,6 +167,12 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
       }
 }
 
+@media (max-width:979px) and (min-width:760px){
+  .abv2-hero__copy.abv2-stack > * + *{
+        margin-top:18px;
+      }
+}
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 ========================================================= */
@@ -182,6 +198,12 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
         order:1;
         z-index:3;
         margin-bottom:6px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-hero__copy.abv2-stack > * + *{
+        margin-top:16px;
       }
 }
 
@@ -282,6 +304,10 @@ SOURCE: 2 - council hub page.html / HERO
     transform:translate(48px, 60px);
   }
 
+.abv2-hero__copy.abv2-stack > * + *{
+    margin-top:20px;
+  }
+
 /* =========================================================
 SOURCE: 2 - council hub page.html / FOOTER
 ========================================================= */
@@ -335,6 +361,12 @@ SOURCE: 2 - council hub page.html / FOOTER
       }
 }
 
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-hero__copy.abv2-stack > * + *{
+        margin-top:18px;
+      }
+}
+
 /* =========================================================
 SOURCE: 2 - council hub page.html / 760–979 TABLET
 ========================================================= */
@@ -383,6 +415,12 @@ SOURCE: 2 - council hub page.html / 760–979 TABLET
       }
 }
 
+@media (max-width:979px) and (min-width:760px){
+  .abv2-hero__copy.abv2-stack > * + *{
+        margin-top:18px;
+      }
+}
+
 /* =========================================================
 SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 ========================================================= */
@@ -408,6 +446,12 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
         order:1;
         z-index:3;
         margin-bottom:6px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-hero__copy.abv2-stack > * + *{
+        margin-top:16px;
       }
 }
 
@@ -508,6 +552,10 @@ SOURCE: 3- homepage components.html / HERO
     transform:translate(48px, 60px);
   }
 
+.abv2-hero__copy.abv2-stack > * + *{
+    margin-top:20px;
+  }
+
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
@@ -547,6 +595,12 @@ SOURCE: 3- homepage components.html / RESPONSIVE
         max-width:620px;
         padding-top:40px;
         transform:none;
+      }
+}
+
+@media (max-width:979px){
+  .abv2-hero__copy.abv2-stack > * + *{
+        margin-top:16px;
       }
 }
 
@@ -617,6 +671,10 @@ SOURCE: 3- homepage components.html / DUAL-PATH HERO
 
 .abv2-hero__intro{
   max-width:560px;
+}
+
+.abv2-hero__intro.abv2-stack > * + *{
+  margin-top:20px;
 }
 
 .abv2-hero__paths{
@@ -695,6 +753,10 @@ SOURCE: 3- homepage components.html / DUAL-PATH HERO VARIANT
 
 .abv2-hero__intro{
   max-width:560px;
+}
+
+.abv2-hero__intro.abv2-stack > * + *{
+  margin-top:20px;
 }
 
 .abv2-hero__paths{

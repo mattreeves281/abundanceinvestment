@@ -37,6 +37,10 @@ SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
   color:var(--abv2-pink);
 }
 
+.abv2-feature-stat__copy.abv2-stack > * + *{
+  margin-top:16px;
+}
+
 .abv2-feature-stat__body{
   max-width:36ch;
 }

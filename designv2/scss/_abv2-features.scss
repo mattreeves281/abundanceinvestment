@@ -53,6 +53,10 @@ SOURCE: 1 - hompeage base responsive.html / FEATURES
     margin-bottom:34px;
   }
 
+.abv2-features__intro.abv2-stack > * + *{
+    margin-top:16px;
+  }
+
 .abv2-features__grid{
     display:grid;
     grid-template-columns:repeat(3, minmax(0,1fr));
@@ -80,6 +84,12 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
 @media (max-width:1159px) and (min-width:980px){
   .abv2-features__intro{
         margin-bottom:30px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-features__intro.abv2-stack > * + *{
+        margin-top:16px;
       }
 }
 
@@ -243,6 +253,10 @@ SOURCE: 2 - council hub page.html / FEATURES
     margin-bottom:34px;
   }
 
+.abv2-features__intro.abv2-stack > * + *{
+    margin-top:16px;
+  }
+
 .abv2-features__grid{
     display:grid;
     grid-template-columns:repeat(3, minmax(0,1fr));
@@ -270,6 +284,12 @@ SOURCE: 2 - council hub page.html / FOOTER
 @media (max-width:1159px) and (min-width:980px){
   .abv2-features__intro{
         margin-bottom:30px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-features__intro.abv2-stack > * + *{
+        margin-top:16px;
       }
 }
 

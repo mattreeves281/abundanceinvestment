@@ -1,0 +1,131 @@
+/* ========================================
+COMPONENT: home-cta
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOMEPAGE CTA (TEAL / PINK SECTION STYLE)
+========================================================= */
+.home-cta{
+  position:relative;
+  overflow:hidden;
+  padding:180px 0 180px;
+  color:var(--abv2-white);
+}
+
+.home-cta--teal{
+  background:var(--abv2-teal);
+  clip-path:polygon(
+    0 12%,
+    34% 24%,
+    100% 0,
+    100% 84%,
+    60% 72%,
+    0 100%
+  );
+}
+
+.home-cta--pink{
+  background:var(--abv2-pink);
+  clip-path:polygon(
+    0 18%,
+    30% 28%,
+    100% 0,
+    100% 84%,
+    60% 72%,
+    0 100%
+  );
+}
+
+.home-cta__wrap{
+  width:min(calc(100% - 36px), 1180px);
+  margin:0 auto;
+}
+
+.home-cta__grid{
+  display:grid;
+  grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);
+  gap:56px;
+  align-items:center;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / media
+========================================================= */
+.home-cta__frame{
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.home-cta__frame img{
+  width:100%;
+  aspect-ratio:1.4/1;
+  object-fit:cover;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / content
+========================================================= */
+.home-cta__eyebrow{
+  font-family:"Sohne Kraftig", Arial, sans-serif;
+  font-size:.75rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  opacity:.9;
+}
+
+.home-cta__title{
+  font-family:"New Kansas", Georgia, serif;
+  font-weight:600;
+  letter-spacing:-.03em;
+
+  font-size:clamp(2.2rem, 4vw, 3rem);
+  line-height:.92;
+  max-width:12ch;
+}
+
+.home-cta__body{
+  margin-top:20px;
+  max-width:54ch;
+
+  font-family:"Sohne Buch", Arial, sans-serif;
+  font-size:1.05rem;
+  line-height:1.7;
+  opacity:.95;
+}
+
+.home-cta__actions{
+  display:flex;
+  gap:14px;
+  margin-top:28px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / PATCH — FORCE NEW KANSAS ACROSS V2 MEGA PAGE
+========================================================= */
+.abv2-home .abv2-h1,
+.abv2-home .abv2-h2,
+.abv2-home .abv2-h3,
+.abv2-home .abv2-stat__value,
+.abv2-home .abv2-proof-band__value,
+.abv2-home .abv2-quote__text,
+.abv2-home .abv2-case-stat__value,
+.abv2-home .abv2-end-cta__title,
+.abv2-home .abv2-cta-band__copy .abv2-h2,
+.abv2-home .abv2-case__copy .abv2-h2,
+.abv2-home .abv2-how__intro .abv2-h2,
+.abv2-home .abv2-how-step__content .abv2-h3,
+.abv2-home .abv2-path .abv2-h2,
+.abv2-home .abv2-decision__path .abv2-h3,
+.abv2-home .abv2-compare__heading,
+.abv2-home .abv2-related__title,
+.abv2-home .abv2-subnav__title,
+.abv2-home .home-choice-v2__title,
+.abv2-home .home-choice-v2__heading,
+.abv2-home .home-cta__title{
+  font-family:"New Kansas", Georgia, serif !important;
+  font-weight:600 !important;
+  letter-spacing:-.03em;
+  font-style:normal !important;
+}

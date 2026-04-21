@@ -129,6 +129,10 @@ SOURCE: 3- homepage components.html / DECISION BLOCK
   margin-bottom:40px;
 }
 
+.abv2-decision__intro.abv2-stack > * + *{
+  margin-top:16px;
+}
+
 .abv2-decision__grid{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr);
@@ -141,6 +145,10 @@ SOURCE: 3- homepage components.html / DECISION BLOCK
 .abv2-decision__path{
   position:relative;
   max-width:370px;
+}
+
+.abv2-decision__path.abv2-stack > * + *{
+  margin-top:12px;
 }
 
 .abv2-decision__path--primary{
@@ -164,6 +172,18 @@ SOURCE: 3- homepage components.html / DECISION BLOCK
   mask-position:center;
   mask-size:contain;
   pointer-events:none;
+}
+
+.abv2-decision__path .abv2-path__kicker{
+  margin-bottom:0;
+}
+
+.abv2-decision__path--manual .abv2-path__kicker{
+  color:var(--abv2-pink);
+}
+
+.abv2-decision__path--primary .abv2-path__kicker{
+  color:var(--abv2-teal);
 }
 
 .abv2-decision__list{

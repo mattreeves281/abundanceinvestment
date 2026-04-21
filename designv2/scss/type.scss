@@ -231,16 +231,6 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 }
 
 @media (max-width:759px){
-  .abv2-hero__copy .abv2-h1,
-      .abv2-pink__copy .abv2-h2,
-      .abv2-features__intro .abv2-h2,
-      .abv2-teal__copy .abv2-h2{
-        width:100%;
-        max-width:none;
-      }
-}
-
-@media (max-width:759px){
   .abv2-feature .abv2-h3{
         display:block !important;
         width:100% !important;
@@ -499,16 +489,6 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 }
 
 @media (max-width:759px){
-  .abv2-hero__copy .abv2-h1,
-      .abv2-pink__copy .abv2-h2,
-      .abv2-features__intro .abv2-h2,
-      .abv2-teal__copy .abv2-h2{
-        width:100%;
-        max-width:none;
-      }
-}
-
-@media (max-width:759px){
   .abv2-feature .abv2-h3{
         display:block !important;
         width:100% !important;
@@ -667,19 +647,6 @@ SOURCE: 3- homepage components.html / GLOBAL MOBILE SYSTEM
 
 @media (max-width:759px){
   .abv2-body{ font-size:.98rem; line-height:1.5; }
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / shared copy rail
-========================================================= */
-@media (max-width:759px){
-  .abv2-hero__copy .abv2-h1,
-    .abv2-pink__copy .abv2-h2,
-    .abv2-features__intro .abv2-h2,
-    .abv2-teal__copy .abv2-h2{
-      width:100%;
-      max-width:none;
-    }
 }
 
 /* =========================================================
@@ -889,35 +856,6 @@ SOURCE: 3- homepage components.html / RESPONSIVE
   .abv2-cta-band__copy .abv2-body{
       max-width:none;
     }
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / PATCH — FORCE NEW KANSAS ACROSS V2 MEGA PAGE
-========================================================= */
-.abv2-home .abv2-h1,
-.abv2-home .abv2-h2,
-.abv2-home .abv2-h3,
-.abv2-home .abv2-stat__value,
-.abv2-home .abv2-proof-band__value,
-.abv2-home .abv2-quote__text,
-.abv2-home .abv2-case-stat__value,
-.abv2-home .abv2-end-cta__title,
-.abv2-home .abv2-cta-band__copy .abv2-h2,
-.abv2-home .abv2-case__copy .abv2-h2,
-.abv2-home .abv2-how__intro .abv2-h2,
-.abv2-home .abv2-how-step__content .abv2-h3,
-.abv2-home .abv2-path .abv2-h2,
-.abv2-home .abv2-decision__path .abv2-h3,
-.abv2-home .abv2-compare__heading,
-.abv2-home .abv2-related__title,
-.abv2-home .abv2-subnav__title,
-.abv2-home .home-choice-v2__title,
-.abv2-home .home-choice-v2__heading,
-.abv2-home .home-cta__title{
-  font-family:"New Kansas", Georgia, serif !important;
-  font-weight:600 !important;
-  letter-spacing:-.03em;
-  font-style:normal !important;
 }
 
 /* =========================================================

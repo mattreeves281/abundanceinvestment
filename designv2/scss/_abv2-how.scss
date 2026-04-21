@@ -32,6 +32,10 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
   max-width:360px;
 }
 
+.abv2-how__intro.abv2-stack > * + *{
+  margin-top:18px;
+}
+
 .abv2-how__eyebrow{
   margin:0;
   font-family:var(--abv2-ui);

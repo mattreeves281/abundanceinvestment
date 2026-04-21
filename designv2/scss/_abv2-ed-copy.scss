@@ -1,0 +1,218 @@
+/* ========================================
+COMPONENT: abv2-ed-copy
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / CONTENT RAIL / COPY
+========================================================= */
+.abv2-ed-rail{
+    position:relative;
+    width:min(100%, var(--abv2-editorial-rail));
+    margin:0 auto;
+    z-index:2;
+  }
+
+.abv2-ed-section{
+    margin-top:12px;
+  }
+
+.abv2-ed-copy > *{
+    margin:0;
+  }
+
+.abv2-ed-copy > * + *{
+    margin-top:20px;
+  }
+
+.abv2-ed-copy > p,
+  .abv2-ed-copy > ul,
+  .abv2-ed-copy > .abv2-ed-cta{
+    width:min(100%, var(--abv2-editorial-copy));
+  }
+
+.abv2-ed-copy p,
+  .abv2-ed-copy li{
+    font-family:var(--abv2-sans);
+    font-size:1.03rem;
+    line-height:1.68;
+    color:var(--abv2-text);
+  }
+
+.abv2-ed-copy ul{
+    margin:4px 0 0;
+    padding:0;
+    list-style:none;
+    width:min(100%, var(--abv2-editorial-copy));
+  }
+
+.abv2-ed-copy li{
+    position:relative;
+    padding-left:1.35rem;
+  }
+
+.abv2-ed-copy li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.72em;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--abv2-pink);
+    transform:translateY(-50%);
+  }
+
+.abv2-ed-copy li + li{
+    margin-top:14px;
+  }
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-ed-rail{
+        width:min(100%, 660px);
+      }
+}
+
+@media (max-width:759px){
+  .abv2-ed-rail{
+        width:100%;
+        max-width:var(--abv2-mobile-copy-rail);
+      }
+}
+
+@media (max-width:759px){
+  .abv2-ed-copy > p,
+      .abv2-ed-copy > ul,
+      .abv2-ed-copy > .abv2-ed-cta{
+        width:100%;
+        max-width:none;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-ed-copy p,
+      .abv2-ed-copy li{
+        max-width:none;
+        font-size:.98rem;
+        line-height:1.56;
+      }
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
+========================================================= */
+.abv2-ed-copy ul{
+  list-style:none;
+  padding:0;
+  margin:4px 0 0;
+}
+
+.abv2-ed-copy li{
+  position:relative;
+  padding-left:1.5rem;
+}
+
+.abv2-ed-copy li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.78em;
+  width:10px;
+  height:8px;
+  transform:translateY(-50%);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-copy ol{
+  counter-reset:abv2-ol;
+  list-style:none;
+  padding:0;
+  margin:4px 0 0;
+  width:min(100%, var(--abv2-editorial-copy));
+}
+
+.abv2-ed-copy ol li{
+  counter-increment:abv2-ol;
+  position:relative;
+  padding-left:2.2rem;
+}
+
+.abv2-ed-copy ol li::before{
+  content:counter(abv2-ol) ".";
+  position:absolute;
+  left:0;
+  top:0;
+  width:auto;
+  height:auto;
+  background:none;
+  transform:none;
+  font-family:var(--abv2-sans);
+  font-size:1.03rem;
+  line-height:1.68;
+  color:var(--abv2-text);
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+
+.abv2-ed-copy ol li::after{
+  content:"";
+  position:absolute;
+  left:1.15rem;
+  top:.82em;
+  width:9px;
+  height:7px;
+  transform:translateY(-50%);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / LEFT ILLUSTRATED TOP BLOB
+========================================================= */
+.abv2-ed-section--illus-overlap{
+  position:relative;
+}
+
+.abv2-ed-section--illus-overlap .abv2-ed-rail{
+  position:relative;
+  z-index:3;
+}
+
+.abv2-ed-section--illus-overlap .abv2-ed-copy > h3:first-child{
+  position:relative;
+  margin-top:110px;
+  margin-left:0;
+  margin-bottom:18px;
+  max-width:18ch;
+  transform:none;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-ed-section--illus-overlap .abv2-ed-copy > h3:first-child{
+      margin-top:48px;
+      margin-left:0;
+      max-width:12ch;
+      transform:none;
+    }
+}

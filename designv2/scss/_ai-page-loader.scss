@@ -16,3 +16,7 @@ SOURCE: 2 - council hub page.html / 7) Page-level loader (AI scope)
   align-items:center;
   justify-content:center;
 }
+
+@keyframes aiSpin{ to{ transform:rotate(360deg); } }
+
+#ai-scope-wrap[hidden]{ display:none !important; }

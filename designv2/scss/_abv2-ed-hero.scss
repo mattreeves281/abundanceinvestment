@@ -49,27 +49,6 @@ SOURCE: 4 - editorial components.html / HERO
     max-width:60ch;
   }
 
-.abv2-ed-hero::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    bottom:0;
-    transform:translateX(-50%);
-    width:100vw;
-    height:138px;
-    background:var(--abv2-pink);
-    z-index:0;
-    pointer-events:none;
-    clip-path:polygon(
-      0 84%,
-      0 100%,
-      33% 36%,
-      100% 76%,
-      100% 60%,
-      33% 20%
-    );
-  }
-
 /* =========================================================
 SOURCE: 4 - editorial components.html / RESPONSIVE
 ========================================================= */

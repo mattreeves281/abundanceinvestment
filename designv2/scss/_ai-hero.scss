@@ -10,6 +10,28 @@ SOURCE: 2 - council hub page.html / If you are no longer using ai-hero--pending,
 
 .ai-hero .brand-media-box{ align-items:flex-start !important; }
 
+.ai-hero .ai-heroLogoRail{
+  display:block !important;
+  text-align:right !important;
+}
+
+.ai-hero .ai-heroLogoRail img{
+  display:inline-block !important;
+  width:200px !important;
+  max-width:200px !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+
+@media (max-width:767.98px){
+  .ai-hero .ai-heroLogoRail{
+      display:flex !important;
+      justify-content:center !important;
+      text-align:center !important;
+      margin-bottom:1.25rem !important;
+    }
+}
+
 @media (max-width:767.98px){
   .ai-hero .brand-media-box > .col-12.col-md-8{
       display:flex !important;
@@ -28,8 +50,50 @@ SOURCE: 2 - council hub page.html / If you are no longer using ai-hero--pending,
 }
 
 /* =========================================================
+SOURCE: 2 - council hub page.html / HERO logo: hard clamp size (wins against framework rules)
+========================================================= */
+.ai-hero .ai-heroLogoRail{
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:flex-start !important;
+}
+
+.ai-hero .ai-heroLogoRail img{
+  width: 220px !important;      /* pick your size */
+  max-width: 220px !important;
+  height: auto !important;      /* stop stretching */
+  max-height: 220px !important; /* <- key: clamps "massive" height */
+  object-fit: contain !important;
+}
+
+/* =========================================================
 SOURCE: 2 - council hub page.html / If a wrapper is forcing height, neutralise it
 ========================================================= */
 .ai-hero .col-12.col-md-4{
   align-self:flex-start !important;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Desktop: keep right-aligned
+========================================================= */
+.ai-hero .ai-heroLogoRail{
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:flex-start !important;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Tablet + mobile: center it
+========================================================= */
+@media (max-width: 991.98px){
+  .ai-hero .ai-heroLogoRail{
+      justify-content:center !important;
+    }
+}
+
+@media (max-width: 991.98px){
+  .ai-hero .ai-heroLogoRail img{
+      display:block !important;
+      margin: 0 auto 1.25rem !important;
+    }
 }

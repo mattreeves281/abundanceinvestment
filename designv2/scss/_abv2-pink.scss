@@ -33,6 +33,10 @@ SOURCE: 1 - hompeage base responsive.html / PINK SECTION
     max-width:720px;
   }
 
+.abv2-pink__copy.abv2-stack > * + *{
+    margin-top:22px;
+  }
+
 .abv2-pink__stats{
     display:grid;
     grid-template-columns:repeat(2, minmax(0,1fr));
@@ -85,6 +89,12 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
 @media (max-width:1159px) and (min-width:980px){
   .abv2-pink__copy{
         max-width:640px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__copy.abv2-stack > * + *{
+        margin-top:24px;
       }
 }
 
@@ -146,6 +156,12 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 }
 
 @media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy.abv2-stack > * + *{
+        margin-top:22px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
   .abv2-pink__stats{
         max-width:480px;
         gap:20px 28px;
@@ -186,6 +202,12 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
   .abv2-pink__grid{
         grid-template-columns:1fr;
         gap:18px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__copy.abv2-stack > * + *{
+        margin-top:20px;
       }
 }
 
@@ -232,6 +254,10 @@ SOURCE: 2 - council hub page.html / PINK SECTION
 
 .abv2-pink__copy{
     max-width:720px;
+  }
+
+.abv2-pink__copy.abv2-stack > * + *{
+    margin-top:22px;
   }
 
 .abv2-pink__stats{
@@ -286,6 +312,12 @@ SOURCE: 2 - council hub page.html / FOOTER
 @media (max-width:1159px) and (min-width:980px){
   .abv2-pink__copy{
         max-width:640px;
+      }
+}
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-pink__copy.abv2-stack > * + *{
+        margin-top:24px;
       }
 }
 
@@ -347,6 +379,12 @@ SOURCE: 2 - council hub page.html / 760–979 TABLET
 }
 
 @media (max-width:979px) and (min-width:760px){
+  .abv2-pink__copy.abv2-stack > * + *{
+        margin-top:22px;
+      }
+}
+
+@media (max-width:979px) and (min-width:760px){
   .abv2-pink__stats{
         max-width:480px;
         gap:20px 28px;
@@ -387,6 +425,12 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
   .abv2-pink__grid{
         grid-template-columns:1fr;
         gap:18px;
+      }
+}
+
+@media (max-width:759px){
+  .abv2-pink__copy.abv2-stack > * + *{
+        margin-top:20px;
       }
 }
 
@@ -433,6 +477,10 @@ SOURCE: 3- homepage components.html / PINK SECTION
 
 .abv2-pink__copy{
     max-width:780px;
+  }
+
+.abv2-pink__copy.abv2-stack > * + *{
+    margin-top:22px;
   }
 
 .abv2-pink__stats{

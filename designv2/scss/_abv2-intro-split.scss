@@ -41,6 +41,10 @@ SOURCE: 3- homepage components.html / SPLIT INTRO
   max-width:620px;
 }
 
+.abv2-intro-split__copy.abv2-stack > * + *{
+  margin-top:16px;
+}
+
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */

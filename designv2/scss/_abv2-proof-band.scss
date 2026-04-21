@@ -27,6 +27,10 @@ SOURCE: 3- homepage components.html / STATS BAND
   max-width:280px;
 }
 
+.abv2-proof-band__intro.abv2-stack > * + *{
+  margin-top:14px;
+}
+
 .abv2-proof-band__eyebrow{
   margin:0;
   font-family:var(--abv2-ui);

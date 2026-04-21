@@ -4,33 +4,6 @@ Status: unrefined (contains duplicates)
 ======================================== */
 
 /* =========================================================
-SOURCE: 4 - editorial components.html / BLOB / DECORATIVE UTILITIES
-========================================================= */
-.abv2-card--with-blob{
-  position:relative;
-  overflow:visible;
-}
-
-.abv2-card--with-blob::after{
-  content:"";
-  position:absolute;
-  top:-36px;
-  right:-36px;
-  width:150px;
-  height:135px;
-  opacity:.16;
-  background:var(--abv2-teal);
-  -webkit-mask-image:var(--abv2-dot-mask);
-  -webkit-mask-repeat:no-repeat;
-  -webkit-mask-position:center;
-  -webkit-mask-size:contain;
-  mask-image:var(--abv2-dot-mask);
-  mask-repeat:no-repeat;
-  mask-position:center;
-  mask-size:contain;
-}
-
-/* =========================================================
 SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
 ========================================================= */
 .abv2-card__eyebrow{

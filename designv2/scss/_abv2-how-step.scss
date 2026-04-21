@@ -38,6 +38,10 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
   max-width:34ch;
 }
 
+.abv2-how-step__content.abv2-stack > * + *{
+  margin-top:8px;
+}
+
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */

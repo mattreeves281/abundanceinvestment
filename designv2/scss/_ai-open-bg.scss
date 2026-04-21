@@ -1,0 +1,14 @@
+/* ========================================
+COMPONENT: ai-open-bg
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / 5) Open-investments grey band
+========================================================= */
+.ai-open-bg{ background-color: var(--ai-open-bg); }
+
+.ai-open-bg h2,
+.ai-open-bg p{ color:var(--abv2-neutral-454543); }
+
+.ai-open-bg .ai-invest-tick{ box-shadow:0 8px 24px rgba(0,0,0,.08); }

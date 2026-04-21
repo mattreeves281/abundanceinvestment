@@ -1,0 +1,72 @@
+/* ========================================
+COMPONENT: home-choice
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOMEPAGE CHOICE BLOCK
+========================================================= */
+.home-choice{
+  padding:120px 0;
+  position:relative;
+}
+
+.home-choice__wrap{
+  width:min(calc(100% - 36px), 1180px);
+  margin:0 auto;
+}
+
+.home-choice__title{
+  font-family:"New Kansas", Georgia, serif;
+  font-size:clamp(2.2rem, 3.5vw, 3rem);
+  line-height:.95;
+  max-width:14ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / grid
+========================================================= */
+.home-choice__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  margin-top:60px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / item
+========================================================= */
+.home-choice__item{
+  max-width:420px;
+}
+
+.home-choice__item--accent{
+  margin-top:60px; /* 👈 offset = personality */
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / text
+========================================================= */
+.home-choice__eyebrow{
+  font-family:"Sohne Kraftig";
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--abv2-pink);
+  margin-bottom:12px;
+}
+
+.home-choice__heading{
+  font-family:"New Kansas";
+  font-size:1.6rem;
+  line-height:1;
+  margin-bottom:12px;
+}
+
+.home-choice__body{
+  font-family:"Sohne Buch";
+  font-size:1rem;
+  line-height:1.6;
+  color:var(--abv2-text);
+  margin-bottom:18px;
+}
