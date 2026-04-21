@@ -4,9 +4,9 @@ This audit covers non-hex colour usage in `/Users/mattreeves/abundanceinvestment
 
 ## Summary
 
-- Files with non-hex colour usage: `65`
-- `rgba(...)` uses: `211`
-- `transparent`: `36`
+- Files with non-hex colour usage: `73`
+- `rgba(...)` uses: `232`
+- `transparent`: `38`
 - `currentColor`: `3`
 - `inherit` on colour properties: `5`
 - gradient declarations with non-hex stops: `3`
@@ -17,160 +17,74 @@ This audit covers non-hex colour usage in `/Users/mattreeves/abundanceinvestment
 Not all of them should become plain hex tokens.
 
 ### Yes, clean candidates for tokenisation
-- Solid colours that are currently expressed as semi-system overlays and text tones, for example:
-  - `rgba(38,38,37,.08)`
-  - `rgba(38,38,37,.10)`
-  - `rgba(38,38,37,.72)`
-  - `rgba(38,38,37,.78)`
-  - `rgba(223,115,173,.08)`
-  - `rgba(223,115,173,.45)`
-- These should usually become named tokens, but probably as alpha-aware tokens rather than plain solid-colour tokens.
+- Repeated `rgba(...)` colours are good candidates for tokenisation, but usually as alpha-aware tokens rather than plain solid hex tokens.
 
 ### Not ideal as plain hex
-- `rgba(...)` values with alpha:
-  - can technically become 8-digit hex, but that is usually harder to read and maintain
-  - better options are:
-    - explicit alpha tokens like `--abv2-ink-08`
-    - or RGB channel tokens combined with `rgba(var(--token-rgb), .08)` if you want a scalable system
-- `transparent`
-  - should usually stay `transparent`
-  - it is semantic and does not represent a design colour choice
-- `currentColor`
-  - should stay `currentColor`
-  - it is intentionally linked to the current text colour
-- `inherit`
-  - should stay `inherit`
-  - it is behavioural, not a colour value
-- gradients
-  - the stops inside them can be tokenised
-  - but the gradient itself is not replaceable by a single hex token
+- `rgba(...)` with alpha: better as semantic alpha tokens or channel-based tokens than raw 8-digit hex.
+- `transparent`: should usually stay `transparent`.
+- `currentColor`: should usually stay `currentColor`.
+- `inherit`: should usually stay `inherit`.
+- gradients: tokenise the colour stops, not the whole gradient as a single hex token.
 
 ## Most Common Non-Hex Values
 
-- `transparent` -> `36`
-- `rgba(38,38,37,.08)` -> `27`
+- `transparent` -> `38`
+- `rgba(38,38,37,.08)` -> `31`
 - `rgba(38,38,37,.10)` -> `16`
 - `rgba(15,23,42,.08)` -> `10`
 - `rgba(38,38,37,.04)` -> `7`
+- `rgba(38,38,37,.12)` -> `7`
 - `rgba(38,38,37,.78)` -> `7`
 - `inherit` -> `5`
 - `rgba(15,23,42,.06)` -> `5`
 - `rgba(223,115,173,.45)` -> `5`
+- `rgba(38,38,37,.1)` -> `5`
 - `rgba(38,38,37,.14)` -> `5`
 - `rgba(38,38,37,.72)` -> `5`
 - `rgba(18,169,187,.12)` -> `4`
 - `rgba(223,115,173,.08)` -> `4`
 - `rgba(255,255,255,.12)` -> `4`
-- `rgba(38,38,37,.12)` -> `4`
+- `rgba(255,255,255,.84)` -> `4`
+- `rgba(38,38,37,.18)` -> `4`
+- `rgba(38,38,37,.62)` -> `4`
+- `currentColor` -> `3`
 
 ## Hotspot Files
 
-These are the main files to inspect first:
-
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-open-card.scss` -> `41`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_site-navbar.scss` -> `21`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-egp.scss` -> `19`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_council-bar-chart.scss` -> `14`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-ed-open-invest.scss` -> `11`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-related.scss` -> `8`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss` -> `8`
-
-## Notable Patterns
-
-### Ink overlays and borders
-- Repeated across many components:
-  - `rgba(38,38,37,.04)`
-  - `rgba(38,38,37,.08)`
-  - `rgba(38,38,37,.10)`
-  - `rgba(38,38,37,.12)`
-  - `rgba(38,38,37,.14)`
-  - `rgba(38,38,37,.18)`
-- These look like strong candidates for a consistent alpha-token ladder based on ink.
-
-### Ink text tones
-- Repeated text colours:
-  - `rgba(38,38,37,.54)`
-  - `rgba(38,38,37,.62)`
-  - `rgba(38,38,37,.64)`
-  - `rgba(38,38,37,.68)`
-  - `rgba(38,38,37,.72)`
-  - `rgba(38,38,37,.78)`
-  - `rgba(38,38,37,.80)`
-  - `rgba(38,38,37,.82)`
-- These are good candidates for semantic text tokens.
-
-### Brand tint overlays
-- Pink:
-  - `rgba(223,115,173,.08)`
-  - `rgba(223,115,173,.16)`
-  - `rgba(223,115,173,.45)`
-- Teal:
-  - `rgba(18,169,187,.12)`
-  - `rgba(0,164,182,.04)`
-  - `rgba(0,164,182,.06)`
-  - `rgba(0,164,182,.12)`
-  - `rgba(0,164,182,.15)`
-- Yellow:
-  - `rgba(239,181,42,.14)`
-  - `rgba(239,181,42,.16)`
-  - `rgba(239,181,42,.18)`
-  - `rgba(239,181,42,.22)`
-
-### White alpha
-- Repeated white-on-dark treatments:
-  - `rgba(255,255,255,.12)`
-  - `rgba(255,255,255,.14)`
-  - `rgba(255,255,255,.16)`
-  - `rgba(255,255,255,.28)`
-  - `rgba(255,255,255,.82)`
-  - `rgba(255,255,255,.84)`
-  - `rgba(255,255,255,.88)`
-  - `rgba(255,255,255,.90)`
-
-### Dark neutral shadows
-- Used mainly in chart and AI-related components:
-  - `rgba(15,23,42,.06)`
-  - `rgba(15,23,42,.08)`
-  - `rgba(15,23,42,.24)`
-  - `rgba(0,0,0,.04)`
-  - `rgba(0,0,0,.06)`
-  - `rgba(0,0,0,.08)`
-  - `rgba(0,0,0,.12)`
-  - `rgba(0,0,0,.14)`
-  - `rgba(0,0,0,.45)`
+- [_abv2-open-card.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-open-card.scss) -> `41`
+- [_site-navbar.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_site-navbar.scss) -> `21`
+- [_abv2-egp.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-egp.scss) -> `19`
+- [_council-bar-chart.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_council-bar-chart.scss) -> `14`
+- [_abv2-council-live.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-council-live.scss) -> `8`
+- [_abv2-ed-open-invest.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-ed-open-invest.scss) -> `8`
+- [_abv2-related.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-related.scss) -> `8`
+- [buttons.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss) -> `8`
+- [_abv2-compare.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-compare.scss) -> `7`
+- [_abv2-card.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-card.scss) -> `6`
 
 ## Special Cases
 
 ### `currentColor`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss:10`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss:64`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss:106`
-
-These should stay as `currentColor` unless you intentionally want to break the border from the text colour.
+- Usually intentional, especially on button borders.
+- [buttons.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss:10) `1.8px solid currentColor`
+- [buttons.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss:64) `1.8px solid currentColor`
+- [buttons.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/buttons.scss:106) `1.8px solid currentColor`
 
 ### `inherit`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-egp.scss:128`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-legalnotes.scss:41`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-related.scss:178`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/council.scss:22`
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/homepage.scss:22`
+- Usually behavioural and should stay as-is.
+- [_abv2-egp.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-egp.scss:128) `inherit`
+- [_abv2-legalnotes.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-legalnotes.scss:41) `inherit`
+- [_abv2-related.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-related.scss:178) `inherit`
+- [council.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/council.scss:22) `inherit`
+- [homepage.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/homepage.scss:22) `inherit`
 
-These should stay as `inherit`.
-
-### Gradient with tokenisable stops
-- `/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-ed-open-invest.scss:165`
-
-This is the main place where colour is embedded inside a gradient:
-
-- `linear-gradient(90deg, rgba(226,109,166,.24), rgba(18,169,187,.12), rgba(239,181,42,.18))`
-
-The stops can be tokenised, but the gradient itself is not a single colour token.
+### Gradients with tokenisable stops
+- [_abv2-ed-open-invest.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-ed-open-invest.scss:13) `linear-gradient(180deg, var(--abv2-cream-fffdfa) 0%, var(--abv2-white) 100%)`
+- [_abv2-ed-open-invest.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-ed-open-invest.scss:165) `linear-gradient(90deg, rgba(226,109,166,.24), rgba(18,169,187,.12), rgba(239,181,42,.18))`
+- [_abv2-egp.scss](/Users/mattreeves/abundanceinvestment/designv2/scss/_abv2-egp.scss:332) `linear-gradient(90deg, var(--abv2-stone-f6f2ef) 25%, var(--abv2-stone-efe9e5) 50%, var(--abv2-stone-f6f2ef) 75%)`
 
 ## Recommendation
-
-For a cleanup pass, the safest approach is:
 
 1. Create alpha-aware colour tokens for repeated `rgba(...)` values.
 2. Keep `transparent`, `currentColor`, and `inherit` as-is.
 3. Tokenise gradient stops individually where they recur.
-4. Consider a semantic token layer for muted ink text values and soft borders/shadows.
