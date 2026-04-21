@@ -80,7 +80,7 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
 
 .abv2-related__link:hover .abv2-related__label,
 .abv2-related__link:focus .abv2-related__label{
-  color:#fff6d9;
+  color:var(--abv2-yellow-fff6d9);
 }
 
 .abv2-related__label{
@@ -173,7 +173,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   padding:18px 18px 16px;
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:18px;
-  background:#fff;
+  background:var(--abv2-white);
   text-decoration:none;
   color:inherit;
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
@@ -194,7 +194,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.05em;
-  color:#724795;
+  color:var(--abv2-purple-724795);
 }
 
 .abv2-related__title{

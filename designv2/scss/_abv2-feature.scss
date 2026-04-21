@@ -16,7 +16,7 @@ SOURCE: 1 - hompeage base responsive.html / FEATURES
     width:76px;
     height:76px;
     margin-bottom:12px;
-    background-color:#e774ad;
+    background-color:var(--abv2-pink-e774ad);
     -webkit-mask-image:var(--abv2-dot-mask);
     -webkit-mask-repeat:no-repeat;
     -webkit-mask-position:center;
@@ -32,11 +32,11 @@ SOURCE: 1 - hompeage base responsive.html / FEATURES
     color:var(--abv2-white);
   }
 
-.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:var(--abv2-pink-e774ad); }
 
-.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:var(--abv2-yellow); }
 
-.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:var(--abv2-teal-1ea4b8); }
 
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
@@ -107,7 +107,7 @@ SOURCE: 2 - council hub page.html / FEATURES
     width:76px;
     height:76px;
     margin-bottom:12px;
-    background-color:#e774ad;
+    background-color:var(--abv2-pink-e774ad);
     -webkit-mask-image:var(--abv2-dot-mask);
     -webkit-mask-repeat:no-repeat;
     -webkit-mask-position:center;
@@ -123,11 +123,11 @@ SOURCE: 2 - council hub page.html / FEATURES
     color:var(--abv2-white);
   }
 
-.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:var(--abv2-pink-e774ad); }
 
-.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:var(--abv2-yellow); }
 
-.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:var(--abv2-teal-1ea4b8); }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / 760–979 TABLET
@@ -204,7 +204,7 @@ SOURCE: 3- homepage components.html / FEATURES
   background-position:center;
   background-size:contain;
 
-  color:#fff;
+  color:var(--abv2-white);
   font-family:var(--abv2-serif);
   font-size:2rem;
   font-weight:600;
@@ -214,11 +214,11 @@ SOURCE: 3- homepage components.html / FEATURES
 /* =========================================================
 SOURCE: 3- homepage components.html / colour via background-color layer
 ========================================================= */
-.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:var(--abv2-pink-e774ad); }
 
-.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:var(--abv2-yellow); }
 
-.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:var(--abv2-teal-1ea4b8); }
 
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE
@@ -257,7 +257,7 @@ SOURCE: 3- homepage components.html / FEATURES DOT SHAPES
   height:76px;
   margin-bottom:14px;
 
-  background-color:#e774ad;
+  background-color:var(--abv2-pink-e774ad);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;
@@ -274,11 +274,11 @@ SOURCE: 3- homepage components.html / FEATURES DOT SHAPES
   color:var(--abv2-white);
 }
 
-.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:#e774ad; }
+.abv2-feature:nth-child(1) .abv2-feature__num{ background-color:var(--abv2-pink-e774ad); }
 
-.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:#efb52a; }
+.abv2-feature:nth-child(2) .abv2-feature__num{ background-color:var(--abv2-yellow); }
 
-.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:#1ea4b8; }
+.abv2-feature:nth-child(3) .abv2-feature__num{ background-color:var(--abv2-teal-1ea4b8); }
 
 @media (max-width:759px){
   .abv2-feature__num{

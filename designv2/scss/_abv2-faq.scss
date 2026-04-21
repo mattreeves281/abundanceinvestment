@@ -14,7 +14,7 @@ SOURCE: 4 - editorial components.html / faq
 .abv2-faq__item{
   border:1.5px solid rgba(38,38,37,.10);
   border-radius:18px;
-  background:#fff;
+  background:var(--abv2-white);
   overflow:hidden;
 }
 

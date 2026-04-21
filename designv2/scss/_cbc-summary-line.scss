@@ -14,16 +14,16 @@ SOURCE: 2 - council hub page.html / Summary pills
   font-size:.9rem;
   font-weight:700;
   line-height:1.2;
-  color:#fff;
+  color:var(--abv2-white);
   white-space:nowrap;
   margin:0 !important;
 }
 
-#council-bar-chart .cbc-summary-line:nth-child(1){ background:#e26da6; }
+#council-bar-chart .cbc-summary-line:nth-child(1){ background:var(--abv2-pink-e26da6); }
 
-#council-bar-chart .cbc-summary-line:nth-child(2){ background:#00a4b6; }
+#council-bar-chart .cbc-summary-line:nth-child(2){ background:var(--abv2-teal-00a4b6); }
 
-#council-bar-chart .cbc-summary-line:nth-child(3){ background:#e2961c; }
+#council-bar-chart .cbc-summary-line:nth-child(3){ background:var(--abv2-ochre-e2961c); }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / Mobile

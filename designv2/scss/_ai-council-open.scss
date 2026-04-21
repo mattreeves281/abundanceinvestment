@@ -8,7 +8,7 @@ SOURCE: 2 - council hub page.html / open investment
 ========================================================= */
 .ai-council-open{
   padding:74px 0 86px;
-  background:#e8e3e2;
+  background:var(--abv2-stone-e8e3e2);
   border-radius:0 0 46% 46% / 0 0 10% 10%;
 }
 
@@ -27,7 +27,7 @@ SOURCE: 2 - council hub page.html / open investment
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:clamp(2rem,3vw,2.5rem);
   line-height:1.04;
-  color:#454543;
+  color:var(--abv2-neutral-454543);
 }
 
 .ai-council-open__intro p{
@@ -36,7 +36,7 @@ SOURCE: 2 - council hub page.html / open investment
   font-family:"Sohne Buch", Arial, sans-serif;
   font-size:1rem;
   line-height:1.56;
-  color:#4d4a46;
+  color:var(--abv2-text);
 }
 
 /* =========================================================

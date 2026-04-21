@@ -21,7 +21,7 @@ SOURCE: 2 - council hub page.html / Click row
   cursor:pointer;
   padding:14px 16px;
   display:block;
-  background:#fff;
+  background:var(--abv2-white);
 }
 
 #council-bar-chart .cbc-proj__sum::-webkit-details-marker{ display:none; }
@@ -37,22 +37,22 @@ SOURCE: 2 - council hub page.html / Category pill
   font-size:.82rem;
   font-weight:800;
   line-height:1.1;
-  color:#fff;
+  color:var(--abv2-white);
   margin:0 0 8px;
   white-space:nowrap;
 }
 
-#council-bar-chart .cbc-proj__pill--orange{ background:#e2961c; }
+#council-bar-chart .cbc-proj__pill--orange{ background:var(--abv2-ochre-e2961c); }
 
-#council-bar-chart .cbc-proj__pill--pink{ background:#e26da6; }
+#council-bar-chart .cbc-proj__pill--pink{ background:var(--abv2-pink-e26da6); }
 
-#council-bar-chart .cbc-proj__pill--blue{ background:#00a4b6; }
+#council-bar-chart .cbc-proj__pill--blue{ background:var(--abv2-teal-00a4b6); }
 
-#council-bar-chart .cbc-proj__pill--purple{ background:#724795; }
+#council-bar-chart .cbc-proj__pill--purple{ background:var(--abv2-purple-724795); }
 
-#council-bar-chart .cbc-proj__pill--teal{ background:#07828f; }
+#council-bar-chart .cbc-proj__pill--teal{ background:var(--abv2-teal-07828f); }
 
-#council-bar-chart .cbc-proj__pill--grey{ background:#6b7280; }
+#council-bar-chart .cbc-proj__pill--grey{ background:var(--abv2-grey-6b7280); }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / Title row: name left, amount + chevron right
@@ -68,7 +68,7 @@ SOURCE: 2 - council hub page.html / Title row: name left, amount + chevron right
   margin:0;
   font-size:.95rem;
   font-weight:700;
-  color:#454543;
+  color:var(--abv2-neutral-454543);
   line-height:1.25;
   flex:1 1 auto;
   min-width:0;
@@ -88,7 +88,7 @@ SOURCE: 2 - council hub page.html / Amount: bold text, no pill
   display:inline-block;
   font-size:1rem;
   font-weight:900;
-  color:#454543;
+  color:var(--abv2-neutral-454543);
   line-height:1.1;
   white-space:nowrap;
 }
@@ -100,7 +100,7 @@ SOURCE: 2 - council hub page.html / Chevron
   width:20px;
   height:20px;
   flex:0 0 20px;
-  color:#111827;
+  color:var(--abv2-navy-111827);
   opacity:.7;
   transform:rotate(0deg);
   transition:transform .2s ease;
@@ -115,7 +115,7 @@ SOURCE: 2 - council hub page.html / Expanded description
 ========================================================= */
 #council-bar-chart .cbc-proj__body{
   padding:0 16px 16px;
-  color:#454543;
+  color:var(--abv2-neutral-454543);
   opacity:.92;
   line-height:1.45;
 }
@@ -139,7 +139,7 @@ SOURCE: 2 - council hub page.html / Optional small helper line (only used if you
 SOURCE: 2 - council hub page.html / Pills now take their background colour inline from JS
 ========================================================= */
 #council-bar-chart .cbc-proj__pill{
-  color:#111827;                 /* dark text for pastel backgrounds */
+  color:var(--abv2-navy-111827);                 /* dark text for pastel backgrounds */
   box-shadow:0 1px 0 rgba(0,0,0,.06);
   border:1px solid rgba(17,24,39,.10);
 }
@@ -150,7 +150,7 @@ SOURCE: 2 - council hub page.html / Top projects description
 .cbc-proj__body {
   font-size: 0.95rem;          /* slightly smaller */
   line-height: 1.55;           /* tighter but still readable */
-  color: #4c4c4a;              /* optional – keeps it softer than title */
+  color: var(--abv2-neutral-4c4c4a);              /* optional – keeps it softer than title */
 }
 
 /* =========================================================
@@ -165,7 +165,7 @@ SOURCE: 2 - council hub page.html / Improve spacing when <br> exists in descript
 .cbc-proj__body {
   font-size: 0.95rem;
   line-height: 1.55;
-  color: #4c4c4a;
+  color: var(--abv2-neutral-4c4c4a);
 }
 
 .cbc-proj__body p {

@@ -8,7 +8,7 @@ SOURCE: 2 - council hub page.html / history band
 ========================================================= */
 .ai-council-history{
   padding:76px 0 84px;
-  background:#efcfdf;
+  background:var(--abv2-pink-efcfdf);
   border-radius:46% 46% 0 0 / 10% 10% 0 0;
 }
 
@@ -23,7 +23,7 @@ SOURCE: 2 - council hub page.html / history band
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:clamp(2rem,3vw,2.5rem);
   line-height:1.05;
-  color:#454543;
+  color:var(--abv2-neutral-454543);
 }
 
 /* =========================================================

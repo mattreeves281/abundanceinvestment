@@ -19,7 +19,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   padding:14px 16px;
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:16px;
-  background:#fffdfa;
+  background:var(--abv2-cream-fffdfa);
   text-decoration:none;
   color:var(--abv2-ink);
   transition:transform .18s ease, border-color .18s ease, background .18s ease;
@@ -28,7 +28,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 .abv2-toc__link:hover{
   transform:translateY(-1px);
   border-color:rgba(226,109,166,.34);
-  background:#fff;
+  background:var(--abv2-white);
 }
 
 .abv2-toc__label{

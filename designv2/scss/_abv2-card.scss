@@ -39,7 +39,7 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
   padding:5px 10px;
   border-radius:999px;
   background:rgba(0,164,182,.10);
-  color:#07828f;
+  color:var(--abv2-teal-07828f);
   font-size:.78rem;
   font-weight:700;
   letter-spacing:.01em;
@@ -47,17 +47,17 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
 
 .abv2-card__eyebrow--compare{
   background:rgba(0,164,182,.12);
-  color:#07828f;
+  color:var(--abv2-teal-07828f);
 }
 
 .abv2-card__eyebrow--risk{
   background:rgba(226,109,166,.12);
-  color:#a93f77;
+  color:var(--abv2-pink-a93f77);
 }
 
 .abv2-card__eyebrow--data{
   background:rgba(239,181,42,.16);
-  color:#8d6707;
+  color:var(--abv2-ochre-8d6707);
 }
 
 /* =========================================================
@@ -66,7 +66,7 @@ SOURCE: 4 - editorial components.html / DECISION SUPPORT
 .abv2-card{
   border:1.5px solid rgba(38,38,37,.12);
   border-radius:24px;
-  background:#fff;
+  background:var(--abv2-white);
   box-shadow:0 10px 30px rgba(38,38,37,.05);
 }
 

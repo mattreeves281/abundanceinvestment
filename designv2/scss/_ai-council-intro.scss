@@ -8,7 +8,7 @@ SOURCE: 2 - council hub page.html / intro/video section
 ========================================================= */
 .ai-council-intro{
   padding:62px 0 48px;
-  background:#f6f3f2;
+  background:var(--abv2-stone-f6f3f2);
 }
 
 .ai-council-intro__rail{
@@ -27,7 +27,7 @@ SOURCE: 2 - council hub page.html / intro/video section
   font-family:"Sohne Buch", Arial, sans-serif;
   font-size:1.02rem;
   line-height:1.62;
-  color:#4d4a46;
+  color:var(--abv2-text);
 }
 
 /* =========================================================

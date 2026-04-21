@@ -11,7 +11,7 @@ SOURCE: 3- homepage components.html / END OF PAGE CTA
   z-index:1;
   padding-top:84px;
   padding-bottom:96px;
-  background:#fff;
+  background:var(--abv2-white);
 }
 
 .abv2-end-cta__inner{
@@ -141,7 +141,7 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
 .abv2-end-cta__band{
   padding:22px 22px 24px;
   border-top:1px solid rgba(38,38,37,.08);
-  background:#f3f9fa;
+  background:var(--abv2-teal-f3f9fa);
 }
 
 .abv2-end-cta__title{

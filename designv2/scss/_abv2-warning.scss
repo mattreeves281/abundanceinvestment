@@ -19,7 +19,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
   padding:14px 16px;
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:16px;
-  background:#fffdfa;
+  background:var(--abv2-cream-fffdfa);
 }
 
 .abv2-warning__mark{
@@ -28,7 +28,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
   display:grid;
   place-items:center;
   background:rgba(239,181,42,.22);
-  color:#7c5b0a;
+  color:var(--abv2-ochre-7c5b0a);
   font-family:var(--abv2-ui);
   font-size:.88rem;
   font-weight:700;

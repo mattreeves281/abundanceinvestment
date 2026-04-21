@@ -18,13 +18,13 @@ SOURCE: 2 - council hub page.html / Council homepage hero — formal logo badge 
   min-height:250px;
   padding:30px;
   border-radius:28px;
-  background:#ffffff; /* keep logo on clean white */
+  background:var(--abv2-white); /* keep logo on clean white */
   box-shadow:0 12px 28px rgba(15,23,42,.08);
   border:1px solid rgba(15,23,42,.08);
 }
 
 .ai-council-heroBadge__box--solid{
-  background:#f3f4f6; /* optional alternative if you want a solid colour field */
+  background:var(--abv2-grey-f3f4f6); /* optional alternative if you want a solid colour field */
 }
 
 .ai-council-heroBadge__box img{
@@ -44,7 +44,7 @@ SOURCE: 2 - council hub page.html / Council homepage hero — formal logo badge 
   line-height:1.2;
   letter-spacing:.04em;
   text-transform:uppercase;
-  color:#4d4a46;
+  color:var(--abv2-text);
 }
 
 @media (max-width:991.98px){

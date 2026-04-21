@@ -26,7 +26,7 @@ SOURCE: 1 - hompeage base responsive.html
   }
 
 :root{
-    --abv2-bg:#ffffff;
+    --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
     --abv2-ink:#262625;
     --abv2-text:#4d4a46;
@@ -115,7 +115,7 @@ SOURCE: 2 - council hub page.html
   }
 
 :root{
-    --abv2-bg:#ffffff;
+    --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
     --abv2-ink:#262625;
     --abv2-text:#4d4a46;
@@ -180,7 +180,7 @@ SOURCE: 2 - council hub page.html
 SOURCE: 2 - council hub page.html / 5) Open-investments grey band
 ========================================================= */
 :root{
-  --ai-open-bg: #e9e4e3; /* change this to test other greys */
+  --ai-open-bg: var(--abv2-stone-e9e4e3); /* change this to test other greys */
 }
 
 /* =========================================================
@@ -211,7 +211,7 @@ SOURCE: 3- homepage components.html
   }
 
 :root{
-    --abv2-bg:#ffffff;
+    --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
     --abv2-ink:#262625;
     --abv2-text:#4d4a46;
@@ -337,14 +337,14 @@ SOURCE: 4 - editorial components.html
   }
 
 :root{
-    --abv2-bg:#ffffff;
+    --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
     --abv2-ink:#262625;
     --abv2-text:#4d4a46;
     --abv2-pink:#df73ad;
     --abv2-yellow:#efb52a;
     --abv2-teal:#12a9bb;
-    --abv2-editorial-bg:#ffffff;
+    --abv2-editorial-bg:var(--abv2-white);
 
     --abv2-wrap:1180px;
     --abv2-editorial-rail:760px;

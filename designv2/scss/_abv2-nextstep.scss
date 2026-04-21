@@ -14,7 +14,7 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
   padding:20px 22px;
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:18px;
-  background:#fffdfa;
+  background:var(--abv2-cream-fffdfa);
 }
 
 .abv2-nextstep__copy{
@@ -30,7 +30,7 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
   font-weight:700;
   letter-spacing:.05em;
   text-transform:uppercase;
-  color:#724795;
+  color:var(--abv2-purple-724795);
 }
 
 .abv2-nextstep__title{

@@ -8,7 +8,7 @@ SOURCE: 2 - council hub page.html / image panel
 ========================================================= */
 .ai-council-photo{
   padding:74px 0 82px;
-  background:#f6f3f2;
+  background:var(--abv2-stone-f6f3f2);
 }
 
 .ai-council-photo__inner{
@@ -21,7 +21,7 @@ SOURCE: 2 - council hub page.html / image panel
   margin:0 auto;
   border-radius:12px;
   overflow:hidden;
-  background:#fff;
+  background:var(--abv2-white);
   box-shadow:none;
 }
 
@@ -36,7 +36,7 @@ SOURCE: 2 - council hub page.html / image panel
   font-family:"Sohne Buch", Arial, sans-serif;
   font-size:.84rem;
   line-height:1.45;
-  color:#4d4a46;
+  color:var(--abv2-text);
 }
 
 /* =========================================================

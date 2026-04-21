@@ -14,7 +14,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   padding:18px 20px;
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:18px;
-  background:#faf8f8;
+  background:var(--abv2-stone-faf8f8);
 }
 
 .abv2-backtop__copy{
@@ -46,7 +46,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   padding:10px 16px;
   border-radius:999px;
   border:1.5px solid rgba(38,38,37,.10);
-  background:#fff;
+  background:var(--abv2-white);
   text-decoration:none;
   font-family:var(--abv2-ui);
   font-size:.84rem;

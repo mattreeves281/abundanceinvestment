@@ -11,7 +11,7 @@ SOURCE: 3- homepage components.html / INLINE CTA
   z-index:1;
   padding-top:26px;
   padding-bottom:34px;
-  background:#fff;
+  background:var(--abv2-white);
 }
 
 .abv2-inline-cta__inner{
@@ -87,6 +87,6 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
 }
 
 .abv2-inline-cta:hover{
-  color:#b24e82;
-  border-color:#b24e82;
+  color:var(--abv2-pink-b24e82);
+  border-color:var(--abv2-pink-b24e82);
 }

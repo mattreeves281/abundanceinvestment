@@ -8,7 +8,7 @@ SOURCE: 2 - council hub page.html
 
 .abv2-home{
     position:relative;
-    background:#fff;
+    background:var(--abv2-white);
     color:var(--abv2-ink);
   }
 
@@ -171,7 +171,7 @@ SOURCE: 2 - council hub page.html / 5) Open-investments grey band
 .ai-open-bg{ background-color: var(--ai-open-bg); }
 
 .ai-open-bg h2,
-.ai-open-bg p{ color:#454543; }
+.ai-open-bg p{ color:var(--abv2-neutral-454543); }
 
 .ai-open-bg .ai-invest-tick{ box-shadow:0 8px 24px rgba(0,0,0,.08); }
 
@@ -241,7 +241,7 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 SOURCE: 2 - council hub page.html / COUNCIL PAGE V2 — targeted second pass add AFTER homepage base + council css
 ========================================================= */
 .ai-council-page{
-  background:#f6f3f2;
+  background:var(--abv2-stone-f6f3f2);
 }
 
 /* =========================================================
@@ -261,7 +261,7 @@ SOURCE: 2 - council hub page.html / quieter chart skin
 }
 
 .ai-council-page #council-bar-chart .cbc-card{
-  background:#fff;
+  background:var(--abv2-white);
   border-radius:18px;
   box-shadow:none;
   padding:20px 22px;
@@ -281,12 +281,12 @@ SOURCE: 2 - council hub page.html / quieter chart skin
 
 .ai-council-page #council-bar-chart .cbc-logo-badge{
   box-shadow:none;
-  background:#e6f0e3;
+  background:var(--abv2-green-e6f0e3);
   border:0;
 }
 
 .ai-council-page #council-bar-chart .cbc-bar-wrapper{
-  background:#efebea;
+  background:var(--abv2-stone-efebea);
   height:34px;
 }
 

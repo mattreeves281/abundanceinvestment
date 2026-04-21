@@ -8,7 +8,7 @@ SOURCE: 1 - hompeage base responsive.html
 
 .abv2-home{
     position:relative;
-    background:#fff;
+    background:var(--abv2-white);
     color:var(--abv2-ink);
   }
 
@@ -48,7 +48,7 @@ SOURCE: 3- homepage components.html
 
 .abv2-home{
     position:relative;
-    background:#fff;
+    background:var(--abv2-white);
     color:var(--abv2-ink);
   }
 
@@ -97,11 +97,11 @@ SOURCE: 3- homepage components.html / HOMEPAGE CTA (TEAL / PINK SECTION STYLE)
   position:relative;
   overflow:hidden;
   padding:180px 0 180px;
-  color:#fff;
+  color:var(--abv2-white);
 }
 
 .home-cta--teal{
-  background:#12a9bb;
+  background:var(--abv2-teal);
   clip-path:polygon(
     0 12%,
     34% 24%,
@@ -113,7 +113,7 @@ SOURCE: 3- homepage components.html / HOMEPAGE CTA (TEAL / PINK SECTION STYLE)
 }
 
 .home-cta--pink{
-  background:#df73ad;
+  background:var(--abv2-pink);
   clip-path:polygon(
     0 18%,
     30% 28%,
@@ -202,7 +202,7 @@ SOURCE: 3- homepage components.html / buttons
   border:1.8px solid rgba(255,255,255,.9);
 
   background:transparent;
-  color:#fff;
+  color:var(--abv2-white);
 
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:.84rem;
@@ -262,7 +262,7 @@ SOURCE: 3- homepage components.html / text
   font-size:.75rem;
   text-transform:uppercase;
   letter-spacing:.06em;
-  color:#df73ad;
+  color:var(--abv2-pink);
   margin-bottom:12px;
 }
 
@@ -277,7 +277,7 @@ SOURCE: 3- homepage components.html / text
   font-family:"Sohne Buch";
   font-size:1rem;
   line-height:1.6;
-  color:#4d4a46;
+  color:var(--abv2-text);
   margin-bottom:18px;
 }
 
@@ -336,7 +336,7 @@ SOURCE: 3- homepage components.html / text
   font-size:.75rem;
   letter-spacing:.06em;
   text-transform:uppercase;
-  color:#df73ad;
+  color:var(--abv2-pink);
   margin-bottom:12px;
 }
 
@@ -351,7 +351,7 @@ SOURCE: 3- homepage components.html / text
   font-family:"Sohne Buch";
   font-size:1rem;
   line-height:1.6;
-  color:#4d4a46;
+  color:var(--abv2-text);
   margin-bottom:18px;
 }
 
@@ -369,7 +369,7 @@ SOURCE: 3- homepage components.html / list
   padding-left:18px;
   margin-bottom:10px;
   font-size:.95rem;
-  color:#4d4a46;
+  color:var(--abv2-text);
 }
 
 .home-choice-v2__list li::before{
@@ -380,7 +380,7 @@ SOURCE: 3- homepage components.html / list
   width:6px;
   height:6px;
   border-radius:50%;
-  background:#df73ad;
+  background:var(--abv2-pink);
 }
 
 /* =========================================================

@@ -8,7 +8,7 @@ SOURCE: 2 - council hub page.html / quote
 ========================================================= */
 .ai-council-quote{
   padding:22px 0 62px;
-  background:#f6f3f2;
+  background:var(--abv2-stone-f6f3f2);
 }
 
 .ai-council-quote__inner{
@@ -34,7 +34,7 @@ SOURCE: 2 - council hub page.html / quote
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:1.6rem;
   line-height:1.28;
-  color:#454543;
+  color:var(--abv2-neutral-454543);
 }
 
 .ai-council-quote__text + .ai-council-quote__text{
@@ -61,7 +61,7 @@ SOURCE: 2 - council hub page.html / quote
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:1rem;
   line-height:1.2;
-  color:#262625;
+  color:var(--abv2-ink);
 }
 
 .ai-council-quote__role{
@@ -70,7 +70,7 @@ SOURCE: 2 - council hub page.html / quote
   font-family:"Sohne Buch", Arial, sans-serif;
   font-size:.8rem;
   line-height:1.4;
-  color:#6a6661;
+  color:var(--abv2-neutral-6a6661);
 }
 
 /* =========================================================

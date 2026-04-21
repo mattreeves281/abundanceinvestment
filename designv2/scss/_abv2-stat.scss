@@ -99,17 +99,17 @@ SOURCE: 4 - editorial components.html / stats
   padding:18px 16px 18px;
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:22px;
-  background:#faf8f8;
+  background:var(--abv2-stone-faf8f8);
   box-shadow:none;
 }
 
-.abv2-stat:nth-child(1){ background:#f8d9e8; }
+.abv2-stat:nth-child(1){ background:var(--abv2-pink-f8d9e8); }
 
-.abv2-stat:nth-child(2){ background:#dff4f6; }
+.abv2-stat:nth-child(2){ background:var(--abv2-teal-dff4f6); }
 
-.abv2-stat:nth-child(3){ background:#f6e7c8; }
+.abv2-stat:nth-child(3){ background:var(--abv2-ochre-f6e7c8); }
 
-.abv2-stat:nth-child(4){ background:#f3edf9; }
+.abv2-stat:nth-child(4){ background:var(--abv2-purple-f3edf9); }
 
 .abv2-stat__label{
   display:flex;

@@ -16,7 +16,7 @@ SOURCE: 2 - council hub page.html / 4) Use-of-funds chart (cbc-*)
   overflow:hidden;
   box-shadow:0 8px 20px rgba(15,23,42,.08);
   border:1px solid rgba(15,23,42,.06);
-  background:#f3f4f6;
+  background:var(--abv2-grey-f3f4f6);
 }
 
 #council-bar-chart .cbc-logo-badge img{
@@ -46,7 +46,7 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
   border-radius:20px;
   box-shadow:none;
   border:1px solid rgba(15,23,42,.08);
-  background:#ffffff;
+  background:var(--abv2-white);
 }
 
 @media (max-width:640px){
