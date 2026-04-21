@@ -1,0 +1,195 @@
+/* ========================================
+COMPONENT: abv2-council-story
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / TEAL STORY SECTION — final lower-angle version
+========================================================= */
+.abv2-council-story{
+  position:relative;
+  overflow:hidden;
+  background:var(--abv2-teal);
+  color:var(--abv2-white);
+  padding-top:224px;
+  padding-bottom:238px;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+}
+
+.abv2-council-story > *{
+  position:relative;
+  z-index:1;
+}
+
+.abv2-council-story::before,
+.abv2-council-story::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  background:var(--abv2-white);
+  z-index:0;
+  pointer-events:none;
+}
+
+.abv2-council-story::before{
+  top:0;
+  height:150px;
+  clip-path:polygon(
+    0 0,
+    100% 0,
+    100% 8%,
+    34% 100%,
+    0 70%
+  );
+}
+
+.abv2-council-story::after{
+  bottom:0;
+  height:150px;
+  clip-path:polygon(
+    0 30%,
+    60% 0,
+    100% 16%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.abv2-council-story__grid{
+  display:grid;
+  grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
+  gap:64px;
+  align-items:center;
+}
+
+.abv2-council-story__media{
+  display:flex;
+  justify-content:flex-start;
+}
+
+.abv2-council-story__frame{
+  width:min(100%, 600px);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 16px 36px rgba(0,0,0,.12);
+}
+
+.abv2-council-story__frame img{
+  display:block;
+  width:100%;
+  aspect-ratio:1.38/1;
+  object-fit:cover;
+}
+
+.abv2-council-story__copy{
+  max-width:760px;
+}
+
+.abv2-council-story__copy.abv2-stack > * + *{
+  margin-top:24px;
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-council-story{
+      padding-top:156px;
+      padding-bottom:168px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-council-story__copy{
+      max-width:680px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-council-story::before,
+    .abv2-council-story::after{
+      height:120px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-council-story::before{
+      clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 6%,
+        24% 100%,
+        0 68%
+      );
+    }
+}
+
+@media (max-width:979px){
+  .abv2-council-story::after{
+      clip-path:polygon(
+        0 28%,
+        60% 0,
+        100% 12%,
+        100% 100%,
+        0 100%
+      );
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-story{
+      padding-top:118px;
+      padding-bottom:118px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-story::before,
+    .abv2-council-story::after{
+      height:86px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-story::before{
+      clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 5%,
+        24% 100%,
+        0 72%
+      );
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-story::after{
+      clip-path:polygon(
+        0 30%,
+        58% 0,
+        100% 10%,
+        100% 100%,
+        0 100%
+      );
+    }
+}
+
+.abv2-council-story{
+  position:relative;
+  overflow:hidden;
+  background:var(--abv2-teal);
+  color:var(--abv2-white);
+  padding-top:224px;
+  padding-bottom:238px;
+  clip-path:var(--abv2-council-teal-clip);
+  -webkit-clip-path:var(--abv2-council-teal-clip);
+}
+
+@media (max-width:979px){
+  .abv2-council-story{
+      clip-path:var(--abv2-council-teal-clip-mobile);
+      -webkit-clip-path:var(--abv2-council-teal-clip-mobile);
+    }
+}

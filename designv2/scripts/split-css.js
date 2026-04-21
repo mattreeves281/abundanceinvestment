@@ -22,11 +22,16 @@ const SOURCE_FILES = [
     filename: "4 - editorial components.html",
     route: "editorial",
   },
+  {
+    filename: "5 - council landing page v2",
+    route: "council",
+  },
 ];
 
 const FOUNDATION_ORDER = ["tokens", "base", "shell", "type", "layout", "buttons"];
 const ROUTE_ROOTS = new Set([
   "abv2-home",
+  "abv2-council",
   "abv2-editorial",
   "ai-council-page",
   "ai-scope",

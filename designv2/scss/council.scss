@@ -29,3 +29,80 @@ SOURCE: 2 - council hub page.html / COUNCIL PAGE V2 — targeted second pass add
 .ai-council-page{
   background:var(--abv2-stone-f6f3f2);
 }
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / COUNCIL LANDING PAGE — CLEAN BASE de-duped winner pass only
+========================================================= */
+.abv2-council{
+  background:var(--abv2-white);
+  color:var(--abv2-ink);
+
+  --abv2-council-pink-clip:polygon(
+    0 12%,
+    30% 20%,
+    100% 0,
+    100% 86%,
+    60% 76%,
+    0 100%
+  );
+
+  --abv2-council-teal-clip:polygon(
+    0 10%,
+    34% 18%,
+    100% 0,
+    100% 86%,
+    60% 76%,
+    0 100%
+  );
+
+  --abv2-council-pink-clip-mobile:polygon(
+    0 5%,
+    24% 8%,
+    100% 0,
+    100% 95%,
+    58% 89%,
+    0 100%
+  );
+
+  --abv2-council-teal-clip-mobile:polygon(
+    0 4%,
+    24% 7%,
+    100% 0,
+    100% 95%,
+    60% 89%,
+    0 100%
+  );
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-council-hero__grid,
+    .abv2-council-live__grid,
+    .abv2-council-story__grid,
+    .abv2-council-proof__grid{
+      grid-template-columns:1fr;
+      gap:30px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-live__copy,
+    .abv2-council-story__copy,
+    .abv2-council-uof__intro,
+    .abv2-council-history__intro,
+    .abv2-council-proof__copy{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin-left:auto;
+      margin-right:auto;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-story__media,
+    .abv2-council-proof__media{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+    }
+}

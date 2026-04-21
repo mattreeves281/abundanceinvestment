@@ -1,0 +1,75 @@
+/* ========================================
+COMPONENT: abv2-council-proof
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / PROOF / LEARN MORE
+========================================================= */
+.abv2-council-proof{
+  padding-top:92px;
+  padding-bottom:132px;
+  background:var(--abv2-white);
+}
+
+.abv2-council-proof__grid{
+  display:grid;
+  grid-template-columns:minmax(360px,.96fr) minmax(0,1.04fr);
+  gap:56px;
+  align-items:center;
+  width:min(100%, 1080px);
+  margin:0 auto;
+}
+
+.abv2-council-proof__media{
+  display:flex;
+  justify-content:flex-start;
+}
+
+.abv2-council-proof__frame{
+  width:min(100%, 600px);
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.abv2-council-proof__frame img{
+  display:block;
+  width:100%;
+  aspect-ratio:1.22/1;
+  object-fit:cover;
+}
+
+.abv2-council-proof__copy{
+  max-width:620px;
+}
+
+.abv2-council-proof__copy.abv2-stack > * + *{
+  margin-top:20px;
+}
+
+.abv2-council-proof__eyebrow{
+  margin:0;
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--abv2-pink);
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-council-proof{
+      padding-top:72px;
+      padding-bottom:100px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-proof{
+      padding-top:56px;
+      padding-bottom:84px;
+    }
+}

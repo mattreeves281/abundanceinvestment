@@ -1,0 +1,146 @@
+/* ========================================
+COMPONENT: abv2-council-hero
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / HERO — final boring / clean version
+========================================================= */
+.abv2-council-hero{
+  position:relative;
+  z-index:1;
+  padding-top:54px;
+  padding-bottom:48px;
+  background:var(--abv2-white);
+}
+
+.abv2-council-hero__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.72fr);
+  gap:56px;
+  align-items:start;
+}
+
+.abv2-council-hero__copy{
+  position:relative;
+  z-index:1;
+  max-width:760px;
+  transform:none;
+}
+
+.abv2-council-hero__copy.abv2-stack > * + *{
+  margin-top:20px;
+}
+
+.abv2-council-hero__eyebrow{
+  margin:0;
+  font-family:var(--abv2-ui);
+  font-size:.76rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--abv2-teal);
+}
+
+.abv2-council-hero__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  padding-top:4px;
+}
+
+.abv2-council-hero__art{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  margin:0;
+  margin-top:-12px;
+  padding-top:clamp(18px, 2.5vw, 32px);
+}
+
+.abv2-council-hero__logoBlock{
+  width:100%;
+  min-height:auto;
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.abv2-council-hero__logoBlock::after{
+  display:none;
+}
+
+.abv2-council-hero__logo{
+  width:min(100%, 420px);
+  max-height:260px;
+  object-fit:contain;
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-council-hero{
+      padding-top:34px;
+      padding-bottom:34px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-council-hero__copy{
+      max-width:680px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-council-hero__art{
+      justify-content:flex-start;
+      margin-top:0;
+      padding-top:0;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-council-hero__logo{
+      width:min(100%, 260px);
+      max-height:180px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-hero{
+      padding-top:24px;
+      padding-bottom:26px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-hero__copy{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-hero__art{
+      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+      margin:0 auto;
+      justify-content:flex-start;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-hero__logo{
+      width:min(100%, 210px);
+      max-height:140px;
+    }
+}
+
+.abv2-council-hero__grid{
+  align-items:start;
+}
+

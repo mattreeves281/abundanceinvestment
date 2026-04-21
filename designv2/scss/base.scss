@@ -91,3 +91,11 @@ body{
   .content-wrapper{
     background:var(--abv2-editorial-bg) !important;
   }
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / MODAL
+========================================================= */
+html.abv2-modal-open,
+body.abv2-modal-open{
+  overflow:hidden;
+}

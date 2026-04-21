@@ -654,3 +654,124 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:759px){
 }
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / HERO — final boring / clean version
+========================================================= */
+.abv2-council-hero__copy .abv2-h1{
+  max-width:9.8ch;
+  font-size:clamp(2.4rem, 3.7vw, 4rem);
+  line-height:.92;
+}
+
+.abv2-council-hero__copy .abv2-body{
+  max-width:34ch;
+  font-size:clamp(1.02rem, 1.16vw, 1.14rem);
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / PINK LIVE INVESTMENT BAND
+========================================================= */
+.abv2-council-live__copy .abv2-h2,
+.abv2-council-live__copy .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-council-live__copy .abv2-h2{
+  font-size:clamp(2rem, 2.9vw, 3rem);
+  line-height:.95;
+  max-width:12ch;
+}
+
+.abv2-council-live__copy .abv2-body{
+  max-width:37ch;
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / WHITE FEATURES
+========================================================= */
+.abv2-council-features__intro .abv2-body{
+  max-width:620px;
+}
+
+.abv2-council-feature .abv2-h3{
+  margin-bottom:10px;
+  font-size:1.28rem;
+}
+
+.abv2-council-feature .abv2-body{
+  max-width:25ch;
+  font-size:1.02rem;
+  line-height:1.56;
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / TEAL STORY SECTION — final lower-angle version
+========================================================= */
+.abv2-council-story__copy .abv2-h2,
+.abv2-council-story__copy .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-council-story__copy .abv2-h2{
+  max-width:12ch;
+}
+
+.abv2-council-story__copy .abv2-body{
+  max-width:38ch;
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / USE OF FUNDS
+========================================================= */
+.abv2-council-uof__intro .abv2-body{
+  max-width:650px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / HISTORY — final lower-angle version
+========================================================= */
+.abv2-council-history__intro .abv2-h2,
+.abv2-council-history__intro .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-council-history__intro .abv2-body{
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-council-feature .abv2-body{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-hero__copy .abv2-h1{
+      max-width:none;
+      font-size:2.55rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-feature .abv2-body{
+      max-width:26ch;
+      margin:0 auto;
+      text-align:center;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-uof__intro .abv2-body,
+    .abv2-council-history__intro .abv2-body{
+      margin-left:0;
+      margin-right:0;
+    }
+}
