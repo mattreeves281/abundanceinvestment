@@ -46,7 +46,7 @@ SOURCE: 5 - council landing page v2 / USE OF FUNDS
   width:132px;
   height:132px;
   border-radius:26px;
-  background:var(--abv2-council-brand, var(--abv2-green-cfe7dd));
+  background:var(--abv2-council-brand, var(--abv2-green));
   display:flex;
   align-items:center;
   justify-content:center;
@@ -68,7 +68,7 @@ SOURCE: 5 - council landing page v2 / USE OF FUNDS
 .abv2-council-uof__metric{
   padding:14px 14px 12px;
   border-radius:18px;
-  background:var(--abv2-stone-faf8f8);
+  background:var(--abv2-grey-ui);
 }
 
 .abv2-council-uof__metricLabel{
@@ -113,7 +113,7 @@ SOURCE: 5 - council landing page v2 / USE OF FUNDS
   position:relative;
   min-height:50px;
   border-radius:999px;
-  background:var(--abv2-stone-f3f0ef);
+  background:var(--abv2-grey-light);
   overflow:hidden;
 }
 
@@ -125,22 +125,22 @@ SOURCE: 5 - council landing page v2 / USE OF FUNDS
   min-width:142px;
   padding:0 16px;
   border-radius:999px;
-  color:var(--abv2-navy-111827);
+  color:var(--abv2-blue);
   font-family:var(--abv2-ui);
   font-size:.9rem;
   line-height:1;
   white-space:nowrap;
 }
 
-.abv2-council-uof__barFill--pink{ background:var(--abv2-pink-f3b7d2); }
+.abv2-council-uof__barFill--pink{ background:var(--abv2-pink-light); }
 
-.abv2-council-uof__barFill--teal{ background:var(--abv2-teal-aee1e7); }
+.abv2-council-uof__barFill--teal{ background:var(--abv2-teal-light); }
 
-.abv2-council-uof__barFill--yellow{ background:var(--abv2-yellow-f5d98f); }
+.abv2-council-uof__barFill--yellow{ background:var(--abv2-yellow-light); }
 
-.abv2-council-uof__barFill--purple{ background:var(--abv2-purple-c8b7db); }
+.abv2-council-uof__barFill--purple{ background:var(--abv2-indigo); }
 
-.abv2-council-uof__barFill--green{ background:var(--abv2-green-bddfd0); }
+.abv2-council-uof__barFill--green{ background:var(--abv2-green); }
 
 .abv2-council-uof__note{
   margin:18px 0 0;

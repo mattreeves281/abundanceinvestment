@@ -16,7 +16,7 @@ SOURCE: 5 - council landing page v2 / WHITE FEATURES
   width:82px;
   height:82px;
   margin:0 0 16px;
-  background-color:var(--abv2-pink-e774ad);
+  background-color:var(--abv2-pink);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;
@@ -32,11 +32,11 @@ SOURCE: 5 - council landing page v2 / WHITE FEATURES
   color:var(--abv2-white);
 }
 
-.abv2-council-feature:nth-child(1) .abv2-council-feature__num{ background-color:var(--abv2-pink-e774ad); }
+.abv2-council-feature:nth-child(1) .abv2-council-feature__num{ background-color:var(--abv2-pink); }
 
 .abv2-council-feature:nth-child(2) .abv2-council-feature__num{ background-color:var(--abv2-yellow); }
 
-.abv2-council-feature:nth-child(3) .abv2-council-feature__num{ background-color:var(--abv2-teal-1ea4b8); }
+.abv2-council-feature:nth-child(3) .abv2-council-feature__num{ background-color:var(--abv2-teal); }
 
 /* =========================================================
 SOURCE: 5 - council landing page v2 / RESPONSIVE

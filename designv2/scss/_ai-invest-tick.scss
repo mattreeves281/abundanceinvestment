@@ -32,7 +32,7 @@ SOURCE: 2 - council hub page.html / Media area
   flex:0 0 160px;
   max-width:160px;
   position:relative;
-  background:var(--abv2-grey-f3f3f3);
+  background:var(--abv2-grey-ui);
 }
 
 .ai-invest-tick__media img{
@@ -57,14 +57,14 @@ SOURCE: 2 - council hub page.html / Content
   margin:0 0 .25rem;
   font-size:1.1rem;
   font-weight:700;
-  color:var(--abv2-neutral-454543);
+  color:var(--abv2-text);
 }
 
 .ai-invest-tick__desc{
   margin:.25rem 0 0;
   font-size:.95rem;
   opacity:.88;
-  color:var(--abv2-neutral-454543);
+  color:var(--abv2-text);
 }
 
 /* =========================================================
@@ -89,11 +89,11 @@ SOURCE: 2 - council hub page.html / Badges
   white-space:nowrap;
 }
 
-.ai-invest-tick__badge--pink{ background:var(--abv2-pink-e26da6); }
+.ai-invest-tick__badge--pink{ background:var(--abv2-pink); }
 
-.ai-invest-tick__badge--blue{ background:var(--abv2-teal-00a4b6); }
+.ai-invest-tick__badge--blue{ background:var(--abv2-teal); }
 
-.ai-invest-tick__badge--yellow{ background:var(--abv2-ochre-e2961c); }
+.ai-invest-tick__badge--yellow{ background:var(--abv2-yellow); }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / Whole-row overlay link
@@ -118,7 +118,7 @@ SOURCE: 2 - council hub page.html / Chevron
   transform:translateY(-50%);
   font-size:1.8rem;
   line-height:1;
-  color:var(--abv2-pink-e26da6);
+  color:var(--abv2-pink);
   pointer-events:none;
   z-index:5;
 }

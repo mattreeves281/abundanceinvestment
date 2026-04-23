@@ -41,7 +41,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   align-items:center;
   justify-content:center;
   padding:22px;
-  background:var(--card-bg, var(--abv2-navy-0f172a));
+  background:var(--card-bg, var(--abv2-blue));
 }
 
 .abv2-open-card__media::after{
@@ -131,19 +131,19 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 
 .abv2-open-card__pill--rate{
   background:rgba(223,115,173,.12);
-  color:var(--abv2-pink-a93f78);
+  color:var(--abv2-pink-dark);
   border-color:rgba(223,115,173,.18);
 }
 
 .abv2-open-card__pill--term{
   background:rgba(18,169,187,.10);
-  color:var(--abv2-teal-0f7d8b);
+  color:var(--abv2-teal-dark);
   border-color:rgba(18,169,187,.16);
 }
 
 .abv2-open-card__pill--capital{
   background:rgba(239,181,42,.14);
-  color:var(--abv2-ochre-9c6b00);
+  color:var(--abv2-yellow-dark);
   border-color:rgba(239,181,42,.2);
 }
 
@@ -267,7 +267,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   align-items:center;
   justify-content:center;
   padding:24px;
-  background:var(--card-bg, var(--abv2-navy-0f172a));
+  background:var(--card-bg, var(--abv2-blue));
 }
 
 .abv2-open-card__media::after{
@@ -356,21 +356,21 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 }
 
 .abv2-open-card__pill--rate{
-  background:var(--abv2-pink-f8dfe9);
-  border-color:var(--abv2-pink-efbfd1);
-  color:var(--abv2-pink-b24e82);
+  background:var(--abv2-pink-light);
+  border-color:var(--abv2-pink-light);
+  color:var(--abv2-pink-dark);
 }
 
 .abv2-open-card__pill--term{
-  background:var(--abv2-teal-d8eef1);
-  border-color:var(--abv2-teal-b8dde3);
-  color:var(--abv2-teal-207f8e);
+  background:var(--abv2-teal-light);
+  border-color:var(--abv2-teal-light);
+  color:var(--abv2-teal-dark);
 }
 
 .abv2-open-card__pill--capital{
-  background:var(--abv2-ochre-f8ebc8);
-  border-color:var(--abv2-ochre-edd9a2);
-  color:var(--abv2-ochre-a87509);
+  background:var(--abv2-yellow-light);
+  border-color:var(--abv2-yellow-light);
+  color:var(--abv2-yellow-dark);
 }
 
 .abv2-open-card__cta{
@@ -517,7 +517,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   align-items:center;
   justify-content:center;
   padding:20px;
-  background:var(--card-bg, var(--abv2-navy-0f172a));
+  background:var(--card-bg, var(--abv2-blue));
 }
 
 .abv2-open-card__media::after{
@@ -617,15 +617,15 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 }
 
 .abv2-open-card__pill--rate{
-  color:var(--abv2-pink-b24e82);
+  color:var(--abv2-pink-dark);
 }
 
 .abv2-open-card__pill--term{
-  color:var(--abv2-teal-207f8e);
+  color:var(--abv2-teal-dark);
 }
 
 .abv2-open-card__pill--capital{
-  color:var(--abv2-ochre-a87509);
+  color:var(--abv2-yellow-dark);
 }
 
 .abv2-open-card__cta{
@@ -774,7 +774,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   height:116px;
   margin-left:8px;
   border-radius:24px;
-  background:var(--card-bg, var(--abv2-navy-0f172a));
+  background:var(--card-bg, var(--abv2-blue));
   overflow:hidden;
 }
 
@@ -867,11 +867,11 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   color:rgba(38,38,37,.35);
 }
 
-.abv2-open-card__pill--rate{ color:var(--abv2-pink-b24e82); }
+.abv2-open-card__pill--rate{ color:var(--abv2-pink-dark); }
 
-.abv2-open-card__pill--term{ color:var(--abv2-teal-207f8e); }
+.abv2-open-card__pill--term{ color:var(--abv2-teal-dark); }
 
-.abv2-open-card__pill--capital{ color:var(--abv2-ochre-a87509); }
+.abv2-open-card__pill--capital{ color:var(--abv2-yellow-dark); }
 
 .abv2-open-card__cta{
   display:inline-flex;

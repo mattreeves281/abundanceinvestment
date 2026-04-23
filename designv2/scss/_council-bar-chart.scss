@@ -53,7 +53,7 @@ SOURCE: 2 - council hub page.html / 4) Use-of-funds chart (cbc-*)
   overflow:hidden;
   box-shadow:0 8px 20px rgba(15,23,42,.08);
   border:1px solid rgba(15,23,42,.06);
-  background:var(--abv2-grey-f3f4f6);
+  background:var(--abv2-grey-ui);
 }
 
 #council-bar-chart .cbc-logo-badge img{
@@ -89,11 +89,11 @@ SOURCE: 2 - council hub page.html / Summary pills
   margin:0 !important;
 }
 
-#council-bar-chart .cbc-summary-line:nth-child(1){ background:var(--abv2-pink-e26da6); }
+#council-bar-chart .cbc-summary-line:nth-child(1){ background:var(--abv2-pink); }
 
-#council-bar-chart .cbc-summary-line:nth-child(2){ background:var(--abv2-teal-00a4b6); }
+#council-bar-chart .cbc-summary-line:nth-child(2){ background:var(--abv2-teal); }
 
-#council-bar-chart .cbc-summary-line:nth-child(3){ background:var(--abv2-ochre-e2961c); }
+#council-bar-chart .cbc-summary-line:nth-child(3){ background:var(--abv2-yellow); }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / Chart rows
@@ -110,14 +110,14 @@ SOURCE: 2 - council hub page.html / Chart rows
   flex:0 0 32%;
   padding-right:10px;
   font-size:.95rem;
-  color:var(--abv2-navy-111827);
+  color:var(--abv2-blue);
 }
 
 #council-bar-chart .cbc-bar-wrapper{
   flex:1 1 auto;
   position:relative;
   height:42px;
-  background:var(--abv2-grey-f3f4f6);
+  background:var(--abv2-grey-ui);
   border-radius:999px;
   overflow:hidden;
 }
@@ -135,7 +135,7 @@ SOURCE: 2 - council hub page.html / Chart rows
 }
 
 #council-bar-chart .cbc-bar-value{
-  color:var(--abv2-navy-111827);
+  color:var(--abv2-blue);
   font-weight:600;
   font-size:.9rem;
 }
@@ -152,9 +152,9 @@ SOURCE: 2 - council hub page.html / Empty state
   padding:64px 14px;
   font-size:1.1rem;
   font-weight:500;
-  color:var(--abv2-neutral-454543);
+  color:var(--abv2-text);
   text-align:center;
-  background:var(--abv2-grey-f9fafb);
+  background:var(--abv2-grey-ui);
   border-radius:16px;
 }
 
@@ -233,7 +233,7 @@ SOURCE: 2 - council hub page.html / Use-of-funds — Top projects by spend (cbc-
   margin:0 0 12px;
   font-size:1rem;
   font-weight:900;
-  color:var(--abv2-navy-111827);
+  color:var(--abv2-blue);
 }
 
 /* =========================================================
@@ -286,17 +286,17 @@ SOURCE: 2 - council hub page.html / Category pill
   white-space:nowrap;
 }
 
-#council-bar-chart .cbc-proj__pill--orange{ background:var(--abv2-ochre-e2961c); }
+#council-bar-chart .cbc-proj__pill--orange{ background:var(--abv2-yellow); }
 
-#council-bar-chart .cbc-proj__pill--pink{ background:var(--abv2-pink-e26da6); }
+#council-bar-chart .cbc-proj__pill--pink{ background:var(--abv2-pink); }
 
-#council-bar-chart .cbc-proj__pill--blue{ background:var(--abv2-teal-00a4b6); }
+#council-bar-chart .cbc-proj__pill--blue{ background:var(--abv2-teal); }
 
-#council-bar-chart .cbc-proj__pill--purple{ background:var(--abv2-purple-724795); }
+#council-bar-chart .cbc-proj__pill--purple{ background:var(--abv2-indigo); }
 
-#council-bar-chart .cbc-proj__pill--teal{ background:var(--abv2-teal-07828f); }
+#council-bar-chart .cbc-proj__pill--teal{ background:var(--abv2-teal-dark); }
 
-#council-bar-chart .cbc-proj__pill--grey{ background:var(--abv2-grey-6b7280); }
+#council-bar-chart .cbc-proj__pill--grey{ background:var(--abv2-grey); }
 
 /* =========================================================
 SOURCE: 2 - council hub page.html / Title row: name left, amount + chevron right
@@ -312,7 +312,7 @@ SOURCE: 2 - council hub page.html / Title row: name left, amount + chevron right
   margin:0;
   font-size:.95rem;
   font-weight:700;
-  color:var(--abv2-neutral-454543);
+  color:var(--abv2-text);
   line-height:1.25;
   flex:1 1 auto;
   min-width:0;
@@ -332,7 +332,7 @@ SOURCE: 2 - council hub page.html / Amount: bold text, no pill
   display:inline-block;
   font-size:1rem;
   font-weight:900;
-  color:var(--abv2-neutral-454543);
+  color:var(--abv2-text);
   line-height:1.1;
   white-space:nowrap;
 }
@@ -344,7 +344,7 @@ SOURCE: 2 - council hub page.html / Chevron
   width:20px;
   height:20px;
   flex:0 0 20px;
-  color:var(--abv2-navy-111827);
+  color:var(--abv2-blue);
   opacity:.7;
   transform:rotate(0deg);
   transition:transform .2s ease;
@@ -359,7 +359,7 @@ SOURCE: 2 - council hub page.html / Expanded description
 ========================================================= */
 #council-bar-chart .cbc-proj__body{
   padding:0 16px 16px;
-  color:var(--abv2-neutral-454543);
+  color:var(--abv2-text);
   opacity:.92;
   line-height:1.45;
 }
@@ -371,7 +371,7 @@ SOURCE: 2 - council hub page.html / Optional small helper line (only used if you
   margin:10px 2px 0;
   font-size:.9rem;
   font-weight:650;
-  color:var(--abv2-grey-6b7280);
+  color:var(--abv2-grey);
 }
 
 @media (max-width:640px){
@@ -390,7 +390,7 @@ SOURCE: 2 - council hub page.html / Optional small helper line (only used if you
 SOURCE: 2 - council hub page.html / Pills now take their background colour inline from JS
 ========================================================= */
 #council-bar-chart .cbc-proj__pill{
-  color:var(--abv2-navy-111827);                 /* dark text for pastel backgrounds */
+  color:var(--abv2-blue);                 /* dark text for pastel backgrounds */
   box-shadow:0 1px 0 rgba(0,0,0,.06);
   border:1px solid rgba(17,24,39,.10);
 }
@@ -472,11 +472,11 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 #council-bar-chart .cbc-label{
   flex:0 0 34%;
   font-size:.95rem;
-  color:var(--abv2-neutral-454543);
+  color:var(--abv2-text);
 }
 
 #council-bar-chart .cbc-bar-wrapper{
-  background:var(--abv2-stone-f3efee);
+  background:var(--abv2-grey-light);
   height:38px;
   border-radius:999px;
 }

@@ -28,12 +28,23 @@ SOURCE: 1 - hompeage base responsive.html
 :root{
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
-    --abv2-ink:#262625;
+    --abv2-ink:#282827;
     --abv2-text:#4d4a46;
-    --abv2-pink:#df73ad;
-    --abv2-yellow:#efb52a;
-    --abv2-teal:#12a9bb;
-
+    --abv2-grey:#71716e;
+    --abv2-grey-light:#e9e4e3;
+    --abv2-grey-ui:#e2e2e2;
+    --abv2-pink:#f27fae;
+    --abv2-pink-dark:#c1658b;
+    --abv2-pink-light:#f498be;
+    --abv2-teal:#00a4b6;
+    --abv2-teal-dark:#008391;
+    --abv2-teal-light:#4cbfcb;
+    --abv2-yellow:#ffb72c;
+    --abv2-yellow-dark:#cc9223;
+    --abv2-yellow-light:#ffc556;
+    --abv2-green:#25ab2d;
+    --abv2-blue:#151943;
+    --abv2-indigo:#443668;
     --abv2-wrap:1180px;
     --abv2-wrap-narrow:980px;
 
@@ -117,12 +128,23 @@ SOURCE: 2 - council hub page.html
 :root{
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
-    --abv2-ink:#262625;
+    --abv2-ink:#282827;
     --abv2-text:#4d4a46;
-    --abv2-pink:#df73ad;
-    --abv2-yellow:#efb52a;
-    --abv2-teal:#12a9bb;
-
+    --abv2-grey:#71716e;
+    --abv2-grey-light:#e9e4e3;
+    --abv2-grey-ui:#e2e2e2;
+    --abv2-pink:#f27fae;
+    --abv2-pink-dark:#c1658b;
+    --abv2-pink-light:#f498be;
+    --abv2-teal:#00a4b6;
+    --abv2-teal-dark:#008391;
+    --abv2-teal-light:#4cbfcb;
+    --abv2-yellow:#ffb72c;
+    --abv2-yellow-dark:#cc9223;
+    --abv2-yellow-light:#ffc556;
+    --abv2-green:#25ab2d;
+    --abv2-blue:#151943;
+    --abv2-indigo:#443668;
     --abv2-wrap:1180px;
     --abv2-wrap-narrow:980px;
 
@@ -180,7 +202,7 @@ SOURCE: 2 - council hub page.html
 SOURCE: 2 - council hub page.html / 5) Open-investments grey band
 ========================================================= */
 :root{
-  --ai-open-bg: var(--abv2-stone-e9e4e3); /* change this to test other greys */
+  --ai-open-bg: var(--abv2-grey-light); /* change this to test other greys */
 }
 
 /* =========================================================
@@ -213,12 +235,23 @@ SOURCE: 3- homepage components.html
 :root{
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
-    --abv2-ink:#262625;
+    --abv2-ink:#282827;
     --abv2-text:#4d4a46;
-    --abv2-pink:#df73ad;
-    --abv2-yellow:#efb52a;
-    --abv2-teal:#12a9bb;
-
+    --abv2-grey:#71716e;
+    --abv2-grey-light:#e9e4e3;
+    --abv2-grey-ui:#e2e2e2;
+    --abv2-pink:#f27fae;
+    --abv2-pink-dark:#c1658b;
+    --abv2-pink-light:#f498be;
+    --abv2-teal:#00a4b6;
+    --abv2-teal-dark:#008391;
+    --abv2-teal-light:#4cbfcb;
+    --abv2-yellow:#ffb72c;
+    --abv2-yellow-dark:#cc9223;
+    --abv2-yellow-light:#ffc556;
+    --abv2-green:#25ab2d;
+    --abv2-blue:#151943;
+    --abv2-indigo:#443668;
     --abv2-wrap:1180px;
     --abv2-wrap-narrow:980px;
 
@@ -339,13 +372,23 @@ SOURCE: 4 - editorial components.html
 :root{
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
-    --abv2-ink:#262625;
+    --abv2-ink:#282827;
     --abv2-text:#4d4a46;
-    --abv2-pink:#df73ad;
-    --abv2-yellow:#efb52a;
-    --abv2-teal:#12a9bb;
-    --abv2-editorial-bg:var(--abv2-white);
-
+    --abv2-grey:#71716e;
+    --abv2-grey-light:#e9e4e3;
+    --abv2-grey-ui:#e2e2e2;
+    --abv2-pink:#f27fae;
+    --abv2-pink-dark:#c1658b;
+    --abv2-pink-light:#f498be;
+    --abv2-teal:#00a4b6;
+    --abv2-teal-dark:#008391;
+    --abv2-teal-light:#4cbfcb;
+    --abv2-yellow:#ffb72c;
+    --abv2-yellow-dark:#cc9223;
+    --abv2-yellow-light:#ffc556;
+    --abv2-green:#25ab2d;
+    --abv2-blue:#151943;
+    --abv2-indigo:#443668;
     --abv2-wrap:1180px;
     --abv2-editorial-rail:760px;
     --abv2-editorial-copy:58ch;

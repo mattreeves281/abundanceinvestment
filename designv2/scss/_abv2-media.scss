@@ -19,7 +19,7 @@ SOURCE: 4 - editorial components.html / MEDIA
 .abv2-media__frame{
     overflow:hidden;
     border-radius:24px;
-    background:var(--abv2-stone-ddd7d2);
+    background:var(--abv2-grey-ui);
   }
 
 .abv2-media__frame img{
@@ -30,7 +30,7 @@ SOURCE: 4 - editorial components.html / MEDIA
 
 .abv2-media--video .abv2-media__frame{
     border-radius:12px;
-    background:var(--abv2-black-000);
+    background:var(--abv2-ink);
   }
 
 .abv2-media__embed{
@@ -39,7 +39,7 @@ SOURCE: 4 - editorial components.html / MEDIA
     padding-top:56.25%;
     overflow:hidden;
     border-radius:12px;
-    background:var(--abv2-black-000);
+    background:var(--abv2-ink);
   }
 
 .abv2-media__embed iframe{
@@ -70,11 +70,11 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 SOURCE: 4 - editorial components.html / CAPTIONS / MEDIA TIDY
 ========================================================= */
 .abv2-media__frame{
-  background:var(--abv2-stone-e5e1dc);
+  background:var(--abv2-grey-light);
 }
 
 .abv2-media--video .abv2-media__frame{
-  background:var(--abv2-black-111);
+  background:var(--abv2-ink);
 }
 
 .abv2-media__caption{
