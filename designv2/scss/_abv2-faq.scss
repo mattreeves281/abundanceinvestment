@@ -8,7 +8,7 @@ SOURCE: 4 - editorial components.html / faq
 ========================================================= */
 .abv2-faq{
   display:grid;
-  gap:12px;
+  gap:var(--abv2-space-12);
 }
 
 .abv2-faq__item{
@@ -22,7 +22,7 @@ SOURCE: 4 - editorial components.html / faq
   position:relative;
   list-style:none;
   cursor:pointer;
-  padding:18px 52px 18px 18px;
+  padding:var(--abv2-space-20) var(--abv2-space-56) var(--abv2-space-20) var(--abv2-space-20);
   font-family:var(--abv2-ui);
   font-weight:700;
   line-height:1.4;
@@ -57,10 +57,10 @@ SOURCE: 4 - editorial components.html / faq
 }
 
 .abv2-faq__answer{
-  padding:0 18px 18px;
+  padding:0 var(--abv2-space-20) var(--abv2-space-20);
   border-top:1px solid rgba(38,38,37,.08);
 }
 
 .abv2-faq__answer p{
-  margin:14px 0 0;
+  margin:var(--abv2-space-16) 0 0;
 }

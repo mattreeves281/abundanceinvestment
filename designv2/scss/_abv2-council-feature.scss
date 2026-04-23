@@ -15,7 +15,7 @@ SOURCE: 5 - council landing page v2 / WHITE FEATURES
   place-items:center;
   width:82px;
   height:82px;
-  margin:0 0 16px;
+  margin:0 0 var(--abv2-space-16);
   background-color:var(--abv2-pink);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
@@ -58,7 +58,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
   .abv2-council-feature__num{
       width:60px;
       height:60px;
-      margin:0 auto 12px;
+      margin:0 auto var(--abv2-space-12);
       font-size:1.84rem;
     }
 }

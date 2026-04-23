@@ -18,7 +18,7 @@ SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
 .abv2-procon__list li,
 .abv2-fit__list li{
   position:relative;
-  padding-left:18px;
+  padding-left:var(--abv2-space-20);
 }
 
 .abv2-compare__list li::before,
@@ -43,8 +43,8 @@ SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
 }
 
 .abv2-compare__list li{
-  padding-top:10px;
-  padding-bottom:10px;
+  padding-top:var(--abv2-space-12);
+  padding-bottom:var(--abv2-space-12);
   border-top:1px solid rgba(38,38,37,.08);
   line-height:1.55;
 }
@@ -60,7 +60,7 @@ SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
 
 .abv2-procon__list li,
 .abv2-fit__list li{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
 }
 
 .abv2-procon__list li:last-child,

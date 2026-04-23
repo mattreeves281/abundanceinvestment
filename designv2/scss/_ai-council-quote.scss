@@ -7,7 +7,7 @@ Status: unrefined (contains duplicates)
 SOURCE: 2 - council hub page.html / quote
 ========================================================= */
 .ai-council-quote{
-  padding:22px 0 62px;
+  padding:var(--abv2-space-24) 0 var(--abv2-space-64);
   background:var(--abv2-grey-light);
 }
 
@@ -20,7 +20,7 @@ SOURCE: 2 - council hub page.html / quote
 .ai-council-quote__rule{
   width:1px;
   height:96px;
-  margin:0 auto 26px;
+  margin:0 auto var(--abv2-space-28);
   background:rgba(38,38,37,.34);
 }
 
@@ -38,15 +38,15 @@ SOURCE: 2 - council hub page.html / quote
 }
 
 .ai-council-quote__text + .ai-council-quote__text{
-  margin-top:14px;
+  margin-top:var(--abv2-space-16);
 }
 
 .ai-council-quote__person{
-  margin-top:26px;
+  margin-top:var(--abv2-space-28);
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:10px;
+  gap:var(--abv2-space-12);
 }
 
 .ai-council-quote__person img{

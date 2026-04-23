@@ -14,11 +14,11 @@ SOURCE: 4 - editorial components.html / DATA / FINANCIAL
 }
 
 .abv2-slab__inner{
-  padding:22px 22px 20px;
+  padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-20);
 }
 
 .abv2-slab__title{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-size:clamp(1.18rem,1.8vw,1.42rem);
   line-height:1.14;
 }

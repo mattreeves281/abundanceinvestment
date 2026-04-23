@@ -9,27 +9,27 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
 .abv2-compare{
   position:relative;
   z-index:1;
-  padding-top:84px;
-  padding-bottom:92px;
+  padding-top:var(--abv2-space-84);
+  padding-bottom:var(--abv2-space-96);
   background:var(--abv2-white);
 }
 
 .abv2-compare__intro{
   width:min(100%, 720px);
-  margin-left:clamp(40px, 10vw, 140px);
-  margin-bottom:40px;
+  margin-left:clamp(var(--abv2-space-40), 10vw, 140px);
+  margin-bottom:var(--abv2-space-40);
 }
 
 .abv2-compare__intro.abv2-stack > * + *{
-  margin-top:16px;
+  margin-top:var(--abv2-space-16);
 }
 
 .abv2-compare__grid{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  gap:56px;
+  gap:var(--abv2-space-56);
   width:min(100% - clamp(40px, 10vw, 140px), 940px);
-  margin-left:clamp(40px, 10vw, 140px);
+  margin-left:clamp(var(--abv2-space-40), 10vw, 140px);
   align-items:start;
 }
 
@@ -39,7 +39,7 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
 }
 
 .abv2-compare__col--primary{
-  margin-top:34px;
+  margin-top:var(--abv2-space-32);
 }
 
 .abv2-compare__col--primary::before{
@@ -62,7 +62,7 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
 }
 
 .abv2-compare__kicker{
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -79,7 +79,7 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
 }
 
 .abv2-compare__heading{
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-serif);
   font-weight:600;
   font-size:clamp(1.45rem, 1.8vw, 1.86rem);
@@ -89,7 +89,7 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
 }
 
 .abv2-compare__body{
-  margin:0 0 16px;
+  margin:0 0 var(--abv2-space-16);
   max-width:32ch;
   font-family:var(--abv2-sans);
   font-size:1rem;
@@ -100,15 +100,15 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
 .abv2-compare__table{
   display:grid;
   grid-template-columns:1fr;
-  gap:10px;
+  gap:var(--abv2-space-12);
 }
 
 .abv2-compare__row{
   display:grid;
   grid-template-columns:140px minmax(0,1fr);
-  gap:14px;
+  gap:var(--abv2-space-16);
   align-items:start;
-  padding-top:10px;
+  padding-top:var(--abv2-space-12);
   border-top:1px solid rgba(38,38,37,.12);
 }
 
@@ -131,8 +131,8 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
 .abv2-compare__actions{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
-  margin-top:18px;
+  gap:var(--abv2-space-12);
+  margin-top:var(--abv2-space-20);
 }
 
 /* =========================================================
@@ -140,8 +140,8 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-compare{
-      padding-top:68px;
-      padding-bottom:76px;
+      padding-top:var(--abv2-space-72);
+      padding-bottom:var(--abv2-space-72);
     }
 }
 
@@ -156,7 +156,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:979px){
   .abv2-compare__grid{
-      gap:34px;
+      gap:var(--abv2-space-32);
     }
 }
 
@@ -168,22 +168,22 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-compare{
-      padding-top:52px;
-      padding-bottom:60px;
+      padding-top:var(--abv2-space-56);
+      padding-bottom:var(--abv2-space-64);
     }
 }
 
 @media (max-width:759px){
   .abv2-compare__intro{
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto 26px;
+      margin:0 auto var(--abv2-space-28);
     }
 }
 
 @media (max-width:759px){
   .abv2-compare__grid{
       grid-template-columns:1fr;
-      gap:28px;
+      gap:var(--abv2-space-28);
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
       margin:0 auto;
     }
@@ -214,7 +214,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-compare__row{
       grid-template-columns:1fr;
-      gap:4px;
+      gap:var(--abv2-space-4);
     }
 }
 
@@ -247,7 +247,7 @@ SOURCE: 4 - editorial components.html / compare
 }
 
 .abv2-compare__col{
-  padding:22px 24px 24px;
+  padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24);
 }
 
 .abv2-compare__col + .abv2-compare__col{
@@ -255,7 +255,7 @@ SOURCE: 4 - editorial components.html / compare
 }
 
 .abv2-compare__label{
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-size:.78rem;
   font-weight:700;
   text-transform:uppercase;
@@ -265,14 +265,14 @@ SOURCE: 4 - editorial components.html / compare
 
 .abv2-compare__heading{
   display:block;
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-size:1.15rem;
   line-height:1.18;
 }
 
 .abv2-compare__note{
   margin:0;
-  padding:16px 24px 20px;
+  padding:var(--abv2-space-16) var(--abv2-space-24) var(--abv2-space-20);
   border-top:1px solid rgba(38,38,37,.10);
   font-size:.95rem;
   color:rgba(38,38,37,.78);

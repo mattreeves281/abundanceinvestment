@@ -9,14 +9,14 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 .abv2-jumpbar{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:var(--abv2-space-12);
 }
 
 .abv2-jumpbar__link{
   display:inline-flex;
   align-items:center;
   min-height:40px;
-  padding:10px 14px;
+  padding:var(--abv2-space-12) var(--abv2-space-16);
   border:1.5px solid rgba(38,38,37,.10);
   border-radius:999px;
   background:var(--abv2-white);

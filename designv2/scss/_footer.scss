@@ -14,7 +14,7 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
     position:relative;
     z-index:2;
     margin-top:0 !important;
-    padding-top:48px !important;
+    padding-top:var(--abv2-space-48) !important;
     background:var(--abv2-yellow) !important;
     color:var(--abv2-ink) !important;
     border:0 !important;
@@ -38,7 +38,7 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
 .footer .footer__risk{
     position:relative;
     max-width:1200px;
-    padding:0 0 42px 230px !important;
+    padding:0 0 var(--abv2-space-40) 230px !important;
     font-family:var(--abv2-sans);
     font-size:.97rem;
     line-height:1.62;
@@ -60,8 +60,8 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
     position:relative;
     background:transparent !important;
     border-top:0 !important;
-    padding-top:24px;
-    padding-bottom:18px;
+    padding-top:var(--abv2-space-24);
+    padding-bottom:var(--abv2-space-20);
   }
 
 .footer .footer-links::before{
@@ -77,7 +77,7 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
   }
 
 .footer h2.heading-4{
-    margin:0 0 12px;
+    margin:0 0 var(--abv2-space-12);
     font-family:var(--abv2-ui);
     font-size:1rem;
     line-height:1.1;
@@ -104,7 +104,7 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
   .footer .footer-links--legal{
     display:flex;
     flex-direction:column;
-    gap:4px;
+    gap:var(--abv2-space-4);
   }
 
 .footer .body--xs p,
@@ -115,13 +115,13 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
   }
 
 .footer .footer-links .row + .row{
-    margin-top:34px;
+    margin-top:var(--abv2-space-32);
   }
 
 .footer .footer-copyright{
     background:transparent !important;
     border-top:0 !important;
-    padding:14px 0 16px !important;
+    padding:var(--abv2-space-16) 0 var(--abv2-space-16) !important;
     margin-top:0 !important;
   }
 
@@ -129,7 +129,7 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
     justify-content:flex-end;
     min-height:28px;
     border-top:1px solid rgba(38,38,37,.22);
-    padding-top:14px;
+    padding-top:var(--abv2-space-16);
   }
 
 .footer .sharein-favicon{
@@ -143,14 +143,14 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
   .footer{
-        padding-top:40px !important;
+        padding-top:var(--abv2-space-40) !important;
       }
 }
 
 @media (max-width:979px) and (min-width:760px){
   .footer .footer__risk{
         max-width:none;
-        padding:0 0 30px 108px !important;
+        padding:0 0 var(--abv2-space-32) 108px !important;
         font-size:.9rem;
         line-height:1.55;
       }
@@ -166,7 +166,7 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 
 @media (max-width:979px) and (min-width:760px){
   .footer .footer-links{
-        padding-top:18px;
+        padding-top:var(--abv2-space-20);
       }
 }
 
@@ -196,7 +196,7 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 
 @media (max-width:979px) and (min-width:760px){
   .footer .footer-links .row + .row{
-        margin-top:28px;
+        margin-top:var(--abv2-space-28);
       }
 }
 
@@ -205,7 +205,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 ========================================================= */
 @media (max-width:759px){
   .footer{
-        padding-top:38px !important;
+        padding-top:var(--abv2-space-40) !important;
       }
 }
 
@@ -271,14 +271,14 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .footer{
-        padding-top:42px !important;
+        padding-top:var(--abv2-space-40) !important;
       }
 }
 
 @media (max-width:979px){
   .footer .footer__risk{
         max-width:none;
-        padding:0 0 34px 140px !important;
+        padding:0 0 var(--abv2-space-32) 140px !important;
       }
 }
 

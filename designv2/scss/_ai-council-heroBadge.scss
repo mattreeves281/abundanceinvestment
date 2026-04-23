@@ -16,7 +16,7 @@ SOURCE: 2 - council hub page.html / Council homepage hero — formal logo badge 
   align-items:center;
   justify-content:center;
   min-height:250px;
-  padding:30px;
+  padding:var(--abv2-space-32);
   border-radius:28px;
   background:var(--abv2-white); /* keep logo on clean white */
   box-shadow:0 12px 28px rgba(15,23,42,.08);
@@ -37,7 +37,7 @@ SOURCE: 2 - council hub page.html / Council homepage hero — formal logo badge 
 }
 
 .ai-council-heroBadge__meta{
-  margin-top:12px;
+  margin-top:var(--abv2-space-12);
   text-align:right;
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:.76rem;

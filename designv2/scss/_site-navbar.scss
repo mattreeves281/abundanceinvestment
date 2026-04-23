@@ -10,7 +10,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
     background:var(--abv2-white) !important;
     border-bottom:0 !important;
     box-shadow:none !important;
-    padding:14px 0 10px;
+    padding:var(--abv2-space-16) 0 var(--abv2-space-12);
   }
 
 .site-navbar::after{
@@ -66,13 +66,13 @@ SOURCE: 1 - hompeage base responsive.html / NAV
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:24px;
+    gap:var(--abv2-space-24);
   }
 
 .site-navbar .navbar-main{
     display:flex;
     align-items:center;
-    gap:34px;
+    gap:var(--abv2-space-32);
     float:none;
     margin:0 auto;
     padding:0;
@@ -83,7 +83,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
   }
 
 .site-navbar .brand-navbar-nav__parent-item-link{
-    padding:10px 0 !important;
+    padding:var(--abv2-space-12) 0 !important;
     padding-right:0 !important;
     font-family:var(--abv2-ui);
     font-size:.9rem;
@@ -114,7 +114,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
 .site-navbar .brand-navbar__auth-btn-wrapper{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:var(--abv2-space-20);
   }
 
 .site-navbar .brand-navbar__login-btn{
@@ -144,7 +144,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
     align-items:center;
     justify-content:center;
     min-height:44px;
-    padding:0 22px !important;
+    padding:0 var(--abv2-space-24) !important;
     border:1.8px solid var(--abv2-pink) !important;
     border-radius:999px !important;
     background:transparent !important;
@@ -171,8 +171,8 @@ SOURCE: 1 - hompeage base responsive.html / NAV
 
 .site-navbar .dropdown-menu.brand-dropdown-menu{
     width:260px;
-    padding:6px 0 !important;
-    margin-top:10px;
+    padding:var(--abv2-space-8) 0 !important;
+    margin-top:var(--abv2-space-12);
     border:0 !important;
     border-radius:14px !important;
     background:var(--abv2-white) !important;
@@ -191,7 +191,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
     align-items:center;
     width:100%;
     min-height:auto;
-    padding:8px 16px !important;
+    padding:var(--abv2-space-8) var(--abv2-space-16) !important;
     font-family:var(--abv2-ui) !important;
     font-size:.85rem !important;
     line-height:1.25;
@@ -253,7 +253,7 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 
 @media (max-width:979px) and (min-width:760px){
   .site-navbar .brand-navbar--account-partial{
-        margin-top:8px;
+        margin-top:var(--abv2-space-8);
       }
 }
 
@@ -269,7 +269,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 ========================================================= */
 @media (max-width:759px){
   .site-navbar{
-        padding:12px 0 8px;
+        padding:var(--abv2-space-12) 0 var(--abv2-space-8);
       }
 }
 
@@ -308,7 +308,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
         border:1.4px solid rgba(223,115,173,.45);
         border-radius:999px;
         background:var(--abv2-white) !important;
-        gap:6px;
+        gap:var(--abv2-space-8);
       }
 }
 
@@ -329,8 +329,8 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 @media (max-width:759px){
   .site-navbar .navbar-is-collapsed{
         display:block;
-        margin-top:12px;
-        padding:12px 14px 14px;
+        margin-top:var(--abv2-space-12);
+        padding:var(--abv2-space-12) var(--abv2-space-16) var(--abv2-space-16);
         border:1px solid rgba(223,115,173,.16);
         border-radius:22px;
         background:var(--abv2-white);
@@ -341,13 +341,13 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
   .site-navbar .navbar-main{
         display:flex;
         flex-direction:column;
-        gap:2px;
+        gap:var(--abv2-space-2);
       }
 }
 
 @media (max-width:759px){
   .site-navbar .brand-navbar-nav__parent-item-link{
-        padding:10px 12px !important;
+        padding:var(--abv2-space-12) var(--abv2-space-12) !important;
         border-radius:14px;
       }
 }
@@ -360,8 +360,8 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 
 @media (max-width:759px){
   .site-navbar .dropdown-menu.brand-dropdown-menu{
-        margin-top:6px;
-        padding:6px;
+        margin-top:var(--abv2-space-8);
+        padding:var(--abv2-space-8);
         border-radius:16px;
         background:var(--abv2-grey-light);
       }
@@ -369,7 +369,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 
 @media (max-width:759px){
   .site-navbar .dropdown-menu.brand-dropdown-menu a{
-        padding:10px 12px !important;
+        padding:var(--abv2-space-12) var(--abv2-space-12) !important;
         border-radius:12px;
       }
 }
@@ -398,7 +398,7 @@ SOURCE: 2 - council hub page.html / NAV
     align-items:center;
     justify-content:center;
     min-height:44px;
-    padding:0 22px !important;
+    padding:0 var(--abv2-space-24) !important;
     border:1.8px solid var(--abv2-pink) !important;
     border-radius:999px !important;
     background:transparent !important;
@@ -460,7 +460,7 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
         border:1.4px solid rgba(223,115,173,.45);
         border-radius:999px;
         background:var(--abv2-white) !important;
-        gap:6px;
+        gap:var(--abv2-space-8);
       }
 }
 
@@ -512,7 +512,7 @@ SOURCE: 3- homepage components.html / NAV
     align-items:center;
     justify-content:center;
     min-height:44px;
-    padding:0 22px !important;
+    padding:0 var(--abv2-space-24) !important;
     border:1.8px solid var(--abv2-pink) !important;
     border-radius:999px !important;
     background:transparent !important;
@@ -536,7 +536,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:1079px){
   .site-navbar .navbar-main{
-        gap:20px;
+        gap:var(--abv2-space-20);
       }
 }
 
@@ -570,7 +570,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:979px){
   .site-navbar .brand-navbar--account-partial{
-        margin-top:8px;
+        margin-top:var(--abv2-space-8);
       }
 }
 
@@ -609,7 +609,7 @@ SOURCE: 3- homepage components.html / NAV (MOBILE)
       border:1.4px solid rgba(223,115,173,.45);
       border-radius:999px;
       background:var(--abv2-white) !important;
-      gap:6px;
+      gap:var(--abv2-space-8);
     }
 }
 
@@ -660,7 +660,7 @@ SOURCE: 4 - editorial components.html / NAV
     align-items:center;
     justify-content:center;
     min-height:44px;
-    padding:0 22px !important;
+    padding:0 var(--abv2-space-24) !important;
     border:1.8px solid var(--abv2-pink) !important;
     border-radius:999px !important;
     background:transparent !important;
@@ -691,7 +691,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 
 @media (max-width:979px){
   .site-navbar .navbar-main{
-        gap:20px;
+        gap:var(--abv2-space-20);
       }
 }
 
@@ -716,11 +716,11 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
         align-items:center;
         justify-content:center;
         min-height:32px;
-        padding:0 14px;
+        padding:0 var(--abv2-space-16);
         border:1.4px solid rgba(223,115,173,.45);
         border-radius:999px;
         background:var(--abv2-white) !important;
-        gap:6px;
+        gap:var(--abv2-space-8);
       }
 }
 

@@ -7,9 +7,9 @@ Status: unrefined (contains duplicates)
 SOURCE: 4 - editorial components.html / DATA / FINANCIAL
 ========================================================= */
 .abv2-data{
-  margin:26px 0 34px;
+  margin:var(--abv2-space-28) 0 var(--abv2-space-32);
 }
 
 .abv2-data > * + *{
-  margin-top:18px;
+  margin-top:var(--abv2-space-20);
 }

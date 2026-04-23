@@ -7,14 +7,14 @@ Status: unrefined (contains duplicates)
 SOURCE: 2 - council hub page.html / hero
 ========================================================= */
 .ai-council-hero2{
-  padding:42px 0 56px;
+  padding:var(--abv2-space-40) 0 var(--abv2-space-56);
   background:var(--abv2-green);
 }
 
 .ai-council-hero2__grid{
   display:grid;
   grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);
-  gap:42px;
+  gap:var(--abv2-space-40);
   align-items:start;
 }
 
@@ -23,7 +23,7 @@ SOURCE: 2 - council hub page.html / hero
 }
 
 .ai-council-hero2__eyebrow{
-  margin:0 0 14px;
+  margin:0 0 var(--abv2-space-16);
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:.75rem;
   line-height:1;
@@ -33,7 +33,7 @@ SOURCE: 2 - council hub page.html / hero
 }
 
 .ai-council-hero2__title{
-  margin:0 0 18px;
+  margin:0 0 var(--abv2-space-20);
   font-family:"New Kansas", Georgia, serif;
   font-weight:600;
   letter-spacing:-.03em;
@@ -59,7 +59,7 @@ SOURCE: 2 - council hub page.html / hero
 .ai-council-hero2__logoBox{
   width:min(100%, 320px);
   min-height:220px;
-  padding:28px;
+  padding:var(--abv2-space-28);
   border-radius:28px;
   background:var(--abv2-white);
   border:1px solid rgba(15,23,42,.08);
@@ -84,7 +84,7 @@ SOURCE: 2 - council hub page.html / mobile
 @media (max-width: 900px){
   .ai-council-hero2__grid{
       grid-template-columns:1fr;
-      gap:24px;
+      gap:var(--abv2-space-24);
     }
 }
 
@@ -109,8 +109,8 @@ SOURCE: 2 - council hub page.html / mobile
 
 @media (max-width: 759px){
   .ai-council-hero2{
-      padding-top:28px;
-      padding-bottom:34px;
+      padding-top:var(--abv2-space-28);
+      padding-bottom:var(--abv2-space-32);
     }
 }
 
@@ -130,7 +130,7 @@ SOURCE: 2 - council hub page.html / mobile
 @media (max-width: 759px){
   .ai-council-hero2__logoBox{
       min-height:170px;
-      padding:20px;
+      padding:var(--abv2-space-20);
       border-radius:22px;
     }
 }

@@ -9,25 +9,25 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 .abv2-open-now{
   position:relative;
   z-index:1;
-  padding-top:72px;
+  padding-top:var(--abv2-space-72);
   padding-bottom:120px;
   background:var(--abv2-white);
 }
 
 .abv2-open-now__intro{
   width:min(100%, 760px);
-  margin:0 auto 34px;
+  margin:0 auto var(--abv2-space-32);
   text-align:center;
 }
 
 .abv2-open-now__intro.abv2-stack > * + *{
-  margin-top:16px;
+  margin-top:var(--abv2-space-16);
 }
 
 .abv2-open-now__grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:24px;
+  gap:var(--abv2-space-24);
   width:min(100%, 1040px);
   margin:0 auto;
 }
@@ -37,7 +37,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 .abv2-open-now__error{
   width:min(100%, 760px);
   margin:0 auto;
-  padding:28px 30px;
+  padding:var(--abv2-space-28) var(--abv2-space-32);
   border-radius:22px;
   background:var(--abv2-grey-ui);
   text-align:center;
@@ -49,8 +49,8 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 
 @media (max-width:979px){
   .abv2-open-now{
-      padding-top:58px;
-      padding-bottom:96px;
+      padding-top:var(--abv2-space-56);
+      padding-bottom:var(--abv2-space-96);
     }
 }
 
@@ -63,22 +63,22 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 
 @media (max-width:759px){
   .abv2-open-now{
-      padding-top:48px;
-      padding-bottom:82px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-84);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now__intro{
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto 24px;
+      margin:0 auto var(--abv2-space-24);
       text-align:left;
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now__grid{
-      gap:18px;
+      gap:var(--abv2-space-20);
     }
 }
 
@@ -87,7 +87,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
     .abv2-open-now__loading,
     .abv2-open-now__error{
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      padding:22px 18px;
+      padding:var(--abv2-space-24) var(--abv2-space-20);
       text-align:left;
     }
 }
@@ -98,21 +98,21 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 .abv2-open-now{
   position:relative;
   z-index:1;
-  padding-top:72px;
+  padding-top:var(--abv2-space-72);
   padding-bottom:120px;
   background:var(--abv2-white);
 }
 
 .abv2-open-now__intro{
   width:min(100%, 760px);
-  margin:0 auto 34px;
+  margin:0 auto var(--abv2-space-32);
   text-align:center;
 }
 
 .abv2-open-now__grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:22px;
+  gap:var(--abv2-space-24);
   width:min(100%, 1060px);
   margin:0 auto;
 }
@@ -122,7 +122,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 .abv2-open-now__error{
   width:min(100%, 760px);
   margin:0 auto;
-  padding:28px 30px;
+  padding:var(--abv2-space-28) var(--abv2-space-32);
   border-radius:22px;
   background:var(--abv2-grey-ui);
   text-align:center;
@@ -134,29 +134,29 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 
 @media (max-width:979px){
   .abv2-open-now{
-      padding-top:58px;
-      padding-bottom:96px;
+      padding-top:var(--abv2-space-56);
+      padding-bottom:var(--abv2-space-96);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now{
-      padding-top:48px;
-      padding-bottom:82px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-84);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now__intro{
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto 24px;
+      margin:0 auto var(--abv2-space-24);
       text-align:left;
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now__grid{
-      gap:18px;
+      gap:var(--abv2-space-20);
     }
 }
 
@@ -169,21 +169,21 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 .abv2-open-now{
   position:relative;
   z-index:1;
-  padding-top:72px;
+  padding-top:var(--abv2-space-72);
   padding-bottom:110px;
   background:var(--abv2-white);
 }
 
 .abv2-open-now__intro{
   width:min(100%, 760px);
-  margin:0 auto 30px;
+  margin:0 auto var(--abv2-space-32);
   text-align:center;
 }
 
 .abv2-open-now__grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:18px;
+  gap:var(--abv2-space-20);
   width:min(100%, 1020px);
   margin:0 auto;
 }
@@ -193,7 +193,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 .abv2-open-now__error{
   width:min(100%, 760px);
   margin:0 auto;
-  padding:24px 28px;
+  padding:var(--abv2-space-24) var(--abv2-space-28);
   border-radius:22px;
   background:var(--abv2-grey-ui);
   text-align:center;
@@ -205,29 +205,29 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 
 @media (max-width:979px){
   .abv2-open-now{
-      padding-top:58px;
-      padding-bottom:92px;
+      padding-top:var(--abv2-space-56);
+      padding-bottom:var(--abv2-space-96);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now{
-      padding-top:48px;
-      padding-bottom:80px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-84);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now__intro{
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto 22px;
+      margin:0 auto var(--abv2-space-24);
       text-align:left;
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now__grid{
-      gap:16px;
+      gap:var(--abv2-space-16);
     }
 }
 
@@ -240,14 +240,14 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 .abv2-open-now{
   position:relative;
   z-index:1;
-  padding-top:72px;
+  padding-top:var(--abv2-space-72);
   padding-bottom:108px;
   background:var(--abv2-white);
 }
 
 .abv2-open-now__intro{
   width:min(100%, 760px);
-  margin:0 auto 28px;
+  margin:0 auto var(--abv2-space-28);
   text-align:center;
 }
 
@@ -263,7 +263,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 .abv2-open-now__error{
   width:min(100%, 760px);
   margin:0 auto;
-  padding:24px 28px;
+  padding:var(--abv2-space-24) var(--abv2-space-28);
   border-radius:22px;
   background:var(--abv2-grey-ui);
   text-align:center;
@@ -275,22 +275,22 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 
 @media (max-width:979px){
   .abv2-open-now{
-      padding-top:58px;
-      padding-bottom:90px;
+      padding-top:var(--abv2-space-56);
+      padding-bottom:var(--abv2-space-96);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now{
-      padding-top:48px;
-      padding-bottom:78px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-84);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-now__intro{
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto 20px;
+      margin:0 auto var(--abv2-space-20);
       text-align:left;
     }
 }

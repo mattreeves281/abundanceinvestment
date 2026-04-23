@@ -83,7 +83,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
     .abv2-council-story__grid,
     .abv2-council-proof__grid{
       grid-template-columns:1fr;
-      gap:30px;
+      gap:var(--abv2-space-32);
     }
 }
 

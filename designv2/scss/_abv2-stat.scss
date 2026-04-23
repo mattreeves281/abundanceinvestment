@@ -7,7 +7,7 @@ Status: unrefined (contains duplicates)
 SOURCE: 1 - hompeage base responsive.html / PINK SECTION
 ========================================================= */
 .abv2-stat__label{
-    margin:0 0 10px;
+    margin:0 0 var(--abv2-space-12);
     max-width:180px;
     font-family:var(--abv2-serif);
     font-size:clamp(1.04rem, 1.4vw, 1.32rem);
@@ -42,7 +42,7 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 SOURCE: 2 - council hub page.html / PINK SECTION
 ========================================================= */
 .abv2-stat__label{
-    margin:0 0 10px;
+    margin:0 0 var(--abv2-space-12);
     max-width:180px;
     font-family:var(--abv2-serif);
     font-size:clamp(1.04rem, 1.4vw, 1.32rem);
@@ -70,7 +70,7 @@ SOURCE: 2 - council hub page.html / 760–979 TABLET
 SOURCE: 3- homepage components.html / PINK SECTION
 ========================================================= */
 .abv2-stat__label{
-    margin:0 0 10px;
+    margin:0 0 var(--abv2-space-12);
     max-width:180px;
     font-family:var(--abv2-serif);
     font-size:clamp(1.04rem, 1.4vw, 1.32rem);
@@ -89,7 +89,7 @@ SOURCE: 3- homepage components.html / PINK SECTION
 SOURCE: 4 - editorial components.html / stats
 ========================================================= */
 .abv2-stat{
-  padding:18px 16px 18px;
+  padding:var(--abv2-space-20) var(--abv2-space-16) var(--abv2-space-20);
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:22px;
   background:var(--abv2-grey-ui);
@@ -107,8 +107,8 @@ SOURCE: 4 - editorial components.html / stats
 .abv2-stat__label{
   display:flex;
   align-items:flex-start;
-  gap:8px;
-  margin:0 0 10px;
+  gap:var(--abv2-space-8);
+  margin:0 0 var(--abv2-space-12);
   font-size:.78rem;
   line-height:1.28;
   font-weight:700;
@@ -118,7 +118,7 @@ SOURCE: 4 - editorial components.html / stats
 }
 
 .abv2-stat__value{
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-serif);
   font-weight:600;
   font-size:clamp(1.55rem,2vw,2rem);
@@ -140,14 +140,14 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-stat{
       border-radius:20px;
-      padding:16px 15px 16px;
+      padding:var(--abv2-space-16) var(--abv2-space-16) var(--abv2-space-16);
     }
 }
 
 @media (max-width:759px){
   .abv2-stat__label{
       font-size:.74rem;
-      gap:6px;
+      gap:var(--abv2-space-8);
     }
 }
 

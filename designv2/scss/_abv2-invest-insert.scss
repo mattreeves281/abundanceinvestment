@@ -14,7 +14,7 @@ SOURCE: 4 - editorial components.html / investment insert
   display:grid;
   grid-template-columns:128px minmax(0,1fr) auto;
   align-items:center;
-  gap:20px;
+  gap:var(--abv2-space-20);
 }
 
 .abv2-invest-insert__media{
@@ -61,7 +61,7 @@ SOURCE: 4 - editorial components.html / investment insert
 
 .abv2-invest-insert__kicker{
   display:inline-block;
-  margin:0 0 7px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -71,13 +71,13 @@ SOURCE: 4 - editorial components.html / investment insert
 }
 
 .abv2-invest-insert__title{
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-size:clamp(1.18rem,1.8vw,1.42rem);
   line-height:1.02;
 }
 
 .abv2-invest-insert__desc{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   max-width:42ch;
 }
 
@@ -99,7 +99,7 @@ SOURCE: 4 - editorial components.html / investment insert
 
 .abv2-invest-insert__pill::after{
   content:"·";
-  margin:0 10px;
+  margin:0 var(--abv2-space-12);
   color:rgba(38,38,37,.34);
 }
 
@@ -150,7 +150,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-invest-insert__row{
       grid-template-columns:96px minmax(0,1fr);
-      gap:14px;
+      gap:var(--abv2-space-16);
       align-items:start;
     }
 }
@@ -209,13 +209,13 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-invest-insert__pill::after{
       display:inline;
-      margin:0 8px;
+      margin:0 var(--abv2-space-8);
     }
 }
 
 @media (max-width:759px){
   .abv2-invest-insert__cta{
       grid-column:1 / -1;
-      margin-top:2px;
+      margin-top:var(--abv2-space-2);
     }
 }

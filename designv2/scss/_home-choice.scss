@@ -29,8 +29,8 @@ SOURCE: 3- homepage components.html / grid
 .home-choice__grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:80px;
-  margin-top:60px;
+  gap:var(--abv2-space-84);
+  margin-top:var(--abv2-space-64);
 }
 
 /* =========================================================
@@ -41,7 +41,7 @@ SOURCE: 3- homepage components.html / item
 }
 
 .home-choice__item--accent{
-  margin-top:60px; /* 👈 offset = personality */
+  margin-top:var(--abv2-space-64); /* 👈 offset = personality */
 }
 
 /* =========================================================
@@ -53,14 +53,14 @@ SOURCE: 3- homepage components.html / text
   text-transform:uppercase;
   letter-spacing:.06em;
   color:var(--abv2-pink);
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
 }
 
 .home-choice__heading{
   font-family:"New Kansas";
   font-size:1.6rem;
   line-height:1;
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
 }
 
 .home-choice__body{
@@ -68,5 +68,5 @@ SOURCE: 3- homepage components.html / text
   font-size:1rem;
   line-height:1.6;
   color:var(--abv2-text);
-  margin-bottom:18px;
+  margin-bottom:var(--abv2-space-20);
 }

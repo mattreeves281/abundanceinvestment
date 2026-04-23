@@ -7,8 +7,8 @@ Status: unrefined (contains duplicates)
 SOURCE: 2 - council hub page.html / Divider between chart and top projects
 ========================================================= */
 .cbc-projects {
-  margin-top: 28px;
-  padding-top: 28px;
+  margin-top:var(--abv2-space-28);
+  padding-top: var(--abv2-space-28);
   border-top: 1px solid;
   border-image: linear-gradient(
     to right,

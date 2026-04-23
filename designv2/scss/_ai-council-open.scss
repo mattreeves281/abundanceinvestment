@@ -7,7 +7,7 @@ Status: unrefined (contains duplicates)
 SOURCE: 2 - council hub page.html / open investment
 ========================================================= */
 .ai-council-open{
-  padding:74px 0 86px;
+  padding:var(--abv2-space-72) 0 var(--abv2-space-84);
   background:var(--abv2-grey-light);
   border-radius:0 0 46% 46% / 0 0 10% 10%;
 }
@@ -19,11 +19,11 @@ SOURCE: 2 - council hub page.html / open investment
 
 .ai-council-open__intro{
   text-align:center;
-  margin:0 0 26px;
+  margin:0 0 var(--abv2-space-28);
 }
 
 .ai-council-open__intro h2{
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:clamp(2rem,3vw,2.5rem);
   line-height:1.04;
@@ -49,8 +49,8 @@ SOURCE: 2 - council hub page.html / mobile
 ========================================================= */
 @media (max-width: 759px){
   .ai-council-open{
-      padding-top:48px;
-      padding-bottom:58px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-56);
       border-radius:0 0 24% 24% / 0 0 4% 4%;
     }
 }

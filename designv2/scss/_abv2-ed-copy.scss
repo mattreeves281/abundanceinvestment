@@ -14,7 +14,7 @@ SOURCE: 4 - editorial components.html / CONTENT RAIL / COPY
   }
 
 .abv2-ed-section{
-    margin-top:12px;
+    margin-top:var(--abv2-space-12);
   }
 
 .abv2-ed-copy > *{
@@ -22,7 +22,7 @@ SOURCE: 4 - editorial components.html / CONTENT RAIL / COPY
   }
 
 .abv2-ed-copy > * + *{
-    margin-top:20px;
+    margin-top:var(--abv2-space-20);
   }
 
 .abv2-ed-copy > p,
@@ -40,7 +40,7 @@ SOURCE: 4 - editorial components.html / CONTENT RAIL / COPY
   }
 
 .abv2-ed-copy ul{
-    margin:4px 0 0;
+    margin:var(--abv2-space-4) 0 0;
     padding:0;
     list-style:none;
     width:min(100%, var(--abv2-editorial-copy));
@@ -64,7 +64,7 @@ SOURCE: 4 - editorial components.html / CONTENT RAIL / COPY
   }
 
 .abv2-ed-copy li + li{
-    margin-top:14px;
+    margin-top:var(--abv2-space-16);
   }
 
 /* =========================================================
@@ -107,7 +107,7 @@ SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
 .abv2-ed-copy ul{
   list-style:none;
   padding:0;
-  margin:4px 0 0;
+  margin:var(--abv2-space-4) 0 0;
 }
 
 .abv2-ed-copy li{
@@ -138,7 +138,7 @@ SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
   counter-reset:abv2-ol;
   list-style:none;
   padding:0;
-  margin:4px 0 0;
+  margin:var(--abv2-space-4) 0 0;
   width:min(100%, var(--abv2-editorial-copy));
 }
 
@@ -200,7 +200,7 @@ SOURCE: 4 - editorial components.html / LEFT ILLUSTRATED TOP BLOB
   position:relative;
   margin-top:110px;
   margin-left:0;
-  margin-bottom:18px;
+  margin-bottom:var(--abv2-space-20);
   max-width:18ch;
   transform:none;
 }
@@ -210,7 +210,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:759px){
   .abv2-ed-section--illus-overlap .abv2-ed-copy > h3:first-child{
-      margin-top:48px;
+      margin-top:var(--abv2-space-48);
       margin-left:0;
       max-width:12ch;
       transform:none;

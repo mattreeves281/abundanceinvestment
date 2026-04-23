@@ -10,7 +10,7 @@ SOURCE: 4 - editorial components.html / RHS DECORATIVE LINO SPACER
   position:relative;
   width:min(100%, 980px);
   height:180px;
-  margin:18px auto -42px;
+  margin:var(--abv2-space-20) auto -42px;
   pointer-events:none;
 }
 
@@ -68,7 +68,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
       width:100%;
       max-width:var(--abv2-mobile-copy-rail);
       height:120px;
-      margin:10px auto -24px;
+      margin:var(--abv2-space-12) auto -24px;
     }
 }
 

@@ -16,8 +16,8 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
     .abv2-navcard__inner,
     .abv2-riskcard__inner,
     .abv2-ctacard__inner{
-      padding-left:18px;
-      padding-right:18px;
+      padding-left:var(--abv2-space-20);
+      padding-right:var(--abv2-space-20);
     }
 }
 
@@ -26,8 +26,8 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
     .abv2-navcard__inner,
     .abv2-riskcard__inner,
     .abv2-ctacard__inner{
-      padding-top:18px;
-      padding-bottom:17px;
+      padding-top:var(--abv2-space-20);
+      padding-bottom:var(--abv2-space-16);
     }
 }
 
@@ -51,7 +51,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
   .abv2-panel-cta,
     .abv2-nextstep{
       grid-template-columns:1fr;
-      gap:14px;
-      padding:18px;
+      gap:var(--abv2-space-16);
+      padding:var(--abv2-space-20);
     }
 }

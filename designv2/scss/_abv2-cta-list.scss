@@ -8,18 +8,18 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
 ========================================================= */
 .abv2-cta-list{
   display:grid;
-  gap:12px;
+  gap:var(--abv2-space-12);
 }
 
 .abv2-cta-list__row{
-  padding:14px 16px;
+  padding:var(--abv2-space-16) var(--abv2-space-16);
   border:1px solid rgba(38,38,37,.08);
   border-radius:14px;
   background:var(--abv2-grey-ui);
 }
 
 .abv2-cta-list__title{
-  margin:0 0 4px;
+  margin:0 0 var(--abv2-space-4);
   font-family:var(--abv2-ui);
   font-size:.92rem;
   line-height:1.3;

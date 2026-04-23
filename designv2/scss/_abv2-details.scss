@@ -8,7 +8,7 @@ SOURCE: 4 - editorial components.html / details
 ========================================================= */
 .abv2-details{
   display:grid;
-  gap:12px;
+  gap:var(--abv2-space-12);
 }
 
 .abv2-details__item{
@@ -22,7 +22,7 @@ SOURCE: 4 - editorial components.html / details
   position:relative;
   list-style:none;
   cursor:pointer;
-  padding:16px 48px 16px 18px;
+  padding:var(--abv2-space-16) var(--abv2-space-48) var(--abv2-space-16) var(--abv2-space-20);
   font-family:var(--abv2-ui);
   font-size:.95rem;
   line-height:1.35;
@@ -59,12 +59,12 @@ SOURCE: 4 - editorial components.html / details
 }
 
 .abv2-details__body{
-  padding:0 18px 18px;
+  padding:0 var(--abv2-space-20) var(--abv2-space-20);
   border-top:1px solid rgba(38,38,37,.08);
 }
 
 .abv2-details__body > *:first-child{
-  margin-top:14px;
+  margin-top:var(--abv2-space-16);
 }
 
 .abv2-details__body > *:last-child{

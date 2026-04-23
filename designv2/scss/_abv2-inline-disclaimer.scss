@@ -7,8 +7,8 @@ Status: unrefined (contains duplicates)
 SOURCE: 4 - editorial components.html / RISK / LEGAL
 ========================================================= */
 .abv2-inline-disclaimer{
-  margin:18px 0 0;
-  padding:14px 16px;
+  margin:var(--abv2-space-20) 0 0;
+  padding:var(--abv2-space-16) var(--abv2-space-16);
   border-left:4px solid rgba(226,109,166,.7);
   background:rgba(248,245,247,.72);
   border-radius:0 14px 14px 0;

@@ -13,8 +13,8 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
 .abv2-risk-primary__band{
   display:flex;
   align-items:flex-start;
-  gap:14px;
-  padding:18px 22px;
+  gap:var(--abv2-space-16);
+  padding:var(--abv2-space-20) var(--abv2-space-24);
   border-top:1px solid rgba(38,38,37,.08);
   background:rgba(226,109,166,.08);
 }
@@ -39,7 +39,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
 }
 
 .abv2-risk-primary__headline{
-  margin:0 0 6px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:1rem;
   line-height:1.25;
@@ -57,8 +57,8 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:759px){
   .abv2-risk-primary__band{
-      padding:16px 18px;
-      gap:12px;
+      padding:var(--abv2-space-16) var(--abv2-space-20);
+      gap:var(--abv2-space-12);
     }
 }
 

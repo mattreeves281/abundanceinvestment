@@ -15,7 +15,7 @@ SOURCE: 1 - hompeage base responsive.html / FEATURES
     place-items:center;
     width:76px;
     height:76px;
-    margin-bottom:12px;
+    margin-bottom:var(--abv2-space-12);
     background-color:var(--abv2-pink);
     -webkit-mask-image:var(--abv2-dot-mask);
     -webkit-mask-repeat:no-repeat;
@@ -58,7 +58,7 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
   .abv2-feature__num{
         width:62px;
         height:62px;
-        margin:0 0 10px;
+        margin:0 0 var(--abv2-space-12);
         font-size:1.8rem;
       }
 }
@@ -71,7 +71,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
         display:block !important;
         width:min(calc(100% - 40px), 320px) !important;
         max-width:320px !important;
-        margin:0 auto 30px !important;
+        margin:0 auto var(--abv2-space-32) !important;
         padding:0 !important;
         text-align:center !important;
       }
@@ -89,7 +89,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
         place-items:center !important;
         width:58px;
         height:58px;
-        margin:0 auto 14px !important;
+        margin:0 auto var(--abv2-space-16) !important;
         font-size:1.8rem;
       }
 }
@@ -102,7 +102,7 @@ SOURCE: 2 - council hub page.html / FEATURES
     place-items:center;
     width:76px;
     height:76px;
-    margin-bottom:12px;
+    margin-bottom:var(--abv2-space-12);
     background-color:var(--abv2-pink);
     -webkit-mask-image:var(--abv2-dot-mask);
     -webkit-mask-repeat:no-repeat;
@@ -139,7 +139,7 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
         display:block !important;
         width:min(calc(100% - 40px), 320px) !important;
         max-width:320px !important;
-        margin:0 auto 30px !important;
+        margin:0 auto var(--abv2-space-32) !important;
         padding:0 !important;
         text-align:center !important;
       }
@@ -154,7 +154,7 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
         place-items:center !important;
         width:58px;
         height:58px;
-        margin:0 auto 14px !important;
+        margin:0 auto var(--abv2-space-16) !important;
         font-size:1.8rem;
       }
 }
@@ -167,7 +167,7 @@ SOURCE: 3- homepage components.html / FEATURES
   place-items:center;
   width:76px;
   height:76px;
-  margin:0 auto 10px;
+  margin:0 auto var(--abv2-space-12);
 
   background-image:var(--abv2-dot-svg);
   background-repeat:no-repeat;
@@ -207,7 +207,7 @@ SOURCE: 3- homepage components.html / FEATURES
   .abv2-feature__num{
       width:58px;
       height:58px;
-      margin:0 auto 10px;
+      margin:0 auto var(--abv2-space-12);
     }
 }
 
@@ -219,7 +219,7 @@ SOURCE: 3- homepage components.html / FEATURES DOT SHAPES
   place-items:center;
   width:76px;
   height:76px;
-  margin-bottom:14px;
+  margin-bottom:var(--abv2-space-16);
 
   background-color:var(--abv2-pink);
   -webkit-mask-image:var(--abv2-dot-mask);
@@ -242,7 +242,7 @@ SOURCE: 3- homepage components.html / FEATURES DOT SHAPES
   .abv2-feature__num{
       width:58px;
       height:58px;
-      margin:0 auto 10px;
+      margin:0 auto var(--abv2-space-12);
       font-size:1.8rem;
     }
 }

@@ -7,7 +7,7 @@ Status: unrefined (contains duplicates)
 SOURCE: 2 - council hub page.html / spending / impact
 ========================================================= */
 .ai-council-spend{
-  padding:74px 0 72px;
+  padding:var(--abv2-space-72) 0 var(--abv2-space-72);
   background:var(--abv2-grey-light);
 }
 
@@ -18,7 +18,7 @@ SOURCE: 2 - council hub page.html / spending / impact
 }
 
 .ai-council-spend__title{
-  margin:0 0 18px;
+  margin:0 0 var(--abv2-space-20);
   font-family:"Sohne Kraftig", Arial, sans-serif;
   font-size:clamp(2rem,3vw,2.5rem);
   line-height:1.05;
@@ -36,11 +36,11 @@ SOURCE: 2 - council hub page.html / spending / impact
 }
 
 .ai-council-spend__body + .ai-council-spend__body{
-  margin-top:18px;
+  margin-top:var(--abv2-space-20);
 }
 
 .ai-council-spend__chart{
-  margin:34px auto 0;
+  margin:var(--abv2-space-32) auto 0;
   width:min(100%, 700px);
   text-align:left;
 }

@@ -9,7 +9,7 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
 .abv2-how-step{
   display:grid;
   grid-template-columns:66px minmax(0,1fr);
-  gap:18px;
+  gap:var(--abv2-space-20);
   align-items:start;
 }
 
@@ -39,7 +39,7 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
 }
 
 .abv2-how-step__content.abv2-stack > * + *{
-  margin-top:8px;
+  margin-top:var(--abv2-space-8);
 }
 
 /* =========================================================
@@ -48,7 +48,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-how-step{
       grid-template-columns:52px minmax(0,1fr);
-      gap:14px;
+      gap:var(--abv2-space-16);
     }
 }
 

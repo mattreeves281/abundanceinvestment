@@ -9,15 +9,15 @@ SOURCE: 3- homepage components.html / SPLIT INTRO
 .abv2-intro-split{
   position:relative;
   z-index:1;
-  padding-top:68px;
-  padding-bottom:48px;
+  padding-top:var(--abv2-space-72);
+  padding-bottom:var(--abv2-space-48);
   background:var(--abv2-white);
 }
 
 .abv2-intro-split__inner{
   display:grid;
   grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);
-  gap:42px;
+  gap:var(--abv2-space-40);
   align-items:start;
   width:min(100%, 1020px);
   margin:0 auto;
@@ -28,7 +28,7 @@ SOURCE: 3- homepage components.html / SPLIT INTRO
 }
 
 .abv2-intro-split__eyebrow{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -42,7 +42,7 @@ SOURCE: 3- homepage components.html / SPLIT INTRO
 }
 
 .abv2-intro-split__copy.abv2-stack > * + *{
-  margin-top:16px;
+  margin-top:var(--abv2-space-16);
 }
 
 /* =========================================================
@@ -50,15 +50,15 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-intro-split{
-      padding-top:54px;
-      padding-bottom:36px;
+      padding-top:var(--abv2-space-56);
+      padding-bottom:var(--abv2-space-40);
     }
 }
 
 @media (max-width:979px){
   .abv2-intro-split__inner{
       grid-template-columns:1fr;
-      gap:22px;
+      gap:var(--abv2-space-24);
     }
 }
 
@@ -70,8 +70,8 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-intro-split{
-      padding-top:42px;
-      padding-bottom:28px;
+      padding-top:var(--abv2-space-40);
+      padding-bottom:var(--abv2-space-28);
     }
 }
 

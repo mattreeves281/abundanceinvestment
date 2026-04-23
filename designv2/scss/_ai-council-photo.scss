@@ -7,7 +7,7 @@ Status: unrefined (contains duplicates)
 SOURCE: 2 - council hub page.html / image panel
 ========================================================= */
 .ai-council-photo{
-  padding:74px 0 82px;
+  padding:var(--abv2-space-72) 0 var(--abv2-space-84);
   background:var(--abv2-grey-light);
 }
 
@@ -32,7 +32,7 @@ SOURCE: 2 - council hub page.html / image panel
 
 .ai-council-photo__caption{
   margin:0;
-  padding:12px 14px 14px;
+  padding:var(--abv2-space-12) var(--abv2-space-16) var(--abv2-space-16);
   font-family:"Sohne Buch", Arial, sans-serif;
   font-size:.84rem;
   line-height:1.45;
@@ -44,7 +44,7 @@ SOURCE: 2 - council hub page.html / mobile
 ========================================================= */
 @media (max-width: 759px){
   .ai-council-photo{
-      padding-top:48px;
-      padding-bottom:56px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-56);
     }
 }

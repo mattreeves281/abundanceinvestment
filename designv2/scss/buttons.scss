@@ -6,7 +6,7 @@ SOURCE: 1 - hompeage base responsive.html
     align-items:center;
     justify-content:center;
     min-height:44px;
-    padding:11px 20px;
+    padding:var(--abv2-space-12) var(--abv2-space-20);
     border:1.8px solid currentColor;
     border-radius:999px;
     font-family:var(--abv2-ui);
@@ -25,14 +25,14 @@ SOURCE: 1 - hompeage base responsive.html
 SOURCE: 1 - hompeage base responsive.html / PINK SECTION
 ========================================================= */
 .abv2-pink .abv2-btn{
-    margin-top:2px;
+    margin-top:var(--abv2-space-2);
   }
 
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
 ========================================================= */
 .abv2-teal .abv2-btn{
-    margin-top:2px;
+    margin-top:var(--abv2-space-2);
   }
 
 /* =========================================================
@@ -60,7 +60,7 @@ SOURCE: 2 - council hub page.html
     align-items:center;
     justify-content:center;
     min-height:44px;
-    padding:11px 20px;
+    padding:var(--abv2-space-12) var(--abv2-space-20);
     border:1.8px solid currentColor;
     border-radius:999px;
     font-family:var(--abv2-ui);
@@ -102,7 +102,7 @@ SOURCE: 3- homepage components.html
     align-items:center;
     justify-content:center;
     min-height:44px;
-    padding:11px 20px;
+    padding:var(--abv2-space-12) var(--abv2-space-20);
     border:1.8px solid currentColor;
     border-radius:999px;
     font-family:var(--abv2-ui);
@@ -136,7 +136,7 @@ SOURCE: 3- homepage components.html / DUAL-PATH HERO
 ========================================================= */
 .abv2-path .abv2-btn{
   min-height:40px;
-  padding:0 16px;
+  padding:0 var(--abv2-space-16);
 }
 
 .abv2-btn--pink{
@@ -157,7 +157,7 @@ SOURCE: 4 - editorial components.html / HERO
 SOURCE: 4 - editorial components.html / SUPPORT PANEL
 ========================================================= */
 .abv2-ed-panel .abv2-btn{
-    margin-top:18px;
+    margin-top:var(--abv2-space-20);
   }
 
 /* =========================================================
@@ -168,7 +168,7 @@ SOURCE: 4 - editorial components.html / BUTTONS
     align-items:center;
     justify-content:center;
     min-height:46px;
-    padding:12px 20px;
+    padding:var(--abv2-space-12) var(--abv2-space-20);
     border:0;
     border-radius:999px;
     background:var(--abv2-pink);

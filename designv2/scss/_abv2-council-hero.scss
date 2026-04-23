@@ -9,15 +9,15 @@ SOURCE: 5 - council landing page v2 / HERO — final boring / clean version
 .abv2-council-hero{
   position:relative;
   z-index:1;
-  padding-top:54px;
-  padding-bottom:48px;
+  padding-top:var(--abv2-space-56);
+  padding-bottom:var(--abv2-space-48);
   background:var(--abv2-white);
 }
 
 .abv2-council-hero__grid{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(260px,.72fr);
-  gap:56px;
+  gap:var(--abv2-space-56);
   align-items:start;
 }
 
@@ -29,7 +29,7 @@ SOURCE: 5 - council landing page v2 / HERO — final boring / clean version
 }
 
 .abv2-council-hero__copy.abv2-stack > * + *{
-  margin-top:20px;
+  margin-top:var(--abv2-space-20);
 }
 
 .abv2-council-hero__eyebrow{
@@ -45,8 +45,8 @@ SOURCE: 5 - council landing page v2 / HERO — final boring / clean version
 .abv2-council-hero__actions{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
-  padding-top:4px;
+  gap:var(--abv2-space-12);
+  padding-top:var(--abv2-space-4);
 }
 
 .abv2-council-hero__art{
@@ -55,7 +55,7 @@ SOURCE: 5 - council landing page v2 / HERO — final boring / clean version
   justify-content:flex-start;
   margin:0;
   margin-top:-12px;
-  padding-top:clamp(18px, 2.5vw, 32px);
+  padding-top:clamp(var(--abv2-space-20), 2.5vw, var(--abv2-space-32));
 }
 
 .abv2-council-hero__logoBlock{
@@ -85,8 +85,8 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-council-hero{
-      padding-top:34px;
-      padding-bottom:34px;
+      padding-top:var(--abv2-space-32);
+      padding-bottom:var(--abv2-space-32);
     }
 }
 
@@ -113,8 +113,8 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-council-hero{
-      padding-top:24px;
-      padding-bottom:26px;
+      padding-top:var(--abv2-space-24);
+      padding-bottom:var(--abv2-space-28);
     }
 }
 

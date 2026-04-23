@@ -33,7 +33,7 @@ SOURCE: 3- homepage components.html / grid
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:100px;
-  margin-top:70px;
+  margin-top:var(--abv2-space-72);
 }
 
 /* =========================================================
@@ -59,14 +59,14 @@ SOURCE: 3- homepage components.html / text
   letter-spacing:.06em;
   text-transform:uppercase;
   color:var(--abv2-pink);
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
 }
 
 .home-choice-v2__heading{
   font-family:"New Kansas";
   font-size:1.7rem;
   line-height:1;
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
 }
 
 .home-choice-v2__body{
@@ -74,7 +74,7 @@ SOURCE: 3- homepage components.html / text
   font-size:1rem;
   line-height:1.6;
   color:var(--abv2-text);
-  margin-bottom:18px;
+  margin-bottom:var(--abv2-space-20);
 }
 
 /* =========================================================
@@ -83,13 +83,13 @@ SOURCE: 3- homepage components.html / list
 .home-choice-v2__list{
   list-style:none;
   padding:0;
-  margin:0 0 22px;
+  margin:0 0 var(--abv2-space-24);
 }
 
 .home-choice-v2__list li{
   position:relative;
-  padding-left:18px;
-  margin-bottom:10px;
+  padding-left:var(--abv2-space-20);
+  margin-bottom:var(--abv2-space-12);
   font-size:.95rem;
   color:var(--abv2-text);
 }

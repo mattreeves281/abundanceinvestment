@@ -9,15 +9,15 @@ SOURCE: 3- homepage components.html / LIGHTWEIGHT SUBNAV
 .abv2-subnav{
   position:relative;
   z-index:1;
-  padding-top:48px;
-  padding-bottom:52px;
+  padding-top:var(--abv2-space-48);
+  padding-bottom:var(--abv2-space-56);
   background:var(--abv2-grey-ui);
 }
 
 .abv2-subnav__inner{
   display:grid;
   grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);
-  gap:34px;
+  gap:var(--abv2-space-32);
   align-items:start;
   width:min(100%, 1020px);
   margin:0 auto;
@@ -28,7 +28,7 @@ SOURCE: 3- homepage components.html / LIGHTWEIGHT SUBNAV
 }
 
 .abv2-subnav__eyebrow{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -50,12 +50,12 @@ SOURCE: 3- homepage components.html / LIGHTWEIGHT SUBNAV
 .abv2-subnav__links{
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:22px;
+  gap:var(--abv2-space-24);
 }
 
 .abv2-subnav__item{
   position:relative;
-  padding-top:10px;
+  padding-top:var(--abv2-space-12);
 }
 
 .abv2-subnav__item::before{
@@ -79,7 +79,7 @@ SOURCE: 3- homepage components.html / LIGHTWEIGHT SUBNAV
 }
 
 .abv2-subnav__label{
-  margin:0 0 6px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.9rem;
   line-height:1.2;
@@ -100,29 +100,29 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-subnav{
-      padding-top:38px;
-      padding-bottom:42px;
+      padding-top:var(--abv2-space-40);
+      padding-bottom:var(--abv2-space-40);
     }
 }
 
 @media (max-width:979px){
   .abv2-subnav__inner{
       grid-template-columns:1fr;
-      gap:22px;
+      gap:var(--abv2-space-24);
     }
 }
 
 @media (max-width:979px){
   .abv2-subnav__links{
       grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:18px 22px;
+      gap:var(--abv2-space-20) var(--abv2-space-24);
     }
 }
 
 @media (max-width:759px){
   .abv2-subnav{
-      padding-top:32px;
-      padding-bottom:34px;
+      padding-top:var(--abv2-space-32);
+      padding-bottom:var(--abv2-space-32);
     }
 }
 
@@ -135,7 +135,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-subnav__links{
       grid-template-columns:1fr;
-      gap:16px;
+      gap:var(--abv2-space-16);
     }
 }
 

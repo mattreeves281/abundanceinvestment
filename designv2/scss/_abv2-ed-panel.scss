@@ -10,8 +10,8 @@ SOURCE: 4 - editorial components.html / SUPPORT PANEL
     position:relative;
     overflow:hidden;
     width:min(100%, 820px);
-    margin:48px auto;
-    padding:34px 36px;
+    margin:var(--abv2-space-48) auto;
+    padding:var(--abv2-space-32) var(--abv2-space-40);
     border-radius:26px;
     background:var(--abv2-teal-light);
   }
@@ -42,7 +42,7 @@ SOURCE: 4 - editorial components.html / SUPPORT PANEL
   }
 
 .abv2-ed-panel h3{
-    margin:0 0 14px;
+    margin:0 0 var(--abv2-space-16);
     font-family:var(--abv2-serif);
     font-size:1.8rem;
     line-height:1;
@@ -62,8 +62,8 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:759px){
   .abv2-ed-panel{
-        margin:36px auto;
-        padding:24px 22px;
+        margin:var(--abv2-space-40) auto;
+        padding:var(--abv2-space-24) var(--abv2-space-24);
         border-radius:22px;
       }
 }

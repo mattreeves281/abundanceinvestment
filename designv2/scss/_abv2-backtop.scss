@@ -10,8 +10,8 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:14px;
-  padding:18px 20px;
+  gap:var(--abv2-space-16);
+  padding:var(--abv2-space-20) var(--abv2-space-20);
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:18px;
   background:var(--abv2-grey-ui);
@@ -22,7 +22,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 }
 
 .abv2-backtop__title{
-  margin:0 0 4px;
+  margin:0 0 var(--abv2-space-4);
   font-family:var(--abv2-ui);
   font-size:.96rem;
   line-height:1.25;
@@ -43,7 +43,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   align-items:center;
   justify-content:center;
   min-height:42px;
-  padding:10px 16px;
+  padding:var(--abv2-space-12) var(--abv2-space-16);
   border-radius:999px;
   border:1.5px solid rgba(38,38,37,.10);
   background:var(--abv2-white);
@@ -71,6 +71,6 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-backtop__link{
-      margin-top:12px;
+      margin-top:var(--abv2-space-12);
     }
 }

@@ -9,15 +9,15 @@ SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
 .abv2-feature-stat{
   position:relative;
   z-index:1;
-  padding-top:76px;
-  padding-bottom:82px;
+  padding-top:var(--abv2-space-72);
+  padding-bottom:var(--abv2-space-84);
   background:var(--abv2-white);
 }
 
 .abv2-feature-stat__inner{
   display:grid;
   grid-template-columns:minmax(0,.9fr) minmax(220px,.7fr);
-  gap:44px;
+  gap:var(--abv2-space-48);
   align-items:end;
   width:min(100%, 980px);
   margin:0 auto;
@@ -28,7 +28,7 @@ SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
 }
 
 .abv2-feature-stat__eyebrow{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -38,7 +38,7 @@ SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
 }
 
 .abv2-feature-stat__copy.abv2-stack > * + *{
-  margin-top:16px;
+  margin-top:var(--abv2-space-16);
 }
 
 .abv2-feature-stat__body{
@@ -47,7 +47,7 @@ SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
 
 .abv2-feature-stat__stat{
   position:relative;
-  padding-top:14px;
+  padding-top:var(--abv2-space-16);
 }
 
 .abv2-feature-stat__stat::before{
@@ -61,7 +61,7 @@ SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
 }
 
 .abv2-feature-stat__value{
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-serif);
   font-weight:600;
   font-size:clamp(2rem, 3vw, 3rem);
@@ -84,22 +84,22 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-feature-stat{
-      padding-top:60px;
-      padding-bottom:66px;
+      padding-top:var(--abv2-space-64);
+      padding-bottom:var(--abv2-space-64);
     }
 }
 
 @media (max-width:979px){
   .abv2-feature-stat__inner{
       grid-template-columns:1fr;
-      gap:24px;
+      gap:var(--abv2-space-24);
     }
 }
 
 @media (max-width:759px){
   .abv2-feature-stat{
-      padding-top:48px;
-      padding-bottom:52px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-56);
     }
 }
 

@@ -11,7 +11,7 @@ SOURCE: 3- homepage components.html / buttons
   align-items:center;
   justify-content:center;
   min-height:44px;
-  padding:0 20px;
+  padding:0 var(--abv2-space-20);
 
   border-radius:999px;
   border:1.8px solid rgba(255,255,255,.9);

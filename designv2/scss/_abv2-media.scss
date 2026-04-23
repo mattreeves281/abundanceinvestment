@@ -9,11 +9,11 @@ SOURCE: 4 - editorial components.html / MEDIA
 .abv2-media{
     position:relative;
     width:100%;
-    margin:42px 0 56px;
+    margin:var(--abv2-space-40) 0 var(--abv2-space-56);
   }
 
 .abv2-media--video{
-    margin:38px 0 52px;
+    margin:var(--abv2-space-40) 0 var(--abv2-space-56);
   }
 
 .abv2-media__frame{
@@ -78,9 +78,9 @@ SOURCE: 4 - editorial components.html / CAPTIONS / MEDIA TIDY
 }
 
 .abv2-media__caption{
-  margin-top:12px;
+  margin-top:var(--abv2-space-12);
   max-width:min(100%, 680px);
-  padding-left:14px;
+  padding-left:var(--abv2-space-16);
   border-left:2px solid rgba(38,38,37,.10);
   font-family:var(--abv2-sans);
   font-size:.82rem;
@@ -93,7 +93,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:759px){
   .abv2-media__caption{
-      padding-left:12px;
+      padding-left:var(--abv2-space-12);
       font-size:.78rem;
       line-height:1.48;
     }

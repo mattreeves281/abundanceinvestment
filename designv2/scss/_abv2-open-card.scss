@@ -40,7 +40,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:22px;
+  padding:var(--abv2-space-24);
   background:var(--card-bg, var(--abv2-blue));
 }
 
@@ -69,7 +69,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  padding:22px 24px 22px 22px;
+  padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24);
   min-width:0;
 }
 
@@ -79,7 +79,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 
 .abv2-open-card__kicker{
   display:inline-block;
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.74rem;
   line-height:1;
@@ -89,7 +89,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 }
 
 .abv2-open-card__title{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-serif);
   font-weight:600;
   font-size:clamp(1.32rem, 1.8vw, 1.72rem);
@@ -112,15 +112,15 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   z-index:5;
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
+  gap:var(--abv2-space-12);
+  margin-top:var(--abv2-space-20);
 }
 
 .abv2-open-card__pill{
   display:inline-flex;
   align-items:center;
   min-height:34px;
-  padding:8px 12px;
+  padding:var(--abv2-space-8) var(--abv2-space-12);
   border-radius:999px;
   font-family:var(--abv2-ui);
   font-size:.78rem;
@@ -150,8 +150,8 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 .abv2-open-card__cta{
   display:flex;
   align-items:center;
-  gap:10px;
-  margin-top:18px;
+  gap:var(--abv2-space-12);
+  margin-top:var(--abv2-space-20);
   font-family:var(--abv2-ui);
   font-size:.84rem;
   line-height:1;
@@ -182,7 +182,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 @media (max-width:759px){
   .abv2-open-card__media{
       min-height:132px;
-      padding:20px;
+      padding:var(--abv2-space-20);
     }
 }
 
@@ -205,7 +205,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 
 @media (max-width:759px){
   .abv2-open-card__body{
-      padding:18px 18px 18px;
+      padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-20);
     }
 }
 
@@ -222,7 +222,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
-      padding-bottom:4px;
+      padding-bottom:var(--abv2-space-4);
     }
 }
 
@@ -266,7 +266,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:24px;
+  padding:var(--abv2-space-24);
   background:var(--card-bg, var(--abv2-blue));
 }
 
@@ -296,13 +296,13 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:28px 30px 26px 28px;
+  padding:var(--abv2-space-28) var(--abv2-space-32) var(--abv2-space-28) var(--abv2-space-28);
   min-width:0;
 }
 
 .abv2-open-card__kicker{
   display:inline-block;
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.74rem;
   line-height:1;
@@ -312,7 +312,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 }
 
 .abv2-open-card__title{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   max-width:18ch;
   font-family:var(--abv2-serif);
   font-weight:600;
@@ -323,7 +323,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 }
 
 .abv2-open-card__desc{
-  margin:0 0 18px;
+  margin:0 0 var(--abv2-space-20);
   max-width:42ch;
   font-family:var(--abv2-sans);
   font-size:1rem;
@@ -337,8 +337,8 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   display:flex;
   flex-wrap:wrap;
   align-items:center;
-  gap:12px;
-  margin-bottom:18px;
+  gap:var(--abv2-space-12);
+  margin-bottom:var(--abv2-space-20);
 }
 
 .abv2-open-card__pill{
@@ -346,7 +346,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   align-items:center;
   justify-content:center;
   min-height:42px;
-  padding:0 16px;
+  padding:0 var(--abv2-space-16);
   border-radius:999px;
   font-family:var(--abv2-ui);
   font-size:.82rem;
@@ -376,7 +376,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 .abv2-open-card__cta{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.84rem;
   line-height:1;
@@ -404,7 +404,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 
 @media (max-width:979px){
   .abv2-open-card__body{
-      padding:24px 24px 22px;
+      padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24);
     }
 }
 
@@ -425,7 +425,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 @media (max-width:759px){
   .abv2-open-card__media{
       min-height:136px;
-      padding:20px;
+      padding:var(--abv2-space-20);
     }
 }
 
@@ -447,7 +447,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 
 @media (max-width:759px){
   .abv2-open-card__body{
-      padding:18px 18px 18px;
+      padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-20);
     }
 }
 
@@ -461,7 +461,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 @media (max-width:759px){
   .abv2-open-card__desc{
       max-width:none;
-      margin-bottom:16px;
+      margin-bottom:var(--abv2-space-16);
       font-size:.96rem;
     }
 }
@@ -472,8 +472,8 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
-      gap:10px;
-      padding-bottom:4px;
+      gap:var(--abv2-space-12);
+      padding-bottom:var(--abv2-space-4);
     }
 }
 
@@ -484,7 +484,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   .abv2-open-card__pill{
       flex:0 0 auto;
       min-height:40px;
-      padding:0 14px;
+      padding:0 var(--abv2-space-16);
     }
 }
 
@@ -516,7 +516,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  padding:var(--abv2-space-20);
   background:var(--card-bg, var(--abv2-blue));
 }
 
@@ -546,13 +546,13 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:20px 24px 18px 22px;
+  padding:var(--abv2-space-20) var(--abv2-space-24) var(--abv2-space-20) var(--abv2-space-24);
   min-width:0;
 }
 
 .abv2-open-card__kicker{
   display:inline-block;
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -562,7 +562,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 }
 
 .abv2-open-card__title{
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   max-width:16ch;
   font-family:var(--abv2-serif);
   font-weight:600;
@@ -573,7 +573,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 }
 
 .abv2-open-card__desc{
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   max-width:44ch;
   font-family:var(--abv2-sans);
   font-size:.98rem;
@@ -587,7 +587,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   display:flex;
   flex-wrap:wrap;
   gap:0;
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.82rem;
   line-height:1.35;
@@ -608,7 +608,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 
 .abv2-open-card__pill::after{
   content:"·";
-  margin:0 10px;
+  margin:0 var(--abv2-space-12);
   color:rgba(38,38,37,.35);
 }
 
@@ -631,7 +631,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 .abv2-open-card__cta{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.82rem;
   line-height:1;
@@ -659,7 +659,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 
 @media (max-width:979px){
   .abv2-open-card__body{
-      padding:18px 20px 18px;
+      padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-20);
     }
 }
 
@@ -674,7 +674,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 @media (max-width:759px){
   .abv2-open-card__media{
       min-height:116px;
-      padding:18px;
+      padding:var(--abv2-space-20);
     }
 }
 
@@ -696,7 +696,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 
 @media (max-width:759px){
   .abv2-open-card__body{
-      padding:16px 16px 16px;
+      padding:var(--abv2-space-16) var(--abv2-space-16) var(--abv2-space-16);
     }
 }
 
@@ -710,7 +710,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 @media (max-width:759px){
   .abv2-open-card__desc{
       max-width:none;
-      margin-bottom:10px;
+      margin-bottom:var(--abv2-space-12);
       font-size:.94rem;
     }
 }
@@ -718,7 +718,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 @media (max-width:759px){
   .abv2-open-card__meta{
       display:block;
-      margin-bottom:12px;
+      margin-bottom:var(--abv2-space-12);
       font-size:.8rem;
       line-height:1.45;
     }
@@ -734,7 +734,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 @media (max-width:759px){
   .abv2-open-card__pill::after{
       display:inline;
-      margin:0 8px;
+      margin:0 var(--abv2-space-8);
     }
 }
 
@@ -747,7 +747,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   grid-template-columns:168px minmax(0,1fr);
   align-items:center;
   gap:0;
-  padding:16px 0;
+  padding:var(--abv2-space-16) 0;
   border:0;
   border-bottom:1px solid rgba(38,38,37,.12);
   border-radius:0;
@@ -772,7 +772,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   justify-content:center;
   width:136px;
   height:116px;
-  margin-left:8px;
+  margin-left:var(--abv2-space-8);
   border-radius:24px;
   background:var(--card-bg, var(--abv2-blue));
   overflow:hidden;
@@ -802,12 +802,12 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   position:relative;
   z-index:2;
   min-width:0;
-  padding:0 4px 0 0;
+  padding:0 var(--abv2-space-4) 0 0;
 }
 
 .abv2-open-card__kicker{
   display:inline-block;
-  margin:0 0 6px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.7rem;
   line-height:1;
@@ -817,7 +817,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 }
 
 .abv2-open-card__title{
-  margin:0 0 6px;
+  margin:0 0 var(--abv2-space-8);
   max-width:18ch;
   font-family:var(--abv2-serif);
   font-weight:600;
@@ -828,7 +828,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 }
 
 .abv2-open-card__desc{
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   max-width:48ch;
   font-family:var(--abv2-sans);
   font-size:.95rem;
@@ -842,7 +842,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   display:flex;
   flex-wrap:wrap;
   gap:0;
-  margin-bottom:8px;
+  margin-bottom:var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.78rem;
   line-height:1.35;
@@ -863,7 +863,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 
 .abv2-open-card__pill::after{
   content:"·";
-  margin:0 10px;
+  margin:0 var(--abv2-space-12);
   color:rgba(38,38,37,.35);
 }
 
@@ -876,7 +876,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 .abv2-open-card__cta{
   display:inline-flex;
   align-items:center;
-  gap:8px;
+  gap:var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.8rem;
   line-height:1;
@@ -899,7 +899,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 @media (max-width:979px){
   .abv2-open-card{
       grid-template-columns:148px minmax(0,1fr);
-      padding:14px 0;
+      padding:var(--abv2-space-16) 0;
     }
 }
 
@@ -920,7 +920,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   .abv2-open-card{
       grid-template-columns:104px minmax(0,1fr);
       align-items:start;
-      padding:14px 0;
+      padding:var(--abv2-space-16) 0;
     }
 }
 
@@ -959,7 +959,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 @media (max-width:759px){
   .abv2-open-card__desc{
       max-width:none;
-      margin-bottom:7px;
+      margin-bottom:var(--abv2-space-8);
       font-size:.92rem;
     }
 }
@@ -969,7 +969,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
       display:block;
       font-size:.76rem;
       line-height:1.42;
-      margin-bottom:8px;
+      margin-bottom:var(--abv2-space-8);
     }
 }
 
@@ -989,8 +989,8 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
 .abv2-open-card{
   grid-template-columns:168px minmax(0, 620px);
   justify-content:start;
-  column-gap:38px;
-  padding:18px 0;
+  column-gap:var(--abv2-space-40);
+  padding:var(--abv2-space-20) 0;
 }
 
 .abv2-open-card__body{
@@ -1009,11 +1009,11 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
 
 .abv2-open-card__desc{
   max-width:34ch;
-  margin:0 0 9px;
+  margin:0 0 var(--abv2-space-8);
 }
 
 .abv2-open-card__meta{
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
 }
 
 .abv2-open-card__cta{
@@ -1021,7 +1021,7 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
   align-items:center;
   justify-content:center;
   min-height:34px;
-  padding:0 14px;
+  padding:0 var(--abv2-space-16);
   border:1.5px solid rgba(223,115,173,.45);
   border-radius:999px;
   background:transparent;
@@ -1038,7 +1038,7 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
 .abv2-open-card__cta::after{
   content:"→";
   display:inline-block;
-  margin-left:2px;
+  margin-left:var(--abv2-space-2);
   color:var(--abv2-pink);
   transform:translateX(0);
   transition:transform .2s ease;
@@ -1069,7 +1069,7 @@ SOURCE: 3- homepage components.html / tablet
 @media (max-width:979px){
   .abv2-open-card{
       grid-template-columns:148px minmax(0, 1fr);
-      column-gap:28px;
+      column-gap:var(--abv2-space-28);
     }
 }
 
@@ -1106,7 +1106,7 @@ SOURCE: 3- homepage components.html / mobile
 @media (max-width:759px){
   .abv2-open-card{
       grid-template-columns:104px minmax(0,1fr);
-      column-gap:16px;
+      column-gap:var(--abv2-space-16);
     }
 }
 
@@ -1134,7 +1134,7 @@ SOURCE: 3- homepage components.html / mobile
 @media (max-width:759px){
   .abv2-open-card__cta{
       min-height:32px;
-      padding:0 12px;
+      padding:0 var(--abv2-space-12);
       font-size:.74rem;
     }
 }
@@ -1146,15 +1146,15 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
   grid-template-columns:164px minmax(0, 620px) 1fr;
   justify-content:start;
   align-items:center;
-  column-gap:42px;
-  padding:22px 0;
+  column-gap:var(--abv2-space-40);
+  padding:var(--abv2-space-24) 0;
 }
 
 .abv2-open-card__media{
   position:relative;
   width:164px;
   height:164px;
-  margin-left:10px;
+  margin-left:var(--abv2-space-12);
   border-radius:30px;
   overflow:hidden;
 }
@@ -1193,12 +1193,12 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
 }
 
 .abv2-open-card__kicker{
-  margin:0 0 7px;
+  margin:0 0 var(--abv2-space-8);
 }
 
 .abv2-open-card__title{
   max-width:none;
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-size:clamp(1.22rem, 1.45vw, 1.54rem);
   line-height:.96;
   white-space:nowrap;
@@ -1208,18 +1208,18 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
 
 .abv2-open-card__desc{
   max-width:31ch;
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-size:1rem;
   line-height:1.4;
 }
 
 .abv2-open-card__meta{
-  margin-bottom:14px;
+  margin-bottom:var(--abv2-space-16);
   font-size:.8rem;
 }
 
 .abv2-open-card__pill::after{
-  margin:0 11px;
+  margin:0 var(--abv2-space-12);
 }
 
 .abv2-open-card__cta{
@@ -1227,7 +1227,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
   align-items:center;
   justify-content:center;
   min-height:38px;
-  padding:0 16px;
+  padding:0 var(--abv2-space-16);
   border:1.8px solid var(--abv2-pink);
   border-radius:999px;
   background:transparent;
@@ -1266,8 +1266,8 @@ SOURCE: 3- homepage components.html / tablet
 @media (max-width:979px){
   .abv2-open-card{
       grid-template-columns:138px minmax(0, 560px) 1fr;
-      column-gap:28px;
-      padding:18px 0;
+      column-gap:var(--abv2-space-28);
+      padding:var(--abv2-space-20) 0;
     }
 }
 
@@ -1328,9 +1328,9 @@ SOURCE: 3- homepage components.html / mobile
 @media (max-width:759px){
   .abv2-open-card{
       grid-template-columns:104px minmax(0,1fr);
-      column-gap:16px;
+      column-gap:var(--abv2-space-16);
       align-items:start;
-      padding:14px 0;
+      padding:var(--abv2-space-16) 0;
     }
 }
 
@@ -1383,14 +1383,14 @@ SOURCE: 3- homepage components.html / mobile
   .abv2-open-card__desc{
       max-width:none;
       font-size:.92rem;
-      margin-bottom:8px;
+      margin-bottom:var(--abv2-space-8);
     }
 }
 
 @media (max-width:759px){
   .abv2-open-card__meta{
       display:block;
-      margin-bottom:10px;
+      margin-bottom:var(--abv2-space-12);
       font-size:.76rem;
       line-height:1.42;
     }
@@ -1409,7 +1409,7 @@ SOURCE: 3- homepage components.html / mobile
 @media (max-width:759px){
   .abv2-open-card__cta{
       min-height:34px;
-      padding:0 14px;
+      padding:0 var(--abv2-space-16);
       font-size:.74rem;
     }
 }

@@ -7,7 +7,7 @@ Status: unrefined (contains duplicates)
 SOURCE: 5 - council landing page v2 / PROOF / LEARN MORE
 ========================================================= */
 .abv2-council-proof{
-  padding-top:92px;
+  padding-top:var(--abv2-space-96);
   padding-bottom:132px;
   background:var(--abv2-white);
 }
@@ -15,7 +15,7 @@ SOURCE: 5 - council landing page v2 / PROOF / LEARN MORE
 .abv2-council-proof__grid{
   display:grid;
   grid-template-columns:minmax(360px,.96fr) minmax(0,1.04fr);
-  gap:56px;
+  gap:var(--abv2-space-56);
   align-items:center;
   width:min(100%, 1080px);
   margin:0 auto;
@@ -44,7 +44,7 @@ SOURCE: 5 - council landing page v2 / PROOF / LEARN MORE
 }
 
 .abv2-council-proof__copy.abv2-stack > * + *{
-  margin-top:20px;
+  margin-top:var(--abv2-space-20);
 }
 
 .abv2-council-proof__eyebrow{
@@ -62,14 +62,14 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-council-proof{
-      padding-top:72px;
+      padding-top:var(--abv2-space-72);
       padding-bottom:100px;
     }
 }
 
 @media (max-width:759px){
   .abv2-council-proof{
-      padding-top:56px;
-      padding-bottom:84px;
+      padding-top:var(--abv2-space-56);
+      padding-bottom:var(--abv2-space-84);
     }
 }

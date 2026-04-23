@@ -45,7 +45,7 @@ SOURCE: 3- homepage components.html / HOMEPAGE CTA (TEAL / PINK SECTION STYLE)
 .home-cta__grid{
   display:grid;
   grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);
-  gap:56px;
+  gap:var(--abv2-space-56);
   align-items:center;
 }
 
@@ -71,7 +71,7 @@ SOURCE: 3- homepage components.html / content
   font-size:.75rem;
   letter-spacing:.06em;
   text-transform:uppercase;
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
   opacity:.9;
 }
 
@@ -86,7 +86,7 @@ SOURCE: 3- homepage components.html / content
 }
 
 .home-cta__body{
-  margin-top:20px;
+  margin-top:var(--abv2-space-20);
   max-width:54ch;
 
   font-family:"Sohne Buch", Arial, sans-serif;
@@ -97,8 +97,8 @@ SOURCE: 3- homepage components.html / content
 
 .home-cta__actions{
   display:flex;
-  gap:14px;
-  margin-top:28px;
+  gap:var(--abv2-space-16);
+  margin-top:var(--abv2-space-28);
 }
 
 /* =========================================================

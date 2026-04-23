@@ -13,11 +13,11 @@ SOURCE: 1 - hompeage base responsive.html
 
 .abv2-sec{
     position:relative;
-    padding:84px 0;
+    padding:var(--abv2-space-84) 0;
   }
 
 .abv2-stack > * + *{
-    margin-top:28px;
+    margin-top:var(--abv2-space-28);
   }
 
 /* =========================================================
@@ -25,7 +25,7 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 ========================================================= */
 @media (max-width:979px) and (min-width:760px){
   .abv2-sec{
-        padding:56px 0;
+        padding:var(--abv2-space-56) 0;
       }
 }
 
@@ -34,13 +34,13 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 ========================================================= */
 @media (max-width:759px){
   .abv2-sec{
-        padding:52px 0;
+        padding:var(--abv2-space-56) 0;
       }
 }
 
 @media (max-width:759px){
   .abv2-stack > * + *{
-        margin-top:18px;
+        margin-top:var(--abv2-space-20);
       }
 }
 
@@ -77,13 +77,13 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:979px){
   .abv2-sec{
-        padding:64px 0;
+        padding:var(--abv2-space-64) 0;
       }
 }
 
 @media (max-width:979px){
   .abv2-stack > * + *{
-        margin-top:24px;
+        margin-top:var(--abv2-space-24);
       }
 }
 

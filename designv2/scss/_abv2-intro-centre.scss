@@ -9,8 +9,8 @@ SOURCE: 3- homepage components.html / CENTRE-ALIGNED INTRO
 .abv2-intro-centre{
   position:relative;
   z-index:1;
-  padding-top:62px;
-  padding-bottom:24px;
+  padding-top:var(--abv2-space-64);
+  padding-bottom:var(--abv2-space-24);
   background:var(--abv2-white);
 }
 
@@ -21,7 +21,7 @@ SOURCE: 3- homepage components.html / CENTRE-ALIGNED INTRO
 }
 
 .abv2-intro-centre__eyebrow{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -31,7 +31,7 @@ SOURCE: 3- homepage components.html / CENTRE-ALIGNED INTRO
 }
 
 .abv2-intro-centre__inner.abv2-stack > * + *{
-  margin-top:14px;
+  margin-top:var(--abv2-space-16);
 }
 
 .abv2-intro-centre__body{
@@ -45,15 +45,15 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-intro-centre{
-      padding-top:48px;
-      padding-bottom:18px;
+      padding-top:var(--abv2-space-48);
+      padding-bottom:var(--abv2-space-20);
     }
 }
 
 @media (max-width:759px){
   .abv2-intro-centre{
-      padding-top:40px;
-      padding-bottom:12px;
+      padding-top:var(--abv2-space-40);
+      padding-bottom:var(--abv2-space-12);
     }
 }
 

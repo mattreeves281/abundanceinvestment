@@ -34,7 +34,7 @@ SOURCE: 4 - editorial components.html / DIVIDER FAMILY
     position:relative;
     width:100vw;
     height:138px;
-    margin:18px 0 24px;
+    margin:var(--abv2-space-20) 0 var(--abv2-space-24);
     margin-left:calc(50% - 50vw);
     pointer-events:none;
   }
@@ -76,13 +76,13 @@ SOURCE: 4 - editorial components.html / DIVIDER FAMILY
   }
 
 .abv2-ed-band--tight{
-    margin-top:8px;
-    margin-bottom:12px;
+    margin-top:var(--abv2-space-8);
+    margin-bottom:var(--abv2-space-12);
   }
 
 .abv2-ed-band--loose{
-    margin-top:34px;
-    margin-bottom:34px;
+    margin-top:var(--abv2-space-32);
+    margin-bottom:var(--abv2-space-32);
   }
 
 /* =========================================================
@@ -104,7 +104,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-ed-band{
-        margin-top:14px;
-        margin-bottom:18px;
+        margin-top:var(--abv2-space-16);
+        margin-bottom:var(--abv2-space-20);
       }
 }

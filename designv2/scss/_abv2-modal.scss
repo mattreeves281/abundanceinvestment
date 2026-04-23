@@ -35,7 +35,7 @@ SOURCE: 5 - council landing page v2 / MODAL
 }
 
 .abv2-modal__inner{
-  padding:30px 30px 28px;
+  padding:var(--abv2-space-32) var(--abv2-space-32) var(--abv2-space-28);
 }
 
 .abv2-modal__close{
@@ -47,7 +47,7 @@ SOURCE: 5 - council landing page v2 / MODAL
   justify-content:center;
   width:42px;
   height:42px;
-  margin:14px 14px 0 0;
+  margin:var(--abv2-space-16) var(--abv2-space-16) 0 0;
   border:0;
   border-radius:999px;
   background:var(--abv2-grey-ui);
@@ -59,7 +59,7 @@ SOURCE: 5 - council landing page v2 / MODAL
 }
 
 .abv2-modal__eyebrow{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.74rem;
   line-height:1;
@@ -69,12 +69,12 @@ SOURCE: 5 - council landing page v2 / MODAL
 }
 
 .abv2-modal__title{
-  margin-bottom:10px;
+  margin-bottom:var(--abv2-space-12);
 }
 
 .abv2-modal__intro{
   max-width:42ch;
-  margin-bottom:26px;
+  margin-bottom:var(--abv2-space-28);
 }
 
 .abv2-modal__tableWrap{
@@ -90,14 +90,14 @@ SOURCE: 5 - council landing page v2 / MODAL
 
 .abv2-modal__table th,
 .abv2-modal__table td{
-  padding:16px 0;
+  padding:var(--abv2-space-16) 0;
   vertical-align:top;
   border-top:1px solid rgba(38,38,37,.12);
 }
 
 .abv2-modal__table th{
   width:28%;
-  padding-right:24px;
+  padding-right:var(--abv2-space-24);
   text-align:left;
   font-family:var(--abv2-ui);
   font-size:.78rem;
@@ -115,7 +115,7 @@ SOURCE: 5 - council landing page v2 / MODAL
 }
 
 .abv2-modal__note{
-  margin-top:8px;
+  margin-top:var(--abv2-space-8);
   font-size:.9rem;
   line-height:1.5;
   color:var(--abv2-text);
@@ -124,9 +124,9 @@ SOURCE: 5 - council landing page v2 / MODAL
 .abv2-modal__actions{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
-  margin-top:24px;
-  padding-top:22px;
+  gap:var(--abv2-space-12);
+  margin-top:var(--abv2-space-24);
+  padding-top:var(--abv2-space-24);
   border-top:1px solid rgba(38,38,37,.1);
 }
 
@@ -145,13 +145,13 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-modal__inner{
-      padding:22px 18px 26px;
+      padding:var(--abv2-space-24) var(--abv2-space-20) var(--abv2-space-28);
     }
 }
 
 @media (max-width:759px){
   .abv2-modal__close{
-      margin:12px 12px 0 0;
+      margin:var(--abv2-space-12) var(--abv2-space-12) 0 0;
       width:38px;
       height:38px;
       font-size:1.35rem;
@@ -177,7 +177,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-modal__table tr{
-      padding:14px 0;
+      padding:var(--abv2-space-16) 0;
       border-top:1px solid rgba(38,38,37,.12);
     }
 }
@@ -192,7 +192,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-modal__table th{
-      margin-bottom:8px;
+      margin-bottom:var(--abv2-space-8);
       padding-right:0;
     }
 }

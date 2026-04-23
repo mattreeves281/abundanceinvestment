@@ -60,7 +60,7 @@ SOURCE: 5 - council landing page v2 / TEAL STORY SECTION — final lower-angle v
 .abv2-council-story__grid{
   display:grid;
   grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
-  gap:64px;
+  gap:var(--abv2-space-64);
   align-items:center;
 }
 
@@ -88,7 +88,7 @@ SOURCE: 5 - council landing page v2 / TEAL STORY SECTION — final lower-angle v
 }
 
 .abv2-council-story__copy.abv2-stack > * + *{
-  margin-top:24px;
+  margin-top:var(--abv2-space-24);
 }
 
 /* =========================================================

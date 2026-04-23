@@ -13,23 +13,23 @@ SOURCE: 2 - council hub page.html / 4) Use-of-funds chart (cbc-*)
 
 #council-bar-chart{
   max-width:900px;
-  margin:40px auto;
+  margin:var(--abv2-space-40) auto;
 }
 
 #council-bar-chart .cbc-card{
   background:var(--abv2-white);
   border-radius:18px;
   box-shadow:0 10px 30px rgba(15,23,42,.06);
-  padding:22px 24px;
+  padding:var(--abv2-space-24) var(--abv2-space-24);
 }
 
-#council-bar-chart .cbc-summary{ margin:0 0 18px; }
+#council-bar-chart .cbc-summary{ margin:0 0 var(--abv2-space-20); }
 
 #council-bar-chart .cbc-summary-inner{
   display:grid;
   grid-template-columns:128px minmax(0, 1fr);
-  column-gap:28px;
-  padding:10px 8px;
+  column-gap:var(--abv2-space-28);
+  padding:var(--abv2-space-12) var(--abv2-space-8);
   border-radius:14px;
   background:var(--abv2-white);
   align-items:start;
@@ -71,8 +71,8 @@ SOURCE: 2 - council hub page.html / Summary pills
   flex-direction:column !important;
   align-items:flex-start !important;
   justify-content:flex-start !important;
-  gap:10px !important;
-  padding-top:6px;
+  gap:var(--abv2-space-12) !important;
+  padding-top:var(--abv2-space-8);
   text-align:left !important;
 }
 
@@ -103,12 +103,12 @@ SOURCE: 2 - council hub page.html / Chart rows
 #council-bar-chart .cbc-row{
   display:flex;
   align-items:center;
-  margin-bottom:12px;
+  margin-bottom:var(--abv2-space-12);
 }
 
 #council-bar-chart .cbc-label{
   flex:0 0 32%;
-  padding-right:10px;
+  padding-right:var(--abv2-space-12);
   font-size:.95rem;
   color:var(--abv2-blue);
 }
@@ -128,7 +128,7 @@ SOURCE: 2 - council hub page.html / Chart rows
   border-radius:999px;
   display:flex;
   align-items:center;
-  padding-left:14px;
+  padding-left:var(--abv2-space-16);
   box-sizing:border-box;
   white-space:nowrap;
   transition:width .8s ease, transform .2s ease-out, box-shadow .2s ease-out;
@@ -149,7 +149,7 @@ SOURCE: 2 - council hub page.html / Chart rows
 SOURCE: 2 - council hub page.html / Empty state
 ========================================================= */
 #council-bar-chart .cbc-empty{
-  padding:64px 14px;
+  padding:var(--abv2-space-64) var(--abv2-space-16);
   font-size:1.1rem;
   font-weight:500;
   color:var(--abv2-text);
@@ -162,17 +162,17 @@ SOURCE: 2 - council hub page.html / Empty state
 SOURCE: 2 - council hub page.html / Mobile
 ========================================================= */
 @media (max-width:640px){
-  #council-bar-chart{ margin:24px auto; }
+  #council-bar-chart{ margin:var(--abv2-space-24) auto; }
 }
 
 @media (max-width:640px){
-  #council-bar-chart .cbc-card{ padding:18px 16px; }
+  #council-bar-chart .cbc-card{ padding:var(--abv2-space-20) var(--abv2-space-16); }
 }
 
 @media (max-width:640px){
   #council-bar-chart .cbc-summary-inner{
       grid-template-columns:112px minmax(0, 1fr);
-      column-gap:14px;
+      column-gap:var(--abv2-space-16);
     }
 }
 
@@ -189,7 +189,7 @@ SOURCE: 2 - council hub page.html / Mobile
 }
 
 @media (max-width:640px){
-  #council-bar-chart .cbc-summary-lines{ padding-top:2px; gap:8px !important; }
+  #council-bar-chart .cbc-summary-lines{ padding-top:var(--abv2-space-2); gap:var(--abv2-space-8) !important; }
 }
 
 @media (max-width:640px){
@@ -201,7 +201,7 @@ SOURCE: 2 - council hub page.html / Mobile
 }
 
 @media (max-width:640px){
-  #council-bar-chart .cbc-label{ margin-bottom:4px; }
+  #council-bar-chart .cbc-label{ margin-bottom:var(--abv2-space-4); }
 }
 
 /* =========================================================
@@ -226,11 +226,11 @@ SOURCE: 2 - council hub page.html / Use-of-funds: make chart fill column even in
 SOURCE: 2 - council hub page.html / Use-of-funds — Top projects by spend (cbc-projects) DROP-IN OVERRIDES (paste AFTER your base CSS)
 ========================================================= */
 #council-bar-chart .cbc-projects{
-  margin-top:28px;
+  margin-top:var(--abv2-space-28);
 }
 
 #council-bar-chart .cbc-projects__title{
-  margin:0 0 12px;
+  margin:0 0 var(--abv2-space-12);
   font-size:1rem;
   font-weight:900;
   color:var(--abv2-blue);
@@ -263,7 +263,7 @@ SOURCE: 2 - council hub page.html / Click row
 #council-bar-chart .cbc-proj__sum{
   list-style:none;
   cursor:pointer;
-  padding:14px 16px;
+  padding:var(--abv2-space-16) var(--abv2-space-16);
   display:block;
   background:var(--abv2-white);
 }
@@ -282,7 +282,7 @@ SOURCE: 2 - council hub page.html / Category pill
   font-weight:800;
   line-height:1.1;
   color:var(--abv2-white);
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   white-space:nowrap;
 }
 
@@ -305,7 +305,7 @@ SOURCE: 2 - council hub page.html / Title row: name left, amount + chevron right
   display:flex;
   align-items:baseline;
   justify-content:space-between;
-  gap:14px;
+  gap:var(--abv2-space-16);
 }
 
 #council-bar-chart .cbc-proj__name{
@@ -321,7 +321,7 @@ SOURCE: 2 - council hub page.html / Title row: name left, amount + chevron right
 #council-bar-chart .cbc-proj__right{
   display:flex;
   align-items:baseline;
-  gap:12px;
+  gap:var(--abv2-space-12);
   flex:0 0 auto;
 }
 
@@ -358,7 +358,7 @@ SOURCE: 2 - council hub page.html / Chevron
 SOURCE: 2 - council hub page.html / Expanded description
 ========================================================= */
 #council-bar-chart .cbc-proj__body{
-  padding:0 16px 16px;
+  padding:0 var(--abv2-space-16) var(--abv2-space-16);
   color:var(--abv2-text);
   opacity:.92;
   line-height:1.45;
@@ -368,14 +368,14 @@ SOURCE: 2 - council hub page.html / Expanded description
 SOURCE: 2 - council hub page.html / Optional small helper line (only used if you choose to show it)
 ========================================================= */
 #council-bar-chart .cbc-projects__note{
-  margin:10px 2px 0;
+  margin:var(--abv2-space-12) var(--abv2-space-2) 0;
   font-size:.9rem;
   font-weight:650;
   color:var(--abv2-grey);
 }
 
 @media (max-width:640px){
-  #council-bar-chart .cbc-proj__sum{ padding:12px 14px; }
+  #council-bar-chart .cbc-proj__sum{ padding:var(--abv2-space-12) var(--abv2-space-16); }
 }
 
 @media (max-width:640px){
@@ -418,8 +418,8 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 }
 
 #council-bar-chart .cbc-summary{
-  margin:0 0 24px;
-  padding:0 0 24px;
+  margin:0 0 var(--abv2-space-24);
+  padding:0 0 var(--abv2-space-24);
   border-bottom:1px solid;
   border-image:linear-gradient(
     to right,
@@ -432,7 +432,7 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 #council-bar-chart .cbc-summary-inner{
   background:transparent;
   padding:0;
-  column-gap:22px;
+  column-gap:var(--abv2-space-24);
   align-items:center;
 }
 
@@ -451,7 +451,7 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 }
 
 #council-bar-chart .cbc-summary-lines{
-  gap:8px !important;
+  gap:var(--abv2-space-8) !important;
   padding-top:0;
 }
 
@@ -462,11 +462,11 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 }
 
 #council-bar-chart .cbc-chart{
-  padding-top:4px;
+  padding-top:var(--abv2-space-4);
 }
 
 #council-bar-chart .cbc-row{
-  margin-bottom:14px;
+  margin-bottom:var(--abv2-space-16);
 }
 
 #council-bar-chart .cbc-label{
@@ -498,15 +498,15 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 
 @media (max-width:640px){
   #council-bar-chart .cbc-summary{
-      margin-bottom:20px;
-      padding-bottom:20px;
+      margin-bottom:var(--abv2-space-20);
+      padding-bottom:var(--abv2-space-20);
     }
 }
 
 @media (max-width:640px){
   #council-bar-chart .cbc-summary-inner{
       grid-template-columns:96px minmax(0,1fr);
-      column-gap:12px;
+      column-gap:var(--abv2-space-12);
     }
 }
 

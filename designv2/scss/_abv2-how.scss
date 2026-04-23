@@ -24,7 +24,7 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
 .abv2-how__grid{
   display:grid;
   grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
-  gap:54px;
+  gap:var(--abv2-space-56);
   align-items:start;
 }
 
@@ -33,7 +33,7 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
 }
 
 .abv2-how__intro.abv2-stack > * + *{
-  margin-top:18px;
+  margin-top:var(--abv2-space-20);
 }
 
 .abv2-how__eyebrow{
@@ -49,7 +49,7 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
 .abv2-how__steps{
   display:grid;
   grid-template-columns:1fr;
-  gap:26px;
+  gap:var(--abv2-space-28);
   max-width:640px;
 }
 
@@ -67,7 +67,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:979px){
   .abv2-how__grid{
       grid-template-columns:1fr;
-      gap:26px;
+      gap:var(--abv2-space-28);
     }
 }
 
@@ -80,19 +80,19 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-how{
       padding-top:118px;
-      padding-bottom:88px;
+      padding-bottom:var(--abv2-space-84);
       clip-path:var(--abv2-pink-clip-mobile);
     }
 }
 
 @media (max-width:759px){
   .abv2-how__grid{
-      gap:24px;
+      gap:var(--abv2-space-24);
     }
 }
 
 @media (max-width:759px){
   .abv2-how__steps{
-      gap:22px;
+      gap:var(--abv2-space-24);
     }
 }

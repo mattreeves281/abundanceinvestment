@@ -9,15 +9,15 @@ SOURCE: 5 - council landing page v2 / QUOTE BLOCK
 .abv2-council-quote{
   position:relative;
   z-index:1;
-  padding-top:36px;
-  padding-bottom:52px;
+  padding-top:var(--abv2-space-40);
+  padding-bottom:var(--abv2-space-56);
   background:var(--abv2-white);
 }
 
 .abv2-council-quote__inner{
   display:grid;
   grid-template-columns:minmax(92px, 112px) minmax(0, 1fr);
-  gap:24px;
+  gap:var(--abv2-space-24);
   align-items:start;
   width:min(100%, 980px);
   margin:0 auto;
@@ -64,7 +64,7 @@ SOURCE: 5 - council landing page v2 / QUOTE BLOCK
 .abv2-council-quote__text{
   position:relative;
   z-index:1;
-  margin:0 0 18px;
+  margin:0 0 var(--abv2-space-20);
   max-width:32ch;
   font-family:var(--abv2-serif);
   font-weight:600;
@@ -75,7 +75,7 @@ SOURCE: 5 - council landing page v2 / QUOTE BLOCK
 }
 
 .abv2-council-quote__name{
-  margin:0 0 4px;
+  margin:0 0 var(--abv2-space-4);
   font-family:var(--abv2-ui);
   font-size:.84rem;
   line-height:1.2;
@@ -98,8 +98,8 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-council-quote{
-      padding-top:24px;
-      padding-bottom:40px;
+      padding-top:var(--abv2-space-24);
+      padding-bottom:var(--abv2-space-40);
     }
 }
 
@@ -111,15 +111,15 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 
 @media (max-width:759px){
   .abv2-council-quote{
-      padding-top:18px;
-      padding-bottom:34px;
+      padding-top:var(--abv2-space-20);
+      padding-bottom:var(--abv2-space-32);
     }
 }
 
 @media (max-width:759px){
   .abv2-council-quote__inner{
       grid-template-columns:1fr;
-      gap:16px;
+      gap:var(--abv2-space-16);
       width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
     }
 }

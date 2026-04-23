@@ -24,7 +24,7 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
 .abv2-related__inner{
   display:grid;
   grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);
-  gap:42px;
+  gap:var(--abv2-space-40);
   align-items:start;
 }
 
@@ -33,7 +33,7 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
 }
 
 .abv2-related__eyebrow{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -55,12 +55,12 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
 .abv2-related__grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:20px;
+  gap:var(--abv2-space-20);
 }
 
 .abv2-related__item{
   position:relative;
-  padding-top:12px;
+  padding-top:var(--abv2-space-12);
 }
 
 .abv2-related__item::before{
@@ -84,7 +84,7 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
 }
 
 .abv2-related__label{
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-family:var(--abv2-ui);
   font-size:.92rem;
   line-height:1.22;
@@ -114,7 +114,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:979px){
   .abv2-related__inner{
       grid-template-columns:1fr;
-      gap:24px;
+      gap:var(--abv2-space-24);
     }
 }
 
@@ -127,7 +127,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-related{
       padding-top:108px;
-      padding-bottom:84px;
+      padding-bottom:var(--abv2-space-84);
       clip-path:var(--abv2-teal-clip-mobile);
     }
 }
@@ -141,7 +141,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 @media (max-width:759px){
   .abv2-related__grid{
       grid-template-columns:1fr;
-      gap:16px;
+      gap:var(--abv2-space-16);
     }
 }
 
@@ -163,14 +163,14 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 .abv2-related{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
-  gap:14px;
+  gap:var(--abv2-space-16);
 }
 
 .abv2-related__card{
   display:flex;
   flex-direction:column;
   min-height:100%;
-  padding:18px 18px 16px;
+  padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-16);
   border:1.5px solid rgba(38,38,37,.08);
   border-radius:18px;
   background:var(--abv2-white);
@@ -187,7 +187,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 
 .abv2-related__type{
   display:inline-block;
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-family:var(--abv2-ui);
   font-size:.72rem;
   line-height:1;
@@ -199,13 +199,13 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 
 .abv2-related__title{
   display:block;
-  margin:0 0 8px;
+  margin:0 0 var(--abv2-space-8);
   font-size:1.08rem;
   line-height:1.14;
 }
 
 .abv2-related__desc{
-  margin:0 0 14px;
+  margin:0 0 var(--abv2-space-16);
   font-size:.94rem;
   line-height:1.48;
   color:rgba(38,38,37,.78);

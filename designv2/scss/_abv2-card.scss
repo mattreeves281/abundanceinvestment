@@ -8,8 +8,8 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
 ========================================================= */
 .abv2-card__eyebrow{
   display:inline-block;
-  margin:0 0 10px;
-  padding:5px 10px;
+  margin:0 0 var(--abv2-space-12);
+  padding:var(--abv2-space-4) var(--abv2-space-12);
   border-radius:999px;
   background:rgba(0,164,182,.10);
   color:var(--abv2-teal-dark);
@@ -44,11 +44,11 @@ SOURCE: 4 - editorial components.html / DECISION SUPPORT
 }
 
 .abv2-card__inner{
-  padding:24px 24px 22px;
+  padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24);
 }
 
 .abv2-card__title{
-  margin:0 0 10px;
+  margin:0 0 var(--abv2-space-12);
   font-size:clamp(1.25rem,2vw,1.55rem);
   line-height:1.15;
 }

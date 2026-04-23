@@ -24,7 +24,7 @@ SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
 .abv2-teal__grid{
     display:grid;
     grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
-    gap:52px;
+    gap:var(--abv2-space-56);
     align-items:center;
   }
 
@@ -54,11 +54,11 @@ SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
   }
 
 .abv2-teal__copy.abv2-stack > * + *{
-    margin-top:24px;
+    margin-top:var(--abv2-space-24);
   }
 
 .abv2-teal__copy > div:last-child{
-    margin-top:30px;
+    margin-top:var(--abv2-space-32);
   }
 
 /* =========================================================
@@ -75,17 +75,17 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
           0 100%
         );
         padding-top:108px;
-        padding-bottom:86px;
+        padding-bottom:var(--abv2-space-84);
       }
 }
 
 @media (max-width:1159px) and (min-width:980px){
   .abv2-teal__grid{
         grid-template-columns:minmax(280px,.84fr) minmax(0,1.16fr);
-        gap:40px;
+        gap:var(--abv2-space-40);
         align-items:center;
-        padding-left:34px;
-        padding-right:10px;
+        padding-left:var(--abv2-space-32);
+        padding-right:var(--abv2-space-12);
       }
 }
 
@@ -110,13 +110,13 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
 
 @media (max-width:1159px) and (min-width:980px){
   .abv2-teal__copy.abv2-stack > * + *{
-        margin-top:22px;
+        margin-top:var(--abv2-space-24);
       }
 }
 
 @media (max-width:1159px) and (min-width:980px){
   .abv2-teal__copy > div:last-child{
-        margin-top:6px;
+        margin-top:var(--abv2-space-8);
       }
 }
 
@@ -134,17 +134,17 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
           0 100%
         );
         padding-top:102px;
-        padding-bottom:90px;
+        padding-bottom:var(--abv2-space-96);
       }
 }
 
 @media (max-width:979px) and (min-width:760px){
   .abv2-teal__grid{
         grid-template-columns:minmax(280px, .76fr) minmax(0, 1.24fr);
-        gap:34px;
+        gap:var(--abv2-space-32);
         align-items:center;
-        padding-left:44px;
-        padding-right:12px;
+        padding-left:var(--abv2-space-48);
+        padding-right:var(--abv2-space-12);
       }
 }
 
@@ -178,13 +178,13 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 
 @media (max-width:979px) and (min-width:760px){
   .abv2-teal__copy.abv2-stack > * + *{
-        margin-top:22px;
+        margin-top:var(--abv2-space-24);
       }
 }
 
 @media (max-width:979px) and (min-width:760px){
   .abv2-teal__copy > div:last-child{
-        margin-top:10px;
+        margin-top:var(--abv2-space-12);
       }
 }
 
@@ -194,7 +194,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 @media (max-width:759px){
   .abv2-teal{
         padding-top:114px;
-        padding-bottom:84px;
+        padding-bottom:var(--abv2-space-84);
         clip-path:var(--abv2-teal-clip-mobile);
       }
 }
@@ -203,7 +203,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
   .abv2-teal__grid{
         display:grid;
         grid-template-columns:1fr !important;
-        gap:22px !important;
+        gap:var(--abv2-space-24) !important;
         justify-items:center;
       }
 }
@@ -241,13 +241,13 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 
 @media (max-width:759px){
   .abv2-teal__copy.abv2-stack > * + *{
-        margin-top:20px;
+        margin-top:var(--abv2-space-20);
       }
 }
 
 @media (max-width:759px){
   .abv2-teal__copy > div:last-child{
-        margin-top:4px;
+        margin-top:var(--abv2-space-4);
       }
 }
 
@@ -267,7 +267,7 @@ SOURCE: 2 - council hub page.html / TEAL SECTION
 .abv2-teal__grid{
     display:grid;
     grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
-    gap:52px;
+    gap:var(--abv2-space-56);
     align-items:center;
   }
 
@@ -297,7 +297,7 @@ SOURCE: 2 - council hub page.html / TEAL SECTION
   }
 
 .abv2-teal__copy.abv2-stack > * + *{
-    margin-top:24px;
+    margin-top:var(--abv2-space-24);
   }
 
 /* =========================================================
@@ -357,7 +357,7 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
 @media (max-width:759px){
   .abv2-teal{
         padding-top:114px;
-        padding-bottom:84px;
+        padding-bottom:var(--abv2-space-84);
         clip-path:var(--abv2-teal-clip-mobile);
       }
 }
@@ -366,7 +366,7 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
   .abv2-teal__grid{
         display:grid;
         grid-template-columns:1fr !important;
-        gap:22px !important;
+        gap:var(--abv2-space-24) !important;
         justify-items:center;
       }
 }
@@ -415,7 +415,7 @@ SOURCE: 3- homepage components.html / TEAL SECTION
 .abv2-teal__grid{
     display:grid;
     grid-template-columns:minmax(320px,.88fr) minmax(0,1.12fr);
-    gap:56px;
+    gap:var(--abv2-space-56);
     align-items:center;
   }
 
@@ -442,7 +442,7 @@ SOURCE: 3- homepage components.html / TEAL SECTION
   }
 
 .abv2-teal__copy.abv2-stack > * + *{
-    margin-top:28px;
+    margin-top:var(--abv2-space-28);
   }
 
 /* =========================================================
@@ -458,7 +458,7 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 
 @media (max-width:979px){
   .abv2-teal__grid{
-        gap:30px;
+        gap:var(--abv2-space-32);
       }
 }
 
@@ -474,7 +474,7 @@ SOURCE: 3- homepage components.html / TEAL
 @media (max-width:759px){
   .abv2-teal{
       padding-top:116px;
-      padding-bottom:96px;
+      padding-bottom:var(--abv2-space-96);
       clip-path:var(--abv2-teal-clip-mobile);
     }
 }
@@ -482,7 +482,7 @@ SOURCE: 3- homepage components.html / TEAL
 @media (max-width:759px){
   .abv2-teal__grid{
       grid-template-columns:1fr;
-      gap:22px;
+      gap:var(--abv2-space-24);
       justify-items:center;
     }
 }

@@ -9,8 +9,8 @@ SOURCE: 3- homepage components.html / INLINE CTA
 .abv2-inline-cta{
   position:relative;
   z-index:1;
-  padding-top:26px;
-  padding-bottom:34px;
+  padding-top:var(--abv2-space-28);
+  padding-bottom:var(--abv2-space-32);
   background:var(--abv2-white);
 }
 
@@ -24,8 +24,8 @@ SOURCE: 3- homepage components.html / INLINE CTA
   flex-wrap:wrap;
   align-items:center;
   justify-content:space-between;
-  gap:18px 24px;
-  padding-top:16px;
+  gap:var(--abv2-space-20) var(--abv2-space-24);
+  padding-top:var(--abv2-space-16);
   border-top:1px solid rgba(38,38,37,.14);
 }
 
@@ -41,7 +41,7 @@ SOURCE: 3- homepage components.html / INLINE CTA
 .abv2-inline-cta__actions{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
+  gap:var(--abv2-space-12);
 }
 
 /* =========================================================
@@ -49,15 +49,15 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 ========================================================= */
 @media (max-width:979px){
   .abv2-inline-cta{
-      padding-top:22px;
-      padding-bottom:28px;
+      padding-top:var(--abv2-space-24);
+      padding-bottom:var(--abv2-space-28);
     }
 }
 
 @media (max-width:759px){
   .abv2-inline-cta{
-      padding-top:18px;
-      padding-bottom:22px;
+      padding-top:var(--abv2-space-20);
+      padding-bottom:var(--abv2-space-24);
     }
 }
 

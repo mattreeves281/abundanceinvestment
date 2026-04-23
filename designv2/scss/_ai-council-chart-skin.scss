@@ -15,13 +15,13 @@ SOURCE: 2 - council hub page.html / quieter chart skin
   background:var(--abv2-white);
   border-radius:18px;
   box-shadow:none;
-  padding:20px 22px;
+  padding:var(--abv2-space-20) var(--abv2-space-24);
   border:1px solid rgba(15,23,42,.06);
 }
 
 .ai-council-page #council-bar-chart .cbc-summary{
-  margin:0 0 18px;
-  padding:0 0 16px;
+  margin:0 0 var(--abv2-space-20);
+  padding:0 0 var(--abv2-space-16);
   border-bottom:1px solid rgba(15,23,42,.08);
 }
 
