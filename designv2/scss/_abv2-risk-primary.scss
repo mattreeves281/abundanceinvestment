@@ -15,8 +15,8 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
   align-items:flex-start;
   gap:var(--abv2-space-16);
   padding:var(--abv2-space-20) var(--abv2-space-24);
-  border-top:1px solid rgba(38,38,37,.08);
-  background:rgba(226,109,166,.08);
+  border-top:1px solid var(--abv2-border-subtle);
+  background:var(--abv2-pink-a08);
 }
 
 .abv2-risk-primary__icon{
@@ -25,7 +25,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
   height:26px;
   display:grid;
   place-items:center;
-  background:rgba(226,109,166,.16);
+  background:var(--abv2-pink-a16);
   color:var(--abv2-pink-dark);
   font-family:var(--abv2-ui);
   font-size:1rem;
@@ -49,7 +49,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
 
 .abv2-risk-primary__text{
   margin:0;
-  color:rgba(38,38,37,.82);
+  color:var(--abv2-ink-a82);
 }
 
 /* =========================================================

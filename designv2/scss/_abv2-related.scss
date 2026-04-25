@@ -39,7 +39,7 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
   line-height:1;
   letter-spacing:.06em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.84);
+  color:var(--abv2-white-a84);
 }
 
 .abv2-related__title{
@@ -70,7 +70,7 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
   top:0;
   width:38px;
   height:1px;
-  background:rgba(255,255,255,.28);
+  background:var(--abv2-white-a28);
 }
 
 .abv2-related__link{
@@ -97,7 +97,7 @@ SOURCE: 3- homepage components.html / RELATED / EXPLORE LINKS
   font-family:var(--abv2-sans);
   font-size:.94rem;
   line-height:1.48;
-  color:rgba(255,255,255,.88);
+  color:var(--abv2-white-a88);
 }
 
 /* =========================================================
@@ -171,7 +171,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   flex-direction:column;
   min-height:100%;
   padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-16);
-  border:1.5px solid rgba(38,38,37,.08);
+  border:1.5px solid var(--abv2-border-subtle);
   border-radius:18px;
   background:var(--abv2-white);
   text-decoration:none;
@@ -182,7 +182,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 .abv2-related__card:hover{
   transform:translateY(-1px);
   border-color:rgba(114,71,149,.28);
-  box-shadow:0 10px 24px rgba(38,38,37,.06);
+  box-shadow:0 10px 24px var(--abv2-shadow-default);
 }
 
 .abv2-related__type{
@@ -208,7 +208,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   margin:0 0 var(--abv2-space-16);
   font-size:.94rem;
   line-height:1.48;
-  color:rgba(38,38,37,.78);
+  color:var(--abv2-ink-a78);
 }
 
 .abv2-related__cta{

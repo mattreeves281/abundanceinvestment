@@ -39,7 +39,7 @@ SOURCE: 3- homepage components.html / FEATURE + ILLUSTRATION
   line-height:1;
   letter-spacing:.06em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.84);
+  color:var(--abv2-white-a84);
 }
 
 .abv2-feature-illo__copy.abv2-stack > * + *{

@@ -19,8 +19,8 @@ SOURCE: 2 - council hub page.html / Council homepage hero — formal logo badge 
   padding:var(--abv2-space-32);
   border-radius:28px;
   background:var(--abv2-white); /* keep logo on clean white */
-  box-shadow:0 12px 28px rgba(15,23,42,.08);
-  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 12px 28px var(--abv2-shadow-card);
+  border:1px solid var(--abv2-border-subtle);
 }
 
 .ai-council-heroBadge__box--solid{

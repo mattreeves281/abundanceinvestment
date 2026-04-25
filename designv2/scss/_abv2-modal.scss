@@ -30,7 +30,7 @@ SOURCE: 5 - council landing page v2 / MODAL
   margin:6vh auto 0;
   background:var(--abv2-white);
   border-radius:28px;
-  box-shadow:0 24px 60px rgba(0,0,0,.18);
+  box-shadow:0 24px 60px var(--abv2-ink-a18);
   overflow:auto;
 }
 
@@ -92,7 +92,7 @@ SOURCE: 5 - council landing page v2 / MODAL
 .abv2-modal__table td{
   padding:var(--abv2-space-16) 0;
   vertical-align:top;
-  border-top:1px solid rgba(38,38,37,.12);
+  border-top:1px solid var(--abv2-border-default);
 }
 
 .abv2-modal__table th{
@@ -127,7 +127,7 @@ SOURCE: 5 - council landing page v2 / MODAL
   gap:var(--abv2-space-12);
   margin-top:var(--abv2-space-24);
   padding-top:var(--abv2-space-24);
-  border-top:1px solid rgba(38,38,37,.1);
+  border-top:1px solid var(--abv2-border-soft);
 }
 
 /* =========================================================
@@ -178,7 +178,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 @media (max-width:759px){
   .abv2-modal__table tr{
       padding:var(--abv2-space-16) 0;
-      border-top:1px solid rgba(38,38,37,.12);
+      border-top:1px solid var(--abv2-border-default);
     }
 }
 

@@ -43,7 +43,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
   .abv2-compare__col + .abv2-compare__col,
     .abv2-fit__pane + .abv2-fit__pane{
       border-left:0;
-      border-top:1px solid rgba(38,38,37,.10);
+      border-top:1px solid var(--abv2-border-soft);
     }
 }
 

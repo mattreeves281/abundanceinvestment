@@ -11,7 +11,7 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
   margin:0 0 var(--abv2-space-12);
   padding:var(--abv2-space-4) var(--abv2-space-12);
   border-radius:999px;
-  background:rgba(0,164,182,.10);
+  background:var(--abv2-teal-a10);
   color:var(--abv2-teal-dark);
   font-size:.78rem;
   font-weight:700;
@@ -19,17 +19,17 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
 }
 
 .abv2-card__eyebrow--compare{
-  background:rgba(0,164,182,.12);
+  background:var(--abv2-teal-a12);
   color:var(--abv2-teal-dark);
 }
 
 .abv2-card__eyebrow--risk{
-  background:rgba(226,109,166,.12);
+  background:var(--abv2-pink-a12);
   color:var(--abv2-pink-dark);
 }
 
 .abv2-card__eyebrow--data{
-  background:rgba(239,181,42,.16);
+  background:var(--abv2-yellow-a16);
   color:var(--abv2-yellow-dark);
 }
 
@@ -37,10 +37,10 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
 SOURCE: 4 - editorial components.html / DECISION SUPPORT
 ========================================================= */
 .abv2-card{
-  border:1.5px solid rgba(38,38,37,.12);
+  border:1.5px solid var(--abv2-border-default);
   border-radius:24px;
   background:var(--abv2-white);
-  box-shadow:0 10px 30px rgba(38,38,37,.05);
+  box-shadow:0 10px 30px var(--abv2-ink-a05);
 }
 
 .abv2-card__inner{

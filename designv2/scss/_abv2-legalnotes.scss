@@ -13,7 +13,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
 
 .abv2-legalnotes__row{
   padding:var(--abv2-space-16) var(--abv2-space-16);
-  border:1px solid rgba(38,38,37,.08);
+  border:1px solid var(--abv2-border-subtle);
   border-radius:14px;
   background:var(--abv2-grey-ui);
 }
@@ -34,7 +34,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
   margin:0;
   font-size:.86rem;
   line-height:1.55;
-  color:rgba(38,38,37,.72);
+  color:var(--abv2-ink-a72);
 }
 
 .abv2-legalnotes__text a{

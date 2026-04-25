@@ -12,8 +12,8 @@ SOURCE: 2 - council hub page.html / Divider between chart and top projects
   border-top: 1px solid;
   border-image: linear-gradient(
     to right,
-    rgba(0,0,0,0.04),
-    rgba(0,0,0,0.12),
-    rgba(0,0,0,0.04)
+    var(--abv2-ink-a04),
+    var(--abv2-ink-a12),
+    var(--abv2-ink-a04)
   ) 1;
 }

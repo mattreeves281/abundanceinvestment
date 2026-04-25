@@ -13,7 +13,7 @@ SOURCE: 4 - editorial components.html / glossary
 
 .abv2-glossary__item{
   padding:var(--abv2-space-16) var(--abv2-space-20);
-  border:1.5px solid rgba(38,38,37,.08);
+  border:1.5px solid var(--abv2-border-subtle);
   border-radius:18px;
   background:var(--abv2-grey-ui);
 }
@@ -29,5 +29,5 @@ SOURCE: 4 - editorial components.html / glossary
 
 .abv2-glossary__def{
   margin:0;
-  color:rgba(38,38,37,.82);
+  color:var(--abv2-ink-a82);
 }

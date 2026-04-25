@@ -26,7 +26,7 @@ SOURCE: 3- homepage components.html / INLINE CTA
   justify-content:space-between;
   gap:var(--abv2-space-20) var(--abv2-space-24);
   padding-top:var(--abv2-space-16);
-  border-top:1px solid rgba(38,38,37,.14);
+  border-top:1px solid var(--abv2-border-strong);
 }
 
 .abv2-inline-cta__text{
@@ -82,7 +82,7 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
   font-family:var(--abv2-ui);
   font-weight:700;
   text-decoration:none;
-  border-bottom:1px solid rgba(226,109,166,.35);
+  border-bottom:1px solid var(--abv2-pink-a35);
   transition:border-color .18s ease, color .18s ease;
 }
 

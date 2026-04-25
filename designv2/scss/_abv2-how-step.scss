@@ -18,7 +18,7 @@ SOURCE: 3- homepage components.html / HOW IT WORKS
   place-items:center;
   width:66px;
   height:66px;
-  background:rgba(255,255,255,.18);
+  background:var(--abv2-white-a18);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;

@@ -9,9 +9,9 @@ SOURCE: 4 - editorial components.html / EDITORIAL OPEN INVESTMENT CARD add-on on
 .abv2-ed-open-invest{
   position:relative;
   overflow:visible;
-  border-color:rgba(38,38,37,.09);
+  border-color:var(--abv2-ink-a09);
   background:linear-gradient(180deg, var(--abv2-grey-ui) 0%, var(--abv2-white) 100%);
-  box-shadow:0 12px 30px rgba(38,38,37,.045);
+  box-shadow:0 12px 30px var(--abv2-ink-a05);
 }
 
 .abv2-ed-open-invest__inner{
@@ -37,7 +37,7 @@ SOURCE: 4 - editorial components.html / EDITORIAL OPEN INVESTMENT CARD add-on on
   min-height:28px;
   padding:var(--abv2-space-8) var(--abv2-space-12);
   border-radius:999px;
-  background:rgba(226,109,166,.10);
+  background:var(--abv2-pink-a10);
   color:var(--abv2-pink-dark);
   font-family:var(--abv2-ui);
   font-size:.72rem;
@@ -74,7 +74,7 @@ SOURCE: 4 - editorial components.html / EDITORIAL OPEN INVESTMENT CARD add-on on
   bottom:10px;
   width:34px;
   height:34px;
-  background:rgba(255,255,255,.16);
+  background:var(--abv2-white-a16);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;
@@ -128,7 +128,7 @@ SOURCE: 4 - editorial components.html / EDITORIAL OPEN INVESTMENT CARD add-on on
 .abv2-ed-open-invest__pill::after{
   content:"·";
   margin:0 var(--abv2-space-12);
-  color:rgba(38,38,37,.34);
+  color:var(--abv2-ink-a34);
 }
 
 .abv2-ed-open-invest__pill:last-child::after{
@@ -145,7 +145,7 @@ SOURCE: 4 - editorial components.html / EDITORIAL OPEN INVESTMENT CARD add-on on
   margin:var(--abv2-space-12) 0 0;
   font-size:.84rem;
   line-height:1.45;
-  color:rgba(38,38,37,.64);
+  color:var(--abv2-ink-a64);
 }
 
 .abv2-ed-open-invest__action{
@@ -162,7 +162,7 @@ SOURCE: 4 - editorial components.html / subtle editorial inset rhythm
   right:22px;
   top:0;
   height:1px;
-  background:linear-gradient(90deg, rgba(226,109,166,.24), rgba(18,169,187,.12), rgba(239,181,42,.18));
+  background:linear-gradient(90deg, var(--abv2-pink-a24), var(--abv2-teal-a12), var(--abv2-yellow-a18));
   opacity:.9;
 }
 

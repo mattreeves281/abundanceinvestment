@@ -32,7 +32,7 @@ SOURCE: 3- homepage components.html / END OF PAGE CTA
   top:-26px;
   width:122px;
   height:122px;
-  background:rgba(18,169,187,.12);
+  background:var(--abv2-teal-a12);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;
@@ -140,7 +140,7 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
 
 .abv2-end-cta__band{
   padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24);
-  border-top:1px solid rgba(38,38,37,.08);
+  border-top:1px solid var(--abv2-border-subtle);
   background:var(--abv2-teal-light);
 }
 
@@ -154,7 +154,7 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
 .abv2-end-cta__text{
   margin:0;
   max-width:44ch;
-  color:rgba(38,38,37,.8);
+  color:var(--abv2-ink-a80);
 }
 
 .abv2-end-cta__actions{

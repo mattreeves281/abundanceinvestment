@@ -72,7 +72,7 @@ SOURCE: 5 - council landing page v2 / HISTORY — final lower-angle version
   background:var(--abv2-white);
   border-radius:30px;
   padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-12);
-  box-shadow:0 14px 36px rgba(38,38,37,.08);
+  box-shadow:0 14px 36px var(--abv2-shadow-card);
 }
 
 .abv2-council-history__tableWrap{
@@ -88,7 +88,7 @@ SOURCE: 5 - council landing page v2 / HISTORY — final lower-angle version
 
 .abv2-council-history__table th{
   padding:var(--abv2-space-16) var(--abv2-space-16);
-  border-bottom:1px solid rgba(38,38,37,.12);
+  border-bottom:1px solid var(--abv2-border-default);
   text-align:left;
   font-family:var(--abv2-ui);
   font-size:.82rem;
@@ -100,7 +100,7 @@ SOURCE: 5 - council landing page v2 / HISTORY — final lower-angle version
 
 .abv2-council-history__table td{
   padding:var(--abv2-space-16) var(--abv2-space-16);
-  border-bottom:1px solid rgba(38,38,37,.08);
+  border-bottom:1px solid var(--abv2-border-subtle);
   font-family:var(--abv2-sans);
   font-size:.98rem;
   line-height:1.35;

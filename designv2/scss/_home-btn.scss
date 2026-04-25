@@ -14,7 +14,7 @@ SOURCE: 3- homepage components.html / buttons
   padding:0 var(--abv2-space-20);
 
   border-radius:999px;
-  border:1.8px solid rgba(255,255,255,.9);
+  border:1.8px solid var(--abv2-white-a90);
 
   background:transparent;
   color:var(--abv2-white);
@@ -25,5 +25,5 @@ SOURCE: 3- homepage components.html / buttons
 }
 
 .home-btn--light:hover{
-  background:rgba(255,255,255,.12);
+  background:var(--abv2-overlay-soft);
 }

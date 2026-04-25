@@ -17,7 +17,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   align-items:center;
   min-height:40px;
   padding:var(--abv2-space-12) var(--abv2-space-16);
-  border:1.5px solid rgba(38,38,37,.10);
+  border:1.5px solid var(--abv2-border-soft);
   border-radius:999px;
   background:var(--abv2-white);
   text-decoration:none;
@@ -29,7 +29,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 }
 
 .abv2-jumpbar__link:hover{
-  border-color:rgba(0,164,182,.38);
-  background:rgba(0,164,182,.06);
+  border-color:var(--abv2-teal-a38);
+  background:var(--abv2-teal-a06);
   color:var(--abv2-ink);
 }

@@ -13,16 +13,16 @@ SOURCE: 2 - council hub page.html / 2) Open investment tiles (ai-invest-tick) + 
   padding:0;
   overflow:hidden;
   border-radius:12px;
-  border:1px solid rgba(0,0,0,.08);
+  border:1px solid var(--abv2-border-subtle);
   background:var(--abv2-white);
-  box-shadow:0 4px 12px rgba(0,0,0,.04);
+  box-shadow:0 4px 12px var(--abv2-shadow-soft);
   margin:1.25rem 0;
 }
 
 .ai-invest-tick:hover,
 .ai-invest-tick:focus-within{
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-  border-color:rgba(0,0,0,.14);
+  box-shadow:0 6px 18px var(--abv2-shadow-card);
+  border-color:var(--abv2-border-strong);
 }
 
 /* =========================================================

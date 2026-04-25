@@ -45,7 +45,7 @@ SOURCE: 4 - editorial components.html / BULLETS — BLOB MASK LANGUAGE
 .abv2-compare__list li{
   padding-top:var(--abv2-space-12);
   padding-bottom:var(--abv2-space-12);
-  border-top:1px solid rgba(38,38,37,.08);
+  border-top:1px solid var(--abv2-border-subtle);
   line-height:1.55;
 }
 

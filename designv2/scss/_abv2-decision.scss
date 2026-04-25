@@ -162,7 +162,7 @@ SOURCE: 3- homepage components.html / DECISION BLOCK
   top:-24px;
   width:152px;
   height:152px;
-  background:rgba(239,181,42,.16);
+  background:var(--abv2-yellow-a16);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;

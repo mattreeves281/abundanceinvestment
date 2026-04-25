@@ -7,10 +7,10 @@ Status: unrefined (contains duplicates)
 SOURCE: 4 - editorial components.html / DATA / FINANCIAL
 ========================================================= */
 .abv2-slab{
-  border:1.5px solid rgba(38,38,37,.10);
+  border:1.5px solid var(--abv2-border-soft);
   border-radius:22px;
   background:var(--abv2-white);
-  box-shadow:0 10px 30px rgba(38,38,37,.04);
+  box-shadow:0 10px 30px var(--abv2-shadow-soft);
 }
 
 .abv2-slab__inner{

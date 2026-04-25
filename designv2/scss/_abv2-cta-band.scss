@@ -39,7 +39,7 @@ SOURCE: 3- homepage components.html / PRIMARY CTA BAND
   line-height:1;
   letter-spacing:.06em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.84);
+  color:var(--abv2-white-a84);
 }
 
 .abv2-cta-band__copy.abv2-stack > * + *{
@@ -65,7 +65,7 @@ SOURCE: 3- homepage components.html / PRIMARY CTA BAND
   bottom:-10px;
   width:170px;
   height:170px;
-  background:rgba(255,255,255,.14);
+  background:var(--abv2-overlay-soft-strong);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;

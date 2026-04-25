@@ -9,9 +9,9 @@ SOURCE: 4 - editorial components.html / SHARED SUPPORTING TEXT
 .abv2-dev-slot{
   margin:var(--abv2-space-24) 0;
   padding:var(--abv2-space-16) var(--abv2-space-20);
-  border:1.5px dashed rgba(38,38,37,.18);
+  border:1.5px dashed var(--abv2-ink-a18);
   border-radius:18px;
-  background:rgba(239,181,42,.08);
+  background:var(--abv2-yellow-a08);
   color:var(--abv2-text);
   font-family:var(--abv2-ui);
   font-size:.92rem;

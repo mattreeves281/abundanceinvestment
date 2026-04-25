@@ -159,7 +159,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
 
 .site-navbar .btn.btn-primary--bordered:hover,
   .site-navbar .btn.btn-primary--bordered:focus{
-    background:rgba(223,115,173,.08) !important;
+    background:var(--abv2-pink-a08) !important;
     color:var(--abv2-ink) !important;
     border-color:var(--abv2-pink) !important;
   }
@@ -176,7 +176,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
     border:0 !important;
     border-radius:14px !important;
     background:var(--abv2-white) !important;
-    box-shadow:0 8px 20px rgba(0,0,0,.06) !important;
+    box-shadow:0 8px 20px var(--abv2-shadow-default) !important;
     overflow:hidden;
   }
 
@@ -211,7 +211,7 @@ SOURCE: 1 - hompeage base responsive.html / NAV
 
 .site-navbar .dropdown-menu.brand-dropdown-menu a:hover,
   .site-navbar .dropdown-menu.brand-dropdown-menu a:focus{
-    background:rgba(223,115,173,.08) !important;
+    background:var(--abv2-pink-a08) !important;
   }
 
 .site-navbar .brand-navbar__hamburger-toggle{
@@ -305,7 +305,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
         justify-content:center;
         min-height:var(--abv2-mobile-menu-chip-h);
         padding:0 var(--abv2-mobile-menu-chip-pad-x);
-        border:1.4px solid rgba(223,115,173,.45);
+        border:1.4px solid var(--abv2-border-accent);
         border-radius:999px;
         background:var(--abv2-white) !important;
         gap:var(--abv2-space-8);
@@ -331,7 +331,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
         display:block;
         margin-top:var(--abv2-space-12);
         padding:var(--abv2-space-12) var(--abv2-space-16) var(--abv2-space-16);
-        border:1px solid rgba(223,115,173,.16);
+        border:1px solid var(--abv2-pink-a16);
         border-radius:22px;
         background:var(--abv2-white);
       }
@@ -354,7 +354,7 @@ SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 
 @media (max-width:759px){
   .site-navbar .brand-navbar-nav__parent-item-link:hover{
-        background:rgba(223,115,173,.08);
+        background:var(--abv2-pink-a08);
       }
 }
 
@@ -457,7 +457,7 @@ SOURCE: 2 - council hub page.html / MOBILE UNDER 760
         justify-content:center;
         min-height:var(--abv2-mobile-menu-chip-h);
         padding:0 var(--abv2-mobile-menu-chip-pad-x);
-        border:1.4px solid rgba(223,115,173,.45);
+        border:1.4px solid var(--abv2-border-accent);
         border-radius:999px;
         background:var(--abv2-white) !important;
         gap:var(--abv2-space-8);
@@ -606,7 +606,7 @@ SOURCE: 3- homepage components.html / NAV (MOBILE)
       justify-content:center;
       min-height:var(--abv2-mobile-menu-chip-h);
       padding:0 var(--abv2-mobile-menu-chip-pad-x);
-      border:1.4px solid rgba(223,115,173,.45);
+      border:1.4px solid var(--abv2-border-accent);
       border-radius:999px;
       background:var(--abv2-white) !important;
       gap:var(--abv2-space-8);
@@ -717,7 +717,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
         justify-content:center;
         min-height:32px;
         padding:0 var(--abv2-space-16);
-        border:1.4px solid rgba(223,115,173,.45);
+        border:1.4px solid var(--abv2-border-accent);
         border-radius:999px;
         background:var(--abv2-white) !important;
         gap:var(--abv2-space-8);

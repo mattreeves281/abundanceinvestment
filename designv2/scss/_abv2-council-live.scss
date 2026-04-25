@@ -42,7 +42,7 @@ SOURCE: 5 - council landing page v2 / PINK LIVE INVESTMENT BAND
 .abv2-council-live__metric{
   padding:var(--abv2-space-16) var(--abv2-space-16) var(--abv2-space-12);
   border-radius:18px;
-  background:rgba(255,255,255,.16);
+  background:var(--abv2-white-a16);
   backdrop-filter:blur(2px);
 }
 
@@ -53,7 +53,7 @@ SOURCE: 5 - council landing page v2 / PINK LIVE INVESTMENT BAND
   line-height:1.1;
   letter-spacing:.05em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.84);
+  color:var(--abv2-white-a84);
 }
 
 .abv2-council-live__metricValue{
@@ -105,7 +105,7 @@ SOURCE: 5 - council landing page v2 / PINK LIVE INVESTMENT BAND
   line-height:1;
   background:transparent;
   color:var(--abv2-white);
-  border:1.8px solid rgba(255,255,255,.72);
+  border:1.8px solid var(--abv2-white-a72);
 }
 
 .abv2-council-live__card{
@@ -114,7 +114,7 @@ SOURCE: 5 - council landing page v2 / PINK LIVE INVESTMENT BAND
   color:var(--abv2-ink);
   border-radius:28px;
   padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24);
-  box-shadow:0 18px 38px rgba(38,38,37,.08);
+  box-shadow:0 18px 38px var(--abv2-shadow-card);
 }
 
 .abv2-council-live__cardKicker{
@@ -188,7 +188,7 @@ SOURCE: 5 - council landing page v2 / PINK LIVE INVESTMENT BAND
 
 .abv2-council-live__fact{
   padding:var(--abv2-space-12) 0 var(--abv2-space-12);
-  border-top:1px solid rgba(38,38,37,.1);
+  border-top:1px solid var(--abv2-border-soft);
 }
 
 .abv2-council-live__factLabel{
@@ -247,11 +247,11 @@ SOURCE: 5 - council landing page v2 / OPTIONAL LIVE CARD TERMS ACCORDION
 ========================================================= */
 .abv2-council-live__terms{
   margin:var(--abv2-space-2) 0 var(--abv2-space-16);
-  border-top:1px solid rgba(38,38,37,.1);
+  border-top:1px solid var(--abv2-border-soft);
 }
 
 .abv2-council-live__term{
-  border-bottom:1px solid rgba(38,38,37,.1);
+  border-bottom:1px solid var(--abv2-border-soft);
 }
 
 .abv2-council-live__termHead{

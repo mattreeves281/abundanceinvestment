@@ -18,7 +18,7 @@ SOURCE: 4 - editorial components.html / fit
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:0;
-  border-top:1px solid rgba(38,38,37,.10);
+  border-top:1px solid var(--abv2-border-soft);
 }
 
 .abv2-fit__pane{
@@ -26,15 +26,15 @@ SOURCE: 4 - editorial components.html / fit
 }
 
 .abv2-fit__pane + .abv2-fit__pane{
-  border-left:1px solid rgba(38,38,37,.10);
+  border-left:1px solid var(--abv2-border-soft);
 }
 
 .abv2-fit__pane--yes{
-  background:rgba(0,164,182,.04);
+  background:var(--abv2-teal-a04);
 }
 
 .abv2-fit__pane--no{
-  background:rgba(226,109,166,.05);
+  background:var(--abv2-pink-a05);
 }
 
 .abv2-fit__heading{
@@ -46,7 +46,7 @@ SOURCE: 4 - editorial components.html / fit
 
 .abv2-fit__footer{
   padding:var(--abv2-space-16) var(--abv2-space-24) var(--abv2-space-24);
-  border-top:1px solid rgba(38,38,37,.10);
+  border-top:1px solid var(--abv2-border-soft);
   font-size:.95rem;
-  color:rgba(38,38,37,.78);
+  color:var(--abv2-ink-a78);
 }

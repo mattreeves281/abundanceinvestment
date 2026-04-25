@@ -36,7 +36,7 @@ SOURCE: 4 - editorial components.html / investment insert
   bottom:10px;
   width:34px;
   height:34px;
-  background:rgba(255,255,255,.16);
+  background:var(--abv2-white-a16);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;
@@ -100,7 +100,7 @@ SOURCE: 4 - editorial components.html / investment insert
 .abv2-invest-insert__pill::after{
   content:"·";
   margin:0 var(--abv2-space-12);
-  color:rgba(38,38,37,.34);
+  color:var(--abv2-ink-a34);
 }
 
 .abv2-invest-insert__pill:last-child::after{

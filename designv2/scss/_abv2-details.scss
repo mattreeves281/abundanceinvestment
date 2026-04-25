@@ -12,7 +12,7 @@ SOURCE: 4 - editorial components.html / details
 }
 
 .abv2-details__item{
-  border:1.5px solid rgba(38,38,37,.08);
+  border:1.5px solid var(--abv2-border-subtle);
   border-radius:18px;
   background:var(--abv2-white);
   overflow:hidden;
@@ -42,7 +42,7 @@ SOURCE: 4 - editorial components.html / details
   width:22px;
   height:18px;
   transform:translateY(-50%);
-  background:rgba(0,164,182,.15);
+  background:var(--abv2-teal-a15);
   color:transparent;
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
@@ -60,7 +60,7 @@ SOURCE: 4 - editorial components.html / details
 
 .abv2-details__body{
   padding:0 var(--abv2-space-20) var(--abv2-space-20);
-  border-top:1px solid rgba(38,38,37,.08);
+  border-top:1px solid var(--abv2-border-subtle);
 }
 
 .abv2-details__body > *:first-child{

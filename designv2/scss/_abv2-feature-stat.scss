@@ -57,7 +57,7 @@ SOURCE: 3- homepage components.html / FEATURE + STAT COMBINATION
   top:0;
   width:44px;
   height:1px;
-  background:rgba(38,38,37,.18);
+  background:var(--abv2-ink-a18);
 }
 
 .abv2-feature-stat__value{

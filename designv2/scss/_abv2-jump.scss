@@ -51,7 +51,7 @@ SOURCE: 3- homepage components.html / SECTION JUMP LINKS
   bottom:0;
   width:100%;
   height:1px;
-  background:rgba(38,38,37,.18);
+  background:var(--abv2-ink-a18);
   transition:background .2s ease, transform .2s ease;
   transform-origin:left center;
 }

@@ -9,12 +9,12 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
 .abv2-inline-disclaimer{
   margin:var(--abv2-space-20) 0 0;
   padding:var(--abv2-space-16) var(--abv2-space-16);
-  border-left:4px solid rgba(226,109,166,.7);
+  border-left:4px solid var(--abv2-pink-a70);
   background:rgba(248,245,247,.72);
   border-radius:0 14px 14px 0;
   font-size:.92rem;
   line-height:1.55;
-  color:rgba(38,38,37,.8);
+  color:var(--abv2-ink-a80);
 }
 
 .abv2-inline-disclaimer strong{

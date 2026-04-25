@@ -19,7 +19,7 @@ SOURCE: 2 - council hub page.html / 4) Use-of-funds chart (cbc-*)
 #council-bar-chart .cbc-card{
   background:var(--abv2-white);
   border-radius:18px;
-  box-shadow:0 10px 30px rgba(15,23,42,.06);
+  box-shadow:0 10px 30px var(--abv2-shadow-default);
   padding:var(--abv2-space-24) var(--abv2-space-24);
 }
 
@@ -51,8 +51,8 @@ SOURCE: 2 - council hub page.html / 4) Use-of-funds chart (cbc-*)
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  box-shadow:0 8px 20px rgba(15,23,42,.08);
-  border:1px solid rgba(15,23,42,.06);
+  box-shadow:0 8px 20px var(--abv2-shadow-card);
+  border:1px solid var(--abv2-ink-a06);
   background:var(--abv2-grey-ui);
 }
 
@@ -241,10 +241,10 @@ SOURCE: 2 - council hub page.html / Outer list container (one card containing up
 ========================================================= */
 #council-bar-chart .cbc-projects__list{
   background:var(--abv2-white);
-  border:1px solid rgba(15,23,42,.08);
+  border:1px solid var(--abv2-border-subtle);
   border-radius:14px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(15,23,42,.06);
+  box-shadow:0 10px 30px var(--abv2-shadow-default);
 }
 
 /* =========================================================
@@ -252,7 +252,7 @@ SOURCE: 2 - council hub page.html / Each accordion row
 ========================================================= */
 #council-bar-chart .cbc-proj{
   margin:0;
-  border-bottom:1px solid rgba(15,23,42,.08);
+  border-bottom:1px solid var(--abv2-border-subtle);
 }
 
 #council-bar-chart .cbc-proj:last-child{ border-bottom:none; }
@@ -391,8 +391,8 @@ SOURCE: 2 - council hub page.html / Pills now take their background colour inlin
 ========================================================= */
 #council-bar-chart .cbc-proj__pill{
   color:var(--abv2-blue);                 /* dark text for pastel backgrounds */
-  box-shadow:0 1px 0 rgba(0,0,0,.06);
-  border:1px solid rgba(17,24,39,.10);
+  box-shadow:0 1px 0 var(--abv2-shadow-default);
+  border:1px solid var(--abv2-border-soft);
 }
 
 /* =========================================================
@@ -423,9 +423,9 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
   border-bottom:1px solid;
   border-image:linear-gradient(
     to right,
-    rgba(0,0,0,.04),
-    rgba(0,0,0,.14),
-    rgba(0,0,0,.04)
+    var(--abv2-ink-a04),
+    var(--abv2-ink-a14),
+    var(--abv2-ink-a04)
   ) 1;
 }
 
@@ -446,7 +446,7 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
   height:96px;
   border-radius:20px;
   box-shadow:none;
-  border:1px solid rgba(15,23,42,.08);
+  border:1px solid var(--abv2-border-subtle);
   background:var(--abv2-white);
 }
 
@@ -492,7 +492,7 @@ SOURCE: 2 - council hub page.html / Council page — quieter chart skin removes 
 
 #council-bar-chart .cbc-empty{
   background:transparent;
-  border:1px solid rgba(15,23,42,.08);
+  border:1px solid var(--abv2-border-subtle);
   border-radius:18px;
 }
 

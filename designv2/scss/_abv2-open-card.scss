@@ -11,19 +11,19 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   display:grid;
   grid-template-columns:168px minmax(0,1fr);
   min-height:236px;
-  border:1px solid rgba(38,38,37,.09);
+  border:1px solid var(--abv2-ink-a09);
   border-radius:24px;
   overflow:hidden;
   background:var(--abv2-white);
-  box-shadow:0 8px 24px rgba(38,38,37,.04);
+  box-shadow:0 8px 24px var(--abv2-shadow-soft);
   transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 
 .abv2-open-card:hover,
 .abv2-open-card:focus-within{
   transform:translateY(-3px);
-  box-shadow:0 14px 34px rgba(38,38,37,.08);
-  border-color:rgba(38,38,37,.14);
+  box-shadow:0 14px 34px var(--abv2-shadow-card);
+  border-color:var(--abv2-border-strong);
 }
 
 .abv2-open-card__link{
@@ -50,7 +50,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   inset:auto auto 16px 16px;
   width:54px;
   height:54px;
-  background:rgba(255,255,255,.12);
+  background:var(--abv2-overlay-soft);
   border-radius:999px;
   pointer-events:none;
 }
@@ -130,21 +130,21 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 }
 
 .abv2-open-card__pill--rate{
-  background:rgba(223,115,173,.12);
+  background:var(--abv2-pink-a12);
   color:var(--abv2-pink-dark);
-  border-color:rgba(223,115,173,.18);
+  border-color:var(--abv2-pink-a18);
 }
 
 .abv2-open-card__pill--term{
-  background:rgba(18,169,187,.10);
+  background:var(--abv2-teal-a10);
   color:var(--abv2-teal-dark);
-  border-color:rgba(18,169,187,.16);
+  border-color:var(--abv2-teal-a16);
 }
 
 .abv2-open-card__pill--capital{
-  background:rgba(239,181,42,.14);
+  background:var(--abv2-yellow-a14);
   color:var(--abv2-yellow-dark);
-  border-color:rgba(239,181,42,.2);
+  border-color:var(--abv2-yellow-a20);
 }
 
 .abv2-open-card__cta{
@@ -246,19 +246,19 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   display:grid;
   grid-template-columns:220px minmax(0,1fr);
   min-height:220px;
-  border:1px solid rgba(38,38,37,.08);
+  border:1px solid var(--abv2-border-subtle);
   border-radius:28px;
   overflow:hidden;
   background:var(--abv2-white);
-  box-shadow:0 8px 24px rgba(38,38,37,.04);
+  box-shadow:0 8px 24px var(--abv2-shadow-soft);
   transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 
 .abv2-open-card:hover,
 .abv2-open-card:focus-within{
   transform:translateY(-3px);
-  box-shadow:0 14px 34px rgba(38,38,37,.08);
-  border-color:rgba(38,38,37,.14);
+  box-shadow:0 14px 34px var(--abv2-shadow-card);
+  border-color:var(--abv2-border-strong);
 }
 
 .abv2-open-card__media{
@@ -278,7 +278,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   width:66px;
   height:66px;
   border-radius:999px;
-  background:rgba(255,255,255,.14);
+  background:var(--abv2-overlay-soft-strong);
   pointer-events:none;
 }
 
@@ -496,19 +496,19 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   display:grid;
   grid-template-columns:190px minmax(0,1fr);
   min-height:176px;
-  border:1px solid rgba(38,38,37,.08);
+  border:1px solid var(--abv2-border-subtle);
   border-radius:26px;
   overflow:hidden;
   background:var(--abv2-white);
-  box-shadow:0 6px 20px rgba(38,38,37,.035);
+  box-shadow:0 6px 20px var(--abv2-ink-a04);
   transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .abv2-open-card:hover,
 .abv2-open-card:focus-within{
   transform:translateY(-2px);
-  box-shadow:0 12px 28px rgba(38,38,37,.06);
-  border-color:rgba(38,38,37,.14);
+  box-shadow:0 12px 28px var(--abv2-shadow-default);
+  border-color:var(--abv2-border-strong);
 }
 
 .abv2-open-card__media{
@@ -528,7 +528,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   width:54px;
   height:54px;
   border-radius:999px;
-  background:rgba(255,255,255,.14);
+  background:var(--abv2-overlay-soft-strong);
   pointer-events:none;
 }
 
@@ -609,7 +609,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 .abv2-open-card__pill::after{
   content:"·";
   margin:0 var(--abv2-space-12);
-  color:rgba(38,38,37,.35);
+  color:var(--abv2-ink-a35);
 }
 
 .abv2-open-card__pill:last-child::after{
@@ -749,7 +749,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   gap:0;
   padding:var(--abv2-space-16) 0;
   border:0;
-  border-bottom:1px solid rgba(38,38,37,.12);
+  border-bottom:1px solid var(--abv2-border-default);
   border-radius:0;
   background:transparent;
   box-shadow:none;
@@ -757,7 +757,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 }
 
 .abv2-open-card:first-child{
-  border-top:1px solid rgba(38,38,37,.12);
+  border-top:1px solid var(--abv2-border-default);
 }
 
 .abv2-open-card:hover,
@@ -786,7 +786,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   width:34px;
   height:34px;
   border-radius:999px;
-  background:rgba(255,255,255,.12);
+  background:var(--abv2-overlay-soft);
   pointer-events:none;
 }
 
@@ -864,7 +864,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 .abv2-open-card__pill::after{
   content:"·";
   margin:0 var(--abv2-space-12);
-  color:rgba(38,38,37,.35);
+  color:var(--abv2-ink-a35);
 }
 
 .abv2-open-card__pill--rate{ color:var(--abv2-pink-dark); }
@@ -1022,7 +1022,7 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
   justify-content:center;
   min-height:34px;
   padding:0 var(--abv2-space-16);
-  border:1.5px solid rgba(223,115,173,.45);
+  border:1.5px solid var(--abv2-border-accent);
   border-radius:999px;
   background:transparent;
   font-family:var(--abv2-ui);
@@ -1046,8 +1046,8 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
 
 .abv2-open-card:hover .abv2-open-card__cta,
 .abv2-open-card:focus-within .abv2-open-card__cta{
-  background:rgba(223,115,173,.07);
-  border-color:rgba(223,115,173,.62);
+  background:var(--abv2-pink-a07);
+  border-color:var(--abv2-pink-a62);
 }
 
 .abv2-open-card:hover .abv2-open-card__cta::after,
@@ -1166,7 +1166,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
   width:58px;
   height:58px;
   border-radius:999px;
-  background:rgba(255,255,255,.12);
+  background:var(--abv2-overlay-soft);
   pointer-events:none;
 }
 
@@ -1175,7 +1175,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
   position:absolute;
   inset:0;
   border-radius:30px;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+  box-shadow:inset 0 0 0 1px var(--abv2-white-a06);
   pointer-events:none;
 }
 
@@ -1247,7 +1247,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
 
 .abv2-open-card:hover .abv2-open-card__cta,
 .abv2-open-card:focus-within .abv2-open-card__cta{
-  background:rgba(223,115,173,.08);
+  background:var(--abv2-pink-a08);
   color:var(--abv2-pink);
   border-color:var(--abv2-pink);
 }

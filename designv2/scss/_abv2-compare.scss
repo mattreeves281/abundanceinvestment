@@ -49,7 +49,7 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
   top:-22px;
   width:146px;
   height:146px;
-  background:rgba(18,169,187,.12);
+  background:var(--abv2-teal-a12);
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;
@@ -109,7 +109,7 @@ SOURCE: 3- homepage components.html / EXPANDED COMPARISON
   gap:var(--abv2-space-16);
   align-items:start;
   padding-top:var(--abv2-space-12);
-  border-top:1px solid rgba(38,38,37,.12);
+  border-top:1px solid var(--abv2-border-default);
 }
 
 .abv2-compare__term{
@@ -243,7 +243,7 @@ SOURCE: 4 - editorial components.html / compare
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:0;
-  border-top:1px solid rgba(38,38,37,.10);
+  border-top:1px solid var(--abv2-border-soft);
 }
 
 .abv2-compare__col{
@@ -251,7 +251,7 @@ SOURCE: 4 - editorial components.html / compare
 }
 
 .abv2-compare__col + .abv2-compare__col{
-  border-left:1px solid rgba(38,38,37,.10);
+  border-left:1px solid var(--abv2-border-soft);
 }
 
 .abv2-compare__label{
@@ -260,7 +260,7 @@ SOURCE: 4 - editorial components.html / compare
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.04em;
-  color:rgba(38,38,37,.62);
+  color:var(--abv2-ink-a62);
 }
 
 .abv2-compare__heading{
@@ -273,7 +273,7 @@ SOURCE: 4 - editorial components.html / compare
 .abv2-compare__note{
   margin:0;
   padding:var(--abv2-space-16) var(--abv2-space-24) var(--abv2-space-20);
-  border-top:1px solid rgba(38,38,37,.10);
+  border-top:1px solid var(--abv2-border-soft);
   font-size:.95rem;
-  color:rgba(38,38,37,.78);
+  color:var(--abv2-ink-a78);
 }

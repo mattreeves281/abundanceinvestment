@@ -8,7 +8,7 @@ SOURCE: 3- homepage components.html / CASE STUDY / IMPACT SPOTLIGHT
 ========================================================= */
 .abv2-case-stat{
   padding-top:var(--abv2-space-12);
-  border-top:1px solid rgba(255,255,255,.28);
+  border-top:1px solid var(--abv2-white-a28);
 }
 
 .abv2-case-stat__value{
@@ -26,5 +26,5 @@ SOURCE: 3- homepage components.html / CASE STUDY / IMPACT SPOTLIGHT
   font-family:var(--abv2-sans);
   font-size:.92rem;
   line-height:1.4;
-  color:rgba(255,255,255,.88);
+  color:var(--abv2-white-a88);
 }

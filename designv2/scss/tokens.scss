@@ -26,25 +26,138 @@ SOURCE: 1 - hompeage base responsive.html
   }
 
 :root{
+    /* ========================================
+   ABV2 COLOUR TOKENS - SOLID
+======================================== */
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
+    --abv2-white-rgb:255, 255, 255;
+
     --abv2-ink:#282827;
+    --abv2-ink-rgb:40, 40, 39;
+
     --abv2-text:#4d4a46;
     --abv2-grey:#71716e;
     --abv2-grey-light:#e9e4e3;
     --abv2-grey-ui:#e2e2e2;
+
     --abv2-pink:#f27fae;
+    --abv2-pink-rgb:242, 127, 174;
     --abv2-pink-dark:#c1658b;
     --abv2-pink-light:#f498be;
+
     --abv2-teal:#00a4b6;
+    --abv2-teal-rgb:0, 164, 182;
     --abv2-teal-dark:#008391;
     --abv2-teal-light:#4cbfcb;
+
     --abv2-yellow:#ffb72c;
+    --abv2-yellow-rgb:255, 183, 44;
     --abv2-yellow-dark:#cc9223;
     --abv2-yellow-light:#ffc556;
+
     --abv2-green:#25ab2d;
     --abv2-blue:#151943;
     --abv2-indigo:#443668;
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA / OVERLAY
+======================================== */
+    --abv2-ink-a04:rgba(var(--abv2-ink-rgb), 0.04);
+    --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06);
+    --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08);
+    --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10);
+    --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12);
+    --abv2-ink-a14:rgba(var(--abv2-ink-rgb), 0.14);
+    --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18);
+    --abv2-ink-a35:rgba(var(--abv2-ink-rgb), 0.35);
+    --abv2-ink-a62:rgba(var(--abv2-ink-rgb), 0.62);
+    --abv2-ink-a72:rgba(var(--abv2-ink-rgb), 0.72);
+    --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78);
+
+    --abv2-white-a06:rgba(var(--abv2-white-rgb), 0.06);
+    --abv2-white-a12:rgba(var(--abv2-white-rgb), 0.12);
+    --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14);
+    --abv2-white-a84:rgba(var(--abv2-white-rgb), 0.84);
+
+    --abv2-pink-a07:rgba(var(--abv2-pink-rgb), 0.07);
+    --abv2-pink-a08:rgba(var(--abv2-pink-rgb), 0.08);
+    --abv2-pink-a12:rgba(var(--abv2-pink-rgb), 0.12);
+    --abv2-pink-a18:rgba(var(--abv2-pink-rgb), 0.18);
+    --abv2-pink-a45:rgba(var(--abv2-pink-rgb), 0.45);
+    --abv2-pink-a62:rgba(var(--abv2-pink-rgb), 0.62);
+
+    --abv2-teal-a10:rgba(var(--abv2-teal-rgb), 0.10);
+    --abv2-teal-a12:rgba(var(--abv2-teal-rgb), 0.12);
+    --abv2-teal-a16:rgba(var(--abv2-teal-rgb), 0.16);
+
+    --abv2-yellow-a14:rgba(var(--abv2-yellow-rgb), 0.14);
+    --abv2-yellow-a20:rgba(var(--abv2-yellow-rgb), 0.20);
+
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA EXTENSIONS
+======================================== */
+    --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05);
+    --abv2-ink-a09:rgba(var(--abv2-ink-rgb), 0.09);
+    --abv2-ink-a22:rgba(var(--abv2-ink-rgb), 0.22);
+    --abv2-ink-a34:rgba(var(--abv2-ink-rgb), 0.34);
+    --abv2-ink-a64:rgba(var(--abv2-ink-rgb), 0.64);
+    --abv2-ink-a68:rgba(var(--abv2-ink-rgb), 0.68);
+    --abv2-ink-a74:rgba(var(--abv2-ink-rgb), 0.74);
+    --abv2-ink-a80:rgba(var(--abv2-ink-rgb), 0.80);
+    --abv2-ink-a82:rgba(var(--abv2-ink-rgb), 0.82);
+
+    --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16);
+    --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18);
+    --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28);
+    --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72);
+    --abv2-white-a82:rgba(var(--abv2-white-rgb), 0.82);
+    --abv2-white-a88:rgba(var(--abv2-white-rgb), 0.88);
+    --abv2-white-a90:rgba(var(--abv2-white-rgb), 0.90);
+
+    --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05);
+    --abv2-pink-a06:rgba(var(--abv2-pink-rgb), 0.06);
+    --abv2-pink-a10:rgba(var(--abv2-pink-rgb), 0.10);
+    --abv2-pink-a13:rgba(var(--abv2-pink-rgb), 0.13);
+    --abv2-pink-a16:rgba(var(--abv2-pink-rgb), 0.16);
+    --abv2-pink-a24:rgba(var(--abv2-pink-rgb), 0.24);
+    --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34);
+    --abv2-pink-a35:rgba(var(--abv2-pink-rgb), 0.35);
+    --abv2-pink-a70:rgba(var(--abv2-pink-rgb), 0.70);
+
+    --abv2-teal-a04:rgba(var(--abv2-teal-rgb), 0.04);
+    --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06);
+    --abv2-teal-a15:rgba(var(--abv2-teal-rgb), 0.15);
+    --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22);
+    --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38);
+
+    --abv2-yellow-a08:rgba(var(--abv2-yellow-rgb), 0.08);
+    --abv2-yellow-a12:rgba(var(--abv2-yellow-rgb), 0.12);
+    --abv2-yellow-a16:rgba(var(--abv2-yellow-rgb), 0.16);
+    --abv2-yellow-a18:rgba(var(--abv2-yellow-rgb), 0.18);
+    --abv2-yellow-a22:rgba(var(--abv2-yellow-rgb), 0.22);
+    --abv2-yellow-a94:rgba(var(--abv2-yellow-rgb), 0.94);
+
+/* ========================================
+   ABV2 COLOUR TOKENS - SEMANTIC ALIASES
+======================================== */
+    --abv2-border-subtle:var(--abv2-ink-a08);
+    --abv2-border-soft:var(--abv2-ink-a10);
+    --abv2-border-default:var(--abv2-ink-a12);
+    --abv2-border-strong:var(--abv2-ink-a14);
+    --abv2-border-accent:var(--abv2-pink-a45);
+
+    --abv2-shadow-soft:var(--abv2-ink-a04);
+    --abv2-shadow-default:var(--abv2-ink-a06);
+    --abv2-shadow-card:var(--abv2-ink-a08);
+
+    --abv2-overlay-soft:var(--abv2-white-a12);
+    --abv2-overlay-soft-strong:var(--abv2-white-a14);
+    --abv2-overlay-contrast:var(--abv2-white-a84);
+
+    --abv2-cta-hover-bg:var(--abv2-pink-a08);
+    --abv2-cta-hover-bg-soft:var(--abv2-pink-a07);
     --abv2-space-2:2px;
     --abv2-space-4:4px;
     --abv2-space-8:8px;
@@ -142,25 +255,138 @@ SOURCE: 2 - council hub page.html
   }
 
 :root{
+    /* ========================================
+   ABV2 COLOUR TOKENS - SOLID
+======================================== */
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
+    --abv2-white-rgb:255, 255, 255;
+
     --abv2-ink:#282827;
+    --abv2-ink-rgb:40, 40, 39;
+
     --abv2-text:#4d4a46;
     --abv2-grey:#71716e;
     --abv2-grey-light:#e9e4e3;
     --abv2-grey-ui:#e2e2e2;
+
     --abv2-pink:#f27fae;
+    --abv2-pink-rgb:242, 127, 174;
     --abv2-pink-dark:#c1658b;
     --abv2-pink-light:#f498be;
+
     --abv2-teal:#00a4b6;
+    --abv2-teal-rgb:0, 164, 182;
     --abv2-teal-dark:#008391;
     --abv2-teal-light:#4cbfcb;
+
     --abv2-yellow:#ffb72c;
+    --abv2-yellow-rgb:255, 183, 44;
     --abv2-yellow-dark:#cc9223;
     --abv2-yellow-light:#ffc556;
+
     --abv2-green:#25ab2d;
     --abv2-blue:#151943;
     --abv2-indigo:#443668;
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA / OVERLAY
+======================================== */
+    --abv2-ink-a04:rgba(var(--abv2-ink-rgb), 0.04);
+    --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06);
+    --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08);
+    --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10);
+    --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12);
+    --abv2-ink-a14:rgba(var(--abv2-ink-rgb), 0.14);
+    --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18);
+    --abv2-ink-a35:rgba(var(--abv2-ink-rgb), 0.35);
+    --abv2-ink-a62:rgba(var(--abv2-ink-rgb), 0.62);
+    --abv2-ink-a72:rgba(var(--abv2-ink-rgb), 0.72);
+    --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78);
+
+    --abv2-white-a06:rgba(var(--abv2-white-rgb), 0.06);
+    --abv2-white-a12:rgba(var(--abv2-white-rgb), 0.12);
+    --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14);
+    --abv2-white-a84:rgba(var(--abv2-white-rgb), 0.84);
+
+    --abv2-pink-a07:rgba(var(--abv2-pink-rgb), 0.07);
+    --abv2-pink-a08:rgba(var(--abv2-pink-rgb), 0.08);
+    --abv2-pink-a12:rgba(var(--abv2-pink-rgb), 0.12);
+    --abv2-pink-a18:rgba(var(--abv2-pink-rgb), 0.18);
+    --abv2-pink-a45:rgba(var(--abv2-pink-rgb), 0.45);
+    --abv2-pink-a62:rgba(var(--abv2-pink-rgb), 0.62);
+
+    --abv2-teal-a10:rgba(var(--abv2-teal-rgb), 0.10);
+    --abv2-teal-a12:rgba(var(--abv2-teal-rgb), 0.12);
+    --abv2-teal-a16:rgba(var(--abv2-teal-rgb), 0.16);
+
+    --abv2-yellow-a14:rgba(var(--abv2-yellow-rgb), 0.14);
+    --abv2-yellow-a20:rgba(var(--abv2-yellow-rgb), 0.20);
+
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA EXTENSIONS
+======================================== */
+    --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05);
+    --abv2-ink-a09:rgba(var(--abv2-ink-rgb), 0.09);
+    --abv2-ink-a22:rgba(var(--abv2-ink-rgb), 0.22);
+    --abv2-ink-a34:rgba(var(--abv2-ink-rgb), 0.34);
+    --abv2-ink-a64:rgba(var(--abv2-ink-rgb), 0.64);
+    --abv2-ink-a68:rgba(var(--abv2-ink-rgb), 0.68);
+    --abv2-ink-a74:rgba(var(--abv2-ink-rgb), 0.74);
+    --abv2-ink-a80:rgba(var(--abv2-ink-rgb), 0.80);
+    --abv2-ink-a82:rgba(var(--abv2-ink-rgb), 0.82);
+
+    --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16);
+    --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18);
+    --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28);
+    --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72);
+    --abv2-white-a82:rgba(var(--abv2-white-rgb), 0.82);
+    --abv2-white-a88:rgba(var(--abv2-white-rgb), 0.88);
+    --abv2-white-a90:rgba(var(--abv2-white-rgb), 0.90);
+
+    --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05);
+    --abv2-pink-a06:rgba(var(--abv2-pink-rgb), 0.06);
+    --abv2-pink-a10:rgba(var(--abv2-pink-rgb), 0.10);
+    --abv2-pink-a13:rgba(var(--abv2-pink-rgb), 0.13);
+    --abv2-pink-a16:rgba(var(--abv2-pink-rgb), 0.16);
+    --abv2-pink-a24:rgba(var(--abv2-pink-rgb), 0.24);
+    --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34);
+    --abv2-pink-a35:rgba(var(--abv2-pink-rgb), 0.35);
+    --abv2-pink-a70:rgba(var(--abv2-pink-rgb), 0.70);
+
+    --abv2-teal-a04:rgba(var(--abv2-teal-rgb), 0.04);
+    --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06);
+    --abv2-teal-a15:rgba(var(--abv2-teal-rgb), 0.15);
+    --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22);
+    --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38);
+
+    --abv2-yellow-a08:rgba(var(--abv2-yellow-rgb), 0.08);
+    --abv2-yellow-a12:rgba(var(--abv2-yellow-rgb), 0.12);
+    --abv2-yellow-a16:rgba(var(--abv2-yellow-rgb), 0.16);
+    --abv2-yellow-a18:rgba(var(--abv2-yellow-rgb), 0.18);
+    --abv2-yellow-a22:rgba(var(--abv2-yellow-rgb), 0.22);
+    --abv2-yellow-a94:rgba(var(--abv2-yellow-rgb), 0.94);
+
+/* ========================================
+   ABV2 COLOUR TOKENS - SEMANTIC ALIASES
+======================================== */
+    --abv2-border-subtle:var(--abv2-ink-a08);
+    --abv2-border-soft:var(--abv2-ink-a10);
+    --abv2-border-default:var(--abv2-ink-a12);
+    --abv2-border-strong:var(--abv2-ink-a14);
+    --abv2-border-accent:var(--abv2-pink-a45);
+
+    --abv2-shadow-soft:var(--abv2-ink-a04);
+    --abv2-shadow-default:var(--abv2-ink-a06);
+    --abv2-shadow-card:var(--abv2-ink-a08);
+
+    --abv2-overlay-soft:var(--abv2-white-a12);
+    --abv2-overlay-soft-strong:var(--abv2-white-a14);
+    --abv2-overlay-contrast:var(--abv2-white-a84);
+
+    --abv2-cta-hover-bg:var(--abv2-pink-a08);
+    --abv2-cta-hover-bg-soft:var(--abv2-pink-a07);
     --abv2-space-2:2px;
     --abv2-space-4:4px;
     --abv2-space-8:8px;
@@ -265,25 +491,138 @@ SOURCE: 3- homepage components.html
   }
 
 :root{
+    /* ========================================
+   ABV2 COLOUR TOKENS - SOLID
+======================================== */
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
+    --abv2-white-rgb:255, 255, 255;
+
     --abv2-ink:#282827;
+    --abv2-ink-rgb:40, 40, 39;
+
     --abv2-text:#4d4a46;
     --abv2-grey:#71716e;
     --abv2-grey-light:#e9e4e3;
     --abv2-grey-ui:#e2e2e2;
+
     --abv2-pink:#f27fae;
+    --abv2-pink-rgb:242, 127, 174;
     --abv2-pink-dark:#c1658b;
     --abv2-pink-light:#f498be;
+
     --abv2-teal:#00a4b6;
+    --abv2-teal-rgb:0, 164, 182;
     --abv2-teal-dark:#008391;
     --abv2-teal-light:#4cbfcb;
+
     --abv2-yellow:#ffb72c;
+    --abv2-yellow-rgb:255, 183, 44;
     --abv2-yellow-dark:#cc9223;
     --abv2-yellow-light:#ffc556;
+
     --abv2-green:#25ab2d;
     --abv2-blue:#151943;
     --abv2-indigo:#443668;
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA / OVERLAY
+======================================== */
+    --abv2-ink-a04:rgba(var(--abv2-ink-rgb), 0.04);
+    --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06);
+    --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08);
+    --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10);
+    --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12);
+    --abv2-ink-a14:rgba(var(--abv2-ink-rgb), 0.14);
+    --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18);
+    --abv2-ink-a35:rgba(var(--abv2-ink-rgb), 0.35);
+    --abv2-ink-a62:rgba(var(--abv2-ink-rgb), 0.62);
+    --abv2-ink-a72:rgba(var(--abv2-ink-rgb), 0.72);
+    --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78);
+
+    --abv2-white-a06:rgba(var(--abv2-white-rgb), 0.06);
+    --abv2-white-a12:rgba(var(--abv2-white-rgb), 0.12);
+    --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14);
+    --abv2-white-a84:rgba(var(--abv2-white-rgb), 0.84);
+
+    --abv2-pink-a07:rgba(var(--abv2-pink-rgb), 0.07);
+    --abv2-pink-a08:rgba(var(--abv2-pink-rgb), 0.08);
+    --abv2-pink-a12:rgba(var(--abv2-pink-rgb), 0.12);
+    --abv2-pink-a18:rgba(var(--abv2-pink-rgb), 0.18);
+    --abv2-pink-a45:rgba(var(--abv2-pink-rgb), 0.45);
+    --abv2-pink-a62:rgba(var(--abv2-pink-rgb), 0.62);
+
+    --abv2-teal-a10:rgba(var(--abv2-teal-rgb), 0.10);
+    --abv2-teal-a12:rgba(var(--abv2-teal-rgb), 0.12);
+    --abv2-teal-a16:rgba(var(--abv2-teal-rgb), 0.16);
+
+    --abv2-yellow-a14:rgba(var(--abv2-yellow-rgb), 0.14);
+    --abv2-yellow-a20:rgba(var(--abv2-yellow-rgb), 0.20);
+
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA EXTENSIONS
+======================================== */
+    --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05);
+    --abv2-ink-a09:rgba(var(--abv2-ink-rgb), 0.09);
+    --abv2-ink-a22:rgba(var(--abv2-ink-rgb), 0.22);
+    --abv2-ink-a34:rgba(var(--abv2-ink-rgb), 0.34);
+    --abv2-ink-a64:rgba(var(--abv2-ink-rgb), 0.64);
+    --abv2-ink-a68:rgba(var(--abv2-ink-rgb), 0.68);
+    --abv2-ink-a74:rgba(var(--abv2-ink-rgb), 0.74);
+    --abv2-ink-a80:rgba(var(--abv2-ink-rgb), 0.80);
+    --abv2-ink-a82:rgba(var(--abv2-ink-rgb), 0.82);
+
+    --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16);
+    --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18);
+    --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28);
+    --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72);
+    --abv2-white-a82:rgba(var(--abv2-white-rgb), 0.82);
+    --abv2-white-a88:rgba(var(--abv2-white-rgb), 0.88);
+    --abv2-white-a90:rgba(var(--abv2-white-rgb), 0.90);
+
+    --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05);
+    --abv2-pink-a06:rgba(var(--abv2-pink-rgb), 0.06);
+    --abv2-pink-a10:rgba(var(--abv2-pink-rgb), 0.10);
+    --abv2-pink-a13:rgba(var(--abv2-pink-rgb), 0.13);
+    --abv2-pink-a16:rgba(var(--abv2-pink-rgb), 0.16);
+    --abv2-pink-a24:rgba(var(--abv2-pink-rgb), 0.24);
+    --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34);
+    --abv2-pink-a35:rgba(var(--abv2-pink-rgb), 0.35);
+    --abv2-pink-a70:rgba(var(--abv2-pink-rgb), 0.70);
+
+    --abv2-teal-a04:rgba(var(--abv2-teal-rgb), 0.04);
+    --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06);
+    --abv2-teal-a15:rgba(var(--abv2-teal-rgb), 0.15);
+    --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22);
+    --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38);
+
+    --abv2-yellow-a08:rgba(var(--abv2-yellow-rgb), 0.08);
+    --abv2-yellow-a12:rgba(var(--abv2-yellow-rgb), 0.12);
+    --abv2-yellow-a16:rgba(var(--abv2-yellow-rgb), 0.16);
+    --abv2-yellow-a18:rgba(var(--abv2-yellow-rgb), 0.18);
+    --abv2-yellow-a22:rgba(var(--abv2-yellow-rgb), 0.22);
+    --abv2-yellow-a94:rgba(var(--abv2-yellow-rgb), 0.94);
+
+/* ========================================
+   ABV2 COLOUR TOKENS - SEMANTIC ALIASES
+======================================== */
+    --abv2-border-subtle:var(--abv2-ink-a08);
+    --abv2-border-soft:var(--abv2-ink-a10);
+    --abv2-border-default:var(--abv2-ink-a12);
+    --abv2-border-strong:var(--abv2-ink-a14);
+    --abv2-border-accent:var(--abv2-pink-a45);
+
+    --abv2-shadow-soft:var(--abv2-ink-a04);
+    --abv2-shadow-default:var(--abv2-ink-a06);
+    --abv2-shadow-card:var(--abv2-ink-a08);
+
+    --abv2-overlay-soft:var(--abv2-white-a12);
+    --abv2-overlay-soft-strong:var(--abv2-white-a14);
+    --abv2-overlay-contrast:var(--abv2-white-a84);
+
+    --abv2-cta-hover-bg:var(--abv2-pink-a08);
+    --abv2-cta-hover-bg-soft:var(--abv2-pink-a07);
     --abv2-space-2:2px;
     --abv2-space-4:4px;
     --abv2-space-8:8px;
@@ -418,25 +757,138 @@ SOURCE: 4 - editorial components.html
   }
 
 :root{
+    /* ========================================
+   ABV2 COLOUR TOKENS - SOLID
+======================================== */
     --abv2-bg:var(--abv2-white);
     --abv2-white:#ffffff;
+    --abv2-white-rgb:255, 255, 255;
+
     --abv2-ink:#282827;
+    --abv2-ink-rgb:40, 40, 39;
+
     --abv2-text:#4d4a46;
     --abv2-grey:#71716e;
     --abv2-grey-light:#e9e4e3;
     --abv2-grey-ui:#e2e2e2;
+
     --abv2-pink:#f27fae;
+    --abv2-pink-rgb:242, 127, 174;
     --abv2-pink-dark:#c1658b;
     --abv2-pink-light:#f498be;
+
     --abv2-teal:#00a4b6;
+    --abv2-teal-rgb:0, 164, 182;
     --abv2-teal-dark:#008391;
     --abv2-teal-light:#4cbfcb;
+
     --abv2-yellow:#ffb72c;
+    --abv2-yellow-rgb:255, 183, 44;
     --abv2-yellow-dark:#cc9223;
     --abv2-yellow-light:#ffc556;
+
     --abv2-green:#25ab2d;
     --abv2-blue:#151943;
     --abv2-indigo:#443668;
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA / OVERLAY
+======================================== */
+    --abv2-ink-a04:rgba(var(--abv2-ink-rgb), 0.04);
+    --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06);
+    --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08);
+    --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10);
+    --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12);
+    --abv2-ink-a14:rgba(var(--abv2-ink-rgb), 0.14);
+    --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18);
+    --abv2-ink-a35:rgba(var(--abv2-ink-rgb), 0.35);
+    --abv2-ink-a62:rgba(var(--abv2-ink-rgb), 0.62);
+    --abv2-ink-a72:rgba(var(--abv2-ink-rgb), 0.72);
+    --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78);
+
+    --abv2-white-a06:rgba(var(--abv2-white-rgb), 0.06);
+    --abv2-white-a12:rgba(var(--abv2-white-rgb), 0.12);
+    --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14);
+    --abv2-white-a84:rgba(var(--abv2-white-rgb), 0.84);
+
+    --abv2-pink-a07:rgba(var(--abv2-pink-rgb), 0.07);
+    --abv2-pink-a08:rgba(var(--abv2-pink-rgb), 0.08);
+    --abv2-pink-a12:rgba(var(--abv2-pink-rgb), 0.12);
+    --abv2-pink-a18:rgba(var(--abv2-pink-rgb), 0.18);
+    --abv2-pink-a45:rgba(var(--abv2-pink-rgb), 0.45);
+    --abv2-pink-a62:rgba(var(--abv2-pink-rgb), 0.62);
+
+    --abv2-teal-a10:rgba(var(--abv2-teal-rgb), 0.10);
+    --abv2-teal-a12:rgba(var(--abv2-teal-rgb), 0.12);
+    --abv2-teal-a16:rgba(var(--abv2-teal-rgb), 0.16);
+
+    --abv2-yellow-a14:rgba(var(--abv2-yellow-rgb), 0.14);
+    --abv2-yellow-a20:rgba(var(--abv2-yellow-rgb), 0.20);
+
+
+/* ========================================
+   ABV2 COLOUR TOKENS - ALPHA EXTENSIONS
+======================================== */
+    --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05);
+    --abv2-ink-a09:rgba(var(--abv2-ink-rgb), 0.09);
+    --abv2-ink-a22:rgba(var(--abv2-ink-rgb), 0.22);
+    --abv2-ink-a34:rgba(var(--abv2-ink-rgb), 0.34);
+    --abv2-ink-a64:rgba(var(--abv2-ink-rgb), 0.64);
+    --abv2-ink-a68:rgba(var(--abv2-ink-rgb), 0.68);
+    --abv2-ink-a74:rgba(var(--abv2-ink-rgb), 0.74);
+    --abv2-ink-a80:rgba(var(--abv2-ink-rgb), 0.80);
+    --abv2-ink-a82:rgba(var(--abv2-ink-rgb), 0.82);
+
+    --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16);
+    --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18);
+    --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28);
+    --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72);
+    --abv2-white-a82:rgba(var(--abv2-white-rgb), 0.82);
+    --abv2-white-a88:rgba(var(--abv2-white-rgb), 0.88);
+    --abv2-white-a90:rgba(var(--abv2-white-rgb), 0.90);
+
+    --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05);
+    --abv2-pink-a06:rgba(var(--abv2-pink-rgb), 0.06);
+    --abv2-pink-a10:rgba(var(--abv2-pink-rgb), 0.10);
+    --abv2-pink-a13:rgba(var(--abv2-pink-rgb), 0.13);
+    --abv2-pink-a16:rgba(var(--abv2-pink-rgb), 0.16);
+    --abv2-pink-a24:rgba(var(--abv2-pink-rgb), 0.24);
+    --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34);
+    --abv2-pink-a35:rgba(var(--abv2-pink-rgb), 0.35);
+    --abv2-pink-a70:rgba(var(--abv2-pink-rgb), 0.70);
+
+    --abv2-teal-a04:rgba(var(--abv2-teal-rgb), 0.04);
+    --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06);
+    --abv2-teal-a15:rgba(var(--abv2-teal-rgb), 0.15);
+    --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22);
+    --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38);
+
+    --abv2-yellow-a08:rgba(var(--abv2-yellow-rgb), 0.08);
+    --abv2-yellow-a12:rgba(var(--abv2-yellow-rgb), 0.12);
+    --abv2-yellow-a16:rgba(var(--abv2-yellow-rgb), 0.16);
+    --abv2-yellow-a18:rgba(var(--abv2-yellow-rgb), 0.18);
+    --abv2-yellow-a22:rgba(var(--abv2-yellow-rgb), 0.22);
+    --abv2-yellow-a94:rgba(var(--abv2-yellow-rgb), 0.94);
+
+/* ========================================
+   ABV2 COLOUR TOKENS - SEMANTIC ALIASES
+======================================== */
+    --abv2-border-subtle:var(--abv2-ink-a08);
+    --abv2-border-soft:var(--abv2-ink-a10);
+    --abv2-border-default:var(--abv2-ink-a12);
+    --abv2-border-strong:var(--abv2-ink-a14);
+    --abv2-border-accent:var(--abv2-pink-a45);
+
+    --abv2-shadow-soft:var(--abv2-ink-a04);
+    --abv2-shadow-default:var(--abv2-ink-a06);
+    --abv2-shadow-card:var(--abv2-ink-a08);
+
+    --abv2-overlay-soft:var(--abv2-white-a12);
+    --abv2-overlay-soft-strong:var(--abv2-white-a14);
+    --abv2-overlay-contrast:var(--abv2-white-a84);
+
+    --abv2-cta-hover-bg:var(--abv2-pink-a08);
+    --abv2-cta-hover-bg-soft:var(--abv2-pink-a07);
     --abv2-space-2:2px;
     --abv2-space-4:4px;
     --abv2-space-8:8px;

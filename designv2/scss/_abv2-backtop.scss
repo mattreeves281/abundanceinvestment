@@ -12,7 +12,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   justify-content:space-between;
   gap:var(--abv2-space-16);
   padding:var(--abv2-space-20) var(--abv2-space-20);
-  border:1.5px solid rgba(38,38,37,.08);
+  border:1.5px solid var(--abv2-border-subtle);
   border-radius:18px;
   background:var(--abv2-grey-ui);
 }
@@ -34,7 +34,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   margin:0;
   font-size:.92rem;
   line-height:1.45;
-  color:rgba(38,38,37,.74);
+  color:var(--abv2-ink-a74);
 }
 
 .abv2-backtop__link{
@@ -45,7 +45,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   min-height:42px;
   padding:var(--abv2-space-12) var(--abv2-space-16);
   border-radius:999px;
-  border:1.5px solid rgba(38,38,37,.10);
+  border:1.5px solid var(--abv2-border-soft);
   background:var(--abv2-white);
   text-decoration:none;
   font-family:var(--abv2-ui);
@@ -56,7 +56,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 }
 
 .abv2-backtop__link:hover{
-  border-color:rgba(226,109,166,.34);
+  border-color:var(--abv2-pink-a34);
   color:var(--abv2-pink);
 }
 

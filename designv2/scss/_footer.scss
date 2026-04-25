@@ -128,7 +128,7 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
 .footer .footer-copyright-wrapper{
     justify-content:flex-end;
     min-height:28px;
-    border-top:1px solid rgba(38,38,37,.22);
+    border-top:1px solid var(--abv2-ink-a22);
     padding-top:var(--abv2-space-16);
   }
 
