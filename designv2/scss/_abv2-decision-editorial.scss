@@ -1,0 +1,12 @@
+/* ========================================
+   COMPONENT: abv2-editorial-decision
+   Editorial decision support block
+   ======================================== */
+
+.abv2-editorial-decision {
+  margin: var(--abv2-space-28) 0 var(--abv2-space-32);
+}
+
+.abv2-editorial-decision > * + * {
+  margin-top: var(--abv2-space-20);
+}

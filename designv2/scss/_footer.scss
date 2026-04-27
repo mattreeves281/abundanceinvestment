@@ -1,321 +1,256 @@
 /* ========================================
-COMPONENT: footer
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: footer
+   V2 yellow footer with integrated top wedge
+   ======================================== */
 
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / FOOTER
-========================================================= */
-.bg-colour--neutral--300.bg-mask.bg-mask--t-convex{
-    display:none !important;
-  }
 
-.footer{
-    position:relative;
-    z-index:2;
-    margin-top:0 !important;
-    padding-top:var(--abv2-space-48) !important;
-    background:var(--abv2-yellow) !important;
-    color:var(--abv2-ink) !important;
-    border:0 !important;
-    overflow:hidden;
-  }
+.footer {
+  --abv2-footer-wedge-height: 160px;
 
-.footer::before,
-  .footer::after{
-    content:none !important;
-  }
+  position: relative;
+  z-index: 2;
+  margin-top: var(--abv2-footer-wedge-height) !important;
+  padding-top: var(--abv2-space-48) !important;
+  background: var(--abv2-yellow) !important;
+  color: var(--abv2-ink) !important;
+  border: 0 !important;
+  overflow: visible;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(-1 * var(--abv2-footer-wedge-height) + 1px);
+  height: var(--abv2-footer-wedge-height);
+  background: var(--abv2-yellow);
+  clip-path: polygon(
+    0 100%,
+    0 82%,
+    33% 30%,
+    100% 82%,
+    100% 100%
+  );
+  pointer-events: none;
+}
+
+.footer::after {
+  content: none !important;
+}
 
 .footer > .container,
-  .footer .footer-links > .container,
-  .footer .footer-copyright > .container{
-    position:relative;
-    z-index:1;
-    width:min(calc(100% - 36px), 1180px);
-    max-width:none;
-  }
+.footer .footer-links > .container,
+.footer .footer-copyright > .container {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 36px), 1180px);
+  max-width: none;
+}
 
-.footer .footer__risk{
-    position:relative;
-    max-width:1200px;
-    padding:0 0 var(--abv2-space-40) 230px !important;
-    font-family:var(--abv2-sans);
-    font-size:.97rem;
-    line-height:1.62;
-    color:var(--abv2-ink);
-  }
+.footer .footer__risk {
+  position: relative;
+  max-width: 1200px;
+  padding: 0 0 var(--abv2-space-40) 230px !important;
+  font-family: var(--abv2-sans);
+  font-size: .97rem;
+  line-height: 1.62;
+  color: var(--abv2-ink);
+}
 
-.footer .footer__risk::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:18px;
-    width:180px;
-    height:150px;
-    background:url("https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png") left top / contain no-repeat;
-    pointer-events:none;
-  }
+.footer .footer__risk::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 180px;
+  height: 150px;
+  background: url("https://shareinmicrosite.blob.core.windows.net/abundance/58735c61-e168-4fdb-9cde-37322c17a196.png") left top / contain no-repeat;
+  pointer-events: none;
+}
 
-.footer .footer-links{
-    position:relative;
-    background:transparent !important;
-    border-top:0 !important;
-    padding-top:var(--abv2-space-24);
-    padding-bottom:var(--abv2-space-20);
-  }
+.footer .footer-links {
+  position: relative;
+  background: transparent !important;
+  border-top: 0 !important;
+  padding-top: var(--abv2-space-24);
+  padding-bottom: var(--abv2-space-20);
+}
 
-.footer .footer-links::before{
-    display:none !important;
-  }
+.footer .footer-links::before {
+  display: none !important;
+}
 
-.footer .footer-links .row:first-child{
-    align-items:flex-start;
-  }
+.footer .footer-links .row:first-child {
+  align-items: flex-start;
+}
 
-.footer .footer-links .col-12{
-    padding-top:0 !important;
-  }
+.footer .footer-links .col-12 {
+  padding-top: 0 !important;
+}
 
-.footer h2.heading-4{
-    margin:0 0 var(--abv2-space-12);
-    font-family:var(--abv2-ui);
-    font-size:1rem;
-    line-height:1.1;
-    color:var(--abv2-ink);
-  }
+.footer h2.heading-4 {
+  margin: 0 0 var(--abv2-space-12);
+  font-family: var(--abv2-ui);
+  font-size: 1rem;
+  line-height: 1.1;
+  color: var(--abv2-ink);
+}
 
 .footer a,
-  .footer address,
-  .footer p,
-  .footer span{
-    font-family:var(--abv2-sans);
-    font-size:.94rem;
-    line-height:1.56;
-    color:var(--abv2-ink) !important;
-  }
+.footer address,
+.footer p,
+.footer span {
+  font-family: var(--abv2-sans);
+  font-size: .94rem;
+  line-height: 1.56;
+  color: var(--abv2-ink) !important;
+}
 
-.footer address{
-    font-style:normal;
-    margin:0;
-  }
+.footer address {
+  font-style: normal;
+  margin: 0;
+}
 
 .footer .footer-links--support,
-  .footer .footer-links--company,
-  .footer .footer-links--legal{
-    display:flex;
-    flex-direction:column;
-    gap:var(--abv2-space-4);
-  }
+.footer .footer-links--company,
+.footer .footer-links--legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--abv2-space-4);
+}
 
 .footer .body--xs p,
-  .footer .body--xs a,
-  .footer .body--xs span{
-    font-size:.8rem;
-    line-height:1.48;
-  }
-
-.footer .footer-links .row + .row{
-    margin-top:var(--abv2-space-32);
-  }
-
-.footer .footer-copyright{
-    background:transparent !important;
-    border-top:0 !important;
-    padding:var(--abv2-space-16) 0 var(--abv2-space-16) !important;
-    margin-top:0 !important;
-  }
-
-.footer .footer-copyright-wrapper{
-    justify-content:flex-end;
-    min-height:28px;
-    border-top:1px solid var(--abv2-ink-a22);
-    padding-top:var(--abv2-space-16);
-  }
-
-.footer .sharein-favicon{
-    width:24px;
-    height:22px;
-    opacity:.88;
-  }
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
-========================================================= */
-@media (max-width:979px) and (min-width:760px){
-  .footer{
-        padding-top:var(--abv2-space-40) !important;
-      }
+.footer .body--xs a,
+.footer .body--xs span {
+  font-size: .8rem;
+  line-height: 1.48;
 }
 
-@media (max-width:979px) and (min-width:760px){
-  .footer .footer__risk{
-        max-width:none;
-        padding:0 0 var(--abv2-space-32) 108px !important;
-        font-size:.9rem;
-        line-height:1.55;
-      }
+.footer .footer-links .row + .row {
+  margin-top: var(--abv2-space-32);
 }
 
-@media (max-width:979px) and (min-width:760px){
-  .footer .footer__risk::before{
-        width:82px;
-        height:68px;
-        top:8px;
-      }
+.footer .footer-copyright {
+  background: transparent !important;
+  border-top: 0 !important;
+  padding: var(--abv2-space-16) 0 !important;
+  margin-top: 0 !important;
 }
 
-@media (max-width:979px) and (min-width:760px){
-  .footer .footer-links{
-        padding-top:var(--abv2-space-20);
-      }
+.footer .footer-copyright-wrapper {
+  justify-content: flex-end;
+  min-height: 28px;
+  border-top: 1px solid var(--abv2-ink-a22);
+  padding-top: var(--abv2-space-16);
 }
 
-@media (max-width:979px) and (min-width:760px){
-  .footer h2.heading-4{
-        font-size:.94rem;
-      }
+.footer .sharein-favicon {
+  width: 24px;
+  height: 22px;
+  opacity: .88;
 }
 
-@media (max-width:979px) and (min-width:760px){
+/* Condensed desktop */
+
+@media (max-width: 1159px) and (min-width: 980px) {
+  .footer {
+    --abv2-footer-wedge-height: 86px;
+    padding-top: var(--abv2-space-40) !important;
+  }
+
+  .footer::before {
+    clip-path: polygon(
+      0 100%,
+      0 86%,
+      34% 64%,
+      100% 88%,
+      100% 100%
+    );
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 979px) and (min-width: 760px) {
+  .footer {
+    --abv2-footer-wedge-height: 78px;
+    padding-top: var(--abv2-space-40) !important;
+  }
+
+  .footer::before {
+    clip-path: polygon(
+      0 100%,
+      0 88%,
+      34% 66%,
+      100% 88%,
+      100% 100%
+    );
+  }
+
+  .footer .footer__risk {
+    max-width: none;
+    padding: 0 0 var(--abv2-space-32) 108px !important;
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .footer .footer__risk::before {
+    width: 82px;
+    height: 68px;
+    top: 8px;
+  }
+
+  .footer .footer-links {
+    padding-top: var(--abv2-space-20);
+  }
+
+  .footer h2.heading-4 {
+    font-size: .94rem;
+  }
+
   .footer a,
-      .footer address,
-      .footer p,
-      .footer span{
-        font-size:.88rem;
-        line-height:1.48;
-      }
-}
+  .footer address,
+  .footer p,
+  .footer span {
+    font-size: .88rem;
+    line-height: 1.48;
+  }
 
-@media (max-width:979px) and (min-width:760px){
   .footer .body--xs p,
-      .footer .body--xs a,
-      .footer .body--xs span{
-        font-size:.76rem;
-      }
+  .footer .body--xs a,
+  .footer .body--xs span {
+    font-size: .76rem;
+  }
+
+  .footer .footer-links .row + .row {
+    margin-top: var(--abv2-space-28);
+  }
 }
 
-@media (max-width:979px) and (min-width:760px){
-  .footer .footer-links .row + .row{
-        margin-top:var(--abv2-space-28);
-      }
-}
+/* Mobile */
 
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-  .footer{
-        padding-top:var(--abv2-space-40) !important;
-      }
-}
+@media (max-width: 759px) {
+  .footer {
+    --abv2-footer-wedge-height: 100px;
+    padding-top: var(--abv2-space-40) !important;
+  }
 
-@media (max-width:759px){
-  .footer .footer__risk{
-        padding-left:0 !important;
-      }
-}
+  .footer::before {
+    clip-path: polygon(
+      0 100%,
+      0 90%,
+      34% 68%,
+      100% 90%,
+      100% 100%
+    );
+  }
 
-@media (max-width:759px){
-  .footer .footer__risk::before{
-        display:none !important;
-      }
-}
+  .footer .footer__risk {
+    padding-left: 0 !important;
+  }
 
-/* =========================================================
-SOURCE: 2 - council hub page.html / FOOTER
-========================================================= */
-/* =========================================================
-SOURCE: 2 - council hub page.html / 760–979 TABLET
-========================================================= */
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / FOOTER
-========================================================= */
-/* =========================================================
-SOURCE: 3- homepage components.html / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
-  .footer{
-        padding-top:var(--abv2-space-40) !important;
-      }
-}
-
-@media (max-width:979px){
-  .footer .footer__risk{
-        max-width:none;
-        padding:0 0 var(--abv2-space-32) 140px !important;
-      }
-}
-
-@media (max-width:979px){
-  .footer .footer__risk::before{
-        width:110px;
-        height:92px;
-        top:10px;
-      }
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / FOOTER
-========================================================= */
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / FOOTER WEDGE + FOOTER
-========================================================= */
-/* =========================================================
-SOURCE: 4 - editorial components.html / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
-}
-
-@media (max-width:979px){
-}
-
-@media (max-width:979px){
-}
-
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
+  .footer .footer__risk::before {
+    display: none !important;
+  }
 }

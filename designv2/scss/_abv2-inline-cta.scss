@@ -1,92 +1,67 @@
 /* ========================================
-COMPONENT: abv2-inline-cta
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-inline-cta
+   Homepage inline CTA block
+   ======================================== */
 
-/* =========================================================
-SOURCE: 3- homepage components.html / INLINE CTA
-========================================================= */
-.abv2-inline-cta{
-  position:relative;
-  z-index:1;
-  padding-top:var(--abv2-space-28);
-  padding-bottom:var(--abv2-space-32);
-  background:var(--abv2-white);
+.abv2-inline-cta {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--abv2-space-28);
+  padding-bottom: var(--abv2-space-32);
+  background: var(--abv2-white);
 }
 
-.abv2-inline-cta__inner{
-  width:min(100%, 860px);
-  margin:0 auto;
+.abv2-inline-cta__inner {
+  width: min(100%, 860px);
+  margin: 0 auto;
 }
 
-.abv2-inline-cta__row{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  gap:var(--abv2-space-20) var(--abv2-space-24);
-  padding-top:var(--abv2-space-16);
-  border-top:1px solid var(--abv2-border-strong);
+.abv2-inline-cta__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--abv2-space-20) var(--abv2-space-24);
+  padding-top: var(--abv2-space-16);
+  border-top: 1px solid var(--abv2-border-strong);
 }
 
-.abv2-inline-cta__text{
-  max-width:34ch;
-  margin:0;
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1.52;
-  color:var(--abv2-text);
+.abv2-inline-cta__text {
+  max-width: 34ch;
+  margin: 0;
+  font-family: var(--abv2-sans);
+  font-size: 1rem;
+  line-height: 1.52;
+  color: var(--abv2-text);
 }
 
-.abv2-inline-cta__actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:var(--abv2-space-12);
+.abv2-inline-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--abv2-space-12);
 }
 
-/* =========================================================
-SOURCE: 3- homepage components.html / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
-  .abv2-inline-cta{
-      padding-top:var(--abv2-space-24);
-      padding-bottom:var(--abv2-space-28);
-    }
+/* Responsive */
+
+@media (max-width: 979px) {
+  .abv2-inline-cta {
+    padding-top: var(--abv2-space-24);
+    padding-bottom: var(--abv2-space-28);
+  }
 }
 
-@media (max-width:759px){
-  .abv2-inline-cta{
-      padding-top:var(--abv2-space-20);
-      padding-bottom:var(--abv2-space-24);
-    }
-}
+@media (max-width: 759px) {
+  .abv2-inline-cta {
+    padding-top: var(--abv2-space-20);
+    padding-bottom: var(--abv2-space-24);
+  }
 
-@media (max-width:759px){
-  .abv2-inline-cta__row{
-      align-items:flex-start;
-    }
-}
+  .abv2-inline-cta__row {
+    align-items: flex-start;
+  }
 
-@media (max-width:759px){
-  .abv2-inline-cta__text{
-      max-width:none;
-      font-size:.94rem;
-    }
-}
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / CTA PATTERNS
-========================================================= */
-.abv2-inline-cta{
-  color:var(--abv2-pink);
-  font-family:var(--abv2-ui);
-  font-weight:700;
-  text-decoration:none;
-  border-bottom:1px solid var(--abv2-pink-a35);
-  transition:border-color .18s ease, color .18s ease;
-}
-
-.abv2-inline-cta:hover{
-  color:var(--abv2-pink-dark);
-  border-color:var(--abv2-pink-dark);
+  .abv2-inline-cta__text {
+    max-width: none;
+    font-size: .94rem;
+  }
 }
