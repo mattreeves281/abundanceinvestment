@@ -1,0 +1,25 @@
+{
+  "name": "abundanceinvestment",
+  "version": "1.0.0",
+  "description": "Abundance code repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:designv2": "sass designv2/scss/main.scss designv2/build/main.css --no-source-map",
+    "watch:designv2": "sass designv2/scss/main.scss designv2/build/main.css --watch --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattreeves281/abundanceinvestment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattreeves281/abundanceinvestment/issues"
+  },
+  "homepage": "https://github.com/mattreeves281/abundanceinvestment#readme",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}
