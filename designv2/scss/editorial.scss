@@ -37,21 +37,6 @@
   padding: var(--abv2-space-32) 0 0;
 }
 
-/* Responsive gutters */
-
-@media (max-width: 979px) {
-  .abv2-editorial__wrap {
-    width: min(calc(100% - 28px), var(--abv2-wrap));
-  }
-}
-
-@media (max-width: 759px) {
-  .abv2-editorial__wrap {
-    width: min(calc(100% - 22px), var(--abv2-wrap));
-    padding-top: var(--abv2-space-16);
-  }
-}
-
 /* Type safety for CMS-rendered headings */
 
 .abv2-editorial h1,
@@ -72,3 +57,4 @@
 .abv2-editorial-page .content-wrapper {
   background: var(--abv2-editorial-bg) !important;
 }
+
