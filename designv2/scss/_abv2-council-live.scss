@@ -373,3 +373,23 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
       padding:0 var(--abv2-space-16) var(--abv2-space-12) 0;
     }
 }
+
+/* Responsive grid collapse */
+
+@media (max-width: 979px) {
+  .abv2-council-live__grid{
+    grid-template-columns: 1fr;
+    gap: var(--abv2-space-32);
+  }
+}
+
+/* Mobile copy rail */
+
+@media (max-width: 759px) {
+  .abv2-council-live__copy {
+    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}

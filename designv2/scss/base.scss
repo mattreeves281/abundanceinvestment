@@ -1,101 +1,29 @@
 /* =========================================================
-SOURCE: 1 - hompeage base responsive.html
-========================================================= */
-html,
-  body{
-    overflow-x:hidden;
-    background:var(--abv2-white);
-  }
+   ABUNDANCE v2 — BASE
+   ========================================================= */
 
-body{
-    margin:0;
-    background:var(--abv2-bg);
-    color:var(--abv2-ink);
-    font-family:var(--abv2-sans);
-  }
+html,
+body {
+  overflow-x: hidden;
+  background: var(--abv2-white);
+}
+
+body {
+  margin: 0;
+  background: var(--abv2-bg);
+  color: var(--abv2-ink);
+  font-family: var(--abv2-sans);
+}
 
 .main-content,
-  .page-content,
-  .content-wrapper{
-    background:var(--abv2-white) !important;
-  }
+.page-content,
+.content-wrapper {
+  background: var(--abv2-white) !important;
+}
 
-/* =========================================================
-SOURCE: 2 - council hub page.html
-========================================================= */
-html,
-  body{
-    overflow-x:hidden;
-    background:var(--abv2-white);
-  }
+/* Modal lock */
 
-body{
-    margin:0;
-    background:var(--abv2-bg);
-    color:var(--abv2-ink);
-    font-family:var(--abv2-sans);
-  }
-
-.main-content,
-  .page-content,
-  .content-wrapper{
-    background:var(--abv2-white) !important;
-  }
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / 7) Page-level loader (AI scope)
-========================================================= */
-html.ai-loading .ai-scope{ display:none !important; }
-
-html:not(.ai-loading) .ai-page-loader{ display:none !important; }
-
-/* =========================================================
-SOURCE: 3- homepage components.html
-========================================================= */
-html,
-  body{
-    overflow-x:hidden;
-    background:var(--abv2-white);
-  }
-
-body{
-    margin:0;
-    background:var(--abv2-bg);
-    color:var(--abv2-ink);
-    font-family:var(--abv2-sans);
-  }
-
-.main-content,
-  .page-content,
-  .content-wrapper{
-    background:var(--abv2-white) !important;
-  }
-
-/* =========================================================
-SOURCE: 4 - editorial components.html
-========================================================= */
-html,
-  body{
-    overflow-x:hidden;
-    background:var(--abv2-editorial-bg);
-  }
-
-body{
-    margin:0;
-    color:var(--abv2-ink);
-    font-family:var(--abv2-sans);
-  }
-
-.main-content,
-  .page-content,
-  .content-wrapper{
-    background:var(--abv2-editorial-bg) !important;
-  }
-
-/* =========================================================
-SOURCE: 5 - council landing page v2 / MODAL
-========================================================= */
 html.abv2-modal-open,
-body.abv2-modal-open{
-  overflow:hidden;
+body.abv2-modal-open {
+  overflow: hidden;
 }

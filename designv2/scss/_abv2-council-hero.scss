@@ -144,3 +144,12 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
   align-items:start;
 }
 
+
+/* Responsive grid collapse */
+
+@media (max-width: 979px) {
+  .abv2-council-hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--abv2-space-32);
+  }
+}

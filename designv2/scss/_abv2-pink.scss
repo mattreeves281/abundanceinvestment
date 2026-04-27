@@ -184,6 +184,20 @@ SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
       }
 }
 
+@media (max-width: 979px) and (min-width: 760px) {
+
+  .abv2-pink__copy .abv2-h2 {
+    max-width: 14ch;
+  }
+
+  .abv2-pink__copy .abv2-body {
+    max-width: 42ch;
+    font-size: 1.02rem;
+    line-height: 1.58;
+  }
+
+}
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
 ========================================================= */
@@ -466,3 +480,15 @@ SOURCE: 3- homepage components.html / PINK (FIXED SHAPE)
       width:90px;
     }
 }
+
+
+
+.abv2-pink__copy .abv2-h2,
+.abv2-pink__copy .abv2-body {
+  color: var(--abv2-white);
+}
+
+.abv2-pink__copy .abv2-body {
+  max-width: 620px;
+}
+

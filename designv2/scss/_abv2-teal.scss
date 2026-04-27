@@ -61,6 +61,14 @@ SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
     margin-top:var(--abv2-space-32);
   }
 
+  @media (max-width: 759px) {
+  
+  .abv2-teal__copy .abv2-h2,
+  .abv2-teal__copy .abv2-body {
+    max-width: none;
+  }
+}
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / FOOTER
 ========================================================= */
@@ -118,6 +126,20 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
   .abv2-teal__copy > div:last-child{
         margin-top:var(--abv2-space-8);
       }
+}
+
+@media (max-width: 979px) and (min-width: 760px) {
+
+  .abv2-teal__copy .abv2-h2 {
+    max-width: 16ch;
+    line-height: .94;
+  }
+
+  .abv2-teal__copy .abv2-body {
+    max-width: 36ch;
+    font-size: 1rem;
+    line-height: 1.58;
+  }
 }
 
 /* =========================================================
@@ -499,3 +521,17 @@ SOURCE: 3- homepage components.html / TEAL
       width:100%;
     }
 }
+
+
+.abv2-teal__copy .abv2-h2,
+.abv2-teal__copy .abv2-body {
+  color: var(--abv2-white);
+}
+
+.abv2-teal__copy .abv2-body {
+  max-width: 600px;
+}
+
+ .abv2-teal__copy .abv2-body {
+    max-width: 38ch;
+  }

@@ -60,6 +60,19 @@ SOURCE: 1 - hompeage base responsive.html / HERO
     margin-top:var(--abv2-space-20);
   }
 
+  @media (max-width: 1159px) and (min-width: 980px) {
+  .abv2-hero__copy .abv2-h1 {
+    max-width: 14ch;
+    font-size: clamp(1.96rem, 2.35vw, 2.24rem);
+    line-height: .93;
+  }
+
+  .abv2-hero__copy .abv2-body {
+    max-width: 39ch;
+    font-size: clamp(1rem, 1vw, 1.02rem);
+    line-height: 1.56;
+  }
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / FOOTER
 ========================================================= */
@@ -117,6 +130,20 @@ SOURCE: 1 - hompeage base responsive.html / FOOTER
   .abv2-hero__copy.abv2-stack > * + *{
         margin-top:var(--abv2-space-20);
       }
+}
+
+@media (max-width: 979px) and (min-width: 760px) {
+
+  .abv2-hero__copy .abv2-h1 {
+    max-width: 13ch;
+  }
+
+  .abv2-hero__copy .abv2-body {
+    max-width: 36ch;
+    font-size: 1.03rem;
+    line-height: 1.56;
+  }
+
 }
 
 /* =========================================================
@@ -561,4 +588,12 @@ SOURCE: 3- homepage components.html / RESPONSIVE
 }
 
 @media (max-width:759px){
+}
+
+.abv2-hero__copy .abv2-h1 {
+  max-width: 15ch;
+}
+
+.abv2-hero__copy .abv2-body {
+  max-width: 620px;
 }

@@ -1,97 +1,39 @@
 /* =========================================================
-SOURCE: 1 - hompeage base responsive.html
-========================================================= */
-.abv2-wrap{
-    width:min(calc(100% - 36px), var(--abv2-wrap));
-    margin:0 auto;
+   ABUNDANCE v2 — LAYOUT PRIMITIVES
+   Source of truth: homepage base responsive
+   ========================================================= */
+
+.abv2-wrap {
+  width: min(calc(100% - 36px), var(--abv2-wrap));
+  margin: 0 auto;
+}
+
+.abv2-wrap--narrow {
+  width: min(calc(100% - 36px), var(--abv2-wrap-narrow));
+  margin: 0 auto;
+}
+
+.abv2-sec {
+  position: relative;
+  padding: var(--abv2-space-84) 0;
+}
+
+.abv2-stack > * + * {
+  margin-top: var(--abv2-space-28);
+}
+
+@media (max-width: 979px) and (min-width: 760px) {
+  .abv2-sec {
+    padding: var(--abv2-space-56) 0;
+  }
+}
+
+@media (max-width: 759px) {
+  .abv2-sec {
+    padding: var(--abv2-space-56) 0;
   }
 
-.abv2-wrap--narrow{
-    width:min(calc(100% - 36px), var(--abv2-wrap-narrow));
-    margin:0 auto;
+  .abv2-stack > * + * {
+    margin-top: var(--abv2-space-20);
   }
-
-.abv2-sec{
-    position:relative;
-    padding:var(--abv2-space-84) 0;
-  }
-
-.abv2-stack > * + *{
-    margin-top:var(--abv2-space-28);
-  }
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
-========================================================= */
-@media (max-width:979px) and (min-width:760px){
-  .abv2-sec{
-        padding:var(--abv2-space-56) 0;
-      }
-}
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-  .abv2-sec{
-        padding:var(--abv2-space-56) 0;
-      }
-}
-
-@media (max-width:759px){
-  .abv2-stack > * + *{
-        margin-top:var(--abv2-space-20);
-      }
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html
-========================================================= */
-/* =========================================================
-SOURCE: 2 - council hub page.html / 760–979 TABLET
-========================================================= */
-@media (max-width:979px) and (min-width:760px){
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html
-========================================================= */
-/* =========================================================
-SOURCE: 3- homepage components.html / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
-  .abv2-wrap,
-      .abv2-wrap--narrow{
-        width:min(calc(100% - 24px), var(--abv2-wrap));
-      }
-}
-
-@media (max-width:979px){
-  .abv2-sec{
-        padding:var(--abv2-space-64) 0;
-      }
-}
-
-@media (max-width:979px){
-  .abv2-stack > * + *{
-        margin-top:var(--abv2-space-24);
-      }
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / GLOBAL MOBILE SYSTEM
-========================================================= */
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
 }

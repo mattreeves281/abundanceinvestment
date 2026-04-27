@@ -73,3 +73,27 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
       padding-bottom:var(--abv2-space-84);
     }
 }
+
+/* Responsive grid collapse */
+
+@media (max-width: 979px) {
+  .abv2-council-proof__grid {
+    grid-template-columns: 1fr;
+    gap: var(--abv2-space-32);
+  }
+}
+
+/* Mobile copy rail */
+
+@media (max-width: 759px) {
+  .abv2-council-proof__copy {
+    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .abv2-council-proof__media {
+    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin: 0 auto;
+  }
+}

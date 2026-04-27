@@ -1,36 +1,43 @@
 /* =========================================================
-SOURCE: 1 - hompeage base responsive.html
-========================================================= */
+   ABUNDANCE v2 — HOMEPAGE SCOPE
+   ========================================================= */
+
+/* Scoped box-sizing */
+
 .abv2-home,
-  .abv2-home *{
-    box-sizing:border-box;
-  }
+.abv2-home *,
+.abv2-home *::before,
+.abv2-home *::after {
+  box-sizing: border-box;
+}
 
-.abv2-home{
-    position:relative;
-    background:var(--abv2-white);
-    color:var(--abv2-ink);
-  }
+/* Root */
 
-.abv2-home img{
-    display:block;
-    max-width:100%;
-    height:auto;
-  }
+.abv2-home {
+  position: relative;
+  background: var(--abv2-white);
+  color: var(--abv2-ink);
+}
 
-.abv2-home a{
-    color:inherit;
-    text-decoration:none;
-  }
+/* Media */
 
-/* =========================================================
-SOURCE: 3- homepage components.html
-========================================================= */
-/* =========================================================
-SOURCE: 3- homepage components.html / useful if CMS/global rules are restyling heading tags directly
-========================================================= */
+.abv2-home img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Links */
+
+.abv2-home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Protect against CMS/global heading styles */
+
 .abv2-home h1,
 .abv2-home h2,
-.abv2-home h3{
-  font-style:normal;
+.abv2-home h3 {
+  font-style: normal;
 }

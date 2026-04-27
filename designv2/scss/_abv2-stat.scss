@@ -163,3 +163,11 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
       line-height:1.48;
     }
 }
+
+.abv2-stat__value {
+  margin: 0;
+  font-family: var(--abv2-serif);
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+

@@ -38,6 +38,50 @@ SOURCE: 1 - hompeage base responsive.html / FEATURES
 
 .abv2-feature:nth-child(3) .abv2-feature__num{ background-color:var(--abv2-teal); }
 
+
+.abv2-feature .abv2-h3 {
+  margin-bottom: var(--abv2-space-8);
+  font-size: 1.22rem;
+}
+
+.abv2-feature .abv2-body {
+  max-width: 215px;
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+@media (max-width: 979px) and (min-width: 760px) {
+
+  .abv2-feature .abv2-h3 {
+    font-size: 1.08rem;
+  }
+
+  .abv2-feature .abv2-body {
+    max-width: 20ch;
+    font-size: .95rem;
+    line-height: 1.48;
+  }
+
+}
+
+@media (max-width: 759px) {
+
+  .abv2-feature .abv2-h3 {
+    display: block;
+    width: 100%;
+    margin: 0 auto var(--abv2-space-8);
+    text-align: center;
+  }
+
+  .abv2-feature .abv2-body {
+    display: block;
+    width: 100%;
+    max-width: 26ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
 ========================================================= */
@@ -246,3 +290,5 @@ SOURCE: 3- homepage components.html / FEATURES DOT SHAPES
       font-size:1.8rem;
     }
 }
+
+

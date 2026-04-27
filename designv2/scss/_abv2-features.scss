@@ -70,6 +70,18 @@ SOURCE: 1 - hompeage base responsive.html / FEATURES
     margin-left:clamp(var(--abv2-space-40), 10vw, 140px);
   }
 
+  @media (max-width: 979px) and (min-width: 760px) {
+
+  .abv2-features__intro .abv2-h2 {
+    max-width: none;
+  }
+
+  .abv2-features__intro .abv2-body {
+    max-width: 44ch;
+  }
+
+}
+
 /* =========================================================
 SOURCE: 1 - hompeage base responsive.html / FOOTER
 ========================================================= */
@@ -491,4 +503,10 @@ SOURCE: 3- homepage components.html / FEATURES DOT SHAPES
       top:-74px;
       right:14px;
     }
+}
+
+
+
+.abv2-features__intro .abv2-body {
+  max-width: 580px;
 }
