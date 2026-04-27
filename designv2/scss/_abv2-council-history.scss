@@ -1,236 +1,153 @@
 /* ========================================
-COMPONENT: abv2-council-history
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-council-history
+   Council pink clipped section family
+   ======================================== */
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / HISTORY — final lower-angle version
-========================================================= */
-.abv2-council-history{
-  position:relative;
-  overflow:hidden;
-  background:var(--abv2-pink);
-  padding-top:196px;
-  padding-bottom:210px;
-  clip-path:none !important;
-  -webkit-clip-path:none !important;
+.abv2-council-history {
+  position: relative;
+  overflow: hidden;
+  background: var(--abv2-pink);
+  color: var(--abv2-white);
+  padding-top: 196px;
+  padding-bottom: 210px;
+  clip-path: var(--abv2-council-pink-clip);
+  -webkit-clip-path: var(--abv2-council-pink-clip);
 }
 
-.abv2-council-history > *{
-  position:relative;
-  z-index:1;
+.abv2-council-history > * {
+  position: relative;
+  z-index: 1;
 }
 
-.abv2-council-history::before,
-.abv2-council-history::after{
-  content:"";
-  position:absolute;
-  left:0;
-  width:100%;
-  background:var(--abv2-white);
-  z-index:0;
-  pointer-events:none;
+.abv2-council-history__intro {
+  width: min(100%, 760px);
+  margin: 0 auto var(--abv2-space-32);
+  text-align: center;
 }
 
-.abv2-council-history::before{
-  top:0;
-  height:160px;
-  clip-path:polygon(
-    0 0,
-    100% 0,
-    100% 8%,
-    30% 100%,
-    0 64%
-  );
+.abv2-council-history__intro .abv2-h2,
+.abv2-council-history__intro .abv2-body {
+  color: var(--abv2-white);
 }
 
-.abv2-council-history::after{
-  bottom:0;
-  height:160px;
-  clip-path:polygon(
-    0 28%,
-    60% 0,
-    100% 12%,
-    100% 100%,
-    0 100%
-  );
+.abv2-council-history__intro .abv2-body {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.abv2-council-history__intro{
-  width:min(100%, 760px);
-  margin:0 auto var(--abv2-space-32);
-  text-align:center;
+.abv2-council-history__intro.abv2-stack > * + * {
+  margin-top: var(--abv2-space-16);
 }
 
-.abv2-council-history__intro.abv2-stack > * + *{
-  margin-top:var(--abv2-space-16);
+.abv2-council-history__card {
+  width: min(100%, 1020px);
+  margin: 0 auto;
+  background: var(--abv2-white);
+  border-radius: 30px;
+  padding: var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-12);
+  box-shadow: 0 14px 36px var(--abv2-shadow-card);
 }
 
-.abv2-council-history__card{
-  width:min(100%, 1020px);
-  margin:0 auto;
-  background:var(--abv2-white);
-  border-radius:30px;
-  padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-12);
-  box-shadow:0 14px 36px var(--abv2-shadow-card);
+.abv2-council-history__tableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.abv2-council-history__tableWrap{
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
+.abv2-council-history__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 960px;
 }
 
-.abv2-council-history__table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:960px;
+.abv2-council-history__table th {
+  padding: var(--abv2-space-16);
+  border-bottom: 1px solid var(--abv2-border-default);
+  text-align: left;
+  font-family: var(--abv2-ui);
+  font-size: .82rem;
+  line-height: 1.1;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--abv2-text);
 }
 
-.abv2-council-history__table th{
-  padding:var(--abv2-space-16) var(--abv2-space-16);
-  border-bottom:1px solid var(--abv2-border-default);
-  text-align:left;
-  font-family:var(--abv2-ui);
-  font-size:.82rem;
-  line-height:1.1;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-  color:var(--abv2-text);
+.abv2-council-history__table td {
+  padding: var(--abv2-space-16);
+  border-bottom: 1px solid var(--abv2-border-subtle);
+  font-family: var(--abv2-sans);
+  font-size: .98rem;
+  line-height: 1.35;
+  color: var(--abv2-ink);
+  white-space: nowrap;
 }
 
-.abv2-council-history__table td{
-  padding:var(--abv2-space-16) var(--abv2-space-16);
-  border-bottom:1px solid var(--abv2-border-subtle);
-  font-family:var(--abv2-sans);
-  font-size:.98rem;
-  line-height:1.35;
-  color:var(--abv2-ink);
-  white-space:nowrap;
+.abv2-council-history__table td:nth-child(2) {
+  white-space: normal;
+  min-width: 240px;
 }
 
-.abv2-council-history__table td:nth-child(2){
-  white-space:normal;
-  min-width:240px;
+.abv2-council-history__table tbody tr:last-child td {
+  border-bottom: 0;
 }
 
-.abv2-council-history__table tbody tr:last-child td{
-  border-bottom:0;
+.abv2-council-history__link {
+  color: var(--abv2-ink);
+  text-decoration: none;
+  border: 0;
+  pointer-events: none;
+  cursor: default;
 }
 
-.abv2-council-history__link{
-  color:var(--abv2-ink);
-  text-decoration:none;
-  border:0;
-  pointer-events:none;
-  cursor:default;
+/* Condensed desktop */
+
+@media (max-width: 1159px) and (min-width: 980px) {
+  .abv2-council-history {
+    clip-path: var(--abv2-council-pink-clip-condensed, var(--abv2-council-pink-clip));
+    -webkit-clip-path: var(--abv2-council-pink-clip-condensed, var(--abv2-council-pink-clip));
+    padding-top: 112px;
+    padding-bottom: var(--abv2-space-84);
+  }
 }
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
-  .abv2-council-history{
-      padding-top:154px;
-      padding-bottom:164px;
-    }
+/* Tablet */
+
+@media (max-width: 979px) and (min-width: 760px) {
+  .abv2-council-history {
+    clip-path: var(--abv2-council-pink-clip-tablet, var(--abv2-council-pink-clip-mobile));
+    -webkit-clip-path: var(--abv2-council-pink-clip-tablet, var(--abv2-council-pink-clip-mobile));
+    padding-top: 106px;
+    padding-bottom: var(--abv2-space-84);
+  }
+
+  .abv2-council-history__table {
+    min-width: 900px;
+  }
 }
 
-@media (max-width:979px){
-  .abv2-council-history__table{
-      min-width:900px;
-    }
-}
+/* Mobile */
 
-@media (max-width:979px){
-  .abv2-council-history::before,
-    .abv2-council-history::after{
-      height:126px;
-    }
-}
+@media (max-width: 759px) {
+  .abv2-council-history {
+    padding-top: 138px;
+    padding-bottom: var(--abv2-space-84);
+    clip-path: var(--abv2-council-pink-clip-mobile);
+    -webkit-clip-path: var(--abv2-council-pink-clip-mobile);
+  }
 
-@media (max-width:979px){
-  .abv2-council-history::before{
-      clip-path:polygon(
-        0 0,
-        100% 0,
-        100% 6%,
-        24% 100%,
-        0 68%
-      );
-    }
-}
+  .abv2-council-history__intro,
+  .abv2-council-history__card {
+    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-@media (max-width:979px){
-  .abv2-council-history::after{
-      clip-path:polygon(
-        0 26%,
-        58% 0,
-        100% 10%,
-        100% 100%,
-        0 100%
-      );
-    }
-}
+  .abv2-council-history__intro .abv2-body {
+    max-width: none;
+  }
 
-@media (max-width:759px){
-  .abv2-council-history{
-      padding-top:122px;
-      padding-bottom:112px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-history__card{
-      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      padding:var(--abv2-space-16) var(--abv2-space-16) var(--abv2-space-8);
-      border-radius:22px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-history::before,
-    .abv2-council-history::after{
-      height:92px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-history::before{
-      clip-path:polygon(
-        0 0,
-        100% 0,
-        100% 5%,
-        24% 100%,
-        0 74%
-      );
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-history::after{
-      clip-path:polygon(
-        0 28%,
-        58% 0,
-        100% 9%,
-        100% 100%,
-        0 100%
-      );
-    }
-}
-
-.abv2-council-history{
-  position:relative;
-  overflow:hidden;
-  background:var(--abv2-pink);
-  padding-top:196px;
-  padding-bottom:210px;
-  clip-path:var(--abv2-council-pink-clip);
-  -webkit-clip-path:var(--abv2-council-pink-clip);
-}
-
-@media (max-width:979px){
-  .abv2-council-history{
-      clip-path:var(--abv2-council-pink-clip-mobile);
-      -webkit-clip-path:var(--abv2-council-pink-clip-mobile);
-    }
+  .abv2-council-history__card {
+    padding: var(--abv2-space-16) var(--abv2-space-16) var(--abv2-space-8);
+    border-radius: 22px;
+  }
 }
