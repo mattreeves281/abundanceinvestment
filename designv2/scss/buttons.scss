@@ -1,231 +1,125 @@
 /* =========================================================
-SOURCE: 1 - hompeage base responsive.html
-========================================================= */
-.abv2-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:44px;
-    padding:var(--abv2-space-12) var(--abv2-space-20);
-    border:1.8px solid currentColor;
-    border-radius:999px;
-    font-family:var(--abv2-ui);
-    font-size:.84rem;
-    line-height:1;
-    background:transparent;
-    white-space:nowrap;
-    box-shadow:none;
-  }
+   ABUNDANCE v2 — BUTTONS
+   Shared structure + scoped visual systems
+   ========================================================= */
 
-.abv2-btn--light{ color:var(--abv2-white); }
+/* Base button primitive */
 
-.abv2-btn--teal{ color:var(--abv2-teal); }
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / PINK SECTION
-========================================================= */
-.abv2-pink .abv2-btn{
-    margin-top:var(--abv2-space-2);
-  }
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / TEAL SECTION
-========================================================= */
-.abv2-teal .abv2-btn{
-    margin-top:var(--abv2-space-2);
-  }
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-  .abv2-pink .abv2-btn{
-        margin-left:0;
-        margin-right:0;
-      }
-}
-
-@media (max-width:759px){
-  .abv2-teal .abv2-btn{
-        margin-left:0;
-        margin-right:0;
-      }
+.abv2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--abv2-space-12) var(--abv2-space-20);
+  border-radius: 999px;
+  font-family: var(--abv2-ui);
+  font-size: .84rem;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: none;
 }
 
 /* =========================================================
-SOURCE: 2 - council hub page.html
-========================================================= */
-.abv2-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:44px;
-    padding:var(--abv2-space-12) var(--abv2-space-20);
-    border:1.8px solid currentColor;
-    border-radius:999px;
-    font-family:var(--abv2-ui);
-    font-size:.84rem;
-    line-height:1;
-    background:transparent;
-    white-space:nowrap;
-    box-shadow:none;
+   HOMEPAGE / LANDING BUTTONS
+   Outline-first system
+   ========================================================= */
+
+.abv2-home .abv2-btn,
+.abv2-council .abv2-btn {
+  border: 1.8px solid currentColor;
+  background: transparent;
+  color: inherit;
+}
+
+.abv2-home .abv2-btn:hover,
+.abv2-council .abv2-btn:hover {
+  text-decoration: none;
+}
+
+/* Colour modifiers */
+
+.abv2-home .abv2-btn--light,
+.abv2-council .abv2-btn--light {
+  color: var(--abv2-white);
+}
+
+.abv2-home .abv2-btn--teal,
+.abv2-council .abv2-btn--teal {
+  color: var(--abv2-teal);
+}
+
+.abv2-home .abv2-btn--pink,
+.abv2-council .abv2-btn--pink {
+  color: var(--abv2-pink);
+}
+
+/* Section spacing */
+
+.abv2-pink .abv2-btn,
+.abv2-teal .abv2-btn {
+  margin-top: var(--abv2-space-2);
+}
+
+/* Smaller path buttons */
+
+.abv2-path .abv2-btn {
+  min-height: 40px;
+  padding: 0 var(--abv2-space-16);
+}
+
+/* =========================================================
+   EDITORIAL BUTTONS
+   Filled-first system
+   ========================================================= */
+
+.abv2-editorial .abv2-btn {
+  min-height: 46px;
+  border: 0;
+  background: var(--abv2-pink);
+  color: var(--abv2-white);
+}
+
+.abv2-editorial .abv2-btn:hover {
+  text-decoration: none;
+  color: var(--abv2-white);
+}
+
+.abv2-editorial .abv2-btn--secondary {
+  background: transparent;
+  color: var(--abv2-pink);
+  border: 1.8px solid var(--abv2-pink);
+}
+
+.abv2-editorial .abv2-btn--secondary:hover {
+  background: transparent;
+  color: var(--abv2-pink);
+}
+
+/* Editorial component spacing / safety */
+
+.abv2-ed-hero__actions .abv2-btn,
+.abv2-invest-insert__cta .abv2-btn,
+.abv2-ed-open-invest__action .abv2-btn {
+  white-space: nowrap;
+}
+
+.abv2-ed-panel .abv2-btn {
+  margin-top: var(--abv2-space-20);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 759px) {
+  .abv2-pink .abv2-btn,
+  .abv2-teal .abv2-btn {
+    margin-left: 0;
+    margin-right: 0;
   }
 
-/* =========================================================
-SOURCE: 2 - council hub page.html / PINK SECTION
-========================================================= */
-/* =========================================================
-SOURCE: 2 - council hub page.html / TEAL SECTION
-========================================================= */
-/* =========================================================
-SOURCE: 2 - council hub page.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-  .abv2-pink .abv2-btn{
-        margin-left:0;
-        margin-right:0;
-      }
-}
-
-@media (max-width:759px){
-  .abv2-teal .abv2-btn{
-        margin-left:0;
-        margin-right:0;
-      }
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html
-========================================================= */
-.abv2-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:44px;
-    padding:var(--abv2-space-12) var(--abv2-space-20);
-    border:1.8px solid currentColor;
-    border-radius:999px;
-    font-family:var(--abv2-ui);
-    font-size:.84rem;
-    line-height:1;
-    background:transparent;
-    white-space:nowrap;
-    box-shadow:none;
+  .abv2-editorial .abv2-ed-hero__actions .abv2-btn {
+    min-height: 44px;
   }
-
-/* =========================================================
-SOURCE: 3- homepage components.html / PINK (FIXED SHAPE)
-========================================================= */
-@media (max-width:759px){
-  .abv2-pink .abv2-btn{
-      margin:0 auto;
-    }
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / TEAL
-========================================================= */
-@media (max-width:759px){
-  .abv2-teal .abv2-btn{
-      margin:0 auto;
-    }
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / DUAL-PATH HERO
-========================================================= */
-.abv2-path .abv2-btn{
-  min-height:40px;
-  padding:0 var(--abv2-space-16);
-}
-
-.abv2-btn--pink{
-  color:var(--abv2-pink);
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / DUAL-PATH HERO VARIANT
-========================================================= */
-/* =========================================================
-SOURCE: 4 - editorial components.html / HERO
-========================================================= */
-.abv2-ed-hero__actions .abv2-btn{
-    white-space:nowrap;
-  }
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / SUPPORT PANEL
-========================================================= */
-.abv2-ed-panel .abv2-btn{
-    margin-top:var(--abv2-space-20);
-  }
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / BUTTONS
-========================================================= */
-.abv2-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:46px;
-    padding:var(--abv2-space-12) var(--abv2-space-20);
-    border:0;
-    border-radius:999px;
-    background:var(--abv2-pink);
-    color:var(--abv2-white);
-    font-family:var(--abv2-ui);
-    font-size:.84rem;
-    line-height:1;
-    text-decoration:none;
-    box-shadow:none;
-  }
-
-.abv2-btn:hover{
-    text-decoration:none;
-    color:var(--abv2-white);
-  }
-
-.abv2-btn--secondary{
-    background:transparent;
-    color:var(--abv2-pink);
-    border:1.8px solid var(--abv2-pink);
-  }
-
-.abv2-btn--secondary:hover{
-    background:transparent;
-    color:var(--abv2-pink);
-  }
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / RESPONSIVE
-========================================================= */
-@media (max-width:759px){
-  .abv2-ed-hero__actions .abv2-btn{
-        min-height:44px;
-      }
-}
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / TYPE SAFETY
-========================================================= */
-.abv2-card__eyebrow,
-.abv2-compare__label,
-.abv2-toc__meta,
-.abv2-btn,
-.abv2-jumpbar__link{
-  font-family:var(--abv2-ui);
-}
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / investment insert
-========================================================= */
-.abv2-invest-insert__cta .abv2-btn{
-  white-space:nowrap;
-}
-
-/* =========================================================
-SOURCE: 4 - editorial components.html / EDITORIAL OPEN INVESTMENT CARD add-on only
-========================================================= */
-.abv2-ed-open-invest__action .abv2-btn{
-  white-space:nowrap;
 }
