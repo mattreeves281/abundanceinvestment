@@ -1,171 +1,222 @@
 /* ========================================
-   COMPONENT: benefit-block (6-up system)
+   COMPONENT: abv2-benefit-block
+   6-up asymmetric editorial benefit system
    ======================================== */
 
-/* ---------- BLOCK ---------- */
-
-.abv2-benefit-block {
-  width: min(100%, 860px);
-  margin: 0 auto;
+.abv2-benefit-block{
+  width:min(100%, var(--abv2-editorial-rail));
+  margin:0 auto;
+  padding:var(--abv2-space-24);
+  border:1.5px solid var(--abv2-border-default);
+  border-radius:24px;
+  background:var(--abv2-white);
+  box-shadow:0 12px 30px var(--abv2-ink-a05);
 }
 
-.abv2-benefit-block__intro {
-  margin: 0 0 var(--abv2-space-20);
+.abv2-benefit-block__intro{
+  margin:0 0 var(--abv2-space-24);
 }
 
-.abv2-benefit-block__eyebrow {
-  display: inline-block;
-  margin: 0 0 var(--abv2-space-8);
-  font-family: var(--abv2-ui);
-  font-size: .74rem;
-  line-height: 1;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  color: var(--abv2-yellow-dark);
+.abv2-benefit-block__eyebrow{
+  display:inline-block;
+  margin:0 0 var(--abv2-space-8);
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--abv2-yellow-dark);
 }
 
-.abv2-benefit-block__title {
-  margin: 0 0 var(--abv2-space-8);
-  font-family: var(--abv2-serif);
-  font-weight: 600;
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  line-height: .96;
-  letter-spacing: -.03em;
-  color: var(--abv2-ink);
+.abv2-benefit-block__title{
+  margin:0 0 var(--abv2-space-8);
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.5rem, 2vw, 2rem);
+  line-height:.96;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
 }
 
-.abv2-benefit-block__body {
-  margin: 0;
-  max-width: 62ch;
-  font-family: var(--abv2-sans);
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--abv2-text);
+.abv2-benefit-block__body{
+  margin:0;
+  max-width:62ch;
+  font-family:var(--abv2-sans);
+  font-size:1rem;
+  line-height:1.55;
+  color:var(--abv2-text);
+}
+
+/* ---------- GRID ---------- */
+
+.abv2-benefitsB{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:var(--abv2-space-16);
 }
 
 /* ---------- CARD ---------- */
 
-.abv2-benefit-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  padding: var(--abv2-space-16) var(--abv2-space-16) var(--abv2-space-12);
-  border: var(--abv2-card-border);
-  border-radius: var(--abv2-card-radius);
-  box-shadow: var(--abv2-card-shadow);
+.abv2-benefitsB > .abv2-benefit-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:var(--abv2-space-16);
+  border:0;
+  border-radius:14px;
+  box-shadow:none;
+  background-clip:padding-box;
+  overflow:hidden;
+  opacity:1;
 }
 
-.abv2-benefit-card__kicker {
-  display: inline-block;
-  margin: 0 0 var(--abv2-space-8);
-  font-family: var(--abv2-ui);
-  font-size: .66rem;
-  line-height: 1;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--abv2-ink-a62);
+.abv2-benefit-card__kicker{
+  display:inline-block;
+  margin:0 0 var(--abv2-space-8);
+  font-family:var(--abv2-ui);
+  font-size:.66rem;
+  line-height:1;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--abv2-ink-a62);
 }
 
-.abv2-benefit-card__title {
-  margin: 0 0 var(--abv2-space-8);
-  font-family: var(--abv2-serif);
-  font-weight: 600;
-  font-size: 1.15rem;
-  line-height: .98;
-  letter-spacing: -.03em;
-  color: var(--abv2-ink);
+.abv2-benefit-card__title{
+  margin:0 0 var(--abv2-space-8);
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:1.15rem;
+  line-height:.98;
+  letter-spacing:-.03em;
+  color:var(--abv2-ink);
 }
 
-.abv2-benefit-card__text {
-  margin: 0;
-  font-family: var(--abv2-sans);
-  font-size: .92rem;
-  line-height: 1.45;
-  color: var(--abv2-text);
+.abv2-benefit-card__text{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:.92rem;
+  line-height:1.45;
+  color:var(--abv2-text);
 }
 
-/* ---------- TONES (aligned to v2 palette) ---------- */
+/* ---------- LAYOUT ---------- */
 
-.abv2-tone--pink-soft   { background: var(--abv2-pink-light); }
-.abv2-tone--teal-soft   { background: var(--abv2-teal-light); }
-.abv2-tone--yellow-soft { background: var(--abv2-yellow-light); }
-.abv2-tone--indigo-soft { background: var(--abv2-indigo-light); }
-
-.abv2-tone--pink-pale   { background: var(--abv2-pink); opacity: .08; }
-.abv2-tone--teal-pale   { background: var(--abv2-teal); opacity: .08; }
-
-/* ========================================
-   LAYOUT: OPTION B (ASYMMETRIC)
-   ======================================== */
-
-.abv2-benefitsB {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--abv2-space-16);
+.abv2-benefitsB__hero{
+  grid-column:span 2;
+  min-height:210px;
+  padding:var(--abv2-space-20);
 }
 
-/* hero cards */
-
-.abv2-benefitsB__hero {
-  grid-column: span 2;
-  min-height: 210px;
-  padding: var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-16);
+.abv2-benefitsB__hero--right{
+  grid-column:3 / span 2;
 }
 
-.abv2-benefitsB__hero .abv2-benefit-card__title {
-  font-size: 1.5rem;
-  line-height: .94;
-  max-width: 12ch;
-  margin-bottom: var(--abv2-space-8);
+.abv2-benefitsB__small{
+  min-height:160px;
 }
 
-.abv2-benefitsB__hero .abv2-benefit-card__text {
-  max-width: 34ch;
-  font-size: .95rem;
-  line-height: 1.48;
+.abv2-benefitsB__hero .abv2-benefit-card__title{
+  max-width:12ch;
+  font-size:1.5rem;
+  line-height:.94;
 }
 
-/* smaller cards */
-
-.abv2-benefitsB__small {
-  min-height: 160px;
+.abv2-benefitsB__hero .abv2-benefit-card__text{
+  max-width:34ch;
+  font-size:.95rem;
+  line-height:1.48;
 }
 
-.abv2-benefitsB__small .abv2-benefit-card__title {
-  font-size: 1.06rem;
+.abv2-benefitsB__small .abv2-benefit-card__title{
+  font-size:1.06rem;
 }
 
-.abv2-benefitsB__small .abv2-benefit-card__text {
-  font-size: .86rem;
-  line-height: 1.4;
+.abv2-benefitsB__small .abv2-benefit-card__text{
+  font-size:.86rem;
+  line-height:1.4;
 }
 
-/* asymmetry */
+/* ---------- TONES ---------- */
 
-.abv2-benefitsB__hero--right {
-  grid-column: 3 / span 2;
+.abv2-benefit-card.abv2-tone--pink{
+  background:var(--abv2-pink);
+}
+
+.abv2-benefit-card.abv2-tone--teal{
+  background:var(--abv2-teal);
+}
+
+.abv2-benefit-card.abv2-tone--yellow{
+  background:var(--abv2-yellow);
+}
+
+.abv2-benefit-card.abv2-tone--green{
+  background:color-mix(in srgb, var(--abv2-green) 85%, white);
+}
+
+.abv2-benefit-card.abv2-tone--pink-light{
+  background:var(--abv2-pink-light);
+}
+
+.abv2-benefit-card.abv2-tone--teal-light{
+  background:var(--abv2-teal-light);
+}
+
+.abv2-benefit-card.abv2-tone--yellow-light,
+.abv2-benefit-card.abv2-tone--yellow-soft{
+  background:var(--abv2-yellow-light);
+}
+
+.abv2-benefit-card.abv2-tone--pink-soft{
+  background:var(--abv2-pink-light);
+}
+
+.abv2-benefit-card.abv2-tone--teal-soft{
+  background:var(--abv2-teal-light);
+}
+
+.abv2-benefit-card.abv2-tone--pink-pale{
+  background:var(--abv2-pink-a12);
+}
+
+.abv2-benefit-card.abv2-tone--teal-pale{
+  background:var(--abv2-teal-a12);
+}
+
+.abv2-benefit-card.abv2-tone--purple-soft,
+.abv2-benefit-card.abv2-tone--indigo-soft{
+  background:color-mix(in srgb, var(--abv2-indigo) 18%, white);
+}
+
+.abv2-benefitsB__hero--right.abv2-tone--teal{
+  background:color-mix(in srgb, var(--abv2-teal) 88%, white);
 }
 
 /* ---------- RESPONSIVE ---------- */
 
-@media (max-width: 900px) {
-  .abv2-benefitsB {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width:900px){
+  .abv2-benefitsB{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
   }
 
   .abv2-benefitsB__hero,
-  .abv2-benefitsB__hero--right {
-    grid-column: span 2;
+  .abv2-benefitsB__hero--right{
+    grid-column:span 2;
   }
 }
 
-@media (max-width: 560px) {
-  .abv2-benefitsB {
-    grid-template-columns: 1fr;
+@media (max-width:560px){
+  .abv2-benefit-block{
+    padding:var(--abv2-space-20);
+  }
+
+  .abv2-benefitsB{
+    grid-template-columns:1fr;
   }
 
   .abv2-benefitsB__hero,
-  .abv2-benefitsB__hero--right {
-    grid-column: auto;
+  .abv2-benefitsB__hero--right{
+    grid-column:auto;
   }
 }

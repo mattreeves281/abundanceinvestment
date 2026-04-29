@@ -3,6 +3,10 @@
    V2 yellow footer with integrated top wedge
    ======================================== */
 
+.abv2-footer .bg-mask--t-convex{
+  display:none !important;
+  height:0 !important;
+}
 
 .footer {
   --abv2-footer-wedge-height: 160px;

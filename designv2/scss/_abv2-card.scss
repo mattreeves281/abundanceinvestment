@@ -1,11 +1,20 @@
 /* ========================================
-COMPONENT: abv2-card
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-card
+   Shared editorial card shell
+   ======================================== */
 
-/* =========================================================
-SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
-========================================================= */
+.abv2-card{
+  position:relative;
+  border:1.5px solid var(--abv2-border-default);
+  border-radius:24px;
+  background:var(--abv2-white);
+  box-shadow:0 10px 30px var(--abv2-ink-a05);
+}
+
+.abv2-card__inner{
+  padding:var(--abv2-space-24);
+}
+
 .abv2-card__eyebrow{
   display:inline-block;
   margin:0 0 var(--abv2-space-12);
@@ -13,8 +22,10 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
   border-radius:999px;
   background:var(--abv2-teal-a10);
   color:var(--abv2-teal-dark);
+  font-family:var(--abv2-ui);
   font-size:.78rem;
   font-weight:700;
+  line-height:1.15;
   letter-spacing:.01em;
 }
 
@@ -33,26 +44,20 @@ SOURCE: 4 - editorial components.html / EYEBROW COLOUR SYSTEM
   color:var(--abv2-yellow-dark);
 }
 
-/* =========================================================
-SOURCE: 4 - editorial components.html / DECISION SUPPORT
-========================================================= */
-.abv2-card{
-  border:1.5px solid var(--abv2-border-default);
-  border-radius:24px;
-  background:var(--abv2-white);
-  box-shadow:0 10px 30px var(--abv2-ink-a05);
-}
-
-.abv2-card__inner{
-  padding:var(--abv2-space-24) var(--abv2-space-24) var(--abv2-space-24);
-}
-
 .abv2-card__title{
   margin:0 0 var(--abv2-space-12);
-  font-size:clamp(1.25rem,2vw,1.55rem);
-  line-height:1.15;
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:clamp(1.45rem,2.1vw,1.9rem);
+  line-height:1.12;
+  color:var(--abv2-ink);
 }
 
 .abv2-card__intro{
   margin:0;
+  max-width:68ch;
+  font-family:var(--abv2-sans);
+  font-size:1.05rem;
+  line-height:1.55;
+  color:var(--abv2-ink-a78);
 }
