@@ -40,7 +40,7 @@ SOURCE: 4 - editorial components.html / faq
   width:22px;
   height:18px;
   transform:translateY(-50%);
-  background:var(--abv2-yellow-a18);
+  background:var(--abv2-pink);
   color:transparent;
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
@@ -59,8 +59,13 @@ SOURCE: 4 - editorial components.html / faq
 .abv2-faq__answer{
   padding:0 var(--abv2-space-20) var(--abv2-space-20);
   border-top:1px solid var(--abv2-border-subtle);
+
+  font-family:var(--abv2-sans);
+  font-size:.94rem;          /* ↓ from ~1.05rem */
+  line-height:1.5;
+  color:var(--abv2-ink-a78);
 }
 
 .abv2-faq__answer p{
-  margin:var(--abv2-space-16) 0 0;
+  margin:var(--abv2-space-12) 0 0;   /* slightly tighter rhythm */
 }

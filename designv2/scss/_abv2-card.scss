@@ -5,6 +5,7 @@
 
 .abv2-card{
   position:relative;
+    overflow:hidden;
   border:1.5px solid var(--abv2-border-default);
   border-radius:24px;
   background:var(--abv2-white);
@@ -60,4 +61,13 @@
   font-size:1.05rem;
   line-height:1.55;
   color:var(--abv2-ink-a78);
+}
+
+/* External editorial card rhythm */
+.abv2-card{
+  margin-block:var(--abv2-space-32);
+}
+
+.abv2-card__inner + .abv2-card__inner{
+  padding-top:0;
 }

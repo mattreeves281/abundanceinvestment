@@ -3,42 +3,7 @@
    Editorial data / chart card
    ======================================== */
 
-.abv2-data-card{
-  position:relative;
-  overflow:hidden;
-  padding:var(--abv2-space-24);
-  border:1.5px solid var(--abv2-border-default);
-  border-radius:24px;
-  background:var(--abv2-white);
-  box-shadow:0 12px 30px var(--abv2-ink-a05);
-}
 
-.abv2-data-card__header{
-  margin:0 0 var(--abv2-space-24);
-}
-
-.abv2-data-card__header .abv2-card__eyebrow{
-  margin:0 0 var(--abv2-space-12);
-}
-
-.abv2-data-card__title{
-  margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.45rem, 2.1vw, 1.9rem);
-  line-height:1.08;
-  letter-spacing:-.025em;
-  color:var(--abv2-ink);
-}
-
-.abv2-data-card__intro{
-  margin:0;
-  max-width:62ch;
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1.55;
-  color:var(--abv2-text);
-}
 
 .abv2-data-bars{
   display:grid;
