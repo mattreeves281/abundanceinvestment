@@ -10,7 +10,7 @@
   color: var(--abv2-white);
   padding-top: 150px;
   padding-bottom: 142px;
-  clip-path: var(--abv2-pink-clip);
+  clip-path: var(--abv2-pink-clip-large);
 }
 
 .abv2-cta-band > * {
@@ -132,7 +132,7 @@
   .abv2-cta-band {
     padding-top: 138px;
     padding-bottom: var(--abv2-space-84);
-    clip-path: var(--abv2-pink-clip-mobile);
+    clip-path: var(--abv2-pink-clip-large-mobile);
   }
 
   .abv2-cta-band__inner {

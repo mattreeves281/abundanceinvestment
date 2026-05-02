@@ -10,7 +10,7 @@
   color: var(--abv2-white);
   padding-top: 168px;
   padding-bottom: 154px;
-  clip-path: var(--abv2-pink-clip);
+  clip-path: var(--abv2-pink-clip-large);
 }
 
 .abv2-feature-illo > * {
@@ -115,7 +115,7 @@
   .abv2-feature-illo {
     padding-top: 138px;
     padding-bottom: var(--abv2-space-84);
-    clip-path: var(--abv2-pink-clip-mobile);
+    clip-path: var(--abv2-pink-clip-large-mobile);
   }
 
   .abv2-feature-illo__grid {

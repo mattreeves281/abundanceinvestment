@@ -10,7 +10,7 @@
   color: var(--abv2-white);
   padding-top: 178px;
   padding-bottom: 164px;
-  clip-path: var(--abv2-pink-clip);
+  clip-path: var(--abv2-pink-clip-large);
 }
 
 .abv2-how > * {
@@ -104,7 +104,7 @@
   .abv2-how {
     padding-top: 138px;
     padding-bottom: var(--abv2-space-84);
-    clip-path: var(--abv2-pink-clip-mobile);
+    clip-path: var(--abv2-pink-clip-large-mobile);
   }
 
   .abv2-how__grid {

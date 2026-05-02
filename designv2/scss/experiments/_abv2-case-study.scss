@@ -1,0 +1,214 @@
+/* ========================================
+   COMPONENT: abv2-case-study
+   Content layout for teal media/copy section
+   Shell/clip/background supplied by .abv2-clip-sec
+   ======================================== */
+
+.abv2-case-study{
+  --abv2-clip-pad-top:198px;
+  --abv2-clip-pad-bottom:188px;
+  --abv2-clip-safe-top:130px;
+  --abv2-clip-safe-bottom:150px;
+}
+
+.abv2-case-study__grid{
+  display:grid;
+  grid-template-columns:minmax(320px, .82fr) minmax(0, 1.18fr);
+  gap:var(--abv2-space-56);
+  align-items:center;
+}
+
+.abv2-case-study__media{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.abv2-case-study__frame{
+  width:min(100%, 500px);
+  border-radius:48px;
+  overflow:hidden;
+  box-shadow:none;
+  transform:translateY(0);
+}
+
+.abv2-case-study__frame img{
+  width:100%;
+  aspect-ratio:1.45 / 1;
+  object-fit:cover;
+  border-radius:48px;
+}
+
+.abv2-case-study__copy{
+  max-width:680px;
+}
+
+.abv2-case-study__copy.abv2-stack > * + *{
+  margin-top:var(--abv2-space-24);
+}
+
+.abv2-case-study__copy > div:last-child{
+  margin-top:var(--abv2-space-32);
+}
+
+.abv2-case-study__copy .abv2-h2,
+.abv2-case-study__copy .abv2-body{
+  color:var(--abv2-white);
+}
+
+.abv2-case-study__copy .abv2-body{
+  max-width:600px;
+}
+
+/* Condensed desktop */
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-case-study{
+    --abv2-clip-pad-top:108px;
+    --abv2-clip-pad-bottom:var(--abv2-space-84);
+    --abv2-clip-safe-top:108px;
+    --abv2-clip-safe-bottom:var(--abv2-space-84);
+  }
+
+  .abv2-case-study__grid{
+    grid-template-columns:minmax(280px, .84fr) minmax(0, 1.16fr);
+    gap:var(--abv2-space-40);
+    align-items:center;
+    padding-left:var(--abv2-space-32);
+    padding-right:var(--abv2-space-12);
+  }
+
+  .abv2-case-study__frame{
+    width:min(100%, 410px);
+    border-radius:30px;
+  }
+
+  .abv2-case-study__frame img{
+    border-radius:30px;
+  }
+
+  .abv2-case-study__copy{
+    max-width:620px;
+  }
+
+  .abv2-case-study__copy > div:last-child{
+    margin-top:var(--abv2-space-8);
+  }
+
+  .abv2-case-study__copy .abv2-body{
+    max-width:38ch;
+  }
+}
+
+/* Tablet */
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-case-study{
+    --abv2-clip-pad-top:102px;
+    --abv2-clip-pad-bottom:90px;
+    --abv2-clip-safe-top:102px;
+    --abv2-clip-safe-bottom:90px;
+  }
+
+  .abv2-case-study__grid{
+    grid-template-columns:minmax(280px, .76fr) minmax(0, 1.24fr);
+    gap:34px;
+    align-items:center;
+    padding-left:44px;
+    padding-right:var(--abv2-space-12);
+  }
+
+  .abv2-case-study__media{
+    justify-content:flex-start;
+  }
+
+  .abv2-case-study__frame{
+    width:min(100%, 320px);
+    border-radius:28px;
+    transform:none;
+  }
+
+  .abv2-case-study__frame img{
+    border-radius:28px;
+    aspect-ratio:1.1 / 1;
+    object-fit:cover;
+  }
+
+  .abv2-case-study__copy{
+    max-width:620px;
+  }
+
+  .abv2-case-study__copy.abv2-stack > * + *{
+    margin-top:22px;
+  }
+
+  .abv2-case-study__copy > div:last-child{
+    margin-top:10px;
+  }
+
+  .abv2-case-study__copy .abv2-h2{
+    max-width:16ch;
+    line-height:.94;
+  }
+
+  .abv2-case-study__copy .abv2-body{
+    max-width:36ch;
+    font-size:1rem;
+    line-height:1.58;
+  }
+}
+
+/* Mobile */
+
+@media (max-width:759px){
+  .abv2-case-study{
+    --abv2-clip-pad-top:114px;
+    --abv2-clip-pad-bottom:var(--abv2-space-84);
+    --abv2-clip-safe-top:114px;
+    --abv2-clip-safe-bottom:var(--abv2-space-84);
+  }
+
+  .abv2-case-study__grid{
+    display:grid;
+    grid-template-columns:1fr !important;
+    gap:var(--abv2-space-24) !important;
+    justify-items:center;
+  }
+
+  .abv2-case-study__media{
+    width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin:0 auto;
+    justify-content:center;
+  }
+
+  .abv2-case-study__frame{
+    width:100%;
+    max-width:none;
+    border-radius:48px;
+  }
+
+  .abv2-case-study__frame img{
+    border-radius:48px;
+  }
+
+  .abv2-case-study__copy{
+    width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin:0 auto;
+    max-width:none;
+    text-align:left;
+  }
+
+  .abv2-case-study__copy.abv2-stack > * + *{
+    margin-top:var(--abv2-space-20);
+  }
+
+  .abv2-case-study__copy > div:last-child{
+    margin-top:var(--abv2-space-4);
+  }
+
+  .abv2-case-study__copy .abv2-h2,
+  .abv2-case-study__copy .abv2-body{
+    max-width:none;
+  }
+}
+

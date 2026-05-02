@@ -10,7 +10,7 @@
   color: var(--abv2-white);
   padding-top: 190px;
   padding-bottom: 170px;
-  clip-path: var(--abv2-teal-clip);
+  clip-path: var(--abv2-teal-clip-large);
 }
 
 .abv2-case > * {
@@ -133,7 +133,7 @@
   .abv2-case {
     padding-top: 114px;
     padding-bottom: var(--abv2-space-84);
-    clip-path: var(--abv2-teal-clip-mobile);
+    clip-path: var(--abv2-teal-clip-large-mobile);
   }
 
   .abv2-case__grid {

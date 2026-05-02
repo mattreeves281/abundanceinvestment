@@ -183,77 +183,81 @@ SOURCE: 1 - hompeage base responsive.html
     --abv2-sans:"Sohne Buch", Arial, sans-serif;
     --abv2-ui:"Sohne Kraftig", Arial, sans-serif;
 
-    --abv2-pink-clip:polygon(
+    /* Large / expressive */
+    --abv2-pink-clip-large:polygon(
       0 18%,
       30% 28%,
       100% 0,
-      100% 84%,
-      60% 72%,
+      100% 82%,
+      70% 72%,
       0 100%
     );
 
-    --abv2-teal-clip:polygon(
+    --abv2-teal-clip-large:polygon(
       0 12%,
       34% 24%,
       100% 0,
-      100% 84%,
-      60% 72%,
+      100% 82%,
+      66% 72%,
       0 100%
     );
 
-    --abv2-pink-clip-mobile:polygon(
+    /* Small / calmer */
+    --abv2-pink-clip-small:polygon(
+      0 12%,
+      30% 20%,
+      100% 0,
+      100% 88%,
+      70% 80%,
+      0 100%
+    );
+
+    --abv2-teal-clip-small:polygon(
+      0 10%,
+      34% 18%,
+      100% 0,
+      100% 88%,
+      66% 80%,
+      0 100%
+    );
+
+    /* Mobile large */
+    --abv2-pink-clip-large-mobile:polygon(
       0 6%,
-      24% 10%,
+      28% 10%,
       100% 0,
-      100% 95%,
-      58% 88%,
+      100% 94%,
+      72% 90%,
       0 100%
     );
 
-    --abv2-teal-clip-mobile:polygon(
+    --abv2-teal-clip-large-mobile:polygon(
+      0 5%,
+      32% 9%,
+      100% 0,
+      100% 94%,
+      68% 90%,
+      0 100%
+    );
+
+    /* Mobile small */
+    --abv2-pink-clip-small-mobile:polygon(
+      0 5%,
+      28% 8%,
+      100% 0,
+      100% 96%,
+      72% 93%,
+      0 100%
+    );
+
+    --abv2-teal-clip-small-mobile:polygon(
       0 4%,
-      24% 8%,
+      32% 7%,
       100% 0,
-      100% 95%,
-      60% 89%,
+      100% 96%,
+      68% 93%,
       0 100%
     );
-
-     --abv2-council-pink-clip:polygon(
-    0 12%,
-    30% 20%,
-    100% 0,
-    100% 86%,
-    60% 76%,
-    0 100%
-  );
-
-  --abv2-council-teal-clip:polygon(
-    0 10%,
-    34% 18%,
-    100% 0,
-    100% 86%,
-    60% 76%,
-    0 100%
-  );
-
-  --abv2-council-pink-clip-mobile:polygon(
-    0 5%,
-    24% 8%,
-    100% 0,
-    100% 95%,
-    58% 89%,
-    0 100%
-  );
-
-  --abv2-council-teal-clip-mobile:polygon(
-    0 4%,
-    24% 7%,
-    100% 0,
-    100% 95%,
-    60% 89%,
-    0 100%
-  );
 
     --abv2-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
 
@@ -266,4 +270,3 @@ SOURCE: 1 - hompeage base responsive.html
     --abv2-editorial-rail:760px;
     --abv2-editorial-copy:58ch;
   }
-
