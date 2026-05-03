@@ -1,269 +1,117 @@
 /* ========================================
-COMPONENT: abv2-investments
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-investments
+   Homepage open investments grid
+   Source 1 winning version + verified tablet parity
+   ======================================== */
 
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / INVESTMENTS
-========================================================= */
 .abv2-investments{
-    position:relative;
-    z-index:1;
-    padding-top:var(--abv2-space-64);
-    padding-bottom:118px;
-  }
+  position:relative;
+  z-index:1;
+  padding-top:var(--abv2-space-64);
+  padding-bottom:118px;
+}
 
 .abv2-investments__inner{
-    width:min(calc(100% - 36px), 820px);
-    margin:0 auto;
-    text-align:center;
-  }
+  width:min(calc(100% - 36px), 820px);
+  margin:0 auto;
+  text-align:center;
+}
 
 .abv2-investments__title{
-    margin-bottom:var(--abv2-space-32);
-  }
+  margin-bottom:var(--abv2-space-32);
+}
 
 .abv2-investments__grid{
-    display:grid;
-    grid-template-columns:repeat(2, 228px);
-    justify-content:center;
-    gap:var(--abv2-space-28);
-  }
+  display:grid;
+  grid-template-columns:repeat(2, 228px);
+  justify-content:center;
+  gap:var(--abv2-space-28);
+}
 
 .abv2-investments__tile{
-    border-radius:14px;
-    overflow:hidden;
-  }
+  border-radius:14px;
+  overflow:hidden;
+}
 
 .abv2-investments__tile img{
-    width:228px;
-    height:228px;
-    object-fit:cover;
-    border-radius:14px;
-  }
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / FOOTER
-========================================================= */
-@media (max-width:1159px) and (min-width:980px){
-  .abv2-investments{
-        padding-top:var(--abv2-space-56);
-        padding-bottom:var(--abv2-space-96);
-      }
+  display:block;
+  width:228px;
+  height:228px;
+  object-fit:cover;
+  border-radius:14px;
 }
 
+/* ---------- CONDENSED DESKTOP: 980–1159 ---------- */
+
 @media (max-width:1159px) and (min-width:980px){
+  .abv2-investments{
+    padding-top:var(--abv2-space-56);
+    padding-bottom:var(--abv2-space-96);
+  }
+
   .abv2-investments__grid{
-        grid-template-columns:repeat(2, 184px);
-        gap:var(--abv2-space-20);
-      }
-}
+    grid-template-columns:repeat(2, 184px);
+    gap:var(--abv2-space-20);
+  }
 
-@media (max-width:1159px) and (min-width:980px){
   .abv2-investments__tile img{
-        width:184px;
-        height:184px;
-      }
+    width:184px;
+    height:184px;
+  }
 }
 
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / 760–979 TABLET
-========================================================= */
-@media (max-width:979px) and (min-width:760px){
-  .abv2-wrap,
-      .abv2-wrap--narrow,
-      .abv2-investments__inner{
-        width:min(calc(100% - 40px), 920px);
-      }
-}
+/* ---------- TABLET: 760–979 ---------- */
 
 @media (max-width:979px) and (min-width:760px){
   .abv2-investments{
-        padding-top:var(--abv2-space-56);
-        padding-bottom:var(--abv2-space-96);
-      }
-}
-
-@media (max-width:979px) and (min-width:760px){
-  .abv2-investments__title{
-        margin-bottom:var(--abv2-space-28);
-      }
-}
-
-@media (max-width:979px) and (min-width:760px){
-  .abv2-investments__grid{
-        grid-template-columns:repeat(2, 172px);
-        gap:var(--abv2-space-20);
-      }
-}
-
-@media (max-width:979px) and (min-width:760px){
-  .abv2-investments__tile img{
-        width:172px;
-        height:172px;
-      }
-}
-
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-  .abv2-wrap,
-      .abv2-wrap--narrow,
-      .abv2-investments__inner{
-        width:min(calc(100% - 20px), var(--abv2-wrap));
-      }
-}
-
-@media (max-width:759px){
-  .abv2-investments{
-        padding-top:var(--abv2-space-48);
-        padding-bottom:var(--abv2-space-84);
-      }
-}
-
-@media (max-width:759px){
-  .abv2-investments__title{
-        margin-bottom:var(--abv2-space-24);
-      }
-}
-
-@media (max-width:759px){
-  .abv2-investments__grid{
-        grid-template-columns:1fr;
-        gap:var(--abv2-space-24);
-        justify-items:center;
-      }
-}
-
-@media (max-width:759px){
-  .abv2-investments__tile img{
-        width:var(--abv2-mobile-investment-tile);
-        height:var(--abv2-mobile-investment-tile);
-        border-radius:18px;
-      }
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / INVESTMENTS
-========================================================= */
-.abv2-investments{
-    position:relative;
-    z-index:1;
-    padding-top:var(--abv2-space-64);
-    padding-bottom:118px;
+    padding-top:52px;
+    padding-bottom:92px;
   }
 
-.abv2-investments__title{
-    margin-bottom:var(--abv2-space-32);
-  }
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / FOOTER
-========================================================= */
-@media (max-width:1159px) and (min-width:980px){
-}
-
-@media (max-width:1159px) and (min-width:980px){
-}
-
-@media (max-width:1159px) and (min-width:980px){
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / 760–979 TABLET
-========================================================= */
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-@media (max-width:979px) and (min-width:760px){
-}
-
-/* =========================================================
-SOURCE: 2 - council hub page.html / MOBILE UNDER 760
-========================================================= */
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-@media (max-width:759px){
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / INVESTMENTS
-========================================================= */
-.abv2-investments{
-    position:relative;
-    z-index:1;
-    padding-top:var(--abv2-space-72);
-    padding-bottom:140px;
-  }
-
-.abv2-investments__title{
-    margin-bottom:var(--abv2-space-40);
-  }
-
-/* =========================================================
-SOURCE: 3- homepage components.html / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
-  .abv2-investments{
-        padding-top:var(--abv2-space-56);
-        padding-bottom:110px;
-      }
-}
-
-@media (max-width:979px){
   .abv2-investments__inner{
-        width:min(calc(100% - 24px), 760px);
-      }
-}
+    width:min(calc(100% - 40px), 920px);
+  }
 
-@media (max-width:979px){
+  .abv2-investments__title{
+    margin-bottom:28px;
+  }
+
   .abv2-investments__grid{
-        grid-template-columns:repeat(2, 170px);
-        gap:var(--abv2-space-20);
-      }
-}
+    grid-template-columns:repeat(2, 172px);
+    gap:var(--abv2-space-20);
+  }
 
-@media (max-width:979px){
   .abv2-investments__tile img{
-        width:170px;
-        height:170px;
-      }
+    width:172px;
+    height:172px;
+  }
 }
 
-/* =========================================================
-SOURCE: 3- homepage components.html / GLOBAL MOBILE SYSTEM
-========================================================= */
-@media (max-width:759px){
-}
-
-/* =========================================================
-SOURCE: 3- homepage components.html / INVESTMENTS
-========================================================= */
-@media (max-width:759px){
-}
+/* ---------- MOBILE: UNDER 760 ---------- */
 
 @media (max-width:759px){
-}
+  .abv2-investments{
+    padding-top:var(--abv2-space-48);
+    padding-bottom:var(--abv2-space-84);
+  }
 
-@media (max-width:759px){
+  .abv2-investments__inner{
+    width:min(calc(100% - 20px), var(--abv2-wrap));
+  }
+
+  .abv2-investments__title{
+    margin-bottom:var(--abv2-space-24);
+  }
+
+  .abv2-investments__grid{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-24);
+    justify-items:center;
+  }
+
+  .abv2-investments__tile img{
+    width:var(--abv2-mobile-investment-tile);
+    height:var(--abv2-mobile-investment-tile);
+    border-radius:18px;
+  }
 }

@@ -69,3 +69,25 @@ SOURCE: 4 - editorial components.html / faq
 .abv2-faq__answer p{
   margin:var(--abv2-space-12) 0 0;   /* slightly tighter rhythm */
 }
+
+/* Hover state — FAQ questions */
+
+.abv2-faq__item summary{
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+.abv2-faq__item:hover summary{
+  background:var(--abv2-grey-very-light);
+}
+
+.abv2-faq__item:hover{
+  border-color:rgba(114, 71, 149, .22);
+  box-shadow:0 6px 18px var(--abv2-shadow-default);
+}
+
+.abv2-faq__item:hover summary::after{
+  background:var(--abv2-pink-dark);
+}
