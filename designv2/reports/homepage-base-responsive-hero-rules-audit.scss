@@ -1,20 +1,25 @@
-/* ========================================
-   COMPONENT: abv2-hero
-   Homepage hero
-   Source 1 winning version
-   ======================================== */
+/*
+  Hero rules audit
+  Source: designv2/incoming/1 - hompeage base responsive.html
+  Extracted selectors relating to .abv2-hero / .abv2-hero__*
+  Source lines: 422-482, 969-1023, 1235-1282, 1669-1724, 1929-1945
+*/
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .abv2-hero{
   position:relative;
   z-index:1;
-  padding-top:var(--abv2-space-56);
+  padding-top:52px;
   padding-bottom:0;
 }
 
 .abv2-hero__grid{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(720px,.78fr);
-  gap:var(--abv2-space-20);
+  gap:20px;
   align-items:start;
 }
 
@@ -55,7 +60,7 @@
 }
 
 .abv2-hero__copy.abv2-stack > * + *{
-  margin-top:var(--abv2-space-20);
+  margin-top:20px;
 }
 
 .abv2-hero__copy .abv2-h1{
@@ -66,16 +71,19 @@
   max-width:620px;
 }
 
-/* ---------- CONDENSED DESKTOP: 980–1159 ---------- */
+/* =========================================================
+   1080-1159
+   ========================================================= */
 
 @media (max-width:1159px) and (min-width:980px){
+
   .abv2-hero{
-    padding-top:var(--abv2-space-20);
+    padding-top:20px;
   }
 
   .abv2-hero__grid{
-grid-template-columns:minmax(320px,1fr) minmax(560px,1fr);
-    gap:var(--abv2-space-48);
+    grid-template-columns:minmax(360px, .86fr) minmax(620px, 1.06fr);
+    gap:46px;
     align-items:start;
   }
 
@@ -83,8 +91,8 @@ grid-template-columns:minmax(320px,1fr) minmax(560px,1fr);
     width:100%;
     max-width:410px;
     align-self:end;
-    margin-left:var(--abv2-space-32);
-    margin-bottom:-160px;
+    margin-left:34px;
+    margin-bottom:-108px;
   }
 
   .abv2-hero__art-inner{
@@ -101,10 +109,14 @@ grid-template-columns:minmax(320px,1fr) minmax(560px,1fr);
 
   .abv2-hero__copy{
     max-width:760px;
-    padding-top:var(--abv2-space-32);
-    padding-left:var(--abv2-space-12);
+    padding-top:30px;
+    padding-left:10px;
     padding-right:0;
     transform:none;
+  }
+
+  .abv2-hero__copy.abv2-stack > * + *{
+    margin-top:18px;
   }
 
   .abv2-hero__copy .abv2-h1{
@@ -120,47 +132,41 @@ grid-template-columns:minmax(320px,1fr) minmax(560px,1fr);
   }
 }
 
-
-/* ---------- TABLET: 760–979 ---------- */
+/* =========================================================
+   760-979 TABLET
+   ========================================================= */
 
 @media (max-width:979px) and (min-width:760px){
+
   .abv2-hero{
     padding-top:18px;
     padding-bottom:0;
-    overflow:visible;
   }
 
   .abv2-hero__grid{
     display:grid;
-  grid-template-columns:minmax(240px, 1.1fr) minmax(0, 0.9fr);
-
+    grid-template-columns:minmax(290px, .82fr) minmax(0, 1.18fr);
     gap:34px;
     align-items:center;
   }
 
   .abv2-hero__art{
     order:1;
-    position:relative;
-    z-index:1 !important;
-    width:100%;
     max-width:none;
     margin-left:18px;
-    margin-bottom:-180px;
+    margin-bottom:-88px;
     align-self:end;
-    pointer-events:none;
   }
 
   .abv2-hero__art-inner{
     width:100%;
-    max-width:500px;
+    max-width:430px;
     margin:0;
     transform:translateY(10px);
   }
 
   .abv2-hero__copy{
     order:2;
-    position:relative;
-    z-index:4;
     max-width:620px;
     padding-top:8px;
     transform:none;
@@ -182,32 +188,51 @@ grid-template-columns:minmax(320px,1fr) minmax(560px,1fr);
   }
 }
 
-
-/* ---------- MOBILE: UNDER 760 ---------- */
+/* =========================================================
+   MOBILE UNDER 760
+   ========================================================= */
 
 @media (max-width:759px){
+
+  .abv2-hero__copy,
+  .abv2-pink__copy,
+  .abv2-features__intro,
+  .abv2-teal__copy,
+  .abv2-features__cta{
+    width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin:0 auto;
+    text-align:left;
+  }
+
+  .abv2-hero__copy .abv2-h1,
+  .abv2-pink__copy .abv2-h2,
+  .abv2-features__intro .abv2-h2,
+  .abv2-teal__copy .abv2-h2{
+    width:100%;
+    max-width:none;
+  }
+
   .abv2-hero{
     position:relative;
     z-index:1;
-    padding-top:var(--abv2-space-24);
+    padding-top:24px;
     overflow:visible;
   }
 
   .abv2-hero__grid{
     display:grid;
     grid-template-columns:1fr;
-    gap:var(--abv2-space-64);
+    gap:14px;
   }
 
   .abv2-hero__copy{
     order:1;
     z-index:3;
-    margin-bottom:var(--abv2-space-16);
-    transform:none;
+    margin-bottom:6px;
   }
 
   .abv2-hero__copy.abv2-stack > * + *{
-    margin-top:var(--abv2-space-16);
+    margin-top:16px;
   }
 
   .abv2-hero__art{
@@ -215,14 +240,37 @@ grid-template-columns:minmax(320px,1fr) minmax(560px,1fr);
     position:relative;
     z-index:1 !important;
     max-width:var(--abv2-mobile-hero-art);
-    margin:var(--abv2-space-20) auto -130px;
+    margin:10px auto -130px;
     pointer-events:none;
   }
 
   .abv2-hero__art-inner{
     width:100%;
-    max-width:340px;
-    margin:0;
+    max-width:var(--abv2-mobile-hero-art);
     transform:none;
+    margin:0;
+  }
+}
+
+/* =========================================================
+   MOBILE UNDER 760 - later hero override
+   ========================================================= */
+
+@media (max-width:759px){
+
+  .abv2-hero__grid{
+    gap:60px;
+  }
+
+  .abv2-hero__copy{
+    margin-bottom:14px;
+  }
+
+  .abv2-hero__art{
+    margin:18px auto -130px;
+  }
+
+  .abv2-hero__art-inner{
+    max-width:340px;
   }
 }

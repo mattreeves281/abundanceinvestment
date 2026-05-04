@@ -42,6 +42,24 @@
   --abv2-clip-sec-shape:var(--abv2-teal-clip-small);
 }
 
+@media (max-width:1159px) and (min-width:760px){
+  .abv2-clip-sec--pink-large{
+    --abv2-clip-sec-shape:var(--abv2-pink-clip-large-medium);
+  }
+
+  .abv2-clip-sec--teal-large{
+    --abv2-clip-sec-shape:var(--abv2-teal-clip-large-medium);
+  }
+
+  .abv2-clip-sec--pink-small{
+    --abv2-clip-sec-shape:var(--abv2-pink-clip-small-medium);
+  }
+
+  .abv2-clip-sec--teal-small{
+    --abv2-clip-sec-shape:var(--abv2-teal-clip-small-medium);
+  }
+}
+
 @media (max-width:759px){
   .abv2-clip-sec--pink-large{
     --abv2-clip-sec-shape:var(--abv2-pink-clip-large-mobile);
