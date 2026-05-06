@@ -1,11 +1,8 @@
 /* ========================================
-COMPONENT: abv2-council-proof
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-council-proof
+   Council proof / learn more section
+   ======================================== */
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / PROOF / LEARN MORE
-========================================================= */
 .abv2-council-proof{
   padding-top:var(--abv2-space-96);
   padding-bottom:132px;
@@ -14,29 +11,33 @@ SOURCE: 5 - council landing page v2 / PROOF / LEARN MORE
 
 .abv2-council-proof__grid{
   display:grid;
-  grid-template-columns:minmax(360px,.96fr) minmax(0,1.04fr);
+  grid-template-columns:minmax(360px, .96fr) minmax(0, 1.04fr);
   gap:var(--abv2-space-56);
   align-items:center;
-  width:min(100%, 1080px);
+  width:min(calc(100% - (var(--abv2-space-32) * 2)), 1080px);
   margin:0 auto;
 }
 
 .abv2-council-proof__media{
   display:flex;
   justify-content:flex-start;
+  align-items:center;
 }
 
 .abv2-council-proof__frame{
-  width:min(100%, 600px);
-  border-radius:20px;
+  width:min(100%, 500px);
+  border-radius:48px;
   overflow:hidden;
+  box-shadow:none;
+  transform:translateY(0);
 }
 
 .abv2-council-proof__frame img{
   display:block;
   width:100%;
-  aspect-ratio:1.22/1;
+  aspect-ratio:1.45 / 1;
   object-fit:cover;
+  border-radius:48px;
 }
 
 .abv2-council-proof__copy{
@@ -57,43 +58,60 @@ SOURCE: 5 - council landing page v2 / PROOF / LEARN MORE
   color:var(--abv2-pink);
 }
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / RESPONSIVE
-========================================================= */
+/* Tablet */
+
 @media (max-width:979px){
   .abv2-council-proof{
-      padding-top:var(--abv2-space-72);
-      padding-bottom:100px;
-    }
+    padding-top:var(--abv2-space-72);
+    padding-bottom:100px;
+  }
+
+  .abv2-council-proof__grid{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-32);
+    width:min(calc(100% - (var(--abv2-space-32) * 2)), 760px);
+  }
+
+  .abv2-council-proof__copy{
+    max-width:620px;
+  }
+
+  .abv2-council-proof__frame{
+    width:min(100%, 500px);
+  }
 }
+
+/* Mobile */
 
 @media (max-width:759px){
   .abv2-council-proof{
-      padding-top:var(--abv2-space-56);
-      padding-bottom:var(--abv2-space-84);
-    }
-}
-
-/* Responsive grid collapse */
-
-@media (max-width: 979px) {
-  .abv2-council-proof__grid {
-    grid-template-columns: 1fr;
-    gap: var(--abv2-space-32);
-  }
-}
-
-/* Mobile copy rail */
-
-@media (max-width: 759px) {
-  .abv2-council-proof__copy {
-    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-    margin-left: auto;
-    margin-right: auto;
+    padding-top:var(--abv2-space-56);
+    padding-bottom:var(--abv2-space-84);
   }
 
-  .abv2-council-proof__media {
-    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-    margin: 0 auto;
+  .abv2-council-proof__grid{
+    width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin-inline:auto;
+  }
+
+  .abv2-council-proof__copy,
+  .abv2-council-proof__media{
+    width:100%;
+    max-width:none;
+    margin-inline:auto;
+  }
+
+  .abv2-council-proof__media{
+    justify-content:center;
+  }
+
+  .abv2-council-proof__frame{
+    width:100%;
+    max-width:none;
+    border-radius:48px;
+  }
+
+  .abv2-council-proof__frame img{
+    border-radius:48px;
   }
 }

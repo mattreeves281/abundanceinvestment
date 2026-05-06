@@ -1,155 +1,157 @@
 /* ========================================
-COMPONENT: abv2-council-hero
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-council-hero
+   Council landing hero
+   ======================================== */
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / HERO — final boring / clean version
-========================================================= */
 .abv2-council-hero{
   position:relative;
   z-index:1;
-  padding-top:var(--abv2-space-56);
-  padding-bottom:var(--abv2-space-48);
+  padding-top:var(--abv2-space-64);
+  padding-bottom:var(--abv2-space-72);
   background:var(--abv2-white);
 }
 
-.abv2-council-hero__grid{
+.abv2-council-hero__inner{
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(260px,.72fr);
-  gap:var(--abv2-space-56);
-  align-items:start;
+  grid-template-columns:minmax(0, .96fr) minmax(360px, .84fr);
+  gap:clamp(var(--abv2-space-40), 5vw, var(--abv2-space-72));
+  align-items:center;
 }
 
 .abv2-council-hero__copy{
   position:relative;
   z-index:1;
   max-width:760px;
-  transform:none;
 }
 
 .abv2-council-hero__copy.abv2-stack > * + *{
   margin-top:var(--abv2-space-20);
 }
 
-.abv2-council-hero__eyebrow{
-  margin:0;
-  font-family:var(--abv2-ui);
-  font-size:.76rem;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--abv2-teal);
+.abv2-council-hero__copy .abv2-body{
+  max-width:58ch;
 }
 
 .abv2-council-hero__actions{
   display:flex;
   flex-wrap:wrap;
   gap:var(--abv2-space-12);
-  padding-top:var(--abv2-space-4);
-}
-
-.abv2-council-hero__art{
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-  margin:0;
-  margin-top:-12px;
-  padding-top:clamp(var(--abv2-space-20), 2.5vw, var(--abv2-space-32));
+  padding-top:var(--abv2-space-8);
 }
 
 .abv2-council-hero__logoBlock{
-  width:100%;
-  min-height:auto;
-  padding:0;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
   display:flex;
   align-items:center;
   justify-content:center;
-}
-
-.abv2-council-hero__logoBlock::after{
-  display:none;
+  min-width:0;
 }
 
 .abv2-council-hero__logo{
-  width:min(100%, 420px);
-  max-height:260px;
+  width:min(100%, 440px);
+  max-height:300px;
   object-fit:contain;
 }
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
+/* Condensed desktop */
+
+@media (max-width:1159px) and (min-width:980px){
   .abv2-council-hero{
-      padding-top:var(--abv2-space-32);
-      padding-bottom:var(--abv2-space-32);
-    }
-}
+    padding-top:var(--abv2-space-56);
+    padding-bottom:var(--abv2-space-64);
+  }
 
-@media (max-width:979px){
-  .abv2-council-hero__copy{
-      max-width:680px;
-    }
-}
+  .abv2-council-hero__inner{
+    grid-template-columns:minmax(0, 1fr) minmax(300px, .72fr);
+    gap:var(--abv2-space-40);
+  }
 
-@media (max-width:979px){
-  .abv2-council-hero__art{
-      justify-content:flex-start;
-      margin-top:0;
-      padding-top:0;
-    }
-}
-
-@media (max-width:979px){
   .abv2-council-hero__logo{
-      width:min(100%, 260px);
-      max-height:180px;
-    }
+    width:min(100%, 360px);
+    max-height:250px;
+  }
 }
+
+/* Tablet: keep 2 columns */
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-council-hero{
+    padding-top:var(--abv2-space-72);
+    padding-bottom:var(--abv2-space-56);
+  }
+
+  .abv2-council-hero__inner{
+    grid-template-columns:minmax(0, 1fr) minmax(220px, .58fr);
+    gap:var(--abv2-space-32);
+    align-items:start;
+    width:min(calc(100% - (var(--abv2-space-32) * 2)), 920px);
+    margin-inline:auto;
+  }
+
+  .abv2-council-hero__copy{
+    max-width:none;
+  }
+
+  .abv2-council-hero__copy.abv2-stack > * + *{
+    margin-top:var(--abv2-space-18);
+  }
+
+  .abv2-council-hero__copy .abv2-body{
+    max-width:34ch;
+  }
+
+  .abv2-council-hero__actions{
+    padding-top:var(--abv2-space-4);
+  }
+
+  .abv2-council-hero__logoBlock{
+    justify-content:flex-end;
+    align-items:flex-start;
+    padding-top:var(--abv2-space-8);
+  }
+
+  .abv2-council-hero__logo{
+    width:min(100%, 280px);
+    max-height:190px;
+  }
+}
+
+/* Mobile: stack */
 
 @media (max-width:759px){
   .abv2-council-hero{
-      padding-top:var(--abv2-space-24);
-      padding-bottom:var(--abv2-space-28);
-    }
-}
+    padding-top:var(--abv2-space-32);
+    padding-bottom:var(--abv2-space-48);
+  }
 
-@media (max-width:759px){
+  .abv2-council-hero__inner{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-28);
+    width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin-inline:auto;
+  }
+
+  .abv2-council-hero__logoBlock{
+    order:1;
+    justify-content:flex-start;
+    align-items:flex-start;
+  }
+
   .abv2-council-hero__copy{
-      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto;
-    }
-}
+    order:2;
+    width:100%;
+    max-width:none;
+  }
 
-@media (max-width:759px){
-  .abv2-council-hero__art{
-      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      margin:0 auto;
-      justify-content:flex-start;
-    }
-}
+  .abv2-council-hero__copy .abv2-body{
+    max-width:none;
+  }
 
-@media (max-width:759px){
+  .abv2-council-hero__actions{
+    padding-top:var(--abv2-space-4);
+  }
+
   .abv2-council-hero__logo{
-      width:min(100%, 210px);
-      max-height:140px;
-    }
-}
-
-.abv2-council-hero__grid{
-  align-items:start;
-}
-
-
-/* Responsive grid collapse */
-
-@media (max-width: 979px) {
-  .abv2-council-hero__grid {
-    grid-template-columns: 1fr;
-    gap: var(--abv2-space-32);
+    width:min(100%, 300px);
+    max-height:200px;
   }
 }

@@ -18,7 +18,21 @@
   text-decoration:none;
   white-space:nowrap;
   box-shadow:none;
-  transition:background .2s ease, color .2s ease, border-color .2s ease;
+  cursor:pointer;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.abv2-btn:hover,
+.abv2-btn:focus-visible{
+  text-decoration:none;
+}
+
+.abv2-btn:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:4px;
 }
 
 /* =========================================================
@@ -26,49 +40,73 @@
    Outline-first system
    ========================================================= */
 
-.abv2-home .abv2-btn,
-.abv2-council .abv2-btn{
+.abv2-landing .abv2-btn{
   border:1.8px solid currentColor;
   background:transparent;
   color:inherit;
 }
 
-.abv2-home .abv2-btn:hover,
-.abv2-council .abv2-btn:hover{
-  background:currentColor;
-  color:var(--abv2-white);
-  text-decoration:none;
+/* Default hover: visible neutral wash, no jump, no shadow */
+
+.abv2-landing .abv2-btn:hover,
+.abv2-landing .abv2-btn:focus-visible{
+  background:var(--abv2-ink-a06);
+  border-color:currentColor;
+  color:inherit;
 }
 
 /* Colour modifiers */
 
-.abv2-home .abv2-btn--light,
-.abv2-council .abv2-btn--light{
+.abv2-landing .abv2-btn--light{
   color:var(--abv2-white);
 }
 
-.abv2-home .abv2-btn--light:hover,
-.abv2-council .abv2-btn--light:hover{
-  background:var(--abv2-white);
-  color:var(--abv2-ink);
+.abv2-landing .abv2-btn--light:hover,
+.abv2-landing .abv2-btn--light:focus-visible{
+  background:var(--abv2-white-a18);
+  border-color:var(--abv2-white);
+  color:var(--abv2-white);
 }
 
-.abv2-home .abv2-btn--teal,
-.abv2-council .abv2-btn--teal{
+.abv2-landing .abv2-btn--teal{
   color:var(--abv2-teal);
 }
 
-.abv2-home .abv2-btn--pink,
-.abv2-council .abv2-btn--pink{
+.abv2-landing .abv2-btn--pink{
   color:var(--abv2-pink);
 }
 
-/* Section spacing */
+.abv2-landing .abv2-btn--teal:hover,
+.abv2-landing .abv2-btn--teal:focus-visible{
+  background:var(--abv2-ink-a06);
+  color:var(--abv2-teal);
+  border-color:var(--abv2-teal);
+}
+
+.abv2-landing .abv2-btn--pink:hover,
+.abv2-landing .abv2-btn--pink:focus-visible{
+  background:var(--abv2-ink-a06);
+  color:var(--abv2-pink);
+  border-color:var(--abv2-pink);
+}
+
+/* Buttons on coloured clipped sections */
 
 .abv2-pink .abv2-btn,
 .abv2-teal .abv2-btn,
 .abv2-clip-sec .abv2-btn{
   margin-top:var(--abv2-space-2);
+}
+
+.abv2-pink .abv2-btn--light:hover,
+.abv2-pink .abv2-btn--light:focus-visible,
+.abv2-teal .abv2-btn--light:hover,
+.abv2-teal .abv2-btn--light:focus-visible,
+.abv2-clip-sec .abv2-btn--light:hover,
+.abv2-clip-sec .abv2-btn--light:focus-visible{
+  background:var(--abv2-white-a18);
+  color:var(--abv2-white);
+  border-color:var(--abv2-white);
 }
 
 /* Smaller path buttons */
@@ -90,10 +128,11 @@
   color:var(--abv2-white);
 }
 
-.abv2-editorial .abv2-btn:hover{
-  background:var(--abv2-white);
-  color:var(--abv2-pink);
-  text-decoration:none;
+.abv2-editorial .abv2-btn:hover,
+.abv2-editorial .abv2-btn:focus-visible{
+  background:var(--abv2-pink-dark);
+  border-color:var(--abv2-pink-dark);
+  color:var(--abv2-white);
 }
 
 .abv2-editorial .abv2-btn--secondary{
@@ -102,9 +141,11 @@
   border:1.8px solid var(--abv2-pink);
 }
 
-.abv2-editorial .abv2-btn--secondary:hover{
-  background:var(--abv2-pink);
-  color:var(--abv2-white);
+.abv2-editorial .abv2-btn--secondary:hover,
+.abv2-editorial .abv2-btn--secondary:focus-visible{
+  background:var(--abv2-ink-a06);
+  color:var(--abv2-pink);
+  border-color:var(--abv2-pink);
 }
 
 /* Editorial component spacing / safety */

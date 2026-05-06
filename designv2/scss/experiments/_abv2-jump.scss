@@ -1,11 +1,8 @@
 /* ========================================
 COMPONENT: abv2-jump
-Status: unrefined (contains duplicates)
+Section jump links
 ======================================== */
 
-/* =========================================================
-SOURCE: 3- homepage components.html / SECTION JUMP LINKS
-========================================================= */
 .abv2-jump{
   position:relative;
   z-index:2;
@@ -15,7 +12,7 @@ SOURCE: 3- homepage components.html / SECTION JUMP LINKS
 }
 
 .abv2-jump__inner{
-  width:min(100%, 1020px);
+  width:min(calc(100% - (var(--abv2-space-32) * 2)), 1020px);
   margin:0 auto;
 }
 
@@ -62,31 +59,36 @@ SOURCE: 3- homepage components.html / SECTION JUMP LINKS
   transform:scaleX(1.02);
 }
 
-/* =========================================================
-SOURCE: 3- homepage components.html / RESPONSIVE
-========================================================= */
+/* Tablet */
+
 @media (max-width:979px){
   .abv2-jump{
-      padding-top:var(--abv2-space-20);
-      padding-bottom:var(--abv2-space-24);
-    }
+    padding-top:var(--abv2-space-20);
+    padding-bottom:var(--abv2-space-24);
+  }
+
+  .abv2-jump__inner{
+    width:min(calc(100% - (var(--abv2-space-32) * 2)), 760px);
+  }
 }
+
+/* Mobile */
 
 @media (max-width:759px){
   .abv2-jump{
-      padding-top:var(--abv2-space-16);
-      padding-bottom:var(--abv2-space-24);
-    }
-}
+    padding-top:var(--abv2-space-16);
+    padding-bottom:var(--abv2-space-24);
+  }
 
-@media (max-width:759px){
+  .abv2-jump__inner{
+    width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+  }
+
   .abv2-jump__list{
-      gap:var(--abv2-space-8) var(--abv2-space-16);
-    }
-}
+    gap:var(--abv2-space-8) var(--abv2-space-16);
+  }
 
-@media (max-width:759px){
   .abv2-jump__link{
-      font-size:.76rem;
-    }
+    font-size:.76rem;
+  }
 }

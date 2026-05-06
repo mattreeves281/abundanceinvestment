@@ -1,11 +1,8 @@
 /* ========================================
-COMPONENT: abv2-ed-rhs-lino-spacer
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-ed-rhs-lino-spacer
+   Editorial RHS decorative lino spacer
+   ======================================== */
 
-/* =========================================================
-SOURCE: 4 - editorial components.html / RHS DECORATIVE LINO SPACER
-========================================================= */
 .abv2-ed-rhs-lino-spacer{
   position:relative;
   width:min(100%, 980px);
@@ -60,31 +57,8 @@ SOURCE: 4 - editorial components.html / RHS DECORATIVE LINO SPACER
   transform:translate(-50%, -52%);
 }
 
-/* =========================================================
-SOURCE: 4 - editorial components.html / RESPONSIVE
-========================================================= */
 @media (max-width:759px){
   .abv2-ed-rhs-lino-spacer{
-      width:100%;
-      max-width:var(--abv2-mobile-copy-rail);
-      height:120px;
-      margin:var(--abv2-space-12) auto -24px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-ed-rhs-lino-spacer__blob{
-      top:0;
-      right:-28px;
-      width:300px;
-      height:300px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-ed-rhs-lino-spacer__lino{
-      width:50%;
-      max-width:none;
-      transform:translate(-50%, -52%);
-    }
+    display:none;
+  }
 }

@@ -114,9 +114,9 @@
   }
 
   .abv2-features__inner::after{
-    top:-152px;
-    right:-10px;
-    width:min(28vw, 220px);
+    top:-280px;                 /* higher */
+    right:-10px;                /* tiny outward nudge to balance size */
+    width:min(34vw, 320px);    /* ~+20% */
   }
 
   .abv2-features__intro{
@@ -160,9 +160,9 @@
   }
 
   .abv2-features__inner::after{
-    top:-78px;
-    right:8px;
-    width:min(58vw, 210px);
+    top:-200px;                 /* higher */
+    right:-26px;                /* bring it outward slightly */
+    width:min(70vw, 280px);    /* ~+20% */
   }
 
   .abv2-features__intro{
