@@ -1,0 +1,598 @@
+@use "../../utilities/unit" as *;
+
+// ============================================================
+// Color primitives
+// ============================================================
+
+// We record pure black and white as named variables to use as fallbacks where appropriate, these do not need to be reimplemented
+
+$pure-white: #ffffff;
+$pure-black: #000000;
+
+// The following named colour palettes are used as fallback colours for state management, and greys
+// They do not need to be reimplemented, and are included as an example of how we record ranges or related colours for use.
+
+$conifer-50: #f8fce9;
+$conifer-100: #eff8cf;
+$conifer-200: #dff1a5;
+$conifer-300: #c7e670;
+$conifer-400: #aed744;
+$conifer-500: #90bd25;
+$conifer-600: #6f961a;
+$conifer-700: #557318;
+$conifer-800: #455b19;
+$conifer-900: #3b4e19;
+$conifer-950: #1d2b08;
+
+$gunsmoke-50: #f6f6f6;
+$gunsmoke-100: #e7e7e7;
+$gunsmoke-200: #d1d1d1;
+$gunsmoke-300: #b0b0b0;
+$gunsmoke-400: #888888;
+$gunsmoke-500: #767676;
+$gunsmoke-600: #5d5d5d;
+$gunsmoke-700: #4f4f4f;
+$gunsmoke-800: #454545;
+$gunsmoke-900: #3d3d3d;
+$gunsmoke-950: #262626;
+
+$roman-50: #fdf3f3;
+$roman-100: #fce4e4;
+$roman-200: #fbcdcd;
+$roman-300: #f7aaaa;
+$roman-400: #f07979;
+$roman-500: #e54c4c;
+$roman-600: #d23030;
+$roman-700: #b02525;
+$roman-800: #922222;
+$roman-900: #792323;
+$roman-950: #420d0d;
+
+$tulip-tree-50: #fdf9e9;
+$tulip-tree-100: #fbf1c6;
+$tulip-tree-200: #f7e291;
+$tulip-tree-300: #f2cb52;
+$tulip-tree-400: #eeb731;
+$tulip-tree-500: #dd9a15;
+$tulip-tree-600: #bf760f;
+$tulip-tree-700: #985410;
+$tulip-tree-800: #7e4415;
+$tulip-tree-900: #6c3717;
+$tulip-tree-950: #3f1b09;
+
+$picton-blue-50: #f2f9fd;
+$picton-blue-100: #e4f0fa;
+$picton-blue-200: #c3e1f4;
+$picton-blue-300: #8ecaeb;
+$picton-blue-400: #52aede;
+$picton-blue-500: #2c94cb;
+$picton-blue-600: #1d76ac;
+$picton-blue-700: #185f8c;
+$picton-blue-800: #185174;
+$picton-blue-900: #194361;
+$picton-blue-950: #112b40;
+
+$boulder-50: #f6f6f6;
+$boulder-100: #e7e7e7;
+$boulder-200: #d1d1d1;
+$boulder-300: #b0b0b0;
+$boulder-400: #888888;
+$boulder-500: #767676;
+$boulder-600: #5d5d5d;
+$boulder-700: #4f4f4f;
+$boulder-800: #454545;
+$boulder-900: #3d3d3d;
+$boulder-950: #262626;
+
+// Abundance specific colour palettes. These colours may be retained, or altered.
+// New palettes may also be added - this is our preferred method of recording hex values for colours in a meaningful way.
+// Variables that actually apply colour styles usually are supplied with a named variable like this, rather than a raw hex value.
+
+// Abundance grey palette
+
+$abundance-grey: #505d5a;
+
+$abundance-neutral-000: #ffffff;
+$abundance-neutral-100: #faf8f8;
+$abundance-neutral-200: #f1eeed;
+$abundance-neutral-300: #e9e4e3;
+$abundance-neutral-400: #e9e4e3;
+$abundance-neutral-500: #e9e4e3;
+$abundance-neutral-600: #90908d;
+$abundance-neutral-700: #71716e;
+$abundance-neutral-800: #454543;
+$abundance-neutral-900: #282827;
+
+// Abundance primary 
+
+$abundance-pink: #c54483;
+$abundance-pink-dark: #ab336e;
+$abundance-pink-light: #e26da6;
+$abundance-pink-surface: #f8d9e8;
+
+// Abundance secondary
+
+$abundance-cyan: #07828f;
+$abundance-cyan-dark: #07828f;
+$abundance-cyan-light: #00a4b6;
+$abundance-cyan-surface: #cdedf1;
+
+// Abundance additional colors
+
+$abundance-green: #25ab2d;
+$abundance-green-dark: #258d2c;
+$abundance-green-extra-dark: #227728;
+$abundance-green-light: #ccf0cf;
+
+$abundance-yellow: #e2961c;
+$abundance-yellow-dark: #95610e;
+$abundance-yellow-light: #ffb72c;
+$abundance-yellow-surface: #ffedcc;
+
+$abundance-red: #c10c21;
+$abundance-red-surface: #ffd1d6;
+
+$abundance-orange: #e1873f;
+$abundance-orange-dark: #c25600;
+$abundance-orange-extra-dark: #964300;
+$abundance-orange-light: #fccaa2;
+
+$abundance-blue: #185f8c;
+$abundance-blue-surface: #e4f0fa;
+
+// councils - legacy
+
+$abundance-lewisham: #009eb3;
+$abundance-suffolk: #a2bd30;
+$abundance-westminster: #0b2265;
+
+// proxy variables to record portfolio themeing
+
+$abundance-general-portfolio: $abundance-orange-extra-dark;
+$abundance-general-portfolio-surface: $abundance-orange-light;
+$abundance-isa-portfolio: $abundance-green-extra-dark;
+$abundance-isa-portfolio-surface: $abundance-green-light;
+
+// ============================================================
+// State colors
+// ============================================================
+
+// Used in information badges, cards, error messaging, etc. 
+// Currently hooked up to defaults in most instances - these may be customised
+
+$si-color-error: $roman-700;
+$si-color-error-surface: $roman-100;
+$si-color-info: $picton-blue-700;
+$si-color-info-surface: $picton-blue-100;
+$si-color-success: $conifer-700;
+$si-color-success-surface: $conifer-100;
+$si-color-warning: #a95214;
+$si-color-warning-surface: #fbf0ca;
+
+// ============================================================
+// Focus
+// ============================================================
+
+// Focus states for links - including an outline for current focused object
+// Applicable to links or components acting as links 
+// we support coloration for an "inverted" version, that assumes it will be appearing on a dark surface rather than light 
+
+$si-color-focus: $abundance-pink-dark;
+$si-color-focus-invert: $pure-white;
+
+$outline: 2px solid $si-color-focus;
+$outline-invert: 2px solid $si-color-focus-invert;
+$outline-offset: 2px;
+
+// ============================================================
+// Text colors
+// ============================================================
+
+// Typically primary is a dark colour like black, and serves to style the majority of text on the platform 
+// Secondary is usually an off-black colour, used situationally to distinguish text from the bulk of text
+// Invert text is intented to show the opposite relationship between background and text. If a platform has a light background normally, body text is usually dark. 
+// Inverted text would then be light, and inverted backgrounds would be dark. 
+// Accent is a commonly used colour for text intended to stand out - it is often a vibrant brand colour. 
+// Risk text specifically targets text in our risk banner - this may not be applicable if you do not use risk messaging. It is distinct as usually it must use colours distinct from the normal themeing of content. 
+
+$si-color-text-primary: $abundance-neutral-900;
+$si-color-text-secondary: $abundance-neutral-800;
+$si-color-text-invert-primary: $pure-white;
+$si-color-text-invert-secondary: $pure-white;
+$si-color-text-accent: $abundance-pink;
+$si-color-text-risk-warning: $pure-white;
+
+// ============================================================
+// Border colors
+// ============================================================
+
+// Similar conventions with respect to light / dark, using invert.
+// Interactive will apply to bordered objects that are clickable (for example a card object serving as a proxy for a link) 
+
+$si-color-border-primary: $abundance-neutral-200;
+$si-color-border-secondary: $abundance-neutral-300;
+$si-color-border-invert-primary: $pure-white;
+$si-color-border-invert-secondary: $pure-white;
+$si-color-border-interactive: $abundance-neutral-600;
+$si-color-border-invert-interactive: $pure-white;
+
+// ============================================================
+// Surface colors ("Background" colors e.g. for cards, pages, risk banners etc.)
+// ============================================================
+
+// Conventions covered above, backdrop refers to the darkened background that may appear behind dialog boxes
+// Risk warning may be disregarded unless risk messaging is used
+
+$si-color-surface-primary: $pure-white;
+$si-color-surface-secondary: $abundance-pink-surface;
+$si-color-surface-tertiary: $abundance-cyan-surface;
+$si-color-surface-invert-primary: $si-color-text-primary;
+$si-color-surface-invert-secondary: $si-color-text-secondary;
+$si-color-surface-accent: $si-color-text-accent;
+$si-color-surface-backdrop: rgba($si-color-text-primary, 0.6);
+$si-color-surface-risk-warning: $abundance-cyan-dark;
+
+// ============================================================
+// Button colors
+// ============================================================
+
+// We typically implement three core buttons for platform functionality. 
+// This represents a primary and secondary action, if multiple buttons must appear alongside one another. A tertiary button is used in edge cases, or instances the require the button be distinct from normal themeing. 
+// We can and do implement many additional button styles for the purposes of marketing pages, but these values should reflect the core buttons that would be preferred generally - additional styles we would record seperately (using a naming convention that references the colour of button required).
+
+$si-color-button-surface-primary: $si-color-text-primary;
+$si-color-button-surface-primary-hover: $si-color-focus;
+$si-color-button-surface-primary-active: $si-color-button-surface-primary;
+$si-color-button-border-primary: $si-color-button-surface-primary;
+$si-color-button-border-primary-hover: $si-color-button-surface-primary-hover;
+$si-color-button-border-primary-active: $si-color-button-surface-primary;
+$si-color-button-text-primary: $pure-white;
+$si-color-button-text-primary-hover: $pure-white;
+$si-color-button-text-primary-active: $pure-white;
+
+$si-color-button-surface-secondary: $abundance-cyan-light;
+$si-color-button-surface-secondary-hover: $si-color-surface-risk-warning;
+$si-color-button-surface-secondary-active: $si-color-button-surface-secondary;
+$si-color-button-border-secondary: $si-color-button-surface-secondary;
+$si-color-button-border-secondary-hover: $si-color-button-surface-secondary-hover;
+$si-color-button-border-secondary-active: $si-color-button-surface-secondary-hover;
+$si-color-button-text-secondary: $pure-white;
+$si-color-button-text-secondary-hover: $pure-white;
+$si-color-button-text-secondary-active: $pure-white;
+
+$si-color-button-surface-tertiary: transparent;
+$si-color-button-surface-tertiary-hover: $si-color-border-secondary;
+$si-color-button-surface-tertiary-active: $si-color-border-secondary;
+$si-color-button-border-tertiary: transparent;
+$si-color-button-border-tertiary-hover: transparent;
+$si-color-button-border-tertiary-active: $si-color-text-primary;
+$si-color-button-text-tertiary: $si-color-text-secondary;
+$si-color-button-text-tertiary-hover: $si-color-text-secondary;
+$si-color-button-text-tertiary-active: $si-color-text-secondary;
+
+// ============================================================
+// Icon colors
+// ============================================================
+
+// color used to theme single icon buttons (usually an svg references as a data URI). 
+// We can rewrite the colour used for path and fill dynamically in CSS. 
+// This is for things like small icon buttons that support downloads, or chevrons acting as a back button, etc. 
+
+$si-color-icon-accent: $si-color-text-accent;
+
+// ============================================================
+// Border radius
+// ============================================================
+
+// Default values used objects that require border radius (buttons, cards, etc).
+// These are referenced by many components, but those components may also be remapped from what they currently reference (e.g. if a button references si-border-radius-xs, the value of si-border-radius-xs need not change if another size value in the array will suffice).
+// This is typically not changed unless very specific or unusual sizes must be accomodated, and even then this is usually done as an additional variable. 
+
+$si-border-radius-0: 0;
+$si-border-radius-xs: 2px;
+$si-border-radius-sm: 4px;
+$si-border-radius-md: 8px;
+$si-border-radius-lg: 12px;
+$si-border-radius-xl: 16px;
+$si-border-radius-2xl: 20px;
+$si-border-radius-3xl: 24px;
+$si-border-radius-4xl: 32px;
+$si-border-radius-round: 50px;
+
+// ============================================================
+// Spacing (desktop)
+// ============================================================
+
+// Spacing denominations used by bootstrap grid and our spacing utility classes.
+// These will inform many of the default sizes of margins and paddings of components
+// These values aren't typically changed unless unusal sizes are required (sizes outwith this range can be added as larger or smaller variants). 
+// These values are pulled into our core component library, informing default spacing in many components, as well as helper classes, and the default behaviour of bootstrap
+// These should not be modified to accomodate a specific component, the mapping of values can be changed in the component itself. 
+
+$spacer-0: 0;
+$spacer-5xs: 0.125rem; // 2px
+$spacer-4xs: 0.25rem; // 4px
+$spacer-3xs: 0.5rem; // 8px
+$spacer-2xs: 1rem; // 16px
+$spacer-xs: 1.5rem; // 24px
+$spacer-sm: 2rem; // 32px
+$spacer-md: 3rem; // 48px
+$spacer-lg: 4rem; // 64px
+$spacer-xl: 5rem; // 80px
+$spacer-2xl: 6rem; // 96px
+$spacer-4xl: 8rem; // 128px
+$spacer-6xl: 16rem; // 256px
+$spacer-8xl: 16rem;
+
+// Base unit used for spacing, generally shouldn't be changed - may dramatically affect the size of spacing. 
+// Typically used to make small adjustments to spacing in the case of unusual fonts, as the scaling is based to an extent on font height. 
+
+$cap: 0.9ex;
+$spacer-desktop-mult: 2;
+$spacing-style: "legacy";
+
+// ============================================================
+// Spacing (mobile)
+// ============================================================
+
+// Spacing classes as they are applied at the "mobile" breakpoint, for mobile screens. 
+// This to an extent supports an automatic adjustment for denser spacing on mobile screens, that use smaller text. 
+
+$spacer-mobile-0: 0;
+$spacer-mobile-5xs: 0.063rem; // 1px
+$spacer-mobile-4xs: 0.125rem; // 2px
+$spacer-mobile-3xs: 0.25rem; // 4px
+$spacer-mobile-2xs: 0.5rem; // 8px
+$spacer-mobile-xs: 0.75rem; // 12px
+$spacer-mobile-sm: 1rem; // 16px
+$spacer-mobile-md: 1.5rem; // 24px
+$spacer-mobile-lg: 2rem; // 32px
+$spacer-mobile-xl: 2.5rem; // 40px
+$spacer-mobile-2xl: 3rem; // 48px
+$spacer-mobile-4xl: 4rem; // 64px
+$spacer-mobile-6xl: 8rem; // 128px
+
+// ============================================================
+// Breakpoints
+// ============================================================
+
+// Default breakpoints we use for styling. 
+// Particularily important is md - which acts as a tablet sized breakpoint, mobile-vw - for mobile screen breakpoint, and nav-toggle, which represents the point at which the top nav of the site collapses into an expandable menu, rather than renders each link openly on the nav bar 
+// Our css uses these values to enforce consistent responsive styling that must target certain screen sizes
+
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$screen-xl: 1600px;
+$mobile-vw: 768px; // Width below which mobile styling takes effect
+$nav-toggle: 1200px; // Width at which the top nav switches to compact mode
+
+// ============================================================
+// Font families
+// ============================================================
+
+// Font default stack - this is a list of system and web safe fallback fonts, available to various devices. This is applied by default, but may be customised. 
+// Web safe fonts are available at all times, this list serves as a fallback for when Web fonts (loaded externally, or from scripts or files, or font imports) fail. 
+
+$si-font-fallback: (
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "avenir next",
+    avenir,
+    "helvetica neue",
+    helvetica,
+    ubuntu,
+    roboto,
+    noto,
+    "segoe ui",
+    arial,
+    sans-serif
+);
+
+// Main font style for site - typically applied to body text. Mapping of this font style can be done for different components / tags individually. 
+// Actual font import can be achieved through myriad methods, such as self hosting of font files, typekits, etc. Its is done in a seperate space however, and involves setting a font-face. 
+
+$si-font-primary: ("Inter Display", $si-font-fallback);
+
+// Secondary font style for site - typically applied to headings
+
+$si-font-secondary: ("Euclid Circular B", "Inter Display", $si-font-fallback);
+
+// ============================================================
+// Font weights
+// ============================================================
+
+// Default font weight denominatons - this manages the relationship between intended font weight, and the actual weights of fonts imported via font face. 
+
+$si-font-weight-light: 400;
+$si-font-weight-regular: 400;
+$si-font-weight-medium: 700;
+$si-font-weight-semibold: 700;
+$si-font-weight-bold: 700;
+
+// ============================================================
+// Body e.g. paragraphs
+// ============================================================
+
+// Range of sizes that might apply to body text. 
+// Typically normal text is assigned md by default, but this can change
+// Unless branding required very specific sizes, these sizes are kept static, and individual components and tags are mapped to an appropriate denomination from the list. 
+// The site tracks a base unit for the purposes of rem, as 16px. 
+
+$si-body-xs-size: rem-calc(12); // Converts 12px to rem at 1rem == 16px
+$si-body-xs-size-mobile: rem-calc(12);
+$si-body-sm-size: rem-calc(14);
+$si-body-sm-size-mobile: rem-calc(14);
+$si-body-md-size: rem-calc(16);
+$si-body-md-size-mobile: rem-calc(16);
+$si-body-lg-size: rem-calc(20);
+$si-body-lg-size-mobile: rem-calc(18);
+$si-body-xl-size: rem-calc(24);
+$si-body-xl-size-mobile: rem-calc(20);
+$si-body-2xl-size: rem-calc(32);
+$si-body-2xl-size-mobile: rem-calc(24);
+$si-body-line-height: 1.5;
+$si-body-font-weight: $si-font-weight-regular;
+$si-body-text-color: $si-color-text-secondary;
+$si-body-text-font: $si-font-primary;
+$si-body-text-letter-spacing: normal;
+
+// ============================================================
+// Headings
+// ============================================================
+
+$si-heading-1-size: rem-calc(64);
+$si-heading-1-size-mobile: rem-calc(36);
+$si-heading-2-size: rem-calc(48);
+$si-heading-2-size-mobile: rem-calc(28);
+$si-heading-3-size: rem-calc(36);
+$si-heading-3-size-mobile: rem-calc(24);
+$si-heading-4-size: rem-calc(28);
+$si-heading-4-size-mobile: rem-calc(20);
+$si-heading-5-size: rem-calc(24);
+$si-heading-5-size-mobile: rem-calc(18);
+$si-heading-6-size: rem-calc(18);
+$si-heading-6-size-mobile: rem-calc(16);
+$si-heading-line-height: 1.25;
+$si-heading-font-weight: $si-font-weight-bold;
+$si-heading-text-transform: none;
+$si-heading-color: $si-color-text-primary;
+$si-heading-text-font: $si-font-primary;
+$si-heading-1-font-weight: $si-heading-font-weight;
+$si-heading-2-font-weight: $si-heading-font-weight;
+$si-heading-3-font-weight: $si-heading-font-weight;
+$si-heading-4-font-weight: $si-heading-font-weight;
+$si-heading-5-font-weight: $si-heading-font-weight;
+$si-heading-6-font-weight: $si-heading-font-weight;
+$si-heading-1-text-transform: $si-heading-text-transform;
+$si-heading-2-text-transform: $si-heading-text-transform;
+$si-heading-3-text-transform: $si-heading-text-transform;
+$si-heading-4-text-transform: $si-heading-text-transform;
+$si-heading-5-text-transform: $si-heading-text-transform;
+$si-heading-6-text-transform: $si-heading-text-transform;
+$si-heading-1-color: $si-heading-color;
+$si-heading-2-color: $si-heading-color;
+$si-heading-3-color: $si-heading-color;
+$si-heading-4-color: $si-heading-color;
+$si-heading-5-color: $si-heading-color;
+$si-heading-6-color: $si-heading-color;
+$si-heading-1-font: $si-heading-text-font;
+$si-heading-2-font: $si-heading-text-font;
+$si-heading-3-font: $si-heading-text-font;
+$si-heading-4-font: $si-heading-text-font;
+$si-heading-5-font: $si-heading-text-font;
+$si-heading-6-font: $si-heading-text-font;
+
+// ============================================================
+// Labels
+// ============================================================
+
+// Typically form labels
+
+$label-xs-size: rem-calc(12);
+$label-xs-size-mobile: rem-calc(12);
+$label-sm-size: rem-calc(14);
+$label-sm-size-mobile: rem-calc(14);
+$label-md-size: rem-calc(16);
+$label-md-size-mobile: rem-calc(16);
+$label-lg-size: rem-calc(20);
+$label-lg-size-mobile: rem-calc(18);
+$label-xl-size: rem-calc(24);
+$label-xl-size-mobile: rem-calc(20);
+$label-2xl-size: rem-calc(32);
+$label-2xl-size-mobile: rem-calc(24);
+$label-3xl-size: rem-calc(40);
+$label-3xl-size-mobile: rem-calc(28);
+$label-4xl-size: rem-calc(48);
+$label-4xl-size-mobile: rem-calc(32);
+$si-label-line-height: 1;
+$si-label-font-weight: $si-font-weight-regular;
+$si-label-text-color: $si-color-text-secondary;
+$si-label-text-font: $si-font-primary;
+
+// ============================================================
+// Table headers
+// ============================================================
+
+$si-table-header-sm-size: rem-calc(14);
+$si-table-header-sm-size-mobile: rem-calc(14);
+$si-table-header-md-size: rem-calc(16);
+$si-table-header-md-size-mobile: rem-calc(16);
+$si-table-header-lg-size: rem-calc(18);
+$si-table-header-lg-size-mobile: rem-calc(18);
+$si-table-header-line-height: 1.125;
+$si-table-header-font-weight: $si-font-weight-bold;
+$si-table-header-text-color: $si-color-text-primary;
+$si-table-header-text-font: $si-font-primary;
+
+// ============================================================
+// Captions
+// ============================================================
+
+// Typically smaller, caption text. Used for notes in figures and form rows or minor text
+
+$si-caption-sm-size: rem-calc(14);
+$si-caption-sm-size-mobile: rem-calc(14);
+$si-caption-md-size: rem-calc(16);
+$si-caption-md-size-mobile: rem-calc(16);
+$si-caption-lg-size: rem-calc(20);
+$si-caption-lg-size-mobile: rem-calc(18);
+$si-caption-line-height: 1;
+$si-caption-font-weight: $si-font-weight-regular;
+$si-caption-text-color: $si-color-text-secondary;
+$si-caption-text-font: $si-font-primary;
+$si-caption-text-transform: uppercase;
+$si-caption-letter-spacing: normal;
+
+// ============================================================
+// Card
+// ============================================================
+
+// Default card styling, we support a number of size and colour variants by default. 
+// Sizes: 2xs, xs, sm, md, lg, and a default size that is applied when no specific size is applied
+// Colours: primary, secondary, tertiary. Primary coloration applies by default
+// Teriary is typically used in places where a "card in card" is required. 
+// We do not enforce any specific text styling within cards, it is managed seperately with helpers or within specific component config. 
+
+$si-card-padding-2xs: $spacer-2xs;
+$si-card-padding-xs: $spacer-xs;
+$si-card-padding-sm: $spacer-sm;
+$si-card-padding-md: $spacer-md;
+$si-card-padding-lg: $spacer-lg;
+$si-card-padding-default: $si-card-padding-md;
+$si-card-mobile-padding: $spacer-xs;
+$si-card-primary-bg-color: $si-color-surface-primary;
+$si-card-secondary-bg-color: $si-color-surface-secondary;
+$si-card-tertiary-bg-color: $si-color-surface-tertiary;
+$si-card-primary-border-radius: $si-border-radius-xl;
+$si-card-secondary-border-radius: $si-border-radius-xl;
+$si-card-tertiary-border-radius: $si-border-radius-md;
+$si-card-primary-border: 1px solid $si-color-border-primary;
+$si-card-secondary-border: none;
+$si-card-tertiary-border: none;
+$si-card-primary-shadow: 0px 4px 32px 0px rgba(#241f33, 4%);
+$si-card-secondary-shadow: none;
+$si-card-tertiary-shadow: none;
+
+// ============================================================
+// Links
+// ============================================================
+
+// If normal links should be underlined, apply this styling with this variable 
+// Hooked up to the altered states of a normal anchor tags text decoration by default
+
+$hover-text-decoration: none;
+
+// ============================================================
+// Lists
+// ============================================================
+
+// Default list styling (remove intentation, set gap, etc).
+// May or may not be applied to undecorated lists, we do have various list components that will draw from this by default. 
+
+$list-gap: $spacer-3xs;
+$list-mobile-gap: $spacer-mobile-2xs;
+$list-padding-left: $spacer-md;
+$list-mobile-padding-left: $spacer-mobile-md;
+
