@@ -1,0 +1,19 @@
+/* ========================================
+COMPONENT: cbc-projects
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Divider between chart and top projects
+========================================================= */
+.cbc-projects {
+  margin-top:var(--abv2-space-28);
+  padding-top: var(--abv2-space-28);
+  border-top: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    var(--abv2-ink-a04),
+    var(--abv2-ink-a12),
+    var(--abv2-ink-a04)
+  ) 1;
+}

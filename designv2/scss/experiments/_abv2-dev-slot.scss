@@ -1,0 +1,23 @@
+/* ========================================
+COMPONENT: abv2-dev-slot
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / SHARED SUPPORTING TEXT
+========================================================= */
+.abv2-dev-slot{
+  margin:var(--abv2-space-24) 0;
+  padding:var(--abv2-space-16) var(--abv2-space-20);
+  border:1.5px dashed var(--abv2-ink-a18);
+  border-radius:18px;
+  background:var(--abv2-yellow-a08);
+  color:var(--abv2-text);
+  font-family:var(--abv2-ui);
+  font-size:.92rem;
+  line-height:1.45;
+}
+
+.abv2-dev-slot strong{
+  color:var(--abv2-ink);
+}

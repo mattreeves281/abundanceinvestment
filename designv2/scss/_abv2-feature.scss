@@ -1,0 +1,124 @@
+/* ========================================
+   COMPONENT: abv2-feature
+   Homepage/council feature item
+   Source 1 winning version + verified tablet parity
+   ======================================== */
+
+.abv2-feature{
+  max-width:260px;
+}
+
+.abv2-feature__num{
+  display:grid;
+  place-items:center;
+  width:76px;
+  height:76px;
+  margin:0 0 var(--abv2-space-12);
+  background-color:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+  font-family:var(--abv2-serif);
+  font-size:2.2rem;
+  font-weight:600;
+  line-height:1;
+  color:var(--abv2-white);
+}
+
+.abv2-feature:nth-child(1) .abv2-feature__num{
+  background-color:var(--abv2-pink);
+}
+
+.abv2-feature:nth-child(2) .abv2-feature__num{
+  background-color:var(--abv2-yellow);
+}
+
+.abv2-feature:nth-child(3) .abv2-feature__num{
+  background-color:var(--abv2-teal);
+}
+
+.abv2-feature .abv2-h3{
+  margin-bottom:var(--abv2-space-8);
+  font-size:1.22rem;
+}
+
+.abv2-feature .abv2-body{
+  max-width:215px;
+  font-size:1rem;
+  line-height:1.52;
+}
+
+/* ---------- TABLET: 760–979 ---------- */
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-feature,
+  .abv2-feature:nth-child(3){
+    max-width:none;
+  }
+
+  .abv2-feature:nth-child(3){
+    grid-column:auto;
+  }
+
+  .abv2-feature__num{
+    width:62px;
+    height:62px;
+    margin:0 0 10px;
+    font-size:1.8rem;
+  }
+
+  .abv2-feature .abv2-h3{
+    margin-bottom:6px;
+    font-size:1.08rem;
+  }
+
+  .abv2-feature .abv2-body{
+    max-width:20ch;
+    font-size:.95rem;
+    line-height:1.48;
+  }
+}
+
+/* ---------- MOBILE: UNDER 760 ---------- */
+
+@media (max-width:759px){
+  .abv2-feature{
+    display:block;
+    width:min(calc(100% - 40px), 320px);
+    max-width:320px;
+    margin:0 auto var(--abv2-space-32);
+    padding:0;
+    text-align:center;
+  }
+
+  .abv2-feature:last-child{
+    margin-bottom:0;
+  }
+
+  .abv2-feature__num{
+    width:58px;
+    height:58px;
+    margin:0 auto var(--abv2-space-16);
+    font-size:1.8rem;
+  }
+
+  .abv2-feature .abv2-h3{
+    display:block;
+    width:100%;
+    margin:0 auto var(--abv2-space-8);
+    text-align:center;
+  }
+
+  .abv2-feature .abv2-body{
+    display:block;
+    width:100%;
+    max-width:26ch;
+    margin:0 auto;
+    text-align:center;
+  }
+}

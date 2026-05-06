@@ -1,0 +1,221 @@
+/* ========================================
+COMPONENT: abv2-invest-insert
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / investment insert
+========================================================= */
+.abv2-invest-insert{
+  overflow:hidden;
+}
+
+.abv2-invest-insert__row{
+  display:grid;
+  grid-template-columns:128px minmax(0,1fr) auto;
+  align-items:center;
+  gap:var(--abv2-space-20);
+}
+
+.abv2-invest-insert__media{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:128px;
+  height:128px;
+  border-radius:24px;
+  background:var(--abv2-invest-bg, var(--abv2-indigo));
+  overflow:hidden;
+}
+
+.abv2-invest-insert__media::before{
+  content:"";
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  width:34px;
+  height:34px;
+  background:var(--abv2-white-a16);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-invest-insert__logo{
+  position:relative;
+  z-index:1;
+  width:min(100%, 82px);
+  max-height:64px;
+  object-fit:contain;
+}
+
+.abv2-invest-insert__body{
+  min-width:0;
+}
+
+.abv2-invest-insert__kicker{
+  display:inline-block;
+  margin:0 0 var(--abv2-space-8);
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--abv2-pink);
+}
+
+.abv2-invest-insert__title{
+  margin:0 0 var(--abv2-space-8);
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.02;
+}
+
+.abv2-invest-insert__desc{
+  margin:0 0 var(--abv2-space-12);
+  max-width:42ch;
+}
+
+.abv2-invest-insert__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  font-family:var(--abv2-ui);
+  font-size:.8rem;
+  line-height:1.35;
+  color:var(--abv2-text);
+}
+
+.abv2-invest-insert__pill{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.abv2-invest-insert__pill::after{
+  content:"·";
+  margin:0 var(--abv2-space-12);
+  color:var(--abv2-ink-a34);
+}
+
+.abv2-invest-insert__pill:last-child::after{
+  display:none;
+}
+
+.abv2-invest-insert__pill--rate{ color:var(--abv2-pink-dark); }
+
+.abv2-invest-insert__pill--term{ color:var(--abv2-teal-dark); }
+
+.abv2-invest-insert__pill--capital{ color:var(--abv2-yellow-dark); }
+
+.abv2-invest-insert__cta{
+  align-self:center;
+}
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-invest-insert__row{
+      grid-template-columns:112px minmax(0,1fr);
+    }
+}
+
+@media (max-width:979px){
+  .abv2-invest-insert__cta{
+      grid-column:2;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-invest-insert__media{
+      width:112px;
+      height:112px;
+      border-radius:22px;
+    }
+}
+
+@media (max-width:979px){
+  .abv2-invest-insert__logo{
+      width:min(100%, 74px);
+      max-height:58px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__row{
+      grid-template-columns:96px minmax(0,1fr);
+      gap:var(--abv2-space-16);
+      align-items:start;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__media{
+      width:96px;
+      height:96px;
+      border-radius:20px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__media::before{
+      width:28px;
+      height:28px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__logo{
+      width:min(100%, 62px);
+      max-height:48px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__title{
+      font-size:1.22rem;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__desc{
+      max-width:none;
+      font-size:.92rem;
+      line-height:1.42;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__meta{
+      display:block;
+      font-size:.76rem;
+      line-height:1.42;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__pill{
+      display:inline;
+      white-space:normal;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__pill::after{
+      display:inline;
+      margin:0 var(--abv2-space-8);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-invest-insert__cta{
+      grid-column:1 / -1;
+      margin-top:var(--abv2-space-2);
+    }
+}

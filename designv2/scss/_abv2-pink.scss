@@ -1,0 +1,13 @@
+.abv2-pink{
+  --abv2-clip-pad-top:248px;
+  --abv2-clip-pad-bottom:170px;
+  --abv2-clip-safe-top:140px;
+  --abv2-clip-safe-bottom:150px;
+}
+
+.abv2-pink__grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1.18fr) minmax(180px, .82fr);
+  gap:var(--abv2-space-40);
+  align-items:center;
+}

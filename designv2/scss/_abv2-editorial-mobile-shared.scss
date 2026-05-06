@@ -1,0 +1,57 @@
+/* ========================================
+COMPONENT: abv2-editorial-mobile-shared
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RESPONSIVE
+========================================================= */
+@media (max-width:759px){
+  .abv2-card__inner,
+    .abv2-compare__col,
+    .abv2-fit__top,
+    .abv2-fit__pane,
+    .abv2-fit__footer,
+    .abv2-slab__inner,
+    .abv2-navcard__inner,
+    .abv2-riskcard__inner,
+    .abv2-ctacard__inner{
+      padding-left:var(--abv2-space-20);
+      padding-right:var(--abv2-space-20);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-slab__inner,
+    .abv2-navcard__inner,
+    .abv2-riskcard__inner,
+    .abv2-ctacard__inner{
+      padding-top:var(--abv2-space-20);
+      padding-bottom:var(--abv2-space-16);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__grid,
+    .abv2-procon,
+    .abv2-fit__grid{
+      grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-compare__col + .abv2-compare__col,
+    .abv2-fit__pane + .abv2-fit__pane{
+      border-left:0;
+      border-top:1px solid var(--abv2-border-soft);
+    }
+}
+
+@media (max-width:759px){
+  .abv2-panel-cta,
+    .abv2-nextstep{
+      grid-template-columns:1fr;
+      gap:var(--abv2-space-16);
+      padding:var(--abv2-space-20);
+    }
+}

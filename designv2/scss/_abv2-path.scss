@@ -1,0 +1,109 @@
+/* ========================================
+COMPONENT: abv2-path
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DUAL-PATH HERO
+========================================================= */
+.abv2-path{
+  position:relative;
+}
+
+.abv2-path__inner{
+  max-width:390px;
+}
+
+.abv2-path__kicker{
+  display:inline-block;
+  margin:0 0 var(--abv2-space-8);
+  font-family:var(--abv2-ui);
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.abv2-path__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--abv2-space-12);
+  margin-top:var(--abv2-space-2);
+}
+
+.abv2-path--primary::before{
+  content:"";
+  position:absolute;
+  left:-28px;
+  top:-18px;
+  width:138px;
+  height:138px;
+  background:var(--abv2-teal-a12);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+  pointer-events:none;
+}
+
+.abv2-path--primary .abv2-path__kicker{
+  color:var(--abv2-teal);
+}
+
+.abv2-path--secondary{
+  margin-top:var(--abv2-space-28);
+}
+
+.abv2-path--secondary .abv2-path__kicker{
+  color:var(--abv2-pink);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-path--secondary{
+      margin-top:0;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-path__inner{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-path--primary::before{
+      left:-12px;
+      top:-8px;
+      width:92px;
+      height:92px;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-path__actions{
+      gap:var(--abv2-space-12);
+    }
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / DUAL-PATH HERO VARIANT
+========================================================= */
+.abv2-path--secondary{
+  margin-top:var(--abv2-space-24);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+}
+
+@media (max-width:759px){
+}

@@ -1,0 +1,80 @@
+/* ========================================
+COMPONENT: ai-logo-tile
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Solid bg + centered logo variant
+========================================================= */
+.ai-logo-tile{
+  background: var(--tile-bg, var(--abv2-blue));
+  display:grid;
+  place-items:center;
+}
+
+.ai-logo-tile img.ai-logo-tile__logo{
+  position:relative;
+  inset:auto;
+  width:min(72%, 140px);
+  height:auto;
+  max-height:70%;
+  object-fit:contain;
+  display:block;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Swipe-scroll badges
+========================================================= */
+@media (max-width:768px){
+  .ai-logo-tile img.ai-logo-tile__logo{
+      width:min(78%, 120px);
+      max-height:74%;
+    }
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Council logo hybrid scaling (locked-in behaviour)
+========================================================= */
+.ai-invest-tick__media.ai-logo-tile img{
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  max-width: 78% !important;
+  max-height: 78% !important;
+}
+
+@media (min-width:769px){
+  .ai-invest-tick__media.ai-logo-tile{
+      height:160px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+}
+
+@media (max-width:768px){
+  .ai-invest-tick__media.ai-logo-tile{
+      height:auto !important;
+      align-self:stretch;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+}
+
+@media (max-width:768px){
+  .ai-invest-tick__media.ai-logo-tile img{
+      max-width:78% !important;
+      max-height:74% !important;
+    }
+}
+
+@media (max-width:420px){
+  .ai-invest-tick__media.ai-logo-tile img{
+      max-width:80% !important;
+      max-height:74% !important;
+    }
+}

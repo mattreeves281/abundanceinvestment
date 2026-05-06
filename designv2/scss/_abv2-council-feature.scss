@@ -1,0 +1,64 @@
+/* ========================================
+COMPONENT: abv2-council-feature
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / WHITE FEATURES
+========================================================= */
+.abv2-council-feature{
+  max-width:292px;
+}
+
+.abv2-council-feature__num{
+  display:grid;
+  place-items:center;
+  width:82px;
+  height:82px;
+  margin:0 0 var(--abv2-space-16);
+  background-color:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+  font-family:var(--abv2-serif);
+  font-size:2.15rem;
+  font-weight:600;
+  line-height:1;
+  color:var(--abv2-white);
+}
+
+.abv2-council-feature:nth-child(1) .abv2-council-feature__num{ background-color:var(--abv2-pink); }
+
+.abv2-council-feature:nth-child(2) .abv2-council-feature__num{ background-color:var(--abv2-yellow); }
+
+.abv2-council-feature:nth-child(3) .abv2-council-feature__num{ background-color:var(--abv2-teal); }
+
+/* =========================================================
+SOURCE: 5 - council landing page v2 / RESPONSIVE
+========================================================= */
+@media (max-width:979px){
+  .abv2-council-feature{
+      max-width:none;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-feature{
+      max-width:300px;
+      text-align:center;
+    }
+}
+
+@media (max-width:759px){
+  .abv2-council-feature__num{
+      width:60px;
+      height:60px;
+      margin:0 auto var(--abv2-space-12);
+      font-size:1.84rem;
+    }
+}

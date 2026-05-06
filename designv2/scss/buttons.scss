@@ -1,0 +1,178 @@
+/* =========================================================
+   ABUNDANCE v2 — BUTTONS
+   Shared structure + scoped visual systems
+   ========================================================= */
+
+/* Base button primitive */
+
+.abv2-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:var(--abv2-space-12) var(--abv2-space-20);
+  border-radius:999px;
+  font-family:var(--abv2-ui);
+  font-size:.84rem;
+  line-height:1;
+  text-decoration:none;
+  white-space:nowrap;
+  box-shadow:none;
+  cursor:pointer;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.abv2-btn:hover,
+.abv2-btn:focus-visible{
+  text-decoration:none;
+}
+
+.abv2-btn:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:4px;
+}
+
+/* =========================================================
+   HOMEPAGE / COUNCIL BUTTONS
+   Outline-first system
+   ========================================================= */
+
+.abv2-landing .abv2-btn{
+  border:1.8px solid currentColor;
+  background:transparent;
+  color:inherit;
+}
+
+/* Default hover: visible neutral wash, no jump, no shadow */
+
+.abv2-landing .abv2-btn:hover,
+.abv2-landing .abv2-btn:focus-visible{
+  background:var(--abv2-ink-a06);
+  border-color:currentColor;
+  color:inherit;
+}
+
+/* Colour modifiers */
+
+.abv2-landing .abv2-btn--light{
+  color:var(--abv2-white);
+}
+
+.abv2-landing .abv2-btn--light:hover,
+.abv2-landing .abv2-btn--light:focus-visible{
+  background:var(--abv2-white-a18);
+  border-color:var(--abv2-white);
+  color:var(--abv2-white);
+}
+
+.abv2-landing .abv2-btn--teal{
+  color:var(--abv2-teal);
+}
+
+.abv2-landing .abv2-btn--pink{
+  color:var(--abv2-pink);
+}
+
+.abv2-landing .abv2-btn--teal:hover,
+.abv2-landing .abv2-btn--teal:focus-visible{
+  background:var(--abv2-ink-a06);
+  color:var(--abv2-teal);
+  border-color:var(--abv2-teal);
+}
+
+.abv2-landing .abv2-btn--pink:hover,
+.abv2-landing .abv2-btn--pink:focus-visible{
+  background:var(--abv2-ink-a06);
+  color:var(--abv2-pink);
+  border-color:var(--abv2-pink);
+}
+
+/* Buttons on coloured clipped sections */
+
+.abv2-pink .abv2-btn,
+.abv2-teal .abv2-btn,
+.abv2-clip-sec .abv2-btn{
+  margin-top:var(--abv2-space-2);
+}
+
+.abv2-pink .abv2-btn--light:hover,
+.abv2-pink .abv2-btn--light:focus-visible,
+.abv2-teal .abv2-btn--light:hover,
+.abv2-teal .abv2-btn--light:focus-visible,
+.abv2-clip-sec .abv2-btn--light:hover,
+.abv2-clip-sec .abv2-btn--light:focus-visible{
+  background:var(--abv2-white-a18);
+  color:var(--abv2-white);
+  border-color:var(--abv2-white);
+}
+
+/* Smaller path buttons */
+
+.abv2-path .abv2-btn{
+  min-height:40px;
+  padding:0 var(--abv2-space-16);
+}
+
+/* =========================================================
+   EDITORIAL BUTTONS
+   Filled-first system
+   ========================================================= */
+
+.abv2-editorial .abv2-btn{
+  min-height:46px;
+  border:1.8px solid var(--abv2-pink);
+  background:var(--abv2-pink);
+  color:var(--abv2-white);
+}
+
+.abv2-editorial .abv2-btn:hover,
+.abv2-editorial .abv2-btn:focus-visible{
+  background:var(--abv2-pink-dark);
+  border-color:var(--abv2-pink-dark);
+  color:var(--abv2-white);
+}
+
+.abv2-editorial .abv2-btn--secondary{
+  background:transparent;
+  color:var(--abv2-pink);
+  border:1.8px solid var(--abv2-pink);
+}
+
+.abv2-editorial .abv2-btn--secondary:hover,
+.abv2-editorial .abv2-btn--secondary:focus-visible{
+  background:var(--abv2-ink-a06);
+  color:var(--abv2-pink);
+  border-color:var(--abv2-pink);
+}
+
+/* Editorial component spacing / safety */
+
+.abv2-ed-hero__actions .abv2-btn,
+.abv2-invest-insert__cta .abv2-btn,
+.abv2-ed-open-invest__action .abv2-btn{
+  white-space:nowrap;
+}
+
+.abv2-ed-panel .abv2-btn{
+  margin-top:var(--abv2-space-20);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width:759px){
+  .abv2-pink .abv2-btn,
+  .abv2-teal .abv2-btn,
+  .abv2-clip-sec .abv2-btn{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .abv2-editorial .abv2-ed-hero__actions .abv2-btn{
+    min-height:44px;
+  }
+}

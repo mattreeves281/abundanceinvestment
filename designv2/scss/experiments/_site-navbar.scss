@@ -1,0 +1,334 @@
+/* ========================================
+   COMPONENT: site-navbar
+   V2 nav override
+   ======================================== */
+
+.site-navbar {
+  background: var(--abv2-white) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  padding: var(--abv2-space-16) 0 var(--abv2-space-12);
+}
+
+.site-navbar::after {
+  display: none !important;
+}
+
+.site-navbar,
+.site-navbar .brand-navbar,
+.site-navbar .container,
+.site-navbar .navbar {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: var(--abv2-white) !important;
+}
+
+.site-navbar .container {
+  width: min(calc(100% - 34px), 1240px);
+  max-width: none;
+}
+
+.site-navbar .brand-navbar {
+  min-height: 68px;
+  margin: 0;
+}
+
+.site-navbar .brand-navbar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+}
+
+.site-navbar .logo-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.site-navbar .logo {
+  width: 124px;
+  height: auto;
+  max-width: none;
+  content: url("https://shareinmicrosite.blob.core.windows.net/abundance/30747a8f-bc62-45f9-9ae6-d8734ddc645b.png");
+}
+
+.site-navbar #navbar {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.site-navbar .navbar-is-collapsed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--abv2-space-24);
+}
+
+.site-navbar .navbar-main {
+  display: flex;
+  align-items: center;
+  gap: var(--abv2-space-32);
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.site-navbar .navbar-main > li {
+  float: none;
+}
+
+.site-navbar .brand-navbar-nav__parent-item-link {
+  padding: var(--abv2-space-12) 0 !important;
+  padding-right: 0 !important;
+  font-family: var(--abv2-ui);
+  font-size: .9rem;
+  line-height: 1;
+  color: var(--abv2-ink) !important;
+  background: none !important;
+}
+
+.site-navbar .brand-navbar-nav__parent-item-link:hover {
+  color: var(--abv2-pink) !important;
+}
+
+.site-navbar .brand-navbar-nav__parent-item-link svg,
+.site-navbar .brand-navbar-nav__parent-item-link i,
+.site-navbar .brand-navbar-nav__parent-item-link .fa,
+.site-navbar .brand-navbar-nav__parent-item-link .icon,
+.site-navbar .brand-navbar-nav__parent-item-link::after {
+  display: none !important;
+}
+
+.site-navbar .brand-navbar--account-partial {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.site-navbar .brand-navbar__auth-btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--abv2-space-20);
+}
+
+.site-navbar .brand-navbar__login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-family: var(--abv2-ui) !important;
+  font-size: .9rem !important;
+  line-height: 1 !important;
+  color: var(--abv2-pink) !important;
+  text-decoration: none !important;
+}
+
+.site-navbar .brand-navbar__login-btn:hover,
+.site-navbar .brand-navbar__login-btn:focus {
+  color: var(--abv2-ink) !important;
+  background: transparent !important;
+}
+
+.site-navbar .btn.btn-primary--bordered {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--abv2-space-24) !important;
+  border: 1.8px solid var(--abv2-pink) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: var(--abv2-ink) !important;
+  font-family: var(--abv2-ui) !important;
+  font-size: .84rem !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+}
+
+.site-navbar .btn.btn-primary--bordered:hover,
+.site-navbar .btn.btn-primary--bordered:focus {
+  background: var(--abv2-pink-a08) !important;
+  color: var(--abv2-ink) !important;
+  border-color: var(--abv2-pink) !important;
+}
+
+.site-navbar .btn.btn-primary--bordered span,
+.site-navbar .btn.btn-primary--bordered .btn__text {
+  line-height: 1 !important;
+}
+
+.site-navbar .dropdown-menu.brand-dropdown-menu {
+  width: 260px;
+  padding: var(--abv2-space-8) 0 !important;
+  margin-top: var(--abv2-space-12);
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: var(--abv2-white) !important;
+  box-shadow: 0 8px 20px var(--abv2-shadow-default) !important;
+  overflow: hidden;
+}
+
+.site-navbar .dropdown-menu.brand-dropdown-menu li {
+  border: 0 !important;
+  padding: 0;
+}
+
+.site-navbar .dropdown-menu.brand-dropdown-menu .brand-dropdown-menu__item,
+.site-navbar .dropdown-menu.brand-dropdown-menu a {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  min-height: auto;
+  padding: var(--abv2-space-8) var(--abv2-space-16) !important;
+  font-family: var(--abv2-ui) !important;
+  font-size: .85rem !important;
+  line-height: 1.25;
+  color: var(--abv2-ink) !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+.site-navbar .dropdown-menu.brand-dropdown-menu svg,
+.site-navbar .dropdown-menu.brand-dropdown-menu i,
+.site-navbar .dropdown-menu.brand-dropdown-menu .fa,
+.site-navbar .dropdown-menu.brand-dropdown-menu .icon,
+.site-navbar .dropdown-menu.brand-dropdown-menu .brand-dropdown-menu__item::after,
+.site-navbar .dropdown-menu.brand-dropdown-menu a::after {
+  display: none !important;
+}
+
+.site-navbar .dropdown-menu.brand-dropdown-menu a:hover,
+.site-navbar .dropdown-menu.brand-dropdown-menu a:focus {
+  background: var(--abv2-pink-a08) !important;
+}
+
+.site-navbar .brand-navbar__hamburger-toggle {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Tablet */
+
+@media (max-width: 979px) and (min-width: 760px) {
+  .site-navbar .container {
+    width: min(calc(100% - 24px), 1240px);
+  }
+
+  .site-navbar .brand-navbar-header {
+    min-height: 62px;
+  }
+
+  .site-navbar .logo {
+    width: 114px;
+  }
+
+  .site-navbar .brand-navbar__hamburger-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    min-width: 42px;
+  }
+
+  .site-navbar .brand-navbar--account-partial {
+    margin-top: var(--abv2-space-8);
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link,
+  .site-navbar .brand-navbar__login-btn {
+    font-size: .88rem !important;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 759px) {
+  .site-navbar {
+    padding: var(--abv2-space-12) 0 var(--abv2-space-8);
+  }
+
+  .site-navbar .container {
+    width: min(calc(100% - 20px), 1240px);
+  }
+
+  .site-navbar .brand-navbar,
+  .site-navbar .brand-navbar-header {
+    min-height: 54px;
+  }
+
+  .site-navbar .logo {
+    width: 98px;
+  }
+
+  .site-navbar #navbar {
+    background: var(--abv2-white) !important;
+  }
+
+  .site-navbar .brand-navbar__hamburger-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--abv2-mobile-menu-chip-h);
+    padding: 0 var(--abv2-mobile-menu-chip-pad-x);
+    border: 1.4px solid var(--abv2-border-accent);
+    border-radius: 999px;
+    background: var(--abv2-white) !important;
+    gap: var(--abv2-space-8);
+  }
+
+  .site-navbar .brand-navbar__hamburger-toggle span {
+    font-size: .82rem;
+  }
+
+  .site-navbar .brand-navbar__hamburger-toggle .icon-bar {
+    width: 12px;
+    height: 1.4px;
+    background: var(--abv2-pink);
+  }
+
+  .site-navbar .navbar-is-collapsed {
+    display: block;
+    margin-top: var(--abv2-space-12);
+    padding: var(--abv2-space-12) var(--abv2-space-16) var(--abv2-space-16);
+    border: 1px solid var(--abv2-pink-a16);
+    border-radius: 22px;
+    background: var(--abv2-white);
+  }
+
+  .site-navbar .navbar-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--abv2-space-2);
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link {
+    padding: var(--abv2-space-12) var(--abv2-space-12) !important;
+    border-radius: 14px;
+  }
+
+  .site-navbar .brand-navbar-nav__parent-item-link:hover {
+    background: var(--abv2-pink-a08);
+  }
+
+  .site-navbar .dropdown-menu.brand-dropdown-menu {
+    margin-top: var(--abv2-space-8);
+    padding: var(--abv2-space-8);
+    border-radius: 16px;
+    background: var(--abv2-grey-light);
+  }
+
+  .site-navbar .dropdown-menu.brand-dropdown-menu a {
+    padding: var(--abv2-space-12) var(--abv2-space-12) !important;
+    border-radius: 12px;
+  }
+}
