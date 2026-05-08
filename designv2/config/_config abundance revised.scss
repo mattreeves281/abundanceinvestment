@@ -8,9 +8,66 @@
 // This file preserves the existing platform primitive contract while
 // remapping values to the Abundance v2 design language.
 //
-// Existing $si-* variables are retained for current platform/app components.
-// New $abv2-* aliases are added only where v2 needs a reusable primitive
-// that is not represented by the current platform token family.
+// Token model:
+// - $abundance-* = brand colour primitives / source of truth
+// - $si-*        = existing platform semantic/component contract
+//
+// This file intentionally does not include v2-only component primitives
+// such as clip paths, masks, editorial rails or fluid clamp type aliases.
+// Those should be added later when the v2 component partials are compiled
+// into the Sass build.
+
+// ============================================================
+// UAT considerations
+// ============================================================
+//
+// 1. Body size:
+//    $si-body-md-size has been moved from 16px to 19px to approximate
+//    the v2 body scale. If account/app pages feel too large or loose,
+//    revert $si-body-md-size to rem-calc(16) and use body-lg / v2
+//    component styling for editorial-scale copy.
+//
+// 2. Buttons:
+//    Platform button colours have been moved from filled buttons to the
+//    v2 outline-first model. If transactional flows feel too weak,
+//    revert primary/secondary button surfaces to filled treatments.
+//
+// 3. Button structure:
+//    New $si-btn-* variables are included here so the button partial can
+//    inherit v2-compatible sizing, font, radius and border behaviour.
+//    These only work if the revised _buttons.scss consumes the variables.
+//
+// 4. Headings:
+//    Heading font has changed from the body sans to New Kansas.
+//    Heading sizes are reduced from the previous platform H1/H2 scale.
+//    Check wrapping on account/dashboard pages.
+//
+// 5. Heading line-height and letter-spacing:
+//    Per-heading line-height and heading letter-spacing variables are
+//    included for the revised typography partial. If the old typography
+//    partial is used unchanged, those variables may be ignored.
+//
+// 6. Labels/captions:
+//    Form labels and captions use Sohne Buch. Table headers use
+//    Sohne Kraftig. Check forms for hierarchy and legibility.
+//
+// 7. Cards:
+//    Card padding is reduced to 24px default to match the v2 card inner.
+//    If dense account cards become too tight/loose, review card-level
+//    usages rather than reverting the entire primitive set.
+//
+// 8. Surfaces:
+//    Secondary surface is neutral rather than pink. This is deliberate
+//    to avoid over-branding generic app UI.
+//
+// 9. Blue:
+//    $abundance-blue now maps to the v2 deep blue #151943, not the old
+//    functional blue #185f8c. State info colours still use picton-blue
+//    fallback values unless explicitly remapped later.
+//
+// 10. Sass-only:
+//    These are build-time Sass variables. They will not be available to
+//    CMS/injected CSS unless separately exported as CSS custom properties.
 
 // ============================================================
 // Color primitives
@@ -103,66 +160,69 @@ $boulder-950: #262626;
 // ============================================================
 //
 // The base Abundance colour variables now represent the active v2 palette.
-// Supporting/functional colours are retained where existing UI may depend on them.
+// These are the colour source of truth for both platform and v2 component SCSS.
 
 // Abundance neutral palette
 
-$abundance-grey: #505d5a; // Legacy/supporting compatibility token.
+$abundance-grey: #71716e; // was #505d5a
 
 $abundance-neutral-000: #ffffff;
 $abundance-neutral-100: #faf8f8;
 $abundance-neutral-200: #f1eeed;
 $abundance-neutral-300: #e9e4e3;
-$abundance-neutral-400: #e2e2e2;
-$abundance-neutral-500: #d8d3d2;
+$abundance-neutral-400: #e2e2e2; // was #e9e4e3
+$abundance-neutral-500: #d8d3d2; // was #e9e4e3; platform support step
 $abundance-neutral-600: #90908d;
 $abundance-neutral-700: #71716e;
-$abundance-neutral-800: #4d4a46;
-$abundance-neutral-850: #454543;
+$abundance-neutral-800: #4d4a46; // was #454543
+$abundance-neutral-850: #454543; // added platform support step
 $abundance-neutral-900: #282827;
 
 // Abundance primary
 
-$abundance-pink: #f27fae;
-$abundance-pink-dark: #c1658b;
-$abundance-pink-light: #f498be;
-$abundance-pink-surface: #f8d9e8;
+$abundance-pink: #f27fae; // was #c54483
+$abundance-pink-dark: #c1658b; // was #ab336e
+$abundance-pink-light: #f7d9e8; // was #e26da6
+$abundance-pink-surface: #f7d9e8; // was #f8d9e8
 
 // Abundance secondary
 
-$abundance-cyan: #00a4b6;
-$abundance-cyan-dark: #008391;
-$abundance-cyan-light: #4cbfcb;
-$abundance-cyan-surface: #cdedf1;
+$abundance-cyan: #00a4b6; // was #07828f
+$abundance-cyan-dark: #008391; // was #07828f
+$abundance-cyan-light: #4cbfcb; // was #00a4b6
+$abundance-cyan-surface: #cdebf0; // was #cdedf1
 
 // Abundance additional v2 colours
 
 $abundance-green: #25ab2d;
-$abundance-green-dark: #258d2c;
-$abundance-green-extra-dark: #227728;
-$abundance-green-light: #ccf0cf;
+$abundance-green-dark: #1f8f26; // was #258d2c
+$abundance-green-extra-dark: #176f1d; // was #227728
+$abundance-green-light: #d9f3db; // was #ccf0cf
 
-$abundance-yellow: #ffb72c;
-$abundance-yellow-dark: #cc9223;
-$abundance-yellow-light: #ffc556;
-$abundance-yellow-surface: #ffedcc;
+$abundance-yellow: #ffb72c; // was #e2961c
+$abundance-yellow-dark: #cc9223; // was #95610e
+$abundance-yellow-light: #ffeecd; // was #ffb72c
+$abundance-yellow-surface: #ffeecd; // was #ffedcc
 
-$abundance-indigo: #151943;
-$abundance-indigo-light: #443668;
-$abundance-indigo-surface: #eceaf1;
+// Deep v2 blue / indigo family.
+// Mirrors current v2 naming:
+// --abv2-blue: #151943;
+// --abv2-indigo: #443668;
+
+$abundance-blue: #151943; // was #185f8c
+$abundance-blue-surface: #eceaf1; // was #e4f0fa
+$abundance-indigo: #443668; // added v2 colour
+$abundance-indigo-surface: #eceaf1; // added support surface
 
 // Supporting / functional colours retained for platform compatibility.
 
 $abundance-red: #c10c21;
-$abundance-red-surface: #ffd1d6;
+$abundance-red-surface: #ffd9dd; // was #ffd1d6
 
 $abundance-orange: #e1873f;
 $abundance-orange-dark: #c25600;
 $abundance-orange-extra-dark: #964300;
-$abundance-orange-light: #fccaa2;
-
-$abundance-blue: #185f8c;
-$abundance-blue-surface: #e4f0fa;
+$abundance-orange-light: #fbd7bb; // was #fccaa2
 
 // Councils - legacy
 
@@ -173,10 +233,10 @@ $abundance-westminster: #0b2265;
 // Portfolio theming proxy variables.
 // Retained as functional product/theme colours.
 
-$abundance-general-portfolio: $abundance-orange-extra-dark;
-$abundance-general-portfolio-surface: $abundance-orange-light;
-$abundance-isa-portfolio: $abundance-green-extra-dark;
-$abundance-isa-portfolio-surface: $abundance-green-light;
+$abundance-general-portfolio: $abundance-pink-dark;
+$abundance-general-portfolio-surface: $abundance-pink-light;
+$abundance-isa-portfolio: $abundance-cyan-dark;
+$abundance-isa-portfolio-surface: $abundance-cyan-light;
 
 // ============================================================
 // State colors
@@ -198,7 +258,7 @@ $si-color-warning-surface: #fbf0ca;
 // Focus
 // ============================================================
 
-$si-color-focus: $abundance-pink-dark;
+$si-color-focus: $abundance-pink-dark; // old resolved value: #ab336e
 $si-color-focus-invert: $pure-white;
 
 $outline: 2px solid $si-color-focus;
@@ -210,21 +270,21 @@ $outline-offset: 2px;
 // ============================================================
 
 $si-color-text-primary: $abundance-neutral-900;
-$si-color-text-secondary: $abundance-neutral-800;
+$si-color-text-secondary: $abundance-neutral-800; // old resolved value: #454543
 $si-color-text-invert-primary: $pure-white;
-$si-color-text-invert-secondary: rgba($pure-white, 0.88);
-$si-color-text-accent: $abundance-pink;
+$si-color-text-invert-secondary: rgba($pure-white, 0.88); // was $pure-white
+$si-color-text-accent: $abundance-pink; // old resolved value: #c54483
 $si-color-text-risk-warning: $pure-white;
 
 // ============================================================
 // Border colors
 // ============================================================
 
-$si-color-border-primary: $abundance-neutral-300;
-$si-color-border-secondary: $abundance-neutral-400;
-$si-color-border-invert-primary: rgba($pure-white, 0.72);
-$si-color-border-invert-secondary: rgba($pure-white, 0.36);
-$si-color-border-interactive: $abundance-cyan;
+$si-color-border-primary: $abundance-neutral-300; // was $abundance-neutral-200
+$si-color-border-secondary: $abundance-neutral-400; // was $abundance-neutral-300
+$si-color-border-invert-primary: rgba($pure-white, 0.72); // was $pure-white
+$si-color-border-invert-secondary: rgba($pure-white, 0.36); // was $pure-white
+$si-color-border-interactive: $abundance-cyan; // was $abundance-neutral-600
 $si-color-border-invert-interactive: $pure-white;
 
 // ============================================================
@@ -235,52 +295,56 @@ $si-color-border-invert-interactive: $pure-white;
 // does not become over-branded. Brand surfaces remain available explicitly.
 
 $si-color-surface-primary: $pure-white;
-$si-color-surface-secondary: $abundance-neutral-100;
-$si-color-surface-tertiary: $abundance-pink-surface;
-$si-color-surface-invert-primary: $abundance-indigo;
-$si-color-surface-invert-secondary: $abundance-neutral-900;
+$si-color-surface-secondary: $abundance-neutral-100; // was $abundance-pink-surface
+$si-color-surface-tertiary: $abundance-pink-surface; // was $abundance-cyan-surface
+$si-color-surface-invert-primary: $abundance-blue; // was $si-color-text-primary
+$si-color-surface-invert-secondary: $abundance-neutral-900; // was $si-color-text-secondary
 $si-color-surface-accent: $si-color-text-accent;
 $si-color-surface-backdrop: rgba($si-color-text-primary, 0.6);
-$si-color-surface-risk-warning: $abundance-cyan-dark;
+$si-color-surface-risk-warning: $abundance-cyan-dark; // old resolved value: #07828f
 
 // ============================================================
 // Button colors
 // ============================================================
 //
-// Platform/account-safe mapping:
-// primary remains dark ink for transactional UI;
-// secondary introduces v2 teal;
-// pink remains available through accent/v2 component tokens.
+// V2 mapping:
+// Platform/account buttons are moved to the v2 outline-first model.
+//
+// primary   = pink outline / pink text / transparent background
+// secondary = teal outline / teal text / transparent background
+// tertiary  = neutral outline / neutral text / transparent background
+//
+// Previous platform model was filled primary/secondary buttons.
 
-$si-color-button-surface-primary: $abundance-neutral-900;
-$si-color-button-surface-primary-hover: $abundance-pink-dark;
-$si-color-button-surface-primary-active: $abundance-neutral-900;
-$si-color-button-border-primary: $si-color-button-surface-primary;
-$si-color-button-border-primary-hover: $si-color-button-surface-primary-hover;
-$si-color-button-border-primary-active: $si-color-button-surface-primary-active;
-$si-color-button-text-primary: $pure-white;
-$si-color-button-text-primary-hover: $pure-white;
-$si-color-button-text-primary-active: $pure-white;
+$si-color-button-surface-primary: transparent; // was $si-color-text-primary
+$si-color-button-surface-primary-hover: rgba($abundance-neutral-900, 0.06); // was $si-color-focus
+$si-color-button-surface-primary-active: rgba($abundance-neutral-900, 0.1); // was $si-color-button-surface-primary
+$si-color-button-border-primary: $abundance-pink; // was $si-color-button-surface-primary
+$si-color-button-border-primary-hover: $abundance-pink; // was $si-color-button-surface-primary-hover
+$si-color-button-border-primary-active: $abundance-pink-dark; // was $si-color-button-surface-primary
+$si-color-button-text-primary: $abundance-pink; // was $pure-white
+$si-color-button-text-primary-hover: $abundance-pink; // was $pure-white
+$si-color-button-text-primary-active: $abundance-pink-dark; // was $pure-white
 
-$si-color-button-surface-secondary: $abundance-cyan;
-$si-color-button-surface-secondary-hover: $abundance-cyan-dark;
-$si-color-button-surface-secondary-active: $abundance-cyan-dark;
-$si-color-button-border-secondary: $si-color-button-surface-secondary;
-$si-color-button-border-secondary-hover: $si-color-button-surface-secondary-hover;
-$si-color-button-border-secondary-active: $si-color-button-surface-secondary-active;
-$si-color-button-text-secondary: $pure-white;
-$si-color-button-text-secondary-hover: $pure-white;
-$si-color-button-text-secondary-active: $pure-white;
+$si-color-button-surface-secondary: transparent; // was $abundance-cyan-light
+$si-color-button-surface-secondary-hover: rgba($abundance-neutral-900, 0.06); // was $si-color-surface-risk-warning
+$si-color-button-surface-secondary-active: rgba($abundance-neutral-900, 0.1); // was $si-color-button-surface-secondary
+$si-color-button-border-secondary: $abundance-cyan; // was $si-color-button-surface-secondary
+$si-color-button-border-secondary-hover: $abundance-cyan; // was $si-color-button-surface-secondary-hover
+$si-color-button-border-secondary-active: $abundance-cyan-dark; // was $si-color-button-surface-secondary-hover
+$si-color-button-text-secondary: $abundance-cyan; // was $pure-white
+$si-color-button-text-secondary-hover: $abundance-cyan; // was $pure-white
+$si-color-button-text-secondary-active: $abundance-cyan-dark; // was $pure-white
 
 $si-color-button-surface-tertiary: transparent;
-$si-color-button-surface-tertiary-hover: rgba($abundance-cyan, 0.08);
-$si-color-button-surface-tertiary-active: rgba($abundance-cyan, 0.14);
-$si-color-button-border-tertiary: transparent;
-$si-color-button-border-tertiary-hover: transparent;
-$si-color-button-border-tertiary-active: transparent;
-$si-color-button-text-tertiary: $abundance-cyan-dark;
-$si-color-button-text-tertiary-hover: $abundance-cyan-dark;
-$si-color-button-text-tertiary-active: $abundance-cyan-dark;
+$si-color-button-surface-tertiary-hover: rgba($abundance-neutral-900, 0.06); // was $si-color-border-secondary
+$si-color-button-surface-tertiary-active: rgba($abundance-neutral-900, 0.1); // was $si-color-border-secondary
+$si-color-button-border-tertiary: $abundance-neutral-850; // was transparent
+$si-color-button-border-tertiary-hover: $abundance-neutral-900; // was transparent
+$si-color-button-border-tertiary-active: $abundance-neutral-900; // was $si-color-text-primary
+$si-color-button-text-tertiary: $abundance-neutral-850; // was $si-color-text-secondary
+$si-color-button-text-tertiary-hover: $abundance-neutral-900; // was $si-color-text-secondary
+$si-color-button-text-tertiary-active: $abundance-neutral-900; // was $si-color-text-secondary
 
 // ============================================================
 // Icon colors
@@ -304,14 +368,13 @@ $si-border-radius-xl: 16px;
 $si-border-radius-2xl: 20px;
 $si-border-radius-3xl: 24px;
 $si-border-radius-4xl: 32px;
-$si-border-radius-round: 999px;
+$si-border-radius-round: 999px; // was 50px
 
 // ============================================================
 // Spacing (desktop)
 // ============================================================
 //
 // Existing platform spacer scale retained.
-// It already maps well to the v2 rhythm.
 
 $spacer-0: 0;
 $spacer-5xs: 0.125rem; // 2px
@@ -327,8 +390,6 @@ $spacer-2xl: 6rem; // 96px
 $spacer-4xl: 8rem; // 128px
 $spacer-6xl: 16rem; // 256px
 $spacer-8xl: 16rem;
-
-// Base unit used for spacing.
 
 $cap: 0.9ex;
 $spacer-desktop-mult: 2;
@@ -352,32 +413,13 @@ $spacer-mobile-lg: 2rem; // 32px
 $spacer-mobile-xl: 2.5rem; // 40px
 $spacer-mobile-2xl: 3rem; // 48px
 $spacer-mobile-4xl: 4rem; // 64px
-$spacer-mobile-6xl: 8rem; // 128px;
-
-// ============================================================
-// Abundance v2 spacing aliases
-// ============================================================
-//
-// New v2 components can use these aliases while still consuming the
-// platform spacing scale.
-
-$abv2-space-4: $spacer-4xs;
-$abv2-space-8: $spacer-3xs;
-$abv2-space-16: $spacer-2xs;
-$abv2-space-24: $spacer-xs;
-$abv2-space-32: $spacer-sm;
-$abv2-space-48: $spacer-md;
-$abv2-space-64: $spacer-lg;
-$abv2-space-80: $spacer-xl;
-$abv2-space-96: $spacer-2xl;
+$spacer-mobile-6xl: 8rem; // 128px
 
 // ============================================================
 // Breakpoints
 // ============================================================
 //
 // Platform breakpoint values retained.
-// These may be coupled to grid, helpers, nav, account layouts,
-// forms, tables and Bootstrap-like behaviour.
 
 $screen-sm: 768px;
 $screen-md: 992px;
@@ -385,34 +427,6 @@ $screen-lg: 1200px;
 $screen-xl: 1600px;
 $mobile-vw: 768px;
 $nav-toggle: 1200px;
-
-// ============================================================
-// Abundance v2 responsive aliases
-// ============================================================
-//
-// Generic v2 components should prefer these aliases over hardcoded
-// media-query values. Highly visual homepage/landing components may
-// still define component-local visual breakpoints if required.
-
-$abv2-bp-mobile-max: $screen-sm - 1px;
-$abv2-bp-tablet-min: $screen-sm;
-$abv2-bp-tablet-max: $screen-md - 1px;
-$abv2-bp-condensed-min: $screen-md;
-$abv2-bp-condensed-max: $screen-lg - 1px;
-$abv2-bp-desktop-min: $screen-lg;
-$abv2-bp-wide-min: $screen-xl;
-
-// ============================================================
-// Abundance v2 layout aliases
-// ============================================================
-//
-// Added for v2 component/editorial layouts.
-// These do not affect platform layout unless explicitly referenced.
-
-$abv2-wrap: 1180px;
-$abv2-wrap-narrow: 980px;
-$abv2-editorial-rail: 760px;
-$abv2-editorial-copy: 58ch;
 
 // ============================================================
 // Font families
@@ -437,15 +451,9 @@ $si-font-fallback: (
 // V2 font roles.
 // Actual @font-face loading remains outside this primitives file.
 
-$si-font-primary: ("Sohne Buch", $si-font-fallback);
-$si-font-secondary: ("New Kansas", Georgia, serif);
-$si-font-ui: ("Sohne Kraftig", $si-font-fallback);
-
-// Abundance v2 aliases for component SCSS.
-
-$abv2-font-sans: $si-font-primary;
-$abv2-font-serif: $si-font-secondary;
-$abv2-font-ui: $si-font-ui;
+$si-font-primary: ("Sohne Buch", $si-font-fallback); // was ("Inter Display", $si-font-fallback)
+$si-font-secondary: ("New Kansas", Georgia, serif); // was ("Euclid Circular B", "Inter Display", $si-font-fallback)
+$si-font-tertiary: ("Sohne Kraftig", $si-font-fallback); // added v2 UI font role
 
 // ============================================================
 // Font weights
@@ -455,21 +463,16 @@ $abv2-font-ui: $si-font-ui;
 
 $si-font-weight-light: 400;
 $si-font-weight-regular: 400;
-$si-font-weight-medium: 600;
-$si-font-weight-semibold: 600;
-$si-font-weight-bold: 600;
+$si-font-weight-medium: 600; // was 700
+$si-font-weight-semibold: 600; // was 700
+$si-font-weight-bold: 600; // was 700
 
 // ============================================================
 // Body e.g. paragraphs
 // ============================================================
 //
-// The platform uses fixed desktop/mobile size tokens.
-// These approximate the v2 body scale while preserving the existing contract.
-//
-// V2 source:
-// .abv2-body desktop: clamp(1.05rem, 1.18vw, 1.18rem), line-height 1.62
-// .abv2-body tablet: 1.02rem, line-height 1.58
-// .abv2-body mobile: .98rem, line-height 1.5
+// Platform fixed desktop/mobile tokens approximate the v2 body scale.
+// No clamp/vw sizing is used.
 
 $si-body-xs-size: rem-calc(12);
 $si-body-xs-size-mobile: rem-calc(12);
@@ -477,7 +480,7 @@ $si-body-xs-size-mobile: rem-calc(12);
 $si-body-sm-size: rem-calc(14);
 $si-body-sm-size-mobile: rem-calc(14);
 
-$si-body-md-size: rem-calc(19);
+$si-body-md-size: rem-calc(19); // was rem-calc(16)
 $si-body-md-size-mobile: rem-calc(16);
 
 $si-body-lg-size: rem-calc(20);
@@ -489,61 +492,53 @@ $si-body-xl-size-mobile: rem-calc(20);
 $si-body-2xl-size: rem-calc(32);
 $si-body-2xl-size-mobile: rem-calc(24);
 
-$si-body-line-height: 1.62;
+$si-body-line-height: 1.62; // was 1.5
 $si-body-font-weight: $si-font-weight-regular;
 $si-body-text-color: $si-color-text-secondary;
 $si-body-text-font: $si-font-primary;
 $si-body-text-letter-spacing: normal;
-
-// True v2 fluid body tokens for new v2 component SCSS.
-
-$abv2-body-size: clamp(1.05rem, 1.18vw, 1.18rem);
-$abv2-body-size-tablet: 1.02rem;
-$abv2-body-size-mobile: 0.98rem;
-$abv2-body-line-height: 1.62;
-$abv2-body-line-height-tablet: 1.58;
-$abv2-body-line-height-mobile: 1.5;
 
 // ============================================================
 // Headings
 // ============================================================
 //
 // Platform heading sizes use desktop/mobile token pairs.
-// These approximate the v2 clamp() system without forcing clamp()
-// into existing $si-heading-* tokens.
+// These approximate the v2 type system without using clamp/vw.
 //
-// V2 source:
-// .abv2-h1: clamp(1.95rem, 3.05vw, 3.2rem), mobile 2.24rem
-// .abv2-h2: clamp(1.78rem, 2.8vw, 2.9rem), mobile 2rem
-//
-// Note:
-// The former .abv2-h3 role is treated as a compact component heading,
-// not as the platform/global h3. The global h3 remains a conventional
-// subsection heading for existing app/account pages.
+// The former .abv2-h3 visual role should map to the compact heading
+// variables below, not to the platform/global h3.
 
-$si-heading-1-size: rem-calc(51);
+$si-heading-1-size: rem-calc(51); // was rem-calc(64)
 $si-heading-1-size-mobile: rem-calc(36);
 
-$si-heading-2-size: rem-calc(46);
-$si-heading-2-size-mobile: rem-calc(32);
+$si-heading-2-size: rem-calc(46); // was rem-calc(48)
+$si-heading-2-size-mobile: rem-calc(32); // was rem-calc(28)
 
-$si-heading-3-size: rem-calc(32);
+$si-heading-3-size: rem-calc(32); // was rem-calc(36)
 $si-heading-3-size-mobile: rem-calc(24);
 
-$si-heading-4-size: rem-calc(24);
+$si-heading-4-size: rem-calc(24); // was rem-calc(28)
 $si-heading-4-size-mobile: rem-calc(20);
 
-$si-heading-5-size: rem-calc(20);
+$si-heading-5-size: rem-calc(20); // was rem-calc(24)
 $si-heading-5-size-mobile: rem-calc(18);
 
 $si-heading-6-size: rem-calc(18);
 $si-heading-6-size-mobile: rem-calc(16);
 
-$si-heading-line-height: 0.98;
-$si-heading-font-weight: $si-font-weight-semibold;
+$si-heading-line-height: 1.08; // was 1.25
+$si-heading-font-weight: $si-font-weight-semibold; // old resolved value: 700
 $si-heading-text-transform: none;
 $si-heading-color: $si-color-text-primary;
-$si-heading-text-font: $si-font-secondary;
+$si-heading-text-font: $si-font-secondary; // was $si-font-primary
+$si-heading-letter-spacing: -0.03em; // added for v2 heading feel
+
+$si-heading-1-line-height: 0.95; // added for v2 h1
+$si-heading-2-line-height: 0.98; // added for v2 h2
+$si-heading-3-line-height: 1.08; // added
+$si-heading-4-line-height: 1.08; // added
+$si-heading-5-line-height: 1.08; // added
+$si-heading-6-line-height: 1.08; // added
 
 $si-heading-1-font-weight: $si-heading-font-weight;
 $si-heading-2-font-weight: $si-heading-font-weight;
@@ -573,36 +568,32 @@ $si-heading-4-font: $si-heading-text-font;
 $si-heading-5-font: $si-heading-text-font;
 $si-heading-6-font: $si-heading-text-font;
 
-// True v2 heading tokens for new v2 component SCSS.
-// These preserve the fluid behaviour of the v2 homepage type system.
+$si-heading-1-letter-spacing: $si-heading-letter-spacing; // added
+$si-heading-2-letter-spacing: $si-heading-letter-spacing; // added
+$si-heading-3-letter-spacing: $si-heading-letter-spacing; // added
+$si-heading-4-letter-spacing: $si-heading-letter-spacing; // added
+$si-heading-5-letter-spacing: $si-heading-letter-spacing; // added
+$si-heading-6-letter-spacing: $si-heading-letter-spacing; // added
 
-$abv2-heading-1-size: clamp(1.95rem, 3.05vw, 3.2rem);
-$abv2-heading-1-size-tablet: clamp(2.15rem, 4vw, 2.7rem);
-$abv2-heading-1-size-mobile: 2.24rem;
-$abv2-heading-1-line-height: 0.95;
-$abv2-heading-1-line-height-tablet: 0.93;
-$abv2-heading-1-line-height-mobile: 0.94;
+// Compact heading role.
+// This replaces the old visual role of .abv2-h3.
+// It is not intended to replace the semantic/document h3.
 
-$abv2-heading-2-size: clamp(1.78rem, 2.8vw, 2.9rem);
-$abv2-heading-2-size-tablet: clamp(2rem, 4.2vw, 2.45rem);
-$abv2-heading-2-size-mobile: 2rem;
-$abv2-heading-2-line-height: 0.98;
-$abv2-heading-2-line-height-tablet: 0.95;
-$abv2-heading-2-line-height-mobile: 0.96;
-
-// Compact v2 component heading.
-// This is the role previously expressed as .abv2-h3.
-// It is visually closer to a card/component title than a document h3.
-
-$abv2-heading-compact-size: clamp(1.14rem, 1.22vw, 1.28rem);
-$abv2-heading-compact-line-height: 1.08;
+$si-heading-compact-size: rem-calc(20); // added
+$si-heading-compact-size-mobile: rem-calc(18); // added
+$si-heading-compact-line-height: 1.08; // added
+$si-heading-compact-font-weight: $si-heading-font-weight; // added
+$si-heading-compact-text-transform: $si-heading-text-transform; // added
+$si-heading-compact-color: $si-heading-color; // added
+$si-heading-compact-font: $si-heading-text-font; // added
+$si-heading-compact-letter-spacing: $si-heading-letter-spacing; // added
 
 // ============================================================
 // Labels
 // ============================================================
 //
 // Typically form labels.
-// Labels use the v2 UI font role.
+// Default form labels stay in the body/sans role rather than the UI/Kraftig role.
 
 $label-xs-size: rem-calc(12);
 $label-xs-size-mobile: rem-calc(12);
@@ -613,31 +604,29 @@ $label-sm-size-mobile: rem-calc(14);
 $label-md-size: rem-calc(16);
 $label-md-size-mobile: rem-calc(16);
 
-$label-lg-size: rem-calc(18);
+$label-lg-size: rem-calc(18); // was rem-calc(20)
 $label-lg-size-mobile: rem-calc(18);
 
-$label-xl-size: rem-calc(20);
+$label-xl-size: rem-calc(20); // was rem-calc(24)
 $label-xl-size-mobile: rem-calc(20);
 
-$label-2xl-size: rem-calc(24);
-$label-2xl-size-mobile: rem-calc(22);
+$label-2xl-size: rem-calc(24); // was rem-calc(32)
+$label-2xl-size-mobile: rem-calc(22); // was rem-calc(24)
 
-$label-3xl-size: rem-calc(32);
+$label-3xl-size: rem-calc(32); // was rem-calc(40)
 $label-3xl-size-mobile: rem-calc(28);
 
-$label-4xl-size: rem-calc(40);
+$label-4xl-size: rem-calc(40); // was rem-calc(48)
 $label-4xl-size-mobile: rem-calc(32);
 
-$si-label-line-height: 1.1;
-$si-label-font-weight: $si-font-weight-semibold;
-$si-label-text-color: $si-color-text-primary;
-$si-label-text-font: $si-font-ui;
+$si-label-line-height: 1.2; // was 1
+$si-label-font-weight: $si-font-weight-regular;
+$si-label-text-color: $si-color-text-primary; // was $si-color-text-secondary
+$si-label-text-font: $si-font-primary;
 
 // ============================================================
 // Table headers
 // ============================================================
-//
-// Table headers should feel like compact UI furniture, not page headings.
 
 $si-table-header-sm-size: rem-calc(14);
 $si-table-header-sm-size-mobile: rem-calc(14);
@@ -648,74 +637,113 @@ $si-table-header-md-size-mobile: rem-calc(16);
 $si-table-header-lg-size: rem-calc(18);
 $si-table-header-lg-size-mobile: rem-calc(18);
 
-$si-table-header-line-height: 1.15;
-$si-table-header-font-weight: $si-font-weight-semibold;
+$si-table-header-line-height: 1.15; // was 1.125
+$si-table-header-font-weight: $si-font-weight-semibold; // old resolved value: 700
 $si-table-header-text-color: $si-color-text-primary;
-$si-table-header-text-font: $si-font-ui;
+$si-table-header-text-font: $si-font-tertiary; // was $si-font-primary
 
 // ============================================================
 // Captions
 // ============================================================
-//
-// Captions use the UI font but avoid forced uppercase.
 
-$si-caption-sm-size: rem-calc(12);
-$si-caption-sm-size-mobile: rem-calc(12);
+$si-caption-sm-size: rem-calc(12); // was rem-calc(14)
+$si-caption-sm-size-mobile: rem-calc(12); // was rem-calc(14)
 
-$si-caption-md-size: rem-calc(14);
-$si-caption-md-size-mobile: rem-calc(14);
+$si-caption-md-size: rem-calc(14); // was rem-calc(16)
+$si-caption-md-size-mobile: rem-calc(14); // was rem-calc(16)
 
-$si-caption-lg-size: rem-calc(16);
-$si-caption-lg-size-mobile: rem-calc(16);
+$si-caption-lg-size: rem-calc(16); // was rem-calc(20)
+$si-caption-lg-size-mobile: rem-calc(16); // was rem-calc(18)
 
-$si-caption-line-height: 1.2;
-$si-caption-font-weight: $si-font-weight-semibold;
+$si-caption-line-height: 1.35; // was 1
+$si-caption-font-weight: $si-font-weight-regular;
 $si-caption-text-color: $si-color-text-secondary;
-$si-caption-text-font: $si-font-ui;
-$si-caption-text-transform: none;
+$si-caption-text-font: $si-font-primary;
+$si-caption-text-transform: none; // was uppercase
 $si-caption-letter-spacing: normal;
+
+// ============================================================
+// Button structure
+// ============================================================
+//
+// Structural button variables consumed by the revised _buttons.scss partial.
+// Colours remain in the Button colors section above.
+
+$si-btn-text-transform: none; // added
+$si-btn-border-radius: $si-border-radius-round; // added
+$si-btn-border-width: 2px; // added; v2 uses 1.8px, platform-safe value is 2px
+$si-btn-border-style: solid; // added
+$si-btn-font-family: $si-font-tertiary; // added
+$si-btn-font-weight: $si-font-weight-semibold; // added
+$si-btn-line-height: 1; // added
+$si-btn-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; // added
+
+$si-btn-sm-padding-x: rem-calc(16); // added
+$si-btn-sm-padding-y: rem-calc(8); // added
+$si-btn-sm-padding: $si-btn-sm-padding-y $si-btn-sm-padding-x; // added
+$si-btn-sm-font-size: rem-calc(13); // added
+$si-btn-sm-min-height: rem-calc(40); // added
+
+$si-btn-md-padding-x: rem-calc(20); // added
+$si-btn-md-padding-y: rem-calc(12); // added
+$si-btn-md-padding: $si-btn-md-padding-y $si-btn-md-padding-x; // added
+$si-btn-md-font-size: rem-calc(13.5); // added
+$si-btn-md-min-height: rem-calc(44); // added
+
+$si-btn-lg-padding-x: rem-calc(24); // added
+$si-btn-lg-padding-y: rem-calc(14); // added
+$si-btn-lg-padding: $si-btn-lg-padding-y $si-btn-lg-padding-x; // added
+$si-btn-lg-font-size: rem-calc(15); // added
+$si-btn-lg-min-height: rem-calc(48); // added
+
+$si-btn-box-shadow: none; // added
+$si-btn-primary-box-shadow: $si-btn-box-shadow; // added
+$si-btn-primary-box-shadow-hover: $si-btn-box-shadow; // added
+$si-btn-primary-box-shadow-active: $si-btn-box-shadow; // added
+$si-btn-secondary-box-shadow: $si-btn-box-shadow; // added
+$si-btn-secondary-box-shadow-hover: $si-btn-box-shadow; // added
+$si-btn-secondary-box-shadow-active: $si-btn-box-shadow; // added
+$si-btn-tertiary-box-shadow: none; // added
+$si-btn-tertiary-box-shadow-hover: $si-btn-box-shadow; // added
+$si-btn-tertiary-box-shadow-active: none; // added
+$si-btn-invert-box-shadow: none; // added
+$si-btn-invert-box-shadow-hover: none; // added
+$si-btn-invert-box-shadow-active: none; // added
+
+$si-icon-btn-md-padding: rem-calc(10); // added
+$si-icon-btn-md-icon-size: rem-calc(22); // added
+
+$si-btn-with-icon-md-gap: $spacer-3xs; // added
+$si-btn-with-icon-md-icon-size: rem-calc(20); // added
+$si-btn-group-gap: $spacer-2xs; // added
 
 // ============================================================
 // Card
 // ============================================================
-//
-// Padding scale retained.
-// Card defaults become softer and closer to v2.
-// Secondary card is neutral; tertiary can carry a brand surface.
 
 $si-card-padding-2xs: $spacer-2xs;
 $si-card-padding-xs: $spacer-xs;
 $si-card-padding-sm: $spacer-sm;
 $si-card-padding-md: $spacer-md;
 $si-card-padding-lg: $spacer-lg;
-$si-card-padding-default: $si-card-padding-md;
+$si-card-padding-default: $si-card-padding-xs; // was $si-card-padding-md
 $si-card-mobile-padding: $spacer-xs;
 
 $si-card-primary-bg-color: $si-color-surface-primary;
-$si-card-secondary-bg-color: $abundance-neutral-100;
-$si-card-tertiary-bg-color: $abundance-pink-surface;
+$si-card-secondary-bg-color: $abundance-neutral-100; // was $si-color-surface-secondary when that resolved to pink
+$si-card-tertiary-bg-color: $abundance-pink-surface; // was $si-color-surface-tertiary when that resolved to cyan
 
-$si-card-primary-border-radius: $si-border-radius-2xl;
-$si-card-secondary-border-radius: $si-border-radius-2xl;
-$si-card-tertiary-border-radius: $si-border-radius-xl;
+$si-card-primary-border-radius: $si-border-radius-3xl; // was $si-border-radius-xl
+$si-card-secondary-border-radius: $si-border-radius-3xl; // was $si-border-radius-xl
+$si-card-tertiary-border-radius: $si-border-radius-2xl; // was $si-border-radius-md
 
-$si-card-primary-border: 1px solid $si-color-border-primary;
+$si-card-primary-border: 1.5px solid rgba($abundance-neutral-900, 0.12); // was 1px solid $si-color-border-primary
 $si-card-secondary-border: none;
 $si-card-tertiary-border: none;
 
-$si-card-primary-shadow: 0 10px 28px rgba($abundance-neutral-900, 0.05);
+$si-card-primary-shadow: 0 10px 30px rgba($abundance-neutral-900, 0.05); // was 0px 4px 32px 0px rgba(#241f33, 4%)
 $si-card-secondary-shadow: none;
 $si-card-tertiary-shadow: none;
-
-// ============================================================
-// Abundance v2 shape aliases
-// ============================================================
-//
-// Added for new component SCSS.
-
-$abv2-radius-card: $si-border-radius-2xl;
-$abv2-radius-panel: $si-border-radius-3xl;
-$abv2-radius-pill: $si-border-radius-round;
 
 // ============================================================
 // Links
