@@ -305,7 +305,8 @@ body.abv2-modal-open {
 
 /* =========================================================
    ABUNDANCE v2 — TYPE SYSTEM
-   Source of truth: homepage base responsive
+   Fixed-token test version
+   Purpose: approximate v2 using platform-style fixed desktop/tablet/mobile values
    ========================================================= */
 /* Core headings */
 .abv2-h1,
@@ -317,55 +318,70 @@ body.abv2-modal-open {
   letter-spacing: -0.03em;
 }
 
+/* Desktop / default */
 .abv2-h1 {
-  font-size: clamp(1.95rem, 3.05vw, 3.2rem);
+  font-size: 3.1875rem; /* 51px */
   line-height: 0.95;
 }
 
 .abv2-h2 {
-  font-size: clamp(1.78rem, 2.8vw, 2.9rem);
+  font-size: 2.875rem; /* 46px */
   line-height: 0.98;
 }
 
+/*
+  Compact component heading.
+  This matches the proposed platform compact-heading role,
+  not the larger platform/global h3.
+*/
 .abv2-h3 {
-  font-size: clamp(1.14rem, 1.22vw, 1.28rem);
+  font-size: 1.25rem; /* 20px */
   line-height: 1.08;
 }
 
 .abv2-body {
   margin: 0;
   font-family: var(--abv2-sans);
-  font-size: clamp(1.05rem, 1.18vw, 1.18rem);
+  font-size: 1.1875rem; /* 19px */
   line-height: 1.62;
   color: var(--abv2-text);
 }
 
+/* Tablet */
 @media (max-width: 979px) and (min-width: 760px) {
   .abv2-h1 {
-    font-size: clamp(2.15rem, 4vw, 2.7rem);
+    font-size: 2.7rem; /* approx 43px */
     line-height: 0.93;
   }
   .abv2-h2 {
-    font-size: clamp(2rem, 4.2vw, 2.45rem);
+    font-size: 2.45rem; /* approx 39px */
     line-height: 0.95;
   }
+  .abv2-h3 {
+    font-size: 1.2rem; /* approx 19px */
+    line-height: 1.08;
+  }
   .abv2-body {
-    font-size: 1.02rem;
+    font-size: 1.02rem; /* approx 16.3px */
     line-height: 1.58;
   }
 }
 /* Mobile */
 @media (max-width: 759px) {
   .abv2-h1 {
-    font-size: 2.24rem;
+    font-size: 2.24rem; /* approx 36px */
     line-height: 0.94;
   }
   .abv2-h2 {
-    font-size: 2rem;
+    font-size: 2rem; /* 32px */
     line-height: 0.96;
   }
+  .abv2-h3 {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.08;
+  }
   .abv2-body {
-    font-size: 0.98rem;
+    font-size: 0.98rem; /* approx 15.7px */
     line-height: 1.5;
   }
 }
@@ -6556,6 +6572,65 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
     margin-bottom: var(--abv2-space-20);
   }
 }
+/* =========================================================
+   TEMP AUDIT: editorial divider shape comparison
+   Full-bleed SVG, labels in rail
+   ========================================================= */
+.abv2-ed-shape-audit {
+  width: 100%;
+  margin: 80px 0;
+}
+
+.abv2-ed-shape-audit__item + .abv2-ed-shape-audit__item {
+  margin-top: 56px;
+}
+
+.abv2-ed-shape-audit__rail {
+  width: min(var(--abv2-wrap, 1180px), 100% - 48px);
+  margin: 0 auto 12px;
+}
+
+.abv2-ed-shape-audit__label {
+  margin: 0;
+  font-family: var(--abv2-ui, inherit);
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--abv2-text, #4d4a46);
+  opacity: 0.72;
+}
+
+.abv2-ed-divider-svg {
+  width: 100vw;
+  height: 138px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  pointer-events: none;
+}
+
+.abv2-ed-divider-svg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@media (max-width: 979px) {
+  .abv2-ed-divider-svg {
+    height: 112px;
+  }
+}
+@media (max-width: 759px) {
+  .abv2-ed-shape-audit {
+    margin: 56px 0;
+  }
+  .abv2-ed-shape-audit__rail {
+    width: min(var(--abv2-mobile-copy-rail, 640px), 100% - 32px);
+    margin-bottom: 10px;
+  }
+  .abv2-ed-divider-svg {
+    height: 70px;
+  }
+}
 /* ========================================
    COMPONENT: abv2-ed-copy
    Editorial rail + long-form copy primitives
@@ -9830,4 +9905,1034 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
   .abv2-modal__table td {
     font-size: 0.95rem;
   }
+}
+/* =========================================================
+   TEMP TEST: hide selected homepage decorative blobs
+   Remove after visual review
+   ========================================================= */
+/* ---------------------------------------------------------
+   abv2-features
+   Hide large yellow decorative dot only.
+   Does NOT affect the 3-up feature cards.
+   --------------------------------------------------------- */
+.abv2-features__inner::after {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   abv2-cta-band
+   Hide RHS decorative dot in aside.
+   --------------------------------------------------------- */
+.abv2-cta-band__aside::before {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   abv2-decision
+   Hide yellow pastel background detail behind primary path.
+   --------------------------------------------------------- */
+.abv2-decision__path--primary::before {
+  display: none !important;
+}
+
+/* ========================================
+   COMPONENT: abv2-buy
+   Buy process flow shell
+   Screen 1: questionnaire intro
+
+   Depends on:
+   - ABV2 global tokens
+   - .abv2-h1 / .abv2-body
+   - .abv2-editorial .abv2-btn
+   - .abv2-editorial-related
+   ======================================== */
+.abv2-buy {
+  --abv2-buy-bg:var(--abv2-grey-very-light);
+  --abv2-buy-card-bg:var(--abv2-white);
+  --abv2-buy-ink:var(--abv2-ink);
+  --abv2-buy-text:var(--abv2-ink);
+  --abv2-buy-muted:var(--abv2-ink);
+  --abv2-buy-line:var(--abv2-border-default);
+  --abv2-buy-line-soft:var(--abv2-border-subtle);
+  --abv2-buy-wrap:min(calc(100% - 40px), var(--abv2-editorial-rail));
+  min-height: 100vh;
+  background: var(--abv2-buy-bg);
+  color: var(--abv2-buy-text);
+  font-family: var(--abv2-sans);
+}
+
+/* ----------------------------------------
+   Top bar
+   ---------------------------------------- */
+.abv2-buy-topbar {
+  background: var(--abv2-white);
+  border-bottom: 1px solid var(--abv2-border-subtle);
+}
+
+.abv2-buy-topbar__inner {
+  width: min(100% - var(--abv2-space-32), 1440px);
+  min-height: 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--abv2-space-24);
+}
+
+.abv2-buy-logo {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  max-width: 124px;
+  text-decoration: none;
+}
+
+.abv2-buy-logo img {
+  display: block;
+  width: 100%;
+  max-width: 124px;
+  height: auto;
+}
+
+.abv2-buy-cancel {
+  color: var(--abv2-buy-muted);
+  font-family: var(--abv2-ui);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.abv2-buy-cancel:hover,
+.abv2-buy-cancel:focus-visible {
+  color: var(--abv2-buy-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: var(--abv2-space-4);
+}
+
+/* ----------------------------------------
+   Progress
+   ---------------------------------------- */
+.abv2-buy-progress {
+  background: var(--abv2-white);
+  border-bottom: 1px solid var(--abv2-border-subtle);
+}
+
+.abv2-buy-progress__inner {
+  width: min(100% - 40px, var(--abv2-editorial-rail));
+  min-height: 56px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: max-content minmax(120px, 1fr) max-content;
+  align-items: center;
+  gap: var(--abv2-space-24);
+}
+
+.abv2-buy-progress__label,
+.abv2-buy-progress__count {
+  color: var(--abv2-buy-muted);
+  font-family: var(--abv2-ui);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.abv2-buy-progress__track {
+  position: relative;
+  display: block;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--abv2-ink-a10);
+}
+
+.abv2-buy-progress__bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--abv2-buy-progress, 0%);
+  height: 100%;
+  border-radius: 999px;
+  background: var(--abv2-pink);
+}
+
+/* ----------------------------------------
+   Main layout
+   ---------------------------------------- */
+.abv2-buy__wrap {
+  width: var(--abv2-buy-wrap);
+  margin: 0 auto;
+  padding: var(--abv2-space-56) 0 var(--abv2-space-84);
+}
+
+.abv2-buy-card {
+  background: var(--abv2-buy-card-bg);
+  border: 1px solid var(--abv2-buy-line);
+  border-radius: 28px;
+  box-shadow: 0 var(--abv2-space-24) var(--abv2-space-72) var(--abv2-shadow-card);
+  overflow: hidden;
+}
+
+.abv2-buy-card__head {
+  padding: var(--abv2-space-40) var(--abv2-space-56) var(--abv2-space-28);
+}
+
+.abv2-buy-card__body {
+  padding: 0 var(--abv2-space-56) var(--abv2-space-32);
+}
+
+.abv2-buy-card__footer {
+  margin: 0 var(--abv2-space-56);
+  padding: var(--abv2-space-28) 0 var(--abv2-space-32);
+  border-top: 1px solid var(--abv2-buy-line-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--abv2-space-20);
+}
+
+/* ----------------------------------------
+   Type alignment
+   Uses shared .abv2-h1 and .abv2-body rules.
+   ---------------------------------------- */
+.abv2-buy-kicker {
+  margin: 0 0 var(--abv2-space-12);
+  color: var(--abv2-teal);
+  font-family: var(--abv2-ui);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.abv2-buy-title {
+  max-width: 620px;
+  color: var(--abv2-ink);
+}
+
+.abv2-buy-lede {
+  max-width: 620px;
+  margin-top: var(--abv2-space-16);
+  color: var(--abv2-ink);
+}
+
+.abv2-buy-lede p {
+  margin: 0;
+}
+
+.abv2-buy-lede p + p {
+  margin-top: var(--abv2-space-24);
+}
+
+/* ----------------------------------------
+   Buy reading cards
+   Extends existing .abv2-editorial-related pattern.
+   ---------------------------------------- */
+.abv2-editorial-related--buy {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--abv2-space-16);
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__card {
+  min-height: 180px;
+  padding: var(--abv2-space-24);
+  border-color: var(--abv2-border-subtle);
+  background: var(--abv2-white);
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__card:hover,
+.abv2-editorial-related--buy .abv2-editorial-related__card:focus-visible {
+  border-color: var(--abv2-teal-a38);
+  box-shadow: 0 10px 24px var(--abv2-shadow-default);
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__type {
+  color: var(--abv2-teal);
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__card:nth-child(2) .abv2-editorial-related__type {
+  color: var(--abv2-pink);
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__title {
+  color: var(--abv2-ink);
+  font-family: var(--abv2-serif);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-size: 1.22rem;
+  line-height: 1.08;
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__desc {
+  color: var(--abv2-text);
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__cta {
+  color: var(--abv2-pink);
+}
+
+/* ----------------------------------------
+   Footer buttons
+   Uses existing .abv2-editorial .abv2-btn system.
+   ---------------------------------------- */
+.abv2-buy-card__footer .abv2-btn {
+  margin: 0;
+}
+
+.abv2-buy-card__footer .abv2-btn span {
+  margin-left: var(--abv2-space-8);
+}
+
+/* ----------------------------------------
+   Focus states
+   ---------------------------------------- */
+.abv2-buy a:focus-visible,
+.abv2-buy button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* ----------------------------------------
+   Responsive
+   ---------------------------------------- */
+@media (max-width: 759px) {
+  .abv2-buy {
+    --abv2-buy-wrap:min(calc(100% - 28px), var(--abv2-mobile-copy-rail));
+  }
+  .abv2-buy-topbar__inner {
+    width: min(100% - 28px, var(--abv2-mobile-copy-rail));
+    min-height: 58px;
+  }
+  .abv2-buy-logo,
+  .abv2-buy-logo img {
+    max-width: 112px;
+  }
+  .abv2-buy-cancel {
+    font-size: 13px;
+  }
+  .abv2-buy-progress__inner {
+    width: min(100% - 28px, var(--abv2-mobile-copy-rail));
+    min-height: 58px;
+    padding: var(--abv2-space-12) 0;
+    grid-template-columns: 1fr auto;
+    gap: var(--abv2-space-12) var(--abv2-space-16);
+  }
+  .abv2-buy-progress__label {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 13px;
+  }
+  .abv2-buy-progress__count {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 13px;
+  }
+  .abv2-buy-progress__track {
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+  .abv2-buy__wrap {
+    padding: var(--abv2-space-28) 0 var(--abv2-space-56);
+  }
+  .abv2-buy-card {
+    border-radius: 24px;
+  }
+  .abv2-buy-card__head {
+    padding: var(--abv2-space-32) var(--abv2-space-24) var(--abv2-space-24);
+  }
+  .abv2-buy-kicker {
+    margin-bottom: var(--abv2-space-8);
+    font-size: 12px;
+  }
+  .abv2-buy-lede {
+    margin-top: var(--abv2-space-16);
+  }
+  .abv2-buy-lede p + p {
+    margin-top: var(--abv2-space-20);
+  }
+  .abv2-buy-card__body {
+    padding: 0 var(--abv2-space-20) var(--abv2-space-28);
+  }
+  .abv2-editorial-related--buy {
+    grid-template-columns: 1fr;
+  }
+  .abv2-editorial-related--buy .abv2-editorial-related__card {
+    min-height: 0;
+    padding: var(--abv2-space-20);
+  }
+  .abv2-buy-card__footer {
+    margin: 0 var(--abv2-space-20);
+    padding: var(--abv2-space-24) 0 var(--abv2-space-28);
+    align-items: stretch;
+    flex-direction: column-reverse;
+    gap: var(--abv2-space-12);
+  }
+  .abv2-buy-card__footer .abv2-btn {
+    width: 100%;
+  }
+}
+@media (min-width: 760px) and (max-width: 979px) {
+  .abv2-buy {
+    --abv2-buy-wrap:min(calc(100% - 48px), var(--abv2-editorial-rail));
+  }
+  .abv2-buy__wrap {
+    padding-top: var(--abv2-space-48);
+  }
+  .abv2-buy-card__head {
+    padding-left: var(--abv2-space-48);
+    padding-right: var(--abv2-space-48);
+  }
+  .abv2-buy-card__body {
+    padding-left: var(--abv2-space-48);
+    padding-right: var(--abv2-space-48);
+  }
+  .abv2-buy-card__footer {
+    margin-left: var(--abv2-space-48);
+    margin-right: var(--abv2-space-48);
+  }
+}
+/* ----------------------------------------
+   Buy flow refinements
+   ---------------------------------------- */
+.abv2-buy-lede {
+  color: var(--abv2-ink);
+}
+
+.abv2-editorial-related--buy .abv2-editorial-related__desc {
+  color: var(--abv2-ink);
+}
+
+/* ========================================
+   TEMP PATCH: buy-flow body copy colour
+   Force standard ink over earlier muted rules
+   ======================================== */
+.abv2-buy .abv2-body,
+.abv2-buy .abv2-body p,
+.abv2-buy .abv2-buy-lede,
+.abv2-buy .abv2-buy-lede p,
+.abv2-buy-card__head .abv2-body,
+.abv2-buy-card__head .abv2-body p {
+  color: var(--abv2-ink) !important;
+}
+
+.abv2-buy .abv2-editorial-related--buy .abv2-editorial-related__desc,
+.abv2-buy .abv2-editorial-related--buy .abv2-editorial-related__desc p {
+  color: var(--abv2-ink) !important;
+}
+
+/* ========================================
+   COMPONENT: abv2-buy-choice
+   Buy process choice cards
+
+   Extends editorial compare/list language.
+   Used for Screen 2: investment type.
+   ======================================== */
+.abv2-buy-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.abv2-buy-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--abv2-space-16);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.abv2-buy-choice {
+  display: block;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.abv2-buy-choice__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.abv2-buy-choice__card {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--abv2-space-24);
+  border: 1.5px solid var(--abv2-border-subtle);
+  border-radius: 18px;
+  background: var(--abv2-white);
+  color: inherit;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.abv2-buy-choice:hover .abv2-buy-choice__card,
+.abv2-buy-choice__input:focus-visible + .abv2-buy-choice__card {
+  border-color: var(--abv2-teal-a38);
+  box-shadow: 0 10px 24px var(--abv2-shadow-default);
+}
+
+.abv2-buy-choice__input:checked + .abv2-buy-choice__card {
+  border-color: var(--abv2-pink);
+  background: var(--abv2-pink-a05);
+}
+
+.abv2-buy-choice__select {
+  position: absolute;
+  top: var(--abv2-space-20);
+  right: var(--abv2-space-20);
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--abv2-border-strong);
+  border-radius: 999px;
+  background: var(--abv2-white);
+}
+
+.abv2-buy-choice__input:checked + .abv2-buy-choice__card .abv2-buy-choice__select {
+  border-color: var(--abv2-pink);
+  background: radial-gradient(circle at center, var(--abv2-pink) 0 38%, transparent 42%), var(--abv2-white);
+}
+
+.abv2-buy-choice__type {
+  display: inline-block;
+  width: max-content;
+  margin: 0 0 var(--abv2-space-16);
+  padding: var(--abv2-space-8) var(--abv2-space-12);
+  border-radius: 999px;
+  background: var(--abv2-teal-very-light);
+  color: var(--abv2-teal-dark);
+  font-family: var(--abv2-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.abv2-buy-choice__type--pink {
+  background: var(--abv2-pink-light);
+  color: var(--abv2-pink-dark);
+}
+
+.abv2-buy-choice__heading {
+  display: block;
+  max-width: 90%;
+  margin: 0 0 var(--abv2-space-12);
+  font-family: var(--abv2-serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--abv2-ink);
+}
+
+.abv2-buy-choice__note {
+  display: block;
+  margin: 0 0 var(--abv2-space-20);
+  font-family: var(--abv2-sans);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--abv2-ink);
+}
+
+.abv2-buy-choice__list {
+  display: grid;
+  gap: var(--abv2-space-12);
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--abv2-sans);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--abv2-ink);
+}
+
+.abv2-buy-choice__list span {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0 0 0 var(--abv2-space-20);
+}
+
+.abv2-buy-choice__list span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--abv2-teal);
+}
+
+.abv2-buy-choice__list--pink span::before {
+  background: var(--abv2-pink);
+}
+
+/* ----------------------------------------
+   Choice cards responsive
+   ---------------------------------------- */
+@media (max-width: 759px) {
+  .abv2-buy-choice-grid {
+    grid-template-columns: 1fr;
+  }
+  .abv2-buy-choice__card {
+    padding: var(--abv2-space-20);
+  }
+  .abv2-buy-choice__select {
+    top: var(--abv2-space-20);
+    right: var(--abv2-space-20);
+  }
+  .abv2-buy-choice__heading {
+    max-width: calc(100% - 40px);
+  }
+}
+/* ----------------------------------------
+   Choice card simplification
+   Whole-card selected state, no visible radio/pill.
+   ---------------------------------------- */
+.abv2-buy-choice__card {
+  padding: var(--abv2-space-28);
+}
+
+.abv2-buy-choice__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.abv2-buy-choice__input:checked + .abv2-buy-choice__card {
+  border-color: var(--abv2-pink);
+  background: var(--abv2-pink-a05);
+}
+
+.abv2-buy-choice:hover .abv2-buy-choice__card,
+.abv2-buy-choice__input:focus-visible + .abv2-buy-choice__card {
+  border-color: var(--abv2-pink);
+  box-shadow: 0 10px 24px var(--abv2-shadow-default);
+}
+
+.abv2-buy-choice__heading {
+  max-width: none;
+  margin: 0 0 var(--abv2-space-12);
+}
+
+.abv2-buy-choice__note {
+  margin: 0 0 var(--abv2-space-24);
+}
+
+/* Remove old visible select/pill treatments if still present */
+.abv2-buy-choice__select,
+.abv2-buy-choice__type {
+  display: none;
+}
+
+.abv2-buy-choice__input:checked + .abv2-buy-choice__card::before {
+  content: "";
+  position: absolute;
+  left: var(--abv2-space-24);
+  right: var(--abv2-space-24);
+  top: 0;
+  height: 4px;
+  border-radius: 0 0 999px 999px;
+  background: var(--abv2-pink);
+}
+
+.abv2-buy-choice__input:checked + .abv2-buy-choice__card::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* ========================================
+   COMPONENT: abv2-buy-invest-row
+   Buy process amount rows
+
+   Extends .abv2-ed-open-invest without media/logo.
+   Used for Screen 3: investment amounts.
+   ======================================== */
+.abv2-buy-invest-list {
+  display: grid;
+  gap: var(--abv2-space-16);
+}
+
+.abv2-buy-invest-row {
+  border-radius: 22px;
+  box-shadow: none;
+}
+
+.abv2-buy-invest-row::after {
+  display: none;
+  content: none;
+}
+
+.abv2-buy-invest-row__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: var(--abv2-space-24);
+  padding: var(--abv2-space-24);
+}
+
+.abv2-buy-invest-row__body {
+  position: relative;
+  min-width: 0;
+  padding-left: var(--abv2-space-20);
+}
+
+.abv2-buy-invest-row__body::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--abv2-invest-accent, var(--abv2-teal));
+}
+
+.abv2-buy-invest-row__title {
+  margin: 0 0 var(--abv2-space-8);
+  font-family: var(--abv2-serif);
+  font-weight: 600;
+  font-size: 1.22rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--abv2-ink);
+}
+
+.abv2-buy-invest-row__meta {
+  margin: 0 0 var(--abv2-space-12);
+  font-size: 0.86rem;
+}
+
+.abv2-buy-invest-row__link {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  color: var(--abv2-teal-dark);
+  font-family: var(--abv2-ui);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: var(--abv2-space-4);
+}
+
+.abv2-buy-invest-row__link:hover,
+.abv2-buy-invest-row__link:focus-visible {
+  color: var(--abv2-teal);
+}
+
+/* ----------------------------------------
+   Amount field
+   ---------------------------------------- */
+.abv2-buy-amount-field {
+  min-width: 0;
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--abv2-space-8);
+  padding: 0 var(--abv2-space-16);
+  border: 1.5px solid var(--abv2-border-subtle);
+  border-radius: 16px;
+  background: var(--abv2-white);
+  color: var(--abv2-ink);
+  font-family: var(--abv2-ui);
+}
+
+.abv2-buy-amount-field:focus-within {
+  border-color: var(--abv2-pink);
+  box-shadow: 0 0 0 3px var(--abv2-pink-a12);
+}
+
+.abv2-buy-amount-field__prefix {
+  color: var(--abv2-ink-a72);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.abv2-buy-amount-field__input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--abv2-ink);
+  font-family: var(--abv2-ui);
+  font-size: 1rem;
+  line-height: 1;
+  outline: 0;
+}
+
+.abv2-buy-amount-field__input::-webkit-outer-spin-button,
+.abv2-buy-amount-field__input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.abv2-buy-amount-field__input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* ----------------------------------------
+   Amount rows responsive
+   ---------------------------------------- */
+@media (max-width: 759px) {
+  .abv2-buy-invest-row__grid {
+    grid-template-columns: 1fr;
+    gap: var(--abv2-space-20);
+    padding: var(--abv2-space-20);
+  }
+  .abv2-buy-amount-field {
+    width: 100%;
+  }
+  .abv2-buy-invest-row__title {
+    font-size: 1.12rem;
+  }
+  .abv2-buy-invest-row__meta {
+    font-size: 0.82rem;
+  }
+}
+/* ========================================
+   COMPONENT: abv2-buy-invest-row
+   Buy process amount rows
+
+   Extends:
+   - .abv2-ed-open-invest
+   - .abv2-ed-open-invest__meta
+   - .abv2-ed-open-invest__pill
+
+   Used for Screen 3: investment amounts.
+   ======================================== */
+.abv2-buy-invest-list {
+  display: grid;
+  gap: var(--abv2-space-16);
+}
+
+.abv2-buy-invest-row {
+  border-radius: 22px;
+  box-shadow: none;
+  background: var(--abv2-white);
+}
+
+.abv2-buy-invest-row::after,
+.abv2-buy-invest-row .abv2-ed-open-invest__top,
+.abv2-buy-invest-row .abv2-ed-open-invest__note,
+.abv2-buy-invest-row .abv2-ed-open-invest__media {
+  display: none;
+  content: none;
+}
+
+.abv2-buy-invest-row__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: var(--abv2-space-24);
+  padding: var(--abv2-space-24);
+}
+
+.abv2-buy-invest-row__body {
+  min-width: 0;
+  padding-left: 0;
+}
+
+.abv2-buy-invest-row__body::before {
+  display: none;
+  content: none;
+}
+
+.abv2-buy-invest-row__title {
+  margin: 0 0 var(--abv2-space-8);
+  font-family: var(--abv2-serif);
+  font-weight: 600;
+  font-size: 1.22rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--abv2-ink);
+}
+
+.abv2-buy-invest-row__meta {
+  margin: 0 0 var(--abv2-space-12);
+  font-size: 0.86rem;
+}
+
+.abv2-buy-invest-row__link {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  color: var(--abv2-pink-dark);
+  font-family: var(--abv2-ui);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.abv2-buy-invest-row__link:hover,
+.abv2-buy-invest-row__link:focus-visible {
+  color: var(--abv2-pink);
+  text-decoration: none;
+}
+
+/* ----------------------------------------
+   Amount field
+   ---------------------------------------- */
+.abv2-buy-amount-field {
+  min-width: 0;
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--abv2-space-8);
+  padding: 0 var(--abv2-space-16);
+  border: 1.5px solid var(--abv2-border-subtle);
+  border-radius: 16px;
+  background: var(--abv2-white);
+  color: var(--abv2-ink);
+  font-family: var(--abv2-ui);
+}
+
+.abv2-buy-amount-field:focus-within {
+  border-color: var(--abv2-pink);
+  box-shadow: 0 0 0 3px var(--abv2-pink-a12);
+}
+
+.abv2-buy-amount-field__prefix {
+  color: var(--abv2-ink);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.abv2-buy-amount-field__input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--abv2-ink);
+  font-family: var(--abv2-ui);
+  font-size: 1rem;
+  line-height: 1;
+  outline: 0;
+}
+
+.abv2-buy-amount-field__input::-webkit-outer-spin-button,
+.abv2-buy-amount-field__input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.abv2-buy-amount-field__input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* ----------------------------------------
+   Non-zero amount state
+   Add .abv2-buy-invest-row--active when amount > 0.
+   ---------------------------------------- */
+.abv2-buy-invest-row--active {
+  border-color: var(--abv2-pink-a45);
+  background: var(--abv2-pink-a05);
+}
+
+.abv2-buy-invest-row--active .abv2-buy-amount-field {
+  border-color: var(--abv2-pink);
+  background: var(--abv2-white);
+}
+
+.abv2-buy-invest-row--active .abv2-buy-amount-field__prefix,
+.abv2-buy-invest-row--active .abv2-buy-amount-field__input {
+  color: var(--abv2-ink);
+}
+
+/* ----------------------------------------
+   Amount rows responsive
+   ---------------------------------------- */
+@media (max-width: 759px) {
+  .abv2-buy-invest-row__grid {
+    grid-template-columns: 1fr;
+    gap: var(--abv2-space-20);
+    padding: var(--abv2-space-20);
+  }
+  .abv2-buy-amount-field {
+    width: 100%;
+  }
+  .abv2-buy-invest-row__title {
+    font-size: 1.12rem;
+  }
+  .abv2-buy-invest-row__meta {
+    font-size: 0.82rem;
+  }
+}
+/* ========================================
+   TEMP PATCH: buy amount row cleanup
+   Override earlier duplicated amount-row rules
+   ======================================== */
+.abv2-buy .abv2-buy-invest-row .abv2-buy-invest-row__body {
+  position: relative !important;
+  padding-left: 0 !important;
+}
+
+.abv2-buy .abv2-buy-invest-row .abv2-buy-invest-row__body::before {
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Pink, non-underlined investment row links */
+.abv2-buy .abv2-buy-invest-row .abv2-buy-invest-row__link,
+.abv2-buy .abv2-buy-invest-row .abv2-buy-invest-row__link:visited {
+  color: var(--abv2-pink-dark) !important;
+  text-decoration: none !important;
+}
+
+.abv2-buy .abv2-buy-invest-row .abv2-buy-invest-row__link:hover,
+.abv2-buy .abv2-buy-invest-row .abv2-buy-invest-row__link:focus-visible {
+  color: var(--abv2-pink) !important;
+  text-decoration: none !important;
+}
+
+/* Keep active rows calm and in-family */
+.abv2-buy .abv2-buy-invest-row--active {
+  border-color: var(--abv2-pink-a45) !important;
+  background: var(--abv2-pink-a05) !important;
+}
+
+.abv2-buy .abv2-buy-invest-row--active .abv2-buy-amount-field {
+  border-color: var(--abv2-pink) !important;
+  background: var(--abv2-white) !important;
+}
+
+/* ========================================
+   TEMP PATCH: remove persistent amount row highlight
+   Keep rows neutral; only input focus shows interaction
+   ======================================== */
+.abv2-buy .abv2-buy-invest-row,
+.abv2-buy .abv2-buy-invest-row--active {
+  border-color: var(--abv2-border-default) !important;
+  background: var(--abv2-white) !important;
+  box-shadow: none !important;
+}
+
+.abv2-buy .abv2-buy-invest-row--active .abv2-buy-amount-field {
+  border-color: var(--abv2-border-subtle) !important;
+  background: var(--abv2-white) !important;
+}
+
+.abv2-buy .abv2-buy-amount-field:focus-within {
+  border-color: var(--abv2-pink) !important;
+  box-shadow: 0 0 0 3px var(--abv2-pink-a12) !important;
 }
