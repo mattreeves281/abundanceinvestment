@@ -202,3 +202,38 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
       font-size:.95rem;
     }
 }
+
+/* =========================================================
+   TEMP TEST: hide selected homepage decorative blobs
+   Remove after visual review
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   abv2-features
+   Hide large yellow decorative dot only.
+   Does NOT affect the 3-up feature cards.
+   --------------------------------------------------------- */
+
+.abv2-features__inner::after{
+  display:none !important;
+}
+
+
+/* ---------------------------------------------------------
+   abv2-cta-band
+   Hide RHS decorative dot in aside.
+   --------------------------------------------------------- */
+
+.abv2-cta-band__aside::before{
+  display:none !important;
+}
+
+
+/* ---------------------------------------------------------
+   abv2-decision
+   Hide yellow pastel background detail behind primary path.
+   --------------------------------------------------------- */
+
+.abv2-decision__path--primary::before{
+  display:none !important;
+}

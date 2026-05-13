@@ -108,3 +108,68 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
         margin-bottom:var(--abv2-space-20);
       }
 }
+
+
+/* =========================================================
+   TEMP AUDIT: editorial divider shape comparison
+   Full-bleed SVG, labels in rail
+   ========================================================= */
+
+.abv2-ed-shape-audit{
+  width:100%;
+  margin:80px 0;
+}
+
+.abv2-ed-shape-audit__item + .abv2-ed-shape-audit__item{
+  margin-top:56px;
+}
+
+.abv2-ed-shape-audit__rail{
+  width:min(var(--abv2-wrap, 1180px), calc(100% - 48px));
+  margin:0 auto 12px;
+}
+
+.abv2-ed-shape-audit__label{
+  margin:0;
+  font-family:var(--abv2-ui, inherit);
+  font-size:14px;
+  line-height:1.2;
+  color:var(--abv2-text, #4d4a46);
+  opacity:.72;
+}
+
+.abv2-ed-divider-svg{
+  width:100vw;
+  height:138px;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  pointer-events:none;
+}
+
+.abv2-ed-divider-svg svg{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+
+@media (max-width:979px){
+  .abv2-ed-divider-svg{
+    height:112px;
+  }
+}
+
+@media (max-width:759px){
+  .abv2-ed-shape-audit{
+    margin:56px 0;
+  }
+
+  .abv2-ed-shape-audit__rail{
+    width:min(var(--abv2-mobile-copy-rail, 640px), calc(100% - 32px));
+    margin-bottom:10px;
+  }
+
+  .abv2-ed-divider-svg{
+    height:70px;
+  }
+}

@@ -1,0 +1,486 @@
+@use "../../modules/variables" as *;
+@use "utils" as *;
+@use "variables" as *;
+
+// Font families
+$si-font-primary: $font-fallback !default;
+$si-font-secondary: $font-fallback !default;
+
+// Font weights
+$si-font-weight-light: 400 !default;
+$si-font-weight-regular: 400 !default;
+$si-font-weight-medium: 700 !default;
+$si-font-weight-semibold: 700 !default;
+$si-font-weight-bold: 700 !default;
+
+// Body
+$si-body-xs-size: rem-calc(12) !default;
+$si-body-xs-size-mobile: rem-calc(12) !default;
+$si-body-sm-size: rem-calc(14) !default;
+$si-body-sm-size-mobile: rem-calc(14) !default;
+$si-body-md-size: rem-calc(16) !default;
+$si-body-md-size-mobile: rem-calc(16) !default;
+$si-body-lg-size: rem-calc(20) !default;
+$si-body-lg-size-mobile: rem-calc(18) !default;
+$si-body-xl-size: rem-calc(24) !default;
+$si-body-xl-size-mobile: rem-calc(20) !default;
+$si-body-2xl-size: rem-calc(32) !default;
+$si-body-2xl-size-mobile: rem-calc(24) !default;
+$si-body-line-height: 1.5 !default;
+$si-body-font-weight: $si-font-weight-regular !default;
+$si-body-text-color: $si-color-text-secondary !default;
+$si-body-text-font: $si-font-primary !default;
+$si-body-text-letter-spacing: normal !default;
+
+// Headings
+$si-heading-1-size: rem-calc(64) !default;
+$si-heading-1-size-mobile: rem-calc(36) !default;
+$si-heading-2-size: rem-calc(48) !default;
+$si-heading-2-size-mobile: rem-calc(28) !default;
+$si-heading-3-size: rem-calc(36) !default;
+$si-heading-3-size-mobile: rem-calc(24) !default;
+$si-heading-4-size: rem-calc(28) !default;
+$si-heading-4-size-mobile: rem-calc(20) !default;
+$si-heading-5-size: rem-calc(24) !default;
+$si-heading-5-size-mobile: rem-calc(18) !default;
+$si-heading-6-size: rem-calc(18) !default;
+$si-heading-6-size-mobile: rem-calc(16) !default;
+$si-heading-line-height: 1.25 !default;
+$si-heading-font-weight: $si-font-weight-bold !default;
+$si-heading-text-transform: none !default;
+$si-heading-color: $si-color-text-primary !default;
+$si-heading-text-font: $si-font-primary !default;
+$si-heading-1-font-weight: $si-heading-font-weight !default;
+$si-heading-2-font-weight: $si-heading-font-weight !default;
+$si-heading-3-font-weight: $si-heading-font-weight !default;
+$si-heading-4-font-weight: $si-heading-font-weight !default;
+$si-heading-5-font-weight: $si-heading-font-weight !default;
+$si-heading-6-font-weight: $si-heading-font-weight !default;
+$si-heading-1-text-transform: $si-heading-text-transform !default;
+$si-heading-2-text-transform: $si-heading-text-transform !default;
+$si-heading-3-text-transform: $si-heading-text-transform !default;
+$si-heading-4-text-transform: $si-heading-text-transform !default;
+$si-heading-5-text-transform: $si-heading-text-transform !default;
+$si-heading-6-text-transform: $si-heading-text-transform !default;
+$si-heading-1-color: $si-heading-color !default;
+$si-heading-2-color: $si-heading-color !default;
+$si-heading-3-color: $si-heading-color !default;
+$si-heading-4-color: $si-heading-color !default;
+$si-heading-5-color: $si-heading-color !default;
+$si-heading-6-color: $si-heading-color !default;
+$si-heading-1-font: $si-heading-text-font !default;
+$si-heading-2-font: $si-heading-text-font !default;
+$si-heading-3-font: $si-heading-text-font !default;
+$si-heading-4-font: $si-heading-text-font !default;
+$si-heading-5-font: $si-heading-text-font !default;
+$si-heading-6-font: $si-heading-text-font !default;
+
+// Labels
+$label-xs-size: rem-calc(12) !default;
+$label-xs-size-mobile: rem-calc(12) !default;
+$label-sm-size: rem-calc(14) !default;
+$label-sm-size-mobile: rem-calc(14) !default;
+$label-md-size: rem-calc(16) !default;
+$label-md-size-mobile: rem-calc(16) !default;
+$label-lg-size: rem-calc(20) !default;
+$label-lg-size-mobile: rem-calc(18) !default;
+$label-xl-size: rem-calc(24) !default;
+$label-xl-size-mobile: rem-calc(20) !default;
+$label-2xl-size: rem-calc(32) !default;
+$label-2xl-size-mobile: rem-calc(24) !default;
+$label-3xl-size: rem-calc(40) !default;
+$label-3xl-size-mobile: rem-calc(28) !default;
+$label-4xl-size: rem-calc(48) !default;
+$label-4xl-size-mobile: rem-calc(32) !default;
+$si-label-line-height: 1 !default;
+$si-label-font-weight: $si-font-weight-regular !default;
+$si-label-text-color: $si-color-text-secondary !default;
+$si-label-text-font: $si-font-primary !default;
+
+// Table headers
+$si-table-header-sm-size: rem-calc(14) !default;
+$si-table-header-sm-size-mobile: rem-calc(14) !default;
+$si-table-header-md-size: rem-calc(16) !default;
+$si-table-header-md-size-mobile: rem-calc(16) !default;
+$si-table-header-lg-size: rem-calc(18) !default;
+$si-table-header-lg-size-mobile: rem-calc(18) !default;
+$si-table-header-line-height: 1.125 !default;
+$si-table-header-font-weight: $si-font-weight-bold !default;
+$si-table-header-text-color: $si-color-text-primary !default;
+$si-table-header-text-font: $si-font-primary !default;
+
+// Captions
+$si-caption-sm-size: rem-calc(14) !default;
+$si-caption-sm-size-mobile: rem-calc(14) !default;
+$si-caption-md-size: rem-calc(16) !default;
+$si-caption-md-size-mobile: rem-calc(16) !default;
+$si-caption-lg-size: rem-calc(20) !default;
+$si-caption-lg-size-mobile: rem-calc(18) !default;
+$si-caption-line-height: 1 !default;
+$si-caption-font-weight: $si-font-weight-regular !default;
+$si-caption-text-color: $si-color-text-secondary !default;
+$si-caption-text-font: $si-font-primary !default;
+$si-caption-text-transform: uppercase !default;
+$si-caption-letter-spacing: normal !default;
+
+// Mixins
+// Body
+$si-body: (
+    line-height: $si-body-line-height,
+    font-weight: $si-body-font-weight,
+    font-family: $si-body-text-font,
+    color: $si-body-text-color,
+    letter-spacing: $si-body-text-letter-spacing
+) !default;
+
+$si-body-xs: map-merge($si-body, 
+    (
+        font-size: $si-body-xs-size,
+        font-size-mobile: $si-body-xs-size-mobile
+    )
+) !default;
+
+$si-body-sm: map-merge($si-body, 
+    (
+        font-size: $si-body-sm-size,
+        font-size-mobile: $si-body-sm-size-mobile
+    )
+) !default;
+
+$si-body-md: map-merge($si-body, 
+    (
+        font-size: $si-body-md-size,
+        font-size-mobile: $si-body-md-size-mobile
+    )
+) !default;
+
+$si-body-lg: map-merge($si-body, 
+    (
+        font-size: $si-body-lg-size,
+        font-size-mobile: $si-body-lg-size-mobile
+    )
+) !default;
+
+$si-body-xl: map-merge($si-body, 
+    (
+        font-size: $si-body-xl-size,
+        font-size-mobile: $si-body-xl-size-mobile
+    )
+) !default;
+
+$si-body-2xl: map-merge($si-body, 
+    (
+        font-size: $si-body-2xl-size,
+        font-size-mobile: $si-body-2xl-size-mobile
+    )
+) !default;
+
+@mixin si-body-xs {
+    @include apply-styles($si-body-xs);
+}
+
+
+@mixin si-body-sm {
+    @include apply-styles($si-body-sm);
+}
+
+@mixin si-body-md {
+   @include apply-styles($si-body-md);
+}
+
+@mixin si-body-lg {
+    @include apply-styles($si-body-lg);
+}
+
+@mixin si-body-xl {
+    @include apply-styles($si-body-xl);
+}
+
+@mixin si-body-2xl {
+    @include apply-styles($si-body-2xl);
+}
+
+// Headings
+$si-heading: (
+    line-height: $si-heading-line-height,
+    font-weight: $si-heading-font-weight,
+    font-family: $si-heading-text-font,
+    color: $si-heading-color
+) !default;
+
+$si-heading-1: map-merge($si-heading, 
+    (
+        font-size: $si-heading-1-size,
+        font-size-mobile: $si-heading-1-size-mobile,
+        font-weight: $si-heading-1-font-weight,
+        text-transform: $si-heading-1-text-transform,
+        color: $si-heading-1-color,
+        font-family: $si-heading-1-font,
+    )
+) !default;
+
+$si-heading-2: map-merge($si-heading, 
+    (
+        font-size: $si-heading-2-size,
+        font-size-mobile: $si-heading-2-size-mobile,
+        font-weight: $si-heading-2-font-weight,
+        text-transform: $si-heading-2-text-transform,
+        color: $si-heading-2-color,
+        font-family: $si-heading-2-font,
+    )
+) !default;
+
+$si-heading-3: map-merge($si-heading, 
+    (
+        font-size: $si-heading-3-size,
+        font-size-mobile: $si-heading-3-size-mobile,
+        font-weight: $si-heading-3-font-weight,
+        text-transform: $si-heading-3-text-transform,
+        color: $si-heading-3-color,
+        font-family: $si-heading-3-font,
+    )
+) !default;
+
+$si-heading-4: map-merge($si-heading, 
+    (
+        font-size: $si-heading-4-size,
+        font-size-mobile: $si-heading-4-size-mobile,
+        font-weight: $si-heading-4-font-weight,
+        text-transform: $si-heading-4-text-transform,
+        color: $si-heading-4-color,
+        font-family: $si-heading-4-font,
+    )
+) !default;
+
+$si-heading-5: map-merge($si-heading, 
+    (
+        font-size: $si-heading-5-size,
+        font-size-mobile: $si-heading-5-size-mobile,
+        font-weight: $si-heading-5-font-weight,
+        text-transform: $si-heading-5-text-transform,
+        color: $si-heading-5-color,
+        font-family: $si-heading-5-font,
+    )
+) !default;
+
+$si-heading-6: map-merge($si-heading, 
+    (
+        font-size: $si-heading-6-size,
+        font-size-mobile: $si-heading-6-size-mobile,
+        font-weight: $si-heading-6-font-weight,
+        text-transform: $si-heading-6-text-transform,
+        color: $si-heading-6-color,
+        font-family: $si-heading-6-font,
+    )
+) !default;
+
+@mixin si-heading-1 {
+    @include apply-styles($si-heading-1);
+}
+
+@mixin si-heading-2 {
+    @include apply-styles($si-heading-2);
+}
+
+@mixin si-heading-3 {
+    @include apply-styles($si-heading-3);
+}
+
+@mixin si-heading-4 {
+    @include apply-styles($si-heading-4);
+}
+
+@mixin si-heading-5 {
+    @include apply-styles($si-heading-5);
+}
+
+@mixin si-heading-6 {
+    @include apply-styles($si-heading-6);
+}
+
+
+// Labels
+
+$si-label: (
+    line-height: $si-label-line-height,
+    color: $si-label-text-color,
+    font-weight: $si-label-font-weight,
+    font-family: $si-label-text-font,
+) !default;
+
+$si-label-xs: map-merge($si-label, 
+    (
+        font-size: $label-xs-size,
+        font-size-mobile: $label-xs-size-mobile
+    )
+) !default;
+
+$si-label-sm: map-merge($si-label, 
+    (
+        font-size: $label-sm-size,
+        font-size-mobile: $label-sm-size-mobile
+    )
+) !default;
+
+$si-label-md: map-merge($si-label, 
+    (
+        font-size: $label-md-size,
+        font-size-mobile: $label-md-size-mobile
+    )
+) !default;
+
+$si-label-lg: map-merge($si-label, 
+    (
+        font-size: $label-lg-size,
+        font-size-mobile: $label-lg-size-mobile
+    )
+) !default;
+
+$si-label-xl: map-merge($si-label, 
+    (
+        font-size: $label-xl-size,
+        font-size-mobile: $label-xl-size-mobile
+    )
+) !default;
+
+$si-label-2xl: map-merge($si-label, 
+    (
+        font-size: $label-2xl-size,
+        font-size-mobile: $label-2xl-size-mobile
+    )
+) !default;
+
+$si-label-3xl: map-merge($si-label, 
+    (
+        font-size: $label-3xl-size,
+        font-size-mobile: $label-3xl-size-mobile
+    )
+) !default;
+
+$si-label-4xl: map-merge($si-label, 
+    (
+        font-size: $label-4xl-size,
+        font-size-mobile: $label-4xl-size-mobile
+    )
+) !default;
+
+@mixin si-label {
+    @include apply-styles($si-label);
+}
+
+@mixin si-label-xs {
+    @include apply-styles($si-label-xs);
+}
+
+@mixin si-label-sm {
+    @include apply-styles($si-label-sm);
+}
+
+@mixin si-label-md {
+   @include apply-styles($si-label-md);
+}
+
+@mixin si-label-lg {
+    @include apply-styles($si-label-lg);
+}
+
+@mixin si-label-xl {
+    @include apply-styles($si-label-xl);
+}
+
+@mixin si-label-2xl {
+    @include apply-styles($si-label-2xl);
+}
+
+@mixin si-label-3xl {
+    @include apply-styles($si-label-3xl);
+}
+
+@mixin si-label-4xl {
+    @include apply-styles($si-label-4xl);
+}
+
+// Table headers
+$si-table-header: (
+    line-height: $si-table-header-line-height,
+    color: $si-table-header-text-color,
+    font-weight: $si-table-header-font-weight,
+    font-family: $si-table-header-text-font,
+) !default;
+
+$si-table-header-sm: map-merge($si-table-header, 
+    (
+        font-size: $si-table-header-sm-size,
+        font-size-mobile: $si-table-header-sm-size-mobile
+    )
+) !default;
+
+$si-table-header-md: map-merge($si-table-header, 
+    (
+        font-size: $si-table-header-md-size,
+        font-size-mobile: $si-table-header-md-size-mobile
+    )
+) !default;
+
+$si-table-header-lg: map-merge($si-table-header, 
+    (
+        font-size: $si-table-header-lg-size,
+        font-size-mobile: $si-table-header-lg-size-mobile
+    )
+) !default;
+
+
+@mixin si-table-header-sm {
+    @include apply-styles($si-table-header-sm);
+}
+
+@mixin si-table-header-md {
+   @include apply-styles($si-table-header-md);
+}
+
+@mixin si-table-header-lg {
+    @include apply-styles($si-table-header-lg);
+}
+
+// Captions
+$si-caption: (
+    line-height: $si-caption-line-height,
+    color: $si-caption-text-color,
+    font-weight: $si-caption-font-weight,
+    font-family: $si-caption-text-font,
+    text-transform: $si-caption-text-transform,
+    letter-spacing: $si-caption-letter-spacing,
+) !default;
+
+$si-caption-sm: map-merge($si-caption, 
+    (
+        font-size: $si-caption-sm-size,
+        font-size-mobile: $si-caption-sm-size-mobile
+    )
+) !default;
+
+$si-caption-md: map-merge($si-caption, 
+    (
+        font-size: $si-caption-md-size,
+        font-size-mobile: $si-caption-md-size-mobile
+    )
+) !default;
+
+$si-caption-lg: map-merge($si-caption, 
+    (
+        font-size: $si-caption-lg-size,
+        font-size-mobile: $si-caption-lg-size-mobile
+    )
+) !default;
+
+@mixin si-caption-sm {
+    @include apply-styles($si-caption-sm);
+}
+
+@mixin si-caption-md {
+    @include apply-styles($si-caption-md);
+}
+
+@mixin si-caption-lg {
+    @include apply-styles($si-caption-lg);
+}

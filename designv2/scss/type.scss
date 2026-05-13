@@ -1,95 +1,192 @@
 /* =========================================================
    ABUNDANCE v2 — TYPE SYSTEM
-   Fixed-token test version
-   Purpose: approximate v2 using platform-style fixed desktop/tablet/mobile values
+   Fixed-token platform-aligned bridge version
+
+   Purpose:
+   Align standalone abv2 CSS with the future si-* platform type scale.
+
+   Model:
+   - Fixed desktop/default values
+   - Fixed mobile values
+   - No clamp()
+   - No vw-based typography
+   - No component-level type scale invention
    ========================================================= */
 
-/* Core headings */
+/* Shared heading base */
 
 .abv2-h1,
 .abv2-h2,
-.abv2-h3{
+.abv2-h3,
+.abv2-h4,
+.abv2-h5,
+.abv2-h6{
   margin:0;
   font-family:var(--abv2-serif);
   font-weight:600;
   letter-spacing:-.03em;
+  color:var(--abv2-ink);
 }
 
 /* Desktop / default */
 
 .abv2-h1{
-  font-size:3.1875rem; /* 51px */
+  font-size:3.1875rem; /* 51px — future si-heading-1 */
   line-height:.95;
 }
 
 .abv2-h2{
-  font-size:2.875rem; /* 46px */
+  font-size:2.875rem; /* 46px — future si-heading-2 */
   line-height:.98;
 }
 
 /*
   Compact component heading.
-  This matches the proposed platform compact-heading role,
-  not the larger platform/global h3.
+  Preserves the existing abv2-h3 role.
+  Future mapping: si-heading-compact, not si-heading-3.
 */
 
 .abv2-h3{
-  font-size:1.25rem; /* 20px */
+  font-size:1.25rem; /* 20px — future si-heading-compact */
   line-height:1.08;
 }
+
+/*
+  Additional fixed scale points for component mapping.
+*/
+
+.abv2-h4{
+  font-size:2rem; /* 32px — future si-heading-3 */
+  line-height:1.08;
+}
+
+.abv2-h5{
+  font-size:1.5rem; /* 24px — future si-heading-4 */
+  line-height:1.08;
+}
+
+.abv2-h6{
+  font-size:1.25rem; /* 20px — future si-heading-5 */
+  line-height:1.08;
+}
+
+/* Body roles */
 
 .abv2-body{
   margin:0;
   font-family:var(--abv2-sans);
-  font-size:1.1875rem; /* 19px */
+  font-size:1.1875rem; /* 19px — future si-body-md */
   line-height:1.62;
   color:var(--abv2-text);
 }
 
-/* Tablet */
+.abv2-body-sm{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:.875rem; /* 14px — future si-body-sm */
+  line-height:1.5;
+  color:var(--abv2-text);
+}
 
-@media (max-width:979px) and (min-width:760px){
-  .abv2-h1{
-    font-size:2.7rem; /* approx 43px */
-    line-height:.93;
-  }
+.abv2-body-lg{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:1.25rem; /* 20px — future si-body-lg */
+  line-height:1.55;
+  color:var(--abv2-text);
+}
 
-  .abv2-h2{
-    font-size:2.45rem; /* approx 39px */
-    line-height:.95;
-  }
+/* UI / support text roles */
 
-  .abv2-h3{
-    font-size:1.2rem; /* approx 19px */
-    line-height:1.08;
-  }
+.abv2-label{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:1rem; /* 16px — future si-label-md */
+  font-weight:400;
+  line-height:1.2;
+  color:var(--abv2-ink);
+}
 
-  .abv2-body{
-    font-size:1.02rem; /* approx 16.3px */
-    line-height:1.58;
-  }
+.abv2-caption{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:.875rem; /* 14px — future si-caption-md */
+  font-weight:400;
+  line-height:1.35;
+  text-transform:none;
+  letter-spacing:normal;
+  color:var(--abv2-text);
+}
+
+.abv2-table-header{
+  margin:0;
+  font-family:var(--abv2-ui);
+  font-size:1rem; /* 16px — future si-table-header-md */
+  font-weight:600;
+  line-height:1.15;
+  color:var(--abv2-ink);
 }
 
 /* Mobile */
 
 @media (max-width:759px){
   .abv2-h1{
-    font-size:2.24rem; /* approx 36px */
+    font-size:2.25rem; /* 36px — future si-heading-1 mobile */
     line-height:.94;
   }
 
   .abv2-h2{
-    font-size:2rem; /* 32px */
+    font-size:2rem; /* 32px — future si-heading-2 mobile */
     line-height:.96;
   }
 
   .abv2-h3{
-    font-size:1.125rem; /* 18px */
+    font-size:1.125rem; /* 18px — future si-heading-compact mobile */
+    line-height:1.08;
+  }
+
+  .abv2-h4{
+    font-size:1.5rem; /* 24px — future si-heading-3 mobile */
+    line-height:1.08;
+  }
+
+  .abv2-h5{
+    font-size:1.25rem; /* 20px — future si-heading-4 mobile */
+    line-height:1.08;
+  }
+
+  .abv2-h6{
+    font-size:1.125rem; /* 18px — future si-heading-5 mobile */
     line-height:1.08;
   }
 
   .abv2-body{
-    font-size:.98rem; /* approx 15.7px */
+    font-size:1rem; /* 16px — future si-body-md mobile */
     line-height:1.5;
+  }
+
+  .abv2-body-sm{
+    font-size:.875rem; /* 14px */
+    line-height:1.45;
+  }
+
+  .abv2-body-lg{
+    font-size:1.125rem; /* 18px — future si-body-lg mobile */
+    line-height:1.5;
+  }
+
+  .abv2-label{
+    font-size:1rem;
+    line-height:1.2;
+  }
+
+  .abv2-caption{
+    font-size:.875rem;
+    line-height:1.35;
+  }
+
+  .abv2-table-header{
+    font-size:1rem;
+    line-height:1.15;
   }
 }
