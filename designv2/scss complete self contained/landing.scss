@@ -1,0 +1,35 @@
+/* =========================================================
+   ABUNDANCE v2 — LANDING PAGE BASE
+   Shared by homepage, council landing pages and future landing pages
+   ========================================================= */
+
+.abv2-landing,
+.abv2-landing *,
+.abv2-landing *::before,
+.abv2-landing *::after{
+  box-sizing:border-box;
+}
+
+.abv2-landing{
+  position:relative;
+  overflow-x:hidden;
+  background:var(--abv2-white);
+  color:var(--abv2-ink);
+}
+
+.abv2-landing img{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+.abv2-landing a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.abv2-landing h1,
+.abv2-landing h2,
+.abv2-landing h3{
+  font-style:normal;
+}

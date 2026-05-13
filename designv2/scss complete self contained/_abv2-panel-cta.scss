@@ -1,0 +1,49 @@
+/* ========================================
+COMPONENT: abv2-panel-cta
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / CTA PATTERNS
+========================================================= */
+.abv2-panel-cta{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:var(--abv2-space-20);
+  align-items:center;
+  padding:var(--abv2-space-20) var(--abv2-space-24);
+  border:1.5px solid var(--abv2-border-subtle);
+  border-radius:18px;
+  background:var(--abv2-grey-very-light);
+}
+
+.abv2-panel-cta__copy{
+  min-width:0;
+}
+
+.abv2-panel-cta__kicker{
+  display:inline-block;
+  margin:0 0 var(--abv2-space-8);
+  font-family:var(--abv2-ui);
+  font-size:.74rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--abv2-pink-dark);
+}
+
+.abv2-panel-cta__title{
+  margin:0 0 var(--abv2-space-8);
+  font-size:1.12rem;
+  line-height:1.16;
+}
+
+.abv2-panel-cta__text{
+  margin:0;
+  color:var(--abv2-ink-a78);
+}
+
+.abv2-panel-cta__action{
+  flex:0 0 auto;
+}

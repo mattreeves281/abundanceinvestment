@@ -1,0 +1,228 @@
+/* ========================================
+   COMPONENT: abv2-hero
+   Homepage hero
+   Source 1 winning version
+   ======================================== */
+
+.abv2-hero{
+  position:relative;
+  z-index:1;
+  padding-top:var(--abv2-space-56);
+  padding-bottom:0;
+}
+
+.abv2-hero__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(720px,.78fr);
+  gap:var(--abv2-space-20);
+  align-items:start;
+}
+
+.abv2-hero__art{
+  position:relative;
+  z-index:1;
+  align-self:end;
+  display:block;
+  width:100%;
+  margin-bottom:-285px;
+  overflow:visible;
+}
+
+.abv2-hero__art-inner{
+  display:block;
+  width:135%;
+  max-width:none;
+  margin:0;
+  transform:translateY(20px);
+}
+
+.abv2-hero__art img{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  object-fit:contain;
+  object-position:left bottom;
+}
+
+.abv2-hero__copy{
+  position:relative;
+  z-index:4;
+  align-self:start;
+  max-width:780px;
+  padding-top:0;
+  transform:translate(48px, 60px);
+}
+
+.abv2-hero__copy.abv2-stack > * + *{
+  margin-top:var(--abv2-space-20);
+}
+
+.abv2-hero__copy .abv2-h1{
+  max-width:15ch;
+}
+
+.abv2-hero__copy .abv2-body{
+  max-width:620px;
+}
+
+/* ---------- CONDENSED DESKTOP: 980–1159 ---------- */
+
+@media (max-width:1159px) and (min-width:980px){
+  .abv2-hero{
+    padding-top:var(--abv2-space-20);
+  }
+
+  .abv2-hero__grid{
+grid-template-columns:minmax(320px,1fr) minmax(560px,1fr);
+    gap:var(--abv2-space-48);
+    align-items:start;
+  }
+
+  .abv2-hero__art{
+    width:100%;
+    max-width:410px;
+    align-self:end;
+    margin-left:var(--abv2-space-32);
+    margin-bottom:-160px;
+  }
+
+  .abv2-hero__art-inner{
+    width:100%;
+    max-width:410px;
+    margin:0;
+    transform:translateY(8px);
+  }
+
+  .abv2-hero__art img{
+    width:100%;
+    max-width:none;
+  }
+
+  .abv2-hero__copy{
+    max-width:760px;
+    padding-top:var(--abv2-space-32);
+    padding-left:var(--abv2-space-12);
+    padding-right:0;
+    transform:none;
+  }
+
+  .abv2-hero__copy .abv2-h1{
+    max-width:14ch;
+    font-size:clamp(1.96rem, 2.35vw, 2.24rem);
+    line-height:.93;
+  }
+
+  .abv2-hero__copy .abv2-body{
+    max-width:39ch;
+    font-size:clamp(1rem, 1vw, 1.02rem);
+    line-height:1.56;
+  }
+}
+
+
+/* ---------- TABLET: 760–979 ---------- */
+
+@media (max-width:979px) and (min-width:760px){
+  .abv2-hero{
+    padding-top:18px;
+    padding-bottom:0;
+    overflow:visible;
+  }
+
+  .abv2-hero__grid{
+    display:grid;
+  grid-template-columns:minmax(240px, 1.1fr) minmax(0, 0.9fr);
+
+    gap:34px;
+    align-items:center;
+  }
+
+  .abv2-hero__art{
+    order:1;
+    position:relative;
+    z-index:1 !important;
+    width:100%;
+    max-width:none;
+    margin-left:18px;
+    margin-bottom:-180px;
+    align-self:end;
+    pointer-events:none;
+  }
+
+  .abv2-hero__art-inner{
+    width:100%;
+    max-width:500px;
+    margin:0;
+    transform:translateY(10px);
+  }
+
+  .abv2-hero__copy{
+    order:2;
+    position:relative;
+    z-index:4;
+    max-width:620px;
+    padding-top:8px;
+    transform:none;
+    align-self:center;
+  }
+
+  .abv2-hero__copy.abv2-stack > * + *{
+    margin-top:18px;
+  }
+
+  .abv2-hero__copy .abv2-h1{
+    max-width:13ch;
+  }
+
+  .abv2-hero__copy .abv2-body{
+    max-width:36ch;
+    font-size:1.03rem;
+    line-height:1.56;
+  }
+}
+
+
+/* ---------- MOBILE: UNDER 760 ---------- */
+
+@media (max-width:759px){
+  .abv2-hero{
+    position:relative;
+    z-index:1;
+    padding-top:var(--abv2-space-24);
+    overflow:visible;
+  }
+
+  .abv2-hero__grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-64);
+  }
+
+  .abv2-hero__copy{
+    order:1;
+    z-index:3;
+    margin-bottom:var(--abv2-space-16);
+    transform:none;
+  }
+
+  .abv2-hero__copy.abv2-stack > * + *{
+    margin-top:var(--abv2-space-16);
+  }
+
+  .abv2-hero__art{
+    order:2;
+    position:relative;
+    z-index:1 !important;
+    max-width:var(--abv2-mobile-hero-art);
+    margin:var(--abv2-space-20) auto -130px;
+    pointer-events:none;
+  }
+
+  .abv2-hero__art-inner{
+    width:100%;
+    max-width:340px;
+    margin:0;
+    transform:none;
+  }
+}

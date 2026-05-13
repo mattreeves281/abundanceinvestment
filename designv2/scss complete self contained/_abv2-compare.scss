@@ -1,0 +1,202 @@
+/* ========================================
+   COMPONENT: abv2-compare
+   Homepage expanded comparison
+   ======================================== */
+
+.abv2-compare {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--abv2-space-84);
+  padding-bottom: var(--abv2-space-96);
+  background: var(--abv2-white);
+}
+
+.abv2-compare__intro {
+  width: min(100%, 720px);
+  margin-left: clamp(var(--abv2-space-40), 10vw, 140px);
+  margin-bottom: var(--abv2-space-40);
+}
+
+.abv2-compare__intro.abv2-stack > * + * {
+  margin-top: var(--abv2-space-16);
+}
+
+.abv2-compare__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--abv2-space-56);
+  width: min(100% - clamp(40px, 10vw, 140px), 940px);
+  margin-left: clamp(var(--abv2-space-40), 10vw, 140px);
+  align-items: start;
+}
+
+.abv2-compare__col {
+  position: relative;
+  max-width: 390px;
+}
+
+.abv2-compare__col--primary {
+  margin-top: var(--abv2-space-32);
+}
+
+.abv2-compare__col--primary::before {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: -22px;
+  width: 146px;
+  height: 146px;
+  background: var(--abv2-teal-a12);
+  -webkit-mask-image: var(--abv2-dot-mask);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: var(--abv2-dot-mask);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  pointer-events: none;
+}
+
+.abv2-compare__kicker {
+  margin: 0 0 var(--abv2-space-8);
+  font-family: var(--abv2-ui);
+  font-size: .72rem;
+  line-height: 1;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.abv2-compare__col--manual .abv2-compare__kicker {
+  color: var(--abv2-pink);
+}
+
+.abv2-compare__col--primary .abv2-compare__kicker {
+  color: var(--abv2-teal);
+}
+
+.abv2-compare__heading {
+  margin: 0 0 var(--abv2-space-12);
+  font-family: var(--abv2-serif);
+  font-weight: 600;
+  font-size: clamp(1.45rem, 1.8vw, 1.86rem);
+  line-height: .98;
+  letter-spacing: -.03em;
+  color: var(--abv2-ink);
+}
+
+.abv2-compare__body {
+  margin: 0 0 var(--abv2-space-16);
+  max-width: 32ch;
+  font-family: var(--abv2-sans);
+  font-size: 1rem;
+  line-height: 1.52;
+  color: var(--abv2-text);
+}
+
+.abv2-compare__table {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--abv2-space-12);
+}
+
+.abv2-compare__row {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: var(--abv2-space-16);
+  align-items: start;
+  padding-top: var(--abv2-space-12);
+  border-top: 1px solid var(--abv2-border-default);
+}
+
+.abv2-compare__term {
+  margin: 0;
+  font-family: var(--abv2-ui);
+  font-size: .82rem;
+  line-height: 1.25;
+  color: var(--abv2-ink);
+}
+
+.abv2-compare__value {
+  margin: 0;
+  font-family: var(--abv2-sans);
+  font-size: .94rem;
+  line-height: 1.48;
+  color: var(--abv2-text);
+}
+
+.abv2-compare__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--abv2-space-12);
+  margin-top: var(--abv2-space-20);
+}
+
+/* Responsive */
+
+@media (max-width: 979px) {
+  .abv2-compare {
+    padding-top: var(--abv2-space-72);
+    padding-bottom: var(--abv2-space-72);
+  }
+
+  .abv2-compare__intro,
+  .abv2-compare__grid {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .abv2-compare__grid {
+    gap: var(--abv2-space-32);
+  }
+
+  .abv2-compare__col--primary {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 759px) {
+  .abv2-compare {
+    padding-top: var(--abv2-space-56);
+    padding-bottom: var(--abv2-space-64);
+  }
+
+  .abv2-compare__intro {
+    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin: 0 auto var(--abv2-space-28);
+  }
+
+  .abv2-compare__grid {
+    grid-template-columns: 1fr;
+    gap: var(--abv2-space-28);
+    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
+    margin: 0 auto;
+  }
+
+  .abv2-compare__col {
+    max-width: none;
+  }
+
+  .abv2-compare__col--primary::before {
+    right: -8px;
+    top: -14px;
+    width: 104px;
+    height: 104px;
+  }
+
+  .abv2-compare__body {
+    max-width: none;
+    font-size: .94rem;
+  }
+
+  .abv2-compare__row {
+    grid-template-columns: 1fr;
+    gap: var(--abv2-space-4);
+  }
+
+  .abv2-compare__term,
+  .abv2-compare__value {
+    font-size: .9rem;
+  }
+}
