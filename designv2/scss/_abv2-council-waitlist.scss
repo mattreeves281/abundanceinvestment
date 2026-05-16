@@ -22,10 +22,7 @@
   max-width:720px;
 }
 
-.abv2-council-waitlist__copy .abv2-h2,
-.abv2-council-waitlist__copy .abv2-body{
-  color:var(--abv2-white);
-}
+// .abv2-council-waitlist__copy .abv2-body colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-council-waitlist__copy .abv2-body{
   max-width:38ch;
@@ -37,11 +34,6 @@
 
 .abv2-council-waitlist__eyebrow{
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
   color:var(--abv2-white-a84);
 }
 

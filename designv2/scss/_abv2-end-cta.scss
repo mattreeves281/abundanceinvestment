@@ -27,31 +27,20 @@
 
 .abv2-end-cta__eyebrow{
   margin:0;
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
   color:var(--abv2-pink);
 }
 
 .abv2-end-cta__title{
   margin:0;
   max-width:12ch;
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(2rem, 3.2vw, 3.05rem);
-  line-height:.94;
-  letter-spacing:-.03em;
+// .abv2-end-cta__title type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-end-cta__body{
   margin:0;
   max-width:42ch;
-  font-family:var(--abv2-sans);
-  font-size:1.02rem;
-  line-height:1.58;
+// .abv2-end-cta__body type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-text);
 }
 
@@ -86,35 +75,22 @@
 
 .abv2-end-cta__kicker{
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.76rem;
-  line-height:1;
-  letter-spacing:.05em;
-  text-transform:uppercase;
   color:var(--abv2-pink);
 }
 
-.abv2-end-cta__item--secondary .abv2-end-cta__kicker{
-  color:var(--abv2-teal);
-}
+// .abv2-end-cta__item--secondary .abv2-end-cta__kicker colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-end-cta__card-title{
   margin:0;
   max-width:13ch;
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.56rem, 2vw, 2.08rem);
-  line-height:.96;
-  letter-spacing:-.03em;
+// .abv2-end-cta__card-title type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-end-cta__card-body{
   margin:var(--abv2-space-16) 0 0;
   max-width:34ch;
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1.56;
+// .abv2-end-cta__card-body type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-text);
 }
 
@@ -167,12 +143,12 @@
 
   .abv2-end-cta__card-title{
     max-width:12ch;
-    font-size:clamp(1.42rem, 2.6vw, 1.72rem);
+// .abv2-end-cta__card-title type removed. Instead use si-action-text in the HTML.
   }
 
   .abv2-end-cta__card-body{
     max-width:28ch;
-    font-size:.96rem;
+// .abv2-end-cta__card-body type removed. Instead use si-action-text in the HTML.
   }
 }
 
@@ -197,8 +173,8 @@
     max-width:none;
   }
 
+// .abv2-end-cta__body type removed. Instead use si-action-text in the HTML.
   .abv2-end-cta__body{
-    font-size:.96rem;
   }
 
   .abv2-end-cta__grid{
@@ -215,8 +191,8 @@
     width:64px;
   }
 
+// .abv2-end-cta__kicker type removed. Instead use si-eyebrow or si-table-header in the HTML.
   .abv2-end-cta__kicker{
-    font-size:.72rem;
   }
 
   .abv2-end-cta__card-title,
@@ -224,12 +200,12 @@
     max-width:none;
   }
 
+// .abv2-end-cta__card-title type removed. Instead use si-action-text in the HTML.
   .abv2-end-cta__card-title{
-    font-size:1.56rem;
   }
 
+// .abv2-end-cta__card-body type removed. Instead use si-action-text in the HTML.
   .abv2-end-cta__card-body{
-    font-size:.94rem;
   }
 
   .abv2-end-cta__actions{

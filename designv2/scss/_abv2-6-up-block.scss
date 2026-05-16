@@ -20,30 +20,18 @@
 .abv2-benefit-block__eyebrow{
   display:inline-block;
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.74rem;
-  line-height:1;
-  letter-spacing:.05em;
-  text-transform:uppercase;
   color:var(--abv2-yellow-dark);
 }
 
 .abv2-benefit-block__title{
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.5rem, 2vw, 2rem);
-  line-height:.96;
-  letter-spacing:-.03em;
+// .abv2-benefit-block__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-benefit-block__body{
   margin:0;
   max-width:62ch;
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1.55;
   color:var(--abv2-text);
 }
 
@@ -74,29 +62,16 @@
 .abv2-benefit-card__kicker{
   display:inline-block;
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.66rem;
-  line-height:1;
-  letter-spacing:.04em;
-  text-transform:uppercase;
   color:var(--abv2-ink-a62);
 }
 
 .abv2-benefit-card__title{
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:1.15rem;
-  line-height:.98;
-  letter-spacing:-.03em;
   color:var(--abv2-ink);
 }
 
 .abv2-benefit-card__text{
   margin:0;
-  font-family:var(--abv2-sans);
-  font-size:.92rem;
-  line-height:1.45;
   color:var(--abv2-text);
 }
 
@@ -118,23 +93,20 @@
 
 .abv2-benefitsB__hero .abv2-benefit-card__title{
   max-width:12ch;
-  font-size:1.5rem;
-  line-height:.94;
+// .abv2-benefitsB__hero .abv2-benefit-card__title type removed. Instead use si-heading-* helper in the HTML.
 }
 
 .abv2-benefitsB__hero .abv2-benefit-card__text{
   max-width:34ch;
-  font-size:.95rem;
-  line-height:1.48;
+// .abv2-benefitsB__hero .abv2-benefit-card__text type removed. Instead use si-body-* helper in the HTML.
 }
 
+// .abv2-benefitsB__small .abv2-benefit-card__title type removed. Instead use si-heading-* helper in the HTML.
 .abv2-benefitsB__small .abv2-benefit-card__title{
-  font-size:1.06rem;
 }
 
+// .abv2-benefitsB__small .abv2-benefit-card__text type removed. Instead use si-body-* helper in the HTML.
 .abv2-benefitsB__small .abv2-benefit-card__text{
-  font-size:.86rem;
-  line-height:1.4;
 }
 
 /* ---------- TONES ---------- */

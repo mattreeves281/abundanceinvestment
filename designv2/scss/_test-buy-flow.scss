@@ -23,7 +23,7 @@
   min-height:100vh;
   background:var(--abv2-buy-bg);
   color:var(--abv2-buy-text);
-  font-family:var(--abv2-sans);
+// .abv2-buy type removed. Instead use approved SI type helper in the HTML.
 }
 
 /* ----------------------------------------
@@ -63,10 +63,7 @@
 
 .abv2-buy-cancel{
   color:var(--abv2-buy-muted);
-  font-family:var(--abv2-ui);
-  font-size:14px;
-  font-weight:600;
-  line-height:1.2;
+// .abv2-buy-cancel type removed. Instead use approved SI type helper in the HTML.
   text-decoration:none;
 }
 
@@ -98,14 +95,7 @@
   gap:var(--abv2-space-24);
 }
 
-.abv2-buy-progress__label,
-.abv2-buy-progress__count{
-  color:var(--abv2-buy-muted);
-  font-family:var(--abv2-ui);
-  font-size:14px;
-  font-weight:600;
-  line-height:1.2;
-}
+// .abv2-buy-progress__count colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-buy-progress__track{
   position:relative;
@@ -170,11 +160,7 @@
 .abv2-buy-kicker{
   margin:0 0 var(--abv2-space-12);
   color:var(--abv2-teal);
-  font-family:var(--abv2-ui);
-  font-size:13px;
-  font-weight:600;
-  line-height:1.2;
-  letter-spacing:.02em;
+// .abv2-buy-kicker type removed. Instead use si-eyebrow or si-table-header in the HTML.
 }
 
 .abv2-buy-title{
@@ -219,30 +205,15 @@
   box-shadow:0 10px 24px var(--abv2-shadow-default);
 }
 
-.abv2-editorial-related--buy .abv2-editorial-related__type{
-  color:var(--abv2-teal);
-}
+// .abv2-editorial-related--buy .abv2-editorial-related__type colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-editorial-related--buy .abv2-editorial-related__card:nth-child(2) .abv2-editorial-related__type{
-  color:var(--abv2-pink);
-}
+// .abv2-editorial-related--buy .abv2-editorial-related__card:nth-child(2) .abv2-editorial-related__type colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-editorial-related--buy .abv2-editorial-related__title{
-  color:var(--abv2-ink);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  letter-spacing:-.03em;
-  font-size:1.22rem;
-  line-height:1.08;
-}
+// .abv2-editorial-related--buy .abv2-editorial-related__title colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-editorial-related--buy .abv2-editorial-related__desc{
-  color:var(--abv2-text);
-}
+// .abv2-editorial-related--buy .abv2-editorial-related__desc colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-editorial-related--buy .abv2-editorial-related__cta{
-  color:var(--abv2-pink);
-}
+// .abv2-editorial-related--buy .abv2-editorial-related__cta colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* ----------------------------------------
    Footer buttons
@@ -287,8 +258,8 @@
     max-width:112px;
   }
 
+// .abv2-buy-cancel type removed. Instead use approved SI type helper in the HTML.
   .abv2-buy-cancel{
-    font-size:13px;
   }
 
   .abv2-buy-progress__inner{
@@ -303,13 +274,13 @@
   .abv2-buy-progress__label{
     grid-column:1;
     grid-row:1;
-    font-size:13px;
+// .abv2-buy-progress__label type removed. Instead use si-meta or si-label-sm in the HTML.
   }
 
   .abv2-buy-progress__count{
     grid-column:2;
     grid-row:1;
-    font-size:13px;
+// .abv2-buy-progress__count type removed. Instead use approved SI type helper in the HTML.
   }
 
   .abv2-buy-progress__track{
@@ -331,7 +302,7 @@
 
   .abv2-buy-kicker{
     margin-bottom:var(--abv2-space-8);
-    font-size:12px;
+// .abv2-buy-kicker type removed. Instead use si-eyebrow or si-table-header in the HTML.
   }
 
   .abv2-buy-lede{
@@ -399,32 +370,18 @@
    Buy flow refinements
    ---------------------------------------- */
 
-.abv2-buy-lede{
-  color:var(--abv2-ink);
-}
+// .abv2-buy-lede colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-editorial-related--buy .abv2-editorial-related__desc{
-  color:var(--abv2-ink);
-}
+// .abv2-editorial-related--buy .abv2-editorial-related__desc colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* ========================================
    TEMP PATCH: buy-flow body copy colour
    Force standard ink over earlier muted rules
    ======================================== */
 
-.abv2-buy .abv2-body,
-.abv2-buy .abv2-body p,
-.abv2-buy .abv2-buy-lede,
-.abv2-buy .abv2-buy-lede p,
-.abv2-buy-card__head .abv2-body,
-.abv2-buy-card__head .abv2-body p{
-  color:var(--abv2-ink) !important;
-}
+// .abv2-buy-card__head .abv2-body p colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-buy .abv2-editorial-related--buy .abv2-editorial-related__desc,
-.abv2-buy .abv2-editorial-related--buy .abv2-editorial-related__desc p{
-  color:var(--abv2-ink) !important;
-}
+// .abv2-buy .abv2-editorial-related--buy .abv2-editorial-related__desc p colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* ========================================
    COMPONENT: abv2-buy-choice
@@ -520,12 +477,7 @@
   border-radius:999px;
   background:var(--abv2-teal-very-light);
   color:var(--abv2-teal-dark);
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  font-weight:700;
-  line-height:1;
-  text-transform:uppercase;
-  letter-spacing:.05em;
+// .abv2-buy-choice__type type removed. Instead use si-eyebrow or si-table-header in the HTML.
 }
 
 .abv2-buy-choice__type--pink{
@@ -537,20 +489,14 @@
   display:block;
   max-width:90%;
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:1.15rem;
-  line-height:1.18;
-  letter-spacing:-.03em;
+// .abv2-buy-choice__heading type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-buy-choice__note{
   display:block;
   margin:0 0 var(--abv2-space-20);
-  font-family:var(--abv2-sans);
-  font-size:.95rem;
-  line-height:1.5;
+// .abv2-buy-choice__note type removed. Instead use si-note in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -560,9 +506,7 @@
   margin:auto 0 0;
   padding:0;
   list-style:none;
-  font-family:var(--abv2-sans);
-  font-size:.95rem;
-  line-height:1.45;
+// .abv2-buy-choice__list type removed. Instead use approved SI type helper in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -719,17 +663,13 @@
 
 .abv2-buy-invest-row__title{
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:1.22rem;
-  line-height:1.08;
-  letter-spacing:-.03em;
+// .abv2-buy-invest-row__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-buy-invest-row__meta{
   margin:0 0 var(--abv2-space-12);
-  font-size:.86rem;
+// .abv2-buy-invest-row__meta type removed. Instead use si-meta or si-label-sm in the HTML.
 }
 
 .abv2-buy-invest-row__link{
@@ -737,19 +677,13 @@
   width:max-content;
   max-width:100%;
   color:var(--abv2-teal-dark);
-  font-family:var(--abv2-ui);
-  font-size:.86rem;
-  font-weight:600;
-  line-height:1.25;
+// .abv2-buy-invest-row__link type removed. Instead use si-action-text in the HTML.
   text-decoration:underline;
   text-decoration-thickness:1px;
   text-underline-offset:var(--abv2-space-4);
 }
 
-.abv2-buy-invest-row__link:hover,
-.abv2-buy-invest-row__link:focus-visible{
-  color:var(--abv2-teal);
-}
+// .abv2-buy-invest-row__link:focus-visible colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* ----------------------------------------
    Amount field
@@ -767,7 +701,7 @@
   border-radius:16px;
   background:var(--abv2-white);
   color:var(--abv2-ink);
-  font-family:var(--abv2-ui);
+// .abv2-buy-amount-field type removed. Instead use approved SI type helper in the HTML.
 }
 
 .abv2-buy-amount-field:focus-within{
@@ -775,11 +709,7 @@
   box-shadow:0 0 0 3px var(--abv2-pink-a12);
 }
 
-.abv2-buy-amount-field__prefix{
-  color:var(--abv2-ink-a72);
-  font-size:.95rem;
-  line-height:1;
-}
+// .abv2-buy-amount-field__prefix colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-buy-amount-field__input{
   width:100%;
@@ -789,9 +719,7 @@
   margin:0;
   background:transparent;
   color:var(--abv2-ink);
-  font-family:var(--abv2-ui);
-  font-size:1rem;
-  line-height:1;
+// .abv2-buy-amount-field__input type removed. Instead use approved SI type helper in the HTML.
   outline:0;
 }
 
@@ -821,12 +749,12 @@
     width:100%;
   }
 
+// .abv2-buy-invest-row__title type removed. Instead use si-heading-* helper in the HTML.
   .abv2-buy-invest-row__title{
-    font-size:1.12rem;
   }
 
+// .abv2-buy-invest-row__meta type removed. Instead use si-meta or si-label-sm in the HTML.
   .abv2-buy-invest-row__meta{
-    font-size:.82rem;
   }
 }
 
@@ -881,17 +809,13 @@
 
 .abv2-buy-invest-row__title{
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:1.22rem;
-  line-height:1.08;
-  letter-spacing:-.03em;
+// .abv2-buy-invest-row__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-buy-invest-row__meta{
   margin:0 0 var(--abv2-space-12);
-  font-size:.86rem;
+// .abv2-buy-invest-row__meta type removed. Instead use si-meta or si-label-sm in the HTML.
 }
 
 .abv2-buy-invest-row__link{
@@ -899,10 +823,7 @@
   width:max-content;
   max-width:100%;
   color:var(--abv2-pink-dark);
-  font-family:var(--abv2-ui);
-  font-size:.86rem;
-  font-weight:600;
-  line-height:1.25;
+// .abv2-buy-invest-row__link type removed. Instead use si-action-text in the HTML.
   text-decoration:none;
 }
 
@@ -928,7 +849,7 @@
   border-radius:16px;
   background:var(--abv2-white);
   color:var(--abv2-ink);
-  font-family:var(--abv2-ui);
+// .abv2-buy-amount-field type removed. Instead use approved SI type helper in the HTML.
 }
 
 .abv2-buy-amount-field:focus-within{
@@ -936,11 +857,7 @@
   box-shadow:0 0 0 3px var(--abv2-pink-a12);
 }
 
-.abv2-buy-amount-field__prefix{
-  color:var(--abv2-ink);
-  font-size:.95rem;
-  line-height:1;
-}
+// .abv2-buy-amount-field__prefix colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-buy-amount-field__input{
   width:100%;
@@ -950,9 +867,7 @@
   margin:0;
   background:transparent;
   color:var(--abv2-ink);
-  font-family:var(--abv2-ui);
-  font-size:1rem;
-  line-height:1;
+// .abv2-buy-amount-field__input type removed. Instead use approved SI type helper in the HTML.
   outline:0;
 }
 
@@ -981,10 +896,7 @@
   background:var(--abv2-white);
 }
 
-.abv2-buy-invest-row--active .abv2-buy-amount-field__prefix,
-.abv2-buy-invest-row--active .abv2-buy-amount-field__input{
-  color:var(--abv2-ink);
-}
+// .abv2-buy-invest-row--active .abv2-buy-amount-field__input colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* ----------------------------------------
    Amount rows responsive
@@ -1002,12 +914,12 @@
     width:100%;
   }
 
+// .abv2-buy-invest-row__title type removed. Instead use si-heading-* helper in the HTML.
   .abv2-buy-invest-row__title{
-    font-size:1.12rem;
   }
 
+// .abv2-buy-invest-row__meta type removed. Instead use si-meta or si-label-sm in the HTML.
   .abv2-buy-invest-row__meta{
-    font-size:.82rem;
   }
 }
 
@@ -1074,4 +986,3 @@
   border-color:var(--abv2-pink) !important;
   box-shadow:0 0 0 3px var(--abv2-pink-a12) !important;
 }
-

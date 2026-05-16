@@ -17,11 +17,6 @@ SOURCE: 3- homepage components.html / DUAL-PATH HERO
 .abv2-path__kicker{
   display:inline-block;
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
 }
 
 .abv2-path__actions{
@@ -50,17 +45,13 @@ SOURCE: 3- homepage components.html / DUAL-PATH HERO
   pointer-events:none;
 }
 
-.abv2-path--primary .abv2-path__kicker{
-  color:var(--abv2-teal);
-}
+// .abv2-path--primary .abv2-path__kicker colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-path--secondary{
   margin-top:var(--abv2-space-28);
 }
 
-.abv2-path--secondary .abv2-path__kicker{
-  color:var(--abv2-pink);
-}
+// .abv2-path--secondary .abv2-path__kicker colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* =========================================================
 SOURCE: 3- homepage components.html / RESPONSIVE

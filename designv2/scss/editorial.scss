@@ -39,16 +39,8 @@
 
 /* Type safety for CMS-rendered headings */
 
-.abv2-editorial h1,
-.abv2-editorial h2,
-.abv2-editorial h3,
-.abv2-editorial h4,
-.abv2-editorial h5 {
-  font-family: var(--abv2-serif);
-  font-weight: 600;
-  letter-spacing: -.03em;
-  color: var(--abv2-ink);
-}
+// .abv2-editorial h5 type removed. Instead use approved SI type helper in the HTML.
+// .abv2-editorial h5 colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* Page-level background override (only if wrapper exists) */
 
@@ -57,4 +49,3 @@
 .abv2-editorial-page .content-wrapper {
   background: var(--abv2-editorial-bg) !important;
 }
-

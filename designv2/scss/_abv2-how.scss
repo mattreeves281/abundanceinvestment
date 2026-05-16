@@ -24,10 +24,7 @@
   max-width:360px;
 }
 
-.abv2-how__intro .abv2-h2,
-.abv2-how__intro .abv2-body{
-  color:var(--abv2-white);
-}
+// .abv2-how__intro .abv2-body colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-how__intro.abv2-stack > * + *{
   margin-top:var(--abv2-space-20);
@@ -35,11 +32,6 @@
 
 .abv2-how__eyebrow{
   margin:0;
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
   color:var(--abv2-white-a82);
 }
 
@@ -75,10 +67,7 @@
   mask-repeat:no-repeat;
   mask-position:center;
   mask-size:contain;
-  font-family:var(--abv2-serif);
-  font-size:1.52rem;
-  font-weight:600;
-  line-height:1;
+// .abv2-how-step__num type removed. Instead use si-stat in the HTML.
   color:var(--abv2-white);
 }
 
@@ -91,16 +80,11 @@
 }
 
 /* Tune inherited typography inside the steps */
-.abv2-how-step__content .abv2-h3{
-  font-size:clamp(1.08rem, 1.25vw, 1.24rem);
-  line-height:1.04;
-  color:var(--abv2-white);
-}
+// .abv2-how-step__content .abv2-h3 type removed. Instead use si-heading-* helper in the HTML.
+// .abv2-how-step__content .abv2-h3 colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-how-step__content .abv2-body{
   max-width:36ch;
-  font-size:.98rem;
-  line-height:1.48;
   color:var(--abv2-ink);
 }
 
@@ -156,7 +140,7 @@
   .abv2-how-step__num{
     width:54px;
     height:54px;
-    font-size:1.46rem;
+// .abv2-how-step__num type removed. Instead use si-stat in the HTML.
   }
 
   .abv2-how-step__content{
@@ -197,21 +181,20 @@
   .abv2-how-step__num{
     width:48px;
     height:48px;
-    font-size:1.34rem;
+// .abv2-how-step__num type removed. Instead use si-stat in the HTML.
   }
 
   .abv2-how-step__content{
     max-width:none;
   }
 
+// .abv2-how-step__content .abv2-h3 type removed. Instead use si-heading-* helper in the HTML.
   .abv2-how-step__content .abv2-h3{
-    font-size:1.08rem;
   }
 
   .abv2-how-step__content .abv2-body{
     max-width:none;
-    font-size:.94rem;
-    line-height:1.46;
+// .abv2-how-step__content .abv2-body type removed. Instead use si-body-* helper in the HTML.
   }
 }
 
@@ -226,6 +209,6 @@
   .abv2-how-step__num{
     width:42px;
     height:42px;
-    font-size:1.18rem;
+// .abv2-how-step__num type removed. Instead use si-stat in the HTML.
   }
 }

@@ -17,12 +17,7 @@
   gap:var(--abv2-space-20);
 }
 
-.abv2-data-bars__label{
-  font-family:var(--abv2-sans);
-  font-size:.98rem;
-  line-height:1.25;
-  color:var(--abv2-text);
-}
+// .abv2-data-bars__label removed. Instead use si-body-md.
 
 .abv2-data-bars__track{
   position:relative;
@@ -48,21 +43,17 @@
   top:50%;
   transform:translateY(-50%);
   z-index:1;
-  font-family:var(--abv2-ui);
-  font-size:.92rem;
-  line-height:1;
-  color:var(--abv2-blue);
 }
+
+// .abv2-data-bars__value type removed. Instead use si-meta plus the appropriate SI/UAT text colour helper.
 
 .abv2-data-card__note{
   margin:var(--abv2-space-20) 0 0;
   padding-top:var(--abv2-space-16);
   border-top:1px solid var(--abv2-border-subtle);
-  font-family:var(--abv2-sans);
-  font-size:.84rem;
-  line-height:1.45;
-  color:var(--abv2-ink-a64);
 }
+
+// .abv2-data-card__note type removed. Instead use si-note.
 
 @media (max-width:759px){
   .abv2-data-card{

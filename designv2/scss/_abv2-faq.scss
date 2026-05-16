@@ -23,9 +23,7 @@ SOURCE: 4 - editorial components.html / faq
   list-style:none;
   cursor:pointer;
   padding:var(--abv2-space-20) var(--abv2-space-56) var(--abv2-space-20) var(--abv2-space-20);
-  font-family:var(--abv2-ui);
-  font-weight:700;
-  line-height:1.4;
+// .abv2-faq__item summary type removed. Instead use approved SI type helper in the HTML.
 }
 
 .abv2-faq__item summary::-webkit-details-marker{
@@ -52,17 +50,13 @@ SOURCE: 4 - editorial components.html / faq
   mask-size:contain;
 }
 
-.abv2-faq__item[open] summary::after{
-  color:transparent;
-}
+// .abv2-faq__item[open] summary::after colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-faq__answer{
   padding:0 var(--abv2-space-20) var(--abv2-space-20);
   border-top:1px solid var(--abv2-border-subtle);
 
-  font-family:var(--abv2-sans);
-  font-size:.94rem;          /* ↓ from ~1.05rem */
-  line-height:1.5;
+// .abv2-faq__answer type removed. Instead use approved SI type helper in the HTML.
   color:var(--abv2-ink-a78);
 }
 

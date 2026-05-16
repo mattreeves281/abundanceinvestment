@@ -23,17 +23,13 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
 
 .abv2-backtop__title{
   margin:0 0 var(--abv2-space-4);
-  font-family:var(--abv2-ui);
-  font-size:.96rem;
-  line-height:1.25;
-  font-weight:700;
+// .abv2-backtop__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-backtop__text{
   margin:0;
-  font-size:.92rem;
-  line-height:1.45;
+// .abv2-backtop__text type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-ink-a74);
 }
 
@@ -48,10 +44,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   border:1.5px solid var(--abv2-border-soft);
   background:var(--abv2-white);
   text-decoration:none;
-  font-family:var(--abv2-ui);
-  font-size:.84rem;
-  line-height:1.2;
-  font-weight:700;
+// .abv2-backtop__link type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
 }
 

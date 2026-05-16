@@ -27,10 +27,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
   place-items:center;
   background:var(--abv2-pink-a16);
   color:var(--abv2-pink-dark);
-  font-family:var(--abv2-ui);
-  font-size:1rem;
-  font-weight:700;
-  line-height:1;
+// .abv2-risk-primary__icon type removed. Instead use approved SI type helper in the HTML.
   clip-path:path("M16.9 0C27.4 0 34 6.1 34 13.1C34 20.9 28.2 26 17.3 26C6.8 26 0 20.3 0 13.2C0 5.4 6.5 0 16.9 0Z");
 }
 
@@ -40,10 +37,7 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
 
 .abv2-risk-primary__headline{
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:1rem;
-  line-height:1.25;
-  font-weight:700;
+// .abv2-risk-primary__headline type removed. Instead use approved SI type helper in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -63,7 +57,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 }
 
 @media (max-width:759px){
+// .abv2-risk-primary__icon type removed. Instead use approved SI type helper in the HTML.
   .abv2-risk-primary__icon{
-      font-size:.92rem;
     }
 }

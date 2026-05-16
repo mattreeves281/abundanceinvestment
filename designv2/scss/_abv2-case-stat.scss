@@ -13,18 +13,12 @@ SOURCE: 3- homepage components.html / CASE STUDY / IMPACT SPOTLIGHT
 
 .abv2-case-stat__value{
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.35rem, 2vw, 1.9rem);
-  line-height:.96;
-  letter-spacing:-.03em;
+// .abv2-case-stat__value type removed. Instead use si-stat in the HTML.
   color:var(--abv2-white);
 }
 
 .abv2-case-stat__label{
   margin:0;
-  font-family:var(--abv2-sans);
-  font-size:.92rem;
-  line-height:1.4;
+// .abv2-case-stat__label type removed. Instead use si-meta or si-label-sm in the HTML.
   color:var(--abv2-white-a88);
 }

@@ -80,30 +80,20 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 .abv2-open-card__kicker{
   display:inline-block;
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.74rem;
-  line-height:1;
-  letter-spacing:.04em;
-  text-transform:uppercase;
+// .abv2-open-card__kicker type removed. Instead use si-eyebrow or si-table-header in the HTML.
   color:var(--abv2-pink);
 }
 
 .abv2-open-card__title{
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.32rem, 1.8vw, 1.72rem);
-  line-height:.98;
-  letter-spacing:-.03em;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-open-card__desc{
   margin:0;
   max-width:34ch;
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1.5;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-text);
 }
 
@@ -122,9 +112,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   min-height:34px;
   padding:var(--abv2-space-8) var(--abv2-space-12);
   border-radius:999px;
-  font-family:var(--abv2-ui);
-  font-size:.78rem;
-  line-height:1;
+// .abv2-open-card__pill type removed. Instead use si-meta or si-label-sm in the HTML.
   white-space:nowrap;
   border:1px solid transparent;
 }
@@ -152,9 +140,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
   align-items:center;
   gap:var(--abv2-space-12);
   margin-top:var(--abv2-space-20);
-  font-family:var(--abv2-ui);
-  font-size:.84rem;
-  line-height:1;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -212,7 +198,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION Drop-in additi
 @media (max-width:759px){
   .abv2-open-card__desc{
       max-width:none;
-      font-size:.96rem;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
     }
 }
 
@@ -303,31 +289,21 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 .abv2-open-card__kicker{
   display:inline-block;
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.74rem;
-  line-height:1;
-  letter-spacing:.04em;
-  text-transform:uppercase;
+// .abv2-open-card__kicker type removed. Instead use si-eyebrow or si-table-header in the HTML.
   color:var(--abv2-pink);
 }
 
 .abv2-open-card__title{
   margin:0 0 var(--abv2-space-12);
   max-width:18ch;
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.45rem, 2vw, 2rem);
-  line-height:.95;
-  letter-spacing:-.03em;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-open-card__desc{
   margin:0 0 var(--abv2-space-20);
   max-width:42ch;
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1.48;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-text);
 }
 
@@ -348,9 +324,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   min-height:42px;
   padding:0 var(--abv2-space-16);
   border-radius:999px;
-  font-family:var(--abv2-ui);
-  font-size:.82rem;
-  line-height:1;
+// .abv2-open-card__pill type removed. Instead use si-meta or si-label-sm in the HTML.
   white-space:nowrap;
   border:1px solid transparent;
 }
@@ -377,9 +351,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   display:inline-flex;
   align-items:center;
   gap:var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.84rem;
-  line-height:1;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -454,7 +426,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
 @media (max-width:759px){
   .abv2-open-card__title{
       max-width:none;
-      font-size:1.8rem;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
     }
 }
 
@@ -462,7 +434,7 @@ SOURCE: 3- homepage components.html / V2 OPEN INVESTMENTS SECTION — HORIZONTAL
   .abv2-open-card__desc{
       max-width:none;
       margin-bottom:var(--abv2-space-16);
-      font-size:.96rem;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
     }
 }
 
@@ -553,31 +525,21 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 .abv2-open-card__kicker{
   display:inline-block;
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  line-height:1;
-  letter-spacing:.04em;
-  text-transform:uppercase;
+// .abv2-open-card__kicker type removed. Instead use si-eyebrow or si-table-header in the HTML.
   color:var(--abv2-pink);
 }
 
 .abv2-open-card__title{
   margin:0 0 var(--abv2-space-8);
   max-width:16ch;
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.32rem, 1.8vw, 1.72rem);
-  line-height:.94;
-  letter-spacing:-.03em;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-open-card__desc{
   margin:0 0 var(--abv2-space-12);
   max-width:44ch;
-  font-family:var(--abv2-sans);
-  font-size:.98rem;
-  line-height:1.42;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-text);
 }
 
@@ -588,9 +550,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   flex-wrap:wrap;
   gap:0;
   margin-bottom:var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.82rem;
-  line-height:1.35;
+// .abv2-open-card__meta type removed. Instead use si-meta or si-label-sm in the HTML.
   color:var(--abv2-text);
 }
 
@@ -616,25 +576,17 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   display:none;
 }
 
-.abv2-open-card__pill--rate{
-  color:var(--abv2-pink-dark);
-}
+// .abv2-open-card__pill--rate colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-open-card__pill--term{
-  color:var(--abv2-teal-dark);
-}
+// .abv2-open-card__pill--term colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-open-card__pill--capital{
-  color:var(--abv2-yellow-dark);
-}
+// .abv2-open-card__pill--capital colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-open-card__cta{
   display:inline-flex;
   align-items:center;
   gap:var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.82rem;
-  line-height:1;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -703,7 +655,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
 @media (max-width:759px){
   .abv2-open-card__title{
       max-width:none;
-      font-size:1.56rem;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
     }
 }
 
@@ -711,7 +663,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   .abv2-open-card__desc{
       max-width:none;
       margin-bottom:var(--abv2-space-12);
-      font-size:.94rem;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
     }
 }
 
@@ -719,8 +671,7 @@ SOURCE: 3- homepage components.html / OPTION 1 — INLINE META ROW Compact edito
   .abv2-open-card__meta{
       display:block;
       margin-bottom:var(--abv2-space-12);
-      font-size:.8rem;
-      line-height:1.45;
+// .abv2-open-card__meta type removed. Instead use si-meta or si-label-sm in the HTML.
     }
 }
 
@@ -808,31 +759,21 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 .abv2-open-card__kicker{
   display:inline-block;
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.7rem;
-  line-height:1;
-  letter-spacing:.05em;
-  text-transform:uppercase;
+// .abv2-open-card__kicker type removed. Instead use si-eyebrow or si-table-header in the HTML.
   color:var(--abv2-pink);
 }
 
 .abv2-open-card__title{
   margin:0 0 var(--abv2-space-8);
   max-width:18ch;
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.18rem, 1.55vw, 1.48rem);
-  line-height:.95;
-  letter-spacing:-.03em;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-open-card__desc{
   margin:0 0 var(--abv2-space-8);
   max-width:48ch;
-  font-family:var(--abv2-sans);
-  font-size:.95rem;
-  line-height:1.42;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-text);
 }
 
@@ -843,9 +784,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   flex-wrap:wrap;
   gap:0;
   margin-bottom:var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.78rem;
-  line-height:1.35;
+// .abv2-open-card__meta type removed. Instead use si-meta or si-label-sm in the HTML.
   color:var(--abv2-text);
 }
 
@@ -877,9 +816,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   display:inline-flex;
   align-items:center;
   gap:var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.8rem;
-  line-height:1;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -952,7 +889,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
 @media (max-width:759px){
   .abv2-open-card__title{
       max-width:none;
-      font-size:1.24rem;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
     }
 }
 
@@ -960,15 +897,14 @@ SOURCE: 3- homepage components.html / OPTION 4 — EDITORIAL LIST ROW Lightweigh
   .abv2-open-card__desc{
       max-width:none;
       margin-bottom:var(--abv2-space-8);
-      font-size:.92rem;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
     }
 }
 
 @media (max-width:759px){
   .abv2-open-card__meta{
       display:block;
-      font-size:.76rem;
-      line-height:1.42;
+// .abv2-open-card__meta type removed. Instead use si-meta or si-label-sm in the HTML.
       margin-bottom:var(--abv2-space-8);
     }
 }
@@ -1000,8 +936,7 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
 
 .abv2-open-card__title{
   max-width:none;
-  font-size:clamp(1.16rem, 1.45vw, 1.42rem);
-  line-height:.96;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -1025,9 +960,7 @@ SOURCE: 3- homepage components.html / OPTION 4 REFINEMENTS narrower content rail
   border:1.5px solid var(--abv2-border-accent);
   border-radius:999px;
   background:transparent;
-  font-family:var(--abv2-ui);
-  font-size:.76rem;
-  line-height:1;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-ink);
   transition:
     background .2s ease,
@@ -1121,7 +1054,7 @@ SOURCE: 3- homepage components.html / mobile
       white-space:normal;
       overflow:visible;
       text-overflow:clip;
-      font-size:1.22rem;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
     }
 }
 
@@ -1135,7 +1068,7 @@ SOURCE: 3- homepage components.html / mobile
   .abv2-open-card__cta{
       min-height:32px;
       padding:0 var(--abv2-space-12);
-      font-size:.74rem;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
     }
 }
 
@@ -1199,8 +1132,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
 .abv2-open-card__title{
   max-width:none;
   margin:0 0 var(--abv2-space-8);
-  font-size:clamp(1.22rem, 1.45vw, 1.54rem);
-  line-height:.96;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -1209,13 +1141,12 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
 .abv2-open-card__desc{
   max-width:31ch;
   margin:0 0 var(--abv2-space-12);
-  font-size:1rem;
-  line-height:1.4;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
 }
 
 .abv2-open-card__meta{
   margin-bottom:var(--abv2-space-16);
-  font-size:.8rem;
+// .abv2-open-card__meta type removed. Instead use si-meta or si-label-sm in the HTML.
 }
 
 .abv2-open-card__pill::after{
@@ -1231,9 +1162,7 @@ SOURCE: 3- homepage components.html / OPTION 4 — FINAL POLISH PASS larger logo
   border:1.8px solid var(--abv2-pink);
   border-radius:999px;
   background:transparent;
-  font-family:var(--abv2-ui);
-  font-size:.8rem;
-  line-height:1;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-pink);
   transition:
     background .2s ease,
@@ -1375,14 +1304,14 @@ SOURCE: 3- homepage components.html / mobile
       white-space:normal;
       overflow:visible;
       text-overflow:clip;
-      font-size:1.24rem;
+// .abv2-open-card__title type removed. Instead use si-heading-* helper in the HTML.
     }
 }
 
 @media (max-width:759px){
   .abv2-open-card__desc{
       max-width:none;
-      font-size:.92rem;
+// .abv2-open-card__desc type removed. Instead use si-body-* helper in the HTML.
       margin-bottom:var(--abv2-space-8);
     }
 }
@@ -1391,8 +1320,7 @@ SOURCE: 3- homepage components.html / mobile
   .abv2-open-card__meta{
       display:block;
       margin-bottom:var(--abv2-space-12);
-      font-size:.76rem;
-      line-height:1.42;
+// .abv2-open-card__meta type removed. Instead use si-meta or si-label-sm in the HTML.
     }
 }
 
@@ -1410,6 +1338,6 @@ SOURCE: 3- homepage components.html / mobile
   .abv2-open-card__cta{
       min-height:34px;
       padding:0 var(--abv2-space-16);
-      font-size:.74rem;
+// .abv2-open-card__cta type removed. Instead use si-action-text in the HTML.
     }
 }

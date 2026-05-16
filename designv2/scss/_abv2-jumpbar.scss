@@ -21,9 +21,7 @@ SOURCE: 4 - editorial components.html / NAV / READING AIDS
   border-radius:999px;
   background:var(--abv2-white);
   text-decoration:none;
-  font-size:.84rem;
-  line-height:1.2;
-  font-weight:700;
+// .abv2-jumpbar__link type removed. Instead use si-action-text in the HTML.
   color:var(--abv2-text);
   transition:border-color .18s ease, background .18s ease, color .18s ease;
 }

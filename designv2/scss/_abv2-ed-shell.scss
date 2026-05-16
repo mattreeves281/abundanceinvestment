@@ -131,9 +131,7 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 
 .abv2-ed-shape-audit__label{
   margin:0;
-  font-family:var(--abv2-ui, inherit);
-  font-size:14px;
-  line-height:1.2;
+// .abv2-ed-shape-audit__label type removed. Instead use si-meta or si-label-sm in the HTML.
   color:var(--abv2-text, #4d4a46);
   opacity:.72;
 }

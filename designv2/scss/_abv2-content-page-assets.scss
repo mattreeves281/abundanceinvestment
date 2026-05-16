@@ -1,0 +1,909 @@
+/* Generic SI-card soft shell, shared with landing cleanup if not already present */
+.abv2-card-soft.si-card,
+.abv2-card-soft{
+  background:var(--abv2-white, #fff);
+  border:0;
+  border-radius:28px;
+  box-shadow:0 18px 38px var(--abv2-shadow-card, rgba(40,40,39,.12));
+}
+
+@media (max-width:759px){
+  .abv2-card-soft.si-card,
+  .abv2-card-soft{
+    border-radius:24px;
+  }
+
+  .abv2-rich-text blockquote{
+    padding-left:var(--abv2-space-16, 16px);
+  }
+
+  .abv2-rich-media-frame{
+    border-radius:24px;
+  }
+}
+
+.si-heading-display{
+  margin:0;
+  color:var(--abv2-ink, #282827);
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  line-height:1;
+  letter-spacing:-.025em;
+  font-size:4.25rem;
+}
+
+@media (max-width:1199px){
+  .si-heading-display{
+    font-size:3.875rem;
+  }
+}
+
+@media (max-width:991px){
+  .si-heading-display{
+    font-size:3.5rem;
+  }
+}
+
+@media (max-width:767px){
+  .si-heading-display{
+    font-size:3rem;
+    line-height:1.02;
+    letter-spacing:-.02em;
+  }
+}
+
+@media (max-width:420px){
+  .si-heading-display{
+    font-size:2.65rem;
+  }
+}
+
+
+/* =========================================================
+   v2 editorial card override
+   Intended future primitive update:
+   .si-card--secondary = white outlined editorial card
+   ========================================================= */
+
+.si-card--secondary{
+  position:relative;
+  overflow:hidden;
+  background:var(--abv2-white, #fff);
+  border:1.5px solid var(--abv2-border-default, #e2e2e2);
+  border-radius:24px;
+  box-shadow:0 10px 30px var(--abv2-ink-a05, rgba(40,40,39,.05));
+}
+
+@media (max-width:767px){
+  .si-card--secondary{
+    border-radius:22px;
+  }
+}
+
+/* Editorial / content card supporting copy */
+.abv2-card-copy{
+  margin:0;
+  font-family:var(--abv2-sans);
+  font-size:1.05rem;
+  line-height:1.55;
+  color:var(--abv2-ink-a78);
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Generic interactive link card
+   Used for editorial related links / follow-on reading.
+   ========================================================= */
+
+.abv2-link-card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:var(--abv2-space-20, 20px) var(--abv2-space-20, 20px) var(--abv2-space-16, 16px);
+  border:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  border-radius:18px;
+  background:var(--abv2-white, #fff);
+  color:inherit;
+  text-decoration:none;
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background-color .18s ease;
+}
+
+.abv2-link-card:hover,
+.abv2-link-card:focus-visible{
+  transform:translateY(-1px);
+  border-color:rgba(242,127,174,.34);
+  box-shadow:0 10px 24px var(--abv2-shadow-default, rgba(40,40,39,.10));
+  text-decoration:none;
+}
+
+.abv2-link-card:focus-visible{
+  outline:2px solid var(--abv2-pink, #f27fae);
+  outline-offset:3px;
+}
+
+.abv2-link-card .si-action-text{
+  display:block;
+  margin-top:auto;
+  padding-top:var(--abv2-space-16, 16px);
+}
+
+@media (max-width:767px){
+  .abv2-link-card{
+    border-radius:16px;
+  }
+}
+
+/* Blob colour helpers */
+.bg-blob--abv2-pink{
+  background-color:var(--abv2-pink, #f27fae);
+}
+
+.bg-blob--abv2-yellow{
+  background-color:var(--abv2-yellow, #ffb72c);
+}
+
+.bg-blob--abv2-teal{
+  background-color:var(--abv2-teal, #00a4b6);
+}
+
+/* Small numbered blob for editorial cards */
+.abv2-card-blob-num{
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  line-height:1;
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Generic chip/pill link
+   Used for jump links, tag links, compact navigation.
+   ========================================================= */
+
+.abv2-chip-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:var(--abv2-space-12, 12px) var(--abv2-space-16, 16px);
+  border:1.5px solid var(--abv2-border-soft, #e2e2e2);
+  border-radius:999px;
+  background:var(--abv2-white, #fff);
+  color:var(--abv2-text, #4d4a46);
+  text-decoration:none;
+  transition:
+    border-color .18s ease,
+    background-color .18s ease,
+    color .18s ease;
+}
+
+.abv2-chip-link:hover,
+.abv2-chip-link:focus-visible{
+  border-color:rgba(0,164,182,.38);
+  background:rgba(0,164,182,.06);
+  color:var(--abv2-ink, #282827);
+  text-decoration:none;
+}
+
+.abv2-chip-link:focus-visible{
+  outline:2px solid var(--abv2-teal, #00a4b6);
+  outline-offset:3px;
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Generic coloured content cards
+   Used for benefit tiles, callout tiles, grouped feature cards.
+   ========================================================= */
+
+.abv2-colour-card-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:var(--abv2-space-16, 16px);
+}
+
+.abv2-colour-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:160px;
+  padding:var(--abv2-space-16, 16px);
+  border:0;
+  border-radius:14px;
+  background:var(--abv2-grey-ui, #faf8f8);
+  color:var(--abv2-ink, #282827);
+  overflow:hidden;
+}
+
+.abv2-colour-card--wide{
+  grid-column:span 2;
+  min-height:210px;
+  padding:var(--abv2-space-20, 20px);
+}
+
+.abv2-colour-card--pink{
+  background:var(--abv2-pink, #f27fae);
+}
+
+.abv2-colour-card--teal{
+  background:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-colour-card--yellow{
+  background:var(--abv2-yellow, #ffb72c);
+}
+
+.abv2-colour-card--green{
+  background:var(--abv2-green-soft, #65c86a);
+}
+
+.abv2-colour-card--pink-light{
+  background:var(--abv2-pink-light, #f498be);
+}
+
+.abv2-colour-card--teal-light{
+  background:var(--abv2-teal-light, #4cbfcb);
+}
+
+.abv2-colour-card--yellow-light{
+  background:var(--abv2-yellow-light, #ffc556);
+}
+
+.abv2-colour-card--indigo-soft{
+  background:var(--abv2-indigo-soft, #d9d6e1);
+}
+
+.abv2-colour-card .si-eyebrow{
+  color:rgba(40,40,39,.68);
+}
+
+.abv2-colour-card .si-body-compact{
+  color:var(--abv2-text, #4d4a46);
+}
+
+@media (max-width:900px){
+  .abv2-colour-card-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .abv2-colour-card--wide{
+    grid-column:span 2;
+  }
+}
+
+@media (max-width:560px){
+  .abv2-colour-card-grid{
+    grid-template-columns:1fr;
+  }
+
+  .abv2-colour-card,
+  .abv2-colour-card--wide{
+    grid-column:auto;
+    min-height:0;
+  }
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Editorial comparison layout helper
+   Uses SI card, SI type and spacing helpers in HTML.
+   ========================================================= */
+
+.abv2-editorial-compare__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.abv2-editorial-compare__col{
+  padding:var(--abv2-space-20, 20px);
+  background:var(--abv2-white, #fff);
+}
+
+.abv2-editorial-compare__col + .abv2-editorial-compare__col{
+  border-left:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+}
+
+.abv2-editorial-compare__list{
+  display:grid;
+  gap:var(--abv2-space-12, 12px);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.abv2-editorial-compare__list li{
+  position:relative;
+  margin:0;
+  padding-left:var(--abv2-space-20, 20px);
+}
+
+.abv2-editorial-compare__list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.62em;
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:var(--abv2-pink, #f27fae);
+}
+
+@media (max-width:767px){
+  .abv2-editorial-compare__grid{
+    grid-template-columns:1fr;
+    border-radius:16px;
+  }
+
+  .abv2-editorial-compare__col + .abv2-editorial-compare__col{
+    border-left:0;
+    border-top:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  }
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Generic editorial line chart
+   Static SVG chart helper for article/data cards.
+   ========================================================= */
+
+.abv2-line-chart{
+  display:grid;
+  gap:var(--abv2-space-16, 16px);
+}
+
+.abv2-line-chart__legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--abv2-space-8, 8px) var(--abv2-space-16, 16px);
+  align-items:center;
+}
+
+.abv2-line-chart__key{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--abv2-space-8, 8px);
+  font-family:var(--abv2-ui);
+  font-size:.875rem;
+  font-weight:700;
+  line-height:1.2;
+  color:var(--abv2-text, #4d4a46);
+}
+
+.abv2-line-chart__swatch{
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  flex:0 0 auto;
+}
+
+.abv2-line-chart__swatch--pink{
+  background:var(--abv2-pink, #f27fae);
+}
+
+.abv2-line-chart__swatch--teal{
+  background:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-line-chart__swatch--yellow{
+  background:var(--abv2-yellow, #ffb72c);
+}
+
+.abv2-line-chart__plot{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  background:var(--abv2-white, #fff);
+  border:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+}
+
+.abv2-line-chart__svg{
+  display:block;
+  width:100%;
+  height:320px;
+}
+
+.abv2-line-chart__grid-line{
+  stroke:var(--abv2-border-soft, #e2e2e2);
+  stroke-width:1.5;
+}
+
+.abv2-line-chart__axis-label{
+  font-family:var(--abv2-ui);
+  font-size:12px;
+  font-weight:700;
+  fill:var(--abv2-ink-a62, rgba(40,40,39,.62));
+}
+
+.abv2-line-chart__line{
+  fill:none;
+  stroke-width:5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.abv2-line-chart__line--pink{
+  stroke:var(--abv2-pink, #f27fae);
+}
+
+.abv2-line-chart__line--teal{
+  stroke:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-line-chart__line--yellow{
+  stroke:var(--abv2-yellow, #ffb72c);
+}
+
+.abv2-line-chart__points circle{
+  stroke:var(--abv2-white, #fff);
+  stroke-width:3;
+}
+
+.abv2-line-chart__points--pink circle{
+  fill:var(--abv2-pink, #f27fae);
+}
+
+.abv2-line-chart__points--teal circle{
+  fill:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-line-chart__points--yellow circle{
+  fill:var(--abv2-yellow, #ffb72c);
+}
+
+@media (max-width:767px){
+  .abv2-line-chart__plot{
+    border-radius:18px;
+  }
+
+  .abv2-line-chart__svg{
+    height:260px;
+  }
+
+  .abv2-line-chart__line{
+    stroke-width:4;
+  }
+
+  .abv2-line-chart__points circle{
+    r:4;
+  }
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Warning/checklist list
+   Uses colour-card and blob helpers for visual treatment.
+   ========================================================= */
+
+.abv2-warning-list{
+  display:grid;
+  gap:var(--abv2-space-12, 12px);
+}
+
+.abv2-warning-list__item{
+  display:grid;
+  grid-template-columns:44px minmax(0, 1fr);
+  gap:var(--abv2-space-16, 16px);
+  align-items:start;
+  min-height:0;
+}
+
+@media (max-width:767px){
+  .abv2-warning-list__item{
+    grid-template-columns:40px minmax(0, 1fr);
+    gap:var(--abv2-space-12, 12px);
+  }
+
+  .abv2-warning-list__item .abv2-card-blob-num{
+    width:40px;
+    height:40px;
+  }
+}
+
+.abv2-warning-list__item--soft{
+  background:var(--abv2-grey-very-light, #faf8f8);
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Inline disclaimer
+   Light caution/legal note for body-flow qualification.
+   ========================================================= */
+
+.abv2-inline-disclaimer{
+  padding:var(--abv2-space-16, 16px);
+  border-left:4px solid var(--abv2-pink, #f27fae);
+  border-radius:0 14px 14px 0;
+  background:var(--abv2-grey-very-light, #faf8f8);
+  color:var(--abv2-text, #4d4a46);
+}
+
+.abv2-inline-disclaimer strong{
+  display:inline;
+  color:var(--abv2-ink, #282827);
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Editorial divider bands
+   Full-bleed decorative bands using shared SVG mask pattern.
+   Colour and shape are deliberately separate.
+   ========================================================= */
+
+.abv2-ed-band{
+  position:relative;
+  width:100vw;
+  padding-top:9.6%;
+  min-height:70px;
+  max-height:138px;
+  margin:var(--abv2-space-20, 20px) 0 var(--abv2-space-24, 24px);
+  margin-left:calc(50% - 50vw);
+  pointer-events:none;
+  background:currentColor;
+
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-position:0 0;
+  mask-position:0 0;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+}
+
+.abv2-ed-band--pink{
+  color:var(--abv2-pink, #f27fae);
+}
+
+.abv2-ed-band--yellow{
+  color:var(--abv2-yellow, #ffb72c);
+}
+
+.abv2-ed-band--teal{
+  color:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-ed-band--tight{
+  margin-top:var(--abv2-space-8, 8px);
+  margin-bottom:var(--abv2-space-12, 12px);
+}
+
+.abv2-ed-band--loose{
+  margin-top:var(--abv2-space-32, 32px);
+  margin-bottom:var(--abv2-space-32, 32px);
+}
+
+/* Rise shape */
+.bg-mask--abv2-ed-rise{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 588L0 700L1980 252L6000 532L6000 420L1980 140Z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 588L0 700L1980 252L6000 532L6000 420L1980 140Z'/%3E%3C/svg%3E");
+}
+
+/* Right-weighted shape */
+.bg-mask--abv2-ed-right{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 546L0 658L3960 210L6000 336L6000 224L3960 98Z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 546L0 658L3960 210L6000 336L6000 224L3960 98Z'/%3E%3C/svg%3E");
+}
+
+/* Fall shape */
+.bg-mask--abv2-ed-fall{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 210L0 322L1980 574L6000 294L6000 182L1980 462Z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 210L0 322L1980 574L6000 294L6000 182L1980 462Z'/%3E%3C/svg%3E");
+}
+
+@media (max-width:759px){
+  .abv2-ed-band{
+    padding-top:14%;
+    margin-top:var(--abv2-space-16, 16px);
+    margin-bottom:var(--abv2-space-20, 20px);
+  }
+}
+
+
+/* =========================================================
+   Editorial marker — stronger desktop hero treatment
+   Bigger blob, more bleed, title pulled left/right harder
+   ========================================================= */
+
+.abv2-ed-marker{
+  --abv2-ed-marker-size:500px;
+  --abv2-ed-marker-bleed:132px;
+  position:relative;
+  z-index:0;
+  margin:var(--abv2-space-32, 32px) 0 -138px;
+  overflow:visible;
+}
+
+.abv2-ed-marker--intro{
+  margin-top:var(--abv2-space-20, 20px);
+  margin-bottom:-156px;
+}
+
+.abv2-ed-marker__inner{
+  position:relative;
+  min-height:420px;
+}
+
+.abv2-ed-marker__blob{
+  position:absolute;
+  top:0;
+  width:var(--abv2-ed-marker-size);
+  aspect-ratio:1 / 1;
+  z-index:1;
+  pointer-events:none;
+}
+
+/* Push blob further out of the wider row */
+.abv2-ed-marker--left .abv2-ed-marker__blob{
+  left:calc(var(--abv2-ed-marker-bleed) * -1);
+}
+
+.abv2-ed-marker--right .abv2-ed-marker__blob{
+  right:calc(var(--abv2-ed-marker-bleed) * -1);
+}
+
+/* Pull title further LEFT / RIGHT into the blob */
+.abv2-ed-marker__title{
+  position:relative;
+  z-index:3;
+  max-width:10.5ch;
+  color:var(--abv2-ink, #282827);
+}
+
+.abv2-ed-marker--left .abv2-ed-marker__title{
+  margin-left:78px;
+  padding-top:124px;
+  text-align:left;
+}
+
+.abv2-ed-marker--right .abv2-ed-marker__inner{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.abv2-ed-marker--right .abv2-ed-marker__title{
+  margin-right:78px;
+  padding-top:132px;
+  text-align:right;
+}
+
+/* Keep following content overlapping above the blob */
+.abv2-ed-marker + section,
+.abv2-ed-marker + .position-relative{
+  position:relative;
+  z-index:2;
+}
+
+.abv2-ed-marker + section .container-medium,
+.abv2-ed-marker + section .choke-800,
+.abv2-ed-marker + .position-relative .container-medium,
+.abv2-ed-marker + .position-relative .choke-800{
+  position:relative;
+  z-index:2;
+}
+
+/* Image variant still centred inside blob */
+.abv2-ed-marker--with-image .abv2-ed-marker__blob img{
+  position:absolute;
+  z-index:2;
+  inset:50% auto auto 50%;
+  width:62%;
+  height:62%;
+  object-fit:contain;
+  transform:translate(-50%, -50%);
+}
+
+/* Tablet */
+@media (max-width:979px){
+  .abv2-ed-marker{
+    --abv2-ed-marker-size:400px;
+    --abv2-ed-marker-bleed:88px;
+    margin-bottom:-108px;
+  }
+
+  .abv2-ed-marker--intro{
+    margin-bottom:-124px;
+  }
+
+  .abv2-ed-marker__inner{
+    min-height:350px;
+  }
+
+  .abv2-ed-marker--left .abv2-ed-marker__title{
+    margin-left:86px;
+    padding-top:102px;
+  }
+
+  .abv2-ed-marker--right .abv2-ed-marker__title{
+    margin-right:86px;
+    padding-top:110px;
+  }
+}
+
+/* Mobile stays stacked */
+@media (max-width:759px){
+  .abv2-ed-marker{
+    --abv2-ed-marker-size:300px;
+    --abv2-ed-marker-bleed:0px;
+    margin:var(--abv2-space-16, 16px) 0 var(--abv2-space-20, 20px);
+  }
+
+  .abv2-ed-marker--intro{
+    margin-bottom:var(--abv2-space-20, 20px);
+  }
+
+  .abv2-ed-marker__inner,
+  .abv2-ed-marker--right .abv2-ed-marker__inner{
+    display:block;
+    min-height:0;
+  }
+
+  .abv2-ed-marker__blob,
+  .abv2-ed-marker--left .abv2-ed-marker__blob,
+  .abv2-ed-marker--right .abv2-ed-marker__blob{
+    position:relative;
+    left:auto;
+    right:auto;
+    top:auto;
+    width:var(--abv2-ed-marker-size);
+    height:var(--abv2-ed-marker-size);
+    aspect-ratio:auto;
+    margin:0;
+    transform:translate(-130px, 80px);
+  }
+
+  .abv2-ed-marker__title,
+  .abv2-ed-marker--left .abv2-ed-marker__title,
+  .abv2-ed-marker--right .abv2-ed-marker__title{
+    width:auto;
+    max-width:16ch;
+    margin:-140px 0 0;
+    padding-top:0;
+    text-align:left;
+  }
+}
+
+/* stronger intro marker pass */
+.abv2-ed-marker{
+  --abv2-ed-marker-size:560px;
+  --abv2-ed-marker-bleed:132px;
+}
+
+.abv2-ed-marker--intro{
+  margin-bottom:-172px;
+}
+
+.abv2-ed-marker__inner{
+  min-height:470px;
+}
+
+.abv2-ed-marker__blob{
+  top:28px;
+}
+
+/* intro title only */
+.abv2-ed-marker--intro .abv2-ed-marker__title{
+  margin-left:72px;
+  padding-top:156px;
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Editorial content candidates
+   Small patterns used inside helper-led content blocks.
+   ========================================================= */
+
+.abv2-ed-note{
+  padding:var(--abv2-space-16, 16px);
+  border-radius:18px;
+  background:var(--abv2-grey-very-light, #faf8f8);
+  color:var(--abv2-text, #4d4a46);
+}
+
+.abv2-ed-note strong{
+  color:var(--abv2-ink, #282827);
+}
+
+.abv2-ed-quote{
+  margin:0;
+  padding-left:var(--abv2-space-24, 24px);
+  border-left:4px solid var(--abv2-pink, #f27fae);
+}
+
+.abv2-ed-quote cite{
+  display:block;
+  font-style:normal;
+}
+
+/* Allow iframe use inside shared media frame */
+.abv2-media-frame iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Editorial gutter figure
+   Lino / image blob placed in the left gutter beside a copy rail.
+   Candidate pattern for long-form editorial sections.
+   ========================================================= */
+
+.abv2-ed-gutter-figure{
+  display:grid;
+  grid-template-columns:minmax(180px, 0.32fr) minmax(0, 0.68fr);
+  gap:var(--abv2-space-32, 32px);
+  align-items:start;
+}
+
+.abv2-ed-gutter-figure__media{
+  position:relative;
+  min-height:280px;
+}
+
+.abv2-ed-gutter-figure__blob{
+  position:relative;
+  width:340px;
+  height:340px;
+  margin-left:-96px;
+  margin-top:-24px;
+  display:grid;
+  place-items:center;
+}
+
+.abv2-ed-gutter-figure__blob img{
+  display:block;
+  width:58%;
+  height:58%;
+  object-fit:contain;
+  position:relative;
+  z-index:1;
+}
+
+.abv2-ed-gutter-figure__content{
+  position:relative;
+  z-index:2;
+  padding-top:var(--abv2-space-40, 40px);
+}
+
+@media (max-width:991px){
+  .abv2-ed-gutter-figure{
+    grid-template-columns:minmax(120px, 0.24fr) minmax(0, 0.76fr);
+    gap:var(--abv2-space-24, 24px);
+  }
+
+  .abv2-ed-gutter-figure__media{
+    min-height:220px;
+  }
+
+  .abv2-ed-gutter-figure__blob{
+    width:270px;
+    height:270px;
+    margin-left:-92px;
+    margin-top:-8px;
+  }
+
+  .abv2-ed-gutter-figure__content{
+  position:relative;
+  z-index:2;
+  padding-top:0;
+}
+}
+
+@media (max-width:767px){
+  .abv2-ed-gutter-figure{
+    display:block;
+  }
+
+  .abv2-ed-gutter-figure__media{
+    min-height:0;
+    margin-bottom:var(--abv2-space-16, 16px);
+  }
+
+  .abv2-ed-gutter-figure__blob{
+    width:240px;
+    height:240px;
+    margin-left:-72px;
+    margin-top:0;
+  }
+
+  .abv2-ed-gutter-figure__content{
+    padding-top:0;
+  }
+}

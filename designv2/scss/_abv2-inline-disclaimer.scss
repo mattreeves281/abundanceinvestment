@@ -12,11 +12,11 @@ SOURCE: 4 - editorial components.html / RISK / LEGAL
   border-left:4px solid var(--abv2-pink-a70);
   background:rgba(248,245,247,.72);
   border-radius:0 14px 14px 0;
-  font-size:.92rem;
-  line-height:1.55;
-  color:var(--abv2-ink-a80);
 }
 
+// .abv2-inline-disclaimer type removed. Instead use si-body-compact.
+
 .abv2-inline-disclaimer strong{
-  color:var(--abv2-ink);
 }
+
+// .abv2-inline-disclaimer strong colour removed. Instead use si-action-text or an SI/UAT strong text helper.

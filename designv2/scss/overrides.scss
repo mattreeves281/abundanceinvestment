@@ -14,6 +14,19 @@
    ========================================================= */
 
 
+/* =========================================================
+   TEMP: v2 text colour helpers
+   Destination: base colour/text utility system
+   ========================================================= */
+
+.text-colour--primary {
+  color: #f27fae !important;
+}
+
+.text-colour--secondary {
+  color: #00a4b6 !important;
+}
+
 
 /* ---------------------------------------------------------
    3. v2 bg-mask variants
@@ -91,16 +104,46 @@
    --------------------------------------------------------- */
 
 .abv2-media-frame {
+  display: block;
   width: min(100%, 500px);
+  aspect-ratio: 1.45 / 1;
   border-radius: 48px;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .abv2-media-frame img {
   display: block;
   width: 100%;
-  aspect-ratio: 1.45 / 1;
+  height: 100%;
   object-fit: cover;
+}
+
+/* Square media frame variant for investment/logo/card tiles */
+.abv2-media-frame--square {
+  width: 228px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .abv2-media-frame--square {
+    width: 184px;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .abv2-media-frame--square {
+    width: 172px;
+  }
+}
+
+@media (max-width: 767px) {
+  .abv2-media-frame--square {
+    width: min(100%, var(--abv2-mobile-investment-tile, 300px));
+    border-radius: 18px;
+  }
 }
 
 
@@ -263,4 +306,169 @@
     max-width: none;
     margin-left: 0;
   }
+}
+
+/* =========================================================
+   TEMP: v2 blob helper extensions
+   Destination: bg-blob utility family
+   ========================================================= */
+
+.bg-blob--abv2-dot {
+  background-image: none;
+
+  -webkit-mask-image: var(--abv2-dot-mask);
+  mask-image: var(--abv2-dot-mask);
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.bg-blob--abv2-pink {
+  background-color: var(--abv2-pink, #f27fae);
+}
+
+.bg-blob--abv2-teal {
+  background-color: var(--abv2-teal, #00a4b6);
+}
+
+.bg-blob--abv2-yellow {
+  background-color: var(--abv2-yellow, #ffb72c);
+}
+
+.bg-blob--abv2-white-soft {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.abv2-step-num {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+
+  color: #fff;
+  font-family: var(--abv2-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media (max-width: 991px) {
+  .abv2-step-num {
+    width: 54px;
+    height: 54px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .abv2-step-num {
+    width: 48px;
+    height: 48px;
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .abv2-step-num {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+  }
+}
+
+
+/* Larger square media frame for case/impact sections */
+.abv2-media-frame--case-square {
+  width: min(100%, 460px);
+  aspect-ratio: 1 / 1;
+  border-radius: 48px;
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .abv2-media-frame--case-square {
+    width: min(100%, 400px);
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .abv2-media-frame--case-square {
+    width: min(100%, 340px);
+    border-radius: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .abv2-media-frame--case-square {
+    width: 100%;
+    border-radius: 36px;
+  }
+}
+
+/* Homepage hero art nudge */
+.abv2-hero-art-nudge img{
+  display:block;
+  transform:translateY(clamp(76px, 6.8vw, 132px));
+}
+
+@media (max-width:767px){
+  .abv2-hero-art-nudge img{
+    transform:none;
+  }
+}
+
+/* Homepage hero art: tame tablet blow-up only */
+@media (max-width:991px) and (min-width:768px){
+  .abv2-hero-art-nudge{
+    max-width:350px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+body{
+  background:var(--abv2-white);
+}
+
+/* ========================================
+   SI button extension: white outline
+   For use on pink/teal/dark coloured sections.
+   Mirrors si-btn--primary structure with white colour.
+   ======================================== */
+
+   /* ========================================
+   SI button extension: white outline
+   For use on pink/teal/dark coloured sections.
+   ======================================== */
+
+.si-btn--white{
+  color:var(--abv2-white, #fff);
+  background-color:transparent;
+  border-color:var(--abv2-white, #fff);
+}
+
+.si-btn--white:hover,
+.si-btn--white:focus-visible{
+  color:var(--abv2-white, #fff);
+  background-color:rgba(255,255,255,.14);
+  border-color:var(--abv2-white, #fff);
+  text-decoration:none;
+}
+
+.si-btn--white:focus-visible{
+  outline:2px solid rgba(255,255,255,.72);
+  outline-offset:3px;
+}
+
+.si-btn--white:active,
+.si-btn--white.active{
+  color:var(--abv2-white, #fff);
+  background-color:rgba(255,255,255,.20);
+  border-color:var(--abv2-white, #fff);
 }

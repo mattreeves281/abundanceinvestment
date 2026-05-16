@@ -43,17 +43,13 @@ SOURCE: 4 - editorial components.html / SUPPORT PANEL
 
 .abv2-ed-panel h3{
     margin:0 0 var(--abv2-space-16);
-    font-family:var(--abv2-serif);
-    font-size:1.8rem;
-    line-height:1;
+// .abv2-ed-panel h3 type removed. Instead use si-heading-* helper in the HTML.
     color:var(--abv2-ink);
   }
 
 .abv2-ed-panel p{
     margin:0;
-    font-family:var(--abv2-sans);
-    font-size:1rem;
-    line-height:1.6;
+// .abv2-ed-panel p type removed. Instead use approved SI type helper in the HTML.
     color:var(--abv2-text);
   }
 
@@ -69,14 +65,13 @@ SOURCE: 4 - editorial components.html / RESPONSIVE
 }
 
 @media (max-width:759px){
+// .abv2-ed-panel h3 type removed. Instead use si-heading-* helper in the HTML.
   .abv2-ed-panel h3{
-        font-size:1.55rem;
       }
 }
 
 @media (max-width:759px){
+// .abv2-ed-panel p type removed. Instead use approved SI type helper in the HTML.
   .abv2-ed-panel p{
-        font-size:.98rem;
-        line-height:1.56;
       }
 }

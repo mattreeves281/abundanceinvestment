@@ -23,12 +23,9 @@
   border-radius:999px;
   background:var(--abv2-teal-a10);
   color:var(--abv2-teal-dark);
-  font-family:var(--abv2-ui);
-  font-size:.78rem;
-  font-weight:700;
-  line-height:1.15;
-  letter-spacing:.01em;
 }
+
+// .abv2-card__eyebrow type removed. Instead use si-meta plus the appropriate SI/UAT text colour helper.
 
 .abv2-card__eyebrow--compare{
   background:var(--abv2-teal-a12);
@@ -47,21 +44,16 @@
 
 .abv2-card__title{
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.45rem,2.1vw,1.9rem);
-  line-height:1.12;
-  color:var(--abv2-ink);
 }
+
+// .abv2-card__title type removed. Instead use si-heading-3 or si-heading-4.
 
 .abv2-card__intro{
   margin:0;
   max-width:68ch;
-  font-family:var(--abv2-sans);
-  font-size:1.05rem;
-  line-height:1.55;
-  color:var(--abv2-ink-a78);
 }
+
+// .abv2-card__intro type removed. Instead use si-body-lg or si-body-md.
 
 /* External editorial card rhythm */
 .abv2-card{

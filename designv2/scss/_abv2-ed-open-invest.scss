@@ -58,11 +58,7 @@
 
 .abv2-ed-open-invest__title{
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  font-size:clamp(1.65rem, 2.4vw, 2.25rem);
-  line-height:1.02;
-  letter-spacing:-.025em;
+// .abv2-ed-open-invest__title type removed. Instead use si-heading-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
@@ -71,9 +67,7 @@
   flex-wrap:wrap;
   gap:0;
   margin:0 0 var(--abv2-space-20);
-  font-family:var(--abv2-ui);
-  font-size:.9rem;
-  line-height:1.35;
+// .abv2-ed-open-invest__meta type removed. Instead use si-meta or si-label-sm in the HTML.
 }
 
 .abv2-ed-open-invest__pill{
@@ -96,24 +90,16 @@
   display:none;
 }
 
-.abv2-ed-open-invest__pill--rate{
-  color:var(--abv2-pink-dark);
-}
+// .abv2-ed-open-invest__pill--rate colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-ed-open-invest__pill--term{
-  color:var(--abv2-teal-dark);
-}
+// .abv2-ed-open-invest__pill--term colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-ed-open-invest__pill--capital{
-  color:var(--abv2-yellow-dark);
-}
+// .abv2-ed-open-invest__pill--capital colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-ed-open-invest__desc{
   margin:0 0 var(--abv2-space-24);
   max-width:54ch;
-  font-family:var(--abv2-sans);
-  font-size:1.05rem;
-  line-height:1.5;
+// .abv2-ed-open-invest__desc type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-text);
 }
 
@@ -135,9 +121,7 @@
   border:1.5px solid var(--abv2-pink);
   border-radius:999px;
   background:transparent;
-  font-family:var(--abv2-ui);
-  font-size:.92rem;
-  line-height:1;
+// .abv2-ed-open-invest__action .abv2-btn type removed. Instead use approved SI type helper in the HTML.
   color:var(--abv2-pink-dark);
   text-decoration:none;
 }
@@ -188,13 +172,13 @@
     padding:var(--abv2-space-20);
   }
 
+// .abv2-ed-open-invest__title type removed. Instead use si-heading-* helper in the HTML.
   .abv2-ed-open-invest__title{
-    font-size:1.35rem;
   }
 
   .abv2-ed-open-invest__meta{
     margin-bottom:var(--abv2-space-16);
-    font-size:.82rem;
+// .abv2-ed-open-invest__meta type removed. Instead use si-meta or si-label-sm in the HTML.
   }
 
   .abv2-ed-open-invest__pill{
@@ -207,7 +191,6 @@
 
   .abv2-ed-open-invest__desc{
     margin-bottom:var(--abv2-space-20);
-    font-size:.98rem;
-    line-height:1.45;
+// .abv2-ed-open-invest__desc type removed. Instead use si-body-* helper in the HTML.
   }
 }

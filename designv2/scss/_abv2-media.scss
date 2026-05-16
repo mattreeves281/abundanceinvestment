@@ -47,9 +47,7 @@
   max-width:min(100%, 680px);
   padding-left:var(--abv2-space-16);
   border-left:2px solid var(--abv2-border-soft);
-  font-family:var(--abv2-sans);
-  font-size:.82rem;
-  line-height:1.5;
+// .abv2-media__caption type removed. Instead use si-note in the HTML.
   color:var(--abv2-ink-a68);
 }
 
@@ -69,7 +67,6 @@
 
   .abv2-media__caption{
     padding-left:var(--abv2-space-12);
-    font-size:.78rem;
-    line-height:1.48;
+// .abv2-media__caption type removed. Instead use si-note in the HTML.
   }
 }

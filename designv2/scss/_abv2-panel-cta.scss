@@ -24,19 +24,12 @@ SOURCE: 4 - editorial components.html / CTA PATTERNS
 .abv2-panel-cta__kicker{
   display:inline-block;
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.74rem;
-  line-height:1;
-  font-weight:700;
-  letter-spacing:.05em;
-  text-transform:uppercase;
   color:var(--abv2-pink-dark);
 }
 
 .abv2-panel-cta__title{
   margin:0 0 var(--abv2-space-8);
-  font-size:1.12rem;
-  line-height:1.16;
+// .abv2-panel-cta__title type removed. Instead use si-action-text in the HTML.
 }
 
 .abv2-panel-cta__text{

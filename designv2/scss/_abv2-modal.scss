@@ -52,19 +52,13 @@ SOURCE: 5 - council landing page v2 / MODAL
   border-radius:999px;
   background:var(--abv2-grey-ui);
   color:var(--abv2-ink);
-  font-size:1.5rem;
-  line-height:1;
+// .abv2-modal__close type removed. Instead use approved SI type helper in the HTML.
   cursor:pointer;
   z-index:3;
 }
 
 .abv2-modal__eyebrow{
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.74rem;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
   color:var(--abv2-pink);
 }
 
@@ -99,25 +93,13 @@ SOURCE: 5 - council landing page v2 / MODAL
   width:28%;
   padding-right:var(--abv2-space-24);
   text-align:left;
-  font-family:var(--abv2-ui);
-  font-size:.78rem;
-  line-height:1.2;
-  letter-spacing:.04em;
-  text-transform:uppercase;
   color:var(--abv2-text);
 }
 
-.abv2-modal__table td{
-  font-family:var(--abv2-sans);
-  font-size:.98rem;
-  line-height:1.5;
-  color:var(--abv2-ink);
-}
+// .abv2-modal__table td colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-modal__note{
   margin-top:var(--abv2-space-8);
-  font-size:.9rem;
-  line-height:1.5;
   color:var(--abv2-text);
 }
 
@@ -154,7 +136,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
       margin:var(--abv2-space-12) var(--abv2-space-12) 0 0;
       width:38px;
       height:38px;
-      font-size:1.35rem;
+// .abv2-modal__close type removed. Instead use approved SI type helper in the HTML.
     }
 }
 
@@ -198,8 +180,8 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 }
 
 @media (max-width:759px){
+// .abv2-modal__table td type removed. Instead use si-body-* helper in the HTML.
   .abv2-modal__table td{
-      font-size:.95rem;
     }
 }
 

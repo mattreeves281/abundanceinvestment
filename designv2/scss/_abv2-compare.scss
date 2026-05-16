@@ -60,37 +60,21 @@
 
 .abv2-compare__kicker {
   margin: 0 0 var(--abv2-space-8);
-  font-family: var(--abv2-ui);
-  font-size: .72rem;
-  line-height: 1;
-  letter-spacing: .06em;
-  text-transform: uppercase;
 }
 
-.abv2-compare__col--manual .abv2-compare__kicker {
-  color: var(--abv2-pink);
-}
+// .abv2-compare__col--manual .abv2-compare__kicker colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-compare__col--primary .abv2-compare__kicker {
-  color: var(--abv2-teal);
-}
+// .abv2-compare__col--primary .abv2-compare__kicker colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-compare__heading {
   margin: 0 0 var(--abv2-space-12);
-  font-family: var(--abv2-serif);
-  font-weight: 600;
-  font-size: clamp(1.45rem, 1.8vw, 1.86rem);
-  line-height: .98;
-  letter-spacing: -.03em;
+// .abv2-compare__heading type removed. Instead use si-heading-* helper in the HTML.
   color: var(--abv2-ink);
 }
 
 .abv2-compare__body {
   margin: 0 0 var(--abv2-space-16);
   max-width: 32ch;
-  font-family: var(--abv2-sans);
-  font-size: 1rem;
-  line-height: 1.52;
   color: var(--abv2-text);
 }
 
@@ -111,17 +95,11 @@
 
 .abv2-compare__term {
   margin: 0;
-  font-family: var(--abv2-ui);
-  font-size: .82rem;
-  line-height: 1.25;
   color: var(--abv2-ink);
 }
 
 .abv2-compare__value {
   margin: 0;
-  font-family: var(--abv2-sans);
-  font-size: .94rem;
-  line-height: 1.48;
   color: var(--abv2-text);
 }
 
@@ -187,7 +165,6 @@
 
   .abv2-compare__body {
     max-width: none;
-    font-size: .94rem;
   }
 
   .abv2-compare__row {
@@ -195,8 +172,4 @@
     gap: var(--abv2-space-4);
   }
 
-  .abv2-compare__term,
-  .abv2-compare__value {
-    font-size: .9rem;
-  }
 }

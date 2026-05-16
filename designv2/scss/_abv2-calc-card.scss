@@ -20,11 +20,9 @@
 .abv2-calc-card__label{
   display:block;
   margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.82rem;
-  line-height:1.2;
-  color:var(--abv2-ink);
 }
+
+// .abv2-calc-card__label type removed. Instead use label--sm or si-label-sm.
 
 .abv2-calc-card__input-wrap{
   display:flex;
@@ -47,11 +45,9 @@
   padding:0 var(--abv2-space-16) 0 var(--abv2-space-8);
   border:0;
   background:transparent;
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1;
-  color:var(--abv2-ink);
 }
+
+// .abv2-calc-card__input type removed. Instead use si-body-md.
 
 .abv2-calc-card__input:focus{
   outline:none;
@@ -73,11 +69,9 @@
   justify-content:space-between;
   gap:var(--abv2-space-16);
   padding:0 0 var(--abv2-space-10, 10px);
-  font-family:var(--abv2-sans);
-  font-size:.9rem;
-  line-height:1.35;
-  color:var(--abv2-text);
 }
+
+// .abv2-calc-card__summary div type removed. Instead use si-note.
 
 .abv2-calc-card__summary div + div{
   padding-top:var(--abv2-space-10, 10px);
@@ -89,11 +83,10 @@
 }
 
 .abv2-calc-card__summary strong{
-  font-family:var(--abv2-ui);
-  font-weight:700;
-  color:var(--abv2-ink);
   white-space:nowrap;
 }
+
+// .abv2-calc-card__summary strong type removed. Instead use si-action-text.
 
 .abv2-calc-card__table-wrap{
   border:1px solid var(--abv2-border-subtle);
@@ -103,8 +96,9 @@
 
 .abv2-calc-card__table{
   min-width:560px;
-  font-size:.92rem;
 }
+
+// .abv2-calc-card__table type removed. Instead use si-body-compact or si-table classes where available.
 
 .abv2-calc-card__table th,
 .abv2-calc-card__table td{
@@ -122,9 +116,7 @@
 
 .abv2-calc-card__note{
   margin:var(--abv2-space-16) 0 0;
-  font-family:var(--abv2-sans);
-  font-size:.84rem;
-  line-height:1.45;
+// .abv2-calc-card__note type removed. Instead use si-note in the HTML.
   color:var(--abv2-ink-a64);
 }
 
@@ -144,6 +136,6 @@
 
   .abv2-calc-card__table{
     min-width:520px;
-    font-size:.9rem;
+// .abv2-calc-card__table type removed. Instead use si-body-* helper in the HTML.
   }
 }

@@ -1,253 +1,168 @@
 /* ========================================
-COMPONENT: abv2-council-uof
-Status: unrefined (contains duplicates)
-======================================== */
+   COMPONENT: abv2-council-uof
+   Use-of-funds chart card.
+   Layout/type/section spacing are helper-led.
+   Component owns only card, logo tile and bar mechanics.
+   ======================================== */
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / USE OF FUNDS
-========================================================= */
-.abv2-council-uof{
-  padding-top:var(--abv2-space-96);
-  padding-bottom:128px;
-  background:var(--abv2-white);
-}
-
-.abv2-council-uof__intro{
-  width:min(100%, 760px);
-  margin:0 auto var(--abv2-space-32);
-  text-align:center;
-}
-
-.abv2-council-uof__intro.abv2-stack > * + *{
-  margin-top:var(--abv2-space-16);
-}
-
-.abv2-council-uof__card{
-  width:min(100%, 1040px);
-  margin:0 auto;
-  background:var(--abv2-white);
-  border:1px solid var(--abv2-border-subtle);
+.abv2-council-uof-card{
+  max-width:1040px;
+  margin-inline:auto;
+  background:var(--abv2-white, #fff);
+  border:1px solid var(--abv2-border-subtle, #e9e4e3);
   border-radius:32px;
-  padding:var(--abv2-space-32);
-  box-shadow:0 12px 34px var(--abv2-ink-a05);
+  box-shadow:0 12px 34px var(--abv2-ink-a05, rgba(40,40,39,.05));
 }
 
-.abv2-council-uof__summary{
+.abv2-council-uof-summary{
   display:grid;
-  grid-template-columns:132px minmax(0,1fr);
-  gap:var(--abv2-space-24);
+  grid-template-columns:132px minmax(0, 1fr);
+  gap:var(--abv2-space-24, 24px);
   align-items:start;
-  padding-bottom:var(--abv2-space-24);
-  margin-bottom:var(--abv2-space-24);
-  border-bottom:1px solid var(--abv2-border-soft);
+  border-bottom:1px solid var(--abv2-border-soft, #e2e2e2);
 }
 
-.abv2-council-uof__logoTile{
+.abv2-council-uof-logo{
   width:132px;
   height:132px;
   border-radius:26px;
-  background:var(--abv2-council-brand, var(--abv2-green));
+  background:var(--abv2-council-brand, var(--abv2-green, #25ab2d));
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
 }
 
-.abv2-council-uof__logoTile img{
+.abv2-council-uof-logo img{
+  display:block;
   width:74%;
   height:74%;
   object-fit:contain;
 }
 
-.abv2-council-uof__summaryMeta{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:var(--abv2-space-16);
-}
-
-.abv2-council-uof__metric{
-  padding:var(--abv2-space-16) var(--abv2-space-16) var(--abv2-space-12);
+.abv2-council-uof-metric{
+  height:100%;
   border-radius:18px;
-  background:var(--abv2-grey-ui);
+  background:var(--abv2-grey-ui, #faf8f8);
 }
 
-.abv2-council-uof__metricLabel{
-  margin:0 0 var(--abv2-space-8);
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  line-height:1.1;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-  color:var(--abv2-text);
-}
-
-.abv2-council-uof__metricValue{
-  margin:0;
-  font-family:var(--abv2-serif);
-  font-size:1.7rem;
-  line-height:.96;
-  letter-spacing:-.03em;
-  color:var(--abv2-ink);
-}
-
-.abv2-council-uof__rows{
+.abv2-council-uof-bars{
   display:grid;
-  gap:var(--abv2-space-16);
+  gap:var(--abv2-space-16, 16px);
 }
 
-.abv2-council-uof__row{
+.abv2-council-uof-row{
   display:grid;
-  grid-template-columns:minmax(180px,.34fr) minmax(0,1fr);
-  gap:var(--abv2-space-16);
+  grid-template-columns:minmax(180px, .34fr) minmax(0, 1fr);
+  gap:var(--abv2-space-16, 16px);
   align-items:center;
 }
 
-.abv2-council-uof__label{
-  font-family:var(--abv2-sans);
-  font-size:1rem;
-  line-height:1.35;
-  color:var(--abv2-ink);
+.abv2-council-uof-label{
+  color:var(--abv2-text, #4d4a46);
 }
 
-.abv2-council-uof__barTrack{
+.abv2-council-uof-track{
   position:relative;
   min-height:50px;
   border-radius:999px;
-  background:var(--abv2-grey-light);
+  background:var(--abv2-grey-light, #e9e4e3);
   overflow:hidden;
 }
 
-.abv2-council-uof__barFill{
+.abv2-council-uof-fill{
   position:absolute;
   inset:0 auto 0 0;
   display:flex;
   align-items:center;
   min-width:142px;
-  padding:0 var(--abv2-space-16);
+  padding-inline:var(--abv2-space-16, 16px);
   border-radius:999px;
-  color:var(--abv2-blue);
-  font-family:var(--abv2-ui);
-  font-size:.9rem;
-  line-height:1;
+  color:var(--abv2-blue, #151943);
   white-space:nowrap;
 }
 
-.abv2-council-uof__barFill--pink{ background:var(--abv2-pink-light); }
-
-.abv2-council-uof__barFill--teal{ background:var(--abv2-teal-light); }
-
-.abv2-council-uof__barFill--yellow{ background:var(--abv2-yellow-light); }
-
-.abv2-council-uof__barFill--purple{ background:var(--abv2-indigo); }
-
-.abv2-council-uof__barFill--green{ background:var(--abv2-green); }
-
-.abv2-council-uof__note{
-  margin:var(--abv2-space-20) 0 0;
-  font-family:var(--abv2-sans);
-  font-size:.92rem;
-  line-height:1.5;
-  color:var(--abv2-text);
+.abv2-council-uof-fill--pink{
+  background:var(--abv2-pink-light, #f498be);
 }
 
-/* =========================================================
-SOURCE: 5 - council landing page v2 / RESPONSIVE
-========================================================= */
-@media (max-width:979px){
-  .abv2-council-uof{
-      padding-top:var(--abv2-space-72);
-      padding-bottom:104px;
-    }
+.abv2-council-uof-fill--teal{
+  background:var(--abv2-teal-light, #4cbfcb);
+}
+
+.abv2-council-uof-fill--yellow{
+  background:var(--abv2-yellow-light, #ffc556);
+}
+
+.abv2-council-uof-fill--indigo{
+  background:var(--abv2-indigo, #151943);
+  color:var(--abv2-white, #fff);
+}
+
+.abv2-council-uof-fill--green{
+  background:var(--abv2-green, #25ab2d);
+  color:var(--abv2-white, #fff);
 }
 
 @media (max-width:979px){
-  .abv2-council-uof__summary{
-      grid-template-columns:116px minmax(0,1fr);
-      gap:var(--abv2-space-20);
-    }
-}
-
-@media (max-width:979px){
-  .abv2-council-uof__logoTile{
-      width:116px;
-      height:116px;
-      border-radius:24px;
-    }
-}
-
-@media (max-width:979px){
-  .abv2-council-uof__summaryMeta{
-      grid-template-columns:1fr;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof{
-      padding-top:var(--abv2-space-56);
-      padding-bottom:var(--abv2-space-84);
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof__intro{
-      text-align:left;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof__card{
-      width:min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-      padding:var(--abv2-space-20);
-      border-radius:22px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof__summary{
-      grid-template-columns:1fr;
-      gap:var(--abv2-space-16);
-      margin-bottom:var(--abv2-space-20);
-      padding-bottom:var(--abv2-space-20);
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof__logoTile{
-      width:96px;
-      height:96px;
-      border-radius:20px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof__row{
-      grid-template-columns:1fr;
-      gap:var(--abv2-space-8);
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof__barTrack{
-      min-height:42px;
-    }
-}
-
-@media (max-width:759px){
-  .abv2-council-uof__barFill{
-      min-width:110px;
-      font-size:.84rem;
-      padding:0 var(--abv2-space-16);
-    }
-}
-
-/* Responsive grid collapse */
-
-
-@media (max-width: 759px) {
-  .abv2-council-uof__intro {
-    width: min(calc(100% - var(--abv2-mobile-gutter)), var(--abv2-mobile-copy-rail));
-    margin-left: auto;
-    margin-right: auto;
+  .abv2-council-uof-summary{
+    grid-template-columns:116px minmax(0, 1fr);
+    gap:var(--abv2-space-20, 20px);
   }
 
+  .abv2-council-uof-logo{
+    width:116px;
+    height:116px;
+    border-radius:24px;
+  }
+}
+
+@media (max-width:759px){
+  .abv2-council-uof-card{
+    border-radius:22px;
+  }
+
+  .abv2-council-uof-summary{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-16, 16px);
+  }
+
+  .abv2-council-uof-logo{
+    width:96px;
+    height:96px;
+    border-radius:20px;
+  }
+
+  .abv2-council-uof-row{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-8, 8px);
+  }
+
+  .abv2-council-uof-track{
+    min-height:42px;
+  }
+
+  .abv2-council-uof-fill{
+    min-width:110px;
+  }
+}
+
+/* Editorial/contextual compact version of UOF bar chart */
+.abv2-council-uof-bars--compact .abv2-council-uof-track{
+  min-height:38px;
+}
+
+.abv2-council-uof-bars--compact .abv2-council-uof-fill{
+  min-width:min(118px, 100%);
+  padding-inline:var(--abv2-space-14, 14px);
+}
+
+@media (max-width:759px){
+  .abv2-council-uof-bars--compact .abv2-council-uof-track{
+    min-height:36px;
+  }
+
+  .abv2-council-uof-bars--compact .abv2-council-uof-fill{
+    min-width:min(100px, 100%);
+  }
 }

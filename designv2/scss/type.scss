@@ -397,7 +397,75 @@
 
 
 /* ---------------------------------------------------------
-   7. Mobile
+   7. Repeated component text roles
+   --------------------------------------------------------- */
+
+.si-eyebrow {
+  font-family: var(--abv2-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.si-eyebrow-sm {
+  font-family: var(--abv2-ui);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.si-body-compact {
+  font-family: var(--abv2-sans);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.48;
+  letter-spacing: normal;
+  color: var(--abv2-text);
+}
+
+.si-note {
+  font-family: var(--abv2-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: normal;
+  color: var(--abv2-text);
+}
+
+.si-meta {
+  font-family: var(--abv2-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.si-action-text {
+  font-family: var(--abv2-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.si-stat {
+  font-family: var(--abv2-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: var(--abv2-ink);
+}
+
+
+/* ---------------------------------------------------------
+   8. Mobile
    Use UAT/platform breakpoint: max-width 767px.
    This deliberately differs from old abv2 759px so it aligns
    with existing si/body mobile behaviour.
@@ -497,5 +565,10 @@
   .si-table-header-md {
     font-size: 1rem;
     line-height: 1.15;
+  }
+
+  .si-stat {
+    font-size: 1.5rem;
+    line-height: 0.98;
   }
 }

@@ -55,10 +55,7 @@
   max-width:640px;
 }
 
-.abv2-case__copy .abv2-h2,
-.abv2-case__copy .abv2-body{
-  color:var(--abv2-white);
-}
+// .abv2-case__copy .abv2-body colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-case__copy .abv2-body{
   max-width:36ch;
@@ -66,11 +63,6 @@
 
 .abv2-case__eyebrow{
   margin:0 0 var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.72rem;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
   color:var(--abv2-white-a82);
 }
 
@@ -184,13 +176,12 @@
 
   .abv2-case__copy .abv2-h2{
     max-width:16ch;
-    line-height:.94;
+// .abv2-case__copy .abv2-h2 type removed. Instead use si-heading-* helper in the HTML.
   }
 
   .abv2-case__copy .abv2-body{
     max-width:36ch;
-    font-size:1rem;
-    line-height:1.58;
+// .abv2-case__copy .abv2-body type removed. Instead use si-body-* helper in the HTML.
   }
 
   .abv2-case__stats{

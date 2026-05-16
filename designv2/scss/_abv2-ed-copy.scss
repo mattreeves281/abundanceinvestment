@@ -38,14 +38,8 @@
 
 /* ---------- TEXT ---------- */
 
-.abv2-ed-copy > p,
-.abv2-ed-copy > ul > li,
-.abv2-ed-copy > ol > li{
-  font-family:var(--abv2-sans);
-  font-size:1.03rem;
-  line-height:1.68;
-  color:var(--abv2-text);
-}
+// .abv2-ed-copy > ol > li type removed. Instead use si-body-* helper in the HTML.
+// .abv2-ed-copy > ol > li colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-ed-copy .abv2-inline-link{
   color:var(--abv2-pink);
@@ -53,41 +47,27 @@
   text-underline-offset:.18em;
 }
 
-.abv2-ed-copy > p strong,
-.abv2-ed-copy > ul strong,
-.abv2-ed-copy > ol strong{
-  font-family:var(--abv2-ui);
-  font-weight:700;
-  color:var(--abv2-ink);
-}
+// .abv2-ed-copy > ol strong type removed. Instead use si-action-text in the HTML.
+// .abv2-ed-copy > ol strong colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 /* ---------- HEADINGS ---------- */
 
-.abv2-ed-copy > h2,
-.abv2-ed-copy > h3,
-.abv2-ed-copy > h4{
-  font-family:var(--abv2-serif);
-  font-weight:600;
-  color:var(--abv2-ink);
-  letter-spacing:-.025em;
-}
+// .abv2-ed-copy > h4 type removed. Instead use si-body-* helper in the HTML.
+// .abv2-ed-copy > h4 colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-ed-copy > h2{
   margin-top:var(--abv2-space-48);
-  font-size:clamp(1.8rem, 3vw, 2.45rem);
-  line-height:1;
+// .abv2-ed-copy > h2 type removed. Instead use si-heading-* helper in the HTML.
 }
 
 .abv2-ed-copy > h3{
   margin-top:var(--abv2-space-40);
-  font-size:clamp(1.45rem, 2.2vw, 1.9rem);
-  line-height:1.06;
+// .abv2-ed-copy > h3 type removed. Instead use si-heading-* helper in the HTML.
 }
 
 .abv2-ed-copy > h4{
   margin-top:var(--abv2-space-32);
-  font-size:clamp(1.18rem, 1.6vw, 1.35rem);
-  line-height:1.12;
+// .abv2-ed-copy > h4 type removed. Instead use si-body-* helper in the HTML.
 }
 
 .abv2-ed-copy > h2 + *,
@@ -158,9 +138,7 @@
   height:1.55rem;
   background:var(--abv2-yellow);
   color:var(--abv2-white);
-  font-family:var(--abv2-ui);
-  font-size:.78rem;
-  line-height:1;
+// .abv2-ed-copy > ol > li::before type removed. Instead use si-body-* helper in the HTML.
   -webkit-mask-image:var(--abv2-dot-mask);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-position:center;
@@ -183,19 +161,14 @@
 
 .abv2-ed-copy > blockquote > p{
   margin:0;
-  font-family:var(--abv2-serif);
-  font-size:clamp(1.2rem, 1.8vw, 1.45rem);
-  line-height:1.25;
+// .abv2-ed-copy > blockquote > p type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-ink);
 }
 
 .abv2-ed-copy > blockquote > cite{
   display:block;
   margin-top:var(--abv2-space-12);
-  font-family:var(--abv2-ui);
-  font-size:.82rem;
-  line-height:1.35;
-  font-style:normal;
+// .abv2-ed-copy > blockquote > cite type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-ink-a64);
 }
 
@@ -218,17 +191,13 @@
   padding:var(--abv2-space-16);
   border-radius:16px;
   background:var(--abv2-grey-very-light);
-  font-family:var(--abv2-sans);
-  font-size:.92rem;
-  line-height:1.5;
+// .abv2-ed-copy > .abv2-ed-note type removed. Instead use si-note in the HTML.
   color:var(--abv2-ink-a72);
 }
 
 .abv2-ed-copy > .abv2-ed-small{
   width:min(100%, var(--abv2-editorial-copy));
-  font-family:var(--abv2-sans);
-  font-size:.86rem;
-  line-height:1.5;
+// .abv2-ed-copy > .abv2-ed-small type removed. Instead use si-body-* helper in the HTML.
   color:var(--abv2-ink-a64);
 }
 
@@ -277,12 +246,7 @@
     max-width:none;
   }
 
-  .abv2-ed-copy > p,
-  .abv2-ed-copy > ul > li,
-  .abv2-ed-copy > ol > li{
-    font-size:.98rem;
-    line-height:1.56;
-  }
+// .abv2-ed-copy > ol > li type removed. Instead use si-body-* helper in the HTML.
 
   .abv2-ed-copy > h2{
     margin-top:var(--abv2-space-40);
@@ -301,4 +265,3 @@
     max-width:12ch;
   }
 }
-

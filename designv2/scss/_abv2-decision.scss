@@ -70,24 +70,18 @@
   margin-bottom:0;
 }
 
-.abv2-decision__path--manual .abv2-path__kicker{
-  color:var(--abv2-pink);
-}
+// .abv2-decision__path--manual .abv2-path__kicker colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
-.abv2-decision__path--primary .abv2-path__kicker{
-  color:var(--abv2-teal);
-}
+// .abv2-decision__path--primary .abv2-path__kicker colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
+// .abv2-decision__path .abv2-h3 type removed. Instead use si-heading-* helper in the HTML.
 .abv2-decision__path .abv2-h3{
-  font-size:clamp(1.28rem, 1.56vw, 1.52rem);
-  line-height:1;
   max-width:16ch;
 }
 
 .abv2-decision__path .abv2-body{
   max-width:34ch;
-  font-size:1rem;
-  line-height:1.5;
+// .abv2-decision__path .abv2-body type removed. Instead use si-body-* helper in the HTML.
 }
 
 .abv2-decision__list{
@@ -100,9 +94,7 @@
   position:relative;
   margin:0;
   padding:0 0 0 var(--abv2-space-16);
-  font-family:var(--abv2-sans);
-  font-size:.98rem;
-  line-height:1.55;
+// .abv2-decision__list li type removed. Instead use approved SI type helper in the HTML.
   color:var(--abv2-text);
 }
 
@@ -118,9 +110,7 @@
   color:var(--abv2-pink);
 }
 
-.abv2-decision__path--primary .abv2-decision__list li::before{
-  color:var(--abv2-teal);
-}
+// .abv2-decision__path--primary .abv2-decision__list li::before colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
 
 .abv2-decision__actions{
   display:flex;
@@ -188,9 +178,8 @@
     max-width:none;
   }
 
-  .abv2-decision__path .abv2-body,
+// .abv2-decision__list li type removed. Instead use approved SI type helper in the HTML.
   .abv2-decision__list li{
-    font-size:.94rem;
   }
 
   .abv2-decision__path--primary::before{

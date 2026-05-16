@@ -5,8 +5,7 @@
 
 .abv2-inline-link {
   color: var(--abv2-pink);
-  font-family: var(--abv2-ui);
-  font-weight: 700;
+// .abv2-inline-link type removed. Instead use si-action-text in the HTML.
   text-decoration: none;
   border-bottom: 1px solid var(--abv2-pink-a35);
   transition: border-color .18s ease, color .18s ease;
