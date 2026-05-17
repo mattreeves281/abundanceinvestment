@@ -283,3 +283,128 @@
   height:100%;
   border:0;
 }
+
+/* =========================================================
+   ABUNDANCE v2 — Coverage bridges for FINAL content page
+   ========================================================= */
+
+.abv2-council-quote{
+  position:relative;
+}
+
+.si-accordion-item__header{
+  margin:0;
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Inline SVG line chart
+   Used by content data/market examples.
+   ========================================================= */
+
+.abv2-line-chart{
+  width:100%;
+}
+
+.abv2-line-chart__legend{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:var(--abv2-space-10, 10px) var(--abv2-space-18, 18px);
+}
+
+.abv2-line-chart__key{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--abv2-space-8, 8px);
+  color:var(--abv2-text, #4d4a46);
+}
+
+.abv2-line-chart__swatch{
+  display:inline-block;
+  flex:0 0 auto;
+  width:10px;
+  height:10px;
+  border-radius:999px;
+}
+
+.abv2-line-chart__swatch--pink{
+  background:var(--abv2-pink, #f27fae);
+}
+
+.abv2-line-chart__swatch--teal{
+  background:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-line-chart__swatch--yellow{
+  background:var(--abv2-yellow, #ffb72c);
+}
+
+.abv2-line-chart__plot{
+  width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.abv2-line-chart__svg{
+  display:block;
+  width:100%;
+  min-width:640px;
+  height:auto;
+}
+
+.abv2-line-chart__grid-line{
+  stroke:var(--abv2-border-soft, #e2e2e2);
+  stroke-width:1;
+}
+
+.abv2-line-chart__axis-label{
+  fill:var(--abv2-text, #4d4a46);
+  font-family:var(--abv2-sans);
+  font-size:13px;
+}
+
+.abv2-line-chart__line{
+  fill:none;
+  stroke-width:4;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.abv2-line-chart__line--pink{
+  stroke:var(--abv2-pink, #f27fae);
+}
+
+.abv2-line-chart__line--teal{
+  stroke:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-line-chart__line--yellow{
+  stroke:var(--abv2-yellow, #ffb72c);
+}
+
+.abv2-line-chart__points circle{
+  stroke:var(--abv2-white, #fff);
+  stroke-width:2;
+}
+
+.abv2-line-chart__points--pink circle{
+  fill:var(--abv2-pink, #f27fae);
+}
+
+.abv2-line-chart__points--teal circle{
+  fill:var(--abv2-teal, #00a4b6);
+}
+
+.abv2-line-chart__points--yellow circle{
+  fill:var(--abv2-yellow, #ffb72c);
+}
+
+@media (max-width:767px){
+  .abv2-line-chart__legend{
+    gap:var(--abv2-space-8, 8px) var(--abv2-space-14, 14px);
+  }
+
+  .abv2-line-chart__svg{
+    min-width:560px;
+  }
+}
