@@ -1,0 +1,285 @@
+/* =========================================================
+   ABUNDANCE v2 — Generic interactive link card
+   Used for editorial related links / follow-on reading.
+   ========================================================= */
+
+.abv2-link-card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:var(--abv2-space-20, 20px) var(--abv2-space-20, 20px) var(--abv2-space-16, 16px);
+  border:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  border-radius:18px;
+  background:var(--abv2-white, #fff);
+  color:inherit;
+  text-decoration:none;
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background-color .18s ease;
+}
+
+.abv2-link-card:hover,
+.abv2-link-card:focus-visible{
+  transform:translateY(-1px);
+  border-color:rgba(242,127,174,.34);
+  box-shadow:0 10px 24px var(--abv2-shadow-default, rgba(40,40,39,.10));
+  text-decoration:none;
+}
+
+.abv2-link-card:focus-visible{
+  outline:2px solid var(--abv2-pink, #f27fae);
+  outline-offset:3px;
+}
+
+.abv2-link-card .si-action-text{
+  display:block;
+  margin-top:auto;
+  padding-top:var(--abv2-space-16, 16px);
+}
+
+@media (max-width:767px){
+  .abv2-link-card{
+    border-radius:16px;
+  }
+}
+
+
+
+/* =========================================================
+   ABUNDANCE v2 — Generic chip/pill link
+   Used for jump links, tag links, compact navigation.
+   ========================================================= */
+
+.abv2-chip-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:var(--abv2-space-12, 12px) var(--abv2-space-16, 16px);
+  border:1.5px solid var(--abv2-border-soft, #e2e2e2);
+  border-radius:999px;
+  background:var(--abv2-white, #fff);
+  color:var(--abv2-text, #4d4a46);
+  text-decoration:none;
+  transition:
+    border-color .18s ease,
+    background-color .18s ease,
+    color .18s ease;
+}
+
+.abv2-chip-link:hover,
+.abv2-chip-link:focus-visible{
+  border-color:rgba(0,164,182,.38);
+  background:rgba(0,164,182,.06);
+  color:var(--abv2-ink, #282827);
+  text-decoration:none;
+}
+
+.abv2-chip-link:focus-visible{
+  outline:2px solid var(--abv2-teal, #00a4b6);
+  outline-offset:3px;
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Generic coloured content cards
+   Used for benefit tiles, callout tiles, grouped feature cards.
+   ========================================================= */
+
+.abv2-colour-card-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:var(--abv2-space-16, 16px);
+}
+
+.abv2-colour-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:160px;
+  padding:var(--abv2-space-16, 16px);
+  border:0;
+  border-radius:14px;
+  background:var(--abv2-grey-ui, #faf8f8);
+  color:var(--abv2-ink, #282827);
+  overflow:hidden;
+}
+
+.abv2-colour-card--wide{
+  grid-column:span 2;
+  min-height:210px;
+  padding:var(--abv2-space-20, 20px);
+}
+
+
+
+@media (max-width:900px){
+  .abv2-colour-card-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .abv2-colour-card--wide{
+    grid-column:span 2;
+  }
+}
+
+@media (max-width:560px){
+  .abv2-colour-card-grid{
+    grid-template-columns:1fr;
+  }
+
+  .abv2-colour-card,
+  .abv2-colour-card--wide{
+    grid-column:auto;
+    min-height:0;
+  }
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Editorial comparison layout helper
+   Uses SI card, SI type and spacing helpers in HTML.
+   ========================================================= */
+
+.abv2-editorial-compare__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.abv2-editorial-compare__col{
+  padding:var(--abv2-space-20, 20px);
+  background:var(--abv2-white, #fff);
+}
+
+.abv2-editorial-compare__col + .abv2-editorial-compare__col{
+  border-left:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+}
+
+.abv2-editorial-compare__list{
+  display:grid;
+  gap:var(--abv2-space-12, 12px);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.abv2-editorial-compare__list li{
+  position:relative;
+  margin:0;
+  padding-left:var(--abv2-space-20, 20px);
+}
+
+.abv2-editorial-compare__list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.62em;
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:var(--abv2-pink, #f27fae);
+}
+
+@media (max-width:767px){
+  .abv2-editorial-compare__grid{
+    grid-template-columns:1fr;
+    border-radius:16px;
+  }
+
+  .abv2-editorial-compare__col + .abv2-editorial-compare__col{
+    border-left:0;
+    border-top:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  }
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Warning/checklist list
+   Uses colour-card and blob helpers for visual treatment.
+   ========================================================= */
+
+.abv2-warning-list{
+  display:grid;
+  gap:var(--abv2-space-12, 12px);
+}
+
+.abv2-warning-list__item{
+  display:grid;
+  grid-template-columns:44px minmax(0, 1fr);
+  gap:var(--abv2-space-16, 16px);
+  align-items:start;
+  min-height:0;
+}
+
+@media (max-width:767px){
+  .abv2-warning-list__item{
+    grid-template-columns:40px minmax(0, 1fr);
+    gap:var(--abv2-space-12, 12px);
+  }
+
+  .abv2-warning-list__item .abv2-card-blob-num{
+    width:40px;
+    height:40px;
+  }
+}
+
+.abv2-warning-list__item--soft{
+  background:var(--abv2-grey-very-light, #faf8f8);
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Inline disclaimer
+   Light caution/legal note for body-flow qualification.
+   ========================================================= */
+
+.abv2-inline-disclaimer{
+  padding:var(--abv2-space-16, 16px);
+  border-left:4px solid var(--abv2-pink, #f27fae);
+  border-radius:0 14px 14px 0;
+  background:var(--abv2-grey-very-light, #faf8f8);
+  color:var(--abv2-text, #4d4a46);
+}
+
+.abv2-inline-disclaimer strong{
+  display:inline;
+  color:var(--abv2-ink, #282827);
+}
+
+
+
+/* =========================================================
+   ABUNDANCE v2 — Editorial content candidates
+   Small patterns used inside helper-led content blocks.
+   ========================================================= */
+
+.abv2-ed-note{
+  padding:var(--abv2-space-16, 16px);
+  border-radius:18px;
+  background:var(--abv2-grey-very-light, #faf8f8);
+  color:var(--abv2-text, #4d4a46);
+}
+
+.abv2-ed-note strong{
+  color:var(--abv2-ink, #282827);
+}
+
+.abv2-ed-quote{
+  margin:0;
+  padding-left:var(--abv2-space-24, 24px);
+  border-left:4px solid var(--abv2-pink, #f27fae);
+}
+
+.abv2-ed-quote cite{
+  display:block;
+  font-style:normal;
+}
+
+/* Allow iframe use inside shared media frame */
+.abv2-media-frame iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
