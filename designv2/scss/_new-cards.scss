@@ -43,3 +43,16 @@
     border-radius:22px;
   }
 }
+
+.abv2-colour-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:160px;
+  padding:var(--abv2-space-16, 16px);
+  border:0;
+  border-radius:14px;
+  background:var(--abv2-grey-ui, #faf8f8);
+  color:var(--abv2-ink, #282827);
+  overflow:hidden;
+}

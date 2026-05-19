@@ -76,47 +76,46 @@
 
 /* ---------------------------------------------------------
    3. Body roles
-   Maps existing UAT body--* classes to v2 body scale.
+   Slightly opened tracking for readability / softer v2 tone
    --------------------------------------------------------- */
 
 .body--md,
 .si-body-md {
   font-family: var(--abv2-sans);
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: normal;
+  letter-spacing: 0.005em;
   color: var(--abv2-text);
 }
 
 .body--sm,
 .si-body-sm {
   font-family: var(--abv2-sans);
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: normal;
+  letter-spacing: 0.006em;
   color: var(--abv2-text);
 }
 
 .body--lg,
 .si-body-lg {
   font-family: var(--abv2-sans);
-  font-size: 1.185rem; /* 20px */
+  font-size: 1.185rem;
   font-weight: 400;
   line-height: 1.55;
-  letter-spacing: normal;
+  letter-spacing: 0.004em;
   color: var(--abv2-text);
 }
 
-/* Optional extra-large body role, if used */
 .body--xl,
 .si-body-xl {
   font-family: var(--abv2-sans);
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: normal;
+  letter-spacing: 0.002em;
   color: var(--abv2-text);
 }
 
@@ -246,26 +245,30 @@
 
   .body--md,
   .si-body-md {
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
     line-height: 1.5;
+    letter-spacing: 0.005em;
   }
 
   .body--sm,
   .si-body-sm {
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem;
     line-height: 1.45;
+    letter-spacing: 0.006em;
   }
 
   .body--lg,
   .si-body-lg {
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
     line-height: 1.5;
+    letter-spacing: 0.004em;
   }
 
   .body--xl,
   .si-body-xl {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
     line-height: 1.5;
+    letter-spacing: 0.002em;
   }
 
   .label--md,

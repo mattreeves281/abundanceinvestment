@@ -31,40 +31,6 @@
 }
 
 
-.abv2-facts{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0 var(--abv2-space-20, 20px);
-}
-
-.abv2-fact{
-  padding:var(--abv2-space-14, 14px) 0;
-  border-top:1px solid var(--abv2-border-soft, #e2e2e2);
-}
-
-.abv2-fact .si-eyebrow{
-  display:block;
-  margin-bottom:var(--abv2-space-12, 12px);
-}
-
-.abv2-fact .body--md{
-  max-width:28ch;
-}
-
-@media (max-width:759px){
-  .abv2-facts{
-    grid-template-columns:1fr;
-  }
-}
-
-.abv2-support-links{
-  display:flex;
-  flex-wrap:wrap;
-  column-gap:var(--abv2-space-48, 48px);
-  row-gap:var(--abv2-space-18, 18px);
-  padding-top:var(--abv2-space-16, 16px);
-}
-
 .abv2-support-link{
   appearance:none;
   display:inline-flex;
@@ -99,14 +65,6 @@
 }
 
 @media (max-width:759px){
-  .abv2-support-links{
-    display:grid;
-    grid-template-columns:1fr;
-    justify-items:start;
-    row-gap:var(--abv2-space-18, 18px);
-    padding-top:var(--abv2-space-20, 20px);
-  }
-
   .abv2-support-link{
     padding-bottom:var(--abv2-space-6, 6px);
   }
@@ -443,7 +401,7 @@ body{
 
 /* =========================================================
    ABUNDANCE v2 — Generic horizontal bar chart
-   Used for use-of-funds, allocations and category breakdowns.
+   Values/colours are set per row in HTML.
    ========================================================= */
 
 .abv2-bar-chart{
@@ -473,46 +431,24 @@ body{
 .abv2-bar-chart__fill{
   position:absolute;
   inset:0 auto 0 0;
+  width:var(--abv2-bar-value, 0%);
   display:flex;
   align-items:center;
   min-width:142px;
   padding-inline:var(--abv2-space-16, 16px);
   border-radius:999px;
-  color:var(--abv2-blue, #151943);
+  background:var(--abv2-bar-colour, var(--abv2-pink-light, #f7d9e8));
+  color:var(--abv2-bar-text, var(--abv2-blue, #151943));
   white-space:nowrap;
 }
 
-.abv2-bar-chart__fill--pink{
-  background:var(--abv2-pink-light, #f498be);
+.abv2-bar-chart--compact .abv2-bar-chart__track{
+  min-height:38px;
 }
 
-.abv2-bar-chart__fill--teal{
-  background:var(--abv2-teal-light, #4cbfcb);
-}
-
-.abv2-bar-chart__fill--yellow{
-  background:var(--abv2-yellow-light, #ffc556);
-}
-
-.abv2-bar-chart__fill--indigo{
-  background:var(--abv2-indigo, #151943);
-  color:var(--abv2-white, #fff);
-}
-
-.abv2-bar-chart__fill--green{
-  background:var(--abv2-green, #25ab2d);
-  color:var(--abv2-white, #fff);
-}
-
-.abv2-table-scroll{
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-}
-
-.abv2-table-scroll:focus-visible{
-  outline:2px solid var(--abv2-pink, #f27fae);
-  outline-offset:4px;
-  border-radius:18px;
+.abv2-bar-chart--compact .abv2-bar-chart__fill{
+  min-width:min(118px, 100%);
+  padding-inline:var(--abv2-space-14, 14px);
 }
 
 @media (max-width:759px){
@@ -527,5 +463,13 @@ body{
 
   .abv2-bar-chart__fill{
     min-width:110px;
+  }
+
+  .abv2-bar-chart--compact .abv2-bar-chart__track{
+    min-height:36px;
+  }
+
+  .abv2-bar-chart--compact .abv2-bar-chart__fill{
+    min-width:min(100px, 100%);
   }
 }

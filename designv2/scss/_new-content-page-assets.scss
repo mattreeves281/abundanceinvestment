@@ -82,116 +82,10 @@
   outline-offset:3px;
 }
 
-/* =========================================================
-   ABUNDANCE v2 — Generic coloured content cards
-   Used for benefit tiles, callout tiles, grouped feature cards.
-   ========================================================= */
-
-.abv2-colour-card-grid{
-  display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:var(--abv2-space-16, 16px);
-}
-
-.abv2-colour-card{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  min-height:160px;
-  padding:var(--abv2-space-16, 16px);
-  border:0;
-  border-radius:14px;
-  background:var(--abv2-grey-ui, #faf8f8);
-  color:var(--abv2-ink, #282827);
-  overflow:hidden;
-}
-
-.abv2-colour-card--wide{
-  grid-column:span 2;
-  min-height:210px;
-  padding:var(--abv2-space-20, 20px);
-}
-
-
-
-@media (max-width:900px){
-  .abv2-colour-card-grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-  }
-
-  .abv2-colour-card--wide{
-    grid-column:span 2;
-  }
-}
-
 @media (max-width:560px){
-  .abv2-colour-card-grid{
-    grid-template-columns:1fr;
-  }
-
-  .abv2-colour-card,
-  .abv2-colour-card--wide{
+  .abv2-colour-card{
     grid-column:auto;
     min-height:0;
-  }
-}
-
-/* =========================================================
-   ABUNDANCE v2 — Editorial comparison layout helper
-   Uses SI card, SI type and spacing helpers in HTML.
-   ========================================================= */
-
-.abv2-editorial-compare__grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  border:1.5px solid var(--abv2-border-subtle, #e9e4e3);
-  border-radius:18px;
-  overflow:hidden;
-}
-
-.abv2-editorial-compare__col{
-  padding:var(--abv2-space-20, 20px);
-  background:var(--abv2-white, #fff);
-}
-
-.abv2-editorial-compare__col + .abv2-editorial-compare__col{
-  border-left:1.5px solid var(--abv2-border-subtle, #e9e4e3);
-}
-
-.abv2-editorial-compare__list{
-  display:grid;
-  gap:var(--abv2-space-12, 12px);
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-
-.abv2-editorial-compare__list li{
-  position:relative;
-  margin:0;
-  padding-left:var(--abv2-space-20, 20px);
-}
-
-.abv2-editorial-compare__list li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:.62em;
-  width:7px;
-  height:7px;
-  border-radius:999px;
-  background:var(--abv2-pink, #f27fae);
-}
-
-@media (max-width:767px){
-  .abv2-editorial-compare__grid{
-    grid-template-columns:1fr;
-    border-radius:16px;
-  }
-
-  .abv2-editorial-compare__col + .abv2-editorial-compare__col{
-    border-left:0;
-    border-top:1.5px solid var(--abv2-border-subtle, #e9e4e3);
   }
 }
 
@@ -271,9 +165,33 @@
   border-left:4px solid var(--abv2-pink, #f27fae);
 }
 
+/* Serif quote treatment */
+.abv2-ed-quote > p{
+  font-family:var(--abv2-serif);
+  font-weight:600;
+  font-size:1.75rem;
+  line-height:1.12;
+  letter-spacing:-0.025em;
+  color:var(--abv2-ink, #282827);
+}
+
 .abv2-ed-quote cite{
   display:block;
+  margin-top:var(--abv2-space-12, 12px);
+  font-family:var(--abv2-sans);
   font-style:normal;
+  color:var(--abv2-text, #4d4a46);
+}
+
+@media (max-width:767px){
+  .abv2-ed-quote{
+    padding-left:var(--abv2-space-16, 16px);
+  }
+
+  .abv2-ed-quote > p{
+    font-size:1.5rem;
+    line-height:1.14;
+  }
 }
 
 /* Allow iframe use inside shared media frame */
@@ -282,6 +200,35 @@
   width:100%;
   height:100%;
   border:0;
+}
+
+/* =========================================================
+   ABV2 editorial figure
+   Content-page media + caption treatment
+   ========================================================= */
+
+.abv2-ed-figure{
+  margin:0;
+}
+
+.abv2-media-frame--editorial{
+  width:100%;
+  max-width:760px;
+  aspect-ratio:1.55 / 1;
+  border-radius:36px;
+}
+
+.abv2-ed-figure figcaption{
+  max-width:760px;
+  margin-inline:auto;
+  color:var(--abv2-text, #4d4a46);
+}
+
+@media (max-width:767px){
+  .abv2-media-frame--editorial{
+    max-width:100%;
+    border-radius:28px;
+  }
 }
 
 /* =========================================================
@@ -294,117 +241,4 @@
 
 .si-accordion-item__header{
   margin:0;
-}
-
-/* =========================================================
-   ABUNDANCE v2 — Inline SVG line chart
-   Used by content data/market examples.
-   ========================================================= */
-
-.abv2-line-chart{
-  width:100%;
-}
-
-.abv2-line-chart__legend{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:var(--abv2-space-10, 10px) var(--abv2-space-18, 18px);
-}
-
-.abv2-line-chart__key{
-  display:inline-flex;
-  align-items:center;
-  gap:var(--abv2-space-8, 8px);
-  color:var(--abv2-text, #4d4a46);
-}
-
-.abv2-line-chart__swatch{
-  display:inline-block;
-  flex:0 0 auto;
-  width:10px;
-  height:10px;
-  border-radius:999px;
-}
-
-.abv2-line-chart__swatch--pink{
-  background:var(--abv2-pink, #f27fae);
-}
-
-.abv2-line-chart__swatch--teal{
-  background:var(--abv2-teal, #00a4b6);
-}
-
-.abv2-line-chart__swatch--yellow{
-  background:var(--abv2-yellow, #ffb72c);
-}
-
-.abv2-line-chart__plot{
-  width:100%;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-}
-
-.abv2-line-chart__svg{
-  display:block;
-  width:100%;
-  min-width:640px;
-  height:auto;
-}
-
-.abv2-line-chart__grid-line{
-  stroke:var(--abv2-border-soft, #e2e2e2);
-  stroke-width:1;
-}
-
-.abv2-line-chart__axis-label{
-  fill:var(--abv2-text, #4d4a46);
-  font-family:var(--abv2-sans);
-  font-size:13px;
-}
-
-.abv2-line-chart__line{
-  fill:none;
-  stroke-width:4;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.abv2-line-chart__line--pink{
-  stroke:var(--abv2-pink, #f27fae);
-}
-
-.abv2-line-chart__line--teal{
-  stroke:var(--abv2-teal, #00a4b6);
-}
-
-.abv2-line-chart__line--yellow{
-  stroke:var(--abv2-yellow, #ffb72c);
-}
-
-.abv2-line-chart__points circle{
-  stroke:var(--abv2-white, #fff);
-  stroke-width:2;
-}
-
-.abv2-line-chart__points--pink circle{
-  fill:var(--abv2-pink, #f27fae);
-}
-
-.abv2-line-chart__points--teal circle{
-  fill:var(--abv2-teal, #00a4b6);
-}
-
-.abv2-line-chart__points--yellow circle{
-  fill:var(--abv2-yellow, #ffb72c);
-}
-
-@media (max-width:767px){
-  .abv2-line-chart__legend{
-    gap:var(--abv2-space-8, 8px) var(--abv2-space-14, 14px);
-  }
-
-  .abv2-line-chart__svg{
-    min-width:560px;
-  }
 }

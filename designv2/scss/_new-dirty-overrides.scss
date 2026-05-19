@@ -1,0 +1,120 @@
+/* =========================================================
+   TEMP NAV BUTTON TYPE OVERRIDE
+   Remove once nav/button typography is fixed in core.
+   ========================================================= */
+
+/* Account/menu dropdown button */
+.btn.btn-primary--bordered.mobile-hide.si-btn.si-mega-menu__dropdown-btn.js-account-menu-button{
+  font-family:var(--abv2-sans, Arial, sans-serif) !important;
+  text-transform:none !important;
+  letter-spacing:normal !important;
+}
+
+/* Login button */
+.brand-navbar__login-btn{
+  font-family:var(--abv2-sans, Arial, sans-serif) !important;
+}
+
+/* Mobile bordered button */
+.btn.btn-primary--bordered.m-b-spacer-md--mobile{
+  font-family:var(--abv2-sans, Arial, sans-serif) !important;
+  text-transform:none !important;
+  letter-spacing:normal !important;
+}
+
+
+/* =========================================================
+   TEMP FOOTER MOCKUP
+   Use real ABV2 footer mask element; hide old platform mask.
+   ========================================================= */
+
+/* Hide current grey mask before footer */
+.bg-colour--neutral--300.bg-mask.bg-mask--t-convex{
+  display:none !important;
+}
+
+/* Make footer yellow */
+.footer,
+.footer__risk,
+.footer-links,
+.footer-copyright{
+  background:var(--abv2-yellow, #ffb72c) !important;
+}
+
+/* Remove spacing that expected the old mask */
+.footer{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+/* Optional readability pass */
+.footer,
+.footer p,
+.footer address,
+.footer a,
+.footer h2,
+.footer cite{
+  color:var(--abv2-ink, #282827) !important;
+}
+
+.footer a{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+
+
+/* Nuclear dropdown ink override */
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link.show,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link.show *,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link.show::before,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link.show::after,
+.dropdown-menu.brand-dropdown-menu.show,
+.dropdown-menu.brand-dropdown-menu.show *,
+.dropdown-menu.brand-dropdown-menu.show a,
+.dropdown-menu.brand-dropdown-menu.show a:link,
+.dropdown-menu.brand-dropdown-menu.show a:visited,
+.dropdown-menu.brand-dropdown-menu.show a:hover,
+.dropdown-menu.brand-dropdown-menu.show a:focus,
+.dropdown-menu.brand-dropdown-menu.show a:active,
+.dropdown-menu.brand-dropdown-menu.show button,
+.dropdown-menu.brand-dropdown-menu.show button:hover,
+.dropdown-menu.brand-dropdown-menu.show button:focus,
+.dropdown-menu.brand-dropdown-menu.show button:active,
+.dropdown-menu.brand-dropdown-menu.show .dropdown-item,
+.dropdown-menu.brand-dropdown-menu.show .dropdown-item:hover,
+.dropdown-menu.brand-dropdown-menu.show .dropdown-item:focus,
+.dropdown-menu.brand-dropdown-menu.show .dropdown-item:active{
+  color:#282827 !important;
+  -webkit-text-fill-color:#282827 !important;
+}
+
+/* Quick dirty nav dropdown ink fix */
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:link,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:visited,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:hover,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:focus,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:active,
+.dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link.show{
+  color:#282827 !important;
+  -webkit-text-fill-color:#282827 !important;
+}
+
+/* TEMP: restore larger v2 quote sizing inside council quote blockquote */
+.abv2-council-quote blockquote.brand-blockquote > p.body--lg{
+  font-family:var(--abv2-sans);
+  font-size:1.5rem;
+  font-weight:400;
+  line-height:1.5;
+  letter-spacing:normal;
+  color:var(--abv2-text);
+  margin-bottom:0;
+}
+
+@media (max-width:767px){
+  .abv2-council-quote blockquote.brand-blockquote > p.body--lg{
+    font-size:1.25rem;
+    line-height:1.5;
+  }
+}
