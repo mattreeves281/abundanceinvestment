@@ -4,15 +4,15 @@
 
 .abv2-card-soft.si-card,
 .abv2-card-soft{
-  background:var(--abv2-white, #fff);
+  background:var(--abv2-white);
   border:0;
   border-radius:28px;
-  box-shadow:0 18px 38px var(--abv2-shadow-card, rgba(40,40,39,.12));
+  box-shadow:0 18px 38px var(--abv2-shadow-card);
 }
 
 .abv2-card-soft--bordered{
-  border:1px solid var(--abv2-border-subtle, #e9e4e3);
-  box-shadow:0 12px 34px var(--abv2-ink-a05, rgba(40,40,39,.05));
+  border:1px solid var(--abv2-border-subtle);
+  box-shadow:0 12px 34px var(--abv2-ink-a05);
 }
 
 @media (max-width:759px){
@@ -30,12 +30,10 @@
    ========================================================= */
 
 .si-card--secondary{
-  position:relative;
-  overflow:hidden;
-  background:var(--abv2-white, #fff);
-  border:1.5px solid var(--abv2-border-default, #e2e2e2);
+  background:var(--abv2-white);
+  border:1.5px solid var(--abv2-border-default);
   border-radius:24px;
-  box-shadow:0 10px 30px var(--abv2-ink-a05, rgba(40,40,39,.05));
+  box-shadow:0 10px 30px var(--abv2-ink-a05);
 }
 
 @media (max-width:767px){
@@ -44,15 +42,43 @@
   }
 }
 
-.abv2-colour-card{
-  position:relative;
-  display:flex;
-  flex-direction:column;
+.abv2-colour-card-neutral,
+.abv2-colour-card-pink,
+.abv2-colour-card-teal,
+.abv2-colour-card-yellow,
+.abv2-colour-card-green,
+.abv2-colour-card-pink-light,
+.abv2-colour-card-teal-light{
   min-height:160px;
   padding:var(--abv2-space-16, 16px);
-  border:0;
   border-radius:14px;
-  background:var(--abv2-grey-ui, #faf8f8);
-  color:var(--abv2-ink, #282827);
-  overflow:hidden;
+  color:var(--abv2-ink);
+}
+
+.abv2-colour-card-neutral{
+  background:var(--abv2-grey-ui);
+}
+
+.abv2-colour-card-pink{
+  background:var(--abv2-pink);
+}
+
+.abv2-colour-card-teal{
+  background:var(--abv2-teal);
+}
+
+.abv2-colour-card-yellow{
+  background:var(--abv2-yellow);
+}
+
+.abv2-colour-card-green{
+  background:var(--abv2-green);
+}
+
+.abv2-colour-card-pink-light{
+  background:var(--abv2-pink-light);
+}
+
+.abv2-colour-card-teal-light{
+  background:var(--abv2-teal-light);
 }

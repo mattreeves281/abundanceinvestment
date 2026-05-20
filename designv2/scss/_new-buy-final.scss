@@ -172,9 +172,9 @@
   min-height:0;
   height:auto;
   padding:var(--abv2-space-24, 24px);
-  border:1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  border:1.5px solid var(--abv2-border-subtle);
   border-radius:22px;
-  background:var(--abv2-white, #fff);
+  background:var(--abv2-white);
 }
 
 .abv2-buy-invest-item__main{
@@ -218,11 +218,6 @@
 .abv2-boxout--teal{
   border-color:var(--abv2-teal-a22);
   background:var(--abv2-teal-very-light);
-}
-
-.abv2-boxout--pink{
-  border-color:var(--abv2-pink-a24);
-  background:var(--abv2-pink-a05);
 }
 
 .abv2-boxout--yellow{

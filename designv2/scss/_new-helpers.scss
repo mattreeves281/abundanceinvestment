@@ -2,82 +2,16 @@
    Colour/helper extensions
    ---------------------------------------- */
 
-.text-colour--primary{
-  color:var(--abv2-pink, #f27fae) !important;
-}
-
-.text-colour--secondary{
-  color:var(--abv2-teal, #00a4b6) !important;
-}
-
 .text-colour--yellow{
-  color:var(--abv2-yellow, #ffb72c) !important;
+  color:var(--abv2-yellow) !important;
 }
 
-.text-colour--ink{
-  color:var(--abv2-ink, #282827) !important;
+.bg-colour--yellow{
+  background-color:var(--abv2-yellow) !important;
 }
 
-.abv2-colour-card--pink{
-  background:var(--abv2-pink, #f27fae);
-}
-
-.abv2-colour-card--teal{
-  background:var(--abv2-teal, #00a4b6);
-}
-
-.abv2-colour-card--yellow{
-  background:var(--abv2-yellow, #ffb72c);
-}
-
-.abv2-colour-card--green{
-  background:var(--abv2-green-soft, #65c86a);
-}
-
-.abv2-colour-card--pink-light{
-  background:var(--abv2-pink-light, #f498be);
-}
-
-.abv2-colour-card--teal-light{
-  background:var(--abv2-teal-light, #4cbfcb);
-}
-
-.abv2-colour-card .si-eyebrow{
-  color:rgba(40,40,39,.68);
-}
-
-.abv2-colour-card .si-body-compact{
-  color:var(--abv2-text, #4d4a46);
-}
-
-/* ----------------------------------------
-   Colour card modifiers
-   Must sit after .abv2-colour-card base.
-   Compound selectors deliberately beat base specificity.
-   ---------------------------------------- */
-
-.abv2-colour-card.abv2-colour-card--pink{
-  background:var(--abv2-pink, #f27fae);
-}
-
-.abv2-colour-card.abv2-colour-card--teal{
-  background:var(--abv2-teal, #00a4b6);
-}
-
-.abv2-colour-card.abv2-colour-card--yellow{
-  background:var(--abv2-yellow, #ffb72c);
-}
-
-.abv2-colour-card.abv2-colour-card--green{
-  background:var(--abv2-green, #25ab2d);
-}
-
-.abv2-colour-card.abv2-colour-card--pink-light{
-  background:var(--abv2-pink-light, #f7d9e8);
-}
-
-.abv2-colour-card.abv2-colour-card--teal-light{
-  background:var(--abv2-teal-light, #4cbfcb);
+.bg-colour--abv2-white-soft{
+  background-color:var(--abv2-white-a18) !important;
 }
 
 /* ----------------------------------------
@@ -119,7 +53,7 @@
   display:block;
   padding-top:11.5%;
   margin-bottom:-0.0625rem;
-  background:var(--abv2-yellow, #ffb72c);
+  background:var(--abv2-yellow);
 
   -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 430L1850 70L6000 430V700H0V430Z'/%3E%3C/svg%3E");
   mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 430L1850 70L6000 430V700H0V430Z'/%3E%3C/svg%3E");
@@ -161,24 +95,27 @@
   mask-size:contain;
 }
 
-.bg-blob--abv2-white-soft{
-  background-color:rgba(255,255,255,.18);
-}
-
 .abv2-step-num{
   display:grid;
   place-items:center;
   width:56px;
   height:56px;
-  color:#fff;
+  color:var(--abv2-white);
   font-family:var(--abv2-serif);
   font-size:1.75rem;
   font-weight:600;
   line-height:1;
 }
 
-.abv2-step-num.text-colour--ink{
-  color:var(--abv2-ink, #282827);
+.abv2-step-num svg{
+  display:block;
+  width:55%;
+  height:55%;
+  fill:currentColor;
+}
+
+.abv2-step-num.type-black{
+  color:var(--abv2-ink);
 }
 
 @media (max-width:991px){
@@ -204,25 +141,6 @@
     font-size:1.3rem;
   }
 }
-
-/* Blob colour helpers */
-.bg-blob--abv2-pink{
-  background-color:var(--abv2-pink, #f27fae);
-}
-
-.bg-blob--abv2-yellow{
-  background-color:var(--abv2-yellow, #ffb72c);
-}
-
-.bg-blob--abv2-teal{
-  background-color:var(--abv2-teal, #00a4b6);
-}
-
-/* Blob colour helper */
-.bg-blob--abv2-grey{
-  background-color:var(--abv2-grey-light, #e9e4e3);
-}
-
 
 .abv2-step-num--lg{
   width:84px;
@@ -254,14 +172,9 @@
    ========================================================= */
 
 .abv2-ed-band{
-  position:relative;
-  width:100vw;
   padding-top:9.6%;
   min-height:70px;
-  max-height:138px;
   margin:var(--abv2-space-20, 20px) 0 var(--abv2-space-24, 24px);
-  margin-left:calc(50% - 50vw);
-  pointer-events:none;
   background:currentColor;
 
   -webkit-mask-size:100% 100%;
@@ -270,18 +183,6 @@
   mask-position:0 0;
   -webkit-mask-repeat:no-repeat;
   mask-repeat:no-repeat;
-}
-
-.abv2-ed-band--pink{
-  color:var(--abv2-pink, #f27fae);
-}
-
-.abv2-ed-band--yellow{
-  color:var(--abv2-yellow, #ffb72c);
-}
-
-.abv2-ed-band--teal{
-  color:var(--abv2-teal, #00a4b6);
 }
 
 .abv2-ed-band--tight{

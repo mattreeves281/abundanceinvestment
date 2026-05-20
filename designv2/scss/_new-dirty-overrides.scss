@@ -38,7 +38,7 @@
 .footer__risk,
 .footer-links,
 .footer-copyright{
-  background:var(--abv2-yellow, #ffb72c) !important;
+  background:var(--abv2-yellow) !important;
 }
 
 /* Remove spacing that expected the old mask */
@@ -54,7 +54,7 @@
 .footer a,
 .footer h2,
 .footer cite{
-  color:var(--abv2-ink, #282827) !important;
+  color:var(--abv2-ink) !important;
 }
 
 .footer a{
@@ -85,8 +85,8 @@
 .dropdown-menu.brand-dropdown-menu.show .dropdown-item:hover,
 .dropdown-menu.brand-dropdown-menu.show .dropdown-item:focus,
 .dropdown-menu.brand-dropdown-menu.show .dropdown-item:active{
-  color:#282827 !important;
-  -webkit-text-fill-color:#282827 !important;
+  color:var(--abv2-ink) !important;
+  -webkit-text-fill-color:var(--abv2-ink) !important;
 }
 
 /* Quick dirty nav dropdown ink fix */
@@ -97,8 +97,8 @@
 .dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:focus,
 .dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:active,
 .dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link.show{
-  color:#282827 !important;
-  -webkit-text-fill-color:#282827 !important;
+  color:var(--abv2-ink) !important;
+  -webkit-text-fill-color:var(--abv2-ink) !important;
 }
 
 /* TEMP: restore larger v2 quote sizing inside council quote blockquote */
