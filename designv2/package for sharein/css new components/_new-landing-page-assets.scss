@@ -1,0 +1,331 @@
+/* =========================================================
+   ABUNDANCE v2 — LANDING PAGE MINIMAL OVERRIDES
+   Helper-led page assets + small reusable primitives
+   ========================================================= */
+
+
+.abundance-support-link{
+  appearance:none;
+  display:inline-flex;
+  align-items:center;
+  width:auto;
+  min-height:0;
+  margin:0;
+  padding:0 0 var(--abv2-space-8, 8px); /* Sass: $spacer-3xs */
+  border:0;
+  border-bottom:1px solid var(--abv2-ink-a18); /* Sass: $abundance-ink-a18 */
+  background:none;
+  border-radius:0;
+  cursor:pointer;
+  color:var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  text-align:left;
+  text-decoration:none;
+  transition:color .2s ease, border-color .2s ease;
+}
+
+.abundance-support-link:hover,
+.abundance-support-link:focus-visible{
+  color:var(--abv2-pink); /* Sass: $abundance-pink */
+  border-color:var(--abv2-pink); /* Sass: $abundance-pink */
+  text-decoration:none;
+  outline:none;
+}
+
+.abundance-support-link:focus-visible{
+  outline:2px solid var(--abv2-pink); /* Sass: $abundance-pink */
+  outline-offset:4px;
+  border-radius:4px;
+}
+
+@media (max-width:759px){
+  .abundance-support-link{
+    padding-bottom:var(--abv2-space-6, 6px); /* Sass: $abundance-space-6 */
+  }
+}
+
+/* ----------------------------------------
+   Media helpers
+   ---------------------------------------- */
+
+.abundance-media-frame{
+  display:block;
+  width:min(100%, 500px);
+  aspect-ratio:1.45 / 1;
+  border-radius:48px;
+  overflow:hidden;
+  text-decoration:none;
+}
+
+.abundance-media-frame img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.abundance-media-frame--square{
+  width:228px;
+  max-width:100%;
+  aspect-ratio:1 / 1;
+  border-radius:14px;
+}
+
+.abundance-media-frame--case-square{
+  width:min(100%, 460px);
+  aspect-ratio:1 / 1;
+  border-radius:48px;
+}
+
+.abundance-media-frame--wide{
+  width:min(100%, 540px);
+  aspect-ratio:1.55 / 1;
+  border-radius:36px;
+}
+
+@media (max-width:1199px) and (min-width:992px){
+  .abundance-media-frame--square{
+    width:184px;
+  }
+
+  .abundance-media-frame--case-square{
+    width:min(100%, 400px);
+    border-radius:40px;
+  }
+}
+
+@media (max-width:991px) and (min-width:768px){
+  .abundance-media-frame--square{
+    width:172px;
+  }
+}
+
+@media (max-width:991px){
+  .abundance-media-frame--case-square{
+    width:min(100%, 340px);
+    border-radius:36px;
+  }
+}
+
+@media (max-width:767px){
+  .abundance-media-frame--square{
+    width:min(100%, 168px, 300px);
+    border-radius:18px;
+  }
+
+  .abundance-media-frame--case-square{
+    width:100%;
+    border-radius:36px;
+  }
+
+  .abundance-media-frame--wide{
+    width:100%;
+    border-radius:28px;
+  }
+}
+
+/* ----------------------------------------
+   Related links
+   ---------------------------------------- */
+
+.abundance-related-link{
+  position:relative;
+  display:block;
+  min-height:100%;
+  padding:var(--abv2-space-24, 24px) var(--abv2-space-12, 12px) var(--abv2-space-12, 12px); /* Sass: $spacer-xs; $abundance-space-12 */
+  border-radius:18px;
+  color:inherit;
+  text-decoration:none;
+  transition:background .2s ease, color .2s ease;
+}
+
+.abundance-related-link::before{
+  content:"";
+  position:absolute;
+  left:var(--abv2-space-12, 12px); /* Sass: $abundance-space-12 */
+  top:var(--abv2-space-12, 12px); /* Sass: $abundance-space-12 */
+  width:38px;
+  height:1px;
+  background:var(--abv2-white-a28); /* Sass: $abundance-white-a28 */
+  transition:width .2s ease, background .2s ease;
+}
+
+.abundance-related-link:hover,
+.abundance-related-link:focus-visible{
+  background:var(--abv2-white-a08); /* Sass: $abundance-white-a08 */
+  text-decoration:none;
+}
+
+.abundance-related-link:hover::before,
+.abundance-related-link:focus-visible::before{
+  width:46px;
+  background:var(--abv2-white-a62); /* Sass: $abundance-white-a62 */
+}
+
+.abundance-related-link:focus-visible{
+  outline:2px solid var(--abv2-white-a62); /* Sass: $abundance-white-a62 */
+  outline-offset:3px;
+}
+
+@media (max-width:759px){
+  .abundance-related-link{
+    padding:var(--abv2-space-22, 22px) var(--abv2-space-10, 10px) var(--abv2-space-10, 10px); /* Sass: $abundance-space-22; $abundance-space-10 */
+    border-radius:16px;
+  }
+
+  .abundance-related-link::before{
+    left:var(--abv2-space-10, 10px); /* Sass: $abundance-space-10 */
+    top:var(--abv2-space-10, 10px); /* Sass: $abundance-space-10 */
+  }
+}
+
+
+/* =========================================================
+   TEST — v2 white-on-colour input/select controls
+   Candidate reusable controls for calculator/select panels.
+   ========================================================= */
+
+.abundance-field-white{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:54px;
+  border:1.8px solid var(--abv2-white); /* Sass: $pure-white */
+  border-radius:999px;
+  background:var(--abv2-white-a16); /* Sass: $abundance-white-a16 */
+  overflow:hidden;
+  transition:background .2s ease, box-shadow .2s ease;
+}
+
+.abundance-field-white:focus-within{
+  background:var(--abv2-white-a22); /* Sass: $abundance-white-a22 */
+  box-shadow:0 0 0 3px var(--abv2-white-a28); /* Sass: $abundance-white-a28 */
+}
+
+.abundance-field-white .si-input{
+  width:100%;
+  min-height:54px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:var(--abv2-white); /* Sass: $pure-white */
+}
+
+.abundance-field-white .si-input:focus,
+.abundance-field-white .si-input:focus-visible{
+  outline:none !important;
+  box-shadow:none;
+}
+
+.abundance-field-white__prefix{
+  flex:0 0 auto;
+  padding-left:var(--abv2-space-20, 20px); /* Sass: $abundance-space-20 */
+  color:var(--abv2-white); /* Sass: $pure-white */
+}
+
+.abundance-field-white--select::after{
+  content:"";
+  position:absolute;
+  right:var(--abv2-space-20, 20px); /* Sass: $abundance-space-20 */
+  top:50%;
+  width:10px;
+  height:10px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  color:var(--abv2-white); /* Sass: $pure-white */
+  transform:translateY(-65%) rotate(45deg);
+  pointer-events:none;
+}
+
+.abundance-field-white--select .si-input{
+  padding-right:calc(var(--abv2-space-20, 20px) + 22px); /* Sass: $abundance-space-20 */
+  appearance:none;
+  cursor:pointer;
+}
+
+.abundance-field-white--select .si-input option{
+  color:var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  background:var(--abv2-white); /* Sass: $pure-white */
+}
+
+@media (max-width:759px){
+  .abundance-field-white,
+  .abundance-field-white .si-input{
+    min-height:52px;
+  }
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Generic horizontal bar chart
+   Values/colours are set per row in HTML.
+   ========================================================= */
+
+.abundance-bar-chart{
+  display:grid;
+  gap:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+}
+
+.abundance-bar-chart__row{
+  display:grid;
+  grid-template-columns:minmax(180px, .34fr) minmax(0, 1fr);
+  gap:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+  align-items:center;
+}
+
+.abundance-bar-chart__label{
+  color:var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
+}
+
+.abundance-bar-chart__track{
+  position:relative;
+  min-height:50px;
+  border-radius:999px;
+  background:var(--abv2-grey-light); /* Sass: $abundance-neutral-300 */
+  overflow:hidden;
+}
+
+.abundance-bar-chart__fill{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:var(--abv2-bar-value, 0%); /* Sass: component local custom property; set in HTML */
+  display:flex;
+  align-items:center;
+  min-width:142px;
+  padding-inline:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+  border-radius:999px;
+  background:var(--abv2-bar-colour, var(--abv2-pink-light)); /* Sass: component local custom property; fallback $abundance-pink-light; $abundance-pink-light */
+  color:var(--abv2-bar-text, var(--abv2-blue)); /* Sass: component local custom property; fallback $abundance-blue; $abundance-blue */
+  white-space:nowrap;
+}
+
+.abundance-bar-chart--compact .abundance-bar-chart__track{
+  min-height:38px;
+}
+
+.abundance-bar-chart--compact .abundance-bar-chart__fill{
+  min-width:min(118px, 100%);
+  padding-inline:var(--abv2-space-14, 14px); /* Sass: $abundance-space-14 */
+}
+
+@media (max-width:759px){
+  .abundance-bar-chart__row{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-8, 8px); /* Sass: $spacer-3xs */
+  }
+
+  .abundance-bar-chart__track{
+    min-height:42px;
+  }
+
+  .abundance-bar-chart__fill{
+    min-width:110px;
+  }
+
+  .abundance-bar-chart--compact .abundance-bar-chart__track{
+    min-height:36px;
+  }
+
+  .abundance-bar-chart--compact .abundance-bar-chart__fill{
+    min-width:min(100px, 100%);
+  }
+}

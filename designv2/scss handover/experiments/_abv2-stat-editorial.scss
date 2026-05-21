@@ -1,0 +1,61 @@
+/* ========================================
+   COMPONENT: abv2-editorial-stat
+   Editorial stat card
+   ======================================== */
+
+.abv2-editorial-stat {
+  padding: var(--abv2-space-20) var(--abv2-space-16);
+  border: 1.5px solid var(--abv2-border-subtle);
+  border-radius: 22px;
+  background: var(--abv2-grey-ui);
+  box-shadow: none;
+}
+
+.abv2-editorial-stat:nth-child(1) {
+  background: var(--abv2-pink);
+}
+
+.abv2-editorial-stat:nth-child(2) {
+  background: var(--abv2-teal);
+}
+
+.abv2-editorial-stat:nth-child(3) {
+  background: var(--abv2-yellow);
+}
+
+.abv2-editorial-stat:nth-child(4) {
+  background: var(--abv2-grey-light);
+}
+
+.abv2-editorial-stat__label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--abv2-space-8);
+  margin: 0 0 var(--abv2-space-12);
+}
+
+// .abv2-editorial-stat__label type removed. Instead use si-eyebrow + an SI/UAT text colour helper where needed.
+
+.abv2-editorial-stat__value {
+  margin: 0 0 var(--abv2-space-8);
+}
+
+// .abv2-editorial-stat__value type removed. Instead use si-stat.
+
+.abv2-editorial-stat__note {
+  margin: 0;
+}
+
+// .abv2-editorial-stat__note type removed. Instead use si-body-compact.
+
+/* Mobile */
+
+@media (max-width: 759px) {
+  .abv2-editorial-stat {
+    border-radius: 20px;
+    padding: var(--abv2-space-16);
+  }
+
+  // .abv2-editorial-stat__label, .abv2-editorial-stat__value and .abv2-editorial-stat__note mobile type removed.
+  // Instead use si-eyebrow, si-stat and si-body-compact.
+}

@@ -1,250 +1,83 @@
 @charset "UTF-8";
 :root {
   /* ========================================
-     ABV2 COLOUR TOKENS - SOLID
-  ======================================== */
-  --abv2-bg:var(--abv2-white);
-  --abv2-white:#ffffff;
-  --abv2-white-rgb:255, 255, 255;
-  --abv2-ink:#282827;
-  --abv2-ink-rgb:40, 40, 39;
-  --abv2-text:#4d4a46;
-  --abv2-grey:#71716e;
-  --abv2-grey-light:#e9e4e3;
-  --abv2-grey-very-light:#f1eeed;
-  --abv2-grey-ui:#e2e2e2;
-  --abv2-pink:#f27fae;
-  --abv2-pink-rgb:242, 127, 174;
-  --abv2-pink-dark:#c1658b;
-  --abv2-pink-light:#f7d9e8;
-  --abv2-teal:#00a4b6;
-  --abv2-teal-rgb:0, 164, 182;
-  --abv2-teal-dark:#008391;
-  --abv2-teal-light:#4cbfcb;
-  --abv2-teal-very-light:#cdebf0;
-  --abv2-yellow:#ffb72c;
-  --abv2-yellow-rgb:255, 183, 44;
-  --abv2-yellow-dark:#cc9223;
-  --abv2-yellow-light:#ffeecd;
-  --abv2-green:#25ab2d;
-  --abv2-blue:#151943;
-  --abv2-indigo:#443668;
+     ABV2 COLOUR TOKENS
+     ======================================== */
+  --abv2-white:#ffffff; /* Sass existing: $pure-white / $abundance-neutral-000 */
+  --abv2-white-rgb:255, 255, 255; /* Sass needed: $abv2-white-rgb, or use rgba($pure-white, <alpha>) directly */
+  --abv2-ink:#363635; /* Sass existing: $abundance-neutral-900 / $si-color-text-primary */
+  --abv2-ink-rgb:54, 54, 53; /* Sass needed: $abv2-ink-rgb, or use rgba($abundance-neutral-900, <alpha>) directly */
+  --abv2-text:#4d4a46; /* Sass existing: $abundance-neutral-800 / $si-color-text-secondary */
+  --abv2-grey-light:#e9e4e3; /* Sass existing: $abundance-neutral-300 / $si-color-border-primary */
+  --abv2-grey-very-light:#f1eeed; /* Sass existing: $abundance-neutral-200 */
+  --abv2-grey-ui:#e2e2e2; /* Sass existing: $abundance-neutral-400 / $si-color-border-secondary */
+  --abv2-pink:#f27fae; /* Sass existing: $abundance-pink / $si-color-text-accent */
+  --abv2-pink-rgb:242, 127, 174; /* Sass needed: $abv2-pink-rgb, or use rgba($abundance-pink, <alpha>) directly */
+  --abv2-pink-light:#f7d9e8; /* Sass existing: $abundance-pink-light / $abundance-pink-surface */
+  --abv2-teal:#00a4b6; /* Sass existing: $abundance-cyan / $si-color-border-interactive */
+  --abv2-teal-rgb:0, 164, 182; /* Sass needed: $abv2-teal-rgb, or use rgba($abundance-cyan, <alpha>) directly */
+  --abv2-teal-light:#4cbfcb; /* Sass existing: $abundance-cyan-light */
+  --abv2-teal-very-light:#cdebf0; /* Sass existing: $abundance-cyan-surface */
+  --abv2-yellow:#ffb72c; /* Sass existing: $abundance-yellow */
+  --abv2-yellow-rgb:255, 183, 44; /* Sass needed: $abv2-yellow-rgb, or use rgba($abundance-yellow, <alpha>) directly */
+  --abv2-yellow-light:#ffeecd; /* Sass existing: $abundance-yellow-light / $abundance-yellow-surface */
+  --abv2-green:#25ab2d; /* Sass existing: $abundance-green */
+  --abv2-blue:#151943; /* Sass existing: $abundance-blue / $si-color-surface-invert-primary */
   /* ========================================
-     ABV2 COLOUR TOKENS - ALPHA / OVERLAY
-  ======================================== */
-  --abv2-ink-a04:rgba(var(--abv2-ink-rgb), 0.04);
-  --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06);
-  --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08);
-  --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10);
-  --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12);
-  --abv2-ink-a14:rgba(var(--abv2-ink-rgb), 0.14);
-  --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18);
-  --abv2-ink-a35:rgba(var(--abv2-ink-rgb), 0.35);
-  --abv2-ink-a62:rgba(var(--abv2-ink-rgb), 0.62);
-  --abv2-ink-a72:rgba(var(--abv2-ink-rgb), 0.72);
-  --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78);
-  --abv2-white-a06:rgba(var(--abv2-white-rgb), 0.06);
-  --abv2-white-a12:rgba(var(--abv2-white-rgb), 0.12);
-  --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14);
-  --abv2-white-a84:rgba(var(--abv2-white-rgb), 0.84);
-  --abv2-pink-a07:rgba(var(--abv2-pink-rgb), 0.07);
-  --abv2-pink-a08:rgba(var(--abv2-pink-rgb), 0.08);
-  --abv2-pink-a12:rgba(var(--abv2-pink-rgb), 0.12);
-  --abv2-pink-a18:rgba(var(--abv2-pink-rgb), 0.18);
-  --abv2-pink-a45:rgba(var(--abv2-pink-rgb), 0.45);
-  --abv2-pink-a62:rgba(var(--abv2-pink-rgb), 0.62);
-  --abv2-teal-a10:rgba(var(--abv2-teal-rgb), 0.10);
-  --abv2-teal-a12:rgba(var(--abv2-teal-rgb), 0.12);
-  --abv2-teal-a16:rgba(var(--abv2-teal-rgb), 0.16);
-  --abv2-yellow-a14:rgba(var(--abv2-yellow-rgb), 0.14);
-  --abv2-yellow-a20:rgba(var(--abv2-yellow-rgb), 0.20);
+     ABV2 ALPHA TOKENS
+     ======================================== */
+  --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05); /* Sass needed: rgba($abundance-neutral-900, 0.05) or $abv2-ink-a05 */
+  --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06); /* Sass existing nearby: $si-color-button-surface-*-hover uses rgba($abundance-neutral-900, 0.06); add $abv2-ink-a06 if reused */
+  --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08); /* Sass needed: rgba($abundance-neutral-900, 0.08) or $abv2-ink-a08 */
+  --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10); /* Sass existing nearby: $si-color-button-surface-*-active uses rgba($abundance-neutral-900, 0.1); add $abv2-ink-a10 if reused */
+  --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12); /* Sass existing nearby: $si-card-primary-border uses rgba($abundance-neutral-900, 0.12); add $abv2-ink-a12 if reused */
+  --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18); /* Sass needed: rgba($abundance-neutral-900, 0.18) or $abv2-ink-a18 */
+  --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78); /* Sass needed: rgba($abundance-neutral-900, 0.78) or $abv2-ink-a78 */
+  --abv2-white-a08:rgba(var(--abv2-white-rgb), 0.08); /* Sass needed: rgba($pure-white, 0.08) or $abv2-white-a08 */
+  --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14); /* Sass needed: rgba($pure-white, 0.14) or $abv2-white-a14 */
+  --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16); /* Sass needed: rgba($pure-white, 0.16) or $abv2-white-a16 */
+  --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18); /* Sass needed: rgba($pure-white, 0.18) or $abv2-white-a18 */
+  --abv2-white-a20:rgba(var(--abv2-white-rgb), 0.20); /* Sass needed: rgba($pure-white, 0.20) or $abv2-white-a20 */
+  --abv2-white-a22:rgba(var(--abv2-white-rgb), 0.22); /* Sass needed: rgba($pure-white, 0.22) or $abv2-white-a22 */
+  --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28); /* Sass needed: rgba($pure-white, 0.28) or $abv2-white-a28 */
+  --abv2-white-a62:rgba(var(--abv2-white-rgb), 0.62); /* Sass needed: rgba($pure-white, 0.62) or $abv2-white-a62 */
+  --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72); /* Sass existing nearby: $si-color-border-invert-primary uses rgba($pure-white, 0.72); add $abv2-white-a72 if reused */
+  --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05); /* Sass needed: rgba($abundance-pink, 0.05) or $abv2-pink-a05 */
+  --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34); /* Sass needed: rgba($abundance-pink, 0.34) or $abv2-pink-a34 */
+  --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06); /* Sass needed: rgba($abundance-cyan, 0.06) or $abv2-teal-a06 */
+  --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22); /* Sass needed: rgba($abundance-cyan, 0.22) or $abv2-teal-a22 */
+  --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38); /* Sass needed: rgba($abundance-cyan, 0.38) or $abv2-teal-a38 */
+  --abv2-yellow-a24:rgba(var(--abv2-yellow-rgb), 0.24); /* Sass needed: rgba($abundance-yellow, 0.24) or $abv2-yellow-a24 */
+  --abv2-modal-backdrop:rgba(38, 38, 37, 0.42); /* Sass needed: $abv2-modal-backdrop; no exact existing config variable */
   /* ========================================
-     ABV2 COLOUR TOKENS - ALPHA EXTENSIONS
-  ======================================== */
-  --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05);
-  --abv2-ink-a09:rgba(var(--abv2-ink-rgb), 0.09);
-  --abv2-ink-a22:rgba(var(--abv2-ink-rgb), 0.22);
-  --abv2-ink-a34:rgba(var(--abv2-ink-rgb), 0.34);
-  --abv2-ink-a64:rgba(var(--abv2-ink-rgb), 0.64);
-  --abv2-ink-a68:rgba(var(--abv2-ink-rgb), 0.68);
-  --abv2-ink-a74:rgba(var(--abv2-ink-rgb), 0.74);
-  --abv2-ink-a80:rgba(var(--abv2-ink-rgb), 0.80);
-  --abv2-ink-a82:rgba(var(--abv2-ink-rgb), 0.82);
-  --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16);
-  --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18);
-  --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28);
-  --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72);
-  --abv2-white-a82:rgba(var(--abv2-white-rgb), 0.82);
-  --abv2-white-a88:rgba(var(--abv2-white-rgb), 0.88);
-  --abv2-white-a90:rgba(var(--abv2-white-rgb), 0.90);
-  --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05);
-  --abv2-pink-a06:rgba(var(--abv2-pink-rgb), 0.06);
-  --abv2-pink-a10:rgba(var(--abv2-pink-rgb), 0.10);
-  --abv2-pink-a13:rgba(var(--abv2-pink-rgb), 0.13);
-  --abv2-pink-a16:rgba(var(--abv2-pink-rgb), 0.16);
-  --abv2-pink-a24:rgba(var(--abv2-pink-rgb), 0.24);
-  --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34);
-  --abv2-pink-a35:rgba(var(--abv2-pink-rgb), 0.35);
-  --abv2-pink-a70:rgba(var(--abv2-pink-rgb), 0.70);
-  --abv2-teal-a04:rgba(var(--abv2-teal-rgb), 0.04);
-  --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06);
-  --abv2-teal-a15:rgba(var(--abv2-teal-rgb), 0.15);
-  --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22);
-  --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38);
-  --abv2-yellow-a08:rgba(var(--abv2-yellow-rgb), 0.08);
-  --abv2-yellow-a12:rgba(var(--abv2-yellow-rgb), 0.12);
-  --abv2-yellow-a16:rgba(var(--abv2-yellow-rgb), 0.16);
-  --abv2-yellow-a18:rgba(var(--abv2-yellow-rgb), 0.18);
-  --abv2-yellow-a22:rgba(var(--abv2-yellow-rgb), 0.22);
-  --abv2-yellow-a94:rgba(var(--abv2-yellow-rgb), 0.94);
+     ABV2 SEMANTIC TOKENS
+     ======================================== */
+  --abv2-border-subtle:var(--abv2-ink-a08); /* Sass needed: $abv2-border-subtle: rgba($abundance-neutral-900, 0.08) */
+  --abv2-border-soft:var(--abv2-ink-a10); /* Sass needed: $abv2-border-soft: rgba($abundance-neutral-900, 0.10) */
+  --abv2-border-default:var(--abv2-ink-a12); /* Sass needed: $abv2-border-default: rgba($abundance-neutral-900, 0.12) */
+  --abv2-shadow-default:var(--abv2-ink-a06); /* Sass needed: $abv2-shadow-default: rgba($abundance-neutral-900, 0.06) */
+  --abv2-shadow-card:var(--abv2-ink-a08); /* Sass needed: $abv2-shadow-card: rgba($abundance-neutral-900, 0.08) */
   /* ========================================
-     ABV2 COLOUR TOKENS - SEMANTIC ALIASES
-  ======================================== */
-  --abv2-border-subtle:var(--abv2-ink-a08);
-  --abv2-border-soft:var(--abv2-ink-a10);
-  --abv2-border-default:var(--abv2-ink-a12);
-  --abv2-border-strong:var(--abv2-ink-a14);
-  --abv2-border-accent:var(--abv2-pink-a45);
-  --abv2-shadow-soft:var(--abv2-ink-a04);
-  --abv2-shadow-default:var(--abv2-ink-a06);
-  --abv2-shadow-card:var(--abv2-ink-a08);
-  --abv2-overlay-soft:var(--abv2-white-a12);
-  --abv2-overlay-soft-strong:var(--abv2-white-a14);
-  --abv2-overlay-contrast:var(--abv2-white-a84);
-  --abv2-cta-hover-bg:var(--abv2-pink-a08);
-  --abv2-cta-hover-bg-soft:var(--abv2-pink-a07);
-  --abv2-space-2:2px;
-  --abv2-space-4:4px;
-  --abv2-space-8:8px;
-  --abv2-space-12:12px;
-  --abv2-space-16:16px;
-  --abv2-space-20:20px;
-  --abv2-space-24:24px;
-  --abv2-space-28:28px;
-  --abv2-space-32:32px;
-  --abv2-space-40:40px;
-  --abv2-space-48:48px;
-  --abv2-space-56:56px;
-  --abv2-space-64:64px;
-  --abv2-space-72:72px;
-  --abv2-space-84:84px;
-  --abv2-space-96:96px;
-  --abv2-wrap:1180px;
-  --abv2-wrap-narrow:980px;
-  --abv2-serif:"New Kansas", Georgia, serif;
-  --abv2-sans:"Sohne Buch", Arial, sans-serif;
-  --abv2-ui:"Sohne Kraftig", Arial, sans-serif;
-  /* Large / expressive */
-  --abv2-pink-clip-large:polygon(
-    0 18%,
-    30% 28%,
-    100% 0,
-    100% 82%,
-    70% 72%,
-    0 100%
-  );
-  --abv2-teal-clip-large:polygon(
-    0 12%,
-    34% 24%,
-    100% 0,
-    100% 82%,
-    66% 72%,
-    0 100%
-  );
-  /* Small / calmer */
-  --abv2-pink-clip-small:polygon(
-    0 12%,
-    30% 20%,
-    100% 0,
-    100% 88%,
-    70% 80%,
-    0 100%
-  );
-  --abv2-teal-clip-small:polygon(
-    0 10%,
-    34% 18%,
-    100% 0,
-    100% 88%,
-    66% 80%,
-    0 100%
-  );
-  /* Mobile large — stronger */
-  --abv2-pink-clip-large-mobile:polygon(
-    0 9%,
-    28% 15%,
-    100% 0,
-    100% 91%,
-    72% 85%,
-    0 100%
-  );
-  --abv2-teal-clip-large-mobile:polygon(
-    0 8%,
-    32% 14%,
-    100% 0,
-    100% 91%,
-    68% 85%,
-    0 100%
-  );
-  /* Mobile small — stronger, but still calmer */
-  --abv2-pink-clip-small-mobile:polygon(
-    0 7%,
-    28% 12%,
-    100% 0,
-    100% 93%,
-    72% 88%,
-    0 100%
-  );
-  --abv2-teal-clip-small-mobile:polygon(
-    0 6%,
-    32% 11%,
-    100% 0,
-    100% 93%,
-    68% 88%,
-    0 100%
-  );
-  /* --- MEDIUM CLIP SHAPES (condensed desktop) --- */
-  --abv2-pink-clip-large-medium:polygon(
-    0 16%,
-    30% 24%,
-    100% 0,
-    100% 84%,
-    70% 76%,
-    0 100%
-  );
-  --abv2-teal-clip-large-medium:polygon(
-    0 12%,
-    34% 20%,
-    100% 0,
-    100% 84%,
-    66% 76%,
-    0 100%
-  );
-  /* Small / calmer */
-  --abv2-pink-clip-small-medium:polygon(
-    0 12%,
-    30% 20%,
-    100% 0,
-    100% 88%,
-    70% 80%,
-    0 100%
-  );
-  --abv2-teal-clip-small-medium:polygon(
-    0 10%,
-    34% 18%,
-    100% 0,
-    100% 88%,
-    66% 80%,
-    0 100%
-  );
-  --abv2-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
-  --abv2-mobile-gutter:24px;
-  --abv2-mobile-copy-rail:392px;
-  --abv2-mobile-hero-art:500px;
-  --abv2-mobile-investment-tile:168px;
-  --abv2-mobile-menu-chip-h:32px;
-  --abv2-mobile-menu-chip-pad-x:14px;
-  --abv2-editorial-rail:760px;
-  --abv2-editorial-copy:58ch;
+     ABV2 SPACING TOKENS
+     ======================================== */
+  --abv2-space-8:8px; /* Sass existing: $spacer-3xs */
+  --abv2-space-12:12px; /* Sass partial match: $spacer-mobile-xs; Sass needed for desktop/generic exact 12px: $abv2-space-12 */
+  --abv2-space-16:16px; /* Sass existing: $spacer-2xs */
+  --abv2-space-20:20px; /* Sass needed: $abv2-space-20 */
+  --abv2-space-24:24px; /* Sass existing: $spacer-xs */
+  --abv2-space-28:28px; /* Sass needed: $abv2-space-28 */
+  --abv2-space-32:32px; /* Sass existing: $spacer-sm */
+  --abv2-space-64:64px; /* Sass existing: $spacer-lg */
+  /* ========================================
+     ABV2 TYPE TOKENS
+     ======================================== */
+  --abv2-serif:"New Kansas", Georgia, serif; /* Sass existing: $si-font-secondary */
+  --abv2-sans:"Sohne Buch", Arial, sans-serif; /* Sass existing: $si-font-primary */
+  --abv2-ui:"Sohne Kraftig", Arial, sans-serif; /* Sass existing: $si-font-tertiary */
+  /* ========================================
+     ABV2 SHAPE / MEDIA TOKENS
+     ======================================== */
+  --abv2-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E"); /* Sass needed: $abv2-dot-mask or keep as component asset literal */
 }
 
 /* =========================================================
@@ -530,7 +363,7 @@
    7. Repeated component text roles
    --------------------------------------------------------- */
 .si-eyebrow {
-  font-family: var(--abv2-ui);
+  font-family: var(--abv2-ui); /* Sass: $si-font-tertiary */
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
@@ -539,16 +372,16 @@
 }
 
 .si-body-compact {
-  font-family: var(--abv2-sans);
+  font-family: var(--abv2-sans); /* Sass: $si-font-primary */
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.48;
   letter-spacing: normal;
-  color: var(--abv2-text);
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 .si-action-text {
-  font-family: var(--abv2-ui);
+  font-family: var(--abv2-ui); /* Sass: $si-font-tertiary */
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.2;
@@ -557,18 +390,18 @@
 }
 
 .si-stat {
-  font-family: var(--abv2-serif);
+  font-family: var(--abv2-serif); /* Sass: $si-font-secondary */
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 0.96;
   letter-spacing: -0.03em;
-  color: var(--abv2-ink);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 .si-heading-display {
   margin: 0;
-  color: var(--abv2-ink, #282827);
-  font-family: var(--abv2-serif);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  font-family: var(--abv2-serif); /* Sass: $si-font-secondary */
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.025em;
@@ -578,10 +411,10 @@
 /* Editorial / content card supporting copy */
 .abv2-card-copy {
   margin: 0;
-  font-family: var(--abv2-sans);
+  font-family: var(--abv2-sans); /* Sass: $si-font-primary */
   font-size: 1.05rem;
   line-height: 1.55;
-  color: var(--abv2-ink-a78);
+  color: var(--abv2-ink-a78); /* Sass: $abv2-ink-a78 */
 }
 
 @media (max-width: 1199px) {
@@ -623,15 +456,15 @@
    ---------------------------------------- */
 .abv2-card-soft.si-card,
 .abv2-card-soft {
-  background: var(--abv2-white, #fff);
+  background: var(--abv2-white); /* Sass: $pure-white */
   border: 0;
   border-radius: 28px;
-  box-shadow: 0 18px 38px var(--abv2-shadow-card, rgba(40, 40, 39, 0.12));
+  box-shadow: 0 18px 38px var(--abv2-shadow-card); /* Sass: $abv2-shadow-card */
 }
 
 .abv2-card-soft--bordered {
-  border: 1px solid var(--abv2-border-subtle, #e9e4e3);
-  box-shadow: 0 12px 34px var(--abv2-ink-a05, rgba(40, 40, 39, 0.05));
+  border: 1px solid var(--abv2-border-subtle); /* Sass: $abv2-border-subtle */
+  box-shadow: 0 12px 34px var(--abv2-ink-a05); /* Sass: $abv2-ink-a05 */
 }
 
 @media (max-width: 759px) {
@@ -646,12 +479,10 @@
    .si-card--secondary = white outlined editorial card
    ========================================================= */
 .si-card--secondary {
-  position: relative;
-  overflow: hidden;
-  background: var(--abv2-white, #fff);
-  border: 1.5px solid var(--abv2-border-default, #e2e2e2);
+  background: var(--abv2-white); /* Sass: $pure-white */
+  border: 1.5px solid var(--abv2-border-default); /* Sass: $abv2-border-default */
   border-radius: 24px;
-  box-shadow: 0 10px 30px var(--abv2-ink-a05, rgba(40, 40, 39, 0.05));
+  box-shadow: 0 10px 30px var(--abv2-ink-a05); /* Sass: $abv2-ink-a05 */
 }
 
 @media (max-width: 767px) {
@@ -659,93 +490,80 @@
     border-radius: 22px;
   }
 }
-.abv2-colour-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+.abv2-colour-card-neutral,
+.abv2-colour-card-pink,
+.abv2-colour-card-teal,
+.abv2-colour-card-yellow,
+.abv2-colour-card-green,
+.abv2-colour-card-pink-light,
+.abv2-colour-card-teal-light {
   min-height: 160px;
-  padding: var(--abv2-space-16, 16px);
-  border: 0;
+  padding: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   border-radius: 14px;
-  background: var(--abv2-grey-ui, #faf8f8);
-  color: var(--abv2-ink, #282827);
-  overflow: hidden;
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+}
+
+.abv2-colour-card-neutral {
+  background: var(--abv2-grey-ui); /* Sass: $abundance-neutral-400 */
+}
+
+.abv2-colour-card-pink {
+  background: var(--abv2-pink); /* Sass: $abundance-pink */
+}
+
+.abv2-colour-card-teal {
+  background: var(--abv2-teal); /* Sass: $abundance-cyan */
+}
+
+.abv2-colour-card-yellow {
+  background: var(--abv2-yellow); /* Sass: $abundance-yellow */
+}
+
+.abv2-colour-card-green {
+  background: var(--abv2-green); /* Sass: $abundance-green */
+}
+
+.abv2-colour-card-pink-light {
+  background: var(--abv2-pink-light); /* Sass: $abundance-pink-light */
+}
+
+.abv2-colour-card-teal-light {
+  background: var(--abv2-teal-light); /* Sass: $abundance-cyan-light */
 }
 
 /* ----------------------------------------
    Colour/helper extensions
    ---------------------------------------- */
-.text-colour--primary {
-  color: var(--abv2-pink, #f27fae) !important;
+.text-colour--yellow {
+  color: var(--abv2-yellow) !important; /* Sass: $abundance-yellow */
 }
 
-.text-colour--secondary {
-  color: var(--abv2-teal, #00a4b6) !important;
+.bg-colour--yellow {
+  background-color: var(--abv2-yellow) !important; /* Sass: $abundance-yellow */
 }
 
-.text-colour--ink {
-  color: var(--abv2-ink, #282827) !important;
+.bg-colour--abv2-white-soft {
+  background-color: var(--abv2-white-a18) !important; /* Sass: $abv2-white-a18 */
 }
 
-.abv2-colour-card--pink {
-  background: var(--abv2-pink, #f27fae);
+.bg-mask.bg-colour--primary {
+  --abv2-mask-colour:var(--abv2-pink); /* Sass: $abundance-pink */
 }
 
-.abv2-colour-card--teal {
-  background: var(--abv2-teal, #00a4b6);
+.bg-mask.bg-colour--secondary {
+  --abv2-mask-colour:var(--abv2-teal); /* Sass: $abundance-cyan */
 }
 
-.abv2-colour-card--yellow {
-  background: var(--abv2-yellow, #ffb72c);
+.bg-mask.bg-colour--yellow {
+  --abv2-mask-colour:var(--abv2-yellow); /* Sass: $abundance-yellow */
 }
 
-.abv2-colour-card--green {
-  background: var(--abv2-green-soft, #65c86a);
+.bg-mask.bg-colour--neutral--300 {
+  --abv2-mask-colour:var(--abv2-grey-light); /* Sass: $abundance-neutral-300 */
 }
 
-.abv2-colour-card--pink-light {
-  background: var(--abv2-pink-light, #f498be);
-}
-
-.abv2-colour-card--teal-light {
-  background: var(--abv2-teal-light, #4cbfcb);
-}
-
-.abv2-colour-card .si-eyebrow {
-  color: rgba(40, 40, 39, 0.68);
-}
-
-.abv2-colour-card .si-body-compact {
-  color: var(--abv2-text, #4d4a46);
-}
-
-/* ----------------------------------------
-   Colour card modifiers
-   Must sit after .abv2-colour-card base.
-   Compound selectors deliberately beat base specificity.
-   ---------------------------------------- */
-.abv2-colour-card.abv2-colour-card--pink {
-  background: var(--abv2-pink, #f27fae);
-}
-
-.abv2-colour-card.abv2-colour-card--teal {
-  background: var(--abv2-teal, #00a4b6);
-}
-
-.abv2-colour-card.abv2-colour-card--yellow {
-  background: var(--abv2-yellow, #ffb72c);
-}
-
-.abv2-colour-card.abv2-colour-card--green {
-  background: var(--abv2-green, #25ab2d);
-}
-
-.abv2-colour-card.abv2-colour-card--pink-light {
-  background: var(--abv2-pink-light, #f7d9e8);
-}
-
-.abv2-colour-card.abv2-colour-card--teal-light {
-  background: var(--abv2-teal-light, #4cbfcb);
+.bg-mask.bg-colour--white {
+  --abv2-mask-colour:var(--abv2-white); /* Sass: $pure-white */
 }
 
 /* ----------------------------------------
@@ -753,21 +571,41 @@
    ---------------------------------------- */
 .bg-mask--abv2-top,
 .bg-mask--abv2-bottom {
+  position: relative;
+  display: block;
   padding-top: 11.5%;
+  overflow: hidden;
+  background-color: var(--abv2-white) !important; /* Sass: $pure-white */
+}
+
+.bg-mask--abv2-top::before,
+.bg-mask--abv2-bottom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--abv2-mask-colour, currentColor);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-position: 0 0;
   mask-position: 0 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 .bg-mask--abv2-top {
   margin-bottom: -0.0625rem;
+}
+
+.bg-mask--abv2-top::before {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 360L1850 684L6000 24V700H0V360Z'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 360L1850 684L6000 24V700H0V360Z'/%3E%3C/svg%3E");
 }
 
 .bg-mask--abv2-bottom {
   margin-top: -0.0625rem;
+}
+
+.bg-mask--abv2-bottom::before {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 0H6000V340L4200 16L0 684V0Z'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 0H6000V340L4200 16L0 684V0Z'/%3E%3C/svg%3E");
 }
@@ -784,7 +622,7 @@ Footer-only peak mask for page-to-footer transition.
   display: block;
   padding-top: 11.5%;
   margin-bottom: -0.0625rem;
-  background: var(--abv2-yellow, #ffb72c);
+  background: var(--abv2-yellow); /* Sass: $abundance-yellow */
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 430L1850 70L6000 430V700H0V430Z'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6000 700' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 430L1850 70L6000 430V700H0V430Z'/%3E%3C/svg%3E");
   -webkit-mask-size: 100% 100%;
@@ -811,8 +649,8 @@ Footer-only peak mask for page-to-footer transition.
    ---------------------------------------- */
 .bg-blob--abv2-dot {
   background-image: none;
-  -webkit-mask-image: var(--abv2-dot-mask);
-  mask-image: var(--abv2-dot-mask);
+  -webkit-mask-image: var(--abv2-dot-mask); /* Sass: $abv2-dot-mask */
+  mask-image: var(--abv2-dot-mask); /* Sass: $abv2-dot-mask */
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -821,24 +659,27 @@ Footer-only peak mask for page-to-footer transition.
   mask-size: contain;
 }
 
-.bg-blob--abv2-white-soft {
-  background-color: rgba(255, 255, 255, 0.18);
-}
-
 .abv2-step-num {
   display: grid;
   place-items: center;
   width: 56px;
   height: 56px;
-  color: #fff;
-  font-family: var(--abv2-serif);
+  color: var(--abv2-white); /* Sass: $pure-white */
+  font-family: var(--abv2-serif); /* Sass: $si-font-secondary */
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 1;
 }
 
-.abv2-step-num.text-colour--ink {
-  color: var(--abv2-ink, #282827);
+.abv2-step-num svg {
+  display: block;
+  width: 55%;
+  height: 55%;
+  fill: currentColor;
+}
+
+.abv2-step-num.type-black {
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 @media (max-width: 991px) {
@@ -862,24 +703,6 @@ Footer-only peak mask for page-to-footer transition.
     font-size: 1.3rem;
   }
 }
-/* Blob colour helpers */
-.bg-blob--abv2-pink {
-  background-color: var(--abv2-pink, #f27fae);
-}
-
-.bg-blob--abv2-yellow {
-  background-color: var(--abv2-yellow, #ffb72c);
-}
-
-.bg-blob--abv2-teal {
-  background-color: var(--abv2-teal, #00a4b6);
-}
-
-/* Blob colour helper */
-.bg-blob--abv2-grey {
-  background-color: var(--abv2-grey-light, #e9e4e3);
-}
-
 .abv2-step-num--lg {
   width: 84px;
   height: 84px;
@@ -908,14 +731,9 @@ Footer-only peak mask for page-to-footer transition.
    Colour and shape are deliberately separate.
    ========================================================= */
 .abv2-ed-band {
-  position: relative;
-  width: 100vw;
   padding-top: 9.6%;
   min-height: 70px;
-  max-height: 138px;
-  margin: var(--abv2-space-20, 20px) 0 var(--abv2-space-24, 24px);
-  margin-left: calc(50% - 50vw);
-  pointer-events: none;
+  margin: var(--abv2-space-20, 20px) 0 var(--abv2-space-24, 24px); /* Sass: $abv2-space-20; $spacer-xs */
   background: currentColor;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
@@ -925,26 +743,14 @@ Footer-only peak mask for page-to-footer transition.
   mask-repeat: no-repeat;
 }
 
-.abv2-ed-band--pink {
-  color: var(--abv2-pink, #f27fae);
-}
-
-.abv2-ed-band--yellow {
-  color: var(--abv2-yellow, #ffb72c);
-}
-
-.abv2-ed-band--teal {
-  color: var(--abv2-teal, #00a4b6);
-}
-
 .abv2-ed-band--tight {
-  margin-top: var(--abv2-space-8, 8px);
-  margin-bottom: var(--abv2-space-12, 12px);
+  margin-top: var(--abv2-space-8, 8px); /* Sass: $spacer-3xs */
+  margin-bottom: var(--abv2-space-12, 12px); /* Sass: $abv2-space-12 */
 }
 
 .abv2-ed-band--loose {
-  margin-top: var(--abv2-space-32, 32px);
-  margin-bottom: var(--abv2-space-32, 32px);
+  margin-top: var(--abv2-space-32, 32px); /* Sass: $spacer-sm */
+  margin-bottom: var(--abv2-space-32, 32px); /* Sass: $spacer-sm */
 }
 
 /* Rise shape */
@@ -968,8 +774,8 @@ Footer-only peak mask for page-to-footer transition.
 @media (max-width: 759px) {
   .abv2-ed-band {
     padding-top: 14%;
-    margin-top: var(--abv2-space-16, 16px);
-    margin-bottom: var(--abv2-space-20, 20px);
+    margin-top: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+    margin-bottom: var(--abv2-space-20, 20px); /* Sass: $abv2-space-20 */
   }
 }
 /* =========================================================
@@ -977,29 +783,29 @@ Footer-only peak mask for page-to-footer transition.
    Helper-led page assets + small reusable primitives
    ========================================================= */
 .si-btn--white {
-  color: var(--abv2-white, #fff);
+  color: var(--abv2-white); /* Sass: $pure-white */
   background-color: transparent;
-  border-color: var(--abv2-white, #fff);
+  border-color: var(--abv2-white); /* Sass: $pure-white */
 }
 
 .si-btn--white:hover,
 .si-btn--white:focus-visible {
-  color: var(--abv2-white, #fff);
-  background-color: rgba(255, 255, 255, 0.14);
-  border-color: var(--abv2-white, #fff);
+  color: var(--abv2-white); /* Sass: $pure-white */
+  background-color: var(--abv2-white-a14); /* Sass: $abv2-white-a14 */
+  border-color: var(--abv2-white); /* Sass: $pure-white */
   text-decoration: none;
 }
 
 .si-btn--white:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.72);
+  outline: 2px solid var(--abv2-white-a72); /* Sass: $abv2-white-a72 */
   outline-offset: 3px;
 }
 
 .si-btn--white:active,
 .si-btn--white.active {
-  color: var(--abv2-white, #fff);
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: var(--abv2-white, #fff);
+  color: var(--abv2-white); /* Sass: $pure-white */
+  background-color: var(--abv2-white-a20); /* Sass: $abv2-white-a20 */
+  border-color: var(--abv2-white); /* Sass: $pure-white */
 }
 
 .abv2-support-link {
@@ -1009,13 +815,13 @@ Footer-only peak mask for page-to-footer transition.
   width: auto;
   min-height: 0;
   margin: 0;
-  padding: 0 0 var(--abv2-space-8, 8px);
+  padding: 0 0 var(--abv2-space-8, 8px); /* Sass: $spacer-3xs */
   border: 0;
-  border-bottom: 1px solid rgba(40, 40, 39, 0.18);
+  border-bottom: 1px solid var(--abv2-ink-a18); /* Sass: $abv2-ink-a18 */
   background: none;
   border-radius: 0;
   cursor: pointer;
-  color: var(--abv2-ink, #282827);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
   text-align: left;
   text-decoration: none;
   transition: color 0.2s ease, border-color 0.2s ease;
@@ -1023,21 +829,21 @@ Footer-only peak mask for page-to-footer transition.
 
 .abv2-support-link:hover,
 .abv2-support-link:focus-visible {
-  color: var(--abv2-pink, #f27fae);
-  border-color: var(--abv2-pink, #f27fae);
+  color: var(--abv2-pink); /* Sass: $abundance-pink */
+  border-color: var(--abv2-pink); /* Sass: $abundance-pink */
   text-decoration: none;
   outline: none;
 }
 
 .abv2-support-link:focus-visible {
-  outline: 2px solid var(--abv2-pink, #f27fae);
+  outline: 2px solid var(--abv2-pink); /* Sass: $abundance-pink */
   outline-offset: 4px;
   border-radius: 4px;
 }
 
 @media (max-width: 759px) {
   .abv2-support-link {
-    padding-bottom: var(--abv2-space-6, 6px);
+    padding-bottom: var(--abv2-space-6, 6px); /* Sass: $abv2-space-6 */
   }
 }
 /* ----------------------------------------
@@ -1100,7 +906,7 @@ Footer-only peak mask for page-to-footer transition.
 }
 @media (max-width: 767px) {
   .abv2-media-frame--square {
-    width: min(100%, var(--abv2-mobile-investment-tile, 300px));
+    width: min(100%, 168px, 300px);
     border-radius: 18px;
   }
   .abv2-media-frame--case-square {
@@ -1139,7 +945,7 @@ Footer-only peak mask for page-to-footer transition.
   position: relative;
   display: block;
   min-height: 100%;
-  padding: var(--abv2-space-24, 24px) var(--abv2-space-12, 12px) var(--abv2-space-12, 12px);
+  padding: var(--abv2-space-24, 24px) var(--abv2-space-12, 12px) var(--abv2-space-12, 12px); /* Sass: $spacer-xs; $abv2-space-12 */
   border-radius: 18px;
   color: inherit;
   text-decoration: none;
@@ -1149,62 +955,62 @@ Footer-only peak mask for page-to-footer transition.
 .abv2-related-link::before {
   content: "";
   position: absolute;
-  left: var(--abv2-space-12, 12px);
-  top: var(--abv2-space-12, 12px);
+  left: var(--abv2-space-12, 12px); /* Sass: $abv2-space-12 */
+  top: var(--abv2-space-12, 12px); /* Sass: $abv2-space-12 */
   width: 38px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.28);
+  background: var(--abv2-white-a28); /* Sass: $abv2-white-a28 */
   transition: width 0.2s ease, background 0.2s ease;
 }
 
 .abv2-related-link:hover,
 .abv2-related-link:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--abv2-white-a08); /* Sass: $abv2-white-a08 */
   text-decoration: none;
 }
 
 .abv2-related-link:hover::before,
 .abv2-related-link:focus-visible::before {
   width: 46px;
-  background: rgba(255, 255, 255, 0.62);
+  background: var(--abv2-white-a62); /* Sass: $abv2-white-a62 */
 }
 
 .abv2-related-link:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.62);
+  outline: 2px solid var(--abv2-white-a62); /* Sass: $abv2-white-a62 */
   outline-offset: 3px;
 }
 
 @media (max-width: 759px) {
   .abv2-related-link {
-    padding: var(--abv2-space-22, 22px) var(--abv2-space-10, 10px) var(--abv2-space-10, 10px);
+    padding: var(--abv2-space-22, 22px) var(--abv2-space-10, 10px) var(--abv2-space-10, 10px); /* Sass: $abv2-space-22; $abv2-space-10 */
     border-radius: 16px;
   }
   .abv2-related-link::before {
-    left: var(--abv2-space-10, 10px);
-    top: var(--abv2-space-10, 10px);
+    left: var(--abv2-space-10, 10px); /* Sass: $abv2-space-10 */
+    top: var(--abv2-space-10, 10px); /* Sass: $abv2-space-10 */
   }
 }
 .abv2-council-uof-bars {
   display: grid;
-  gap: var(--abv2-space-16, 16px);
+  gap: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
 }
 
 .abv2-council-uof-row {
   display: grid;
   grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
-  gap: var(--abv2-space-16, 16px);
+  gap: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   align-items: center;
 }
 
 .abv2-council-uof-label {
-  color: var(--abv2-text, #4d4a46);
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 .abv2-council-uof-track {
   position: relative;
   min-height: 50px;
   border-radius: 999px;
-  background: var(--abv2-grey-light, #e9e4e3);
+  background: var(--abv2-grey-light); /* Sass: $abundance-neutral-300 */
   overflow: hidden;
 }
 
@@ -1214,22 +1020,22 @@ Footer-only peak mask for page-to-footer transition.
   display: flex;
   align-items: center;
   min-width: 142px;
-  padding-inline: var(--abv2-space-16, 16px);
+  padding-inline: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   border-radius: 999px;
-  color: var(--abv2-blue, #151943);
+  color: var(--abv2-blue); /* Sass: $abundance-blue */
   white-space: nowrap;
 }
 
 .abv2-council-uof-fill--pink {
-  background: var(--abv2-pink-light, #f498be);
+  background: var(--abv2-pink-light); /* Sass: $abundance-pink-light */
 }
 
 .abv2-council-uof-fill--teal {
-  background: var(--abv2-teal-light, #4cbfcb);
+  background: var(--abv2-teal-light); /* Sass: $abundance-cyan-light */
 }
 
 .abv2-council-uof-fill--yellow {
-  background: var(--abv2-yellow-light, #ffc556);
+  background: var(--abv2-yellow-light); /* Sass: $abundance-yellow-light */
 }
 
 .abv2-council-uof-bars--compact .abv2-council-uof-track {
@@ -1238,13 +1044,13 @@ Footer-only peak mask for page-to-footer transition.
 
 .abv2-council-uof-bars--compact .abv2-council-uof-fill {
   min-width: min(118px, 100%);
-  padding-inline: var(--abv2-space-14, 14px);
+  padding-inline: var(--abv2-space-14, 14px); /* Sass: $abv2-space-14 */
 }
 
 @media (max-width: 759px) {
   .abv2-council-uof-row {
     grid-template-columns: 1fr;
-    gap: var(--abv2-space-8, 8px);
+    gap: var(--abv2-space-8, 8px); /* Sass: $spacer-3xs */
   }
   .abv2-council-uof-track {
     min-height: 42px;
@@ -1263,11 +1069,7 @@ Footer-only peak mask for page-to-footer transition.
    Mock-only spacer
    ---------------------------------------- */
 .abv2-mock-spacer {
-  height: var(--abv2-space-64, 64px);
-}
-
-body {
-  background: var(--abv2-white);
+  height: var(--abv2-space-64, 64px); /* Sass: $spacer-lg */
 }
 
 /* =========================================================
@@ -1279,16 +1081,16 @@ body {
   display: flex;
   align-items: center;
   min-height: 54px;
-  border: 1.8px solid var(--abv2-white, #fff);
+  border: 1.8px solid var(--abv2-white); /* Sass: $pure-white */
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
+  background: var(--abv2-white-a16); /* Sass: $abv2-white-a16 */
   overflow: hidden;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .abv2-field-white:focus-within {
-  background: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.28);
+  background: var(--abv2-white-a22); /* Sass: $abv2-white-a22 */
+  box-shadow: 0 0 0 3px var(--abv2-white-a28); /* Sass: $abv2-white-a28 */
 }
 
 .abv2-field-white .si-input {
@@ -1298,7 +1100,7 @@ body {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  color: var(--abv2-white, #fff);
+  color: var(--abv2-white); /* Sass: $pure-white */
 }
 
 .abv2-field-white .si-input:focus,
@@ -1309,33 +1111,33 @@ body {
 
 .abv2-field-white__prefix {
   flex: 0 0 auto;
-  padding-left: var(--abv2-space-20, 20px);
-  color: var(--abv2-white, #fff);
+  padding-left: var(--abv2-space-20, 20px); /* Sass: $abv2-space-20 */
+  color: var(--abv2-white); /* Sass: $pure-white */
 }
 
 .abv2-field-white--select::after {
   content: "";
   position: absolute;
-  right: var(--abv2-space-20, 20px);
+  right: var(--abv2-space-20, 20px); /* Sass: $abv2-space-20 */
   top: 50%;
   width: 10px;
   height: 10px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
-  color: var(--abv2-white, #fff);
+  color: var(--abv2-white); /* Sass: $pure-white */
   transform: translateY(-65%) rotate(45deg);
   pointer-events: none;
 }
 
 .abv2-field-white--select .si-input {
-  padding-right: calc(var(--abv2-space-20, 20px) + 22px);
+  padding-right: calc(var(--abv2-space-20, 20px) + 22px); /* Sass: $abv2-space-20 */
   appearance: none;
   cursor: pointer;
 }
 
 .abv2-field-white--select .si-input option {
-  color: var(--abv2-ink, #282827);
-  background: var(--abv2-white, #fff);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  background: var(--abv2-white); /* Sass: $pure-white */
 }
 
 @media (max-width: 759px) {
@@ -1350,39 +1152,39 @@ body {
    ========================================================= */
 .abv2-bar-chart {
   display: grid;
-  gap: var(--abv2-space-16, 16px);
+  gap: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
 }
 
 .abv2-bar-chart__row {
   display: grid;
   grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
-  gap: var(--abv2-space-16, 16px);
+  gap: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   align-items: center;
 }
 
 .abv2-bar-chart__label {
-  color: var(--abv2-text, #4d4a46);
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 .abv2-bar-chart__track {
   position: relative;
   min-height: 50px;
   border-radius: 999px;
-  background: var(--abv2-grey-light, #e9e4e3);
+  background: var(--abv2-grey-light); /* Sass: $abundance-neutral-300 */
   overflow: hidden;
 }
 
 .abv2-bar-chart__fill {
   position: absolute;
   inset: 0 auto 0 0;
-  width: var(--abv2-bar-value, 0%);
+  width: var(--abv2-bar-value, 0%); /* Sass: component local custom property; set in HTML */
   display: flex;
   align-items: center;
   min-width: 142px;
-  padding-inline: var(--abv2-space-16, 16px);
+  padding-inline: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   border-radius: 999px;
-  background: var(--abv2-bar-colour, var(--abv2-pink-light, #f7d9e8));
-  color: var(--abv2-bar-text, var(--abv2-blue, #151943));
+  background: var(--abv2-bar-colour, var(--abv2-pink-light)); /* Sass: component local custom property; fallback $abundance-pink-light; $abundance-pink-light */
+  color: var(--abv2-bar-text, var(--abv2-blue)); /* Sass: component local custom property; fallback $abundance-blue; $abundance-blue */
   white-space: nowrap;
 }
 
@@ -1392,13 +1194,13 @@ body {
 
 .abv2-bar-chart--compact .abv2-bar-chart__fill {
   min-width: min(118px, 100%);
-  padding-inline: var(--abv2-space-14, 14px);
+  padding-inline: var(--abv2-space-14, 14px); /* Sass: $abv2-space-14 */
 }
 
 @media (max-width: 759px) {
   .abv2-bar-chart__row {
     grid-template-columns: 1fr;
-    gap: var(--abv2-space-8, 8px);
+    gap: var(--abv2-space-8, 8px); /* Sass: $spacer-3xs */
   }
   .abv2-bar-chart__track {
     min-height: 42px;
@@ -1421,10 +1223,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: var(--abv2-space-20, 20px) var(--abv2-space-20, 20px) var(--abv2-space-16, 16px);
-  border: 1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  padding: var(--abv2-space-20, 20px) var(--abv2-space-20, 20px) var(--abv2-space-16, 16px); /* Sass: $abv2-space-20; $spacer-2xs */
+  border: 1.5px solid var(--abv2-border-subtle); /* Sass: $abv2-border-subtle */
   border-radius: 18px;
-  background: var(--abv2-white, #fff);
+  background: var(--abv2-white); /* Sass: $pure-white */
   color: inherit;
   text-decoration: none;
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
@@ -1433,20 +1235,20 @@ body {
 .abv2-link-card:hover,
 .abv2-link-card:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(242, 127, 174, 0.34);
-  box-shadow: 0 10px 24px var(--abv2-shadow-default, rgba(40, 40, 39, 0.1));
+  border-color: var(--abv2-pink-a34); /* Sass: $abv2-pink-a34 */
+  box-shadow: 0 10px 24px var(--abv2-shadow-default); /* Sass: $abv2-shadow-default */
   text-decoration: none;
 }
 
 .abv2-link-card:focus-visible {
-  outline: 2px solid var(--abv2-pink, #f27fae);
+  outline: 2px solid var(--abv2-pink); /* Sass: $abundance-pink */
   outline-offset: 3px;
 }
 
 .abv2-link-card .si-action-text {
   display: block;
   margin-top: auto;
-  padding-top: var(--abv2-space-16, 16px);
+  padding-top: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
 }
 
 @media (max-width: 767px) {
@@ -1463,31 +1265,36 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 40px;
-  padding: var(--abv2-space-12, 12px) var(--abv2-space-16, 16px);
-  border: 1.5px solid var(--abv2-border-soft, #e2e2e2);
+  padding: var(--abv2-space-12, 12px) var(--abv2-space-16, 16px); /* Sass: $abv2-space-12; $spacer-2xs */
+  border: 1.5px solid var(--abv2-border-soft); /* Sass: $abv2-border-soft */
   border-radius: 999px;
-  background: var(--abv2-white, #fff);
-  color: var(--abv2-text, #4d4a46);
+  background: var(--abv2-white); /* Sass: $pure-white */
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
   text-decoration: none;
   transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
 }
 
 .abv2-chip-link:hover,
 .abv2-chip-link:focus-visible {
-  border-color: rgba(0, 164, 182, 0.38);
-  background: rgba(0, 164, 182, 0.06);
-  color: var(--abv2-ink, #282827);
+  border-color: var(--abv2-teal-a38); /* Sass: $abv2-teal-a38 */
+  background: var(--abv2-teal-a06); /* Sass: $abv2-teal-a06 */
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
   text-decoration: none;
 }
 
 .abv2-chip-link:focus-visible {
-  outline: 2px solid var(--abv2-teal, #00a4b6);
+  outline: 2px solid var(--abv2-teal); /* Sass: $abundance-cyan */
   outline-offset: 3px;
 }
 
 @media (max-width: 560px) {
-  .abv2-colour-card {
-    grid-column: auto;
+  .abv2-colour-card-neutral,
+  .abv2-colour-card-pink,
+  .abv2-colour-card-teal,
+  .abv2-colour-card-yellow,
+  .abv2-colour-card-green,
+  .abv2-colour-card-pink-light,
+  .abv2-colour-card-teal-light {
     min-height: 0;
   }
 }
@@ -1497,13 +1304,13 @@ body {
    ========================================================= */
 .abv2-warning-list {
   display: grid;
-  gap: var(--abv2-space-12, 12px);
+  gap: var(--abv2-space-12, 12px); /* Sass: $abv2-space-12 */
 }
 
 .abv2-warning-list__item {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr);
-  gap: var(--abv2-space-16, 16px);
+  gap: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   align-items: start;
   min-height: 0;
 }
@@ -1511,7 +1318,7 @@ body {
 @media (max-width: 767px) {
   .abv2-warning-list__item {
     grid-template-columns: 40px minmax(0, 1fr);
-    gap: var(--abv2-space-12, 12px);
+    gap: var(--abv2-space-12, 12px); /* Sass: $abv2-space-12 */
   }
   .abv2-warning-list__item .abv2-card-blob-num {
     width: 40px;
@@ -1519,7 +1326,7 @@ body {
   }
 }
 .abv2-warning-list__item--soft {
-  background: var(--abv2-grey-very-light, #faf8f8);
+  background: var(--abv2-grey-very-light); /* Sass: $abundance-neutral-200 */
 }
 
 /* =========================================================
@@ -1527,16 +1334,16 @@ body {
    Light caution/legal note for body-flow qualification.
    ========================================================= */
 .abv2-inline-disclaimer {
-  padding: var(--abv2-space-16, 16px);
-  border-left: 4px solid var(--abv2-pink, #f27fae);
+  padding: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+  border-left: 4px solid var(--abv2-pink); /* Sass: $abundance-pink */
   border-radius: 0 14px 14px 0;
-  background: var(--abv2-grey-very-light, #faf8f8);
-  color: var(--abv2-text, #4d4a46);
+  background: var(--abv2-grey-very-light); /* Sass: $abundance-neutral-200 */
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 .abv2-inline-disclaimer strong {
   display: inline;
-  color: var(--abv2-ink, #282827);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 /* =========================================================
@@ -1544,43 +1351,43 @@ body {
    Small patterns used inside helper-led content blocks.
    ========================================================= */
 .abv2-ed-note {
-  padding: var(--abv2-space-16, 16px);
+  padding: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   border-radius: 18px;
-  background: var(--abv2-grey-very-light, #faf8f8);
-  color: var(--abv2-text, #4d4a46);
+  background: var(--abv2-grey-very-light); /* Sass: $abundance-neutral-200 */
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 .abv2-ed-note strong {
-  color: var(--abv2-ink, #282827);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 .abv2-ed-quote {
   margin: 0;
-  padding-left: var(--abv2-space-24, 24px);
-  border-left: 4px solid var(--abv2-pink, #f27fae);
+  padding-left: var(--abv2-space-24, 24px); /* Sass: $spacer-xs */
+  border-left: 4px solid var(--abv2-pink); /* Sass: $abundance-pink */
 }
 
 /* Serif quote treatment */
 .abv2-ed-quote > p {
-  font-family: var(--abv2-serif);
+  font-family: var(--abv2-serif); /* Sass: $si-font-secondary */
   font-weight: 600;
   font-size: 1.75rem;
   line-height: 1.12;
   letter-spacing: -0.025em;
-  color: var(--abv2-ink, #282827);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 .abv2-ed-quote cite {
   display: block;
-  margin-top: var(--abv2-space-12, 12px);
-  font-family: var(--abv2-sans);
+  margin-top: var(--abv2-space-12, 12px); /* Sass: $abv2-space-12 */
+  font-family: var(--abv2-sans); /* Sass: $si-font-primary */
   font-style: normal;
-  color: var(--abv2-text, #4d4a46);
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 @media (max-width: 767px) {
   .abv2-ed-quote {
-    padding-left: var(--abv2-space-16, 16px);
+    padding-left: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
   }
   .abv2-ed-quote > p {
     font-size: 1.5rem;
@@ -1613,7 +1420,7 @@ body {
 .abv2-ed-figure figcaption {
   max-width: 760px;
   margin-inline: auto;
-  color: var(--abv2-text, #4d4a46);
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 @media (max-width: 767px) {
@@ -1625,10 +1432,6 @@ body {
 /* =========================================================
    ABUNDANCE v2 — Coverage bridges for FINAL content page
    ========================================================= */
-.abv2-council-quote {
-  position: relative;
-}
-
 .si-accordion-item__header {
   margin: 0;
 }
@@ -1653,7 +1456,7 @@ SOURCE: 5 - council landing page v2 / MODAL
 .abv2-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(38, 38, 37, 0.42);
+  background: var(--abv2-modal-backdrop);
 }
 
 .abv2-modal__panel {
@@ -1852,34 +1655,34 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: var(--abv2-space-24);
-  padding-bottom: calc(var(--abv2-space-24) + 48px);
-  border: 1.5px solid var(--abv2-border-default);
+  padding: var(--abv2-space-24); /* Sass: $spacer-xs */
+  padding-bottom: calc(var(--abv2-space-24) + 48px); /* Sass: $spacer-xs */
+  border: 1.5px solid var(--abv2-border-default); /* Sass: $abv2-border-default */
   border-radius: 22px;
-  background: var(--abv2-white);
-  color: var(--abv2-ink);
+  background: var(--abv2-white); /* Sass: $pure-white */
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
   transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 
 .abv2-route-choice:hover .abv2-route-choice__card,
 .abv2-route-choice__input:focus-visible + .abv2-route-choice__card {
   transform: translateY(-1px);
-  box-shadow: 0 10px 28px var(--abv2-ink-a05);
+  box-shadow: 0 10px 28px var(--abv2-ink-a05); /* Sass: $abv2-ink-a05 */
 }
 
 .abv2-route-choice__rule {
   display: block;
   width: 100%;
   height: 2px;
-  margin: var(--abv2-space-12) 0 var(--abv2-space-16);
+  margin: var(--abv2-space-12) 0 var(--abv2-space-16); /* Sass: $abv2-space-12; $spacer-2xs */
   border-radius: 999px;
-  background: var(--abv2-route-accent);
+  background: var(--abv2-route-accent); /* Sass: component local custom property; set from $abundance-pink / $abundance-cyan */
 }
 
 .abv2-route-choice__list {
   display: grid;
-  gap: var(--abv2-space-12);
-  margin: var(--abv2-space-20) 0 0;
+  gap: var(--abv2-space-12); /* Sass: $abv2-space-12 */
+  margin: var(--abv2-space-20) 0 0; /* Sass: $abv2-space-20 */
   padding: 0;
   list-style: none;
 }
@@ -1887,7 +1690,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 .abv2-route-choice__list span {
   position: relative;
   display: block;
-  padding-left: var(--abv2-space-20);
+  padding-left: var(--abv2-space-20); /* Sass: $abv2-space-20 */
 }
 
 .abv2-route-choice__list span::before {
@@ -1898,23 +1701,23 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
   width: 7px;
   height: 7px;
   border-radius: 999px;
-  background: var(--abv2-route-accent);
+  background: var(--abv2-route-accent); /* Sass: component local custom property; set from $abundance-pink / $abundance-cyan */
 }
 
 .abv2-route-choice__tick {
   position: absolute;
-  right: var(--abv2-space-20);
-  bottom: var(--abv2-space-20);
+  right: var(--abv2-space-20); /* Sass: $abv2-space-20 */
+  bottom: var(--abv2-space-20); /* Sass: $abv2-space-20 */
   display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
-  color: var(--abv2-white);
-  background: var(--abv2-grey-light);
+  color: var(--abv2-white); /* Sass: $pure-white */
+  background: var(--abv2-grey-light); /* Sass: $abundance-neutral-300 */
   opacity: 0.72;
   transform: scale(0.9);
-  -webkit-mask-image: var(--abv2-dot-mask);
-  mask-image: var(--abv2-dot-mask);
+  -webkit-mask-image: var(--abv2-dot-mask); /* Sass: $abv2-dot-mask */
+  mask-image: var(--abv2-dot-mask); /* Sass: $abv2-dot-mask */
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -1943,22 +1746,22 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 }
 
 .abv2-route-choice--pink {
-  --abv2-route-accent:var(--abv2-pink);
-  --abv2-route-bg:var(--abv2-pink-a05);
+  --abv2-route-accent:var(--abv2-pink); /* Sass: $abundance-pink */
+  --abv2-route-bg:var(--abv2-pink-a05); /* Sass: $abv2-pink-a05 */
 }
 
 .abv2-route-choice--teal {
-  --abv2-route-accent:var(--abv2-teal);
-  --abv2-route-bg:var(--abv2-teal-very-light);
+  --abv2-route-accent:var(--abv2-teal); /* Sass: $abundance-cyan */
+  --abv2-route-bg:var(--abv2-teal-very-light); /* Sass: $abundance-cyan-surface */
 }
 
 .abv2-route-choice__input:checked + .abv2-route-choice__card {
-  border-color: var(--abv2-route-accent);
-  background: var(--abv2-route-bg);
+  border-color: var(--abv2-route-accent); /* Sass: component local custom property; set from $abundance-pink / $abundance-cyan */
+  background: var(--abv2-route-bg); /* Sass: component local custom property; set from $abv2-pink-a05 / $abundance-cyan-surface */
 }
 
 .abv2-route-choice__input:checked + .abv2-route-choice__card .abv2-route-choice__tick {
-  background: var(--abv2-route-accent);
+  background: var(--abv2-route-accent); /* Sass: component local custom property; set from $abundance-pink / $abundance-cyan */
   opacity: 1;
   transform: scale(1);
 }
@@ -1970,13 +1773,13 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 
 @media (max-width: 759px) {
   .abv2-route-choice__card {
-    padding: var(--abv2-space-20);
-    padding-bottom: calc(var(--abv2-space-20) + 46px);
+    padding: var(--abv2-space-20); /* Sass: $abv2-space-20 */
+    padding-bottom: calc(var(--abv2-space-20) + 46px); /* Sass: $abv2-space-20 */
     border-radius: 18px;
   }
   .abv2-route-choice__tick {
-    right: var(--abv2-space-16);
-    bottom: var(--abv2-space-16);
+    right: var(--abv2-space-16); /* Sass: $spacer-2xs */
+    bottom: var(--abv2-space-16); /* Sass: $spacer-2xs */
     width: 38px;
     height: 38px;
   }
@@ -1989,20 +1792,20 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
    ======================================== */
 .abv2-buy-invest-list {
   display: grid;
-  gap: var(--abv2-space-16, 16px);
+  gap: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
 }
 
 .abv2-buy-invest-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 220px;
-  gap: var(--abv2-space-24, 24px);
+  gap: var(--abv2-space-24, 24px); /* Sass: $spacer-xs */
   align-items: center;
   min-height: 0;
   height: auto;
-  padding: var(--abv2-space-24, 24px);
-  border: 1.5px solid var(--abv2-border-subtle, #e9e4e3);
+  padding: var(--abv2-space-24, 24px); /* Sass: $spacer-xs */
+  border: 1.5px solid var(--abv2-border-subtle); /* Sass: $abv2-border-subtle */
   border-radius: 22px;
-  background: var(--abv2-white, #fff);
+  background: var(--abv2-white); /* Sass: $pure-white */
 }
 
 .abv2-buy-invest-item__main {
@@ -2016,15 +1819,15 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 .abv2-buy-invest-item__amount-grid {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--abv2-space-8, 8px);
+  gap: var(--abv2-space-8, 8px); /* Sass: $spacer-3xs */
   align-items: center;
 }
 
 @media (max-width: 767px) {
   .abv2-buy-invest-item {
     grid-template-columns: 1fr;
-    gap: var(--abv2-space-16, 16px);
-    padding: var(--abv2-space-20, 20px);
+    gap: var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+    padding: var(--abv2-space-20, 20px); /* Sass: $abv2-space-20 */
     border-radius: 18px;
   }
 }
@@ -2034,40 +1837,35 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
    confirmations, notes and grouped content
    ======================================== */
 .abv2-boxout {
-  padding: var(--abv2-space-24);
-  border: 1.5px solid var(--abv2-border-subtle);
+  padding: var(--abv2-space-24); /* Sass: $spacer-xs */
+  border: 1.5px solid var(--abv2-border-subtle); /* Sass: $abv2-border-subtle */
   border-radius: 22px;
-  background: var(--abv2-white);
-  color: var(--abv2-ink);
+  background: var(--abv2-white); /* Sass: $pure-white */
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 .abv2-boxout--teal {
-  border-color: var(--abv2-teal-a22);
-  background: var(--abv2-teal-very-light);
-}
-
-.abv2-boxout--pink {
-  border-color: var(--abv2-pink-a24);
-  background: var(--abv2-pink-a05);
+  border-color: var(--abv2-teal-a22); /* Sass: $abv2-teal-a22 */
+  background: var(--abv2-teal-very-light); /* Sass: $abundance-cyan-surface */
 }
 
 .abv2-boxout--yellow {
-  border-color: var(--abv2-yellow-a24);
-  background: var(--abv2-yellow-light);
+  border-color: var(--abv2-yellow-a24); /* Sass: $abv2-yellow-a24 */
+  background: var(--abv2-yellow-light); /* Sass: $abundance-yellow-light */
 }
 
 .abv2-boxout--compact {
-  padding: var(--abv2-space-20);
+  padding: var(--abv2-space-20); /* Sass: $abv2-space-20 */
   border-radius: 18px;
 }
 
 @media (max-width: 759px) {
   .abv2-boxout {
-    padding: var(--abv2-space-20);
+    padding: var(--abv2-space-20); /* Sass: $abv2-space-20 */
     border-radius: 18px;
   }
   .abv2-boxout--compact {
-    padding: var(--abv2-space-16);
+    padding: var(--abv2-space-16); /* Sass: $spacer-2xs */
     border-radius: 16px;
   }
 }
@@ -2077,19 +1875,19 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
    ========================================================= */
 /* Account/menu dropdown button */
 .btn.btn-primary--bordered.mobile-hide.si-btn.si-mega-menu__dropdown-btn.js-account-menu-button {
-  font-family: var(--abv2-sans, Arial, sans-serif) !important;
+  font-family: var(--abv2-sans, Arial, sans-serif) !important; /* Sass: $si-font-primary */
   text-transform: none !important;
   letter-spacing: normal !important;
 }
 
 /* Login button */
 .brand-navbar__login-btn {
-  font-family: var(--abv2-sans, Arial, sans-serif) !important;
+  font-family: var(--abv2-sans, Arial, sans-serif) !important; /* Sass: $si-font-primary */
 }
 
 /* Mobile bordered button */
 .btn.btn-primary--bordered.m-b-spacer-md--mobile {
-  font-family: var(--abv2-sans, Arial, sans-serif) !important;
+  font-family: var(--abv2-sans, Arial, sans-serif) !important; /* Sass: $si-font-primary */
   text-transform: none !important;
   letter-spacing: normal !important;
 }
@@ -2108,7 +1906,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 .footer__risk,
 .footer-links,
 .footer-copyright {
-  background: var(--abv2-yellow, #ffb72c) !important;
+  background: var(--abv2-yellow) !important; /* Sass: $abundance-yellow */
 }
 
 /* Remove spacing that expected the old mask */
@@ -2124,7 +1922,7 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 .footer a,
 .footer h2,
 .footer cite {
-  color: var(--abv2-ink, #282827) !important;
+  color: var(--abv2-ink) !important; /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 .footer a {
@@ -2153,8 +1951,8 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 .dropdown-menu.brand-dropdown-menu.show .dropdown-item:hover,
 .dropdown-menu.brand-dropdown-menu.show .dropdown-item:focus,
 .dropdown-menu.brand-dropdown-menu.show .dropdown-item:active {
-  color: #282827 !important;
-  -webkit-text-fill-color: #282827 !important;
+  color: var(--abv2-ink) !important; /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  -webkit-text-fill-color: var(--abv2-ink) !important; /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 /* Quick dirty nav dropdown ink fix */
@@ -2165,18 +1963,18 @@ SOURCE: 5 - council landing page v2 / RESPONSIVE
 .dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:focus,
 .dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link:active,
 .dropdown-menu-toggle.brand-dropdown-menu-toggle.brand-navbar-nav__parent-item-link.show {
-  color: #282827 !important;
-  -webkit-text-fill-color: #282827 !important;
+  color: var(--abv2-ink) !important; /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  -webkit-text-fill-color: var(--abv2-ink) !important; /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 /* TEMP: restore larger v2 quote sizing inside council quote blockquote */
 .abv2-council-quote blockquote.brand-blockquote > p.body--lg {
-  font-family: var(--abv2-sans);
+  font-family: var(--abv2-sans); /* Sass: $si-font-primary */
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: normal;
-  color: var(--abv2-text);
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
   margin-bottom: 0;
 }
 

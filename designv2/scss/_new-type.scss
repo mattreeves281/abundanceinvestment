@@ -4,7 +4,7 @@
    --------------------------------------------------------- */
 
 .si-eyebrow {
-  font-family: var(--abv2-ui);
+  font-family: var(--abv2-ui); /* Sass: $si-font-tertiary */
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
@@ -13,16 +13,16 @@
 }
 
 .si-body-compact {
-  font-family: var(--abv2-sans);
+  font-family: var(--abv2-sans); /* Sass: $si-font-primary */
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.48;
   letter-spacing: normal;
-  color: var(--abv2-text);
+  color: var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
 }
 
 .si-action-text {
-  font-family: var(--abv2-ui);
+  font-family: var(--abv2-ui); /* Sass: $si-font-tertiary */
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.2;
@@ -31,18 +31,18 @@
 }
 
 .si-stat {
-  font-family: var(--abv2-serif);
+  font-family: var(--abv2-serif); /* Sass: $si-font-secondary */
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 0.96;
   letter-spacing: -0.03em;
-  color: var(--abv2-ink);
+  color: var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
 }
 
 .si-heading-display{
   margin:0;
-  color:var(--abv2-ink);
-  font-family:var(--abv2-serif);
+  color:var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  font-family:var(--abv2-serif); /* Sass: $si-font-secondary */
   font-weight:600;
   line-height:1;
   letter-spacing:-.025em;
@@ -52,10 +52,10 @@
 /* Editorial / content card supporting copy */
 .abv2-card-copy{
   margin:0;
-  font-family:var(--abv2-sans);
+  font-family:var(--abv2-sans); /* Sass: $si-font-primary */
   font-size:1.05rem;
   line-height:1.55;
-  color:var(--abv2-ink-a78);
+  color:var(--abv2-ink-a78); /* Sass: $abv2-ink-a78 */
 }
 
 @media (max-width:1199px){

@@ -1,0 +1,22 @@
+/* ========================================
+COMPONENT: abv2-inline-disclaimer
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 4 - editorial components.html / RISK / LEGAL
+========================================================= */
+.abv2-inline-disclaimer{
+  margin:var(--abv2-space-20) 0 0;
+  padding:var(--abv2-space-16) var(--abv2-space-16);
+  border-left:4px solid var(--abv2-pink-a70);
+  background:rgba(248,245,247,.72);
+  border-radius:0 14px 14px 0;
+}
+
+// .abv2-inline-disclaimer type removed. Instead use si-body-compact.
+
+.abv2-inline-disclaimer strong{
+}
+
+// .abv2-inline-disclaimer strong colour removed. Instead use si-action-text or an SI/UAT strong text helper.

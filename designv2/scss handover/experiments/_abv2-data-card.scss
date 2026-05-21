@@ -1,0 +1,75 @@
+/* ========================================
+   COMPONENT: abv2-data-card
+   Editorial data / chart card
+   ======================================== */
+
+
+
+.abv2-data-bars{
+  display:grid;
+  gap:var(--abv2-space-16);
+}
+
+.abv2-data-bars__row{
+  display:grid;
+  grid-template-columns:minmax(170px, .42fr) minmax(0, 1fr);
+  align-items:center;
+  gap:var(--abv2-space-20);
+}
+
+// .abv2-data-bars__label removed. Instead use si-body-md.
+
+.abv2-data-bars__track{
+  position:relative;
+  display:block;
+  height:34px;
+  border-radius:999px;
+  background:var(--abv2-grey-light);
+  overflow:hidden;
+}
+
+.abv2-data-bars__fill{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:var(--value);
+  min-width:34px;
+  border-radius:999px;
+  background:var(--bar, var(--abv2-pink-a24));
+}
+
+.abv2-data-bars__value{
+  position:absolute;
+  left:var(--abv2-space-12);
+  top:50%;
+  transform:translateY(-50%);
+  z-index:1;
+}
+
+// .abv2-data-bars__value type removed. Instead use si-meta plus the appropriate SI/UAT text colour helper.
+
+.abv2-data-card__note{
+  margin:var(--abv2-space-20) 0 0;
+  padding-top:var(--abv2-space-16);
+  border-top:1px solid var(--abv2-border-subtle);
+}
+
+// .abv2-data-card__note type removed. Instead use si-note.
+
+@media (max-width:759px){
+  .abv2-data-card{
+    padding:var(--abv2-space-20);
+  }
+
+  .abv2-data-bars{
+    gap:var(--abv2-space-14, 14px);
+  }
+
+  .abv2-data-bars__row{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-8);
+  }
+
+  .abv2-data-bars__track{
+    height:32px;
+  }
+}

@@ -1,0 +1,53 @@
+/* =========================================================
+   COMPONENT: abv2-council-quote
+   Council quote / testimonial block
+   Type, colour and outer spacing handled by helpers.
+   Keeps only the specific quote layout + headshot treatment.
+   ========================================================= */
+
+.abv2-council-quote__inner {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.abv2-council-quote__headshot {
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.abv2-council-quote__headshot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.abv2-council-quote__content {
+  max-width: 760px;
+}
+
+.abv2-council-quote__text {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--abv2-text, #4d4a46);
+}
+
+@media (max-width: 767px) {
+  .abv2-council-quote__inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .abv2-council-quote__headshot {
+    width: 72px;
+    height: 72px;
+  }
+
+  .abv2-council-quote__text {
+    max-width: none;
+  }
+}

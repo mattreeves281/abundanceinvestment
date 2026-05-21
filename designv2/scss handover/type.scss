@@ -1,0 +1,310 @@
+/* =========================================================
+   TEMP: ABUNDANCE v2 type bridge for si-* platform classes
+
+   Purpose:
+   - use existing / future platform-facing text classes
+   - align values with approved v2 fixed-token type system
+   - no clamp()
+   - no vw-based typography
+   - no component-level type scale invention
+
+   Destination:
+   - primitives/type partial
+   - platform typography tokens/classes
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. Shared heading base
+   --------------------------------------------------------- */
+
+.si-heading-1,
+.si-heading-2,
+.si-heading-3,
+.si-heading-4,
+.si-heading-5,
+.si-heading-6,
+.si-heading-compact {
+  font-family: var(--abv2-serif);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  color: var(--abv2-ink);
+}
+
+
+/* ---------------------------------------------------------
+   2. Heading scale — desktop/default
+   --------------------------------------------------------- */
+
+/* v2 h1 */
+.si-heading-1 {
+  font-size: 3.1875rem; /* 51px */
+  line-height: 0.95;
+}
+
+/* v2 h2 */
+.si-heading-2 {
+  font-size: 2.875rem; /* 46px */
+  line-height: 0.98;
+}
+
+/* v2 h4 → future si-heading-3 */
+.si-heading-3 {
+  font-size: 2rem; /* 32px */
+  line-height: 1.08;
+}
+
+/* v2 h5 → future si-heading-4 */
+.si-heading-4 {
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.08;
+}
+
+/* v2 h6 → future si-heading-5 */
+.si-heading-5 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.08;
+}
+
+/* Spare/small heading role */
+.si-heading-6 {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.08;
+}
+
+
+/* ---------------------------------------------------------
+   3. Body roles
+   Slightly opened tracking for readability / softer v2 tone
+   --------------------------------------------------------- */
+
+.body--md,
+.si-body-md {
+  font-family: var(--abv2-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  color: var(--abv2-text);
+}
+
+.body--sm,
+.si-body-sm {
+  font-family: var(--abv2-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.006em;
+  color: var(--abv2-text);
+}
+
+.body--lg,
+.si-body-lg {
+  font-family: var(--abv2-sans);
+  font-size: 1.185rem;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.004em;
+  color: var(--abv2-text);
+}
+
+.body--xl,
+.si-body-xl {
+  font-family: var(--abv2-sans);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.002em;
+  color: var(--abv2-text);
+}
+
+
+/* ---------------------------------------------------------
+   4. Label / support text roles
+   --------------------------------------------------------- */
+
+.label--md,
+.si-label-md {
+  font-family: var(--abv2-sans);
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--abv2-ink);
+}
+
+.label--sm,
+.si-label-sm {
+  font-family: var(--abv2-sans);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--abv2-ink);
+}
+
+
+/* ---------------------------------------------------------
+   5. Caption roles
+   --------------------------------------------------------- */
+
+.si-caption-md,
+.si-embedded-caption {
+  font-family: var(--abv2-sans);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--abv2-text);
+}
+
+.si-caption-sm,
+.si-embedded-caption--sm {
+  font-family: var(--abv2-sans);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--abv2-text);
+}
+
+.si-caption-lg,
+.si-embedded-caption--lg {
+  font-family: var(--abv2-sans);
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--abv2-text);
+}
+
+
+/* ---------------------------------------------------------
+   6. Table/header support role
+   --------------------------------------------------------- */
+
+.si-table-header,
+.si-table-header-md {
+  font-family: var(--abv2-ui);
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--abv2-ink);
+}
+
+/* ---------------------------------------------------------
+   8. Mobile
+   Use UAT/platform breakpoint: max-width 767px.
+   This deliberately differs from old abv2 759px so it aligns
+   with existing si/body mobile behaviour.
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .si-heading-1 {
+    font-size: 2.25rem; /* 36px */
+    line-height: 0.94;
+  }
+
+  .si-heading-2 {
+    font-size: 2rem; /* 32px */
+    line-height: 0.96;
+  }
+
+  .si-heading-3 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.08;
+  }
+
+  .si-heading-4 {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.08;
+  }
+
+  .si-heading-5 {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.08;
+  }
+
+  .si-heading-6 {
+    font-size: 1rem; /* 16px */
+    line-height: 1.08;
+  }
+
+  .si-heading-compact {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.08;
+  }
+
+  .body--md,
+  .si-body-md {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+  }
+
+  .body--sm,
+  .si-body-sm {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    letter-spacing: 0.006em;
+  }
+
+  .body--lg,
+  .si-body-lg {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    letter-spacing: 0.004em;
+  }
+
+  .body--xl,
+  .si-body-xl {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    letter-spacing: 0.002em;
+  }
+
+  .label--md,
+  .si-label-md {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .label--sm,
+  .si-label-sm {
+    font-size: 0.875rem;
+    line-height: 1.2;
+  }
+
+  .si-caption-md,
+  .si-embedded-caption {
+    font-size: 0.875rem;
+    line-height: 1.35;
+  }
+
+  .si-caption-sm,
+  .si-embedded-caption--sm {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .si-caption-lg,
+  .si-embedded-caption--lg {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .si-table-header,
+  .si-table-header-md {
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+}

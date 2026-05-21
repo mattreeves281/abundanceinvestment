@@ -1,0 +1,136 @@
+/* ========================================
+COMPONENT: ai-council-hero2
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / hero
+========================================================= */
+.ai-council-hero2{
+  padding:var(--abv2-space-40) 0 var(--abv2-space-56);
+  background:var(--abv2-green);
+}
+
+.ai-council-hero2__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);
+  gap:var(--abv2-space-40);
+  align-items:start;
+}
+
+.ai-council-hero2__copy{
+  max-width:700px;
+}
+
+.ai-council-hero2__eyebrow{
+  margin:0 0 var(--abv2-space-16);
+  font-family:"Sohne Kraftig", Arial, sans-serif;
+  font-size:.75rem;
+  line-height:1;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--abv2-pink);
+}
+
+.ai-council-hero2__title{
+  margin:0 0 var(--abv2-space-20);
+  font-family:"New Kansas", Georgia, serif;
+  font-weight:600;
+  letter-spacing:-.03em;
+  font-size:clamp(2.2rem,4vw,3.6rem);
+  line-height:.92;
+  color:var(--abv2-ink);
+}
+
+.ai-council-hero2__body{
+  margin:0;
+  max-width:36ch;
+  font-family:"Sohne Buch", Arial, sans-serif;
+  font-size:1.05rem;
+  line-height:1.58;
+  color:var(--abv2-text);
+}
+
+.ai-council-hero2__logoWrap{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.ai-council-hero2__logoBox{
+  width:min(100%, 320px);
+  min-height:220px;
+  padding:var(--abv2-space-28);
+  border-radius:28px;
+  background:var(--abv2-white);
+  border:1px solid var(--abv2-border-subtle);
+  box-shadow:0 12px 28px var(--abv2-shadow-default);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ai-council-hero2__logoBox img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:82%;
+  max-height:150px;
+  object-fit:contain;
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / mobile
+========================================================= */
+@media (max-width: 900px){
+  .ai-council-hero2__grid{
+      grid-template-columns:1fr;
+      gap:var(--abv2-space-24);
+    }
+}
+
+@media (max-width: 900px){
+  .ai-council-hero2__logoWrap{
+      justify-content:center;
+    }
+}
+
+@media (max-width: 900px){
+  .ai-council-hero2__logoBox{
+      max-width:320px;
+      margin:0 auto;
+    }
+}
+
+@media (max-width: 900px){
+  .ai-council-hero2__copy{
+      text-align:left;
+    }
+}
+
+@media (max-width: 759px){
+  .ai-council-hero2{
+      padding-top:var(--abv2-space-28);
+      padding-bottom:var(--abv2-space-32);
+    }
+}
+
+@media (max-width: 759px){
+  .ai-council-hero2__title{
+      font-size:2.35rem;
+    }
+}
+
+@media (max-width: 759px){
+  .ai-council-hero2__body{
+      font-size:.98rem;
+      line-height:1.5;
+    }
+}
+
+@media (max-width: 759px){
+  .ai-council-hero2__logoBox{
+      min-height:170px;
+      padding:var(--abv2-space-20);
+      border-radius:22px;
+    }
+}

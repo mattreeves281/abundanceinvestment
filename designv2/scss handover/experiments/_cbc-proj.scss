@@ -1,0 +1,30 @@
+/* ========================================
+COMPONENT: cbc-proj
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Top projects description
+========================================================= */
+.cbc-proj__body {
+  font-size: 0.95rem;          /* slightly smaller */
+  line-height: 1.55;           /* tighter but still readable */
+  color: var(--abv2-text);              /* optional – keeps it softer than title */
+}
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Improve spacing when <br> exists in description
+========================================================= */
+.cbc-proj__body br {
+  content: "";
+  display: block;
+  margin-bottom: 0.75rem;   /* creates "double line break" effect */
+}
+
+.cbc-proj__body p {
+  margin: 0 0 0.9rem 0;
+}
+
+.cbc-proj__body p:last-child {
+  margin-bottom: 0;
+}
