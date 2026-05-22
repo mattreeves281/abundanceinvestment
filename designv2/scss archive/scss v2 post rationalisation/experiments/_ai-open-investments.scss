@@ -1,0 +1,16 @@
+/* ========================================
+COMPONENT: ai-open-investments
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 2 - council hub page.html / Allow tiles to use full content width
+========================================================= */
+.ai-open-investments{
+  width:100%;
+  max-width:800px; /* match choke-800 */
+}
+
+.home-green-investing .flex-center .ai-open-investments{
+  flex:1 1 auto;
+}

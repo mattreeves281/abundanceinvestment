@@ -1,0 +1,91 @@
+/* ========================================
+   COMPONENT: abv2-benefit-three
+   Editorial 3-up benefit card stack
+   ======================================== */
+
+
+.abv2-benefit-three__grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:var(--abv2-space-16);
+}
+
+.abv2-benefit-three__item{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:var(--abv2-space-20) var(--abv2-space-20) var(--abv2-space-16);
+  border:1.5px solid var(--abv2-border-subtle);
+  border-radius:18px;
+  background:var(--abv2-white);
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.abv2-benefit-three__item:hover{
+  transform:translateY(-1px);
+  border-color:rgba(114, 71, 149, .28);
+  box-shadow:0 10px 24px var(--abv2-shadow-default);
+}
+
+.abv2-benefit-three__number{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  margin:0 0 var(--abv2-space-12);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+// .abv2-benefit-three__number type removed. Instead use si-heading-5 + text-white.
+
+.abv2-benefit-three__item:nth-child(2) .abv2-benefit-three__number{
+  background:var(--abv2-yellow);
+}
+
+.abv2-benefit-three__item:nth-child(3) .abv2-benefit-three__number{
+  background:var(--abv2-teal);
+}
+
+.abv2-benefit-three__heading{
+  display:block;
+  margin:0 0 var(--abv2-space-8);
+}
+
+// .abv2-benefit-three__heading type removed. Instead use si-heading-5.
+
+.abv2-benefit-three__text{
+  margin:0 0 var(--abv2-space-16);
+}
+
+// .abv2-benefit-three__text type removed. Instead use si-body-compact.
+
+.abv2-benefit-three__link{
+  margin-top:auto;
+  text-decoration:none;
+}
+
+// .abv2-benefit-three__link type removed. Instead use si-action-text plus the appropriate SI/UAT link colour helper.
+
+
+@media (max-width:759px){
+  .abv2-benefit-three{
+    padding:var(--abv2-space-20);
+  }
+
+  .abv2-benefit-three__grid{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-12);
+  }
+}

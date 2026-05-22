@@ -1,0 +1,141 @@
+/* ========================================
+   COMPONENT: abv2-calc-card
+   Editorial payment calculator
+   ======================================== */
+
+
+.abv2-calc-card__panel{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) 280px;
+  gap:var(--abv2-space-20);
+  align-items:start;
+  margin:0 0 var(--abv2-space-24);
+}
+
+.abv2-calc-card__field{
+  display:block;
+  align-self:end;
+}
+
+.abv2-calc-card__label{
+  display:block;
+  margin:0 0 var(--abv2-space-8);
+}
+
+// .abv2-calc-card__label type removed. Instead use label--sm or si-label-sm.
+
+.abv2-calc-card__input-wrap{
+  display:flex;
+  align-items:center;
+  max-width:280px;
+  border:1.5px solid var(--abv2-border-default);
+  border-radius:12px;
+  background:var(--abv2-white);
+  overflow:hidden;
+}
+
+.abv2-calc-card__prefix{
+  padding-left:var(--abv2-space-16);
+  color:var(--abv2-ink-a64);
+}
+
+.abv2-calc-card__input{
+  width:100%;
+  min-height:46px;
+  padding:0 var(--abv2-space-16) 0 var(--abv2-space-8);
+  border:0;
+  background:transparent;
+}
+
+// .abv2-calc-card__input type removed. Instead use si-body-md.
+
+.abv2-calc-card__input:focus{
+  outline:none;
+}
+
+.abv2-calc-card__input-wrap:focus-within{
+  border-color:var(--abv2-pink);
+  box-shadow:0 0 0 3px var(--abv2-pink-a12);
+}
+
+.abv2-calc-card__summary{
+  padding:var(--abv2-space-16);
+  border-radius:16px;
+  background:var(--abv2-grey-very-light);
+}
+
+.abv2-calc-card__summary div{
+  display:flex;
+  justify-content:space-between;
+  gap:var(--abv2-space-16);
+  padding:0 0 var(--abv2-space-10, 10px);
+}
+
+// .abv2-calc-card__summary div type removed. Instead use si-note.
+
+.abv2-calc-card__summary div + div{
+  padding-top:var(--abv2-space-10, 10px);
+  border-top:1px solid var(--abv2-border-subtle);
+}
+
+.abv2-calc-card__summary div:last-child{
+  padding-bottom:0;
+}
+
+.abv2-calc-card__summary strong{
+  white-space:nowrap;
+}
+
+// .abv2-calc-card__summary strong type removed. Instead use si-action-text.
+
+.abv2-calc-card__table-wrap{
+  border:1px solid var(--abv2-border-subtle);
+  border-radius:16px;
+  background:var(--abv2-white);
+}
+
+.abv2-calc-card__table{
+  min-width:560px;
+}
+
+// .abv2-calc-card__table type removed. Instead use si-body-compact or si-table classes where available.
+
+.abv2-calc-card__table th,
+.abv2-calc-card__table td{
+  padding:var(--abv2-space-12) var(--abv2-space-16);
+}
+
+.abv2-calc-card__table thead th{
+  background:var(--abv2-grey-very-light);
+}
+
+.abv2-calc-card__table td:not(:first-child),
+.abv2-calc-card__table th:not(:first-child){
+  text-align:right;
+}
+
+.abv2-calc-card__note{
+  margin:var(--abv2-space-16) 0 0;
+// .abv2-calc-card__note type removed. Instead use si-note in the HTML.
+  color:var(--abv2-ink-a64);
+}
+
+@media (max-width:759px){
+  .abv2-calc-card{
+    padding:var(--abv2-space-20);
+  }
+
+  .abv2-calc-card__panel{
+    grid-template-columns:1fr;
+    gap:var(--abv2-space-16);
+  }
+
+  .abv2-calc-card__input-wrap{
+    max-width:none;
+  }
+
+  .abv2-calc-card__table{
+    min-width:520px;
+// .abv2-calc-card__table type removed. Instead use si-body-* helper in the HTML.
+  }
+}

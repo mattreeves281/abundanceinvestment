@@ -1,0 +1,267 @@
+/* ========================================
+   COMPONENT: abv2-ed-copy
+   Editorial rail + long-form copy primitives
+   ======================================== */
+
+.abv2-ed-section{
+  margin-top:var(--abv2-space-12);
+}
+
+.abv2-ed-rail{
+  position:relative;
+  z-index:2;
+  width:min(100%, var(--abv2-editorial-rail));
+  margin:0 auto;
+}
+
+.abv2-ed-copy > *{
+  margin:0;
+}
+
+.abv2-ed-copy > * + *{
+  margin-top:var(--abv2-space-20);
+}
+
+/* ---------- COPY WIDTH ---------- */
+
+.abv2-ed-copy > p,
+.abv2-ed-copy > ul,
+.abv2-ed-copy > ol,
+.abv2-ed-copy > blockquote,
+.abv2-ed-copy > h2,
+.abv2-ed-copy > h3,
+.abv2-ed-copy > h4,
+.abv2-ed-copy > .abv2-ed-note,
+.abv2-ed-copy > .abv2-ed-cta{
+  width:min(100%, var(--abv2-editorial-copy));
+}
+
+/* ---------- TEXT ---------- */
+
+// .abv2-ed-copy > ol > li type removed. Instead use si-body-* helper in the HTML.
+// .abv2-ed-copy > ol > li colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
+
+.abv2-ed-copy .abv2-inline-link{
+  color:var(--abv2-pink);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:.18em;
+}
+
+// .abv2-ed-copy > ol strong type removed. Instead use si-action-text in the HTML.
+// .abv2-ed-copy > ol strong colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
+
+/* ---------- HEADINGS ---------- */
+
+// .abv2-ed-copy > h4 type removed. Instead use si-body-* helper in the HTML.
+// .abv2-ed-copy > h4 colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
+
+.abv2-ed-copy > h2{
+  margin-top:var(--abv2-space-48);
+// .abv2-ed-copy > h2 type removed. Instead use si-heading-* helper in the HTML.
+}
+
+.abv2-ed-copy > h3{
+  margin-top:var(--abv2-space-40);
+// .abv2-ed-copy > h3 type removed. Instead use si-heading-* helper in the HTML.
+}
+
+.abv2-ed-copy > h4{
+  margin-top:var(--abv2-space-32);
+// .abv2-ed-copy > h4 type removed. Instead use si-body-* helper in the HTML.
+}
+
+.abv2-ed-copy > h2 + *,
+.abv2-ed-copy > h3 + *,
+.abv2-ed-copy > h4 + *{
+  margin-top:var(--abv2-space-12);
+}
+
+/* ---------- LISTS ---------- */
+
+.abv2-ed-copy > ul,
+.abv2-ed-copy > ol{
+  padding:0;
+  margin-top:var(--abv2-space-16);
+  list-style:none;
+}
+
+.abv2-ed-copy > ul > li,
+.abv2-ed-copy > ol > li{
+  position:relative;
+}
+
+.abv2-ed-copy > ul > li + li,
+.abv2-ed-copy > ol > li + li{
+  margin-top:var(--abv2-space-14, 14px);
+}
+
+.abv2-ed-copy > ul > li{
+  padding-left:1.55rem;
+}
+
+.abv2-ed-copy > ul > li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.78em;
+  width:10px;
+  height:8px;
+  transform:translateY(-50%);
+  background:var(--abv2-pink);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-copy > ol{
+  counter-reset:abv2-ol;
+}
+
+.abv2-ed-copy > ol > li{
+  counter-increment:abv2-ol;
+  padding-left:2.35rem;
+}
+
+.abv2-ed-copy > ol > li::before{
+  content:counter(abv2-ol);
+  position:absolute;
+  left:0;
+  top:.15em;
+  display:grid;
+  place-items:center;
+  width:1.55rem;
+  height:1.55rem;
+  background:var(--abv2-yellow);
+  color:var(--abv2-white);
+// .abv2-ed-copy > ol > li::before type removed. Instead use si-body-* helper in the HTML.
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+/* ---------- BLOCKQUOTE ---------- */
+
+.abv2-ed-copy > blockquote{
+  margin-top:var(--abv2-space-32);
+  padding:var(--abv2-space-20) var(--abv2-space-24);
+  border-left:4px solid var(--abv2-pink);
+  border-radius:0 18px 18px 0;
+  background:var(--abv2-pink-a05);
+}
+
+.abv2-ed-copy > blockquote > p{
+  margin:0;
+// .abv2-ed-copy > blockquote > p type removed. Instead use si-body-* helper in the HTML.
+  color:var(--abv2-ink);
+}
+
+.abv2-ed-copy > blockquote > cite{
+  display:block;
+  margin-top:var(--abv2-space-12);
+// .abv2-ed-copy > blockquote > cite type removed. Instead use si-body-* helper in the HTML.
+  color:var(--abv2-ink-a64);
+}
+
+/* ---------- DIVIDER / NOTES ---------- */
+
+.abv2-ed-copy > hr{
+  width:min(100%, var(--abv2-editorial-copy));
+  height:1px;
+  margin:var(--abv2-space-40) 0;
+  border:0;
+  background:linear-gradient(
+    90deg,
+    var(--abv2-pink-a24),
+    var(--abv2-teal-a22),
+    transparent
+  );
+}
+
+.abv2-ed-copy > .abv2-ed-note{
+  padding:var(--abv2-space-16);
+  border-radius:16px;
+  background:var(--abv2-grey-very-light);
+// .abv2-ed-copy > .abv2-ed-note type removed. Instead use si-note in the HTML.
+  color:var(--abv2-ink-a72);
+}
+
+.abv2-ed-copy > .abv2-ed-small{
+  width:min(100%, var(--abv2-editorial-copy));
+// .abv2-ed-copy > .abv2-ed-small type removed. Instead use si-body-* helper in the HTML.
+  color:var(--abv2-ink-a64);
+}
+
+/* ---------- ILLUSTRATED OVERLAP VARIANT ---------- */
+
+.abv2-ed-section--illus-overlap{
+  position:relative;
+}
+
+.abv2-ed-section--illus-overlap .abv2-ed-rail{
+  position:relative;
+  z-index:3;
+}
+
+.abv2-ed-section--illus-overlap .abv2-ed-copy > h3:first-child{
+  margin-top:110px;
+  margin-bottom:var(--abv2-space-20);
+  max-width:18ch;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width:979px){
+  .abv2-ed-rail{
+    width:min(100%, 660px);
+  }
+}
+
+@media (max-width:759px){
+  .abv2-ed-rail{
+    width:100%;
+    max-width:var(--abv2-mobile-copy-rail);
+  }
+
+  .abv2-ed-copy > p,
+  .abv2-ed-copy > ul,
+  .abv2-ed-copy > ol,
+  .abv2-ed-copy > blockquote,
+  .abv2-ed-copy > h2,
+  .abv2-ed-copy > h3,
+  .abv2-ed-copy > h4,
+  .abv2-ed-copy > .abv2-ed-note,
+  .abv2-ed-copy > .abv2-ed-cta,
+  .abv2-ed-copy > .abv2-ed-small{
+    width:100%;
+    max-width:none;
+  }
+
+// .abv2-ed-copy > ol > li type removed. Instead use si-body-* helper in the HTML.
+
+  .abv2-ed-copy > h2{
+    margin-top:var(--abv2-space-40);
+  }
+
+  .abv2-ed-copy > h3{
+    margin-top:var(--abv2-space-32);
+  }
+
+  .abv2-ed-copy > blockquote{
+    padding:var(--abv2-space-16) var(--abv2-space-20);
+  }
+
+  .abv2-ed-section--illus-overlap .abv2-ed-copy > h3:first-child{
+    margin-top:var(--abv2-space-48);
+    max-width:12ch;
+  }
+}

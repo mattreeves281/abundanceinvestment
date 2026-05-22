@@ -1,0 +1,44 @@
+/* ========================================
+   COMPONENT: abv2-history
+   Investment history table in masked teal section.
+   Uses native SI table helpers.
+   ======================================== */
+
+.abv2-history-card.si-card{
+  max-width:1020px;
+  margin-inline:auto;
+  background:var(--abv2-white, #fff);
+  border:0;
+  border-radius:30px;
+  box-shadow:0 18px 38px var(--abv2-shadow-card, rgba(40,40,39,.12));
+}
+
+.abv2-history-table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.abv2-history-table-wrap:focus-visible{
+  outline:2px solid var(--abv2-pink, #f27fae);
+  outline-offset:4px;
+  border-radius:18px;
+}
+
+.abv2-history-table{
+  min-width:900px;
+}
+
+.abv2-history-table td{
+  white-space:nowrap;
+}
+
+.abv2-history-table td:nth-child(2){
+  min-width:240px;
+  white-space:normal;
+}
+
+@media (max-width:759px){
+  .abv2-history-card.si-card{
+    border-radius:22px;
+  }
+}

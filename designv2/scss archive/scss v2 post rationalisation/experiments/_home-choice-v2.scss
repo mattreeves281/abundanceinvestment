@@ -1,0 +1,106 @@
+/* ========================================
+COMPONENT: home-choice-v2
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / HOMEPAGE DECISION BLOCK V2
+========================================================= */
+.home-choice-v2{
+  padding:140px 0;
+  position:relative;
+}
+
+.home-choice-v2__wrap{
+  width:min(calc(100% - 36px), 1180px);
+  margin:0 auto;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / title
+========================================================= */
+.home-choice-v2__title{
+  font-family:"New Kansas";
+  font-size:clamp(2.4rem, 3.6vw, 3.2rem);
+  line-height:.95;
+  max-width:13ch;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / grid
+========================================================= */
+.home-choice-v2__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+  margin-top:var(--abv2-space-72);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / item
+========================================================= */
+.home-choice-v2__item{
+  max-width:420px;
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / primary emphasis (VERY subtle)
+========================================================= */
+.home-choice-v2__item--primary{
+  transform:translateY(40px);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / text
+========================================================= */
+.home-choice-v2__eyebrow{
+  font-family:"Sohne Kraftig";
+  font-size:.75rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--abv2-pink);
+  margin-bottom:var(--abv2-space-12);
+}
+
+.home-choice-v2__heading{
+  font-family:"New Kansas";
+  font-size:1.7rem;
+  line-height:1;
+  margin-bottom:var(--abv2-space-12);
+}
+
+.home-choice-v2__body{
+  font-family:"Sohne Buch";
+  font-size:1rem;
+  line-height:1.6;
+  color:var(--abv2-text);
+  margin-bottom:var(--abv2-space-20);
+}
+
+/* =========================================================
+SOURCE: 3- homepage components.html / list
+========================================================= */
+.home-choice-v2__list{
+  list-style:none;
+  padding:0;
+  margin:0 0 var(--abv2-space-24);
+}
+
+.home-choice-v2__list li{
+  position:relative;
+  padding-left:var(--abv2-space-20);
+  margin-bottom:var(--abv2-space-12);
+  font-size:.95rem;
+  color:var(--abv2-text);
+}
+
+.home-choice-v2__list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.6em;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--abv2-pink);
+}

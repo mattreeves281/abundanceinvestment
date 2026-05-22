@@ -1,0 +1,29 @@
+/* ========================================
+COMPONENT: home-btn
+Status: unrefined (contains duplicates)
+======================================== */
+
+/* =========================================================
+SOURCE: 3- homepage components.html / buttons
+========================================================= */
+.home-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:0 var(--abv2-space-20);
+
+  border-radius:999px;
+  border:1.8px solid var(--abv2-white-a90);
+
+  background:transparent;
+  color:var(--abv2-white);
+
+  font-family:"Sohne Kraftig", Arial, sans-serif;
+  font-size:.84rem;
+  text-decoration:none;
+}
+
+.home-btn--light:hover{
+  background:var(--abv2-overlay-soft);
+}

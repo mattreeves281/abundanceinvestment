@@ -1,0 +1,196 @@
+/* ========================================
+   COMPONENT: abv2-ed-open-invest
+   Editorial open investment card
+   ======================================== */
+
+.abv2-ed-open-invest{
+  position:relative;
+  overflow:hidden;
+  border:1.5px solid var(--abv2-border-default);
+  border-radius:24px;
+  background:var(--abv2-white);
+  box-shadow:0 12px 30px var(--abv2-ink-a05);
+}
+
+.abv2-ed-open-invest__inner{
+  padding:0;
+}
+
+.abv2-ed-open-invest__top,
+.abv2-ed-open-invest__note,
+.abv2-ed-open-invest::after,
+.abv2-ed-open-invest__media::before{
+  display:none;
+  content:none;
+}
+
+.abv2-ed-open-invest__row{
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  align-items:stretch;
+  gap:0;
+  min-height:178px;
+}
+
+.abv2-ed-open-invest__media{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:178px;
+  padding:var(--abv2-space-24);
+  background:var(--abv2-invest-bg, var(--abv2-teal-very-light));
+  overflow:hidden;
+}
+
+.abv2-ed-open-invest__logo{
+  position:relative;
+  z-index:1;
+  width:min(100%, 138px);
+  max-height:86px;
+  object-fit:contain;
+}
+
+.abv2-ed-open-invest__body{
+  min-width:0;
+  padding:var(--abv2-space-28) var(--abv2-space-32);
+}
+
+.abv2-ed-open-invest__title{
+  margin:0 0 var(--abv2-space-8);
+// .abv2-ed-open-invest__title type removed. Instead use si-heading-* helper in the HTML.
+  color:var(--abv2-ink);
+}
+
+.abv2-ed-open-invest__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  margin:0 0 var(--abv2-space-20);
+// .abv2-ed-open-invest__meta type removed. Instead use si-meta or si-label-sm in the HTML.
+}
+
+.abv2-ed-open-invest__pill{
+  display:inline-flex;
+  align-items:center;
+  min-height:auto;
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  white-space:nowrap;
+}
+
+.abv2-ed-open-invest__pill::after{
+  content:"·";
+  margin:0 var(--abv2-space-12);
+  color:var(--abv2-ink-a34);
+}
+
+.abv2-ed-open-invest__pill:last-child::after{
+  display:none;
+}
+
+// .abv2-ed-open-invest__pill--rate colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
+
+// .abv2-ed-open-invest__pill--term colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
+
+// .abv2-ed-open-invest__pill--capital colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
+
+.abv2-ed-open-invest__desc{
+  margin:0 0 var(--abv2-space-24);
+  max-width:54ch;
+// .abv2-ed-open-invest__desc type removed. Instead use si-body-* helper in the HTML.
+  color:var(--abv2-text);
+}
+
+.abv2-ed-open-invest__action{
+  display:block;
+  margin-top:0;
+  border:0;
+}
+
+.abv2-ed-open-invest__action .abv2-btn{
+  position:static;
+  inset:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  min-height:44px;
+  padding:var(--abv2-space-12) var(--abv2-space-20);
+  border:1.5px solid var(--abv2-pink);
+  border-radius:999px;
+  background:transparent;
+// .abv2-ed-open-invest__action .abv2-btn type removed. Instead use approved SI type helper in the HTML.
+  color:var(--abv2-pink-dark);
+  text-decoration:none;
+}
+
+.abv2-ed-open-invest__action .abv2-btn::after{
+  content:none;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width:979px){
+  .abv2-ed-open-invest__row{
+    grid-template-columns:180px minmax(0,1fr);
+  }
+
+  .abv2-ed-open-invest__media{
+    min-height:170px;
+  }
+
+  .abv2-ed-open-invest__logo{
+    width:min(100%, 120px);
+    max-height:76px;
+  }
+
+  .abv2-ed-open-invest__body{
+    padding:var(--abv2-space-24);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width:759px){
+  .abv2-ed-open-invest__row{
+    grid-template-columns:1fr;
+  }
+
+  .abv2-ed-open-invest__media{
+    min-height:150px;
+    padding:var(--abv2-space-24);
+  }
+
+  .abv2-ed-open-invest__logo{
+    width:min(100%, 132px);
+    max-height:82px;
+  }
+
+  .abv2-ed-open-invest__body{
+    padding:var(--abv2-space-20);
+  }
+
+// .abv2-ed-open-invest__title type removed. Instead use si-heading-* helper in the HTML.
+  .abv2-ed-open-invest__title{
+  }
+
+  .abv2-ed-open-invest__meta{
+    margin-bottom:var(--abv2-space-16);
+// .abv2-ed-open-invest__meta type removed. Instead use si-meta or si-label-sm in the HTML.
+  }
+
+  .abv2-ed-open-invest__pill{
+    white-space:normal;
+  }
+
+  .abv2-ed-open-invest__pill::after{
+    margin:0 var(--abv2-space-8);
+  }
+
+  .abv2-ed-open-invest__desc{
+    margin-bottom:var(--abv2-space-20);
+// .abv2-ed-open-invest__desc type removed. Instead use si-body-* helper in the HTML.
+  }
+}

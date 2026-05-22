@@ -1,0 +1,51 @@
+/* =========================================================
+   ABUNDANCE v2 — EDITORIAL BASE
+   ========================================================= */
+
+/* Scoped box-sizing */
+
+.abv2-editorial,
+.abv2-editorial *,
+.abv2-editorial *::before,
+.abv2-editorial *::after {
+  box-sizing: border-box;
+}
+
+/* Root */
+
+.abv2-editorial {
+  position: relative;
+  overflow: hidden;
+  background: var(--abv2-editorial-bg);
+  color: var(--abv2-ink);
+}
+
+/* Media */
+
+.abv2-editorial img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container (editorial-specific, not global wrap) */
+
+.abv2-editorial__wrap {
+  position: relative;
+  width: min(calc(100% - 40px), var(--abv2-wrap));
+  margin: 0 auto;
+  padding: var(--abv2-space-32) 0 0;
+}
+
+/* Type safety for CMS-rendered headings */
+
+// .abv2-editorial h5 type removed. Instead use approved SI type helper in the HTML.
+// .abv2-editorial h5 colour removed. Instead use the appropriate SI/UAT text colour helper in the HTML.
+
+/* Page-level background override (only if wrapper exists) */
+
+.abv2-editorial-page .main-content,
+.abv2-editorial-page .page-content,
+.abv2-editorial-page .content-wrapper {
+  background: var(--abv2-editorial-bg) !important;
+}

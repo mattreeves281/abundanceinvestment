@@ -1,0 +1,22 @@
+/* ----------------------------------------
+   Homepage hero nudge
+   ---------------------------------------- */
+
+.abundance-hero-art-nudge img{
+  display:block;
+  transform:translateY(clamp(76px, 6.8vw, 132px));
+}
+
+@media (max-width:991px) and (min-width:768px){
+  .abundance-hero-art-nudge{
+    max-width:350px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+@media (max-width:767px){
+  .abundance-hero-art-nudge img{
+    transform:none;
+  }
+}

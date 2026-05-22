@@ -1,0 +1,17 @@
+/* ========================================
+   COMPONENT: abv2-inline-link
+   Editorial inline CTA (text link style)
+   ======================================== */
+
+.abv2-inline-link {
+  color: var(--abv2-pink);
+// .abv2-inline-link type removed. Instead use si-action-text in the HTML.
+  text-decoration: none;
+  border-bottom: 1px solid var(--abv2-pink-a35);
+  transition: border-color .18s ease, color .18s ease;
+}
+
+.abv2-inline-link:hover {
+  color: var(--abv2-pink-dark);
+  border-color: var(--abv2-pink-dark);
+}

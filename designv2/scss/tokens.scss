@@ -1,313 +1,96 @@
-/* =========================================================
-SOURCE: 1 - hompeage base responsive.html
-========================================================= */
-@font-face{
-    font-family:"New Kansas";
-    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/258554e0-7d5c-40cd-a6a2-80d5eb9fdd2f.woff2") format("woff2");
-    font-weight:600;
-    font-style:normal;
-    font-display:swap;
-  }
-
-@font-face{
-    font-family:"Sohne Buch";
-    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/0976f15f-54f3-4c7c-a261-c8a91b64dbfb.woff2") format("woff2");
-    font-weight:400;
-    font-style:normal;
-    font-display:swap;
-  }
-
-@font-face{
-    font-family:"Sohne Kraftig";
-    src:url("https://shareinmicrosite.blob.core.windows.net/abundance/cab3babc-20c2-4152-bcf5-dc28aa6f2df4.woff2") format("woff2");
-    font-weight:600;
-    font-style:normal;
-    font-display:swap;
-  }
-
 :root{
-    /* ========================================
-   ABV2 COLOUR TOKENS - SOLID
-======================================== */
-    --abv2-bg:var(--abv2-white);
-    --abv2-white:#ffffff;
-    --abv2-white-rgb:255, 255, 255;
+  /* ========================================
+     ABV2 COLOUR TOKENS
+     ======================================== */
+  --abv2-white:#ffffff; /* Sass existing: $pure-white / $abundance-neutral-000 */
+  --abv2-white-rgb:255, 255, 255; /* Sass needed: $abv2-white-rgb, or use rgba($pure-white, <alpha>) directly */
 
-    --abv2-ink:#282827;
-    --abv2-ink-rgb:40, 40, 39;
+  --abv2-ink:#363635; /* Sass existing: $abundance-neutral-900 / $si-color-text-primary */
+  --abv2-ink-rgb:54, 54, 53; /* Sass needed: $abv2-ink-rgb, or use rgba($abundance-neutral-900, <alpha>) directly */
+  --abv2-text:#4d4a46; /* Sass existing: $abundance-neutral-800 / $si-color-text-secondary */
 
-    --abv2-text:#4d4a46;
-    --abv2-grey:#71716e;
-    --abv2-grey-light:#e9e4e3;
-    --abv2-grey-very-light:#f1eeed;
-    --abv2-grey-ui:#e2e2e2;
+  --abv2-grey-light:#e9e4e3; /* Sass existing: $abundance-neutral-300 / $si-color-border-primary */
+  --abv2-grey-very-light:#f1eeed; /* Sass existing: $abundance-neutral-200 */
+  --abv2-grey-ui:#e2e2e2; /* Sass existing: $abundance-neutral-400 / $si-color-border-secondary */
 
-    --abv2-pink:#f27fae;
-    --abv2-pink-rgb:242, 127, 174;
-    --abv2-pink-dark:#c1658b;
-    --abv2-pink-light:#f7d9e8;
+  --abv2-pink:#f27fae; /* Sass existing: $abundance-pink / $si-color-text-accent */
+  --abv2-pink-rgb:242, 127, 174; /* Sass needed: $abv2-pink-rgb, or use rgba($abundance-pink, <alpha>) directly */
+  --abv2-pink-light:#f7d9e8; /* Sass existing: $abundance-pink-light / $abundance-pink-surface */
 
-    --abv2-teal:#00a4b6;
-    --abv2-teal-rgb:0, 164, 182;
-    --abv2-teal-dark:#008391;
-    --abv2-teal-light:#4cbfcb;
-    --abv2-teal-very-light:#cdebf0;
+  --abv2-teal:#00a4b6; /* Sass existing: $abundance-cyan / $si-color-border-interactive */
+  --abv2-teal-rgb:0, 164, 182; /* Sass needed: $abv2-teal-rgb, or use rgba($abundance-cyan, <alpha>) directly */
+  --abv2-teal-light:#4cbfcb; /* Sass existing: $abundance-cyan-light */
+  --abv2-teal-very-light:#cdebf0; /* Sass existing: $abundance-cyan-surface */
 
-    --abv2-yellow:#ffb72c;
-    --abv2-yellow-rgb:255, 183, 44;
-    --abv2-yellow-dark:#cc9223;
-    --abv2-yellow-light:#ffeecd;
+  --abv2-yellow:#ffb72c; /* Sass existing: $abundance-yellow */
+  --abv2-yellow-rgb:255, 183, 44; /* Sass needed: $abv2-yellow-rgb, or use rgba($abundance-yellow, <alpha>) directly */
+  --abv2-yellow-light:#ffeecd; /* Sass existing: $abundance-yellow-light / $abundance-yellow-surface */
 
-    --abv2-green:#25ab2d;
-    --abv2-blue:#151943;
-    --abv2-indigo:#443668;
+  --abv2-green:#25ab2d; /* Sass existing: $abundance-green */
+  --abv2-blue:#151943; /* Sass existing: $abundance-blue / $si-color-surface-invert-primary */
 
-/* ========================================
-   ABV2 COLOUR TOKENS - ALPHA / OVERLAY
-======================================== */
-    --abv2-ink-a04:rgba(var(--abv2-ink-rgb), 0.04);
-    --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06);
-    --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08);
-    --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10);
-    --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12);
-    --abv2-ink-a14:rgba(var(--abv2-ink-rgb), 0.14);
-    --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18);
-    --abv2-ink-a35:rgba(var(--abv2-ink-rgb), 0.35);
-    --abv2-ink-a62:rgba(var(--abv2-ink-rgb), 0.62);
-    --abv2-ink-a72:rgba(var(--abv2-ink-rgb), 0.72);
-    --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78);
+  /* ========================================
+     ABV2 ALPHA TOKENS
+     ======================================== */
+  --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05); /* Sass needed: rgba($abundance-neutral-900, 0.05) or $abv2-ink-a05 */
+  --abv2-ink-a06:rgba(var(--abv2-ink-rgb), 0.06); /* Sass existing nearby: $si-color-button-surface-*-hover uses rgba($abundance-neutral-900, 0.06); add $abv2-ink-a06 if reused */
+  --abv2-ink-a08:rgba(var(--abv2-ink-rgb), 0.08); /* Sass needed: rgba($abundance-neutral-900, 0.08) or $abv2-ink-a08 */
+  --abv2-ink-a10:rgba(var(--abv2-ink-rgb), 0.10); /* Sass existing nearby: $si-color-button-surface-*-active uses rgba($abundance-neutral-900, 0.1); add $abv2-ink-a10 if reused */
+  --abv2-ink-a12:rgba(var(--abv2-ink-rgb), 0.12); /* Sass existing nearby: $si-card-primary-border uses rgba($abundance-neutral-900, 0.12); add $abv2-ink-a12 if reused */
+  --abv2-ink-a18:rgba(var(--abv2-ink-rgb), 0.18); /* Sass needed: rgba($abundance-neutral-900, 0.18) or $abv2-ink-a18 */
+  --abv2-ink-a78:rgba(var(--abv2-ink-rgb), 0.78); /* Sass needed: rgba($abundance-neutral-900, 0.78) or $abv2-ink-a78 */
 
-    --abv2-white-a06:rgba(var(--abv2-white-rgb), 0.06);
-    --abv2-white-a12:rgba(var(--abv2-white-rgb), 0.12);
-    --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14);
-    --abv2-white-a84:rgba(var(--abv2-white-rgb), 0.84);
+  --abv2-white-a08:rgba(var(--abv2-white-rgb), 0.08); /* Sass needed: rgba($pure-white, 0.08) or $abv2-white-a08 */
+  --abv2-white-a14:rgba(var(--abv2-white-rgb), 0.14); /* Sass needed: rgba($pure-white, 0.14) or $abv2-white-a14 */
+  --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16); /* Sass needed: rgba($pure-white, 0.16) or $abv2-white-a16 */
+  --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18); /* Sass needed: rgba($pure-white, 0.18) or $abv2-white-a18 */
+  --abv2-white-a20:rgba(var(--abv2-white-rgb), 0.20); /* Sass needed: rgba($pure-white, 0.20) or $abv2-white-a20 */
+  --abv2-white-a22:rgba(var(--abv2-white-rgb), 0.22); /* Sass needed: rgba($pure-white, 0.22) or $abv2-white-a22 */
+  --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28); /* Sass needed: rgba($pure-white, 0.28) or $abv2-white-a28 */
+  --abv2-white-a62:rgba(var(--abv2-white-rgb), 0.62); /* Sass needed: rgba($pure-white, 0.62) or $abv2-white-a62 */
+  --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72); /* Sass existing nearby: $si-color-border-invert-primary uses rgba($pure-white, 0.72); add $abv2-white-a72 if reused */
 
-    --abv2-pink-a07:rgba(var(--abv2-pink-rgb), 0.07);
-    --abv2-pink-a08:rgba(var(--abv2-pink-rgb), 0.08);
-    --abv2-pink-a12:rgba(var(--abv2-pink-rgb), 0.12);
-    --abv2-pink-a18:rgba(var(--abv2-pink-rgb), 0.18);
-    --abv2-pink-a45:rgba(var(--abv2-pink-rgb), 0.45);
-    --abv2-pink-a62:rgba(var(--abv2-pink-rgb), 0.62);
+  --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05); /* Sass needed: rgba($abundance-pink, 0.05) or $abv2-pink-a05 */
+  --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34); /* Sass needed: rgba($abundance-pink, 0.34) or $abv2-pink-a34 */
+  --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06); /* Sass needed: rgba($abundance-cyan, 0.06) or $abv2-teal-a06 */
+  --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22); /* Sass needed: rgba($abundance-cyan, 0.22) or $abv2-teal-a22 */
+  --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38); /* Sass needed: rgba($abundance-cyan, 0.38) or $abv2-teal-a38 */
+  --abv2-yellow-a24:rgba(var(--abv2-yellow-rgb), 0.24); /* Sass needed: rgba($abundance-yellow, 0.24) or $abv2-yellow-a24 */
 
-    --abv2-teal-a10:rgba(var(--abv2-teal-rgb), 0.10);
-    --abv2-teal-a12:rgba(var(--abv2-teal-rgb), 0.12);
-    --abv2-teal-a16:rgba(var(--abv2-teal-rgb), 0.16);
+  --abv2-modal-backdrop:rgba(38, 38, 37, 0.42); /* Sass needed: $abv2-modal-backdrop; no exact existing config variable */
 
-    --abv2-yellow-a14:rgba(var(--abv2-yellow-rgb), 0.14);
-    --abv2-yellow-a20:rgba(var(--abv2-yellow-rgb), 0.20);
+  /* ========================================
+     ABV2 SEMANTIC TOKENS
+     ======================================== */
+  --abv2-border-subtle:var(--abv2-ink-a08); /* Sass needed: $abv2-border-subtle: rgba($abundance-neutral-900, 0.08) */
+  --abv2-border-soft:var(--abv2-ink-a10); /* Sass needed: $abv2-border-soft: rgba($abundance-neutral-900, 0.10) */
+  --abv2-border-default:var(--abv2-ink-a12); /* Sass needed: $abv2-border-default: rgba($abundance-neutral-900, 0.12) */
 
+  --abv2-shadow-default:var(--abv2-ink-a06); /* Sass needed: $abv2-shadow-default: rgba($abundance-neutral-900, 0.06) */
+  --abv2-shadow-card:var(--abv2-ink-a08); /* Sass needed: $abv2-shadow-card: rgba($abundance-neutral-900, 0.08) */
 
-/* ========================================
-   ABV2 COLOUR TOKENS - ALPHA EXTENSIONS
-======================================== */
-    --abv2-ink-a05:rgba(var(--abv2-ink-rgb), 0.05);
-    --abv2-ink-a09:rgba(var(--abv2-ink-rgb), 0.09);
-    --abv2-ink-a22:rgba(var(--abv2-ink-rgb), 0.22);
-    --abv2-ink-a34:rgba(var(--abv2-ink-rgb), 0.34);
-    --abv2-ink-a64:rgba(var(--abv2-ink-rgb), 0.64);
-    --abv2-ink-a68:rgba(var(--abv2-ink-rgb), 0.68);
-    --abv2-ink-a74:rgba(var(--abv2-ink-rgb), 0.74);
-    --abv2-ink-a80:rgba(var(--abv2-ink-rgb), 0.80);
-    --abv2-ink-a82:rgba(var(--abv2-ink-rgb), 0.82);
+  /* ========================================
+     ABV2 SPACING TOKENS
+     ======================================== */
+  --abv2-space-8:8px; /* Sass existing: $spacer-3xs */
+  --abv2-space-12:12px; /* Sass partial match: $spacer-mobile-xs; Sass needed for desktop/generic exact 12px: $abv2-space-12 */
+  --abv2-space-16:16px; /* Sass existing: $spacer-2xs */
+  --abv2-space-20:20px; /* Sass needed: $abv2-space-20 */
+  --abv2-space-24:24px; /* Sass existing: $spacer-xs */
+  --abv2-space-28:28px; /* Sass needed: $abv2-space-28 */
+  --abv2-space-32:32px; /* Sass existing: $spacer-sm */
+  --abv2-space-64:64px; /* Sass existing: $spacer-lg */
 
-    --abv2-white-a16:rgba(var(--abv2-white-rgb), 0.16);
-    --abv2-white-a18:rgba(var(--abv2-white-rgb), 0.18);
-    --abv2-white-a28:rgba(var(--abv2-white-rgb), 0.28);
-    --abv2-white-a72:rgba(var(--abv2-white-rgb), 0.72);
-    --abv2-white-a82:rgba(var(--abv2-white-rgb), 0.82);
-    --abv2-white-a88:rgba(var(--abv2-white-rgb), 0.88);
-    --abv2-white-a90:rgba(var(--abv2-white-rgb), 0.90);
+  /* ========================================
+     ABV2 TYPE TOKENS
+     ======================================== */
+  --abv2-serif:"New Kansas", Georgia, serif; /* Sass existing: $si-font-secondary */
+  --abv2-sans:"Sohne Buch", Arial, sans-serif; /* Sass existing: $si-font-primary */
+  --abv2-ui:"Sohne Kraftig", Arial, sans-serif; /* Sass existing: $si-font-tertiary */
 
-    --abv2-pink-a05:rgba(var(--abv2-pink-rgb), 0.05);
-    --abv2-pink-a06:rgba(var(--abv2-pink-rgb), 0.06);
-    --abv2-pink-a10:rgba(var(--abv2-pink-rgb), 0.10);
-    --abv2-pink-a13:rgba(var(--abv2-pink-rgb), 0.13);
-    --abv2-pink-a16:rgba(var(--abv2-pink-rgb), 0.16);
-    --abv2-pink-a24:rgba(var(--abv2-pink-rgb), 0.24);
-    --abv2-pink-a34:rgba(var(--abv2-pink-rgb), 0.34);
-    --abv2-pink-a35:rgba(var(--abv2-pink-rgb), 0.35);
-    --abv2-pink-a70:rgba(var(--abv2-pink-rgb), 0.70);
+  /* ========================================
+     ABV2 SHAPE / MEDIA TOKENS
+     ======================================== */
+  --abv2-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E"); /* Sass needed: $abv2-dot-mask or keep as component asset literal */
 
-    --abv2-teal-a04:rgba(var(--abv2-teal-rgb), 0.04);
-    --abv2-teal-a06:rgba(var(--abv2-teal-rgb), 0.06);
-    --abv2-teal-a15:rgba(var(--abv2-teal-rgb), 0.15);
-    --abv2-teal-a22:rgba(var(--abv2-teal-rgb), 0.22);
-    --abv2-teal-a38:rgba(var(--abv2-teal-rgb), 0.38);
-
-    --abv2-yellow-a08:rgba(var(--abv2-yellow-rgb), 0.08);
-    --abv2-yellow-a12:rgba(var(--abv2-yellow-rgb), 0.12);
-    --abv2-yellow-a16:rgba(var(--abv2-yellow-rgb), 0.16);
-    --abv2-yellow-a18:rgba(var(--abv2-yellow-rgb), 0.18);
-    --abv2-yellow-a22:rgba(var(--abv2-yellow-rgb), 0.22);
-    --abv2-yellow-a94:rgba(var(--abv2-yellow-rgb), 0.94);
-
-/* ========================================
-   ABV2 COLOUR TOKENS - SEMANTIC ALIASES
-======================================== */
-    --abv2-border-subtle:var(--abv2-ink-a08);
-    --abv2-border-soft:var(--abv2-ink-a10);
-    --abv2-border-default:var(--abv2-ink-a12);
-    --abv2-border-strong:var(--abv2-ink-a14);
-    --abv2-border-accent:var(--abv2-pink-a45);
-
-    --abv2-shadow-soft:var(--abv2-ink-a04);
-    --abv2-shadow-default:var(--abv2-ink-a06);
-    --abv2-shadow-card:var(--abv2-ink-a08);
-
-    --abv2-overlay-soft:var(--abv2-white-a12);
-    --abv2-overlay-soft-strong:var(--abv2-white-a14);
-    --abv2-overlay-contrast:var(--abv2-white-a84);
-
-    --abv2-cta-hover-bg:var(--abv2-pink-a08);
-    --abv2-cta-hover-bg-soft:var(--abv2-pink-a07);
-    --abv2-space-2:2px;
-    --abv2-space-4:4px;
-    --abv2-space-8:8px;
-    --abv2-space-12:12px;
-    --abv2-space-16:16px;
-    --abv2-space-20:20px;
-    --abv2-space-24:24px;
-    --abv2-space-28:28px;
-    --abv2-space-32:32px;
-    --abv2-space-40:40px;
-    --abv2-space-48:48px;
-    --abv2-space-56:56px;
-    --abv2-space-64:64px;
-    --abv2-space-72:72px;
-    --abv2-space-84:84px;
-    --abv2-space-96:96px;
-    --abv2-wrap:1180px;
-    --abv2-wrap-narrow:980px;
-
-    --abv2-serif:"New Kansas", Georgia, serif;
-    --abv2-sans:"Sohne Buch", Arial, sans-serif;
-    --abv2-ui:"Sohne Kraftig", Arial, sans-serif;
-
-    /* Large / expressive */
-    --abv2-pink-clip-large:polygon(
-      0 18%,
-      30% 28%,
-      100% 0,
-      100% 82%,
-      70% 72%,
-      0 100%
-    );
-
-    --abv2-teal-clip-large:polygon(
-      0 12%,
-      34% 24%,
-      100% 0,
-      100% 82%,
-      66% 72%,
-      0 100%
-    );
-
-    /* Small / calmer */
-    --abv2-pink-clip-small:polygon(
-      0 12%,
-      30% 20%,
-      100% 0,
-      100% 88%,
-      70% 80%,
-      0 100%
-    );
-
-    --abv2-teal-clip-small:polygon(
-      0 10%,
-      34% 18%,
-      100% 0,
-      100% 88%,
-      66% 80%,
-      0 100%
-    );
-
-    /* Mobile large — stronger */
---abv2-pink-clip-large-mobile:polygon(
-  0 9%,
-  28% 15%,
-  100% 0,
-  100% 91%,
-  72% 85%,
-  0 100%
-);
-
---abv2-teal-clip-large-mobile:polygon(
-  0 8%,
-  32% 14%,
-  100% 0,
-  100% 91%,
-  68% 85%,
-  0 100%
-);
-
-/* Mobile small — stronger, but still calmer */
---abv2-pink-clip-small-mobile:polygon(
-  0 7%,
-  28% 12%,
-  100% 0,
-  100% 93%,
-  72% 88%,
-  0 100%
-);
-
---abv2-teal-clip-small-mobile:polygon(
-  0 6%,
-  32% 11%,
-  100% 0,
-  100% 93%,
-  68% 88%,
-  0 100%
-);
-
-    /* --- MEDIUM CLIP SHAPES (condensed desktop) --- */
-
-
---abv2-pink-clip-large-medium:polygon(
-  0 16%,
-  30% 24%,
-  100% 0,
-  100% 84%,
-  70% 76%,
-  0 100%
-);
-
-    --abv2-teal-clip-large-medium:polygon(
-  0 12%,
-  34% 20%,
-  100% 0,
-  100% 84%,
-  66% 76%,
-  0 100%
-);
-
-    /* Small / calmer */
-    --abv2-pink-clip-small-medium:polygon(
-      0 12%,
-      30% 20%,
-      100% 0,
-      100% 88%,
-      70% 80%,
-      0 100%
-    );
-
-    --abv2-teal-clip-small-medium:polygon(
-      0 10%,
-      34% 18%,
-      100% 0,
-      100% 88%,
-      66% 80%,
-      0 100%
-    );
-
-
-    --abv2-dot-mask:url("data:image/svg+xml,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.3243%20200C174.509%20200%20190.531%20154.684%20198.649%20100.137C209.406%2027.8664%20154.063%20-3.34294%2099.3243%200.282052C35.8709%204.47904%200%2044.9903%200%20100.137C0%20155.285%2023.2712%20200%2099.3243%20200Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
-
-    --abv2-mobile-gutter:24px;
-    --abv2-mobile-copy-rail:392px;
-    --abv2-mobile-hero-art:500px;
-    --abv2-mobile-investment-tile:168px;
-    --abv2-mobile-menu-chip-h:32px;
-    --abv2-mobile-menu-chip-pad-x:14px;
-    --abv2-editorial-rail:760px;
-    --abv2-editorial-copy:58ch;
-  }
+}

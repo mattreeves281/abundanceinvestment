@@ -1,0 +1,65 @@
+/* ========================================
+   COMPONENT: abv2-card
+   Shared editorial card shell
+   ======================================== */
+
+.abv2-card{
+  position:relative;
+    overflow:hidden;
+  border:1.5px solid var(--abv2-border-default);
+  border-radius:24px;
+  background:var(--abv2-white);
+  box-shadow:0 10px 30px var(--abv2-ink-a05);
+}
+
+.abv2-card__inner{
+  padding:var(--abv2-space-24);
+}
+
+.abv2-card__eyebrow{
+  display:inline-block;
+  margin:0 0 var(--abv2-space-12);
+  padding:var(--abv2-space-4) var(--abv2-space-12);
+  border-radius:999px;
+  background:var(--abv2-teal-a10);
+  color:var(--abv2-teal-dark);
+}
+
+// .abv2-card__eyebrow type removed. Instead use si-meta plus the appropriate SI/UAT text colour helper.
+
+.abv2-card__eyebrow--compare{
+  background:var(--abv2-teal-a12);
+  color:var(--abv2-teal-dark);
+}
+
+.abv2-card__eyebrow--risk{
+  background:var(--abv2-pink-a12);
+  color:var(--abv2-pink-dark);
+}
+
+.abv2-card__eyebrow--data{
+  background:var(--abv2-yellow-a16);
+  color:var(--abv2-yellow-dark);
+}
+
+.abv2-card__title{
+  margin:0 0 var(--abv2-space-12);
+}
+
+// .abv2-card__title type removed. Instead use si-heading-3 or si-heading-4.
+
+.abv2-card__intro{
+  margin:0;
+  max-width:68ch;
+}
+
+// .abv2-card__intro type removed. Instead use si-body-lg or si-body-md.
+
+/* External editorial card rhythm */
+.abv2-card{
+  margin-block:var(--abv2-space-32);
+}
+
+.abv2-card__inner + .abv2-card__inner{
+  padding-top:0;
+}

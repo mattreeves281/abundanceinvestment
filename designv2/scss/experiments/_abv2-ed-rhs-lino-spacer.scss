@@ -1,0 +1,64 @@
+/* ========================================
+   COMPONENT: abv2-ed-rhs-lino-spacer
+   Editorial RHS decorative lino spacer
+   ======================================== */
+
+.abv2-ed-rhs-lino-spacer{
+  position:relative;
+  width:min(100%, 980px);
+  height:180px;
+  margin:var(--abv2-space-20) auto -42px;
+  pointer-events:none;
+}
+
+.abv2-ed-rhs-lino-spacer__blob{
+  position:absolute;
+  top:-8px;
+  right:-52px;
+  width:360px;
+  aspect-ratio:1 / 1;
+}
+
+.abv2-ed-rhs-lino-spacer__blob::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:var(--abv2-teal);
+  -webkit-mask-image:var(--abv2-dot-mask);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+  mask-image:var(--abv2-dot-mask);
+  mask-repeat:no-repeat;
+  mask-position:center;
+  mask-size:contain;
+}
+
+.abv2-ed-rhs-lino-spacer__blob--pink::before{
+  background:var(--abv2-pink);
+}
+
+.abv2-ed-rhs-lino-spacer__blob--yellow::before{
+  background:var(--abv2-yellow);
+}
+
+.abv2-ed-rhs-lino-spacer__lino{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
+  width:52%;
+  max-width:180px;
+  height:auto;
+  object-fit:contain;
+  opacity:.92;
+  display:block;
+  transform:translate(-50%, -52%);
+}
+
+@media (max-width:759px){
+  .abv2-ed-rhs-lino-spacer{
+    display:none;
+  }
+}
