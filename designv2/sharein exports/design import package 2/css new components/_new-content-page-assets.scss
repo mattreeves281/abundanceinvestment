@@ -1,0 +1,225 @@
+/* =========================================================
+   ABUNDANCE v2 — Generic interactive link card
+   Used for editorial related links / follow-on reading.
+   ========================================================= */
+
+.abundance-link-card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:var(--abv2-space-20, 20px) var(--abv2-space-20, 20px) var(--abv2-space-16, 16px); /* Sass: $abundance-space-20; $spacer-2xs */
+  border:1.5px solid var(--abv2-border-subtle); /* Sass: $abundance-border-subtle */
+  border-radius:18px;
+  background:var(--abv2-white); /* Sass: $pure-white */
+  color:inherit;
+  text-decoration:none;
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background-color .18s ease;
+}
+
+.abundance-link-card:hover,
+.abundance-link-card:focus-visible{
+  transform:translateY(-1px);
+  border-color:var(--abv2-pink-a34); /* Sass: $abundance-pink-a34 */
+  box-shadow:0 10px 24px var(--abv2-shadow-default); /* Sass: $abundance-shadow-default */
+  text-decoration:none;
+}
+
+.abundance-link-card:focus-visible{
+  outline:2px solid var(--abv2-pink); /* Sass: $abundance-pink */
+  outline-offset:3px;
+}
+
+.abundance-link-card .abundance-action-text{
+  display:block;
+  margin-top:auto;
+  padding-top:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+}
+
+@media (max-width:767px){
+  .abundance-link-card{
+    border-radius:16px;
+  }
+}
+
+
+
+/* =========================================================
+   ABUNDANCE v2 — Generic chip/pill link
+   Used for jump links, tag links, compact navigation.
+   ========================================================= */
+
+.abundance-chip-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:var(--abv2-space-12, 12px) var(--abv2-space-16, 16px); /* Sass: $abundance-space-12; $spacer-2xs */
+  border:1.5px solid var(--abv2-border-soft); /* Sass: $abundance-border-soft */
+  border-radius:999px;
+  background:var(--abv2-white); /* Sass: $pure-white */
+  color:var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
+  text-decoration:none;
+  transition:
+    border-color .18s ease,
+    background-color .18s ease,
+    color .18s ease;
+}
+
+.abundance-chip-link:hover,
+.abundance-chip-link:focus-visible{
+  border-color:var(--abv2-teal-a38); /* Sass: $abundance-teal-a38 */
+  background:var(--abv2-teal-a06); /* Sass: $abundance-teal-a06 */
+  color:var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+  text-decoration:none;
+}
+
+.abundance-chip-link:focus-visible{
+  outline:2px solid var(--abv2-teal); /* Sass: $abundance-cyan */
+  outline-offset:3px;
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Warning/checklist list
+   Uses colour-card and blob helpers for visual treatment.
+   ========================================================= */
+
+.abundance-warning-list{
+  display:grid;
+  gap:var(--abv2-space-12, 12px); /* Sass: $abundance-space-12 */
+}
+
+.abundance-warning-list__item{
+  display:grid;
+  grid-template-columns:44px minmax(0, 1fr);
+  gap:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+  align-items:start;
+  min-height:0;
+}
+
+@media (max-width:767px){
+  .abundance-warning-list__item{
+    grid-template-columns:40px minmax(0, 1fr);
+    gap:var(--abv2-space-12, 12px); /* Sass: $abundance-space-12 */
+  }
+
+  .abundance-warning-list__item .abundance-card-blob-num{
+    width:40px;
+    height:40px;
+  }
+}
+
+.abundance-warning-list__item--soft{
+  background:var(--abv2-grey-very-light); /* Sass: $abundance-neutral-200 */
+}
+
+/* =========================================================
+   ABUNDANCE v2 — Inline disclaimer
+   Light caution/legal note for body-flow qualification.
+   ========================================================= */
+
+.abundance-inline-disclaimer{
+  padding:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+  border-left:4px solid var(--abv2-pink); /* Sass: $abundance-pink */
+  border-radius:0 14px 14px 0;
+  background:var(--abv2-grey-very-light); /* Sass: $abundance-neutral-200 */
+  color:var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
+}
+
+.abundance-inline-disclaimer strong{
+  display:inline;
+  color:var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+}
+
+
+
+/* =========================================================
+   ABUNDANCE v2 — Editorial content candidates
+   Small patterns used inside helper-led content blocks.
+   ========================================================= */
+
+.abundance-ed-note{
+  padding:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+  border-radius:18px;
+  background:var(--abv2-grey-very-light); /* Sass: $abundance-neutral-200 */
+  color:var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
+}
+
+.abundance-ed-note strong{
+  color:var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+}
+
+.abundance-ed-quote{
+  margin:0;
+  padding-left:var(--abv2-space-24, 24px); /* Sass: $spacer-xs */
+  border-left:4px solid var(--abv2-pink); /* Sass: $abundance-pink */
+}
+
+/* Serif quote treatment */
+.abundance-ed-quote > p{
+  font-family:var(--abv2-serif); /* Sass: $si-font-secondary */
+  font-weight:600;
+  font-size:1.75rem;
+  line-height:1.12;
+  letter-spacing:-0.025em;
+  color:var(--abv2-ink); /* Sass: $abundance-neutral-900 / $si-color-text-primary */
+}
+
+.abundance-ed-quote cite{
+  display:block;
+  margin-top:var(--abv2-space-12, 12px); /* Sass: $abundance-space-12 */
+  font-family:var(--abv2-sans); /* Sass: $si-font-primary */
+  font-style:normal;
+  color:var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
+}
+
+@media (max-width:767px){
+  .abundance-ed-quote{
+    padding-left:var(--abv2-space-16, 16px); /* Sass: $spacer-2xs */
+  }
+
+  .abundance-ed-quote > p{
+    font-size:1.5rem;
+    line-height:1.14;
+  }
+}
+
+/* Allow iframe use inside shared media frame */
+.abundance-media-frame iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* =========================================================
+   ABV2 editorial figure
+   Content-page media + caption treatment
+   ========================================================= */
+
+.abundance-ed-figure{
+  margin:0;
+}
+
+.abundance-media-frame--editorial{
+  width:100%;
+  max-width:760px;
+  aspect-ratio:1.55 / 1;
+  border-radius:36px;
+}
+
+.abundance-ed-figure figcaption{
+  max-width:760px;
+  margin-inline:auto;
+  color:var(--abv2-text); /* Sass: $abundance-neutral-800 / $si-color-text-secondary */
+}
+
+@media (max-width:767px){
+  .abundance-media-frame--editorial{
+    max-width:100%;
+    border-radius:28px;
+  }
+}
