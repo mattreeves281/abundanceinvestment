@@ -347,7 +347,7 @@
 .abundance-civic-related-link:focus {
   color: var(--abv2-ink);
   text-decoration: none;
-  border-color: var(--abv2-pink);
+  border-color: var(--abv2-pink-dark);
 }
 
 .abundance-civic-related-link:hover .abundance-civic-related-link__title,
@@ -634,4 +634,24 @@
 .abundance-council-uof-fill--green,
 .abundance-council-uof-fill--yellow {
   background: var(--abv2-teal);
+}
+
+/* Civic primary button override */
+.abundance-civic-test .si-btn--primary,
+.abundance-civic-home .si-btn--primary,
+.abundance-civic-page .si-btn--primary {
+  color: var(--abv2-pink-dark);
+  border-color: var(--abv2-pink-dark);
+  background-color: transparent;
+}
+
+.abundance-civic-test .si-btn--primary:hover,
+.abundance-civic-test .si-btn--primary:focus,
+.abundance-civic-home .si-btn--primary:hover,
+.abundance-civic-home .si-btn--primary:focus,
+.abundance-civic-page .si-btn--primary:hover,
+.abundance-civic-page .si-btn--primary:focus {
+  color: var(--abv2-white);
+  border-color: var(--abv2-pink-dark);
+  background-color: var(--abv2-pink-dark);
 }
