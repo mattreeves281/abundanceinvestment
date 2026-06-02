@@ -39,6 +39,10 @@
   color: var(--abv2-grey) !important;
 }
 
+.text-colour--civic-teal-dark {
+  color: var(--abv2-teal-dark) !important;
+}
+
 .bg-colour--civic-pink {
   background-color: var(--abv2-pink) !important;
 }
