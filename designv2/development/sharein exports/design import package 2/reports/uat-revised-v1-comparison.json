@@ -1,0 +1,5033 @@
+{
+  "summary": {
+    "htmlClassCount": 251,
+    "auditedReferenceClassCount": 278,
+    "candidateClassCount": 4777,
+    "exactMatchCount": 209,
+    "fallbackCandidateCount": 31,
+    "unmatchedCount": 38,
+    "missingCustomPropertyCount": 99,
+    "changedCustomPropertyCount": 0,
+    "htmlTokenFunctionNeedsAuditCount": 3
+  },
+  "htmlTokenFunctionUsage": [
+    {
+      "function": "bar-chart row value/colour",
+      "occurrences": 10,
+      "tokens": [
+        "--abv2-bar-colour",
+        "--abv2-bar-text",
+        "--abv2-bar-value",
+        "--abv2-green",
+        "--abv2-indigo",
+        "--abv2-pink-light",
+        "--abv2-teal-light",
+        "--abv2-white",
+        "--abv2-yellow-light"
+      ],
+      "examples": [
+        "html/FINAL - homepage.html: --abv2-bar-value:74%; --abv2-bar-colour:var(--abv2-pink-light);",
+        "html/FINAL - homepage.html: --abv2-bar-value:58%; --abv2-bar-colour:var(--abv2-teal-light);",
+        "html/FINAL - homepage.html: --abv2-bar-value:41%; --abv2-bar-colour:var(--abv2-yellow-light);",
+        "html/FINAL - homepage.html: --abv2-bar-value:29%; --abv2-bar-colour:var(--abv2-indigo); --abv2-bar-text:var(--abv2-white);",
+        "html/FINAL - homepage.html: --abv2-bar-value:18%; --abv2-bar-colour:var(--abv2-green); --abv2-bar-text:var(--abv2-white);"
+      ]
+    },
+    {
+      "function": "pale surface background",
+      "occurrences": 1,
+      "tokens": [
+        "--abv2-grey-very-light"
+      ],
+      "examples": [
+        "html/FINAL - homepage.html: padding:14px 18px; border-radius:18px; background:var(--abv2-grey-very-light, #faf8f8);"
+      ]
+    },
+    {
+      "function": "separator border",
+      "occurrences": 31,
+      "tokens": [
+        "--abv2-border-soft",
+        "--abv2-border-subtle"
+      ],
+      "examples": [
+        "html/FINAL - homepage.html: border-bottom:1px solid var(--abv2-border-soft,#e2e2e2)",
+        "html/FINAL - homepage.html: border-top:1px solid var(--abv2-border-soft, #e2e2e2);",
+        "html/FINAL - buy.html: border-top:1px solid var(--abv2-border-subtle);"
+      ]
+    },
+    {
+      "function": "text colour --abv2-teal-dark",
+      "occurrences": 2,
+      "tokens": [
+        "--abv2-teal-dark"
+      ],
+      "examples": [
+        "html/FINAL - buy.html: color:var(--abv2-teal-dark);"
+      ]
+    },
+    {
+      "function": "text colour --abv2-yellow-dark",
+      "occurrences": 3,
+      "tokens": [
+        "--abv2-yellow-dark"
+      ],
+      "examples": [
+        "html/FINAL - buy.html: color:var(--abv2-yellow-dark);"
+      ]
+    },
+    {
+      "function": "text colour --bs-red",
+      "occurrences": 12,
+      "tokens": [
+        "--bs-red"
+      ],
+      "examples": [
+        "html/FINAL - buy.html: color:var(--bs-red);"
+      ]
+    }
+  ],
+  "htmlTokenFunctionCoverage": [
+    {
+      "function": "red/error text",
+      "htmlTokens": [
+        "--bs-red"
+      ],
+      "status": "covered",
+      "helpers": [
+        "text-danger"
+      ],
+      "notes": "HTML warning placeholders can be expressed with Bootstrap text-danger."
+    },
+    {
+      "function": "separator border",
+      "htmlTokens": [
+        "--abv2-border-subtle",
+        "--abv2-border-soft"
+      ],
+      "status": "covered",
+      "helpers": [
+        "si-horizontal-rule",
+        "border-top",
+        "border-bottom"
+      ],
+      "notes": "si-horizontal-rule is the closest Abundance helper; Bootstrap borders are also available for div-based separators."
+    },
+    {
+      "function": "pale neutral surface",
+      "htmlTokens": [
+        "--abv2-grey-very-light"
+      ],
+      "status": "covered",
+      "helpers": [
+        "bg-colour--neutral--100",
+        "body--offwhite",
+        "bg-light"
+      ],
+      "notes": "Covers the inline pale panel background function."
+    },
+    {
+      "function": "white text",
+      "htmlTokens": [
+        "--abv2-white"
+      ],
+      "status": "covered",
+      "helpers": [
+        "text-white",
+        "text-color--invert-primary"
+      ],
+      "notes": "Available for dark/coloured surfaces."
+    },
+    {
+      "function": "yellow action text",
+      "htmlTokens": [
+        "--abv2-yellow-dark"
+      ],
+      "status": "needs-audit",
+      "helpers": [
+        "text-warning"
+      ],
+      "notes": "Bootstrap text-warning exists if accepted as a compromise, but no exact Abundance yellow text helper was found."
+    },
+    {
+      "function": "teal action text",
+      "htmlTokens": [
+        "--abv2-teal-dark"
+      ],
+      "status": "needs-audit",
+      "helpers": [
+        "text-info"
+      ],
+      "notes": "Bootstrap text-info exists if accepted as a compromise, but no exact Abundance teal text helper was found."
+    },
+    {
+      "function": "bar-chart value and per-row colours",
+      "htmlTokens": [
+        "--abv2-bar-value",
+        "--abv2-bar-colour",
+        "--abv2-bar-text",
+        "--abv2-pink-light",
+        "--abv2-teal-light",
+        "--abv2-yellow-light",
+        "--abv2-indigo",
+        "--abv2-green"
+      ],
+      "status": "needs-audit",
+      "helpers": [
+        "abundance-bar-chart__bar",
+        "abundance-bar-chart__bar-fill",
+        "abundance-bar-chart__value"
+      ],
+      "notes": "Structural bar-chart classes are present under new names, but candidate CSS did not appear to consume value/colour variables or provide percentage/colour modifiers."
+    }
+  ],
+  "primitiveAudit": {
+    "type": [
+      {
+        "className": "body--xs",
+        "status": "present"
+      },
+      {
+        "className": "body--sm",
+        "status": "present"
+      },
+      {
+        "className": "body--md",
+        "status": "present"
+      },
+      {
+        "className": "body--lg",
+        "status": "present"
+      },
+      {
+        "className": "body--xl",
+        "status": "present"
+      },
+      {
+        "className": "si-heading-1",
+        "status": "present"
+      },
+      {
+        "className": "si-heading-2",
+        "status": "present"
+      },
+      {
+        "className": "si-heading-3",
+        "status": "present"
+      },
+      {
+        "className": "si-heading-4",
+        "status": "present"
+      },
+      {
+        "className": "si-heading-5",
+        "status": "present"
+      },
+      {
+        "className": "si-heading-6",
+        "status": "present"
+      },
+      {
+        "className": "label--xs",
+        "status": "present"
+      },
+      {
+        "className": "label--sm",
+        "status": "present"
+      },
+      {
+        "className": "label--md",
+        "status": "present"
+      },
+      {
+        "className": "label--lg",
+        "status": "present"
+      },
+      {
+        "className": "abundance-eyebrow",
+        "status": "present"
+      },
+      {
+        "className": "abundance-body-compact",
+        "status": "present"
+      },
+      {
+        "className": "abundance-action-text",
+        "status": "present"
+      },
+      {
+        "className": "abundance-stat",
+        "status": "present"
+      },
+      {
+        "className": "abundance-heading-display",
+        "status": "present"
+      },
+      {
+        "className": "abundance-card-copy",
+        "status": "missing"
+      }
+    ],
+    "cards": [
+      {
+        "className": "si-card",
+        "status": "present"
+      },
+      {
+        "className": "si-card--primary",
+        "status": "present"
+      },
+      {
+        "className": "si-card--secondary",
+        "status": "present"
+      },
+      {
+        "className": "si-card--tertiary",
+        "status": "present"
+      },
+      {
+        "className": "si-card--0",
+        "status": "present"
+      },
+      {
+        "className": "si-card--2xs",
+        "status": "present"
+      },
+      {
+        "className": "si-card--xs",
+        "status": "present"
+      },
+      {
+        "className": "si-card--sm",
+        "status": "present"
+      },
+      {
+        "className": "si-card--md",
+        "status": "present"
+      },
+      {
+        "className": "si-card--lg",
+        "status": "present"
+      },
+      {
+        "className": "si-card--no-border-radius",
+        "status": "present"
+      },
+      {
+        "className": "si-card--full-height",
+        "status": "present"
+      }
+    ],
+    "cardRenames": [
+      {
+        "oldClass": "abundance-card-soft",
+        "newClass": "abundance-card--soft",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-card-soft-bordered",
+        "newClass": "abundance-card--soft-bordered",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card",
+        "newClass": "abundance-card--color-card",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card-neutral",
+        "newClass": "abundance-card--color-neutral",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card-pink",
+        "newClass": "abundance-card--color-pink",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card-teal",
+        "newClass": "abundance-card--color-teal",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card-yellow",
+        "newClass": "abundance-card--color-yellow",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card-green",
+        "newClass": "abundance-card--color-green",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card-pink-light",
+        "newClass": "abundance-card--color-pink-light",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      },
+      {
+        "oldClass": "abundance-colour-card-teal-light",
+        "newClass": "abundance-card--color-teal-light",
+        "oldPresent": false,
+        "newPresent": true,
+        "status": "renamed"
+      }
+    ],
+    "notes": [
+      "abundance-card-copy is used in package HTML and was not found in the candidate CSS.",
+      "Type classes are generally present, but the machine check does not assert exact letter-spacing parity.",
+      "si-card variants are present, but the base shell should be visually audited because legacy rules also target si-card."
+    ]
+  },
+  "primitiveParity": [
+    {
+      "referenceClass": "body--xs",
+      "candidateClass": "body--xs",
+      "group": "type",
+      "status": "exact",
+      "expectedDeclarationCount": 7,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 7,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "body--sm",
+      "candidateClass": "body--sm",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 8,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [
+        {
+          "context": "@media(max-width:767px)",
+          "property": "line-height",
+          "expected": "1.45",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": ".006em",
+          "actual": "normal"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "body--md",
+      "candidateClass": "body--md",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 7,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": ".005em",
+          "actual": "normal"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "body--lg",
+      "candidateClass": "body--lg",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 7,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 5,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "line-height",
+          "expected": "1.55",
+          "actual": "1.5"
+        },
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": ".004em",
+          "actual": "normal"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "body--xl",
+      "candidateClass": "body--xl",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 7,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": ".002em",
+          "actual": "normal"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-heading-1",
+      "candidateClass": "si-heading-1",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 9,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": "-.03em",
+          "actual": ""
+        },
+        {
+          "context": "@media(max-width:767px)",
+          "property": "line-height",
+          "expected": ".94",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-heading-2",
+      "candidateClass": "si-heading-2",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 9,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": "-.03em",
+          "actual": ""
+        },
+        {
+          "context": "@media(max-width:767px)",
+          "property": "line-height",
+          "expected": ".96",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-heading-3",
+      "candidateClass": "si-heading-3",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 8,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": "-.03em",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-heading-4",
+      "candidateClass": "si-heading-4",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 8,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": "-.03em",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-heading-5",
+      "candidateClass": "si-heading-5",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 8,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": "-.03em",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-heading-6",
+      "candidateClass": "si-heading-6",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 8,
+      "candidateDeclarationCount": 7,
+      "matchingDeclarationCount": 6,
+      "missing": [
+        {
+          "context": "base",
+          "property": "letter-spacing",
+          "expected": "-.03em",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "label--xs",
+      "candidateClass": "label--xs",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 6,
+      "matchingDeclarationCount": 4,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "line-height",
+          "expected": "1.2",
+          "actual": "1"
+        },
+        {
+          "context": "base",
+          "property": "color",
+          "expected": "#363635",
+          "actual": "#4d4a46"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "label--sm",
+      "candidateClass": "label--sm",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 6,
+      "matchingDeclarationCount": 4,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "line-height",
+          "expected": "1.2",
+          "actual": "1"
+        },
+        {
+          "context": "base",
+          "property": "color",
+          "expected": "#363635",
+          "actual": "#4d4a46"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "label--md",
+      "candidateClass": "label--md",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 6,
+      "matchingDeclarationCount": 4,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "line-height",
+          "expected": "1.2",
+          "actual": "1"
+        },
+        {
+          "context": "base",
+          "property": "color",
+          "expected": "#363635",
+          "actual": "#4d4a46"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "label--lg",
+      "candidateClass": "label--lg",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 6,
+      "matchingDeclarationCount": 3,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "line-height",
+          "expected": "1.2",
+          "actual": "1"
+        },
+        {
+          "context": "base",
+          "property": "color",
+          "expected": "#363635",
+          "actual": "#4d4a46"
+        },
+        {
+          "context": "base",
+          "property": "font-size",
+          "expected": "1.125rem",
+          "actual": "1.25rem"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-eyebrow",
+      "candidateClass": "abundance-eyebrow",
+      "group": "type",
+      "status": "exact",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 6,
+      "matchingDeclarationCount": 6,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-body-compact",
+      "candidateClass": "abundance-body-compact",
+      "group": "type",
+      "status": "exact",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 6,
+      "matchingDeclarationCount": 6,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-action-text",
+      "candidateClass": "abundance-action-text",
+      "group": "type",
+      "status": "exact",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 6,
+      "matchingDeclarationCount": 6,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-stat",
+      "candidateClass": "abundance-stat",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 8,
+      "candidateDeclarationCount": 8,
+      "matchingDeclarationCount": 7,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-heading-display",
+      "candidateClass": "abundance-heading-display",
+      "group": "type",
+      "status": "differs",
+      "expectedDeclarationCount": 11,
+      "candidateDeclarationCount": 11,
+      "matchingDeclarationCount": 10,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "font-weight",
+          "expected": "600",
+          "actual": "700"
+        }
+      ],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-card-copy",
+      "candidateClass": "abundance-card-copy",
+      "group": "cards",
+      "status": "candidate-missing",
+      "expectedDeclarationCount": 4,
+      "candidateDeclarationCount": 0,
+      "matchingDeclarationCount": 0,
+      "missing": [
+        {
+          "context": "base",
+          "property": "font-family",
+          "expected": "\"sohne buch\",system-ui,-apple-system,blinkmacsystemfont,\"avenir next\",avenir,\"helvetica neue\",helvetica,ubuntu,roboto,noto,\"segoe ui\",arial,sans-serif",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "font-size",
+          "expected": "1.05rem",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "line-height",
+          "expected": "1.55",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "color",
+          "expected": "rgba(54,54,53,.78)",
+          "actual": ""
+        }
+      ],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card",
+      "candidateClass": "si-card",
+      "group": "cards",
+      "status": "matches-with-extra",
+      "expectedDeclarationCount": 6,
+      "candidateDeclarationCount": 14,
+      "matchingDeclarationCount": 6,
+      "missing": [],
+      "mismatched": [],
+      "extra": [
+        {
+          "context": "base",
+          "property": "background-color",
+          "value": "#fff"
+        },
+        {
+          "context": "base",
+          "property": "border",
+          "value": "1.5px solid rgba(54,54,53,.12)"
+        },
+        {
+          "context": "base",
+          "property": "border-radius",
+          "value": "24px"
+        },
+        {
+          "context": "base",
+          "property": "box-shadow",
+          "value": "0 10px 30px rgba(54,54,53,.05)"
+        },
+        {
+          "context": "base",
+          "property": "font-family",
+          "value": "\"sohne buch\",system-ui,-apple-system,blinkmacsystemfont,\"avenir next\",avenir,\"helvetica neue\",helvetica,ubuntu,roboto,noto,\"segoe ui\",arial,sans-serif"
+        },
+        {
+          "context": "base",
+          "property": "font-size",
+          "value": "1.05rem"
+        },
+        {
+          "context": "base",
+          "property": "line-height",
+          "value": "1.55"
+        },
+        {
+          "context": "base",
+          "property": "color",
+          "value": "rgba(54,54,53,.78)"
+        }
+      ]
+    },
+    {
+      "referenceClass": "si-card--primary",
+      "candidateClass": "si-card--primary",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 4,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 4,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--secondary",
+      "candidateClass": "si-card--secondary",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 5,
+      "matchingDeclarationCount": 5,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--tertiary",
+      "candidateClass": "si-card--tertiary",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 4,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 4,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--0",
+      "candidateClass": "si-card--0",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 2,
+      "candidateDeclarationCount": 2,
+      "matchingDeclarationCount": 2,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--2xs",
+      "candidateClass": "si-card--2xs",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 1,
+      "candidateDeclarationCount": 1,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--xs",
+      "candidateClass": "si-card--xs",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 1,
+      "candidateDeclarationCount": 1,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--sm",
+      "candidateClass": "si-card--sm",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 1,
+      "candidateDeclarationCount": 1,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--md",
+      "candidateClass": "si-card--md",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 1,
+      "candidateDeclarationCount": 1,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--lg",
+      "candidateClass": "si-card--lg",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 1,
+      "candidateDeclarationCount": 1,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--no-border-radius",
+      "candidateClass": "si-card--no-border-radius",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 1,
+      "candidateDeclarationCount": 1,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "si-card--full-height",
+      "candidateClass": "si-card--full-height",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 1,
+      "candidateDeclarationCount": 1,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-card-soft",
+      "candidateClass": "abundance-card--soft",
+      "group": "cards",
+      "status": "exact",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 5,
+      "matchingDeclarationCount": 5,
+      "missing": [],
+      "mismatched": [],
+      "extra": []
+    },
+    {
+      "referenceClass": "abundance-card-soft-bordered",
+      "candidateClass": "abundance-card--soft-bordered",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 2,
+      "candidateDeclarationCount": 5,
+      "matchingDeclarationCount": 1,
+      "missing": [],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "box-shadow",
+          "expected": "0 12px 34px rgba(54,54,53,.05)",
+          "actual": "0 10px 30px rgba(54,54,53,.05)"
+        }
+      ],
+      "extra": [
+        {
+          "context": "base",
+          "property": "background",
+          "value": "#fff"
+        },
+        {
+          "context": "base",
+          "property": "border-radius",
+          "value": "28px"
+        },
+        {
+          "context": "@media(max-width:767px)",
+          "property": "border-radius",
+          "value": "24px"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card",
+      "candidateClass": "abundance-card--color-card",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 4,
+      "candidateDeclarationCount": 3,
+      "matchingDeclarationCount": 2,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card-neutral",
+      "candidateClass": "abundance-card--color-neutral",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 3,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card-pink",
+      "candidateClass": "abundance-card--color-pink",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 2,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "background",
+          "expected": "#c1658b",
+          "actual": "#f27fae"
+        }
+      ],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card-teal",
+      "candidateClass": "abundance-card--color-teal",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 3,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card-yellow",
+      "candidateClass": "abundance-card--color-yellow",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 3,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card-green",
+      "candidateClass": "abundance-card--color-green",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 3,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card-pink-light",
+      "candidateClass": "abundance-card--color-pink-light",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 3,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "referenceClass": "abundance-colour-card-teal-light",
+      "candidateClass": "abundance-card--color-teal-light",
+      "group": "cards",
+      "status": "differs",
+      "expectedDeclarationCount": 5,
+      "candidateDeclarationCount": 4,
+      "matchingDeclarationCount": 2,
+      "missing": [
+        {
+          "context": "base",
+          "property": "min-height",
+          "expected": "160px",
+          "actual": ""
+        },
+        {
+          "context": "base",
+          "property": "padding",
+          "expected": "1rem",
+          "actual": ""
+        }
+      ],
+      "mismatched": [
+        {
+          "context": "base",
+          "property": "background",
+          "expected": "#00a4b6",
+          "actual": "#4cbfcb"
+        }
+      ],
+      "extra": [
+        {
+          "context": "base",
+          "property": "border",
+          "value": "none"
+        }
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "oldClass": "abundance-boxout",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-boxout--compact",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-boxout--teal",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-boxout--yellow",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-btn-white",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-stepped-progress",
+      "confidence": 0.059,
+      "source": "similarity",
+      "alternatives": [
+        "abundance-stepped-progress__step (0.033)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item__amount",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item__amount-grid",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-stepped-progress",
+      "confidence": 0.143,
+      "source": "similarity",
+      "alternatives": [
+        "abundance-stepped-progress__step (0.050)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item__main",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-list",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-step",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-blob-num",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-copy",
+      "family": "type/colour",
+      "exact": false,
+      "suggestedNewClass": "abundance-body-compact",
+      "confidence": 0.111,
+      "source": "similarity",
+      "alternatives": [
+        "body--lg (0.100)",
+        "body--md (0.100)",
+        "body--sm (0.100)",
+        "body--xl (0.100)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-chip-link",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "si-btn-group",
+      "confidence": 0.053,
+      "source": "similarity",
+      "alternatives": [
+        "si-btn (0.039)",
+        "si-btn-with-icon (0.038)",
+        "si-btn-back (0.022)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-figure",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-field-white",
+      "family": "forms",
+      "exact": false,
+      "suggestedNewClass": "si-form-row",
+      "confidence": 0.087,
+      "source": "similarity",
+      "alternatives": [
+        "si-form (0.083)",
+        "si-input-group (0.083)",
+        "si-form-hidden (0.080)",
+        "si-input-group-text (0.063)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-field-white--select",
+      "family": "forms",
+      "exact": false,
+      "suggestedNewClass": "si-form-password-button",
+      "confidence": 0.1,
+      "source": "similarity",
+      "alternatives": [
+        "si-input-button (0.071)",
+        "si-input-prefix (0.053)",
+        "si-form-hidden (0.043)",
+        "si-input-help-block (0.029)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-field-white__prefix",
+      "family": "forms",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-hero-art-nudge",
+      "family": "other",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-link-card",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "si-btn--block",
+      "confidence": 0.053,
+      "source": "similarity",
+      "alternatives": [
+        "si-btn-group (0.045)",
+        "si-btn-with-icon (0.034)",
+        "si-btn-back (0.020)",
+        "si-btn (0.018)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--case-square",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--editorial",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--square",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--wide",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-mock-spacer",
+      "family": "other",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__list",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-step-num",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-step-num--lg",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-support-link",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "si-btn",
+      "confidence": 0.053,
+      "source": "similarity",
+      "alternatives": [
+        "si-btn-back (0.038)",
+        "si-btn-group (0.038)",
+        "si-btn-with-icon (0.030)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-warning-list",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-warning-list__item",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-warning-list__item--soft",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-colour--abundance-white-soft",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "bg-colour--yellow",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-footer-peak",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "bg-mask",
+      "confidence": 0.158,
+      "source": "similarity",
+      "alternatives": [
+        "img-responsive (0.067)",
+        "bg-mask--t-convex (0.063)",
+        "container-medium (0.063)",
+        "bg-cap (0.053)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__header",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-colour--yellow",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    }
+  ],
+  "fallbackCandidates": [
+    {
+      "oldClass": "abundance-bar-chart__fill",
+      "family": "data/tables",
+      "exact": false,
+      "suggestedNewClass": "abundance-bar-chart__bar-fill",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-bar-chart__track",
+      "family": "data/tables",
+      "exact": false,
+      "suggestedNewClass": "abundance-bar-chart__bar",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-soft",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--soft",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-soft-bordered",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--soft-bordered",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-card",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "abundance-colour-card-green",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-green",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-neutral",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-neutral",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-pink",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-pink",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-pink-light",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-pink-light",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-teal",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-teal",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-teal-light",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-teal-light",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-yellow",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-yellow",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-band",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-band--loose",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-band--tight",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-note",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-note",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-quote",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-quote",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-inline-disclaimer",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-disclaimer",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice--pink",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card--primary",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice--teal",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card--secondary",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__card",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__label",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__input",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__input",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__rule",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__indicator",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__tick",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__tick",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-blob--abundance-dot",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-blob",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-bottom",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-mask--bottom",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-ed-fall",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers--fall-left",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-ed-right",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers--rise-right",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-ed-rise",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers--rise-left",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-top",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-mask--top",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    }
+  ],
+  "missingCustomProperties": [
+    "--abv2-bg",
+    "--abv2-blue",
+    "--abv2-border-default",
+    "--abv2-border-soft",
+    "--abv2-border-strong",
+    "--abv2-border-subtle",
+    "--abv2-green",
+    "--abv2-grey",
+    "--abv2-grey-light",
+    "--abv2-grey-ui",
+    "--abv2-grey-very-light",
+    "--abv2-indigo",
+    "--abv2-ink",
+    "--abv2-ink-a04",
+    "--abv2-ink-a05",
+    "--abv2-ink-a06",
+    "--abv2-ink-a08",
+    "--abv2-ink-a10",
+    "--abv2-ink-a12",
+    "--abv2-ink-a14",
+    "--abv2-ink-a18",
+    "--abv2-ink-a35",
+    "--abv2-ink-a62",
+    "--abv2-ink-a72",
+    "--abv2-ink-a78",
+    "--abv2-ink-rgb",
+    "--abv2-pink",
+    "--abv2-pink-a05",
+    "--abv2-pink-a07",
+    "--abv2-pink-a08",
+    "--abv2-pink-a12",
+    "--abv2-pink-a18",
+    "--abv2-pink-a34",
+    "--abv2-pink-a45",
+    "--abv2-pink-a62",
+    "--abv2-pink-dark",
+    "--abv2-pink-light",
+    "--abv2-pink-rgb",
+    "--abv2-route-accent",
+    "--abv2-route-bg",
+    "--abv2-sans",
+    "--abv2-serif",
+    "--abv2-shadow-card",
+    "--abv2-shadow-default",
+    "--abv2-shadow-soft",
+    "--abv2-space-10",
+    "--abv2-space-12",
+    "--abv2-space-14",
+    "--abv2-space-16",
+    "--abv2-space-2",
+    "--abv2-space-20",
+    "--abv2-space-22",
+    "--abv2-space-24",
+    "--abv2-space-28",
+    "--abv2-space-32",
+    "--abv2-space-4",
+    "--abv2-space-40",
+    "--abv2-space-48",
+    "--abv2-space-56",
+    "--abv2-space-6",
+    "--abv2-space-64",
+    "--abv2-space-72",
+    "--abv2-space-8",
+    "--abv2-space-84",
+    "--abv2-space-96",
+    "--abv2-teal",
+    "--abv2-teal-a06",
+    "--abv2-teal-a10",
+    "--abv2-teal-a12",
+    "--abv2-teal-a16",
+    "--abv2-teal-a22",
+    "--abv2-teal-a38",
+    "--abv2-teal-dark",
+    "--abv2-teal-light",
+    "--abv2-teal-rgb",
+    "--abv2-teal-very-light",
+    "--abv2-text",
+    "--abv2-ui",
+    "--abv2-white",
+    "--abv2-white-a06",
+    "--abv2-white-a08",
+    "--abv2-white-a12",
+    "--abv2-white-a14",
+    "--abv2-white-a16",
+    "--abv2-white-a18",
+    "--abv2-white-a20",
+    "--abv2-white-a22",
+    "--abv2-white-a28",
+    "--abv2-white-a62",
+    "--abv2-white-a72",
+    "--abv2-white-a84",
+    "--abv2-white-rgb",
+    "--abv2-yellow",
+    "--abv2-yellow-a14",
+    "--abv2-yellow-a20",
+    "--abv2-yellow-a24",
+    "--abv2-yellow-dark",
+    "--abv2-yellow-light",
+    "--abv2-yellow-rgb"
+  ],
+  "changedCustomProperties": [],
+  "mapping": [
+    {
+      "oldClass": "abundance-accordion--sm",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "abundance-accordion--sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-action-text",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "abundance-action-text",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-bar-chart",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "abundance-bar-chart",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-bar-chart--compact",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "abundance-bar-chart--compact",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-bar-chart__fill",
+      "family": "data/tables",
+      "exact": false,
+      "suggestedNewClass": "abundance-bar-chart__bar-fill",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-bar-chart__label",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "abundance-bar-chart__label",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-bar-chart__row",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "abundance-bar-chart__row",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-bar-chart__track",
+      "family": "data/tables",
+      "exact": false,
+      "suggestedNewClass": "abundance-bar-chart__bar",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-body-compact",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "abundance-body-compact",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-boxout",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-boxout--compact",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-boxout--teal",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-boxout--yellow",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-btn-white",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-stepped-progress",
+      "confidence": 0.059,
+      "source": "similarity",
+      "alternatives": [
+        "abundance-stepped-progress__step (0.033)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item__amount",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item__amount-grid",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-stepped-progress",
+      "confidence": 0.143,
+      "source": "similarity",
+      "alternatives": [
+        "abundance-stepped-progress__step (0.050)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-item__main",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-invest-list",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-buy-step",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-blob-num",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-copy",
+      "family": "type/colour",
+      "exact": false,
+      "suggestedNewClass": "abundance-body-compact",
+      "confidence": 0.111,
+      "source": "similarity",
+      "alternatives": [
+        "body--lg (0.100)",
+        "body--md (0.100)",
+        "body--sm (0.100)",
+        "body--xl (0.100)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-soft",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--soft",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-card-soft-bordered",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--soft-bordered",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-chip-link",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "si-btn-group",
+      "confidence": 0.053,
+      "source": "similarity",
+      "alternatives": [
+        "si-btn (0.039)",
+        "si-btn-with-icon (0.038)",
+        "si-btn-back (0.022)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-card",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "abundance-colour-card-green",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-green",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-neutral",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-neutral",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-pink",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-pink",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-pink-light",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-pink-light",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-teal",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-teal",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-teal-light",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-teal-light",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-colour-card-yellow",
+      "family": "cards/panels",
+      "exact": false,
+      "suggestedNewClass": "abundance-card--color-yellow",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-band",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-band--loose",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-band--tight",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-figure",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-note",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-note",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-ed-quote",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-quote",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-eyebrow",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "abundance-eyebrow",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-field-white",
+      "family": "forms",
+      "exact": false,
+      "suggestedNewClass": "si-form-row",
+      "confidence": 0.087,
+      "source": "similarity",
+      "alternatives": [
+        "si-form (0.083)",
+        "si-input-group (0.083)",
+        "si-form-hidden (0.080)",
+        "si-input-group-text (0.063)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-field-white--select",
+      "family": "forms",
+      "exact": false,
+      "suggestedNewClass": "si-form-password-button",
+      "confidence": 0.1,
+      "source": "similarity",
+      "alternatives": [
+        "si-input-button (0.071)",
+        "si-input-prefix (0.053)",
+        "si-form-hidden (0.043)",
+        "si-input-help-block (0.029)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-field-white__prefix",
+      "family": "forms",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-heading-display",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "abundance-heading-display",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-hero-art-nudge",
+      "family": "other",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-inline-disclaimer",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "abundance-disclaimer",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-link-card",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "si-btn--block",
+      "confidence": 0.053,
+      "source": "similarity",
+      "alternatives": [
+        "si-btn-group (0.045)",
+        "si-btn-with-icon (0.034)",
+        "si-btn-back (0.020)",
+        "si-btn (0.018)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--case-square",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--editorial",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--square",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-media-frame--wide",
+      "family": "media/masks",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-mock-spacer",
+      "family": "other",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-related-link",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "abundance-related-link",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice--pink",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card--primary",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice--teal",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card--secondary",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__card",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__label",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__input",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__input",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__list",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__rule",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__indicator",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-route-choice__tick",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "abundance-radio-card__tick",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-stat",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "abundance-stat",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-step-num",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-step-num--lg",
+      "family": "buy-flow",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-support-link",
+      "family": "buttons/links",
+      "exact": false,
+      "suggestedNewClass": "si-btn",
+      "confidence": 0.053,
+      "source": "similarity",
+      "alternatives": [
+        "si-btn-back (0.038)",
+        "si-btn-group (0.038)",
+        "si-btn-with-icon (0.030)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-warning-list",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-warning-list__item",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "abundance-warning-list__item--soft",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "accordion-collapse",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "accordion-collapse",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "align-items-center",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "align-items-center",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "align-items-end",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "align-items-end",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "align-items-md-center",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "align-items-md-center",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "align-items-start",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "align-items-start",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-blob",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "bg-blob",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-blob--abundance-dot",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-blob",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-colour--abundance-white-soft",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "bg-colour--neutral--300",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "bg-colour--neutral--300",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-colour--primary",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "bg-colour--primary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-colour--secondary",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "bg-colour--secondary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-colour--white",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "bg-colour--white",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-colour--yellow",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "bg-mask",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-bottom",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-mask--bottom",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-ed-fall",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers--fall-left",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-ed-right",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers--rise-right",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-ed-rise",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-dividers--rise-left",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-footer-peak",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "bg-mask",
+      "confidence": 0.158,
+      "source": "similarity",
+      "alternatives": [
+        "img-responsive (0.067)",
+        "bg-mask--t-convex (0.063)",
+        "container-medium (0.063)",
+        "bg-cap (0.053)"
+      ],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-mask--abundance-top",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "abundance-mask--top",
+      "confidence": 0.9,
+      "source": "manual",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "bg-white",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "bg-white",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "body--lg",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "body--lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "body--md",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "body--md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "body--sm",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "body--sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "body--xl",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "body--xl",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "body--xs",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "body--xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "brand-blockquote",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "brand-blockquote",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "brand-primary",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "brand-primary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "brand-secondary",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "brand-secondary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-1000",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-1000",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-1100",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-1100",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-1200",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-1200",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-300",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-300",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-400",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-400",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-500",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-500",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-600",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-600",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-700",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-700",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-800",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-800",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "choke-900",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "choke-900",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-12",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-12",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-auto",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-auto",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-lg-6",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-lg-6",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-10",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-10",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-3",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-3",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-4",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-4",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-5",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-5",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-6",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-6",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-7",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-7",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-8",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-8",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-9",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-9",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-md-auto",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-md-auto",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "col-sm-6",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "col-sm-6",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "collapse",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "collapse",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "collapsed",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "collapsed",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "container",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "container",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "container-medium",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "container-medium",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "d-block",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "d-block",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "d-flex",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "d-flex",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "d-md-block",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "d-md-block",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "d-md-none",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "d-md-none",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "d-none",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "d-none",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "flex-center",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "flex-center",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "flex-column",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "flex-column",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "flex-md-row",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "flex-md-row",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "g-md-lg",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "g-md-lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gx-0",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gx-0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gx-2xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gx-2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gx-lg",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gx-lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gx-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gx-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gx-sm",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gx-sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gx-xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gx-xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gy-0",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gy-0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gy-2xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gy-2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gy-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gy-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gy-sm",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gy-sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "gy-xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "gy-xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "h-100",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "h-100",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "img-fluid",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "img-fluid",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "img-responsive",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "img-responsive",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "justify-content-center",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "justify-content-center",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "justify-content-md-between",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "justify-content-md-between",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "justify-content-md-start",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "justify-content-md-start",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "label--lg",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "label--lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "label--md",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "label--md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "label--sm",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "label--sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "label--xs",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "label--xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "m-b-spacer-0",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-b-spacer-0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-b-spacer-2xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-b-spacer-2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-b-spacer-3xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-b-spacer-3xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-b-spacer-lg",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-b-spacer-lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-b-spacer-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-b-spacer-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-b-spacer-xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-b-spacer-xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-l-spacer-auto",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-l-spacer-auto",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-r-spacer-2xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-r-spacer-2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-t-spacer-0",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-t-spacer-0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-t-spacer-2xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-t-spacer-2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-t-spacer-3xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-t-spacer-3xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-t-spacer-lg",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-t-spacer-lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-t-spacer-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-t-spacer-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-t-spacer-sm",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-t-spacer-sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-t-spacer-xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-t-spacer-xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "m-x--auto",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "m-x--auto",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "mx-0",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "mx-0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "mx-auto",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "mx-auto",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "mx-md-0",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "mx-md-0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "offset-md-1",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "offset-md-1",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-all-spacer-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-all-spacer-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-all-spacer-sm",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-all-spacer-sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-b-spacer-0",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-b-spacer-0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-b-spacer-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-b-spacer-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-t-spacer-2xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-t-spacer-2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-t-spacer-3xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-t-spacer-3xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-t-spacer-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-t-spacer-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-t-spacer-sm",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-t-spacer-sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-t-spacer-xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-t-spacer-xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-x-spacer-xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-x-spacer-xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-y-spacer-4xs",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-y-spacer-4xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-y-spacer-lg",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-y-spacer-lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-y-spacer-md",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-y-spacer-md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-y-spacer-sm",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-y-spacer-sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "p-y-spacer-xl",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "p-y-spacer-xl",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "position-relative",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "position-relative",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-1",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-1",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-2",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-2",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-lg-3",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-lg-3",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-lg-4",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-lg-4",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-md-2",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-md-2",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-md-3",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-md-3",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-md-4",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-md-4",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-sm-2",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-sm-2",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-sm-3",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-sm-3",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "row-cols-sm-auto",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "row-cols-sm-auto",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__body",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion-item__body",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__header",
+      "family": "editorial/accordion",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__header-btn",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion-item__header-btn",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__header-icon-container",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion-item__header-icon-container",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__header-interior",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion-item__header-interior",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__header-text-container",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion-item__header-text-container",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__heading",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion-item__heading",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-accordion-item__icon",
+      "family": "editorial/accordion",
+      "exact": true,
+      "suggestedNewClass": "si-accordion-item__icon",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-btn",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-btn--lg",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn--lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-btn--md",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn--md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn--primary",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn--primary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-btn--secondary",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn--secondary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-btn--sm",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn--sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn--tertiary",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn--tertiary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn--wrap",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn--wrap",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn-group",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn-group",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn-group--space-between",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn-group--space-between",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn-group--stretch",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn-group--stretch",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn-with-icon",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn-with-icon",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-btn-with-icon--before",
+      "family": "buttons/links",
+      "exact": true,
+      "suggestedNewClass": "si-btn-with-icon--before",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-card--0",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--0",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--2xs",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--full-height",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--full-height",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--lg",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--md",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--md",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-card--no-border-radius",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--no-border-radius",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--primary",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--primary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--secondary",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--secondary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-card--sm",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--tertiary",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--tertiary",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-card--xs",
+      "family": "cards/panels",
+      "exact": true,
+      "suggestedNewClass": "si-card--xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-choice-form-group",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-choice-form-group",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-choice-form-group__input",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-choice-form-group__input",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-choice-form-group__label",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-choice-form-group__label",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-choice-form-group__labels-container",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-choice-form-group__labels-container",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-fieldset",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-fieldset",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-fieldset__input-container",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-fieldset__input-container",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-fieldset__input-container--vertical",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-fieldset__input-container--vertical",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-fieldset__legend",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-fieldset__legend",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-form",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-form",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-form-group",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-form-group",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-form-row",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-form-row",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-heading-1",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "si-heading-1",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-heading-2",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "si-heading-2",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-heading-3",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "si-heading-3",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-heading-4",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "si-heading-4",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-heading-5",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "si-heading-5",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-heading-6",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "si-heading-6",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": false
+    },
+    {
+      "oldClass": "si-horizontal-rule",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-horizontal-rule",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-horizontal-rule--2xs",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-horizontal-rule--2xs",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-horizontal-rule--invert",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-horizontal-rule--invert",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-horizontal-rule--thick",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-horizontal-rule--thick",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-icon",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "si-icon",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-icon--sm",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "si-icon--sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-input",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-input",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-input-label",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-input-label",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-input-label--lg",
+      "family": "forms",
+      "exact": true,
+      "suggestedNewClass": "si-input-label--lg",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-table",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-table",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-table--borders-between-rows",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-table--borders-between-rows",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-table--sm",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-table--sm",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "si-table--sm-compact",
+      "family": "data/tables",
+      "exact": true,
+      "suggestedNewClass": "si-table--sm-compact",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "sr-only",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "sr-only",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-center",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "text-center",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-choke--640",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "text-choke--640",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-choke--960",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "text-choke--960",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-colour--yellow",
+      "family": "layout/helper",
+      "exact": false,
+      "suggestedNewClass": "",
+      "confidence": 0,
+      "source": "similarity",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-left",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "text-left",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-md-start",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "text-md-start",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-sm-end",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "text-sm-end",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "text-white",
+      "family": "layout/helper",
+      "exact": true,
+      "suggestedNewClass": "text-white",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "type-black",
+      "family": "type/colour",
+      "exact": true,
+      "suggestedNewClass": "type-black",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    },
+    {
+      "oldClass": "visible-desktop",
+      "family": "other",
+      "exact": true,
+      "suggestedNewClass": "visible-desktop",
+      "confidence": 1,
+      "source": "exact",
+      "alternatives": [],
+      "usedInHtml": true
+    }
+  ]
+}

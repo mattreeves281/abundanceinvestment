@@ -1,0 +1,148 @@
+<!--
+  Component: Payment example calculator card
+  Source: FINAL - homepage UAT mapped.html, lines 748-889
+  Notes: Extracted from the UAT-mapped FINAL HTML as a reusable implementation reference.
+-->
+
+<div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true"></div>
+
+<section class="position-relative p-y-spacer-lg bg-colour--pink" id="payment-example-helper-test">
+  <div class="choke-1200 m-x--auto p-x-spacer-xs">
+
+    <div class="row gx-lg gy-md align-items-center">
+
+      <div class="col-12 col-md-6">
+        <div class="choke-700">
+
+          <p class="abundance-eyebrow text-color--primary m-b-spacer-2xs">
+            Payment example
+          </p>
+
+          <h2 class="si-heading-2 text-color--primary m-b-spacer-0">
+            See what this investment could pay
+          </h2>
+
+          <p class="body--lg text-color--primary m-t-spacer-xs m-b-spacer-0 choke-500">
+            Enter an example amount to see the total interest that could be paid over the term.
+          </p>
+
+          <div class="m-t-spacer-md choke-500">
+            <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+              <label class="si-input-label" for="abv2-payment-example-amount-test">
+                Investment amount
+              </label>
+
+              <div class="si-input-wrapper">
+                <input
+                  class="si-input si-input--has-prefix"
+                  id="abv2-payment-example-amount-test"
+                  type="number"
+                  min="0"
+                  step="100"
+                  value="5000"
+                  inputmode="decimal"
+                  currency="GBP"
+                  aria-describedby=" "
+                  data-abv2-calc-input>
+                <div class="si-input-prefix">
+                  £
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="abundance-body-compact text-color--primary m-t-spacer-sm m-b-spacer-0 choke-500">
+            This is an example only. Actual payment dates and amounts depend on the investment terms.
+          </p>
+
+        </div>
+      </div>
+
+     <div class="col-12 col-md-6">
+  <article class="si-card abundance-card--soft p-all-spacer-md" aria-live="polite">
+
+    <p class="abundance-eyebrow brand-primary m-b-spacer-2xs">
+      Example return
+    </p>
+
+    <h3 class="si-heading-3 m-b-spacer-0">
+      Based on £5,000 invested
+    </h3>
+
+    <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+    <div style="border-top:1px solid #e2e2e2;">
+      <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+
+      <span class="abundance-eyebrow">
+        Total interest paid
+      </span>
+
+      <strong class="abundance-stat brand-primary d-block">
+        £1,212.50
+      </strong>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 gx-2xs gy-xs m-t-spacer-2xs">
+
+      <div>
+        <div style="border-top:1px solid #e2e2e2;">
+          <span class="abundance-eyebrow">
+            Income payment
+          </span>
+
+          <strong class="abundance-stat d-block">
+            £121.25
+          </strong>
+
+          <span class="abundance-body-compact d-block m-t-spacer-3xs">
+            Paid every six months
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <div style="border-top:1px solid #e2e2e2;">
+          <span class="abundance-eyebrow">
+            Capital repaid
+          </span>
+
+          <strong class="abundance-stat d-block">
+            £5,000
+          </strong>
+
+          <span class="abundance-body-compact d-block m-t-spacer-3xs">
+            At maturity
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div
+      class="m-t-spacer-sm"
+      style="
+        padding:14px 18px;
+        border-radius:18px;
+        background:#faf8f8;
+      ">
+      <div class="row row-cols-1 row-cols-sm-2 gx-2xs gy-2xs align-items-center">
+        <div>
+          <span class="abundance-body-compact">
+            Total returned over term
+          </span>
+        </div>
+
+        <div class="text-sm-end">
+          <strong class="si-heading-4">
+            £6,212.50
+          </strong>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</div>
+</section>
+
+  <div class="abundance-mask abundance-mask--bottom bg-colour--pink" aria-hidden="true"></div>
