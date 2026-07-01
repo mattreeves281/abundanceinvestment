@@ -10,6 +10,7 @@ Source files:
 
 See also:
 
+- [AI-facing design system briefing](DESIGN-SYSTEM-BRIEFING.md)
 - [Atomic to complete component crosswalk](ATOMIC-CROSSWALK.md)
 
 ## Page Scaffolds
