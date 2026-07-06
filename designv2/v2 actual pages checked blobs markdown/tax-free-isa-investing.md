@@ -35,6 +35,24 @@ Either pick your own investments or let our automatic investment options keep yo
 
 Learn how
 
+## An ISA that makes our places nicer
+
+Your ISA money should be doing more than earning a good return. Every pound you invest in an Abundance IF ISA will help fund real green and social projects.
+
+---
+
+65
+
+Projects financed so far
+
+---
+
+£9.6m
+
+Spent on projects so far
+
+Learn more
+
 ## An innovative way to use your ISA
 
 There are a number of different types of ISA available, the most popular ones being Cash, Stocks & Shares, and Innovative Finance ISAs. Our municipal investments are Innovative Finance ISA eligible.

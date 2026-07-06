@@ -1,13 +1,10 @@
-# Making our places all together better
+# Building better places together
 
-Introductory homepage copy goes here. Keep this as the main first-screen proposition.
+Our investments bring councils and citizens together to build a more sustainable, resilient future for our places.
 
-Impact spotlight
+## Make a difference
 
-## What your money can help make possible
-
-From cleaner energy and lower-carbon transport to stronger local infrastructure, municipal
-investments can help councils finance projects with visible benefits for people and place.
+In this era of global financial markets and opaque cryptocurrencies, we believe in connecting people with what their money is really doing. Every pound you invest will be spent on real projects, and we report on exactly how it is being spent.
 
 ---
 
@@ -21,13 +18,7 @@ Projects financed so far
 
 Spent on projects so far
 
----
-
-Real places
-
-Visible outcomes in towns and cities
-
-Read impact stories
+Learn more
 
 ## Investments open now
 
@@ -35,32 +26,27 @@ Read impact stories
 
 [Glasgow investment](/invest-now)
 
-No investment open right now
+## Who we are
 
-## Get notified when this council opens a new investment
+Abundance is the UK’s platform for local investment, offering a simple way to invest that is connected to the places we care about. We've been doing what we do since 2012, with our consistent mission to make it easier for everyone to get their money making a positive difference in the world, regardless of how much you have to invest.
 
-Sign up for updates and we’ll let you know when a new Hammersmith & Fulham investment
-becomes available.
-
-Sign up for updates
+About us
 
 ---
 
-£3.5m
+£25.1m
 
-Raised through local investment
+Invested in councils
 
 ---
 
-1,200+
+18
 
-People have invested
+Councils raising money with us
 
 ## Three more good reasons to invest with us
 
-Municipal investments can help you meet a range of financial goals. That’s because the low risk,
-regular income payments they provide give you a stable income — the bedrock of many of our saving
-and investment plans.
+Our municipal investments can support your financial plans. Our process is straight-forward and open to everyone. You’ll need around 10 minutes plus at least £5 to invest.
 
 ### Regular payments
 
@@ -74,4 +60,4 @@ A low minimum investment, so it’s open to everyone.
 
 Invest through an Innovative Finance ISA.
 
-[More Features & Benefits](/features-and-benefits)
+[How it works](/features-and-benefits)

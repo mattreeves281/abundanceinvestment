@@ -21,6 +21,24 @@ investments.
 > Louise Wilson
 > - Joint Managing Director
 
+## Investing in real projects since 2012
+
+We will never compromise on our core principle - making sure that every pound you invest is spent on real projects that make a positive impact on communities.
+
+---
+
+65
+
+Projects financed so far
+
+---
+
+£9.6m
+
+Spent on projects so far
+
+Learn more
+
 ## Making a real impact on our places
 
 Since 2020 we have been working with councils to launch investments that let everyone have a stake in
@@ -40,9 +58,7 @@ investing in councils with us, and we are only just getting started.
 
 ## Councils across the UK are issuing investments with us
 
-We have worked with councils of all political colours. Among others, Sheffield, Bristol,
-Glasgow, Edinburgh, Manchester, and 8 London boroughs have launched investments as part of a
-long term vision to build communities of citizen investors.
+We have worked with councils of all political colours. Among others, Sheffield, Bristol, Glasgow, Edinburgh, Manchester, and 8 London boroughs have launched investments as part of a long term vision to build communities of citizen investors.
 
 Learn more
 
@@ -62,12 +78,8 @@ Invested so far
 
 ### Ethical Consumer Best Buy IF ISA
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-laboris nisi ut aliquip ex ea commodo consequat.
+Our Innovative Finance ISA has been an Ethical Consumer Best Buy since 2019. This accreditation lets you know we put our money where our mouths are on our morals.
 
 ### B Corp
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-laboris nisi ut aliquip ex ea commodo consequat.
+We have been a registered B Corp since 2018. We're proud to be part of a global communities of businesses who are trying to make positive change, the right way.

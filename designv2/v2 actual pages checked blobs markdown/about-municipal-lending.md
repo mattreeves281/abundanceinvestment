@@ -13,6 +13,31 @@ On this page
 
 [Power of local action](#power-of-local-action)
 
+## Reinventing municipal investing for the digital age
+
+It used to be common for UK councils to borrow money from their residents as an alternative to
+institutions or the government.
+
+Throughout history, regional stock exchanges and municipal bonds have shaped and strengthened places
+across the UK; in cities such as Manchester, Liverpool, Glasgow and Bristol.
+
+Municipal bonds have been used as far back as the 1500s to finance local infrastructure. These allowed
+councils to fund railway expansions, water supply systems and electric grids, while citizens
+appreciated the secure investment with a tangible link to their local place. At the start of the
+twentieth century, as much as 20% of council borrowing came from municipal bonds.
+
+It is on these foundations that our own municipal investments are built - once again offering anyone
+the opportunity to become an investor in the future of the place they call home. In this era of global
+financial markets and opaque cryptocurrencies, we want to help people be more connected with what
+their money is really doing.
+
+### Bristol’s municipal investment history
+
+In the late 19th and early 20th centuries, Bristol Council issued bonds to expand its port,
+improve roads and develop public utilities. These bonds attracted local investors, who saw the
+win-win of both financial returns and a tangible impact on their city’s growth. Some perpetual
+bonds issued in the 1940s are still paying returns today.
+
 ## Creating a new generation of citizen investors
 
 For generations, the idea of being an investor in a town or city was a commonplace idea. Thousands of ordinary people - many of whom were unable to open bank accounts, were able to save for their future with their local authority. The benefits were obvious; making a return to help fund their families' futures while at the same time helping create the local civic infrastructure that made the places they lived function properly.

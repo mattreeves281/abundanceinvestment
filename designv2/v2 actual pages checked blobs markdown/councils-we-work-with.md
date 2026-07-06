@@ -29,3 +29,21 @@ Loading councils…
 ## All councils
 
 Loading councils…
+
+## Every pound invested makes a real difference
+
+Our municipal investments are a unique way to back real green and social projects being delivered by councils across the country.
+
+---
+
+65
+
+Projects financed so far
+
+---
+
+£9.6m
+
+Spent on projects so far
+
+Learn more

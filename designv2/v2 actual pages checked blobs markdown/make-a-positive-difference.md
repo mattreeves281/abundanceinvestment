@@ -33,6 +33,22 @@ The Green & Social Finance Framework framework describes the rules and processes
 
 [Read the framework](#live-investment)
 
+## Financing real projects
+
+Our municipal investments support the real green and social projects that are making our communities more sustainable, resilient and attractive places to live and work.
+
+---
+
+65
+
+Projects financed so far
+
+---
+
+£9.6m
+
+Spent on projects so far
+
 ### How councils have spent the money
 
 Select a council below to get more details of how they have spent the money raised across green and social projects categories.
@@ -51,31 +67,25 @@ Our councils have a responsibility to look after our communities and places. Tha
 challenges such as climate and social change, and investing in the infrastructure that will allow our
 places to thrive in the future. Our municipal investments help finance this important work.
 
-## Real projects stories
+## Real positive stories
 
-### Bristol City Council
+### Greening the grey in Hammersmith & Fulham
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-laboris nisi ut aliquip ex ea commodo consequat.
+Hammersmith & Fulham Council are focusing on transforming hard, grey spaces into vibrant green areas, enhancing biodiversity, improving climate resilience and making its borough a more pleasant place to live and work.
 
-Read case study
+Read more
 
-### Southwark Council
+### Creating greener leisure facilities
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-laboris nisi ut aliquip ex ea commodo consequat.
+When councils are planning for a greener future it’s important to look at everything. That's why Westminster Council has invested in cutting the environmental impact of its leisure centre facilities.
 
-Read case study
+Watch the video
 
-### Hammersmith & Fulham Council
+### Driving greener in the Cotswolds
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-laboris nisi ut aliquip ex ea commodo consequat.
+Cotswold District Council was quick to install electric vehicle chargers across the district. This initiative is part of the council’s broader commitment to reducing carbon emissions and making greener transport options more accessible to residents and visitors alike.
 
-Read case study
+Watch the video
 
 ## Project criteria
 
