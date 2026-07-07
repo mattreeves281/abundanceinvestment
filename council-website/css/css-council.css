@@ -1,111 +1,119 @@
 /* =========================================================
-   Abundance civic theme
-   Add after abundance-designv2-standalone.css
+   Abundance council theme
+   Loaded after the final Abundance v2 UAT CSS.
 
-   Purpose:
-   - Council-facing header/footer and component refinements
-   - Restricted civic UI palette: pink, teal, indigo, grey
-   - Soft angled section background: grey-light
+   Scope:
+   - Council colour tokens and helpers
+   - Council-facing header and footer
+   - Narrow theme overrides for final v2 components
    ========================================================= */
 
+:root {
+  --civic-pink: var(--abv2-pink, #f27fae);
+  --civic-pink-dark: var(--abv2-pink-dark, #c1658b);
+  --civic-pink-soft: var(--abv2-pink-light, #f7d9e8);
+  --civic-teal: var(--abv2-teal, #00a4b6);
+  --civic-teal-dark: var(--abv2-teal-dark, #008391);
+  --civic-teal-soft: var(--abv2-teal-very-light, #cdebf0);
+  --civic-indigo: var(--abv2-indigo, #443668);
+  --civic-grey: var(--abv2-grey, #71716e);
+  --civic-grey-light: var(--abv2-grey-light, #e9e4e3);
+  --civic-grey-very-light: var(--abv2-grey-very-light, #f1eeed);
+  --civic-ink: var(--abv2-ink, #363635);
+  --civic-white: var(--abv2-white, #fff);
+}
+
+.abundance-civic-page {
+  background: var(--civic-white);
+  overflow-x: clip;
+}
 
 /* =========================================================
-   1. Civic colour helpers
+   Colour Helpers
    ========================================================= */
 
-/* Civic horizontal rule colour helper */
-.si-horizontal-rule--ink {
-  border-color: var(--abv2-ink) !important;
-  background-color: var(--abv2-ink) !important;
+.text-colour--civic-pink { color: var(--civic-pink) !important; }
+.text-colour--civic-pink-dark { color: var(--civic-pink-dark) !important; }
+.text-colour--civic-teal { color: var(--civic-teal) !important; }
+.text-colour--civic-teal-dark,
+.text-colour--civic-cyan-dark { color: var(--civic-teal-dark) !important; }
+.text-colour--civic-indigo { color: var(--civic-indigo) !important; }
+.text-colour--civic-grey { color: var(--civic-grey) !important; }
+.text-color--civic-primary { color: var(--civic-ink) !important; }
+
+.bg-colour--civic-pink { background-color: var(--civic-pink) !important; }
+.bg-colour--civic-pink-light { background-color: var(--civic-pink-soft) !important; }
+.bg-colour--civic-pink-dark { background-color: var(--civic-pink-dark) !important; }
+.bg-colour--civic-teal { background-color: var(--civic-teal) !important; }
+.bg-colour--civic-teal-light,
+.bg-colour--civic-cyan-light { background-color: var(--civic-teal-soft) !important; }
+.bg-colour--civic-indigo { background-color: var(--civic-indigo) !important; }
+.bg-colour--civic-grey { background-color: var(--civic-grey) !important; }
+.bg-colour--civic-grey-light { background-color: var(--civic-grey-light) !important; }
+
+.abundance-civic-page .brand-primary {
+  color: var(--civic-pink-dark) !important;
 }
 
-.text-colour--civic-pink {
-  color: var(--abv2-pink) !important;
+.abundance-civic-page .brand-secondary {
+  color: var(--civic-indigo) !important;
 }
 
-.text-colour--civic-pink-dark {
-  color: var(--abv2-pink-dark) !important;
+.abundance-civic-page .abundance-eyebrow {
+  color: var(--civic-ink);
 }
 
-.text-colour--civic-teal {
-  color: var(--abv2-teal) !important;
+.abundance-civic-page .abundance-horizontal-rule--ink,
+.abundance-civic-page .si-horizontal-rule--ink {
+  border-color: var(--civic-ink) !important;
+  background-color: var(--civic-ink) !important;
 }
 
-.text-colour--civic-indigo {
-  color: var(--abv2-indigo) !important;
+/* Functional v2 blobs use the council's full-tone palette. */
+.abundance-civic-page .abundance-blob--yellow {
+  background-color: var(--civic-grey) !important;
+  color: var(--civic-white) !important;
 }
 
-.text-colour--civic-grey {
-  color: var(--abv2-grey) !important;
+.abundance-civic-page .abundance-blob--cyan {
+  background-color: var(--civic-teal) !important;
+  color: var(--civic-white) !important;
 }
 
-.text-colour--civic-teal-dark {
-  color: var(--abv2-teal-dark) !important;
+.abundance-civic-page .abundance-blob--pink {
+  background-color: var(--civic-pink) !important;
+  color: var(--civic-white) !important;
 }
 
-.bg-colour--civic-pink {
-  background-color: var(--abv2-pink) !important;
+.abundance-civic-page .abundance-blob--light-grey {
+  background-color: var(--civic-grey) !important;
+  color: var(--civic-white) !important;
 }
 
-.bg-colour--civic-pink-dark {
-  background-color: var(--abv2-pink-dark) !important;
+.abundance-civic-page .abundance-blob--civic-indigo {
+  background-color: var(--civic-indigo) !important;
+  color: var(--civic-white) !important;
 }
 
-.bg-colour--civic-teal {
-  background-color: var(--abv2-teal) !important;
+.abundance-civic-page .abundance-blob--civic-grey {
+  background-color: var(--civic-grey) !important;
+  color: var(--civic-white) !important;
 }
-
-.bg-colour--civic-indigo {
-  background-color: var(--abv2-indigo) !important;
-}
-
-.bg-colour--civic-grey {
-  background-color: var(--abv2-grey) !important;
-}
-
-.bg-colour--civic-grey-light {
-  background-color: var(--abv2-grey-light) !important;
-}
-
-/* Works for the top/bottom mask helpers that use --abundance-mask-colour */
-.bg-mask.bg-colour--civic-pink {
-  --abundance-mask-colour: var(--abv2-pink);
-}
-
-.bg-mask.bg-colour--civic-pink-dark {
-  --abundance-mask-colour: var(--abv2-pink-dark);
-}
-
-.bg-mask.bg-colour--civic-teal {
-  --abundance-mask-colour: var(--abv2-teal);
-}
-
-.bg-mask.bg-colour--civic-indigo {
-  --abundance-mask-colour: var(--abv2-indigo);
-}
-
-.bg-mask.bg-colour--civic-grey {
-  --abundance-mask-colour: var(--abv2-grey);
-}
-
-.bg-mask.bg-colour--civic-grey-light {
-  --abundance-mask-colour: var(--abv2-grey-light);
-}
-
 
 /* =========================================================
-   2. Header
+   Header
    ========================================================= */
 
 .abundance-civic-header {
   position: relative;
   z-index: 20;
-  background: var(--abv2-white);
-  border-bottom: 1px solid var(--abv2-border-subtle, var(--abv2-grey-light));
+  background: var(--civic-white);
+  border-bottom: 1px solid var(--abv2-border-subtle, var(--civic-grey-light));
 }
 
 .abundance-civic-header__inner {
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   padding: 1.1875rem 2rem;
   display: flex;
@@ -123,7 +131,7 @@
 
 .abundance-civic-header__logo:focus {
   border-radius: 0.125rem;
-  outline: 2px solid var(--abv2-pink);
+  outline: 2px solid var(--civic-pink);
   outline-offset: 0.25rem;
 }
 
@@ -154,12 +162,11 @@
   position: relative;
   display: inline-block;
   padding: 0.375rem 0;
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   font-family: var(--abv2-serif, "New Kansas", Georgia, serif);
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.1;
-  letter-spacing: 0.01em;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -172,7 +179,7 @@
   bottom: -0.35rem;
   height: 3px;
   border-radius: 999px;
-  background: var(--abundance-civic-nav-accent, var(--abv2-indigo));
+  background: var(--abundance-civic-nav-accent, var(--civic-indigo));
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 160ms ease;
@@ -188,25 +195,11 @@
   outline: 0;
 }
 
-.abundance-civic-nav__link--pink {
-  --abundance-civic-nav-accent: var(--abv2-pink);
-}
-
-.abundance-civic-nav__link--pink-dark {
-  --abundance-civic-nav-accent: var(--abv2-pink-dark);
-}
-
-.abundance-civic-nav__link--teal {
-  --abundance-civic-nav-accent: var(--abv2-teal);
-}
-
-.abundance-civic-nav__link--grey {
-  --abundance-civic-nav-accent: var(--abv2-grey);
-}
-
-.abundance-civic-nav__link--indigo {
-  --abundance-civic-nav-accent: var(--abv2-indigo);
-}
+.abundance-civic-nav__link--pink { --abundance-civic-nav-accent: var(--civic-pink); }
+.abundance-civic-nav__link--pink-dark { --abundance-civic-nav-accent: var(--civic-pink-dark); }
+.abundance-civic-nav__link--teal { --abundance-civic-nav-accent: var(--civic-teal); }
+.abundance-civic-nav__link--grey { --abundance-civic-nav-accent: var(--civic-grey); }
+.abundance-civic-nav__link--indigo { --abundance-civic-nav-accent: var(--civic-indigo); }
 
 @media (max-width: 899px) {
   .abundance-civic-header__inner {
@@ -222,6 +215,7 @@
 
   .abundance-civic-nav {
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
     justify-content: flex-start;
     -webkit-overflow-scrolling: touch;
@@ -239,61 +233,60 @@
   }
 }
 
-
 /* =========================================================
-   3. Scoped buttons and brand accents
+   Final V2 Component Theme
    ========================================================= */
 
-.abundance-civic-test .si-btn--primary,
-.abundance-civic-home .si-btn--primary {
-  color: var(--abv2-pink);
-  border-color: var(--abv2-pink);
+.abundance-civic-page .si-btn--primary {
+  color: var(--civic-pink-dark);
+  border-color: var(--civic-pink-dark);
   background-color: transparent;
 }
 
-.abundance-civic-test .si-btn--primary:hover,
-.abundance-civic-test .si-btn--primary:focus,
-.abundance-civic-home .si-btn--primary:hover,
-.abundance-civic-home .si-btn--primary:focus {
-  color: var(--abv2-white);
-  border-color: var(--abv2-pink);
-  background-color: var(--abv2-pink);
+.abundance-civic-page .si-btn--primary:hover,
+.abundance-civic-page .si-btn--primary:focus {
+  color: var(--civic-white);
+  border-color: var(--civic-pink-dark);
+  background-color: var(--civic-pink-dark);
 }
 
-.abundance-civic-test .brand-primary,
-.abundance-civic-home .brand-primary {
-  color: var(--abv2-pink) !important;
+.abundance-civic-page .si-btn--secondary {
+  color: var(--civic-indigo);
+  border-color: var(--civic-indigo);
 }
 
-.abundance-civic-test .brand-secondary,
-.abundance-civic-home .brand-secondary {
-  color: var(--abv2-indigo) !important;
+.abundance-civic-page .si-btn--secondary:hover,
+.abundance-civic-page .si-btn--secondary:focus {
+  color: var(--civic-white);
+  background-color: var(--civic-indigo);
 }
 
-
-/* =========================================================
-   4. Functional blob numerals
-   ========================================================= */
-
-.abundance-civic-test .abundance-step-num,
-.abundance-civic-test .abundance-card-blob-num,
-.abundance-civic-home .abundance-step-num,
-.abundance-civic-home .abundance-card-blob-num {
-  color: var(--abv2-white) !important;
+.abundance-civic-page .si-btn--tertiary {
+  color: var(--civic-ink);
+  border-color: var(--civic-ink);
 }
 
+.abundance-civic-page .si-btn-link,
+.abundance-civic-page .btn-link {
+  color: var(--civic-pink-dark);
+}
 
-/* =========================================================
-   5. Civic stat cards
-   ========================================================= */
+.abundance-civic-page .si-card--secondary {
+  border-color: var(--abv2-border-soft, #e2e2e2);
+}
+
+.abundance-civic-page .abundance-card--interactive:hover,
+.abundance-civic-page .abundance-card--interactive:focus {
+  border-color: var(--civic-pink-dark);
+}
 
 .abundance-civic-stat-card {
   position: relative;
   padding: var(--abv2-space-24, 1.5rem);
   border: 1px solid var(--abv2-border-soft, #e2e2e2);
   border-radius: 1.25rem;
-  background: var(--abv2-white);
-  box-shadow: var(--abv2-shadow-soft, 0 8px 24px rgba(54,54,53,.06));
+  background: var(--civic-white);
+  box-shadow: var(--abv2-shadow-soft, 0 8px 24px rgba(54, 54, 53, 0.06));
   overflow: hidden;
 }
 
@@ -302,34 +295,25 @@
   display: block;
   height: 5px;
   border-radius: 999px;
-  background: var(--abundance-civic-stat-accent, var(--abv2-pink));
+  background: var(--abundance-civic-stat-accent, var(--civic-pink-dark));
   margin-bottom: var(--abv2-space-16, 1rem);
 }
 
 .abundance-civic-stat-card--pink {
-  --abundance-civic-stat-accent: var(--abv2-pink);
-}
-
-.abundance-civic-stat-card--pink-dark {
-  --abundance-civic-stat-accent: var(--abv2-pink-dark);
+  --abundance-civic-stat-accent: var(--civic-pink-dark);
 }
 
 .abundance-civic-stat-card--teal {
-  --abundance-civic-stat-accent: var(--abv2-teal);
+  --abundance-civic-stat-accent: var(--civic-teal);
 }
 
 .abundance-civic-stat-card--grey {
-  --abundance-civic-stat-accent: var(--abv2-grey);
+  --abundance-civic-stat-accent: var(--civic-grey);
 }
 
 .abundance-civic-stat-card--indigo {
-  --abundance-civic-stat-accent: var(--abv2-indigo);
+  --abundance-civic-stat-accent: var(--civic-indigo);
 }
-
-
-/* =========================================================
-   6. Related cards / three-up links
-   ========================================================= */
 
 .abundance-civic-related-link {
   display: block;
@@ -337,49 +321,44 @@
   padding: var(--abv2-space-24, 1.5rem);
   border: 1px solid var(--abv2-border-soft, #e2e2e2);
   border-radius: 1.25rem;
-  background: var(--abv2-white);
-  color: var(--abv2-ink);
+  background: var(--civic-white);
+  color: var(--civic-ink);
   text-decoration: none;
-  box-shadow: var(--abv2-shadow-soft, 0 8px 24px rgba(54,54,53,.06));
+  box-shadow: var(--abv2-shadow-soft, 0 8px 24px rgba(54, 54, 53, 0.06));
 }
 
 .abundance-civic-related-link:hover,
 .abundance-civic-related-link:focus {
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   text-decoration: none;
-  border-color: var(--abv2-pink-dark);
+  border-color: var(--civic-pink-dark);
 }
 
 .abundance-civic-related-link:hover .abundance-civic-related-link__title,
 .abundance-civic-related-link:focus .abundance-civic-related-link__title {
   text-decoration: underline;
-  text-decoration-thickness: max(3px, .1875rem, .12em);
+  text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
 }
-
-
-/* =========================================================
-   7. Payment example field
-   ========================================================= */
 
 .abundance-civic-field {
   display: flex;
   align-items: center;
-  gap: .75rem;
-  padding: .75rem 1rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--abv2-border-default, #e2e2e2);
   border-radius: 1rem;
-  background: var(--abv2-white);
+  background: var(--civic-white);
 }
 
 .abundance-civic-field__prefix {
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
 }
 
 .abundance-civic-field .si-input {
   width: 100%;
   border: 0;
   background: transparent;
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   padding: 0;
 }
 
@@ -387,124 +366,62 @@
   outline: 0;
 }
 
-
 /* =========================================================
-   8. Compact council use-of-funds bars
+   Footer
    ========================================================= */
 
-.abundance-council-uof-bars {
-  display: grid;
-  gap: var(--abv2-space-12, .75rem);
+.abundance-civic-footer-peak {
+  background-color: var(--civic-grey-light) !important;
 }
-
-.abundance-council-uof-row {
-  display: grid;
-  grid-template-columns: minmax(160px, .42fr) minmax(0, 1fr);
-  gap: var(--abv2-space-12, .75rem);
-  align-items: center;
-}
-
-.abundance-council-uof-track {
-  min-height: 2rem;
-  border-radius: 999px;
-  background: var(--abv2-grey-very-light);
-  overflow: hidden;
-}
-
-.abundance-council-uof-fill {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 3.25rem;
-  height: 100%;
-  padding: 0 .75rem;
-  border-radius: 999px;
-  color: var(--abv2-white);
-}
-
-.abundance-council-uof-fill--pink {
-  background: var(--abv2-pink);
-}
-
-.abundance-council-uof-fill--pink-dark {
-  background: var(--abv2-pink-dark);
-}
-
-.abundance-council-uof-fill--teal {
-  background: var(--abv2-teal);
-}
-
-.abundance-council-uof-fill--grey {
-  background: var(--abv2-grey);
-}
-
-.abundance-council-uof-fill--indigo {
-  background: var(--abv2-indigo);
-}
-
-@media (max-width: 767px) {
-  .abundance-council-uof-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* =========================================================
-   9. Footer
-   ========================================================= */
 
 .abundance-civic-footer {
-  background: var(--abv2-grey-light);
-  color: var(--abv2-ink);
+  background: var(--civic-grey-light);
+  color: var(--civic-ink);
 }
 
 .abundance-civic-footer a {
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   text-decoration: underline;
   text-underline-offset: 0.12em;
 }
 
 .abundance-civic-footer a:hover,
 .abundance-civic-footer a:focus {
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
 }
 
 .abundance-civic-footer a:focus {
   border-radius: 0.0625rem;
-  outline: 2px solid var(--abv2-pink);
+  outline: 2px solid var(--civic-pink);
   outline-offset: 0.125rem;
 }
 
 .abundance-civic-footer__inner {
   max-width: 1040px;
   margin: 0 auto;
-  padding: var(--abv2-space-32, 2rem) var(--abv2-space-24, 1.5rem) var(--abv2-space-16, 1rem);
+  padding: var(--abv2-space-40, 2.5rem) var(--abv2-space-24, 1.5rem) var(--abv2-space-16, 1rem);
 }
 
-.abundance-civic-footer__intro {
-  max-width: 900px;
-  margin-bottom: var(--abv2-space-40, 2.5rem);
-}
-
-.abundance-civic-footer__intro p {
-  margin: 0;
-  color: var(--abv2-ink);
-  font-family: var(--abv2-sans, "Sohne Buch", system-ui, sans-serif);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-}
-
-.abundance-civic-footer__grid {
+.abundance-civic-footer__grid,
+.abundance-civic-footer__bottom {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr) minmax(0, 1fr);
   gap: clamp(2rem, 7vw, 6rem);
+}
+
+.abundance-civic-footer__grid {
   align-items: start;
+}
+
+.abundance-civic-footer__bottom {
+  margin-top: var(--abv2-space-72, 4.5rem);
+  align-items: end;
 }
 
 .abundance-civic-footer__heading {
   margin: 0 0 var(--abv2-space-16, 1rem);
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   font-family: var(--abv2-serif, "New Kansas", Georgia, serif);
   font-size: clamp(1.625rem, 2.3vw, 2rem);
   font-weight: 600;
@@ -513,14 +430,10 @@
 
 .abundance-civic-footer__text {
   margin: 0;
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   font-family: var(--abv2-sans, "Sohne Buch", system-ui, sans-serif);
   font-size: 1rem;
   line-height: 1.45;
-}
-
-.abundance-civic-footer__text + .abundance-civic-footer__text {
-  margin-top: var(--abv2-space-12, 0.75rem);
 }
 
 .abundance-civic-footer__links {
@@ -533,17 +446,9 @@
   margin-top: var(--abv2-space-16, 1rem);
 }
 
-.abundance-civic-footer__bottom {
-  margin-top: var(--abv2-space-72, 4.5rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr) minmax(0, 1fr);
-  gap: clamp(2rem, 7vw, 6rem);
-  align-items: end;
-}
-
 .abundance-civic-footer__small {
   margin: 0;
-  color: var(--abv2-ink);
+  color: var(--civic-ink);
   font-family: var(--abv2-sans, "Sohne Buch", system-ui, sans-serif);
   font-size: 0.75rem;
   line-height: 1.45;
@@ -566,18 +471,9 @@
   font-size: 0.75rem;
 }
 
-/* Footer peak is the masked element itself, so background controls its colour */
-.bg-mask--abundance-footer-peak.abundance-civic-footer-peak--grey-light {
-  background: var(--abv2-grey-light) !important;
-}
-
 @media (max-width: 899px) {
   .abundance-civic-footer__inner {
-    padding: var(--abv2-space-24, 1.5rem) var(--abv2-space-16, 1rem) var(--abv2-space-24, 1.5rem);
-  }
-
-  .abundance-civic-footer__intro {
-    margin-bottom: var(--abv2-space-32, 2rem);
+    padding: var(--abv2-space-24, 1.5rem) var(--abv2-space-16, 1rem);
   }
 
   .abundance-civic-footer__grid,
@@ -589,69 +485,4 @@
   .abundance-civic-footer__bottom {
     margin-top: var(--abv2-space-48, 3rem);
   }
-}
-
-
-/* =========================================================
-   10. Temporary migration aliases
-   Remove once all prototype HTML uses the final palette names.
-   ========================================================= */
-
-/* Old prototype names mapped into the final civic palette */
-.text-colour--civic-blue,
-.text-colour--civic-green,
-.text-colour--civic-yellow-dark {
-  color: var(--abv2-teal) !important;
-}
-
-.text-colour--civic-teal-dark {
-  color: var(--abv2-teal) !important;
-}
-
-.bg-colour--civic-blue,
-.bg-colour--civic-green,
-.bg-colour--civic-yellow-dark {
-  background-color: var(--abv2-teal) !important;
-}
-
-.bg-colour--civic-teal-dark {
-  background-color: var(--abv2-teal) !important;
-}
-
-.abundance-civic-nav__link--blue,
-.abundance-civic-nav__link--green,
-.abundance-civic-nav__link--yellow {
-  --abundance-civic-nav-accent: var(--abv2-teal);
-}
-
-.abundance-civic-stat-card--blue,
-.abundance-civic-stat-card--green,
-.abundance-civic-stat-card--yellow {
-  --abundance-civic-stat-accent: var(--abv2-teal);
-}
-
-.abundance-council-uof-fill--blue,
-.abundance-council-uof-fill--green,
-.abundance-council-uof-fill--yellow {
-  background: var(--abv2-teal);
-}
-
-/* Civic primary button override */
-.abundance-civic-test .si-btn--primary,
-.abundance-civic-home .si-btn--primary,
-.abundance-civic-page .si-btn--primary {
-  color: var(--abv2-pink-dark);
-  border-color: var(--abv2-pink-dark);
-  background-color: transparent;
-}
-
-.abundance-civic-test .si-btn--primary:hover,
-.abundance-civic-test .si-btn--primary:focus,
-.abundance-civic-home .si-btn--primary:hover,
-.abundance-civic-home .si-btn--primary:focus,
-.abundance-civic-page .si-btn--primary:hover,
-.abundance-civic-page .si-btn--primary:focus {
-  color: var(--abv2-white);
-  border-color: var(--abv2-pink-dark);
-  background-color: var(--abv2-pink-dark);
 }
