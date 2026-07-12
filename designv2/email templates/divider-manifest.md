@@ -1,0 +1,76 @@
+# Divider Asset Manifest
+
+- Source CSS: `designv2/component html/abundance-main-css.css`
+- Display width: `640px`
+- Render width: `1280px`
+- Render height: `147px`
+
+## Source Shapes
+- `mask-top` from `.abundance-mask--top` -> `dividers/svg/mask-top.svg`
+- `mask-bottom` from `.abundance-mask--bottom` -> `dividers/svg/mask-bottom.svg`
+- `divider-rise-left` from `.abundance-dividers--rise-left` -> `dividers/svg/divider-rise-left.svg`
+- `divider-rise-right` from `.abundance-dividers--rise-right` -> `dividers/svg/divider-rise-right.svg`
+- `divider-fall-left` from `.abundance-dividers--fall-left` -> `dividers/svg/divider-fall-left.svg`
+- `footer-peak` from `.bg-mask--abv2-footer-peak` -> `dividers/svg/footer-peak.svg`
+- `dot-blob` from `--abv2-dot-mask` -> `dividers/svg/dot-blob.svg`
+- `cap-bottom-concave` from `.bg-cap--b-concave-white` -> `dividers/svg/cap-bottom-concave.svg`
+- `cap-top-concave` from `.bg-cap--t-concave-white` -> `dividers/svg/cap-top-concave.svg`
+- `cap-bottom-convex` from `.bg-cap--b-convex-white, .bg-mask--b-convex` -> `dividers/svg/cap-bottom-convex.svg`
+- `cap-top-convex` from `.bg-cap--t-convex-white, .bg-cap--t-convex-neutral-300, .bg-mask--t-convex` -> `dividers/svg/cap-top-convex.svg`
+- `pitch-page-hero-img-mask` from `.pitch-page-hero-img-mask` -> `dividers/svg/pitch-page-hero-img-mask.svg`
+
+## Outputs
+- `mask-top-pink-to-white@2x.png`: `mask-top`, `pink-to-white`, `1280x147`
+- `mask-top-white-to-pink@2x.png`: `mask-top`, `white-to-pink`, `1280x147`
+- `mask-top-teal-to-white@2x.png`: `mask-top`, `teal-to-white`, `1280x147`
+- `mask-top-white-to-teal@2x.png`: `mask-top`, `white-to-teal`, `1280x147`
+- `mask-top-yellow-to-white@2x.png`: `mask-top`, `yellow-to-white`, `1280x147`
+- `mask-top-white-to-yellow@2x.png`: `mask-top`, `white-to-yellow`, `1280x147`
+- `mask-top-neutral-to-white@2x.png`: `mask-top`, `neutral-to-white`, `1280x147`
+- `mask-top-white-to-neutral@2x.png`: `mask-top`, `white-to-neutral`, `1280x147`
+- `mask-top-transparent@2x.png`: `mask-top`, `transparent-test`, `1280x147`
+- `mask-bottom-pink-to-white@2x.png`: `mask-bottom`, `pink-to-white`, `1280x147`
+- `mask-bottom-white-to-pink@2x.png`: `mask-bottom`, `white-to-pink`, `1280x147`
+- `mask-bottom-teal-to-white@2x.png`: `mask-bottom`, `teal-to-white`, `1280x147`
+- `mask-bottom-white-to-teal@2x.png`: `mask-bottom`, `white-to-teal`, `1280x147`
+- `mask-bottom-yellow-to-white@2x.png`: `mask-bottom`, `yellow-to-white`, `1280x147`
+- `mask-bottom-white-to-yellow@2x.png`: `mask-bottom`, `white-to-yellow`, `1280x147`
+- `mask-bottom-neutral-to-white@2x.png`: `mask-bottom`, `neutral-to-white`, `1280x147`
+- `mask-bottom-white-to-neutral@2x.png`: `mask-bottom`, `white-to-neutral`, `1280x147`
+- `mask-bottom-transparent@2x.png`: `mask-bottom`, `transparent-test`, `1280x147`
+- `divider-rise-left-pink-to-white@2x.png`: `divider-rise-left`, `pink-to-white`, `1280x147`
+- `divider-rise-left-white-to-pink@2x.png`: `divider-rise-left`, `white-to-pink`, `1280x147`
+- `divider-rise-left-teal-to-white@2x.png`: `divider-rise-left`, `teal-to-white`, `1280x147`
+- `divider-rise-left-white-to-teal@2x.png`: `divider-rise-left`, `white-to-teal`, `1280x147`
+- `divider-rise-left-yellow-to-white@2x.png`: `divider-rise-left`, `yellow-to-white`, `1280x147`
+- `divider-rise-left-white-to-yellow@2x.png`: `divider-rise-left`, `white-to-yellow`, `1280x147`
+- `divider-rise-left-neutral-to-white@2x.png`: `divider-rise-left`, `neutral-to-white`, `1280x147`
+- `divider-rise-left-white-to-neutral@2x.png`: `divider-rise-left`, `white-to-neutral`, `1280x147`
+- `divider-rise-left-transparent@2x.png`: `divider-rise-left`, `transparent-test`, `1280x147`
+- `divider-rise-right-pink-to-white@2x.png`: `divider-rise-right`, `pink-to-white`, `1280x147`
+- `divider-rise-right-white-to-pink@2x.png`: `divider-rise-right`, `white-to-pink`, `1280x147`
+- `divider-rise-right-teal-to-white@2x.png`: `divider-rise-right`, `teal-to-white`, `1280x147`
+- `divider-rise-right-white-to-teal@2x.png`: `divider-rise-right`, `white-to-teal`, `1280x147`
+- `divider-rise-right-yellow-to-white@2x.png`: `divider-rise-right`, `yellow-to-white`, `1280x147`
+- `divider-rise-right-white-to-yellow@2x.png`: `divider-rise-right`, `white-to-yellow`, `1280x147`
+- `divider-rise-right-neutral-to-white@2x.png`: `divider-rise-right`, `neutral-to-white`, `1280x147`
+- `divider-rise-right-white-to-neutral@2x.png`: `divider-rise-right`, `white-to-neutral`, `1280x147`
+- `divider-rise-right-transparent@2x.png`: `divider-rise-right`, `transparent-test`, `1280x147`
+- `divider-fall-left-pink-to-white@2x.png`: `divider-fall-left`, `pink-to-white`, `1280x147`
+- `divider-fall-left-white-to-pink@2x.png`: `divider-fall-left`, `white-to-pink`, `1280x147`
+- `divider-fall-left-teal-to-white@2x.png`: `divider-fall-left`, `teal-to-white`, `1280x147`
+- `divider-fall-left-white-to-teal@2x.png`: `divider-fall-left`, `white-to-teal`, `1280x147`
+- `divider-fall-left-yellow-to-white@2x.png`: `divider-fall-left`, `yellow-to-white`, `1280x147`
+- `divider-fall-left-white-to-yellow@2x.png`: `divider-fall-left`, `white-to-yellow`, `1280x147`
+- `divider-fall-left-neutral-to-white@2x.png`: `divider-fall-left`, `neutral-to-white`, `1280x147`
+- `divider-fall-left-white-to-neutral@2x.png`: `divider-fall-left`, `white-to-neutral`, `1280x147`
+- `divider-fall-left-transparent@2x.png`: `divider-fall-left`, `transparent-test`, `1280x147`
+- `footer-peak-white-to-yellow@2x.png`: `footer-peak`, `white-to-yellow`, `1280x147`
+- `footer-peak-neutral-to-yellow@2x.png`: `footer-peak`, `neutral-to-yellow`, `1280x147`
+- `footer-peak-neutral-to-ink@2x.png`: `footer-peak`, `neutral-to-ink`, `1280x147`
+- `footer-peak-white-to-ink@2x.png`: `footer-peak`, `white-to-ink`, `1280x147`
+- `footer-peak-yellow-to-ink@2x.png`: `footer-peak`, `yellow-to-ink`, `1280x147`
+- `footer-peak-transparent@2x.png`: `footer-peak`, `transparent-test`, `1280x147`
+- `icons/png/blob-number-1-yellow@2x.png`: `dot-blob`, `number-1-yellow`, `96x96`
+- `icons/png/blob-number-2-pink@2x.png`: `dot-blob`, `number-2-pink`, `96x96`
+- `icons/png/blob-number-3-teal@2x.png`: `dot-blob`, `number-3-teal`, `96x96`

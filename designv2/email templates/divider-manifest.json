@@ -1,0 +1,516 @@
+{
+  "source_css": "designv2/component html/abundance-main-css.css",
+  "target_display_width_px": 640,
+  "rendered_width_px": 1280,
+  "rendered_height_px": 147,
+  "palette": {
+    "white": "#ffffff",
+    "pink": "#f27fae",
+    "teal": "#00a4b6",
+    "yellow": "#ffb72c",
+    "neutral": "#faf8f8",
+    "neutral-deep": "#e9e4e3",
+    "ink": "#363635"
+  },
+  "source_svgs": [
+    {
+      "shape": "mask-top",
+      "source_class": ".abundance-mask--top",
+      "file": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "source_class": ".abundance-mask--bottom",
+      "file": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "source_class": ".abundance-dividers--rise-left",
+      "file": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "source_class": ".abundance-dividers--rise-right",
+      "file": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "source_class": ".abundance-dividers--fall-left",
+      "file": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "footer-peak",
+      "source_class": ".bg-mask--abv2-footer-peak",
+      "file": "dividers/svg/footer-peak.svg"
+    },
+    {
+      "shape": "dot-blob",
+      "source_class": "--abv2-dot-mask",
+      "file": "dividers/svg/dot-blob.svg"
+    },
+    {
+      "shape": "cap-bottom-concave",
+      "source_class": ".bg-cap--b-concave-white",
+      "file": "dividers/svg/cap-bottom-concave.svg"
+    },
+    {
+      "shape": "cap-top-concave",
+      "source_class": ".bg-cap--t-concave-white",
+      "file": "dividers/svg/cap-top-concave.svg"
+    },
+    {
+      "shape": "cap-bottom-convex",
+      "source_class": ".bg-cap--b-convex-white, .bg-mask--b-convex",
+      "file": "dividers/svg/cap-bottom-convex.svg"
+    },
+    {
+      "shape": "cap-top-convex",
+      "source_class": ".bg-cap--t-convex-white, .bg-cap--t-convex-neutral-300, .bg-mask--t-convex",
+      "file": "dividers/svg/cap-top-convex.svg"
+    },
+    {
+      "shape": "pitch-page-hero-img-mask",
+      "source_class": ".pitch-page-hero-img-mask",
+      "file": "dividers/svg/pitch-page-hero-img-mask.svg"
+    }
+  ],
+  "outputs": [
+    {
+      "shape": "mask-top",
+      "transition": "pink-to-white",
+      "file": "mask-top-pink-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "white-to-pink",
+      "file": "mask-top-white-to-pink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "teal-to-white",
+      "file": "mask-top-teal-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "white-to-teal",
+      "file": "mask-top-white-to-teal@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "yellow-to-white",
+      "file": "mask-top-yellow-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "white-to-yellow",
+      "file": "mask-top-white-to-yellow@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "neutral-to-white",
+      "file": "mask-top-neutral-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "white-to-neutral",
+      "file": "mask-top-white-to-neutral@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-top",
+      "transition": "transparent-test",
+      "file": "mask-top-transparent@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-top.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "pink-to-white",
+      "file": "mask-bottom-pink-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "white-to-pink",
+      "file": "mask-bottom-white-to-pink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "teal-to-white",
+      "file": "mask-bottom-teal-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "white-to-teal",
+      "file": "mask-bottom-white-to-teal@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "yellow-to-white",
+      "file": "mask-bottom-yellow-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "white-to-yellow",
+      "file": "mask-bottom-white-to-yellow@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "neutral-to-white",
+      "file": "mask-bottom-neutral-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "white-to-neutral",
+      "file": "mask-bottom-white-to-neutral@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "mask-bottom",
+      "transition": "transparent-test",
+      "file": "mask-bottom-transparent@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/mask-bottom.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "pink-to-white",
+      "file": "divider-rise-left-pink-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "white-to-pink",
+      "file": "divider-rise-left-white-to-pink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "teal-to-white",
+      "file": "divider-rise-left-teal-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "white-to-teal",
+      "file": "divider-rise-left-white-to-teal@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "yellow-to-white",
+      "file": "divider-rise-left-yellow-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "white-to-yellow",
+      "file": "divider-rise-left-white-to-yellow@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "neutral-to-white",
+      "file": "divider-rise-left-neutral-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "white-to-neutral",
+      "file": "divider-rise-left-white-to-neutral@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-left",
+      "transition": "transparent-test",
+      "file": "divider-rise-left-transparent@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-left.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "pink-to-white",
+      "file": "divider-rise-right-pink-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "white-to-pink",
+      "file": "divider-rise-right-white-to-pink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "teal-to-white",
+      "file": "divider-rise-right-teal-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "white-to-teal",
+      "file": "divider-rise-right-white-to-teal@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "yellow-to-white",
+      "file": "divider-rise-right-yellow-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "white-to-yellow",
+      "file": "divider-rise-right-white-to-yellow@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "neutral-to-white",
+      "file": "divider-rise-right-neutral-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "white-to-neutral",
+      "file": "divider-rise-right-white-to-neutral@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-rise-right",
+      "transition": "transparent-test",
+      "file": "divider-rise-right-transparent@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-rise-right.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "pink-to-white",
+      "file": "divider-fall-left-pink-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "white-to-pink",
+      "file": "divider-fall-left-white-to-pink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "teal-to-white",
+      "file": "divider-fall-left-teal-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "white-to-teal",
+      "file": "divider-fall-left-white-to-teal@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "yellow-to-white",
+      "file": "divider-fall-left-yellow-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "white-to-yellow",
+      "file": "divider-fall-left-white-to-yellow@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "neutral-to-white",
+      "file": "divider-fall-left-neutral-to-white@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "white-to-neutral",
+      "file": "divider-fall-left-white-to-neutral@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "divider-fall-left",
+      "transition": "transparent-test",
+      "file": "divider-fall-left-transparent@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/divider-fall-left.svg"
+    },
+    {
+      "shape": "footer-peak",
+      "transition": "white-to-yellow",
+      "file": "footer-peak-white-to-yellow@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/footer-peak.svg"
+    },
+    {
+      "shape": "footer-peak",
+      "transition": "neutral-to-yellow",
+      "file": "footer-peak-neutral-to-yellow@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/footer-peak.svg"
+    },
+    {
+      "shape": "footer-peak",
+      "transition": "neutral-to-ink",
+      "file": "footer-peak-neutral-to-ink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/footer-peak.svg"
+    },
+    {
+      "shape": "footer-peak",
+      "transition": "white-to-ink",
+      "file": "footer-peak-white-to-ink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/footer-peak.svg"
+    },
+    {
+      "shape": "footer-peak",
+      "transition": "yellow-to-ink",
+      "file": "footer-peak-yellow-to-ink@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/footer-peak.svg"
+    },
+    {
+      "shape": "footer-peak",
+      "transition": "transparent-test",
+      "file": "footer-peak-transparent@2x.png",
+      "width": 1280,
+      "height": 147,
+      "source_svg": "dividers/svg/footer-peak.svg"
+    },
+    {
+      "shape": "dot-blob",
+      "transition": "number-1-yellow",
+      "file": "icons/png/blob-number-1-yellow@2x.png",
+      "width": 96,
+      "height": 96,
+      "source_svg": "dividers/svg/dot-blob.svg"
+    },
+    {
+      "shape": "dot-blob",
+      "transition": "number-2-pink",
+      "file": "icons/png/blob-number-2-pink@2x.png",
+      "width": 96,
+      "height": 96,
+      "source_svg": "dividers/svg/dot-blob.svg"
+    },
+    {
+      "shape": "dot-blob",
+      "transition": "number-3-teal",
+      "file": "icons/png/blob-number-3-teal@2x.png",
+      "width": 96,
+      "height": 96,
+      "source_svg": "dividers/svg/dot-blob.svg"
+    }
+  ],
+  "notes": [
+    "PNG assets are flat rendered for email clients that do not support CSS mask-image, clip-path or pseudo-elements.",
+    "Transparent PNGs contain the shape only and are intended for QA/testing, not primary production rows.",
+    "The V2 CSS height is 11.5% of width. At 1280px this is rounded to 147px."
+  ]
+}
