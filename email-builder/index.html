@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abundance Email Builder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Abundance email system</p>
+      <h1>Email builder</h1>
+    </div>
+    <div class="header-actions">
+      <button class="secondary" id="loadButton" type="button">Load JSON</button>
+      <button class="secondary" id="saveButton" type="button">Save JSON</button>
+      <button class="secondary" id="copyHtmlButton" type="button">Copy HTML</button>
+      <button class="primary" id="downloadHtmlButton" type="button">Download HTML</button>
+      <input id="loadInput" type="file" accept="application/json,.json,.abundance-email.json" hidden>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="panel block-panel">
+      <h2>Add row</h2>
+      <div class="block-picker">
+        <label>
+          Row type
+          <select id="blockPicker"></select>
+        </label>
+        <button class="primary" id="addBlockButton" type="button">Add row</button>
+      </div>
+    </aside>
+
+    <section class="panel editor-panel">
+      <div class="email-meta">
+        <label>
+          Email name
+          <input id="emailName" type="text">
+        </label>
+        <label>
+          Subject line
+          <input id="subjectLine" type="text">
+        </label>
+        <label>
+          Preview text
+          <input id="previewText" type="text">
+        </label>
+      </div>
+
+      <div class="list-header">
+        <h2>Email rows</h2>
+        <button id="resetButton" class="quiet" type="button">Reset example</button>
+      </div>
+      <div id="blockList" class="block-list" aria-live="polite"></div>
+    </section>
+
+    <section class="preview-column">
+      <div class="row-preview-card">
+        <h3 id="selectedRowName">Row preview: Header</h3>
+        <iframe id="rowPreviewFrame" title="Selected row preview"></iframe>
+      </div>
+      <div class="panel preview-panel">
+        <div class="preview-toolbar">
+          <h2>Email preview</h2>
+          <label class="toggle">
+            <input id="mobilePreview" type="checkbox">
+            Mobile width
+          </label>
+        </div>
+        <iframe id="previewFrame" title="Email preview"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
