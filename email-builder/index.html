@@ -13,9 +13,10 @@
       <h1>Email builder</h1>
     </div>
     <div class="header-actions">
-      <button class="secondary" id="loadButton" type="button">Load JSON</button>
-      <button class="secondary" id="saveButton" type="button">Save JSON</button>
+      <button class="secondary" id="loadButton" type="button">Load email</button>
+      <button class="secondary" id="saveButton" type="button">Save email</button>
       <button class="secondary" id="copyHtmlButton" type="button">Copy HTML</button>
+      <button class="secondary" id="openPreviewButton" type="button">Open preview</button>
       <button class="primary" id="downloadHtmlButton" type="button">Download HTML</button>
       <input id="loadInput" type="file" accept="application/json,.json,.abundance-email.json" hidden>
     </div>
@@ -76,6 +77,7 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+  <script src="component-library.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
