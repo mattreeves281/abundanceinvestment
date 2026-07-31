@@ -403,6 +403,26 @@
           </p>
         </div>
 
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral m-t-spacer-xs">
+          <label class="si-input-label" for="abv2-growth-regular-rate">
+            Assumed Interest Rate (%)
+          </label>
+
+          <div class="si-input-wrapper" style="max-width:10rem;">
+            <input
+              class="si-input"
+              id="abv2-growth-regular-rate"
+              type="number"
+              min="0"
+              step="0.1"
+              value="4.2"
+              inputmode="decimal"
+              aria-describedby="abv2-growth-regular-help"
+              data-abv2-growth-regular-rate-input
+            >
+          </div>
+        </div>
+
         <div class="m-t-spacer-sm">
           <p class="abundance-eyebrow brand-primary m-b-spacer-2xs">
             Value after 10 years
@@ -411,7 +431,7 @@
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
           <p class="si-heading-3 m-b-spacer-0" data-abv2-growth-regular-result>
-            £14,133
+            £14,776
           </p>
 
           <p id="abv2-growth-regular-help" class="abundance-body-compact m-t-spacer-xs m-b-spacer-0">
@@ -477,6 +497,26 @@
           </p>
         </div>
 
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral m-t-spacer-xs">
+          <label class="si-input-label" for="abv2-growth-single-rate">
+            Assumed Interest Rate (%)
+          </label>
+
+          <div class="si-input-wrapper" style="max-width:10rem;">
+            <input
+              class="si-input"
+              id="abv2-growth-single-rate"
+              type="number"
+              min="0"
+              step="0.1"
+              value="4.2"
+              inputmode="decimal"
+              aria-describedby="abv2-growth-single-help"
+              data-abv2-growth-single-rate-input
+            >
+          </div>
+        </div>
+
         <div class="m-t-spacer-sm">
           <p class="abundance-eyebrow brand-secondary m-b-spacer-2xs">
             Value after 10 years
@@ -485,7 +525,7 @@
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
           <p class="si-heading-3 m-b-spacer-0" data-abv2-growth-single-result>
-            £14,151
+            £15,154
           </p>
 
           <p id="abv2-growth-single-help" class="abundance-body-compact m-t-spacer-xs m-b-spacer-0">
@@ -544,11 +584,11 @@
 
         <div class="si-accordion-item__body">
           <p class="abundance-body-compact m-b-spacer-xs">
-            This example is for illustration only. It assumes interest rates start at 4% a year and gradually reduce to 3% a year over the 10-year period, to reflect the possibility that long-term interest rates may fall in future.
+            This example is for illustration only. It uses the annual interest rate entered above and applies that same fixed rate every year over the 10-year period.
           </p>
 
           <p class="abundance-body-compact m-b-spacer-xs">
-            The rate profile used is: 4.0% in year 1, 3.8% in year 2, 3.6% in year 3, 3.4% in year 4, 3.2% in year 5, and 3.0% from year 6 onwards.
+            The default rate is 4.2% a year, but you can change it to model a different rate.
           </p>
 
           <p class="abundance-body-compact m-b-spacer-0">

@@ -1,18 +1,6 @@
 <script>
   (function () {
-    const annualRatesByYear = [
-      0.04,
-      0.038,
-      0.036,
-      0.034,
-      0.032,
-      0.03,
-      0.03,
-      0.03,
-      0.03,
-      0.03
-    ];
-
+    const defaultAnnualRate = 0.042;
     const years = 10;
     const projectionMonths = years * 12;
     const termMonths = 5 * 12;
@@ -41,14 +29,18 @@
       return String(value || "").trim() !== "" && (!Number.isFinite(number) || number < minimumInvestment);
     }
 
-    function getAnnualRateForMonth(month) {
-      const yearIndex = Math.floor(month / 12);
-      return annualRatesByYear[yearIndex] ?? annualRatesByYear[annualRatesByYear.length - 1];
+    function parseAnnualRate(selector) {
+      const input = document.querySelector(selector);
+      if (!input) return defaultAnnualRate;
+
+      const rate = Number(String(input.value || "").replace(/[^0-9.-]/g, ""));
+      return Number.isFinite(rate) && rate >= 0 ? rate / 100 : defaultAnnualRate;
     }
 
     function futureValueTranches(options) {
       const tranches = new Map();
       let cashBalance = 0;
+      const annualRate = Number.isFinite(options.annualRate) ? options.annualRate : defaultAnnualRate;
 
       function getTrancheKey(tranche) {
         return [
@@ -63,7 +55,7 @@
 
         const tranche = {
           principal: principal,
-          annualRate: getAnnualRateForMonth(startMonth),
+          annualRate: annualRate,
           nextCouponMonth: startMonth + couponIntervalMonths,
           maturityMonth: startMonth + termMonths
         };
@@ -132,17 +124,19 @@
       }, cashBalance);
     }
 
-    function futureValueLumpSum(lumpSum) {
+    function futureValueLumpSum(lumpSum, annualRate) {
       return futureValueTranches({
         initialAmount: lumpSum,
-        monthlyPayment: 0
+        monthlyPayment: 0,
+        annualRate: annualRate
       });
     }
 
-    function futureValueMonthly(monthlyPayment) {
+    function futureValueMonthly(monthlyPayment, annualRate) {
       return futureValueTranches({
         initialAmount: 0,
-        monthlyPayment: monthlyPayment
+        monthlyPayment: monthlyPayment,
+        annualRate: annualRate
       });
     }
 
@@ -169,8 +163,9 @@
       setInputError(input, "[data-abv2-growth-regular-error]");
 
       const monthlyAmount = parseAmount(input.value);
+      const annualRate = parseAnnualRate("[data-abv2-growth-regular-rate-input]");
       const paidIn = monthlyAmount * 12 * years;
-      const futureValue = futureValueMonthly(monthlyAmount);
+      const futureValue = futureValueMonthly(monthlyAmount, annualRate);
 
       setText(
         "[data-abv2-growth-regular-paid-in]",
@@ -190,8 +185,9 @@
       setInputError(input, "[data-abv2-growth-single-error]");
 
       const lumpSum = parseAmount(input.value);
+      const annualRate = parseAnnualRate("[data-abv2-growth-single-rate-input]");
       const paidIn = lumpSum;
-      const futureValue = futureValueLumpSum(lumpSum);
+      const futureValue = futureValueLumpSum(lumpSum, annualRate);
 
       setText(
         "[data-abv2-growth-single-paid-in]",
@@ -212,6 +208,8 @@
     function initGrowthCalculator() {
       const regularInput = document.querySelector("[data-abv2-growth-regular-input]");
       const singleInput = document.querySelector("[data-abv2-growth-single-input]");
+      const regularRateInput = document.querySelector("[data-abv2-growth-regular-rate-input]");
+      const singleRateInput = document.querySelector("[data-abv2-growth-single-rate-input]");
 
       if (regularInput) {
         regularInput.addEventListener("input", updateRegularCalculator);
@@ -221,6 +219,16 @@
       if (singleInput) {
         singleInput.addEventListener("input", updateSingleCalculator);
         singleInput.addEventListener("change", updateSingleCalculator);
+      }
+
+      if (regularRateInput) {
+        regularRateInput.addEventListener("input", updateRegularCalculator);
+        regularRateInput.addEventListener("change", updateRegularCalculator);
+      }
+
+      if (singleRateInput) {
+        singleRateInput.addEventListener("input", updateSingleCalculator);
+        singleRateInput.addEventListener("change", updateSingleCalculator);
       }
 
       updateGrowthCalculator();
