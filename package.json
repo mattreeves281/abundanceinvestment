@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:designv2": "sass designv2/scss/main.scss designv2/build/main.css --no-source-map",
-    "watch:designv2": "sass designv2/scss/main.scss designv2/build/main.css --watch --no-source-map"
+    "watch:designv2": "sass designv2/scss/main.scss designv2/build/main.css --watch --no-source-map",
+    "build:v2-local": "node v2-local/scripts/build.mjs",
+    "dev:v2-local": "node v2-local/scripts/dev-server.mjs"
   },
   "repository": {
     "type": "git",
