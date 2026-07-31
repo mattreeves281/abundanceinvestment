@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Council declaration | Abundance</title>
+  <link rel="stylesheet" href="./css/css-base.css">
+  <link rel="stylesheet" href="./css/css-council.css">
+</head>
+<body>
+  <div class="bg-white abundance-civic-page">
+
+    <header class="abundance-civic-header" role="banner">
+      <div class="abundance-civic-header__inner">
+        <a class="abundance-civic-header__logo" href="./index.html" aria-label="Abundance home">
+          <img class="abundance-civic-header__logo-img" src="./img/Abundance-Logo-2026-on-white.png" alt="Abundance" loading="eager" decoding="async">
+        </a>
+      </div>
+    </header>
+    <main>
+
+<!--
+  ============================================================================
+  Abundance – Loan declarations confirmation
+  EMBEDDABLE FRAGMENT
+  ----------------------------------------------------------------------------
+  Paste everything below into the body of the target page on the Abundance
+  site, where you want the form to appear. It relies on the Abundance V2
+  stylesheet (abundance-main-css.css) already being loaded by the page.
+
+  All IDs are namespaced with "abn-decl-" to avoid clashing with the host page.
+  The <script> is self-contained (IIFE) and only touches elements inside
+  #abn-decl-root.
+
+  REQUIRED: pass the council record ID in the page URL as ?council=recXXXXXXXX
+  (the "id" of the record in the councils data feed). On load the page looks that
+  ID up in the feed, resolves it to the "issuingCouncil" name, and shows it above
+  the form ("You are submitting a declaration for …"). Both the ID and the
+  resolved name are included in the webhook payload. If the ID is missing, unknown,
+  or the feed can't be loaded, the form explains the problem and disables submission.
+  ============================================================================
+-->
+<section id="abn-decl-root" class="position-relative p-y-spacer-md bg-colour--white">
+  <div class="choke-800 m-x--auto p-x-spacer-xs">
+
+    <!-- INTRO -->
+    <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+
+    <h2 class="si-heading-2 m-b-spacer-0">Submit your annual borrower declaration</h2>
+
+    <p class="body--lg m-t-spacer-sm m-b-spacer-0">
+      Every year, we ask all councils that have outstanding loans on Abundance to submit a declaration of compliance with the terms of the loans. This is an important part of Abundance's borrower monitoring. Please read the declarations below and confirm that they are true and correct in relation to all of the council's outstanding loans with Abundance.
+      The declaration should be completed by the Section&nbsp;151 officer or another authorised person at the council.
+    </p>
+
+    <div class="p-t-spacer-md" aria-hidden="true"></div>
+
+    <!-- WHICH COUNCIL (resolved from the ?council=<record id> in the page URL) -->
+    <div id="abn-decl-council-loading" class="si-card si-card--xs abundance-card--color-cyan-very-light m-b-spacer-0 d-none">
+      <p class="body--md m-b-spacer-0">Loading council details&hellip;</p>
+    </div>
+
+    <div id="abn-decl-council-banner" class="si-card si-card--xs abundance-card--color-cyan-very-light m-b-spacer-0 d-none">
+      <p class="body--lg m-b-spacer-0">
+        You are submitting a declaration for
+        <span id="abn-decl-council-name" class="type-bold"></span>.
+      </p>
+    </div>
+
+    <div id="abn-decl-council-notice" class="si-card si-card--xs abundance-card--color-yellow m-b-spacer-0 d-none">
+      <p id="abn-decl-council-notice-text" class="body--md m-b-spacer-0 text-color--primary"></p>
+    </div>
+
+    <div class="p-t-spacer-md" aria-hidden="true"></div>
+
+    <form id="abn-decl-form" novalidate>
+
+      <!-- DECLARATIONS CARD -->
+      <section class="si-card si-card--secondary si-card--md" aria-labelledby="abn-decl-title">
+        <header>
+          <h3 id="abn-decl-title" class="si-heading-3 m-b-spacer-0">Declarations</h3>
+
+          <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+
+          <div class="body--lg text-choke--960">
+            <p class="m-b-spacer-0">
+              The Section&nbsp;151 officer, or other authorised person, confirms the following:
+            </p>
+          </div>
+        </header>
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <section class="si-card si-card--xs abundance-card--color-cyan-very-light" aria-labelledby="abn-decl-list-title">
+          <h4 id="abn-decl-list-title" class="si-heading-5 m-b-spacer-0">I confirm that:</h4>
+
+          <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+
+          <ol class="body--md m-b-spacer-0">
+            <li>
+              The Council is in compliance with the Representations and Warranties set out in
+              Schedule&nbsp;1 of the Loan Conditions and the Positive Undertakings set out in
+              Schedule&nbsp;2 of the Loan Conditions.
+            </li>
+            <li>
+              The Council maintains an adequate level of reserves and provisions and has an
+              appropriate strategy for managing its reserves over the medium term.
+            </li>
+            <li>
+              The Council has not issued a Section&nbsp;114 notice and does not expect to in the
+              next year.
+            </li>
+            <li>
+              The Council has not had a liquidity stress event in the past 12 months and sees no
+              reason for one in the coming 12 months.
+            </li>
+            <li>
+              The Council maintains an up-to-date register of Eligible Green Projects and the
+              council funding sources that have been applied to those Projects.
+            </li>
+            <li>
+              The Council has not disposed of any of the assets linked to the Eligible Green
+              Projects funded by this loan.
+            </li>
+            <li>
+              Any loan money that has been drawn down and not yet allocated is either:
+              <ul class="m-b-spacer-0">
+                <li>
+                  held in temporary investment instruments that are cash, or cash equivalent
+                  instruments, within a treasury function; or
+                </li>
+                <li>
+                  held in temporary investment instruments that do not include greenhouse gas
+                  intensive projects which are inconsistent with the delivery of a low carbon and
+                  climate resilient economy; or
+                </li>
+                <li>
+                  applied to temporarily reduce indebtedness of a revolving nature before being
+                  redrawn for investments or disbursements to eligible assets.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <!-- REFERENCE: Schedules 1 & 2 -->
+        <p class="body--md m-b-spacer-0">
+          Declaration&nbsp;1 refers to the Representations and Warranties and Positive
+          Undertakings in the Loan Conditions. You can read these in full below.
+        </p>
+
+        <div class="p-t-spacer-xs" aria-hidden="true"></div>
+
+        <div class="si-accordion" id="abn-decl-schedules">
+
+          <!-- Schedule 1 -->
+          <div class="abundance-accordion--sm">
+            <div class="si-accordion-item" id="abn-decl-sch1-item">
+              <button
+                class="si-accordion-item__header-btn collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="abn-decl-sch1-collapse">
+                <div class="si-accordion-item__header-interior">
+                  <div class="si-accordion-item__header-text-container">
+                    <div class="si-accordion-item__heading">
+                      Schedule&nbsp;1 &ndash; Representations and Warranties
+                    </div>
+                  </div>
+                  <div class="si-accordion-item__header-icon-container">
+                    <div class="si-accordion-item__icon si-icon si-icon--sm"></div>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <div id="abn-decl-sch1-collapse" class="accordion-collapse collapse" aria-labelledby="abn-decl-sch1-item">
+              <div class="si-accordion-item__body">
+                <p class="body--md m-b-spacer-2xs">
+                  The Borrower represents and warrants to each of the Lenders on the Offer Open
+                  Date and annually on 30 June thereafter that:
+                </p>
+                <ul class="body--md m-b-spacer-0">
+                  <li><span class="type-bold">Status:</span> it is a local authority, duly established and validly existing under the laws of either England and Wales or Scotland and it has full power to own its assets and discharge its functions;</li>
+                  <li><span class="type-bold">Binding Obligations:</span> the obligations expressed to be assumed by it in relation to any Loan Contract are legal, valid, binding and enforceable obligations;</li>
+                  <li><span class="type-bold">Non-conflict with other obligations:</span> the entry into and performance by it of any Loan Contract does not and will not conflict with any law or regulation applicable to it (including, without limitation, in the case of a Borrower that is a local authority established under the laws of England and Wales, the Local Government Act 1972, Local Government Act 2003 and Localism Act 2011 and, in the case of a Borrower that is a local authority established under the laws of Scotland, the Local Government (Scotland) Act 1973, the Local Government in Scotland Act 2003 and the Local Authority (Capital Finance and Accounting) (Scotland) Regulations 2016), its constitutional documents or any agreement or instrument binding upon it or any of its assets;</li>
+                  <li><span class="type-bold">Power and Authority:</span> it has the power to enter into, perform and deliver, and has taken any and all necessary action to authorise its entry into, performance and delivery of, any documentation necessary to enter into any Loan Contracts;</li>
+                  <li><span class="type-bold">Validity and admissibility in evidence:</span> it has obtained all required Authorisations to enable it to enter into, exercise its rights and comply with its obligations under any Loan Contracts. Any such Authorisations are in full force and effect;</li>
+                  <li><span class="type-bold">Governing law and enforcement:</span> the choice of governing law in these Loan Conditions will be recognised and enforced in its jurisdiction of establishment and residence and any judgment obtained in England or Wales in relation to these Loan Conditions and/or any Loan will be recognised and enforced in that jurisdiction;</li>
+                  <li><span class="type-bold">Insolvency:</span> no civil action, legal proceeding or other procedure or step described in the insolvency provisions of the Loan Conditions has been taken or, to its knowledge, threatened in relation to it which would or might reasonably be expected to have a Material Adverse Effect;</li>
+                  <li><span class="type-bold">No default:</span> no Event of Default is continuing or is reasonably likely to result from the entry into or the performance of its obligations under any Loan Contract by it;</li>
+                  <li><span class="type-bold">Information:</span> to the best of its knowledge and belief (having taken all reasonable care to ensure it is so) all information that it has given in connection with the Loan Opportunity was true and accurate in all material respects as at the date it was provided, and no information has been omitted or withheld that results in that information being untrue or misleading in any material respect;</li>
+                  <li><span class="type-bold">No breach of laws:</span> it has not breached any law or regulation where breach would have a Material Adverse Effect.</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr class="si-horizontal-rule abundance-horizontal-rule--ink">
+          </div>
+
+          <!-- Schedule 2 -->
+          <div class="abundance-accordion--sm">
+            <div class="si-accordion-item" id="abn-decl-sch2-item">
+              <button
+                class="si-accordion-item__header-btn collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="abn-decl-sch2-collapse">
+                <div class="si-accordion-item__header-interior">
+                  <div class="si-accordion-item__header-text-container">
+                    <div class="si-accordion-item__heading">
+                      Schedule&nbsp;2 &ndash; Positive Undertakings
+                    </div>
+                  </div>
+                  <div class="si-accordion-item__header-icon-container">
+                    <div class="si-accordion-item__icon si-icon si-icon--sm"></div>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <div id="abn-decl-sch2-collapse" class="accordion-collapse collapse" aria-labelledby="abn-decl-sch2-item">
+              <div class="si-accordion-item__body">
+                <p class="body--md m-b-spacer-2xs">
+                  Subject to the terms of these Loan Conditions, the Borrower undertakes to the
+                  Lenders as follows:
+                </p>
+                <ul class="body--md m-b-spacer-0">
+                  <li>the Borrower must promptly obtain, comply with and do all that is necessary to maintain in full force and effect any Authorisation required under any law or regulation of England and Wales or Scotland (as appropriate) that enables it to perform its obligations under these Loan Conditions and/or any Loan and to ensure the legality, validity, enforceability or admissibility in evidence of these Loan Conditions and/or any Loan or that enable it to own its assets and carry on its business and carry out its functions as they are being conducted, except where failure to obtain or effect such Authorisations would not materially adversely impair its ability to perform its payment obligations under these Loan Conditions to which it is expressed to be a party;</li>
+                  <li>the Borrower must comply with any law or regulation to which it is subject where such breach would materially adversely affect its ability to perform its obligations under these Loan Conditions or result in a liability against it in an amount which would or might reasonably be expected to have a Material Adverse Effect; and</li>
+                  <li>the Borrower shall, promptly following request in writing from Abundance as agent for the Lenders, supply Abundance with such financial information concerning its business, assets or financial condition as Abundance as agent for the Lenders may reasonably request and shall, promptly following publication, provide Abundance as agent for the Lenders with a copy of each of its annual accounts.</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr class="si-horizontal-rule abundance-horizontal-rule--ink">
+          </div>
+
+        </div>
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <hr class="si-horizontal-rule si-horizontal-rule--2xs">
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <!-- YOUR DETAILS -->
+        <h3 class="si-heading-3 m-b-spacer-0">Your details</h3>
+
+        <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+
+        <p class="body--md m-b-spacer-0">
+          Please provide the name and position of the person confirming these declarations.
+        </p>
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <div class="row row-cols-1 row-cols-md-2 gx-2xs gy-2xs">
+          <div>
+            <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+              <label class="si-input-label" for="abn-decl-name">Full name</label>
+              <input
+                class="si-input"
+                id="abn-decl-name"
+                name="full_name"
+                type="text"
+                autocomplete="name"
+                required
+                aria-describedby="abn-decl-name-error">
+              <p id="abn-decl-name-error" class="body-sm m-b-spacer-0 m-t-spacer-3xs d-none" style="color:var(--bs-red);"></p>
+            </div>
+          </div>
+
+          <div>
+            <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+              <label class="si-input-label" for="abn-decl-position">Position</label>
+              <input
+                class="si-input"
+                id="abn-decl-position"
+                name="position"
+                type="text"
+                autocomplete="organization-title"
+                placeholder="e.g. Section 151 Officer"
+                required
+                aria-describedby="abn-decl-position-error">
+              <p id="abn-decl-position-error" class="body-sm m-b-spacer-0 m-t-spacer-3xs d-none" style="color:var(--bs-red);"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <!-- EMAIL -->
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <label class="si-input-label" for="abn-decl-email">Email address</label>
+          <input
+            class="si-input"
+            id="abn-decl-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            aria-describedby="abn-decl-email-error">
+          <p id="abn-decl-email-error" class="body-sm m-b-spacer-0 m-t-spacer-3xs d-none" style="color:var(--bs-red);"></p>
+        </div>
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <!-- CONFIRMATION CHECKBOX -->
+        <div class="si-card si-card--xs m-b-spacer-0">
+          <div class="si-choice-form-group">
+            <input
+              class="si-input si-choice-form-group__input"
+              id="abn-decl-confirm"
+              type="checkbox"
+              value="confirmed"
+              name="declarations_confirmed"
+              required
+              aria-describedby="abn-decl-confirm-error">
+
+            <div class="si-choice-form-group__labels-container">
+              <label class="si-choice-form-group__label body--md" for="abn-decl-confirm">
+                I confirm that I am authorised to make these declarations on behalf of the Council
+                and that the declarations above are true and correct to the best of my knowledge
+                and belief.
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <p id="abn-decl-confirm-error" class="body-sm m-b-spacer-0 m-t-spacer-2xs d-none" style="color:var(--bs-red);"></p>
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <hr class="si-horizontal-rule si-horizontal-rule--2xs">
+
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+        <!-- SUBMIT -->
+        <div class="d-flex flex-column flex-md-row justify-content-md-end align-items-md-center">
+          <button id="abn-decl-submit" type="submit" class="si-btn si-btn--primary si-btn--lg">
+            Submit declarations
+          </button>
+        </div>
+
+        <!-- FORM-LEVEL STATUS -->
+        <div id="abn-decl-status" class="d-none" role="status" aria-live="polite">
+          <div class="p-t-spacer-sm" aria-hidden="true"></div>
+          <div id="abn-decl-status-inner" class="si-card si-card--xs m-b-spacer-0">
+            <p id="abn-decl-status-msg" class="body--md m-b-spacer-0"></p>
+          </div>
+        </div>
+
+      </section>
+    </form>
+
+    <!-- SUCCESS PANEL -->
+    <section id="abn-decl-success" class="si-card si-card--secondary si-card--md d-none" aria-labelledby="abn-decl-success-title" tabindex="-1">
+      <header>
+        <span class="abundance-eyebrow brand-secondary">Submitted</span>
+        <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+        <h3 id="abn-decl-success-title" class="si-heading-2 m-b-spacer-0">
+          Thank you &ndash; your declarations have been received
+        </h3>
+      </header>
+
+      <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+      <div class="body--lg text-choke--960">
+        <p class="m-b-spacer-0">
+          We&rsquo;ve recorded your confirmation. A summary of what you submitted is shown below
+          for your records.
+        </p>
+      </div>
+
+      <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+      <div class="si-card si-card--xs abundance-card--color-cyan-very-light m-b-spacer-0">
+        <dl class="m-b-spacer-0">
+          <dt class="abundance-eyebrow brand-secondary">Council</dt>
+          <dd id="abn-decl-summary-council" class="body--md m-b-spacer-xs"></dd>
+          <dt class="abundance-eyebrow brand-secondary">Name</dt>
+          <dd id="abn-decl-summary-name" class="body--md m-b-spacer-xs"></dd>
+          <dt class="abundance-eyebrow brand-secondary">Position</dt>
+          <dd id="abn-decl-summary-position" class="body--md m-b-spacer-xs"></dd>
+          <dt class="abundance-eyebrow brand-secondary">Email</dt>
+          <dd id="abn-decl-summary-email" class="body--md m-b-spacer-xs"></dd>
+          <dt class="abundance-eyebrow brand-secondary">Confirmed at</dt>
+          <dd id="abn-decl-summary-time" class="body--md m-b-spacer-0"></dd>
+        </dl>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  "use strict";
+
+  /* --------------------------------------------------------------------------
+   * Make.com custom webhook. Replace only if the scenario's webhook changes.
+   * ------------------------------------------------------------------------ */
+  var WEBHOOK_URL = "https://hook.eu1.make.com/683jhcdrvftj7owbx9krn24oycxm1s4j";
+
+  /* Councils data feed. Used to resolve the council record ID (from the URL)
+     into its "issuingCouncil" name. */
+  var COUNCILS_URL = "https://data.abundanceinvestment.com/councils";
+
+  var root = document.getElementById("abn-decl-root");
+  if (!root) { return; }
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* --- Council record ID from the page URL, e.g. ?council=recLX9P6E17LTuZbY --- */
+  var councilId = (new URLSearchParams(window.location.search).get("council") || "").trim();
+  var councilName = ""; // resolved from the data feed once loaded
+
+  /* --- Accordion toggle (no Bootstrap JS dependency) --- */
+  root.querySelectorAll("#abn-decl-schedules .si-accordion-item__header-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var region = $(btn.getAttribute("aria-controls"));
+      if (!region) { return; }
+      var isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      btn.classList.toggle("collapsed", isOpen);
+      region.classList.toggle("show", !isOpen);
+    });
+  });
+
+  /* --- Form handling --- */
+  var form = $("abn-decl-form");
+  var submitBtn = $("abn-decl-submit");
+  var statusWrap = $("abn-decl-status");
+  var statusMsg = $("abn-decl-status-msg");
+  var statusInner = $("abn-decl-status-inner");
+  var nameInput = $("abn-decl-name");
+  var positionInput = $("abn-decl-position");
+  var emailInput = $("abn-decl-email");
+  var confirmInput = $("abn-decl-confirm");
+
+  /* --- Resolve which council this declaration is for --------------------------
+   * The URL carries the council record ID; we look it up in the data feed to
+   * show the name. Submission stays disabled until a council is confirmed. */
+  var councilLoading = $("abn-decl-council-loading");
+  var councilBanner = $("abn-decl-council-banner");
+  var councilNotice = $("abn-decl-council-notice");
+
+  function showCouncilState(which) {
+    councilLoading.classList.toggle("d-none", which !== "loading");
+    councilBanner.classList.toggle("d-none", which !== "found");
+    councilNotice.classList.toggle("d-none", which !== "notice");
+  }
+
+  function showCouncilNotice(message) {
+    $("abn-decl-council-notice-text").textContent = message;
+    showCouncilState("notice");
+    submitBtn.disabled = true;
+  }
+
+  function resolveCouncil() {
+    showCouncilState("loading");
+    submitBtn.disabled = true;
+
+    fetch(COUNCILS_URL, { headers: { "Accept": "application/json" } })
+      .then(function (r) {
+        if (!r.ok) { throw new Error("HTTP " + r.status); }
+        return r.json();
+      })
+      .then(function (data) {
+        var records = (data && data.records) || [];
+        var record = records.filter(function (rec) { return rec && rec.id === councilId; })[0];
+        var name = record && record.fields ? record.fields.issuingCouncil : "";
+        if (name) {
+          councilName = name;
+          $("abn-decl-council-name").textContent = name;
+          showCouncilState("found");
+          submitBtn.disabled = false;
+        } else {
+          showCouncilNotice("We couldn’t find a council for this link. Please use the link provided to you by Abundance, or contact us if you need help.");
+        }
+      })
+      .catch(function (error) {
+        if (window.console) { console.error("Could not load council details:", error); }
+        showCouncilNotice("We couldn’t load the council details for this page. Please refresh, or contact Abundance if the problem continues.");
+      });
+  }
+
+  if (councilId) {
+    resolveCouncil();
+  } else {
+    showCouncilNotice("This page is missing a council reference, so the declaration can’t be submitted. Please open it using the link provided to you by Abundance.");
+  }
+
+  function setFieldError(input, errorEl, message) {
+    if (message) {
+      errorEl.textContent = message;
+      errorEl.classList.remove("d-none");
+      input.setAttribute("aria-invalid", "true");
+    } else {
+      errorEl.textContent = "";
+      errorEl.classList.add("d-none");
+      input.removeAttribute("aria-invalid");
+    }
+  }
+
+  function showStatus(message, isError) {
+    statusMsg.textContent = message;
+    statusWrap.classList.remove("d-none");
+    statusInner.classList.toggle("abundance-card--color-cyan-very-light", !isError);
+    statusMsg.style.color = isError ? "var(--bs-red)" : "";
+  }
+
+  function validate() {
+    var ok = true;
+    if (!nameInput.value.trim()) {
+      setFieldError(nameInput, $("abn-decl-name-error"), "Please enter your full name.");
+      ok = false;
+    } else {
+      setFieldError(nameInput, $("abn-decl-name-error"), "");
+    }
+    if (!positionInput.value.trim()) {
+      setFieldError(positionInput, $("abn-decl-position-error"), "Please enter your position.");
+      ok = false;
+    } else {
+      setFieldError(positionInput, $("abn-decl-position-error"), "");
+    }
+    var email = emailInput.value.trim();
+    if (!email) {
+      setFieldError(emailInput, $("abn-decl-email-error"), "Please enter your email address.");
+      ok = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setFieldError(emailInput, $("abn-decl-email-error"), "Please enter a valid email address.");
+      ok = false;
+    } else {
+      setFieldError(emailInput, $("abn-decl-email-error"), "");
+    }
+    var confirmError = $("abn-decl-confirm-error");
+    if (!confirmInput.checked) {
+      confirmError.textContent = "Please tick the box to confirm the declarations.";
+      confirmError.classList.remove("d-none");
+      ok = false;
+    } else {
+      confirmError.textContent = "";
+      confirmError.classList.add("d-none");
+    }
+    return ok;
+  }
+
+  function onSuccess(payload, confirmedAt) {
+    $("abn-decl-summary-council").textContent = payload.council;
+    $("abn-decl-summary-name").textContent = payload.full_name;
+    $("abn-decl-summary-position").textContent = payload.position;
+    $("abn-decl-summary-email").textContent = payload.email;
+    $("abn-decl-summary-time").textContent = confirmedAt.toLocaleString("en-GB");
+    form.classList.add("d-none");
+    var panel = $("abn-decl-success");
+    panel.classList.remove("d-none");
+    panel.focus();
+    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    statusWrap.classList.add("d-none");
+
+    if (!councilName) {
+      showStatus("The council for this declaration hasn’t been confirmed yet. Please use the link provided to you by Abundance, or refresh the page.", true);
+      return;
+    }
+    if (!validate()) {
+      showStatus("Please fix the highlighted fields and try again.", true);
+      return;
+    }
+
+    var confirmedAt = new Date();
+    var payload = {
+      council_id: councilId,
+      council: councilName,
+      full_name: nameInput.value.trim(),
+      position: positionInput.value.trim(),
+      email: emailInput.value.trim(),
+      declarations_confirmed: true,
+      confirmed_at: confirmedAt.toISOString(),
+      page_url: window.location.href
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting…";
+
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (response) {
+        if (!response.ok) { throw new Error("Request failed with status " + response.status); }
+        onSuccess(payload, confirmedAt);
+      })
+      .catch(function (error) {
+        if (window.console) { console.error("Declarations submission failed:", error); }
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit declarations";
+        showStatus("Sorry, something went wrong submitting your declarations. Please try again, or contact Abundance if the problem continues.", true);
+      });
+  });
+})();
+</script>
+
+
+
+    <div class="abundance-mask abundance-mask--top abundance-civic-footer-peak" aria-hidden="true"></div>
+    <footer class="abundance-civic-footer" role="contentinfo" id="contact">
+      <div class="abundance-civic-footer__inner">
+        <div class="abundance-civic-footer__grid">
+          <div>
+            <h2 class="abundance-civic-footer__heading">Support</h2>
+            <ul class="abundance-civic-footer__links">
+              <li><a href="/contact">Contact us</a></li>
+              <li><a href="mailto:support@abundanceinvestment.com">support@abundanceinvestment.com</a></li>
+              <li><a href="tel:+442034758666">+44 (0)20 3475 8666</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="abundance-civic-footer__heading">Company</h2>
+            <p class="abundance-civic-footer__text">Abundance Investment Ltd<br>Hamilton House<br>Mabledon Place<br>London WC1H 9BB<br>United Kingdom</p>
+          </div>
+          <div>
+            <h2 class="abundance-civic-footer__heading">Useful links</h2>
+            <ul class="abundance-civic-footer__links">
+              <li><a href="https://www.abundanceinvestment.com">Abundance website</a></li>
+              <li><a href="https://abundance-councils.notion.site/communications">Support for comms teams</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="abundance-civic-footer__bottom">
+          <div>
+            <p class="abundance-civic-footer__small">Office hours: Mon - Fri 9.30am - 5:00pm</p>
+            <p class="abundance-civic-footer__small">We aim to respond within one working day.</p>
+            <div class="abundance-civic-footer__social" aria-label="Social links"><a href="#" aria-label="LinkedIn">LinkedIn</a><a href="#" aria-label="Facebook">Facebook</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Instagram">Instagram</a></div>
+          </div>
+          <div><p class="abundance-civic-footer__small">We are a limited company registered in England and Wales (07049166).</p></div>
+          <div><p class="abundance-civic-footer__small">We are authorised and regulated by the Financial Conduct Authority (525432).</p><div class="abundance-civic-footer__mini-links"><span class="abundance-civic-footer__small">© Abundance 2026</span><a href="./privacy-policy.html#cookies">Cookies</a><a href="./privacy-policy.html">Privacy</a></div></div>
+        </div>
+      </div>
+    </footer>
+    </main>
+  </div>
+</body>
+</html>
