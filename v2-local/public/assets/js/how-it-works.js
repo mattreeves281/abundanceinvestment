@@ -1,11 +1,13 @@
 <script>
   (function () {
-    const defaultAnnualRate = 0.042;
+    const defaultAnnualRate = 0.0455;
+    const defaultAnnualRatePercent = "4.55";
     const years = 10;
     const projectionMonths = years * 12;
     const termMonths = 5 * 12;
     const couponIntervalMonths = 6;
     const minimumInvestment = 5;
+    let hasEditedRateInput = false;
 
     function formatMoney(value) {
       return new Intl.NumberFormat("en-GB", {
@@ -222,22 +224,84 @@
       }
 
       if (regularRateInput) {
-        regularRateInput.addEventListener("input", updateRegularCalculator);
-        regularRateInput.addEventListener("change", updateRegularCalculator);
+        regularRateInput.addEventListener("input", function () {
+          hasEditedRateInput = true;
+          updateRegularCalculator();
+        });
+        regularRateInput.addEventListener("change", function () {
+          hasEditedRateInput = true;
+          updateRegularCalculator();
+        });
       }
 
       if (singleRateInput) {
-        singleRateInput.addEventListener("input", updateSingleCalculator);
-        singleRateInput.addEventListener("change", updateSingleCalculator);
+        singleRateInput.addEventListener("input", function () {
+          hasEditedRateInput = true;
+          updateSingleCalculator();
+        });
+        singleRateInput.addEventListener("change", function () {
+          hasEditedRateInput = true;
+          updateSingleCalculator();
+        });
       }
 
       updateGrowthCalculator();
     }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initGrowthCalculator);
-    } else {
+    function setRateStat(key, value) {
+      if (!value) return;
+
+      document.querySelectorAll('[data-abv2-rate-stat="' + key + '"]').forEach(function (element) {
+        element.textContent = value;
+      });
+    }
+
+    function defaultRateInputValue(rate) {
+      return (rate * 100).toFixed(2).replace(/\.?0+$/, "");
+    }
+
+    function updateDefaultGrowthRate(rate) {
+      if (!Number.isFinite(rate) || rate <= 0 || hasEditedRateInput) return;
+
+      const value = defaultRateInputValue(rate);
+
+      document.querySelectorAll("[data-abv2-growth-regular-rate-input], [data-abv2-growth-single-rate-input]").forEach(function (input) {
+        if (String(input.value || "").trim() === defaultAnnualRatePercent || String(input.value || "").trim() === "") {
+          input.value = value;
+        }
+      });
+
+      updateGrowthCalculator();
+    }
+
+    function initHistoricRateStats() {
+      if (!document.querySelector("[data-abv2-rate-stat]")) return;
+      if (!window.AbundanceLiveStats || !window.AbundanceLiveStats.fetchLoans) return;
+
+      window.AbundanceLiveStats.fetchLoans()
+        .then(function (records) {
+          const stats = window.AbundanceLiveStats.loanStats(records);
+
+          Object.keys(stats).forEach(function (key) {
+            setRateStat(key, stats[key]);
+          });
+
+          updateDefaultGrowthRate(stats.investTodayRateDecimal);
+        })
+        .catch(function (error) {
+          console.error("Historic rate stats failed:", error);
+        });
+    }
+
+    function initPage() {
       initGrowthCalculator();
+      initHistoricRateStats();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initPage);
+    } else {
+      initPage();
     }
   })();
 </script>

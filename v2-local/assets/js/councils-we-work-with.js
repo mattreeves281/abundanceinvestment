@@ -245,19 +245,23 @@
     loadingState(otherGrid);
 
     try {
-      const response = await fetch(endpoint, { cache: "no-store" });
+      const records = window.AbundanceLiveStats && window.AbundanceLiveStats.fetchCouncils
+        ? await window.AbundanceLiveStats.fetchCouncils()
+        : await fetch(endpoint, { cache: "no-store" })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Council endpoint returned " + response.status);
+            }
 
-      if (!response.ok) {
-        throw new Error("Council endpoint returned " + response.status);
-      }
-
-      const data = await response.json();
-
-      const records = Array.isArray(data)
-        ? data
-        : Array.isArray(data.records)
-          ? data.records
-          : [];
+            return response.json();
+          })
+          .then(function (data) {
+            return Array.isArray(data)
+              ? data
+              : Array.isArray(data.records)
+                ? data.records
+                : [];
+          });
 
       const visibleCouncils = records
         .filter(function (record) {

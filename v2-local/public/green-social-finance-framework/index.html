@@ -237,7 +237,9 @@
             <p class="body--lg m-t-spacer-sm m-b-spacer-0">Where eligible projects and assets are jointly funded between the Council and another party (e.g. Central Government), funding will be applied only to the Council’s share of the eligible project.</p>
             
             <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
-              <p class="body--md m-b-spacer-0">Community Municipal Investments will be accredited based on the type of Eligible Project they fund:</p>
+              <h3 class="si-heading-3 m-b-spacer-0">Types of municipal investment</h3>
+              <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+              <p class="m-t-spacer-0 m-b-spacer-0">Community Municipal Investments will be accredited based on the type of Eligible Project they fund</p>
               <div class="row row-cols-1 row-cols-md-3 gx-xs gy-xs m-t-spacer-sm">
                 <div>
                   <article class="si-card p-all-spacer-sm h-100 bg-colour--pink">
@@ -645,14 +647,12 @@
             <h2 class="si-heading-2 m-b-spacer-0">Assurance</h2>
             <p class="body--lg m-t-spacer-sm m-b-spacer-0">Abundance is committed to pursuing the highest standards of integrity relating to our council green and social investments.</p>
             <p class="body--lg m-t-spacer-sm m-b-spacer-0">By providing an independent and third party check, Abundance provides assurance that Community Municipal Investments are being delivered in line with this Framework and the Green Loan Principles and Social Loan Principles, and the money is going towards Eligible Projects.</p>
-            <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
-              <p class="body--md m-b-spacer-0">Abundance conducts the following reviews as part of its assurance programme:</p>
-              <ul class="abundance-body-compact m-t-spacer-xs m-b-spacer-0">
+              <p class="body--lg m-t-spacer-sm m-b-spacer-0">Abundance conducts the following reviews as part of its assurance programme:</p>
+              <ul class="body--lg m-t-spacer-xs m-b-spacer-0">
                 <li class="m-b-spacer-2xs">When a Council reports the Use of Funds for a CMI, Abundance reviews the projects selected by the Council to ensure they meet the criteria of Eligible Projects. Where the green or social credentials of a project are not clear, Abundance may recommend the recruitment of a technical expert to provide an expert opinion on the qualification of a project.</li>
                 <li class="m-b-spacer-2xs">Abundance confirms that the proceeds of a CMI are fully deployed on Eligible Projects and there are no unallocated funds remaining within 24 months of the issuance of a Municipal Investment.</li>
                 <li class="m-b-spacer-2xs">Abundance carries out a spot check from time to time to ensure the information provided by the Council on the Use of Funds is accurate and confirm that the Council has the internal systems and controls in place to ensure ongoing compliance with the Framework.</li>
               </ul>
-            </article>
         </div>
     </div>
   </section>
@@ -813,6 +813,222 @@
       }
     });
   })();
+</script>
+<script>
+(function () {
+  const COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
+  const LOANS_ENDPOINT = "https://data.abundanceinvestment.com/loans";
+
+  let councilsPromise;
+  let loansPromise;
+
+  function recordsFromResponse(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.records)) return data.records;
+    return [];
+  }
+
+  function getFields(record) {
+    return record && record.fields && typeof record.fields === "object" ? record.fields : record || {};
+  }
+
+  function getValue(record, key) {
+    return getFields(record)[key];
+  }
+
+  function safeNumber(value) {
+    if (typeof value === "number" && Number.isFinite(value)) return value;
+
+    if (typeof value === "string") {
+      const cleaned = value.replace(/[^0-9.\-]/g, "");
+      const number = Number(cleaned);
+      return Number.isFinite(number) ? number : 0;
+    }
+
+    return 0;
+  }
+
+  function roundTo(value, decimals) {
+    const places = Math.pow(10, decimals);
+    return Math.round(value * places) / places;
+  }
+
+  function formatMoneyCompact(value, decimals) {
+    const number = safeNumber(value);
+    const abs = Math.abs(number);
+    const dp = typeof decimals === "number" ? decimals : 1;
+
+    if (abs >= 1000000000) return "£" + roundTo(number / 1000000000, dp).toFixed(dp).replace(/\.0+$/, "") + "bn";
+    if (abs >= 1000000) return "£" + roundTo(number / 1000000, dp).toFixed(dp).replace(/\.0+$/, "") + "m";
+    if (abs >= 1000) return "£" + roundTo(number / 1000, 1).toFixed(1).replace(/\.0$/, "") + "k";
+    return "£" + Math.round(number).toLocaleString("en-GB");
+  }
+
+  function formatInt(value) {
+    return Math.round(safeNumber(value)).toLocaleString("en-GB");
+  }
+
+  function formatPercentFromDecimal(value) {
+    return (safeNumber(value) * 100).toFixed(2) + "%";
+  }
+
+  function parseDate(value) {
+    const date = new Date(String(value || ""));
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function normaliseStatusItem(item) {
+    const value = item && (item.name || item.value || item);
+    return String(value || "").trim().toLowerCase();
+  }
+
+  function includesStatus(raiseStatus, target) {
+    const normalisedTarget = String(target || "").trim().toLowerCase();
+
+    if (!raiseStatus) return false;
+    if (typeof raiseStatus === "string") return normaliseStatusItem(raiseStatus) === normalisedTarget;
+
+    if (Array.isArray(raiseStatus)) {
+      return raiseStatus.some(function (item) {
+        return normaliseStatusItem(item) === normalisedTarget;
+      });
+    }
+
+    return false;
+  }
+
+  function shouldExcludeCouncil(record) {
+    const hub = getValue(record, "councilHub");
+    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+  }
+
+  function fetchRecords(endpoint, cacheKey) {
+    if (cacheKey === "councils" && councilsPromise) return councilsPromise;
+    if (cacheKey === "loans" && loansPromise) return loansPromise;
+
+    const request = fetch(endpoint, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) throw new Error(endpoint + " returned " + response.status);
+        return response.json();
+      })
+      .then(recordsFromResponse);
+
+    if (cacheKey === "councils") councilsPromise = request;
+    if (cacheKey === "loans") loansPromise = request;
+
+    return request;
+  }
+
+  function setStats(values) {
+    Object.keys(values).forEach(function (key) {
+      document.querySelectorAll('[data-abv2-stat="' + key + '"]').forEach(function (element) {
+        element.textContent = values[key];
+      });
+    });
+  }
+
+  function councilStats(records) {
+    const visibleCouncils = records.filter(function (record) {
+      return !shouldExcludeCouncil(record);
+    });
+
+    const projectTotals = records.reduce(function (acc, record) {
+      acc.totalSpent += safeNumber(getValue(record, "totalSpent"));
+      acc.projectsFunded += safeNumber(getValue(record, "projectsFunded"));
+      return acc;
+    }, {
+      totalSpent: 0,
+      projectsFunded: 0
+    });
+
+    const totalRaised = visibleCouncils.reduce(function (total, record) {
+      return total + safeNumber(getValue(record, "totalRaised"));
+    }, 0);
+
+    return {
+      projectsFinanced: formatInt(projectTotals.projectsFunded),
+      spentOnProjects: formatMoneyCompact(projectTotals.totalSpent, 1),
+      totalInvested: formatMoneyCompact(totalRaised, 1),
+      uniqueCouncils: formatInt(visibleCouncils.length)
+    };
+  }
+
+  function loanStats(records) {
+    const loansWithRates = records
+      .map(function (record) {
+        return {
+          openDate: parseDate(getValue(record, "openDate")),
+          rateOfReturn: safeNumber(getValue(record, "rateOfReturn")),
+          raiseStatus: getValue(record, "raiseStatus")
+        };
+      })
+      .filter(function (loan) {
+        return loan.openDate && loan.rateOfReturn > 0;
+      });
+
+    const mostRecentOpen = loansWithRates
+      .filter(function (loan) {
+        return includesStatus(loan.raiseStatus, "open");
+      })
+      .sort(function (a, b) {
+        return b.openDate - a.openDate;
+      })[0];
+
+    function averageForYear(year) {
+      const start = new Date(Date.UTC(year, 0, 1));
+      const end = new Date(Date.UTC(year + 1, 0, 1));
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate < end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
+    return {
+      investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
+      investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRate2026: averageForYear(2026),
+      averageRate2025: averageForYear(2025),
+      averageRate2024: averageForYear(2024)
+    };
+  }
+
+  function initCouncilStats() {
+    if (!document.querySelector("[data-abv2-stat]")) return;
+
+    fetchRecords(COUNCILS_ENDPOINT, "councils")
+      .then(function (records) {
+        setStats(councilStats(records));
+      })
+      .catch(function (error) {
+        console.error("Council stats failed:", error);
+      });
+  }
+
+  window.AbundanceLiveStats = {
+    councilStats: councilStats,
+    fetchCouncils: function () {
+      return fetchRecords(COUNCILS_ENDPOINT, "councils");
+    },
+    fetchLoans: function () {
+      return fetchRecords(LOANS_ENDPOINT, "loans");
+    },
+    loanStats: loanStats,
+    setStats: setStats
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCouncilStats);
+  } else {
+    initCouncilStats();
+  }
+})();
 </script>
 
 </body>

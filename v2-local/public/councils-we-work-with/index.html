@@ -226,7 +226,7 @@
               <hr
                 class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs"
               >
-              <div class="abundance-stat text-color--primary">
+              <div class="abundance-stat text-color--primary" data-abv2-stat="uniqueCouncils">
                 18
               </div>
               <p class="abundance-body-compact text-color--primary m-t-spacer-3xs">
@@ -237,7 +237,7 @@
               <hr
                 class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs"
               >
-              <div class="abundance-stat text-color--primary">
+              <div class="abundance-stat text-color--primary" data-abv2-stat="totalInvested">
                 £25.1m
               </div>
               <p class="abundance-body-compact text-color--primary m-t-spacer-3xs">
@@ -348,7 +348,7 @@
               <hr
                 class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs"
               >
-              <div class="abundance-stat text-color--primary">
+              <div class="abundance-stat text-color--primary" data-abv2-stat="projectsFinanced">
                 65
               </div>
               <p class="abundance-body-compact text-color--primary m-t-spacer-3xs">
@@ -359,7 +359,7 @@
               <hr
                 class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs"
               >
-              <div class="abundance-stat text-color--primary">
+              <div class="abundance-stat text-color--primary" data-abv2-stat="spentOnProjects">
                 £9.6m
               </div>
               <p class="abundance-body-compact text-color--primary m-t-spacer-3xs">
@@ -380,7 +380,6 @@
   </section>
 
 </div>
-
 
 
 
@@ -540,6 +539,222 @@
       }
     });
   })();
+</script>
+<script>
+(function () {
+  const COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
+  const LOANS_ENDPOINT = "https://data.abundanceinvestment.com/loans";
+
+  let councilsPromise;
+  let loansPromise;
+
+  function recordsFromResponse(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.records)) return data.records;
+    return [];
+  }
+
+  function getFields(record) {
+    return record && record.fields && typeof record.fields === "object" ? record.fields : record || {};
+  }
+
+  function getValue(record, key) {
+    return getFields(record)[key];
+  }
+
+  function safeNumber(value) {
+    if (typeof value === "number" && Number.isFinite(value)) return value;
+
+    if (typeof value === "string") {
+      const cleaned = value.replace(/[^0-9.\-]/g, "");
+      const number = Number(cleaned);
+      return Number.isFinite(number) ? number : 0;
+    }
+
+    return 0;
+  }
+
+  function roundTo(value, decimals) {
+    const places = Math.pow(10, decimals);
+    return Math.round(value * places) / places;
+  }
+
+  function formatMoneyCompact(value, decimals) {
+    const number = safeNumber(value);
+    const abs = Math.abs(number);
+    const dp = typeof decimals === "number" ? decimals : 1;
+
+    if (abs >= 1000000000) return "£" + roundTo(number / 1000000000, dp).toFixed(dp).replace(/\.0+$/, "") + "bn";
+    if (abs >= 1000000) return "£" + roundTo(number / 1000000, dp).toFixed(dp).replace(/\.0+$/, "") + "m";
+    if (abs >= 1000) return "£" + roundTo(number / 1000, 1).toFixed(1).replace(/\.0$/, "") + "k";
+    return "£" + Math.round(number).toLocaleString("en-GB");
+  }
+
+  function formatInt(value) {
+    return Math.round(safeNumber(value)).toLocaleString("en-GB");
+  }
+
+  function formatPercentFromDecimal(value) {
+    return (safeNumber(value) * 100).toFixed(2) + "%";
+  }
+
+  function parseDate(value) {
+    const date = new Date(String(value || ""));
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function normaliseStatusItem(item) {
+    const value = item && (item.name || item.value || item);
+    return String(value || "").trim().toLowerCase();
+  }
+
+  function includesStatus(raiseStatus, target) {
+    const normalisedTarget = String(target || "").trim().toLowerCase();
+
+    if (!raiseStatus) return false;
+    if (typeof raiseStatus === "string") return normaliseStatusItem(raiseStatus) === normalisedTarget;
+
+    if (Array.isArray(raiseStatus)) {
+      return raiseStatus.some(function (item) {
+        return normaliseStatusItem(item) === normalisedTarget;
+      });
+    }
+
+    return false;
+  }
+
+  function shouldExcludeCouncil(record) {
+    const hub = getValue(record, "councilHub");
+    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+  }
+
+  function fetchRecords(endpoint, cacheKey) {
+    if (cacheKey === "councils" && councilsPromise) return councilsPromise;
+    if (cacheKey === "loans" && loansPromise) return loansPromise;
+
+    const request = fetch(endpoint, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) throw new Error(endpoint + " returned " + response.status);
+        return response.json();
+      })
+      .then(recordsFromResponse);
+
+    if (cacheKey === "councils") councilsPromise = request;
+    if (cacheKey === "loans") loansPromise = request;
+
+    return request;
+  }
+
+  function setStats(values) {
+    Object.keys(values).forEach(function (key) {
+      document.querySelectorAll('[data-abv2-stat="' + key + '"]').forEach(function (element) {
+        element.textContent = values[key];
+      });
+    });
+  }
+
+  function councilStats(records) {
+    const visibleCouncils = records.filter(function (record) {
+      return !shouldExcludeCouncil(record);
+    });
+
+    const projectTotals = records.reduce(function (acc, record) {
+      acc.totalSpent += safeNumber(getValue(record, "totalSpent"));
+      acc.projectsFunded += safeNumber(getValue(record, "projectsFunded"));
+      return acc;
+    }, {
+      totalSpent: 0,
+      projectsFunded: 0
+    });
+
+    const totalRaised = visibleCouncils.reduce(function (total, record) {
+      return total + safeNumber(getValue(record, "totalRaised"));
+    }, 0);
+
+    return {
+      projectsFinanced: formatInt(projectTotals.projectsFunded),
+      spentOnProjects: formatMoneyCompact(projectTotals.totalSpent, 1),
+      totalInvested: formatMoneyCompact(totalRaised, 1),
+      uniqueCouncils: formatInt(visibleCouncils.length)
+    };
+  }
+
+  function loanStats(records) {
+    const loansWithRates = records
+      .map(function (record) {
+        return {
+          openDate: parseDate(getValue(record, "openDate")),
+          rateOfReturn: safeNumber(getValue(record, "rateOfReturn")),
+          raiseStatus: getValue(record, "raiseStatus")
+        };
+      })
+      .filter(function (loan) {
+        return loan.openDate && loan.rateOfReturn > 0;
+      });
+
+    const mostRecentOpen = loansWithRates
+      .filter(function (loan) {
+        return includesStatus(loan.raiseStatus, "open");
+      })
+      .sort(function (a, b) {
+        return b.openDate - a.openDate;
+      })[0];
+
+    function averageForYear(year) {
+      const start = new Date(Date.UTC(year, 0, 1));
+      const end = new Date(Date.UTC(year + 1, 0, 1));
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate < end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
+    return {
+      investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
+      investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRate2026: averageForYear(2026),
+      averageRate2025: averageForYear(2025),
+      averageRate2024: averageForYear(2024)
+    };
+  }
+
+  function initCouncilStats() {
+    if (!document.querySelector("[data-abv2-stat]")) return;
+
+    fetchRecords(COUNCILS_ENDPOINT, "councils")
+      .then(function (records) {
+        setStats(councilStats(records));
+      })
+      .catch(function (error) {
+        console.error("Council stats failed:", error);
+      });
+  }
+
+  window.AbundanceLiveStats = {
+    councilStats: councilStats,
+    fetchCouncils: function () {
+      return fetchRecords(COUNCILS_ENDPOINT, "councils");
+    },
+    fetchLoans: function () {
+      return fetchRecords(LOANS_ENDPOINT, "loans");
+    },
+    loanStats: loanStats,
+    setStats: setStats
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCouncilStats);
+  } else {
+    initCouncilStats();
+  }
+})();
 </script>
 <script>
 (function () {
@@ -788,19 +1003,23 @@
     loadingState(otherGrid);
 
     try {
-      const response = await fetch(endpoint, { cache: "no-store" });
+      const records = window.AbundanceLiveStats && window.AbundanceLiveStats.fetchCouncils
+        ? await window.AbundanceLiveStats.fetchCouncils()
+        : await fetch(endpoint, { cache: "no-store" })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Council endpoint returned " + response.status);
+            }
 
-      if (!response.ok) {
-        throw new Error("Council endpoint returned " + response.status);
-      }
-
-      const data = await response.json();
-
-      const records = Array.isArray(data)
-        ? data
-        : Array.isArray(data.records)
-          ? data.records
-          : [];
+            return response.json();
+          })
+          .then(function (data) {
+            return Array.isArray(data)
+              ? data
+              : Array.isArray(data.records)
+                ? data.records
+                : [];
+          });
 
       const visibleCouncils = records
         .filter(function (record) {

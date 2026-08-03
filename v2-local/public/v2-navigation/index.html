@@ -191,7 +191,13 @@
   <!-- CORE JOURNEY -->
   <section class="position-relative p-y-spacer-md bg-colour--white" id="core-journey">
     <div class="choke-1000 m-x--auto p-x-spacer-xs">
+      <h2 class="si-heading-2 m-b-spacer-0">
+        Core journey pages
+      </h2>
 
+      <p class="body--lg text-choke--640 m-t-spacer-sm m-b-spacer-0">
+        Priority pages and prototypes for internal review.
+      </p>
 
       <div class="p-t-spacer-md" aria-hidden="true"></div>
 
@@ -263,6 +269,125 @@
 
     </div>
   </section>
+
+  <div
+    class="abundance-dividers abundance-dividers--rise-left bg-colour--pink"
+    aria-hidden="true">
+  </div>
+
+<!-- NEWS STORIES -->
+  <section class="position-relative p-y-spacer-md bg-colour--white" id="news-stories-review">
+    <div class="choke-1000 m-x--auto p-x-spacer-xs">
+      <h2 class="si-heading-2 m-b-spacer-0">
+        News stories for review
+      </h2>
+
+      <p class="body--lg text-choke--640 m-t-spacer-sm m-b-spacer-0">
+        Published news pages from the news and insight section.
+      </p>
+
+      <div class="p-t-spacer-md" aria-hidden="true"></div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-2xs gy-2xs">
+        <div>
+          <a
+            class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+            href="/news-advertising-award-london">
+            <p class="abundance-eyebrow brand-secondary m-b-spacer-2xs">
+              19 June 2026
+            </p>
+            <h3 class="si-heading-4 m-b-spacer-0">
+              Award recognition for our municipal investment communications
+            </h3>
+            <span class="abundance-action-text brand-primary m-t-spacer-xs">
+              Open news story
+            </span>
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+            href="/news-h-and-f-reaches-5m-target">
+            <p class="abundance-eyebrow brand-secondary m-b-spacer-2xs">
+              3 June 2026
+            </p>
+            <h3 class="si-heading-4 m-b-spacer-0">
+              Hammersmith & Fulham reaches initial £5 million target
+            </h3>
+            <span class="abundance-action-text brand-primary m-t-spacer-xs">
+              Open news story
+            </span>
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+            href="/news-pilot-cmi-fully-repaid">
+            <p class="abundance-eyebrow brand-secondary m-b-spacer-2xs">
+              17 Nov 2025
+            </p>
+            <h3 class="si-heading-4 m-b-spacer-0">
+              First two municipal investments now fully repaid
+            </h3>
+            <span class="abundance-action-text brand-primary m-t-spacer-xs">
+              Open news story
+            </span>
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+            href="/news-glasgow-launch-first-scottish-cmi">
+            <p class="abundance-eyebrow brand-secondary m-b-spacer-2xs">
+              30 Sept 2025
+            </p>
+            <h3 class="si-heading-4 m-b-spacer-0">
+              Glasgow issues first Scottish municipal investment
+            </h3>
+            <span class="abundance-action-text brand-primary m-t-spacer-xs">
+              Open news story
+            </span>
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+            href="/news-16-million-boost-for-municipal-investments">
+            <p class="abundance-eyebrow brand-secondary m-b-spacer-2xs">
+              6 May 2025
+            </p>
+            <h3 class="si-heading-4 m-b-spacer-0">
+              £16m funding boost for our municipal investments
+            </h3>
+            <span class="abundance-action-text brand-primary m-t-spacer-xs">
+              Open news story
+            </span>
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+            href="/news-bristol-launch-eu-grant">
+            <p class="abundance-eyebrow brand-secondary m-b-spacer-2xs">
+              3 March 2025
+            </p>
+            <h3 class="si-heading-4 m-b-spacer-0">
+              Bristol launches first investment, supported by EU funding
+            </h3>
+            <span class="abundance-action-text brand-primary m-t-spacer-xs">
+              Open news story
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 </div>
 
@@ -421,6 +546,222 @@
       }
     });
   })();
+</script>
+<script>
+(function () {
+  const COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
+  const LOANS_ENDPOINT = "https://data.abundanceinvestment.com/loans";
+
+  let councilsPromise;
+  let loansPromise;
+
+  function recordsFromResponse(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.records)) return data.records;
+    return [];
+  }
+
+  function getFields(record) {
+    return record && record.fields && typeof record.fields === "object" ? record.fields : record || {};
+  }
+
+  function getValue(record, key) {
+    return getFields(record)[key];
+  }
+
+  function safeNumber(value) {
+    if (typeof value === "number" && Number.isFinite(value)) return value;
+
+    if (typeof value === "string") {
+      const cleaned = value.replace(/[^0-9.\-]/g, "");
+      const number = Number(cleaned);
+      return Number.isFinite(number) ? number : 0;
+    }
+
+    return 0;
+  }
+
+  function roundTo(value, decimals) {
+    const places = Math.pow(10, decimals);
+    return Math.round(value * places) / places;
+  }
+
+  function formatMoneyCompact(value, decimals) {
+    const number = safeNumber(value);
+    const abs = Math.abs(number);
+    const dp = typeof decimals === "number" ? decimals : 1;
+
+    if (abs >= 1000000000) return "£" + roundTo(number / 1000000000, dp).toFixed(dp).replace(/\.0+$/, "") + "bn";
+    if (abs >= 1000000) return "£" + roundTo(number / 1000000, dp).toFixed(dp).replace(/\.0+$/, "") + "m";
+    if (abs >= 1000) return "£" + roundTo(number / 1000, 1).toFixed(1).replace(/\.0$/, "") + "k";
+    return "£" + Math.round(number).toLocaleString("en-GB");
+  }
+
+  function formatInt(value) {
+    return Math.round(safeNumber(value)).toLocaleString("en-GB");
+  }
+
+  function formatPercentFromDecimal(value) {
+    return (safeNumber(value) * 100).toFixed(2) + "%";
+  }
+
+  function parseDate(value) {
+    const date = new Date(String(value || ""));
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function normaliseStatusItem(item) {
+    const value = item && (item.name || item.value || item);
+    return String(value || "").trim().toLowerCase();
+  }
+
+  function includesStatus(raiseStatus, target) {
+    const normalisedTarget = String(target || "").trim().toLowerCase();
+
+    if (!raiseStatus) return false;
+    if (typeof raiseStatus === "string") return normaliseStatusItem(raiseStatus) === normalisedTarget;
+
+    if (Array.isArray(raiseStatus)) {
+      return raiseStatus.some(function (item) {
+        return normaliseStatusItem(item) === normalisedTarget;
+      });
+    }
+
+    return false;
+  }
+
+  function shouldExcludeCouncil(record) {
+    const hub = getValue(record, "councilHub");
+    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+  }
+
+  function fetchRecords(endpoint, cacheKey) {
+    if (cacheKey === "councils" && councilsPromise) return councilsPromise;
+    if (cacheKey === "loans" && loansPromise) return loansPromise;
+
+    const request = fetch(endpoint, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) throw new Error(endpoint + " returned " + response.status);
+        return response.json();
+      })
+      .then(recordsFromResponse);
+
+    if (cacheKey === "councils") councilsPromise = request;
+    if (cacheKey === "loans") loansPromise = request;
+
+    return request;
+  }
+
+  function setStats(values) {
+    Object.keys(values).forEach(function (key) {
+      document.querySelectorAll('[data-abv2-stat="' + key + '"]').forEach(function (element) {
+        element.textContent = values[key];
+      });
+    });
+  }
+
+  function councilStats(records) {
+    const visibleCouncils = records.filter(function (record) {
+      return !shouldExcludeCouncil(record);
+    });
+
+    const projectTotals = records.reduce(function (acc, record) {
+      acc.totalSpent += safeNumber(getValue(record, "totalSpent"));
+      acc.projectsFunded += safeNumber(getValue(record, "projectsFunded"));
+      return acc;
+    }, {
+      totalSpent: 0,
+      projectsFunded: 0
+    });
+
+    const totalRaised = visibleCouncils.reduce(function (total, record) {
+      return total + safeNumber(getValue(record, "totalRaised"));
+    }, 0);
+
+    return {
+      projectsFinanced: formatInt(projectTotals.projectsFunded),
+      spentOnProjects: formatMoneyCompact(projectTotals.totalSpent, 1),
+      totalInvested: formatMoneyCompact(totalRaised, 1),
+      uniqueCouncils: formatInt(visibleCouncils.length)
+    };
+  }
+
+  function loanStats(records) {
+    const loansWithRates = records
+      .map(function (record) {
+        return {
+          openDate: parseDate(getValue(record, "openDate")),
+          rateOfReturn: safeNumber(getValue(record, "rateOfReturn")),
+          raiseStatus: getValue(record, "raiseStatus")
+        };
+      })
+      .filter(function (loan) {
+        return loan.openDate && loan.rateOfReturn > 0;
+      });
+
+    const mostRecentOpen = loansWithRates
+      .filter(function (loan) {
+        return includesStatus(loan.raiseStatus, "open");
+      })
+      .sort(function (a, b) {
+        return b.openDate - a.openDate;
+      })[0];
+
+    function averageForYear(year) {
+      const start = new Date(Date.UTC(year, 0, 1));
+      const end = new Date(Date.UTC(year + 1, 0, 1));
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate < end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
+    return {
+      investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
+      investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRate2026: averageForYear(2026),
+      averageRate2025: averageForYear(2025),
+      averageRate2024: averageForYear(2024)
+    };
+  }
+
+  function initCouncilStats() {
+    if (!document.querySelector("[data-abv2-stat]")) return;
+
+    fetchRecords(COUNCILS_ENDPOINT, "councils")
+      .then(function (records) {
+        setStats(councilStats(records));
+      })
+      .catch(function (error) {
+        console.error("Council stats failed:", error);
+      });
+  }
+
+  window.AbundanceLiveStats = {
+    councilStats: councilStats,
+    fetchCouncils: function () {
+      return fetchRecords(COUNCILS_ENDPOINT, "councils");
+    },
+    fetchLoans: function () {
+      return fetchRecords(LOANS_ENDPOINT, "loans");
+    },
+    loanStats: loanStats,
+    setStats: setStats
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCouncilStats);
+  } else {
+    initCouncilStats();
+  }
+})();
 </script>
 
 </body>

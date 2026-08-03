@@ -98,7 +98,7 @@ function localPreviewScript() {
 </script>`;
 }
 
-function renderPage({ slug, title, header, footer, body, pageJs }) {
+function renderPage({ slug, title, header, footer, body, sharedJs, pageJs }) {
   return `<!doctype html>
 <html lang="en-GB">
 <head>
@@ -115,6 +115,7 @@ ${body}
 </main>
 ${footer}
 ${localPreviewScript()}
+${jsSnippetMarkup(sharedJs)}
 ${jsSnippetMarkup(pageJs)}
 </body>
 </html>
@@ -134,10 +135,11 @@ async function build() {
     path.join(publicDir, "assets", "img", "Abundance-Logo-2026-on-white-v2.png"),
   );
 
-  const [header, footer, pageFiles] = await Promise.all([
+  const [header, footer, pageFiles, sharedJs] = await Promise.all([
     readFile(path.join(includesDir, "header.html"), "utf8"),
     readFile(path.join(includesDir, "footer.html"), "utf8"),
     readdir(pagesDir),
+    readIfExists(path.join(assetsDir, "js", "_live-stats.js")),
   ]);
 
   const htmlFiles = pageFiles
@@ -151,7 +153,7 @@ async function build() {
     const body = await readFile(path.join(pagesDir, file), "utf8");
     const pageJs = await readIfExists(path.join(assetsDir, "js", `${slug}.js`));
     const title = titleFromBody(slug, body);
-    const output = renderPage({ slug, title, header, footer, body, pageJs });
+    const output = renderPage({ slug, title, header, footer, body, sharedJs, pageJs });
 
     if (slug === "index") {
       await writeFile(path.join(publicDir, "index.html"), output);

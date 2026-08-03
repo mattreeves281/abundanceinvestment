@@ -150,6 +150,24 @@
         </header>
 
 <main id="main-content">
+<style>
+  .abv2-invest-option-card hr {
+    width: 100%;
+    height: 2px;
+    opacity: 1;
+  }
+
+  .abv2-invest-option-card--primary hr,
+  .abv2-invest-option-card--primary li::marker {
+    color: #f27fae;
+  }
+
+  .abv2-invest-option-card--secondary hr,
+  .abv2-invest-option-card--secondary li::marker {
+    color: #00aec2;
+  }
+</style>
+
 <div class="bg-white vw-100">
   <header class="position-relative bg-colour--white p-y-spacer-md">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
@@ -194,31 +212,34 @@
         </h2>
         <p class="body--lg text-color--primary m-t-spacer-xs m-b-spacer-0">
           Our flexible approach lets you decide how you want to manage your investments - choose your own,
-          or let our automatic investing option keep your money working.
+          or let our automatic investment option keep your money working.
         </p>
       </div>
 
       <div class="row row-cols-1 row-cols-md-2 gy-md gx-lg m-t-spacer-md">
         <div>
-          <article class="si-card abundance-card--soft p-all-spacer-md h-100">
-            <hr class="si-horizontal-rule abundance-horizontal-rule--ink si-horizontal-rule--2xs m-b-spacer-sm">
-            <p class="abundance-eyebrow text-color--primary m-b-spacer-0">
-              Make your own choices
-            </p>
-            <div class="p-t-spacer-3xs" aria-hidden="true"></div>
-            <h3 class="si-heading-4 text-color--primary m-b-spacer-0">
+          <article class="si-card si-card--secondary p-all-spacer-md h-100 abv2-invest-option-card abv2-invest-option-card--secondary">
+            <h3 class="si-heading-4 m-b-spacer-0">
               Pick your own investments
             </h3>
-            <p class="body--md text-color--primary m-t-spacer-xs m-b-spacer-0">
-              Choose the councils you want to invest in, and decide how to use your interest payments - reinvest or withdraw as income.
+
+            <hr>
+
+            <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+
+            <p class="body--md m-b-spacer-0">
+              Choose the councils you want to invest in, and decide how to use your interest payments - reinvest or withdraw to spend.
             </p>
-            <ul class="abundance-body-compact text-color--primary m-t-spacer-sm m-b-spacer-0">
+
+            <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+
+            <ul class="body--md m-b-spacer-0">
               <li class="m-b-spacer-3xs">Choose your councils</li>
               <li class="m-b-spacer-3xs">Build your own portfolio</li>
               <li>Reinvest returns or withdraw available cash</li>
             </ul>
             <div class="m-t-spacer-md">
-              <a href="#open-investments" class="si-btn si-btn--primary si-btn--md">
+              <a href="#open-investments" class="si-btn si-btn--secondary si-btn--md">
                 Browse investments
               </a>
             </div>
@@ -226,25 +247,28 @@
         </div>
 
         <div>
-          <article class="si-card abundance-card--soft p-all-spacer-md h-100">
-            <hr class="si-horizontal-rule abundance-horizontal-rule--ink si-horizontal-rule--2xs m-b-spacer-sm">
-            <p class="abundance-eyebrow text-color--primary m-b-spacer-0">
-              Keep your money working
-            </p>
-            <div class="p-t-spacer-3xs" aria-hidden="true"></div>
-            <h3 class="si-heading-4 text-color--primary m-b-spacer-0">
-              Invest automatically
+          <article class="si-card si-card--secondary p-all-spacer-md h-100 abv2-invest-option-card abv2-invest-option-card--primary">
+            <h3 class="si-heading-4 m-b-spacer-0">
+              Automatic investment
             </h3>
-            <p class="body--md text-color--primary m-t-spacer-xs m-b-spacer-0">
-              Let our automatic investing option spread your money across available councils and reinvest returns for you.
+
+            <hr>
+
+            <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+
+            <p class="body--md m-b-spacer-0">
+              Our automatic investment option spreads your money evenly across available councils, and reinvests returns for you.
             </p>
-            <ul class="abundance-body-compact text-color--primary m-t-spacer-sm m-b-spacer-0">
+
+            <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+
+            <ul class="body--md m-b-spacer-0">
               <li class="m-b-spacer-3xs">Use one-off payments or a regular standing order</li>
-              <li class="m-b-spacer-3xs">Deposits automatically spread across available councils</li>
+              <li class="m-b-spacer-3xs">Deposits invested evenly across available councils</li>
               <li>Keep your pot growing by reinvesting returns</li>
             </ul>
             <div class="m-t-spacer-md">
-              <a href="#" class="si-btn si-btn--secondary si-btn--md">
+              <a href="/how-it-works#how-it-works" class="si-btn si-btn--primary si-btn--md">
                 Learn more
               </a>
             </div>
@@ -912,7 +936,7 @@
                   Regular interest payments
                 </h3>
                 <p class="body--md m-t-spacer-2xs m-b-spacer-0">
-                  Withdraw as income or reinvest to grow your pot
+                  Withdraw to spend or reinvest to grow your pot
                 </p>
               </article>
 
@@ -1182,6 +1206,222 @@
       }
     });
   })();
+</script>
+<script>
+(function () {
+  const COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
+  const LOANS_ENDPOINT = "https://data.abundanceinvestment.com/loans";
+
+  let councilsPromise;
+  let loansPromise;
+
+  function recordsFromResponse(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.records)) return data.records;
+    return [];
+  }
+
+  function getFields(record) {
+    return record && record.fields && typeof record.fields === "object" ? record.fields : record || {};
+  }
+
+  function getValue(record, key) {
+    return getFields(record)[key];
+  }
+
+  function safeNumber(value) {
+    if (typeof value === "number" && Number.isFinite(value)) return value;
+
+    if (typeof value === "string") {
+      const cleaned = value.replace(/[^0-9.\-]/g, "");
+      const number = Number(cleaned);
+      return Number.isFinite(number) ? number : 0;
+    }
+
+    return 0;
+  }
+
+  function roundTo(value, decimals) {
+    const places = Math.pow(10, decimals);
+    return Math.round(value * places) / places;
+  }
+
+  function formatMoneyCompact(value, decimals) {
+    const number = safeNumber(value);
+    const abs = Math.abs(number);
+    const dp = typeof decimals === "number" ? decimals : 1;
+
+    if (abs >= 1000000000) return "£" + roundTo(number / 1000000000, dp).toFixed(dp).replace(/\.0+$/, "") + "bn";
+    if (abs >= 1000000) return "£" + roundTo(number / 1000000, dp).toFixed(dp).replace(/\.0+$/, "") + "m";
+    if (abs >= 1000) return "£" + roundTo(number / 1000, 1).toFixed(1).replace(/\.0$/, "") + "k";
+    return "£" + Math.round(number).toLocaleString("en-GB");
+  }
+
+  function formatInt(value) {
+    return Math.round(safeNumber(value)).toLocaleString("en-GB");
+  }
+
+  function formatPercentFromDecimal(value) {
+    return (safeNumber(value) * 100).toFixed(2) + "%";
+  }
+
+  function parseDate(value) {
+    const date = new Date(String(value || ""));
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function normaliseStatusItem(item) {
+    const value = item && (item.name || item.value || item);
+    return String(value || "").trim().toLowerCase();
+  }
+
+  function includesStatus(raiseStatus, target) {
+    const normalisedTarget = String(target || "").trim().toLowerCase();
+
+    if (!raiseStatus) return false;
+    if (typeof raiseStatus === "string") return normaliseStatusItem(raiseStatus) === normalisedTarget;
+
+    if (Array.isArray(raiseStatus)) {
+      return raiseStatus.some(function (item) {
+        return normaliseStatusItem(item) === normalisedTarget;
+      });
+    }
+
+    return false;
+  }
+
+  function shouldExcludeCouncil(record) {
+    const hub = getValue(record, "councilHub");
+    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+  }
+
+  function fetchRecords(endpoint, cacheKey) {
+    if (cacheKey === "councils" && councilsPromise) return councilsPromise;
+    if (cacheKey === "loans" && loansPromise) return loansPromise;
+
+    const request = fetch(endpoint, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) throw new Error(endpoint + " returned " + response.status);
+        return response.json();
+      })
+      .then(recordsFromResponse);
+
+    if (cacheKey === "councils") councilsPromise = request;
+    if (cacheKey === "loans") loansPromise = request;
+
+    return request;
+  }
+
+  function setStats(values) {
+    Object.keys(values).forEach(function (key) {
+      document.querySelectorAll('[data-abv2-stat="' + key + '"]').forEach(function (element) {
+        element.textContent = values[key];
+      });
+    });
+  }
+
+  function councilStats(records) {
+    const visibleCouncils = records.filter(function (record) {
+      return !shouldExcludeCouncil(record);
+    });
+
+    const projectTotals = records.reduce(function (acc, record) {
+      acc.totalSpent += safeNumber(getValue(record, "totalSpent"));
+      acc.projectsFunded += safeNumber(getValue(record, "projectsFunded"));
+      return acc;
+    }, {
+      totalSpent: 0,
+      projectsFunded: 0
+    });
+
+    const totalRaised = visibleCouncils.reduce(function (total, record) {
+      return total + safeNumber(getValue(record, "totalRaised"));
+    }, 0);
+
+    return {
+      projectsFinanced: formatInt(projectTotals.projectsFunded),
+      spentOnProjects: formatMoneyCompact(projectTotals.totalSpent, 1),
+      totalInvested: formatMoneyCompact(totalRaised, 1),
+      uniqueCouncils: formatInt(visibleCouncils.length)
+    };
+  }
+
+  function loanStats(records) {
+    const loansWithRates = records
+      .map(function (record) {
+        return {
+          openDate: parseDate(getValue(record, "openDate")),
+          rateOfReturn: safeNumber(getValue(record, "rateOfReturn")),
+          raiseStatus: getValue(record, "raiseStatus")
+        };
+      })
+      .filter(function (loan) {
+        return loan.openDate && loan.rateOfReturn > 0;
+      });
+
+    const mostRecentOpen = loansWithRates
+      .filter(function (loan) {
+        return includesStatus(loan.raiseStatus, "open");
+      })
+      .sort(function (a, b) {
+        return b.openDate - a.openDate;
+      })[0];
+
+    function averageForYear(year) {
+      const start = new Date(Date.UTC(year, 0, 1));
+      const end = new Date(Date.UTC(year + 1, 0, 1));
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate < end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
+    return {
+      investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
+      investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRate2026: averageForYear(2026),
+      averageRate2025: averageForYear(2025),
+      averageRate2024: averageForYear(2024)
+    };
+  }
+
+  function initCouncilStats() {
+    if (!document.querySelector("[data-abv2-stat]")) return;
+
+    fetchRecords(COUNCILS_ENDPOINT, "councils")
+      .then(function (records) {
+        setStats(councilStats(records));
+      })
+      .catch(function (error) {
+        console.error("Council stats failed:", error);
+      });
+  }
+
+  window.AbundanceLiveStats = {
+    councilStats: councilStats,
+    fetchCouncils: function () {
+      return fetchRecords(COUNCILS_ENDPOINT, "councils");
+    },
+    fetchLoans: function () {
+      return fetchRecords(LOANS_ENDPOINT, "loans");
+    },
+    loanStats: loanStats,
+    setStats: setStats
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCouncilStats);
+  } else {
+    initCouncilStats();
+  }
+})();
 </script>
 <script>
   (function () {
