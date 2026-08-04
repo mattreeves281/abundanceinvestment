@@ -275,19 +275,25 @@
 
           '<div>' +
             '<hr class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs">' +
-            '<div class="abundance-eyebrow m-b-spacer-3xs">Amount spent</div>' +
+            '<div class="p-t-spacer-3xs" aria-hidden="true"></div>' +
+            '<div class="abundance-eyebrow">Amount spent</div>' +
+            '<div class="p-t-spacer-3xs" aria-hidden="true"></div>' +
             '<div class="abundance-stat">' + escapeHtml(formatPoundsShort(data.totalSpent)) + '</div>' +
           '</div>' +
 
           '<div>' +
             '<hr class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs">' +
-            '<div class="abundance-eyebrow m-b-spacer-3xs">Projects financed</div>' +
+            '<div class="p-t-spacer-3xs" aria-hidden="true"></div>' +
+            '<div class="abundance-eyebrow">Projects financed</div>' +
+            '<div class="p-t-spacer-3xs" aria-hidden="true"></div>' +
             '<div class="abundance-stat">' + escapeHtml(formatNumber(data.projectsFunded)) + '</div>' +
           '</div>' +
 
           '<div>' +
             '<hr class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs">' +
-            '<div class="abundance-eyebrow m-b-spacer-3xs">Investments</div>' +
+            '<div class="p-t-spacer-3xs" aria-hidden="true"></div>' +
+            '<div class="abundance-eyebrow">Investments</div>' +
+            '<div class="p-t-spacer-3xs" aria-hidden="true"></div>' +
             '<div class="abundance-stat">' + escapeHtml(formatNumber(data.numberOfLoans)) + '</div>' +
           '</div>' +
 
@@ -319,7 +325,7 @@
         (
           whiteLogoUrl
             ? '<img src="' + escapeHtml(whiteLogoUrl) + '" alt="' + escapeHtml(council) + ' logo" style="max-width:74%;max-height:74%;">'
-            : '<span class="abundance-eyebrow">' + escapeHtml(getInitials(council)) + '</span>'
+            : '<span class="abundance-action-text">' + escapeHtml(getInitials(council)) + '</span>'
         ) +
       '</div>';
 
