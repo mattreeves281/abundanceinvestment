@@ -126,7 +126,7 @@
 
       var hex = String(fields.hex || "").trim();
       var whiteLogo = String(fields.whiteLogo || "").trim();
-      var hub = String(fields.councilHub || "").trim();
+      var hub = normalizeCouncilHubUrl(fields.councilHub);
 
       if (hex || whiteLogo) {
         logosByCouncil[council] = {
@@ -199,6 +199,28 @@
       logosByCouncil: logosByCouncil,
       logoLinksByCouncil: logoLinksByCouncil
     };
+  }
+
+  function normalizeCouncilHubUrl(value) {
+    var raw = String(value || "").trim();
+
+    if (!raw || raw === "#") return raw || "#";
+
+    var pathname = raw;
+
+    try {
+      pathname = new URL(raw, window.location.origin).pathname || "/";
+    } catch (error) {
+      pathname = raw.split("?")[0].split("#")[0] || raw;
+    }
+
+    pathname = pathname.replace(/\/+$/, "") || "/";
+
+    if (/^\/council-[^/]+$/.test(pathname)) {
+      return pathname.replace(/^\/council-/, "/council/");
+    }
+
+    return pathname;
   }
 
   function buildControlsAndRender(select, summary, chart, result) {

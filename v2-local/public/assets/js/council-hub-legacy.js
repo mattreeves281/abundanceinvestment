@@ -129,11 +129,6 @@
       const chart = document.querySelector("[data-abv2-use-of-funds-chart]");
       if (!chart) return;
 
-      if (!(totalSpent > 0)) {
-        chart.innerHTML = "";
-        return;
-      }
-
       const rows = CATEGORY_META.map(function (category) {
         const value = safeNumber(fields[category.jsonKey]);
         return {
@@ -172,6 +167,20 @@
           </div>
         `;
       }).join("");
+    }
+
+    function setUseOfFundsState(totalSpent) {
+      const chartContent = document.querySelector("[data-abv2-use-of-funds-content]");
+      const noSpendContent = document.querySelector("[data-abv2-no-spend-content]");
+      const hasSpend = totalSpent > 0;
+
+      if (chartContent) {
+        chartContent.hidden = !hasSpend;
+      }
+
+      if (noSpendContent) {
+        noSpendContent.hidden = hasSpend;
+      }
     }
 
     async function fetchJson(endpoint) {
@@ -227,6 +236,7 @@
         setText("projectsFinanced", Math.round(safeNumber(councilFields.projectsFunded)).toLocaleString("en-GB"));
         setText("investmentsCount", councilLoans.length.toLocaleString("en-GB"));
         setLogo(councilFields);
+        setUseOfFundsState(spentSoFar);
         renderChart(councilFields, spentSoFar);
       } catch (error) {
         console.error(error);

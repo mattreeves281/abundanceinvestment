@@ -1,6 +1,6 @@
 <script>
   (function () {
-    const CONFIG_SELECTOR = "[data-abv2-council-hub-config]";
+    const CONFIG_SELECTOR = "[data-abv2-programme-hub-config]";
     const DEFAULT_COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
     const DEFAULT_LOANS_ENDPOINT = "https://data.abundanceinvestment.com/loans";
 
@@ -14,9 +14,7 @@
     ];
 
     function getFields(record) {
-      return record && record.fields && typeof record.fields === "object"
-        ? record.fields
-        : record || {};
+      return record && record.fields && typeof record.fields === "object" ? record.fields : record || {};
     }
 
     function recordsFromResponse(data) {
@@ -39,6 +37,22 @@
       return value || "";
     }
 
+    function normaliseStatusItem(value) {
+      if (value && typeof value === "object") return normaliseStatusItem(value.name || value.value || "");
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function hasStatus(value, target) {
+      const normalisedTarget = normaliseStatusItem(target);
+      if (Array.isArray(value)) {
+        return value.some(function (item) {
+          return normaliseStatusItem(item) === normalisedTarget;
+        });
+      }
+
+      return normaliseStatusItem(value) === normalisedTarget;
+    }
+
     function councilIdForLoan(record) {
       return String(firstValue(getFields(record).councilID) || "").trim();
     }
@@ -51,6 +65,12 @@
     function parseDate(value) {
       const time = Date.parse(value || "");
       return Number.isFinite(time) ? time : 0;
+    }
+
+    function sortByDateDesc(records, key) {
+      return records.slice().sort(function (a, b) {
+        return parseDate(getFields(b)[key]) - parseDate(getFields(a)[key]);
+      });
     }
 
     function latestCloseDate(loans) {
@@ -85,24 +105,64 @@
       return "£" + Math.round(number).toLocaleString("en-GB");
     }
 
+    function formatMoney(value) {
+      const number = safeNumber(value);
+      if (!(number > 0)) return "-";
+      return "£" + Math.round(number).toLocaleString("en-GB");
+    }
+
     function formatMonthYear(value) {
       const time = parseDate(value);
-      if (!time) return "";
+      if (!time) return "-";
 
       return new Intl.DateTimeFormat("en-GB", {
+        month: "short",
+        year: "numeric"
+      }).format(new Date(time));
+    }
+
+    function formatLongDate(value) {
+      const time = parseDate(value);
+      if (!time) return "-";
+
+      return new Intl.DateTimeFormat("en-GB", {
+        day: "numeric",
         month: "long",
         year: "numeric"
       }).format(new Date(time));
     }
 
-    function formatPercent(value) {
-      const rounded = Math.round(value * 10) / 10;
-      return String(rounded).replace(/\.0$/, "") + "%";
+    function formatPercentRate(value) {
+      const number = safeNumber(value);
+      const percent = number > 0 && number < 1 ? number * 100 : number;
+      if (!(percent > 0)) return "-";
+      return (Math.round(percent * 100) / 100).toFixed(2).replace(/\.?0+$/, "") + "%";
+    }
+
+    function formatTerm(fields) {
+      const value = fields.termLength || fields.term || fields.loanTerm || fields.termYears || fields.duration || "";
+      const number = safeNumber(value);
+      if (number > 0) return number + (number === 1 ? " year" : " years");
+      return value || "-";
+    }
+
+    function textValue(fields, keys, fallback) {
+      for (const key of keys) {
+        const value = firstValue(fields[key]);
+        if (value) return String(value);
+      }
+      return fallback || "";
     }
 
     function setText(field, value) {
-      document.querySelectorAll('[data-abv2-council-field="' + field + '"]').forEach(function (element) {
+      document.querySelectorAll('[data-abv2-programme-field="' + field + '"]').forEach(function (element) {
         element.textContent = value;
+      });
+    }
+
+    function setVisible(selector, visible) {
+      document.querySelectorAll(selector).forEach(function (element) {
+        element.hidden = !visible;
       });
     }
 
@@ -161,7 +221,7 @@
             <div class="abundance-bar-chart__bar">
               <span class="abundance-bar-chart__bar-fill" style="width:${width}%; background-color:${row.color};" aria-hidden="true"></span>
               <span class="abundance-bar-chart__value abundance-action-text">
-                ${formatPercent(row.percent)}
+                ${Math.round(row.percent * 10) / 10}%
               </span>
             </div>
           </div>
@@ -170,25 +230,63 @@
     }
 
     function setUseOfFundsState(totalSpent) {
-      const chartContent = document.querySelector("[data-abv2-use-of-funds-content]");
-      const noSpendContent = document.querySelector("[data-abv2-no-spend-content]");
-      const hasSpend = totalSpent > 0;
+      setVisible("[data-abv2-use-of-funds-content]", totalSpent > 0);
+      setVisible("[data-abv2-no-spend-content]", !(totalSpent > 0));
+    }
 
-      if (chartContent) {
-        chartContent.hidden = !hasSpend;
+    function renderInvestmentHistory(loans, showUseOfFunds) {
+      const tbody = document.querySelector("[data-abv2-investment-history-body]");
+      if (!tbody) return;
+
+      if (!loans.length) {
+        tbody.innerHTML = '<tr><td colspan="5">No previous investments to show yet.</td></tr>';
+        return;
       }
 
-      if (noSpendContent) {
-        noSpendContent.hidden = hasSpend;
+      tbody.innerHTML = sortByDateDesc(loans, "closeDate").map(function (loan) {
+        const fields = getFields(loan);
+        const name = textValue(fields, ["investmentName", "name", "loanName"], "Investment");
+        const useOfFunds = textValue(fields, ["strapline", "useOfFunds", "loanUseOfFunds", "investmentUseOfFunds", "description"], "-");
+
+        return `
+          <tr>
+            <td data-label="Investment">${name}</td>
+            ${showUseOfFunds ? '<td data-label="Use of funds">' + useOfFunds + "</td>" : ""}
+            <td data-label="Interest">${formatPercentRate(fields.rateOfReturn)}</td>
+            <td data-label="Amount raised">${formatMoney(loanAmount(loan))}</td>
+            <td data-label="Close date">${formatMonthYear(fields.closeDate)}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function updateOpenInvestment(openLoan) {
+      if (!openLoan) return;
+      const fields = getFields(openLoan);
+      const rate = formatPercentRate(fields.rateOfReturn);
+      const term = formatTerm(fields);
+      const name = textValue(fields, ["investmentName", "name", "loanName"], "Open investment");
+      const useOfFunds = textValue(fields, ["strapline", "useOfFunds", "loanUseOfFunds", "investmentUseOfFunds", "description"], "");
+      const closeDate = formatLongDate(fields.closeDate);
+
+      setText("openInvestmentName", name);
+      if (useOfFunds) {
+        setText("openInvestmentCopy", useOfFunds);
       }
+      setText("currentInterestRate", rate);
+      setText("investmentTerm", term);
+      setText("offerCloseDate", closeDate);
+      setText("capitalRepaid", "At maturity");
+
+      const investUrl = textValue(fields, ["loanUrl", "url", "shareInUrl", "investmentUrl"], "/invest-now").trim();
+      document.querySelectorAll("[data-abv2-invest-button]").forEach(function (link) {
+        link.href = investUrl.replace(/^https?:\/\/www\.abundanceinvestment\.com/, "");
+      });
     }
 
     async function fetchJson(endpoint) {
       const response = await fetch(endpoint, { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(endpoint + " returned " + response.status);
-      }
-
+      if (!response.ok) throw new Error(endpoint + " returned " + response.status);
       return response.json();
     }
 
@@ -201,6 +299,7 @@
 
       const councilsEndpoint = config.dataset.councilsEndpoint || DEFAULT_COUNCILS_ENDPOINT;
       const loansEndpoint = config.dataset.loansEndpoint || DEFAULT_LOANS_ENDPOINT;
+      const showUseOfFundsColumn = config.dataset.historyUseOfFunds !== "false";
 
       try {
         const [councilsData, loansData] = await Promise.all([
@@ -211,26 +310,27 @@
         const council = recordsFromResponse(councilsData).find(function (record) {
           return record.id === councilRecordId;
         });
-
         if (!council) return;
 
         const councilFields = getFields(council);
         const councilLoans = recordsFromResponse(loansData).filter(function (record) {
           return councilIdForLoan(record) === councilRecordId;
         });
-
+        const openLoans = sortByDateDesc(councilLoans.filter(function (loan) {
+          return hasStatus(getFields(loan).raiseStatus, "Open");
+        }), "openDate");
+        const closedLoans = councilLoans.filter(function (loan) {
+          return !hasStatus(getFields(loan).raiseStatus, "Open") && getFields(loan).closeDate;
+        });
+        const hasOpenLoan = openLoans.length > 0;
         const amountRaised = councilLoans.reduce(function (total, loan) {
           return total + loanAmount(loan);
         }, 0);
-        const investmentClosed = latestCloseDate(councilLoans);
         const spentSoFar = computedSpent(councilFields);
 
         setText("councilName", councilFields.issuingCouncil || "Council");
-        if (councilFields.councilDescription) {
-          setText("councilDescription", councilFields.councilDescription);
-        }
         setText("amountRaised", formatShortMoney(amountRaised));
-        setText("investmentClosed", formatMonthYear(investmentClosed));
+        setText("investmentClosed", formatMonthYear(latestCloseDate(councilLoans)));
         setText("spentSoFar", formatShortMoney(spentSoFar));
         setText("amountSpent", formatShortMoney(spentSoFar));
         setText("projectsFinanced", Math.round(safeNumber(councilFields.projectsFunded)).toLocaleString("en-GB"));
@@ -238,6 +338,14 @@
         setLogo(councilFields);
         setUseOfFundsState(spentSoFar);
         renderChart(councilFields, spentSoFar);
+
+        setVisible("[data-abv2-open-state]", hasOpenLoan);
+        setVisible("[data-abv2-no-open-state]", !hasOpenLoan);
+        updateOpenInvestment(openLoans[0]);
+
+        const showHistory = !hasOpenLoan || closedLoans.length > 1;
+        setVisible("[data-abv2-investment-history]", showHistory);
+        renderInvestmentHistory(closedLoans, showUseOfFundsColumn);
       } catch (error) {
         console.error(error);
       }

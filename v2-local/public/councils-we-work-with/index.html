@@ -804,6 +804,29 @@
     return "";
   }
 
+  function normalizeCouncilHubUrl(value) {
+    const raw = String(value || "").trim();
+
+    if (!raw || raw === "#") return raw || "#";
+
+    let pathname = raw;
+
+    try {
+      const parsed = new URL(raw, window.location.origin);
+      pathname = parsed.pathname || "/";
+    } catch {
+      pathname = raw.split("?")[0].split("#")[0] || raw;
+    }
+
+    pathname = pathname.replace(/\/+$/, "") || "/";
+
+    if (/^\/council-[^/]+$/.test(pathname)) {
+      return pathname.replace(/^\/council-/, "/council/");
+    }
+
+    return pathname;
+  }
+
   function safeNumber(value) {
     if (typeof value === "number" && Number.isFinite(value)) return value;
 
@@ -904,7 +927,7 @@
     const fields = getFields(record);
 
     const name = fields.issuingCouncil || "Council";
-    const url = fields.councilHub || "#";
+    const url = normalizeCouncilHubUrl(fields.councilHub);
     const hex = fields.hex || "#363635";
     const logo = getUrl(record, "whiteLogo");
 

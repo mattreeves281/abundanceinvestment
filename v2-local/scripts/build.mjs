@@ -39,6 +39,24 @@ async function readIfExists(filePath) {
   }
 }
 
+async function pageJsForSlug(slug, body = "") {
+  const pageJs = await readIfExists(path.join(assetsDir, "js", `${slug}.js`));
+
+  if (pageJs) {
+    return pageJs;
+  }
+
+  if (body.includes("data-abv2-programme-hub-config")) {
+    return readIfExists(path.join(assetsDir, "js", "council-hub-programme.js"));
+  }
+
+  if (slug.startsWith("council-") && !slug.startsWith("council-hub-")) {
+    return readIfExists(path.join(assetsDir, "js", "council-hub-legacy.js"));
+  }
+
+  return "";
+}
+
 function jsSnippetMarkup(snippet) {
   const trimmed = snippet.trim();
   if (!trimmed) {
@@ -122,6 +140,14 @@ ${jsSnippetMarkup(pageJs)}
 `;
 }
 
+function councilAliasFromSlug(slug) {
+  if (!slug.startsWith("council-") || slug.startsWith("council-hub-")) {
+    return null;
+  }
+
+  return slug.replace(/^council-/, "");
+}
+
 async function build() {
   await rm(publicDir, { force: true, recursive: true });
   await mkdir(publicDir, { recursive: true });
@@ -151,7 +177,7 @@ async function build() {
   for (const file of htmlFiles) {
     const slug = path.basename(file, ".html");
     const body = await readFile(path.join(pagesDir, file), "utf8");
-    const pageJs = await readIfExists(path.join(assetsDir, "js", `${slug}.js`));
+    const pageJs = await pageJsForSlug(slug, body);
     const title = titleFromBody(slug, body);
     const output = renderPage({ slug, title, header, footer, body, sharedJs, pageJs });
 
@@ -162,6 +188,14 @@ async function build() {
 
       await mkdir(outputDir, { recursive: true });
       await writeFile(path.join(outputDir, "index.html"), output);
+
+      const councilAlias = councilAliasFromSlug(slug);
+      if (councilAlias) {
+        const aliasDir = path.join(publicDir, "council", councilAlias);
+        await mkdir(aliasDir, { recursive: true });
+        await writeFile(path.join(aliasDir, "index.html"), output);
+      }
+
       links.push({ slug, title });
     }
   }
