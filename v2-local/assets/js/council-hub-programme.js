@@ -139,6 +139,30 @@
       return (Math.round(percent * 100) / 100).toFixed(2).replace(/\.?0+$/, "") + "%";
     }
 
+    function formatRate(value) {
+      const number = safeNumber(value);
+      return number.toFixed(2).replace(/\.00$/, "") + "%";
+    }
+
+    function formatYears(value) {
+      const years = safeNumber(value);
+      return years === 1 ? "1 year" : years + " years";
+    }
+
+    function formatGBP(value, options) {
+      const number = Number(value) || 0;
+      const decimals = options && typeof options.decimals === "number"
+        ? options.decimals
+        : (Math.round(number) === number ? 0 : 2);
+
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      }).format(number);
+    }
+
     function formatTerm(fields) {
       const value = fields.termLength || fields.term || fields.loanTerm || fields.termYears || fields.duration || "";
       const number = safeNumber(value);
@@ -157,6 +181,18 @@
     function setText(field, value) {
       document.querySelectorAll('[data-abv2-programme-field="' + field + '"]').forEach(function (element) {
         element.textContent = value;
+      });
+    }
+
+    function setCalcField(calculator, field, value) {
+      calculator.querySelectorAll('[data-abv2-calc-field="' + field + '"]').forEach(function (element) {
+        element.textContent = value === undefined || value === null ? "" : value;
+      });
+    }
+
+    function setKeyTermsField(field, value) {
+      document.querySelectorAll('[data-keyterms-field="' + field + '"]').forEach(function (element) {
+        element.textContent = value === undefined || value === null ? "" : value;
       });
     }
 
@@ -235,15 +271,17 @@
     }
 
     function renderInvestmentHistory(loans, showUseOfFunds) {
-      const tbody = document.querySelector("[data-abv2-investment-history-body]");
-      if (!tbody) return;
+      const bodies = document.querySelectorAll("[data-abv2-investment-history-body]");
+      if (!bodies.length) return;
 
       if (!loans.length) {
-        tbody.innerHTML = '<tr><td colspan="5">No previous investments to show yet.</td></tr>';
+        bodies.forEach(function (tbody) {
+          tbody.innerHTML = '<tr><td colspan="5">No previous investments to show yet.</td></tr>';
+        });
         return;
       }
 
-      tbody.innerHTML = sortByDateDesc(loans, "closeDate").map(function (loan) {
+      const html = sortByDateDesc(loans, "closeDate").map(function (loan) {
         const fields = getFields(loan);
         const name = textValue(fields, ["investmentName", "name", "loanName"], "Investment");
         const useOfFunds = textValue(fields, ["strapline", "useOfFunds", "loanUseOfFunds", "investmentUseOfFunds", "description"], "-");
@@ -252,15 +290,120 @@
           <tr>
             <td data-label="Investment">${name}</td>
             ${showUseOfFunds ? '<td data-label="Use of funds">' + useOfFunds + "</td>" : ""}
-            <td data-label="Interest">${formatPercentRate(fields.rateOfReturn)}</td>
+            <td data-label="Interest rate">${formatPercentRate(fields.rateOfReturn)}</td>
             <td data-label="Amount raised">${formatMoney(loanAmount(loan))}</td>
             <td data-label="Close date">${formatMonthYear(fields.closeDate)}</td>
           </tr>
         `;
       }).join("");
+
+      bodies.forEach(function (tbody) {
+        tbody.innerHTML = html;
+      });
     }
 
-    function updateOpenInvestment(openLoan) {
+    function updatePaymentCalculator(calculator) {
+      const input = calculator.querySelector("[data-abv2-calc-input]");
+      if (!input) return;
+
+      const amount = safeNumber(input.value);
+      const rate = safeNumber(calculator.getAttribute("data-rate"));
+      const termYears = safeNumber(calculator.getAttribute("data-term-years"));
+      const interestDate1 = calculator.getAttribute("data-interest-date-1") || "June";
+      const interestDate2 = calculator.getAttribute("data-interest-date-2") || "December";
+
+      const paymentCount = termYears * 2;
+      const interestPayment = amount * (rate / 100) / 2;
+      const totalInterest = interestPayment * paymentCount;
+      const capitalRepaid = amount;
+      const totalReturned = capitalRepaid + totalInterest;
+
+      setCalcField(calculator, "rate", formatRate(rate));
+      setCalcField(calculator, "termYears", formatYears(termYears));
+      setCalcField(calculator, "amount", formatGBP(amount, { decimals: 0 }));
+      setCalcField(calculator, "interestPayment", formatGBP(interestPayment));
+      setCalcField(calculator, "totalInterest", formatGBP(totalInterest));
+      setCalcField(calculator, "capitalRepaid", formatGBP(capitalRepaid, { decimals: 0 }));
+      setCalcField(calculator, "totalReturned", formatGBP(totalReturned));
+      setCalcField(calculator, "interestDate1", interestDate1);
+      setCalcField(calculator, "interestDate2", interestDate2);
+      setCalcField(calculator, "paymentCount", paymentCount);
+    }
+
+    function initPaymentCalculators() {
+      document.querySelectorAll("[data-abv2-calc-config]").forEach(function (calculator) {
+        const input = calculator.querySelector("[data-abv2-calc-input]");
+        if (!input) return;
+
+        input.addEventListener("input", function () {
+          updatePaymentCalculator(calculator);
+        });
+
+        input.addEventListener("change", function () {
+          updatePaymentCalculator(calculator);
+        });
+
+        updatePaymentCalculator(calculator);
+      });
+    }
+
+    function updateCalculatorTerms(openLoan) {
+      if (!openLoan) return;
+      const fields = getFields(openLoan);
+      const rate = safeNumber(fields.rateOfReturn) > 0 && safeNumber(fields.rateOfReturn) < 1
+        ? safeNumber(fields.rateOfReturn) * 100
+        : safeNumber(fields.rateOfReturn);
+      const term = safeNumber(fields.termLength || fields.term || fields.loanTerm || fields.termYears || fields.duration || 5);
+
+      document.querySelectorAll("[data-abv2-calc-config]").forEach(function (calculator) {
+        calculator.setAttribute("data-rate", rate || 0);
+        calculator.setAttribute("data-term-years", term || 0);
+        updatePaymentCalculator(calculator);
+      });
+    }
+
+    function updateKeyTerms(openLoan, councilFields) {
+      if (!openLoan) return;
+      const fields = getFields(openLoan);
+      const rate = formatPercentRate(fields.rateOfReturn);
+      const term = formatTerm(fields);
+      const name = textValue(fields, ["investmentName", "name", "loanName"], "Investment");
+      const useOfFunds = textValue(fields, ["strapline", "useOfFunds", "loanUseOfFunds", "investmentUseOfFunds", "description"], "");
+
+      setKeyTermsField("investmentName", name);
+      setKeyTermsField("borrower", councilFields.issuingCouncil || "Council");
+      if (useOfFunds) setKeyTermsField("useOfFunds", useOfFunds);
+      setKeyTermsField("interestRate", rate);
+      setKeyTermsField("termPeriod", term);
+      setKeyTermsField("offerCloseDate", formatLongDate(fields.closeDate));
+    }
+
+    function initNativeDialogs() {
+      document.addEventListener("click", function (event) {
+        const trigger = event.target.closest("[data-modal-open]");
+        if (!trigger) return;
+
+        const modalId = trigger.getAttribute("data-modal-open");
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+
+        event.preventDefault();
+
+        if (typeof modal.showModal === "function") {
+          modal.showModal();
+        } else {
+          modal.setAttribute("open", "");
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        const modal = event.target.closest("dialog.si-modal");
+        if (!modal || event.target !== modal) return;
+        modal.close();
+      });
+    }
+
+    function updateOpenInvestment(openLoan, councilFields) {
       if (!openLoan) return;
       const fields = getFields(openLoan);
       const rate = formatPercentRate(fields.rateOfReturn);
@@ -277,6 +420,8 @@
       setText("investmentTerm", term);
       setText("offerCloseDate", closeDate);
       setText("capitalRepaid", "At maturity");
+      updateCalculatorTerms(openLoan);
+      updateKeyTerms(openLoan, councilFields || {});
 
       const investUrl = textValue(fields, ["loanUrl", "url", "shareInUrl", "investmentUrl"], "/invest-now").trim();
       document.querySelectorAll("[data-abv2-invest-button]").forEach(function (link) {
@@ -341,11 +486,13 @@
 
         setVisible("[data-abv2-open-state]", hasOpenLoan);
         setVisible("[data-abv2-no-open-state]", !hasOpenLoan);
-        updateOpenInvestment(openLoans[0]);
+        updateOpenInvestment(openLoans[0], councilFields);
 
-        const showHistory = !hasOpenLoan || closedLoans.length > 1;
-        setVisible("[data-abv2-investment-history]", showHistory);
+        setVisible("[data-abv2-no-open-history]", !hasOpenLoan && closedLoans.length > 0);
+        setVisible("[data-abv2-open-history]", hasOpenLoan && closedLoans.length > 1);
         renderInvestmentHistory(closedLoans, showUseOfFundsColumn);
+        initPaymentCalculators();
+        initNativeDialogs();
       } catch (error) {
         console.error(error);
       }
