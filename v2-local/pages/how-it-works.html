@@ -353,11 +353,11 @@
       <div class="p-t-spacer-xs" aria-hidden="true">
       </div>
 
-<article class="si-card si-card--secondary p-all-spacer-md">
+<article class="si-card si-card--secondary p-all-spacer-md" data-abv2-growth-calculator>
   <h3 class="si-heading-3 m-b-spacer-0">
     How your money can grow
   </h3>
- <div class="p-t-spacer-2xs" aria-hidden="true"> </div>
+  <div class="p-t-spacer-2xs" aria-hidden="true"> </div>
 
   <p>
     Whether you’re investing with a lump sum or regular payments, reinvesting your returns into councils is an easy way to grow your pot.
@@ -365,198 +365,194 @@
 
   <div class="p-t-spacer-sm" aria-hidden="true"></div>
 
-  <div class="row row-cols-1 row-cols-md-2 gx-2xs gy-2xs">
-
-    <!-- Invest regularly -->
-    <div>
-      <article class="si-card si-card--secondary p-all-spacer-sm h-100">
+  <div class="display--flex flex-direction--column flex-gap--2xs">
+      <article class="si-card si-card--secondary p-all-spacer-sm">
         <h4 class="si-heading-4 m-b-spacer-0">
-          Invest regularly
+          Your example
         </h4>
 
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
+        <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
         <hr
           class="si-horizontal-rule m-t-spacer-xs m-b-spacer-sm"
           style="border-color:var(--abv2-pink, #f27fae); opacity:1;"
         >
 
-<div class="p-t-spacer-sm" aria-hidden="true"></div>
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
 
-        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
-          <label class="si-input-label" for="abv2-growth-regular-amount">
-            Monthly investment
-          </label>
+        <div class="row row-cols-1 row-cols-sm-2 gx-2xs gy-2xs">
+          <div>
+            <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+              <label class="si-input-label" for="abv2-growth-single-amount">
+                One-off deposit
+              </label>
 
-          <div class="si-input-wrapper">
-            <input
-              class="si-input si-input--has-prefix"
-              id="abv2-growth-regular-amount"
-              type="number"
-              min="5"
-              step="100"
-              value="100"
-              inputmode="decimal"
-              currency="GBP"
-              aria-describedby="abv2-growth-regular-error abv2-growth-regular-help"
-              data-abv2-growth-regular-input
-            >
-            <div class="si-input-prefix">£</div>
+              <div class="si-input-wrapper">
+                <input
+                  class="si-input si-input--has-prefix"
+                  id="abv2-growth-single-amount"
+                  type="number"
+                  min="0"
+                  step="100"
+                  value="10000"
+                  inputmode="decimal"
+                  currency="GBP"
+                  aria-describedby="abv2-growth-single-error"
+                  data-abv2-growth-single-input
+                >
+                <div class="si-input-prefix">£</div>
+              </div>
+
+              <p id="abv2-growth-single-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-single-error hidden>
+                Please enter £5 or more, or leave this as £0.
+              </p>
+            </div>
           </div>
 
-          <p id="abv2-growth-regular-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-regular-error hidden>
-            Please enter £5 or more.
-          </p>
+          <div>
+            <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+              <label class="si-input-label" for="abv2-growth-regular-amount">
+                Monthly payment
+              </label>
+
+              <div class="si-input-wrapper">
+                <input
+                  class="si-input si-input--has-prefix"
+                  id="abv2-growth-regular-amount"
+                  type="number"
+                  min="0"
+                  step="100"
+                  value="100"
+                  inputmode="decimal"
+                  currency="GBP"
+                  aria-describedby="abv2-growth-regular-error"
+                  data-abv2-growth-regular-input
+                >
+                <div class="si-input-prefix">£</div>
+              </div>
+
+              <p id="abv2-growth-regular-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-regular-error hidden>
+                Please enter £5 or more, or leave this as £0.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="si-form-group abundance-form-group abundance-form-group--neutral m-t-spacer-xs">
-          <label class="si-input-label" for="abv2-growth-regular-rate">
-            Assumed Interest Rate (%)
-          </label>
+        <div class="row row-cols-1 row-cols-md-2 gx-2xs gy-2xs m-t-spacer-xs">
+          <div>
+            <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+              <label class="si-input-label" for="abv2-growth-rate">
+                Assumed Interest Rate (%)
+              </label>
 
-          <div class="si-input-wrapper" style="max-width:10rem;">
-            <input
-              class="si-input"
-              id="abv2-growth-regular-rate"
-              type="number"
-              min="0"
-              step="0.1"
-              value="4.55"
-              inputmode="decimal"
-              aria-describedby="abv2-growth-regular-help"
-              data-abv2-growth-regular-rate-input
-            >
+              <div class="si-input-wrapper" style="max-width:10rem;">
+                <input
+                  class="si-input"
+                  id="abv2-growth-rate"
+                  type="number"
+                  min="0"
+                  step="0.1"
+                  value="4.55"
+                  inputmode="decimal"
+                  aria-describedby="abv2-growth-rate-help"
+                  data-abv2-growth-rate-input
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+              <p class="si-input-label m-b-spacer-2xs" id="abv2-growth-term-label">
+                Length of simulation
+              </p>
+
+              <input type="hidden" value="10" data-abv2-growth-term-input>
+
+              <div class="abundance-chip-nav" role="group" aria-labelledby="abv2-growth-term-label">
+                <ul>
+                  <li>
+                    <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="3" aria-pressed="false">
+                      3 years
+                    </button>
+                  </li>
+                  <li>
+                    <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="5" aria-pressed="false">
+                      5 years
+                    </button>
+                  </li>
+                  <li>
+                    <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="10" aria-pressed="true">
+                      10 years
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="m-t-spacer-sm">
-          
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<p class="abundance-eyebrow brand-primary">
-            Value after 10 years
+        <div id="abv2-growth-rate-help" class="abundance-disclaimer m-t-spacer-xs">
+          <p class="abundance-body-compact">
+            <span data-abv2-growth-rate-label>4.55%</span> is the weighted average interest rate of all municipal investments to date. Past performance is not a guide to future performance. Adjust the interest rate to change the results of the calculator.
           </p>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-
-          <p class="si-heading-3 m-b-spacer-0" data-abv2-growth-regular-result>
-            £15,041
-          </p>
-
-          <p id="abv2-growth-regular-help" class="abundance-body-compact m-t-spacer-xs m-b-spacer-0">
-            Based on investing monthly for 10 years, with all returns and matured capital reinvested.
-          </p>
-
-<div class="p-t-spacer-xs" aria-hidden="true"></div>
-
-          <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-t-spacer-sm m-b-spacer-xs">
-
-          <div class="d-flex justify-content-between align-items-baseline gap-xs">
-            <span class="abundance-body-compact">
-              Total paid in
-            </span>
-
-            <strong class="abundance-body-compact" data-abv2-growth-regular-paid-in>
-              £12,000
-            </strong>
-          </div>
         </div>
       </article>
-    </div>
 
-    <!-- Make a single deposit -->
-    <div>
-      <article class="si-card si-card--secondary p-all-spacer-sm h-100">
+      <article class="si-card si-card--secondary p-all-spacer-sm" aria-live="polite">
         <h4 class="si-heading-4 m-b-spacer-0">
-          Make a single deposit
+          Estimated value
         </h4>
 
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
+        <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
         <hr
           class="si-horizontal-rule m-t-spacer-xs m-b-spacer-sm"
           style="border-color:var(--abv2-teal, #00a4b6); opacity:1;"
         >
 
-<div class="p-t-spacer-sm" aria-hidden="true"></div>
+        <div class="p-t-spacer-sm" aria-hidden="true"></div>
 
-        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
-          <label class="si-input-label" for="abv2-growth-single-amount">
-            One-off deposit
-          </label>
+        <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+        <p class="abundance-eyebrow brand-secondary">
+          Value after <span data-abv2-growth-term-label>10 years</span>
+        </p>
+        <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
-          <div class="si-input-wrapper">
-            <input
-              class="si-input si-input--has-prefix"
-              id="abv2-growth-single-amount"
-              type="number"
-              min="5"
-              step="100"
-              value="10000"
-              inputmode="decimal"
-              currency="GBP"
-              aria-describedby="abv2-growth-single-error abv2-growth-single-help"
-              data-abv2-growth-single-input
-            >
-            <div class="si-input-prefix">£</div>
-          </div>
+        <p class="si-heading-3 m-b-spacer-0" data-abv2-growth-result>
+          £30,723
+        </p>
 
-          <p id="abv2-growth-single-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-single-error hidden>
-            Please enter £5 or more.
-          </p>
+        <p class="abundance-body-compact m-t-spacer-xs m-b-spacer-0">
+          Based on your one-off deposit and monthly payments, with all returns and matured capital reinvested.
+        </p>
+
+        <div class="p-t-spacer-xs" aria-hidden="true"></div>
+
+        <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-t-spacer-sm m-b-spacer-xs">
+
+        <div class="display--flex flex-justify-content--space-between flex-align-content--center flex-gap--xs">
+          <span class="abundance-body-compact">
+            Total paid in
+          </span>
+
+          <strong class="abundance-body-compact" data-abv2-growth-paid-in>
+            £22,000
+          </strong>
         </div>
 
-        <div class="si-form-group abundance-form-group abundance-form-group--neutral m-t-spacer-xs">
-          <label class="si-input-label" for="abv2-growth-single-rate">
-            Assumed Interest Rate (%)
-          </label>
+        <div class="p-t-spacer-2xs" aria-hidden="true"></div>
 
-          <div class="si-input-wrapper" style="max-width:10rem;">
-            <input
-              class="si-input"
-              id="abv2-growth-single-rate"
-              type="number"
-              min="0"
-              step="0.1"
-              value="4.55"
-              inputmode="decimal"
-              aria-describedby="abv2-growth-single-help"
-              data-abv2-growth-single-rate-input
-            >
-          </div>
-        </div>
+        <div class="display--flex flex-justify-content--space-between flex-align-content--center flex-gap--xs">
+          <span class="abundance-body-compact">
+            Estimated growth
+          </span>
 
-        <div class="m-t-spacer-sm">
-          
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<p class="abundance-eyebrow brand-secondary">
-            Value after 10 years
-          </p>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-
-          <p class="si-heading-3 m-b-spacer-0" data-abv2-growth-single-result>
-            £15,682
-          </p>
-
-          <p id="abv2-growth-single-help" class="abundance-body-compact m-t-spacer-xs m-b-spacer-0">
-            Based on investing once at the start, with all returns and matured capital reinvested.
-          </p>
-
-<div class="p-t-spacer-xs" aria-hidden="true"></div>
-
-          <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-t-spacer-sm m-b-spacer-xs">
-
-          <div class="d-flex justify-content-between align-items-baseline gap-xs">
-            <span class="abundance-body-compact">
-              Total paid in
-            </span>
-
-            <strong class="abundance-body-compact" data-abv2-growth-single-paid-in>
-              £10,000
-            </strong>
-          </div>
+          <strong class="abundance-body-compact" data-abv2-growth-return>
+            £8,723
+          </strong>
         </div>
       </article>
-    </div>
-
   </div>
 
   <div class="m-t-spacer-sm">
@@ -592,15 +588,15 @@
 
         <div class="si-accordion-item__body">
           <p class="abundance-body-compact m-b-spacer-xs">
-            This example is for illustration only. It uses the annual interest rate entered above and applies that same fixed rate every year over the 10-year period.
+            This example is for illustration only. It uses the annual interest rate entered above and applies that same fixed rate every year over the selected simulation period. The default rate is the weighted average interest rate for municipal investments to date, but you can change it to model a different rate.
           </p>
 
           <p class="abundance-body-compact m-b-spacer-xs">
-            The default rate is the current rate for open investments where live data is available, but you can change it to model a different rate.
+            It also assumes that each investment has a five year term, that interest is paid every 6 months, and that interest payments and matured capital are reinvested into new municipal investments whenever the available balance is at least £5. It assumes investments are available to invest money at all times, if there are periods with no open investments this will affect your returns.
           </p>
 
           <p class="abundance-body-compact m-b-spacer-0">
-            It also assumes that each investment runs for 5 years, that interest is paid every 6 months, and that interest payments and matured capital are reinvested into new municipal investments whenever the available balance is at least £5. There are no withdrawals or tax deductions. Actual investment rates and returns may be higher or lower.
+            Returns are presented gross of tax. Personal tax rates may apply which may affect your overall returns.
           </p>
         </div>
       </div>

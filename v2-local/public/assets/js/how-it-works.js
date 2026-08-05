@@ -2,8 +2,7 @@
   (function () {
     const defaultAnnualRate = 0.0455;
     const defaultAnnualRatePercent = "4.55";
-    const years = 10;
-    const projectionMonths = years * 12;
+    const defaultYears = 10;
     const termMonths = 5 * 12;
     const couponIntervalMonths = 6;
     const minimumInvestment = 5;
@@ -17,29 +16,64 @@
       }).format(value);
     }
 
-    function parseAmount(value) {
+    function parseRawNumber(value) {
       const number = Number(String(value || "").replace(/[^0-9.-]/g, ""));
-      return Number.isFinite(number) && number >= minimumInvestment ? number : 0;
+      return Number.isFinite(number) ? number : 0;
+    }
+
+    function parseContribution(value) {
+      const number = parseRawNumber(value);
+      if (number === 0) return 0;
+      return number >= minimumInvestment ? number : 0;
     }
 
     function roundToNearestPound(value) {
       return Math.round(value);
     }
 
-    function isBelowMinimumInvestment(value) {
-      const number = Number(String(value || "").replace(/[^0-9.-]/g, ""));
-      return String(value || "").trim() !== "" && (!Number.isFinite(number) || number < minimumInvestment);
+    function isBelowMinimumContribution(value) {
+      const trimmed = String(value || "").trim();
+      if (trimmed === "") return false;
+
+      const number = parseRawNumber(value);
+      return number !== 0 && number < minimumInvestment;
     }
 
-    function parseAnnualRate(selector) {
-      const input = document.querySelector(selector);
+    function parseAnnualRate() {
+      const input = document.querySelector("[data-abv2-growth-rate-input]");
       if (!input) return defaultAnnualRate;
 
-      const rate = Number(String(input.value || "").replace(/[^0-9.-]/g, ""));
-      return Number.isFinite(rate) && rate >= 0 ? rate / 100 : defaultAnnualRate;
+      const rate = parseRawNumber(input.value);
+      return rate >= 0 ? rate / 100 : defaultAnnualRate;
+    }
+
+    function selectedYears() {
+      const input = document.querySelector("[data-abv2-growth-term-input]");
+      const pressedButton = document.querySelector('[data-abv2-growth-term-button][aria-pressed="true"]');
+      const value = parseRawNumber(input && input.value ? input.value : pressedButton && pressedButton.dataset.termYears);
+      return [3, 5, 10].includes(value) ? value : defaultYears;
+    }
+
+    function setSelectedYears(years) {
+      const validYears = [3, 5, 10].includes(years) ? years : defaultYears;
+      const input = document.querySelector("[data-abv2-growth-term-input]");
+
+      if (input) {
+        input.value = String(validYears);
+      }
+
+      document.querySelectorAll("[data-abv2-growth-term-button]").forEach(function (button) {
+        const isSelected = parseRawNumber(button.dataset.termYears) === validYears;
+        button.setAttribute("aria-pressed", isSelected ? "true" : "false");
+        button.setAttribute("aria-current", isSelected ? "true" : "false");
+        button.style.borderColor = isSelected ? "#00aec2" : "";
+        button.style.backgroundColor = isSelected ? "#e5f7f9" : "";
+        button.style.color = isSelected ? "#363635" : "";
+      });
     }
 
     function futureValueTranches(options) {
+      const projectionMonths = options.years * 12;
       const tranches = new Map();
       let cashBalance = 0;
       const annualRate = Number.isFinite(options.annualRate) ? options.annualRate : defaultAnnualRate;
@@ -126,31 +160,23 @@
       }, cashBalance);
     }
 
-    function futureValueLumpSum(lumpSum, annualRate) {
-      return futureValueTranches({
-        initialAmount: lumpSum,
-        monthlyPayment: 0,
-        annualRate: annualRate
-      });
-    }
-
-    function futureValueMonthly(monthlyPayment, annualRate) {
-      return futureValueTranches({
-        initialAmount: 0,
-        monthlyPayment: monthlyPayment,
-        annualRate: annualRate
-      });
-    }
-
     function setText(selector, value) {
       document.querySelectorAll(selector).forEach(function (el) {
         el.textContent = value;
       });
     }
 
-    function setInputError(input, selector) {
-      const hasError = isBelowMinimumInvestment(input.value);
+    function updateGrowthRateLabel() {
+      const input = document.querySelector("[data-abv2-growth-rate-input]");
+      const rate = input ? parseRawNumber(input.value) : defaultAnnualRate * 100;
+      const label = (rate > 0 ? rate : defaultAnnualRate * 100).toFixed(2).replace(/\.?0+$/, "") + "%";
+      setText("[data-abv2-growth-rate-label]", label);
+    }
 
+    function setInputError(input, selector) {
+      if (!input) return;
+
+      const hasError = isBelowMinimumContribution(input.value);
       input.setAttribute("aria-invalid", hasError ? "true" : "false");
 
       document.querySelectorAll(selector).forEach(function (el) {
@@ -158,94 +184,107 @@
       });
     }
 
-    function updateRegularCalculator() {
-      const input = document.querySelector("[data-abv2-growth-regular-input]");
-      if (!input) return;
-
-      setInputError(input, "[data-abv2-growth-regular-error]");
-
-      const monthlyAmount = parseAmount(input.value);
-      const annualRate = parseAnnualRate("[data-abv2-growth-regular-rate-input]");
-      const paidIn = monthlyAmount * 12 * years;
-      const futureValue = futureValueMonthly(monthlyAmount, annualRate);
-
-      setText(
-        "[data-abv2-growth-regular-paid-in]",
-        formatMoney(roundToNearestPound(paidIn))
-      );
-
-      setText(
-        "[data-abv2-growth-regular-result]",
-        formatMoney(roundToNearestPound(futureValue))
-      );
-    }
-
-    function updateSingleCalculator() {
-      const input = document.querySelector("[data-abv2-growth-single-input]");
-      if (!input) return;
-
-      setInputError(input, "[data-abv2-growth-single-error]");
-
-      const lumpSum = parseAmount(input.value);
-      const annualRate = parseAnnualRate("[data-abv2-growth-single-rate-input]");
-      const paidIn = lumpSum;
-      const futureValue = futureValueLumpSum(lumpSum, annualRate);
-
-      setText(
-        "[data-abv2-growth-single-paid-in]",
-        formatMoney(roundToNearestPound(paidIn))
-      );
-
-      setText(
-        "[data-abv2-growth-single-result]",
-        formatMoney(roundToNearestPound(futureValue))
-      );
-    }
-
     function updateGrowthCalculator() {
-      updateRegularCalculator();
-      updateSingleCalculator();
+      const monthlyInput = document.querySelector("[data-abv2-growth-regular-input]");
+      const lumpSumInput = document.querySelector("[data-abv2-growth-single-input]");
+      if (!monthlyInput || !lumpSumInput) return;
+
+      setInputError(monthlyInput, "[data-abv2-growth-regular-error]");
+      setInputError(lumpSumInput, "[data-abv2-growth-single-error]");
+
+      const years = selectedYears();
+      const monthlyAmount = parseContribution(monthlyInput.value);
+      const lumpSum = parseContribution(lumpSumInput.value);
+      const annualRate = parseAnnualRate();
+      const paidIn = lumpSum + (monthlyAmount * 12 * years);
+      const futureValue = futureValueTranches({
+        initialAmount: lumpSum,
+        monthlyPayment: monthlyAmount,
+        annualRate: annualRate,
+        years: years
+      });
+
+      setText("[data-abv2-growth-term-label]", years + " years");
+      updateGrowthRateLabel();
+      setText("[data-abv2-growth-paid-in]", formatMoney(roundToNearestPound(paidIn)));
+      setText("[data-abv2-growth-result]", formatMoney(roundToNearestPound(futureValue)));
+      setText("[data-abv2-growth-return]", formatMoney(roundToNearestPound(futureValue - paidIn)));
     }
 
     function initGrowthCalculator() {
-      const regularInput = document.querySelector("[data-abv2-growth-regular-input]");
-      const singleInput = document.querySelector("[data-abv2-growth-single-input]");
-      const regularRateInput = document.querySelector("[data-abv2-growth-regular-rate-input]");
-      const singleRateInput = document.querySelector("[data-abv2-growth-single-rate-input]");
+      const monthlyInput = document.querySelector("[data-abv2-growth-regular-input]");
+      const lumpSumInput = document.querySelector("[data-abv2-growth-single-input]");
+      const rateInput = document.querySelector("[data-abv2-growth-rate-input]");
 
-      if (regularInput) {
-        regularInput.addEventListener("input", updateRegularCalculator);
-        regularInput.addEventListener("change", updateRegularCalculator);
-      }
+      [monthlyInput, lumpSumInput].forEach(function (input) {
+        if (!input) return;
+        input.addEventListener("input", updateGrowthCalculator);
+        input.addEventListener("change", updateGrowthCalculator);
+      });
 
-      if (singleInput) {
-        singleInput.addEventListener("input", updateSingleCalculator);
-        singleInput.addEventListener("change", updateSingleCalculator);
-      }
-
-      if (regularRateInput) {
-        regularRateInput.addEventListener("input", function () {
+      if (rateInput) {
+        rateInput.addEventListener("input", function () {
           hasEditedRateInput = true;
-          updateRegularCalculator();
+          updateGrowthCalculator();
         });
-        regularRateInput.addEventListener("change", function () {
+        rateInput.addEventListener("change", function () {
           hasEditedRateInput = true;
-          updateRegularCalculator();
+          updateGrowthCalculator();
         });
       }
 
-      if (singleRateInput) {
-        singleRateInput.addEventListener("input", function () {
-          hasEditedRateInput = true;
-          updateSingleCalculator();
+      document.querySelectorAll("[data-abv2-growth-term-button]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          setSelectedYears(parseRawNumber(button.dataset.termYears));
+          updateGrowthCalculator();
         });
-        singleRateInput.addEventListener("change", function () {
-          hasEditedRateInput = true;
-          updateSingleCalculator();
-        });
-      }
+      });
 
+      setSelectedYears(selectedYears());
       updateGrowthCalculator();
+    }
+
+    function getFields(record) {
+      return record && record.fields && typeof record.fields === "object" ? record.fields : record || {};
+    }
+
+    function field(record, key) {
+      return getFields(record)[key];
+    }
+
+    function normaliseStatusItem(value) {
+      if (value && typeof value === "object") return normaliseStatusItem(value.name || value.value || "");
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function hasStatus(value, target) {
+      const normalisedTarget = normaliseStatusItem(target);
+      if (Array.isArray(value)) {
+        return value.some(function (item) {
+          return normaliseStatusItem(item) === normalisedTarget;
+        });
+      }
+
+      return normaliseStatusItem(value) === normalisedTarget;
+    }
+
+    function weightedHistoricRate(records) {
+      const totals = records.reduce(function (acc, record) {
+        if (hasStatus(field(record, "raiseStatus"), "Open")) return acc;
+
+        const rate = parseRawNumber(field(record, "rateOfReturn"));
+        const amount = parseRawNumber(field(record, "loanAmount")) || parseRawNumber(field(record, "totalRaised"));
+        if (!(rate > 0) || !(amount > 0)) return acc;
+
+        acc.weightedRate += rate * amount;
+        acc.amount += amount;
+        return acc;
+      }, {
+        weightedRate: 0,
+        amount: 0
+      });
+
+      return totals.amount > 0 ? totals.weightedRate / totals.amount : null;
     }
 
     function setRateStat(key, value) {
@@ -264,18 +303,16 @@
       if (!Number.isFinite(rate) || rate <= 0 || hasEditedRateInput) return;
 
       const value = defaultRateInputValue(rate);
+      const input = document.querySelector("[data-abv2-growth-rate-input]");
 
-      document.querySelectorAll("[data-abv2-growth-regular-rate-input], [data-abv2-growth-single-rate-input]").forEach(function (input) {
-        if (String(input.value || "").trim() === defaultAnnualRatePercent || String(input.value || "").trim() === "") {
-          input.value = value;
-        }
-      });
+      if (input && (String(input.value || "").trim() === defaultAnnualRatePercent || String(input.value || "").trim() === "")) {
+        input.value = value;
+      }
 
       updateGrowthCalculator();
     }
 
     function initHistoricRateStats() {
-      if (!document.querySelector("[data-abv2-rate-stat]")) return;
       if (!window.AbundanceLiveStats || !window.AbundanceLiveStats.fetchLoans) return;
 
       window.AbundanceLiveStats.fetchLoans()
@@ -286,7 +323,7 @@
             setRateStat(key, stats[key]);
           });
 
-          updateDefaultGrowthRate(stats.investTodayRateDecimal);
+          updateDefaultGrowthRate(weightedHistoricRate(records));
         })
         .catch(function (error) {
           console.error("Historic rate stats failed:", error);
