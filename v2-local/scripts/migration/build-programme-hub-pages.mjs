@@ -18,6 +18,9 @@ const heroLogoTweaks = {
     maxWidth: "360px",
     align: "right"
   },
+  "council-hounslow": {
+    src: "https://shareinmicrosite.blob.core.windows.net/abundance/2a1651b5-2b79-4094-bd95-359229cb153a.png"
+  },
   "council-sheffield": {
     src: "https://shareinmicrosite.blob.core.windows.net/abundance/dd083d49-4f06-4110-a7df-defeb3f5ec7b.png",
     maxWidth: "300px"
