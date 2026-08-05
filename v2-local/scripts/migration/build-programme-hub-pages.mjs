@@ -752,6 +752,11 @@ function programmePageTemplate(data) {
 }
 
 async function main() {
+  if (process.env.ALLOW_COUNCIL_REGEN !== "1") {
+    console.error("Refusing to regenerate programme council pages. Set ALLOW_COUNCIL_REGEN=1 to overwrite v2-local/pages/council-*.html from inbound hub pages.");
+    process.exit(1);
+  }
+
   await mkdir(pagesDir, { recursive: true });
 
   let pageIndex = 0;

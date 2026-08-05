@@ -84,9 +84,9 @@
             ${description}
           </p>
 
-          <div class="p-t-spacer-sm" aria-hidden="true"></div>
+          <div class="p-t-spacer-xs" aria-hidden="true"></div>
 
-          <a class="abundance-action-text brand-primary d-inline-block" href="${url}">
+          <a class="si-link si-link--accent body--lg type-bold d-inline-block" href="${url}">
             Read more
           </a>
         </div>
