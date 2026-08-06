@@ -45,6 +45,7 @@ const sampleImages = {
 const blockGroups = {
   header: "Structure",
   hero: "Structure",
+  heroNoContents: "Structure",
   divider: "Structure",
   dividerYellow: "Structure",
   dividerTeal: "Structure",
@@ -111,6 +112,17 @@ const blockSchemas = {
       field("heading", "Heading"),
       field("body", "Body", "textarea"),
       field("contents", "In this email items, one per line", "textarea")
+    ]
+  },
+  heroNoContents: {
+    label: "Hero - no contents",
+    defaults: {
+      heading: "How it works",
+      body: "Municipal investments are loans to UK councils. Councils use the funds to improve local places while offering investors a stable long-term income."
+    },
+    fields: [
+      field("heading", "Heading"),
+      field("body", "Body", "textarea")
     ]
   },
   divider: {
@@ -651,6 +663,7 @@ const blockSchemas = {
   }
 };
 
+addHeroNoContentsVariant();
 addSystemFooterVariant();
 registerExactLibraryBlocks();
 applyDisplayTaxonomy();
@@ -704,6 +717,16 @@ function addSystemFooterVariant() {
   };
 }
 
+function addHeroNoContentsVariant() {
+  if (!exactLibrary?.blocks?.hero) return;
+  const html = `\n\n            <!-- BLOCK: Hero - no contents -->\n            <tr>\n              <td class="mobile-pad" style="padding:34px 32px 30px 32px;background-color:#ffffff;">\n                <h1 class="hero-title" style="margin:0 0 16px 0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:44px;line-height:46px;font-weight:bold;color:#363635;">How it works</h1>\n                <p class="body-lg" style="margin:0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:18px;line-height:29px;color:#4d4a46;">Municipal investments are loans to UK councils. Councils use the funds to improve local places while offering investors a stable long-term income.</p>\n              </td>\n            </tr>`;
+  exactLibrary.blocks.heroNoContents = {
+    label: "Hero - no contents",
+    group: "Structure",
+    html
+  };
+}
+
 function registerExactLibraryBlocks() {
   if (!exactLibrary) return;
   Object.entries(exactLibrary.blocks).forEach(([type, entry]) => {
@@ -735,6 +758,7 @@ function applyDisplayTaxonomy() {
   const groups = {
     header: "Structure",
     hero: "Structure",
+    heroNoContents: "Structure",
     divider: "Structure",
     dividerYellow: "Structure",
     dividerTeal: "Structure",
@@ -780,6 +804,7 @@ function applyDisplayTaxonomy() {
   const labels = {
     header: "Header",
     hero: "Hero",
+    heroNoContents: "Hero - no contents",
     divider: "Divider",
     simpleContent: "Header and copy",
     quoteBlock: "Quote block",
@@ -1012,7 +1037,7 @@ function renderInput(id, path, value, spec) {
 
 els.addBlockButton.addEventListener("click", () => {
   const item = block(els.picker.value);
-  state.blocks.push(item);
+  insertBlockBeforeFooter(item);
   selectedId = item.id;
   render();
 });
@@ -1230,6 +1255,19 @@ function moveBlock(id, direction) {
   render();
 }
 
+function isFooterType(type) {
+  return type === "footer" || type === "footerContent" || type === "footerSystem" || type === "footerSystemMinimal";
+}
+
+function insertBlockBeforeFooter(item) {
+  const firstFooterIndex = state.blocks.findIndex((entry) => isFooterType(entry.type));
+  if (firstFooterIndex >= 0 && !isFooterType(item.type)) {
+    state.blocks.splice(firstFooterIndex, 0, item);
+    return;
+  }
+  state.blocks.push(item);
+}
+
 function setPath(item, path, value) {
   const parts = path.split(".");
   let cursor = item;
@@ -1283,7 +1321,7 @@ function renderEmailHtml(email) {
       .hero-title { font-size:38px !important; line-height:40px !important; }
       .section-title { font-size:31px !important; line-height:34px !important; }
       .body-lg { font-size:18px !important; line-height:28px !important; }
-      .cta-link { display:block !important; }
+      .cta-link { display:block !important; text-align:center !important; }
       .mobile-image { width:100% !important; max-width:260px !important; height:auto !important; margin:0 auto !important; }
     }
   </style>
@@ -1327,6 +1365,10 @@ function renderBlock(item) {
       <h1 class="hero-title" style="${headingStyle("44px", "46px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h1>
       ${paragraph(fields.body, "body-lg", "18px", "29px", "0 0 20px 0")}
       ${renderContents(fields.contents || fields.links)}
+    </td>`),
+    heroNoContents: () => row(`<td class="mobile-pad" style="padding:40px 32px 30px 32px;background-color:#ffffff;">
+      <h1 class="hero-title" style="${headingStyle("44px", "46px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h1>
+      ${paragraph(fields.body, "body-lg", "18px", "29px", "0")}
     </td>`),
     divider: () => row(`<td style="padding:${number(fields.spacing, 18)}px 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/${escapeAttr(fields.image)}" width="640" height="74" alt="" role="presentation" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`),
     imageText: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">
