@@ -190,12 +190,6 @@
       });
     }
 
-    function setKeyTermsField(field, value) {
-      document.querySelectorAll('[data-keyterms-field="' + field + '"]').forEach(function (element) {
-        element.textContent = value === undefined || value === null ? "" : value;
-      });
-    }
-
     function setVisible(selector, visible) {
       document.querySelectorAll(selector).forEach(function (element) {
         element.hidden = !visible;
@@ -362,22 +356,6 @@
       });
     }
 
-    function updateKeyTerms(openLoan, councilFields) {
-      if (!openLoan) return;
-      const fields = getFields(openLoan);
-      const rate = formatPercentRate(fields.rateOfReturn);
-      const term = formatTerm(fields);
-      const name = textValue(fields, ["investmentName", "name", "loanName"], "Investment");
-      const useOfFunds = textValue(fields, ["strapline", "useOfFunds", "loanUseOfFunds", "investmentUseOfFunds", "description"], "");
-
-      setKeyTermsField("investmentName", name);
-      setKeyTermsField("borrower", councilFields.issuingCouncil || "Council");
-      if (useOfFunds) setKeyTermsField("useOfFunds", useOfFunds);
-      setKeyTermsField("interestRate", rate);
-      setKeyTermsField("termPeriod", term);
-      setKeyTermsField("offerCloseDate", formatLongDate(fields.closeDate));
-    }
-
     function initNativeDialogs() {
       document.addEventListener("click", function (event) {
         const trigger = event.target.closest("[data-modal-open]");
@@ -421,7 +399,6 @@
       setText("offerCloseDate", closeDate);
       setText("capitalRepaid", "At maturity");
       updateCalculatorTerms(openLoan);
-      updateKeyTerms(openLoan, councilFields || {});
 
       const investUrl = textValue(fields, ["loanUrl", "url", "shareInUrl", "investmentUrl"], "/invest-now").trim();
       document.querySelectorAll("[data-abv2-invest-button]").forEach(function (link) {

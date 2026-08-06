@@ -225,7 +225,7 @@
             <img
               class="si-image si-image--4-3 border-radius--5xl"
               loading="lazy"
-              src="https://cdn4.sharein.com/abundance/e535089b-3a08-41a2-bc8d-25f46f871368.jpg"
+              src="https://shareinmicrosite.blob.core.windows.net/abundance/ec913ed0-a588-487d-bfdb-4d81baf3f67f.jpg"
               alt="Project and place image"
             >
           </div>
@@ -280,29 +280,12 @@
       <h2 class="si-heading-2">
         Investments open now
       </h2>
-      <div class="m-x--auto m-t-spacer-md">
-        <div class="row gy-md gx-sm justify-content-center">
-          <div class="col-auto">
-            <a href="/invest-now" class="d-block" style="width:min(42vw, 220px);">
-              <img
-                class="si-image si-image--1-1 border-radius--4xl"
-                style="width:100%;"
-                src="https://cdn4.sharein.com/abundance/5af77a81-6107-4c76-a675-0ea1de1d8767.png"
-                alt="Hammersmith &amp; Fulham investment"
-                loading="lazy"
-              >
-            </a>
-          </div>
-          <div class="col-auto">
-            <a href="/invest-now" class="d-block" style="width:min(42vw, 220px);">
-              <img
-                class="si-image si-image--1-1 border-radius--4xl"
-                style="width:100%;"
-                src="https://cdn4.sharein.com/abundance/38daca42-5ef5-4f67-b55b-38132e80132b.png"
-                alt="Glasgow investment"
-                loading="lazy"
-              >
-            </a>
+      <div class="m-x--auto m-t-spacer-md" data-abv2-open-investments>
+        <div class="row gy-md gx-sm justify-content-center" data-abv2-open-investments-list aria-live="polite">
+          <div class="col-12">
+            <p class="body--lg text-center m-b-spacer-0">
+              Loading open investments...
+            </p>
           </div>
         </div>
       </div>
@@ -847,6 +830,250 @@
   }
 })();
 </script>
+<script>
+(function () {
+  const list = document.querySelector("[data-abv2-open-investments-list]");
+  if (!list || !window.AbundanceLiveStats) return;
 
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function getFields(record) {
+    return record && record.fields && typeof record.fields === "object" ? record.fields : record || {};
+  }
+
+  function getValue(record, key) {
+    return getFields(record)[key];
+  }
+
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Array.isArray(value) ? value.map(firstValue).filter(Boolean) : [firstValue(value)].filter(Boolean);
+  }
+
+  function normaliseText(value) {
+    return String(value || "").trim().toLowerCase();
+  }
+
+  function normaliseStatusItem(item) {
+    return normaliseText(firstValue(item) || item);
+  }
+
+  function includesStatus(raiseStatus, target) {
+    const normalisedTarget = normaliseText(target);
+
+    if (!raiseStatus) return false;
+    if (typeof raiseStatus === "string") return normaliseStatusItem(raiseStatus) === normalisedTarget;
+
+    if (Array.isArray(raiseStatus)) {
+      return raiseStatus.some(function (item) {
+        return normaliseStatusItem(item) === normalisedTarget;
+      });
+    }
+
+    return normaliseStatusItem(raiseStatus) === normalisedTarget;
+  }
+
+  function normaliseCouncilUrl(value, councilName) {
+    const raw = String(value || "").trim();
+    let pathname = raw;
+
+    if (raw && raw !== "#") {
+      try {
+        const parsed = new URL(raw, window.location.origin);
+        pathname = parsed.pathname || "/";
+      } catch {
+        pathname = raw.split("?")[0].split("#")[0] || raw;
+      }
+
+      pathname = pathname.replace(/\/+$/, "") || "/";
+
+      if (/^\/council-[^/]+$/.test(pathname)) {
+        return pathname.replace(/^\/council-/, "/council/");
+      }
+
+      return pathname;
+    }
+
+    const slug = normaliseText(councilName)
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    return slug ? "/council/" + slug : "#";
+  }
+
+  function councilName(record) {
+    return firstValue(getValue(record, "issuingCouncil")) ||
+      firstValue(getValue(record, "councilName")) ||
+      firstValue(getValue(record, "name")) ||
+      "Council";
+  }
+
+  function councilKey(record) {
+    return normaliseText(councilName(record)).replace(/&/g, "and");
+  }
+
+  function loanCouncilIds(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function loanCouncilNames(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.council))
+      .concat(valueList(fields.councilName))
+      .concat(valueList(fields.issuingCouncil))
+      .concat(valueList(fields.borrower))
+      .map(function (value) {
+        return normaliseText(value).replace(/&/g, "and");
+      })
+      .filter(Boolean);
+  }
+
+  function initials(name) {
+    return name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 3)
+      .map(function (word) {
+        return word.charAt(0).toUpperCase();
+      })
+      .join("");
+  }
+
+  function renderFallback() {
+    list.innerHTML = `
+      <div class="col-12">
+        <p class="body--lg text-center m-b-spacer-0">
+          There are no investments open at the moment.
+        </p>
+      </div>
+    `;
+  }
+
+  function renderTile(record) {
+    const fields = getFields(record);
+    const name = councilName(record);
+    const url = normaliseCouncilUrl(firstValue(fields.councilHub), name);
+    const bgHex = firstValue(fields.hex) || "#363635";
+    const logo = firstValue(fields.whiteLogo);
+    const label = "View " + name;
+
+    return `
+      <div class="col-auto">
+        <a
+          href="${escapeHtml(url)}"
+          class="d-flex align-items-center justify-content-center text-decoration-none"
+          aria-label="${escapeHtml(label)}"
+          style="width:min(42vw, 220px); aspect-ratio:1 / 1; border-radius:36px; background:${escapeHtml(bgHex)}; overflow:hidden;"
+        >
+          ${
+            logo
+              ? `
+                <img
+                  src="${escapeHtml(logo)}"
+                  alt="${escapeHtml(name)}"
+                  loading="lazy"
+                  decoding="async"
+                  style="max-width:72%; max-height:72%; object-fit:contain;"
+                >
+              `
+              : `
+                <span class="abundance-action-text text-color--invert-primary">
+                  ${escapeHtml(initials(name))}
+                </span>
+              `
+          }
+        </a>
+      </div>
+    `;
+  }
+
+  function findCouncilForLoan(loan, byId, byName) {
+    const ids = loanCouncilIds(loan);
+
+    for (const id of ids) {
+      if (byId.has(id)) return byId.get(id);
+    }
+
+    const names = loanCouncilNames(loan);
+
+    for (const name of names) {
+      if (byName.has(name)) return byName.get(name);
+    }
+
+    return null;
+  }
+
+  Promise.all([
+    window.AbundanceLiveStats.fetchCouncils(),
+    window.AbundanceLiveStats.fetchLoans()
+  ])
+    .then(function ([councils, loans]) {
+      const councilsById = new Map();
+      const councilsByName = new Map();
+
+      councils.forEach(function (record) {
+        if (record && record.id) councilsById.set(record.id, record);
+        councilsByName.set(councilKey(record), record);
+      });
+
+      const openCouncils = [];
+      const seen = new Set();
+
+      loans
+        .filter(function (loan) {
+          return includesStatus(getValue(loan, "raiseStatus"), "open");
+        })
+        .forEach(function (loan) {
+          const council = findCouncilForLoan(loan, councilsById, councilsByName);
+          if (!council) return;
+
+          const key = council.id || councilKey(council);
+          if (seen.has(key)) return;
+
+          seen.add(key);
+          openCouncils.push(council);
+        });
+
+      if (!openCouncils.length) {
+        renderFallback();
+        return;
+      }
+
+      list.innerHTML = openCouncils.map(renderTile).join("");
+    })
+    .catch(function (error) {
+      console.error("Open investments failed:", error);
+      renderFallback();
+    });
+})();
+</script>
 </body>
 </html>
