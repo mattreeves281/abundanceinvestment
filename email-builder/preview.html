@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abundance email preview</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: #faf8f8;
+      color: #363635;
+      font-family: Arial, sans-serif;
+    }
+
+    .message {
+      max-width: 640px;
+      margin: 48px auto;
+      padding: 24px;
+      background: #ffffff;
+      border: 1px solid #e5e1e0;
+      border-radius: 18px;
+    }
+  </style>
+  <script>
+    const key = decodeURIComponent(window.location.hash.slice(1));
+    const html = key ? localStorage.getItem(key) : "";
+
+    if (html) {
+      localStorage.removeItem(key);
+      document.open("text/html", "replace");
+      document.write(html);
+      document.close();
+    }
+  </script>
+</head>
+<body>
+  <script>
+    if (!html) {
+      document.body.innerHTML = '<div class="message"><h1>Email preview unavailable</h1><p>Open this page from the email builder preview button.</p></div>';
+    }
+  </script>
+</body>
+</html>

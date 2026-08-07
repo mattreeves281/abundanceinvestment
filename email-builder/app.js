@@ -1203,14 +1203,13 @@ els.downloadHtmlButton.addEventListener("click", () => {
 });
 
 els.openPreviewButton.addEventListener("click", () => {
-  const preview = window.open("", "_blank");
+  const previewKey = `abundance-email-preview-${Date.now()}`;
+  localStorage.setItem(previewKey, renderEmailHtml(state));
+  const preview = window.open(`preview.html#${encodeURIComponent(previewKey)}`, "_blank");
   if (!preview) {
+    localStorage.removeItem(previewKey);
     toast("Popup blocked");
-    return;
   }
-  preview.document.open();
-  preview.document.write(renderEmailHtml(state));
-  preview.document.close();
 });
 
 els.resetButton.addEventListener("click", () => {
