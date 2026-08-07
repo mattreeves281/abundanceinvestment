@@ -69,6 +69,36 @@
   background-color: var(--civic-ink) !important;
 }
 
+.abundance-civic-survey-chart.abundance-bar-chart--compact .abundance-bar-chart__row {
+  display: grid !important;
+  grid-template-columns: minmax(21rem, 47%) minmax(0, 1fr) !important;
+  column-gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: center;
+}
+
+.abundance-civic-survey-chart .abundance-bar-chart__label {
+  width: auto !important;
+  max-width: none;
+  flex: none !important;
+  text-align: right;
+}
+
+.abundance-civic-survey-chart .abundance-bar-chart__bar {
+  background-color: #faf8f8 !important;
+  width: auto !important;
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .abundance-civic-survey-chart.abundance-bar-chart--compact .abundance-bar-chart__row {
+    grid-template-columns: 1fr;
+  }
+
+  .abundance-civic-survey-chart .abundance-bar-chart__label {
+    text-align: left;
+  }
+}
+
 /* Functional v2 blobs use the council's full-tone palette. */
 .abundance-civic-page .abundance-blob--yellow {
   background-color: var(--civic-grey) !important;
