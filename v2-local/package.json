@@ -1,0 +1,7 @@
+{
+  "name": "abundance-v2-local",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}
