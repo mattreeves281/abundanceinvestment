@@ -1,0 +1,40 @@
+{
+  "name": "app-test-lockout-ended-reminder",
+  "subject": "You can retry out appropriateness test",
+  "previewText": "",
+  "blocks": [
+    {
+      "id": "header-7-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-7-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "You can retry our investor test",
+        "body": "Hello {first_name},\n\nYou previously failed an attempt at our investor appropriateness test. If you are still interested in investing in this type of investment on Abundance, you can log back in to your account and try the test again.\n\nPlease take the time to read and understand the risks for this type of investment before reattempting the test."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-7-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

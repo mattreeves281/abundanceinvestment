@@ -1,0 +1,54 @@
+{
+  "name": "email-change-confirmation",
+  "subject": "Please confirm your request to change your email address",
+  "previewText": "Please confirm your request to update your Abundance email address",
+  "blocks": [
+    {
+      "id": "header-17-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-17-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Confirm your email address change",
+        "body": "Hello {first_name},\n\nYou recently requested an update to the registered email address you use for your Abundance account.\n\nTo confirm this change, please follow the link below."
+      }
+    },
+    {
+      "id": "buttonRow-17-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "CONFIRM EMAIL CHANGE",
+        "ctaUrl": "{confirmation_link}",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-17-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

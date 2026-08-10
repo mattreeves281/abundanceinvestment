@@ -1,0 +1,69 @@
+{
+  "name": "withdraw-money-confirmation",
+  "subject": "Confirmation of your withdrawal request",
+  "previewText": "You have requested a withdrawal from your Abundance account",
+  "blocks": [
+    {
+      "id": "header-59-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-59-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Confirmation of your withdrawal request",
+        "body": "Hello {user_first_name},\n\nYou have requested the following withdrawal from your Abundance account. This will be transferred to your nominated bank account within one working day."
+      }
+    },
+    {
+      "id": "systemTable-59-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Amount|{withdraw_amount}\nPortfolio|{withdrawn_from}"
+      }
+    },
+    {
+      "id": "simpleContent-59-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "If you did not make this withdrawal request, please contact us immediately at support@abundanceinvestment.com or 020 3475 8666 so that we can ensure the safety of your account.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "footerSystemMinimal-59-4",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

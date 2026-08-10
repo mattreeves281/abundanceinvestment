@@ -1,0 +1,40 @@
+{
+  "name": "transfer-authority-form-received",
+  "subject": "ISA transfer request received",
+  "previewText": "The money from your ISA transfer is available in your Abundance account",
+  "blocks": [
+    {
+      "id": "header-56-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-56-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your ISA transfer to Abundance",
+        "body": "Hello {first_name}, We have received your ISA transfer request for {amount} and have sent this to your existing ISA provider ({existing_isa_manager}).\n\nIn our experience, transfers from a cash ISA or innovative finance ISA typically take 1-2 weeks and transfers from a stocks and shares ISA take 2-4 weeks. We'll keep an eye on your transfer and be in touch if there are any issues. As soon as we receive the money and relevant paperwork, we'll email you to let you know the money is available in your Abundance account.\n\nThank you for moving your ISA to Abundance. If you have any questions, please get in touch at support@abundanceinvestment.com or call us on 0203 475 8666."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-56-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

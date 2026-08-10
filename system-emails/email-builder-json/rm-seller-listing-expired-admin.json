@@ -1,0 +1,83 @@
+{
+  "name": "rm-seller-listing-expired-admin",
+  "subject": "Secondary market listing expired",
+  "previewText": "You can re-list your investment sale if you want",
+  "blocks": [
+    {
+      "id": "header-49-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-49-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your listing to sell an investment has expired",
+        "body": "Hello {first_name},\n\nYour listing to sell an investment on the Abundance marketplace has expired."
+      }
+    },
+    {
+      "id": "systemTable-49-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{amount}"
+      }
+    },
+    {
+      "id": "simpleContent-49-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "You can re-list this investment for sale on the marketplace if you are still interested in selling it.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "buttonRow-49-4",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "MANAGE LISTING",
+        "ctaUrl": "https://www.abundanceinvestment.com/secondary-market/sell-investments",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-49-5",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

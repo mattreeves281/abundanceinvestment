@@ -1,0 +1,54 @@
+{
+  "name": "rm-seller-listing-added-admin",
+  "subject": "Secondary market listing added",
+  "previewText": "",
+  "blocks": [
+    {
+      "id": "header-48-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-48-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Marketplace listing added",
+        "body": "Hello {first_name},\n\nNew secondary market listing (Pitch Id ={pitch_id} Investment Id ={investment_id}) has been added."
+      }
+    },
+    {
+      "id": "buttonRow-48-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "MANAGE LISTING",
+        "ctaUrl": "https://www.abundanceinvestment.com/secondary-market/sell-investments",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-48-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

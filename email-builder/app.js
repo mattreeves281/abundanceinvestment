@@ -1401,8 +1401,8 @@ function renderBlock(item) {
     dataTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderDataTable(fields.columns, fields.rows)}`)}</td>`),
     faqRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 18px 0;">${escapeHtml(fields.heading)}</h2>${renderFaqRows(fields.faqs)}</td>`),
     systemHeading: () => row(`<td class="mobile-pad" style="padding:34px 32px 24px 32px;background-color:#ffffff;"><h1 class="hero-title" style="${headingStyle("38px", "41px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h1>${paragraph(fields.body, "", "16px", "25px", "0 0 18px 0")}</td>`),
-    bulletList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;"><h2 style="${headingStyle("24px", "27px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${renderListItems(fields.items, "ul")}</td>`),
-    numberedList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderListItems(fields.items, "ol")}</td>`),
+    bulletList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">${fields.heading ? `<h2 style="${headingStyle("24px", "27px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${renderListItems(fields.items, "ul")}</td>`),
+    numberedList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">${fields.heading ? `<h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${renderListItems(fields.items, "ol")}</td>`),
     buttonRow: () => row(`<td class="mobile-pad" style="padding:0 32px 38px 32px;background-color:#ffffff;">${button(fields.ctaLabel, fields.ctaUrl, buttonColor(fields.color).text, buttonColor(fields.color).border)}</td>`),
     tableCard: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 style="${headingStyle("27px", "31px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}`)}</td>`),
     warning: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-left:4px solid ${colors.pink};border-radius:0 14px 14px 0;border-collapse:separate !important;"><tr><td style="padding:22px;"><h2 style="${headingStyle("30px", "33px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "", "16px", "25px", "0")}</td></tr></table></td>`),
@@ -1549,7 +1549,7 @@ function renderFaqRows(faqs) {
 
 function renderListItems(items, tag) {
   const rows = String(items || "").split("\n").filter(Boolean);
-  return `<${tag} style="margin:0;padding:0 0 0 22px;${textStyle("16px", "25px", colors.body)}">${rows.map((item, index) => `<li style="margin:0 0 ${index === rows.length - 1 ? "0" : "8px"} 0;">${escapeHtml(item)}</li>`).join("")}</${tag}>`;
+  return `<${tag} style="margin:0;padding:0 0 0 22px;${textStyle("16px", "25px", colors.body)}">${rows.map((item, index) => `<li style="margin:0 0 ${index === rows.length - 1 ? "0" : "8px"} 0;">${formatInlineText(item)}</li>`).join("")}</${tag}>`;
 }
 
 function renderFooter(fields, includeRiskWarning = true) {
@@ -1640,7 +1640,17 @@ function buttonColor(name) {
 }
 
 function paragraph(value, className = "", fontSize = "16px", lineHeight = "25px", margin = "0", color = colors.body) {
-  return String(value || "").split(/\n{2,}/).filter(Boolean).map((text) => `<p${className ? ` class="${className}"` : ""} style="${textStyle(fontSize, lineHeight, color)}margin:${margin};">${escapeHtml(text).replace(/\n/g, "<br>")}</p>`).join("");
+  const paragraphs = String(value || "").split(/\n{2,}/).map((text) => text.trim()).filter(Boolean);
+  return paragraphs.map((text, index) => {
+    const paragraphMargin = index < paragraphs.length - 1 ? "0 0 14px 0" : margin;
+    return `<p${className ? ` class="${className}"` : ""} style="${textStyle(fontSize, lineHeight, color)}margin:${paragraphMargin};">${formatInlineText(text).replace(/\n/g, "<br>")}</p>`;
+  }).join("");
+}
+
+function formatInlineText(value) {
+  return escapeHtml(value).replace(/\b([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})(?=[.,;:]?(\s|<br>|$))/gi, (match, email) => {
+    return `<a href="mailto:${escapeAttr(email)}" style="color:${colors.pinkDark};text-decoration:underline;">${email}</a>`;
+  });
 }
 
 function eyebrow(value) {

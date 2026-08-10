@@ -1,0 +1,69 @@
+{
+  "name": "card-invest-confirmation",
+  "subject": "Your investment has been confirmed",
+  "previewText": "Thank you for investing in {pitch_name}",
+  "blocks": [
+    {
+      "id": "header-13-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-13-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investment confirmed",
+        "body": "Hello {user_first_name},\n\nThank you for investing in {pitch_name}. The details of your investment are shown below:"
+      }
+    },
+    {
+      "id": "systemTable-13-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{investment_amount}"
+      }
+    },
+    {
+      "id": "simpleContent-13-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "Starting from today you have a 14 day refund period, during which you can cancel your investment and receive a full refund. If you wish to cancel your investment during this period please contact us at support@abundanceinvestment.com or 020 3475 8666.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "footerSystemMinimal-13-4",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

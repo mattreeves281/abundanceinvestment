@@ -1,0 +1,69 @@
+{
+  "name": "rm-buyer-transaction-complete",
+  "subject": "Your marketplace trade is complete",
+  "previewText": "View your new investment in your account",
+  "blocks": [
+    {
+      "id": "header-45-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-45-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your marketplace trade is complete",
+        "body": "Hello {first_name},\n\nYour marketplace trade is complete. The money reserved for this investment has been transferred to the seller and the investment transferred to your Abundance account."
+      }
+    },
+    {
+      "id": "systemTable-45-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{amount}\nPrice|{price}"
+      }
+    },
+    {
+      "id": "simpleContent-45-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "Log into your account to view your new investment.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "footerSystemMinimal-45-4",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

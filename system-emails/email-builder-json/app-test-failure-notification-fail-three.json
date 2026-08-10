@@ -1,0 +1,54 @@
+{
+  "name": "app-test-failure-notification-fail-three",
+  "subject": "You did not pass our investor appropriateness test",
+  "previewText": "You did not pass at your third attempt. You will need to wait before you can try again",
+  "blocks": [
+    {
+      "id": "header-4-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-4-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investor appropriateness test - 3rd attempt",
+        "body": "Hi {first_name},\n\nUnfortunately, you did not pass our investor appropriateness test this time. The test is designed to ensure that you are aware of the key risks of this type of investing and you will not be able to invest until you have passed.\n\nYou have {allowed_attempts} attempts remaining but you will need to wait {lockout_days} days before you can reattempt the test again. We’ll send you a reminder email when you can retry.\n\nPlease note, if you are unsuccessful in passing at the fourth attempt you will be unable to reattempt the test for 12 months. Therefore, please take the time to read and understand the risks for this type of investment before reattempting the test."
+      }
+    },
+    {
+      "id": "buttonRow-4-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "READ RISKS",
+        "ctaUrl": "https://www.abundanceinvestment.com/risks/overview",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-4-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

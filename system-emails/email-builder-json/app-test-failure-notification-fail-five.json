@@ -1,0 +1,40 @@
+{
+  "name": "app-test-failure-notification-fail-five",
+  "subject": "You did not pass our investor appropriateness test",
+  "previewText": "You did not pass at your fifth attempt. Unfortunately you will not be able to invest in this type of investment on Abundance",
+  "blocks": [
+    {
+      "id": "header-1-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-1-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investor appropriateness test - 5th attempt",
+        "body": "Hi {first_name},\n\nUnfortunately, you did not pass our investor appropriateness test at your 5th and final attempt. This means you won’t be able to invest in this type of investment on Abundance.\n\nWe understand this may be disappointing but it’s important to understand the risks of this type of investment before you invest and this process allows you to demonstrate whether this type of investment is appropriate for you. If you have any questions or would like to discuss with Abundance, please get in touch."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-1-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

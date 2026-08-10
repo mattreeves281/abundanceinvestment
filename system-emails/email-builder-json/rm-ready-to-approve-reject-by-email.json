@@ -1,0 +1,131 @@
+{
+  "name": "rm-ready-to-approve-reject-by-email",
+  "subject": "Invitation to negotiate a trade on the marketplace ({listing_transaction_id})",
+  "previewText": "Please confirm your agreement by email",
+  "blocks": [
+    {
+      "id": "header-47-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-47-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Invitation to negotiate a trade on the marketplace ({listing_transaction_id})",
+        "body": "Hello {user_first_name},\n\nA buyer has indicated that they are interested in buying the investment you have put up for sale on the marketplace. We have reserved payment for the investment.\n\nYou are both connected here and are free to either agree a sale based on the original price listed on the marketplace or to negotiate a different amount and price.\n\nIf an agreement is reached you both need to notify us via email at trades@abundanceinvestment.com (reply to all here) detailing the name and amount of investment being sold and the price agreed. Once you have both replied confirming your agreement, we will complete the trade.\n\nThe details of the offer are shown below:"
+      }
+    },
+    {
+      "id": "systemTable-47-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{amount}\nPrice|{price}"
+      }
+    },
+    {
+      "id": "rm-ready-to-approve-reject-by-email-divider-process",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-right-teal-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "numberedList-47-4",
+      "type": "numberedList",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "What do you need to do?",
+        "items": "Come to an agreement on the trade. You are free to discuss trading a different amount or at a different price, or proceed on the terms of the original offer.\nConfirm your agreement to Abundance in writing — you must both do this. The written agreement can take any form including a reply to this email. Any agreement should detail the name and amount of investment being sold and the agreed price. Why do I need to do this?\nOnce you have both replied confirming your agreement, we will complete the trade."
+      }
+    },
+    {
+      "id": "rm-ready-to-approve-reject-by-email-divider-deadline",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-left-yellow-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "simpleContent-47-5",
+      "type": "systemInfo",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "When do you need to do this by?",
+        "body": "You have 5 days to agree a sale and inform Abundance. If you don’t, the offer will expire and we will return the reserved payment to the buyer and the seller will be able to re-list the investment again on the marketplace.\n\nIf a trade is not concluded within 5 days of the buyer contacting the seller to express their interest, the offer is automatically expired. This is to ensure the buyer’s money is not indefinitely reserved and allow the seller to re-list the investment for sale in the situation where the buyer and seller have not come to an agreement.\n\nFor more information, please visit our marketplace FAQs."
+      }
+    },
+    {
+      "id": "rm-ready-to-approve-reject-by-email-divider-important",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-fall-left-pink-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "simpleContent-47-6",
+      "type": "systemInfo",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Important information",
+        "body": "It is important to understand that offers to buy and sell made on the Abundance marketplace do not constitute an agreement; they are simply expressions of interest. The seller and buyer will need to discuss the offer via email or any other means in order to come to a binding agreement. The binding agreement can take many forms, from an email to a full-blown written document, but it must be in writing.\n\nTo update the investment register we need confirmation from both the seller and buyer that an agreement has been made. It is important that you record in writing the evidence of the agreement (for example, saving the email when an agreement is reached) so that should a dispute arise regarding the transaction there is evidence of what was agreed.\n\nWhere a trade is agreed in writing in relation to a P2P loan (any council investment on Abundance from 2021), you will be electronically agreeing to a transfer of the loan as per the Transfer Certificate available here."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-47-7",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

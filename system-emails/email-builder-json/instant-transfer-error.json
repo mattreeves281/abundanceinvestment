@@ -1,0 +1,40 @@
+{
+  "name": "instant-transfer-error",
+  "subject": "Your payment on Abundance failed",
+  "previewText": "Your deposit to your Abundance account was unsuccessful. Please try again",
+  "blocks": [
+    {
+      "id": "header-19-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-19-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Payment failed",
+        "body": "Hi {user_first_name},\n\nUnfortunately, there has been a problem with your payment. We have the following information from our payment provider:\n\n{result_code}:{result_message}\n\nNo money has been taken and any reserved investments will be not be confirmed until you make a new payment.\n\nIf you have any questions or issues, please do not hesitate to contact us us at support@abundanceinvestment.com or 020 3475 8666."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-19-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "kyc-created",
+  "subject": "Identity information submitted",
+  "previewText": "Thank you for your submitting your identity information",
+  "blocks": [
+    {
+      "id": "header-27-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-27-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Identity information submitted",
+        "body": "Hello {user_first_name},\n\nThank you for submitting your identity information and document for your Abundance account.\n\nAs a regulated investment platform, we are required to complete an identity check before you can start investing on Abundance, as part of efforts to fight financial crime. In most cases you have provided all the information we need to complete our check but in some cases we may get in touch to ask for additional information."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-27-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

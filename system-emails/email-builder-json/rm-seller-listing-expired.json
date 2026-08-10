@@ -1,0 +1,83 @@
+{
+  "name": "rm-seller-listing-expired",
+  "subject": "Your listing to sell an investment has expired",
+  "previewText": "You can re-list your investment sale if you want",
+  "blocks": [
+    {
+      "id": "header-50-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-50-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your listing to sell an investment has expired",
+        "body": "Hello {first_name},\n\nYour listing to sell an investment on the Abundance marketplace has expired."
+      }
+    },
+    {
+      "id": "systemTable-50-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{amount}\nPrice|{price}"
+      }
+    },
+    {
+      "id": "simpleContent-50-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "Your investment has been re-listed. If you wish to change the amount or price you can manage you listing below:",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "buttonRow-50-4",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "MANAGE LISTINGS",
+        "ctaUrl": "https://www.abundanceinvestment.com/secondary-market/sell-investments",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-50-5",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

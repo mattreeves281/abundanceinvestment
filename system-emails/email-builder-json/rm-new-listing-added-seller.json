@@ -1,0 +1,83 @@
+{
+  "name": "rm-new-listing-added-seller",
+  "subject": "Your investment has been listed for sale",
+  "previewText": "Your investment is now up for sale on the marketplace",
+  "blocks": [
+    {
+      "id": "header-46-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-46-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your investment has been listed for sale",
+        "body": "Hello {user_first_name},\n\nYour investment is now listed for sale on the marketplace and available for investors to buy. You can find the details of your sale listing below:"
+      }
+    },
+    {
+      "id": "systemTable-46-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{amount}\nPrice|{price}\nPortfolio|{account}"
+      }
+    },
+    {
+      "id": "simpleContent-46-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "If a buyer is interested in purchasing your investment, you will receive an email connecting you both and asking you to confirm your agreement to trade.\n\nOnce Abundance has confirmation from both parties that you want to proceed with the trade, Abundance will process your trade, transferring the money from the buyer to your Abundance account, and transferring your investment to the buyer.\n\nIf you change your mind and want to cancel your listing, you can manage your listing below:",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "buttonRow-46-4",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "MANAGE LISTINGS",
+        "ctaUrl": "https://www.abundanceinvestment.com/secondary-market/sell-investments",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-46-5",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

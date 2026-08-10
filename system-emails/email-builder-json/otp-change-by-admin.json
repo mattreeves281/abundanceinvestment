@@ -1,0 +1,40 @@
+{
+  "name": "otp-change-by-admin",
+  "subject": "Your telephone number for one-time passcodes has been updated",
+  "previewText": "The requested change to your personal details has been confirmed",
+  "blocks": [
+    {
+      "id": "header-34-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-34-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your telephone number for one-time passcodes has been updated",
+        "body": "Hello {user_first_name},\n\nThe telephone number used to send you one-time passcodes in relation to your Abundance account has been updated to a number ending in {phone_last_4_digits}.\n\nIf you did not request this change, please contact us immediately at support@abundanceinvestment.com or 020 3475 8666 so that we can ensure the safety of your account."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-34-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

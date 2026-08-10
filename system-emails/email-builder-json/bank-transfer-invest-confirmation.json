@@ -1,0 +1,69 @@
+{
+  "name": "bank-transfer-invest-confirmation",
+  "subject": "Your investment has been reserved - please make your payment",
+  "previewText": "Your investment is pending and will be confirmed once you have completed your bank transfer to pay for the investment",
+  "blocks": [
+    {
+      "id": "header-9-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-9-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Pay for your reserved investment",
+        "body": "Hi {user_first_name},\n\nYour investment has been reserved, pending receipt of your bank transfer."
+      }
+    },
+    {
+      "id": "systemTable-9-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{investment_amount}\nPortfolio|{investment_type}"
+      }
+    },
+    {
+      "id": "simpleContent-9-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "To confirm your investment you must make a bank transfer of the amount required to pay for the investment using the unique payment reference provided when making your investment. Once your transfer has been processed (this can take 1-2 working days) your investment will be confirmed. If you do not use the correct reference, please contact Abundance and we can match your deposit to your pending investment.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "footerSystemMinimal-9-4",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

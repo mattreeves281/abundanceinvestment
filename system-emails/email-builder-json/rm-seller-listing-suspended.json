@@ -1,0 +1,40 @@
+{
+  "name": "rm-seller-listing-suspended",
+  "subject": "Your listing to sell an investment has been cancelled",
+  "previewText": "Trading of this investment has been suspended",
+  "blocks": [
+    {
+      "id": "header-52-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-52-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your\nlisting has been cancelled",
+        "body": "Hello\n{first_name},\n\nTrading\nof {pitch_title} on the marketplace has been\ntemporarily suspended as this investment has an upcoming\nreturn payment. We have therefore had to withdraw your sell\nlisting from the marketplace.\n\nOnce\nthe investment return has been paid you can re-list your\ninvestment for sale if you wish.\n\nAbundance\nInvestment Ltd, Hamilton House, Mabledon Place, London, WC1H\n9BB\n\nThis\nemail and all attachments transmitted with it are intended\nsolely for the use of the addressee and may contain legally\nprivileged and confidential information. If the reader of this\nmessage is not the intended recipient you are hereby notified\nthat any dissemination, distribution, copying, or other use of\nthis message or its attachments is strictly prohibited. If you\nhave received this message in error, please delete it and notify\nAbundance immediately.\n\nNothing\nin this message shall be considered an offer to sell, or a\nsolicitation of an offer to buy, any investment to any person in\nany jurisdiction to whom or in which such offer, solicitation or\nsale is unlawful. Abundance does not provide legal, financial or\ntax advice of any kind, and nothing in this email constitutes\nsuch advice. To the extent permitted by law, Abundance does not\naccept any liability arising from the use of this\ncommunication."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-52-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

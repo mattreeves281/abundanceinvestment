@@ -1,0 +1,40 @@
+{
+  "name": "email-account-unlocked",
+  "subject": "Your Abundance account has been unlocked",
+  "previewText": "Please use your new password to log in to your Abundance account",
+  "blocks": [
+    {
+      "id": "header-16-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-16-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your account has been unlocked",
+        "body": "Hello,\n\nYour Abundance account is now unlocked.\n\nYou can try logging in with your existing password or reset your password first to avoid getting locked out again."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-16-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "bank-transfer-topup-confirmation",
+  "subject": "Your pending bank deposit - awaiting payment",
+  "previewText": "Please make your bank transfer to the details provided",
+  "blocks": [
+    {
+      "id": "header-12-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-12-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Make a bank transfer to your Abundance account",
+        "body": "Hi {user_first_name},\n\nYou created a pending bank deposit to your Abundance account.\n\nPlease now make your bank transfer using the details previously provided, making sure to enter your unique payment reference on your bank transfer to ensure your deposit is allocated to your Abundance account. We will credit your deposit to your Abundance account within 1-2 working days of receipt."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-12-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

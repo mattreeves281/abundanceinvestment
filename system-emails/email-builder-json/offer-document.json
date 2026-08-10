@@ -1,0 +1,54 @@
+{
+  "name": "offer-document",
+  "subject": "A copy of the offer document for your review",
+  "previewText": "Please review the offer document carefully before making an investment",
+  "blocks": [
+    {
+      "id": "header-32-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-32-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Offer document available",
+        "body": "Hello {first_name},\n\nThank you for your interest in investing in {pitch_title}.\n\nWe've attached a copy of the offer document for your records. Please take the time to read through it carefully before making your investment."
+      }
+    },
+    {
+      "id": "buttonRow-32-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "DOWNLOAD OFFER DOCUMENT",
+        "ctaUrl": "{document_link}",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-32-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

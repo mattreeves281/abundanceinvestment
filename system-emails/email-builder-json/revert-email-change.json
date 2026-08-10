@@ -1,0 +1,54 @@
+{
+  "name": "revert-email-change",
+  "subject": "You have requested to change your Abundance email address",
+  "previewText": "Let us know if it wasn't you who requested the email change",
+  "blocks": [
+    {
+      "id": "header-42-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-42-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "You have requested to change your email address",
+        "body": "Hello {first_name},\n\nYou recently requested an update to the registered email address you use for your Abundance account. We have sent an email to your new email address asking you to confirm this change.\n\nIf you did not request this change to your email address, please use the link below to cancel the request immediately:"
+      }
+    },
+    {
+      "id": "buttonRow-42-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "CANCEL EMAIL CHANGE",
+        "ctaUrl": "{confirmation_link}",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-42-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

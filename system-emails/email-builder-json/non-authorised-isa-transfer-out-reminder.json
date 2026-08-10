@@ -1,0 +1,54 @@
+{
+  "name": "non-authorised-isa-transfer-out-reminder",
+  "subject": "Reminder: Please confirm your ISA transfer request",
+  "previewText": "We are waiting for your confirmation before completing your ISA transfer request",
+  "blocks": [
+    {
+      "id": "header-31-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-31-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Reminder: Please confirm your ISA transfer request",
+        "body": "Hello {first_name},\n\nWe have received a request to transfer money from your Abundance IF ISA to another ISA provider, but we are waiting for you to confirm the transfer before we can proceed.\n\nPlease log in to your Abundance account to review and confirm the transfer request. Once you have confirmed the transfer, we will send the money to your ISA provider."
+      }
+    },
+    {
+      "id": "buttonRow-31-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "CONFIRM ISA TRANSFER",
+        "ctaUrl": "https://www.abundanceinvestment.com/isa/transfer-out-requests",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-31-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

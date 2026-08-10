@@ -1,0 +1,56 @@
+{
+  "name": "pitch-update-email",
+  "subject": "You have a new investor update for one of your investments",
+  "previewText": "View your investment to see the latest update",
+  "blocks": [
+    {
+      "id": "header-39-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "systemHeading-39-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "body": "{pitch_title}"
+      }
+    },
+    {
+      "id": "simpleContent-39-2",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "New investment update",
+        "body": "Hello {first_name},\n\nThere is a new investor update published for your investment in {pitch_title}.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "footerSystemMinimal-39-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

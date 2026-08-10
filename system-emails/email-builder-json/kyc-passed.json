@@ -1,0 +1,40 @@
+{
+  "name": "kyc-passed",
+  "subject": "Identity check complete",
+  "previewText": "You can now start investing on Abundance",
+  "blocks": [
+    {
+      "id": "header-30-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-30-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Identity check complete",
+        "body": "Hello {user_first_name},\n\nThank you for submitting your identity information and document for your Abundance account.\n\nWe have completed our identity check and your Abundance account is ready to go. You can now log in and make your first investment if you are ready."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-30-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

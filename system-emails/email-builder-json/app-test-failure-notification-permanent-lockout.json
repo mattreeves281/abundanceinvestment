@@ -1,0 +1,40 @@
+{
+  "name": "app-test-failure-notification-permanent-lockout",
+  "subject": "You did not pass our investor appropriateness test",
+  "previewText": "You have not passed the test at your fifth attempt. Unfortunately you won't be able to invest in this type of investment on Abundance",
+  "blocks": [
+    {
+      "id": "header-6-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-6-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investor appropriateness test",
+        "body": "Hi {first_name},\n\nUnfortunately, you did not pass our investor appropriateness test this time and this was your final allowed attempt. This means you won’t be able to invest in this type of investment on Abundance.\n\nWe understand this may be disappointing but it’s important to understand the risks of this type of investment before you invest and this process allows you to demonstrate whether this type of investment is appropriate for you. If you have any questions or would like to discuss with Abundance, please get in touch."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-6-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

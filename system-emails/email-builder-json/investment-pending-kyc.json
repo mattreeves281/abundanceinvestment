@@ -1,0 +1,40 @@
+{
+  "name": "investment-pending-kyc",
+  "subject": "Investment reserved - identity information being reviewed",
+  "previewText": "Please provide the required identity information to confirm your investment",
+  "blocks": [
+    {
+      "id": "header-21-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-21-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Identity information under review",
+        "body": "Hi {user_first_name},\n\nYour investment in {pitch_name} has been reserved.\n\nBefore we can confirm your investment, we need to verify your identity.\n\nAs a regulated investment platform, we are required to complete an identity check as part of efforts to fight financial crime, before you can start investing on Abundance.\n\nOnce we have completed our review of your identity information and document for your Abundance account, we will be in touch to let you know if your account has been verified or if we need any further information. This will usually take 1-2 working days."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-21-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

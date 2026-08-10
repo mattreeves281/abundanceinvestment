@@ -1,0 +1,69 @@
+{
+  "name": "isa-transfer-in-email",
+  "subject": "ISA Transfer from {provider_name} to {company_name} - [ {user_initial} {user_surname} / acct: {account_number} ]",
+  "previewText": "Your customer has requested a transfer to Abundance",
+  "blocks": [
+    {
+      "id": "header-23-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-23-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "ISA transfer to {company_name}",
+        "body": "Good {morning_or_afternoon},\n\nWe have recently received paperwork from our mutual client to request a transfer of funds from {provider_name} to {company_name}."
+      }
+    },
+    {
+      "id": "systemTable-23-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Client name|{user_initial} {user_surname}\nAccount number|{account_number}"
+      }
+    },
+    {
+      "id": "simpleContent-23-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "Please find attached the signed transfer authority form from the mutual client and covering letter with all relevant payment details. The document is password protected with the client's NINO (all capitals, no spaces).\n\nPlease ensure that the bank transfer reference, as specified, is applied to the payment to allow for quick matching of funds.\n\nAdditionally, we would ask for the associated transfer history form to be forwarded to isatransfers@abundanceinvestment.com on completion of the transfer.\n\nPlease do not hesitate to contact us should any further details be required prior to completion of the transfer on 020 3475 8666.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "footerSystemMinimal-23-4",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

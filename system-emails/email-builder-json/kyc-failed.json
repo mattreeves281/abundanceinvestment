@@ -1,0 +1,40 @@
+{
+  "name": "kyc-failed",
+  "subject": "Your identity information is being reviewed",
+  "previewText": "Please submit the requested additional information so we can verify your identity",
+  "blocks": [
+    {
+      "id": "header-29-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-29-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Identity information under review",
+        "body": "Hello {user_first_name},\n\nWe are currently reviewing the information and document you have provided as part of your Abundance account.\n\nAs a regulated investment platform, we are required to complete an identity check as part of efforts to fight financial crime, before you can start investing on Abundance.\n\nOnce we have completed our review, we will be in touch to let you know if your account has been verified or if we need any further information. This will usually take 1-2 working days."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-29-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

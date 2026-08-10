@@ -1,0 +1,40 @@
+{
+  "name": "email-account-locked",
+  "subject": "Your Abundance account has been locked",
+  "previewText": "Please use your new password to log in to your Abundance account",
+  "blocks": [
+    {
+      "id": "header-15-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-15-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your account has been locked",
+        "body": "Hello,\n\nYour Abundance account has been locked for security reasons after a number of failed login attempts.\n\nTo unlock your account, please contact Abundance at support@abundanceinvestment.com or 020 3475 8666."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-15-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

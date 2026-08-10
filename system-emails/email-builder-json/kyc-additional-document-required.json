@@ -1,0 +1,83 @@
+{
+  "name": "kyc-additional-document-required",
+  "subject": "We need more information to confirm your identity",
+  "previewText": "Please submit the requested additional information so we can verify your identity",
+  "blocks": [
+    {
+      "id": "header-26-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-26-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Identity check - additional information required",
+        "body": "Hello {user_first_name},\n\nWe have been unable to verify your identity with the information that you provided for your Abundance account.This may be for a number of reasons:"
+      }
+    },
+    {
+      "id": "bulletList-26-2",
+      "type": "bulletList",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "items": "You live overseas\nYou are not registered on the electoral roll\nYou have recently moved house\nYour house is a new build or part of an apartment block"
+      }
+    },
+    {
+      "id": "simpleContent-26-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "Before you can invest, we need you to submit a proof of address document to confirm your identity.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "buttonRow-26-4",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "SUBMIT DOCUMENT",
+        "ctaUrl": "https://www.abundanceinvestment.com//investment-account/kyc-manual-address-upload",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-26-5",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "app-test-failure-notification-fail-four",
+  "subject": "You did not pass our investor appropriateness test",
+  "previewText": "You did not pass at your fourth attempt. You will need to wait before you can try again",
+  "blocks": [
+    {
+      "id": "header-2-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-2-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investor appropriateness test - 4th attempt",
+        "body": "Hi {first_name},\n\nUnfortunately, you did not pass our investor appropriateness test this time. The test is designed to ensure that you are aware of the key risks of this type of investing and you will not be able to invest until you have passed.\n\nYou do have {allowed_attempts} attempt remaining but you will not be able to retry the test for 12 months. We’ll send you a reminder email when you are able to retry.\n\nWe understand this may be disappointing but it’s important to understand the risks of this type of investment before you invest and this process allows you to demonstrate whether this type of investment is appropriate for you. If you have any questions or would like to discuss with Abundance, please get in touch."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-2-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

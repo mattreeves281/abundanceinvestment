@@ -1,0 +1,40 @@
+{
+  "name": "profile-data-changed-confirmation",
+  "subject": "Your Abundance account details have been updated",
+  "previewText": "The requested change to your personal details has been confirmed",
+  "blocks": [
+    {
+      "id": "header-40-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-40-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your personal details have been updated",
+        "body": "Hello {user_first_name},\n\nYour personal details for your Abundance account have been successfully updated.\n\nIf you did not make this change, please contact us immediately at support@abundanceinvestment.com or 020 3475 8666 so that we can ensure the safety of your account."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-40-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

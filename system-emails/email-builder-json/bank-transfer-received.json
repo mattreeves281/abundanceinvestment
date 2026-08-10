@@ -1,0 +1,40 @@
+{
+  "name": "bank-transfer-received",
+  "subject": "We have received your bank deposit",
+  "previewText": "The money is available within your Abundance account to invest",
+  "blocks": [
+    {
+      "id": "header-11-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-11-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Deposit received",
+        "body": "Hi {first_name},\n\nWe have received your deposit of {amount}.\n\nThe money is now available in your Abundance account to invest if you are ready."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-11-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

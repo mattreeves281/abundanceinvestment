@@ -1,0 +1,54 @@
+{
+  "name": "app-test-failure-notification-fail-two",
+  "subject": "You did not pass our investor appropriateness test",
+  "previewText": "You did not pass at your second attempt. You will need to wait before you can try again",
+  "blocks": [
+    {
+      "id": "header-5-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-5-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investor appropriateness test - 2nd attempt",
+        "body": "Hi {first_name},\n\nUnfortunately, you did not pass our investor appropriateness test this time. The test is designed to ensure that you are aware of the key risks of this type of investing and you will not be able to invest until you have passed.\n\nBut don’t worry, you have {allowed_attempts} attempts remaining and you’ll be able to reattempt the test after {lockout_days} days.\n\nWe understand this may be disappointing but it’s important to understand the risks involved in this type of investment before you invest. We’ll send you a reminder email when you are able to reattempt the test, but in the meantime, please take the time to read and understand the risks for this type of investment before reattempting the test."
+      }
+    },
+    {
+      "id": "buttonRow-5-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "READ RISKS",
+        "ctaUrl": "https://www.abundanceinvestment.com/risks/overview",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-5-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

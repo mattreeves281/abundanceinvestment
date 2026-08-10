@@ -1,0 +1,83 @@
+{
+  "name": "rm-seller-pending-expired",
+  "subject": "Your pending trade has expired",
+  "previewText": "This trade was not confirmed by email within 3 working days",
+  "blocks": [
+    {
+      "id": "header-54-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-54-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your pending trade has expired",
+        "body": "Hello {first_name},\n\nYour pending trade has expired because an agreement between you and the buyer was not reached within the 5 day timeframe. Your investment has been re-listed and you can manage you listing below."
+      }
+    },
+    {
+      "id": "systemTable-54-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{amount}\nPrice|{price}"
+      }
+    },
+    {
+      "id": "simpleContent-54-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "If a trade is not agreed by both parties and concluded within 5 days, the trade is automatically expired. This is to ensure the buyer’s money is not indefinitely reserved and allow the seller to re-list the investment for sale.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "buttonRow-54-4",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "MANAGE LISTINGS",
+        "ctaUrl": "https://www.abundanceinvestment.com/secondary-market/sell-investments",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-54-5",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

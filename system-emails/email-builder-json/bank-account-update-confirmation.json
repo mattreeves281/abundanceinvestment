@@ -1,0 +1,54 @@
+{
+  "name": "bank-account-update-confirmation",
+  "subject": "Your nominated bank account has been updated",
+  "previewText": "We have updated the bank account that we will pay withdrawals to",
+  "blocks": [
+    {
+      "id": "header-8-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-8-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your nominated bank account has been updated",
+        "body": "Hello {user_first_name},\n\nWe have updated your nominated bank account for your Abundance account. This is the bank account we will transfer all withdrawals to and must be an account in your name.\n\nIf you did not request this change, please contact us immediately at support@abundanceinvestment.com or 020 3475 8666 so that we can ensure the safety of your account."
+      }
+    },
+    {
+      "id": "buttonRow-8-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "VIEW BANK DETAILS",
+        "ctaUrl": "https://www.abundanceinvestment.com/investment-account/edit-bank-account",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-8-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

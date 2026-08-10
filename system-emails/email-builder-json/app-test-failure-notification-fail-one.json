@@ -1,0 +1,54 @@
+{
+  "name": "app-test-failure-notification-fail-one",
+  "subject": "You did not pass our investor appropriateness test",
+  "previewText": "You did not pass at your first attempt. You can try again if you are ready",
+  "blocks": [
+    {
+      "id": "header-3-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-3-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investor appropriateness test - 1st attempt",
+        "body": "Hi {first_name},\n\nUnfortunately, you did not pass our investor appropriateness test this time. The test is designed to ensure that you are aware of the key risks of this type of investing and you will not be able to invest until you have passed.\n\nWe allow all investors five attempts at passing this test. On this occasion you can reattempt the test straight away if you wish, but if you are unsuccessful in passing at the second attempt you will be unable to reattempt for 48 hours.\n\nPlease take the time to read and understand the risks for this type of investment before reattempting the test."
+      }
+    },
+    {
+      "id": "buttonRow-3-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "READ RISKS",
+        "ctaUrl": "https://www.abundanceinvestment.com/risks/overview",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-3-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

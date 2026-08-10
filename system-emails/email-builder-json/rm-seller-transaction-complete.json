@@ -1,0 +1,69 @@
+{
+  "name": "rm-seller-transaction-complete",
+  "subject": "Your marketplace trade is complete",
+  "previewText": "Your investment has been sold and the money from the sale is available in your Abundance account",
+  "blocks": [
+    {
+      "id": "header-55-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-55-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your marketplace trade is complete",
+        "body": "Hello {first_name},\n\nYour marketplace trade is complete. The money reserved for this investment has been transferred from the buyer to your Abundance account and the investment transferred to the buyer’s account."
+      }
+    },
+    {
+      "id": "systemTable-55-2",
+      "type": "systemTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "rows": "Investment|{pitch_name}\nAmount|{amount}\nPrice|{price}"
+      }
+    },
+    {
+      "id": "simpleContent-55-3",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "Log into your account to view your available cash balance.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "footerSystemMinimal-55-4",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

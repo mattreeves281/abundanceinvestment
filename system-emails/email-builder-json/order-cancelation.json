@@ -1,0 +1,40 @@
+{
+  "name": "order-cancelation",
+  "subject": "Your investment has been cancelled",
+  "previewText": "Your investment on Abundance has been cancelled",
+  "blocks": [
+    {
+      "id": "header-33-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-33-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investment cancelled",
+        "body": "Hi {first_name},\n\nYou investment in {{BOND_NAME}} has been cancelled.\n\nIf you have already paid for your investment, the money has been refunded to your Abundance account balance. You can choose to invest again, or withdraw the money back to your nominated bank account."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-33-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

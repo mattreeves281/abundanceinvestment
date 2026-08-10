@@ -1,0 +1,40 @@
+{
+  "name": "payment-reminder-2",
+  "subject": "Reminder: You need to pay for your pending investment",
+  "previewText": "Please make a bank transfer to confirm your investment",
+  "blocks": [
+    {
+      "id": "header-38-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-38-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Reminder - your investment has not been confirmed",
+        "body": "Hi {{USER_FIRST_NAME}},\n\nYour reserved investment of {{AMOUNT}} in {{PROJECT-NAME}} is awaiting payment. To confirm your investment, you must make a bank transfer of the amount required to pay for the investment.\n\nIf you have not yet arranged payment, you can find the details for making your bank transfer in your Abundance account by viewing your pending investment. Please remember to include the unique payment reference on your bank transfer to ensure your payment is allocated to your reserved investment.\n\nOnce your transfer has been processed (this can take 1-2 working days) we will confirm your investment. If we do not receive your bank transfer within the next 3 days we may need to cancel your reserved investment."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-38-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

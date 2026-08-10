@@ -1,0 +1,40 @@
+{
+  "name": "isa-bank-transfer-received",
+  "subject": "ISA transfer complete",
+  "previewText": "The money from your ISA transfer is available in your Abundance account",
+  "blocks": [
+    {
+      "id": "header-22-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-22-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "ISA transfer complete",
+        "body": "Hello {first_name},\n\nWe’ve received the money for your ISA transfer of {amount} from {existing_isa_manager} and it is now available in your IF ISA to invest.\n\nYou can choose to invest into any of our open investments or by purchasing a past investment on the marketplace by logging into your Abundance account."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-22-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

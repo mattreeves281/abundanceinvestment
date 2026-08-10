@@ -1,0 +1,54 @@
+{
+  "name": "email-confirmation",
+  "subject": "Please verify your email address",
+  "previewText": "Confirm your email address to complete your account set up",
+  "blocks": [
+    {
+      "id": "header-18-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-18-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Please verify your email address",
+        "body": "Hello {first_name},\n\nThank you for signing up to Abundance. Please click the button below to verify your email address and activate your account.\n\nIf you did not sign up to Abundance, please contact us immediately at support@abundanceinvestment.com or 020 3475 8666."
+      }
+    },
+    {
+      "id": "buttonRow-18-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "VERIFY EMAIL ADDRESS",
+        "ctaUrl": "{confirmation_link}",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-18-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

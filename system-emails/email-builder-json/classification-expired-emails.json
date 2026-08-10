@@ -1,0 +1,54 @@
+{
+  "name": "classification-expired-emails",
+  "subject": "Your investor category needs updating",
+  "previewText": "Update your investor category to keep investing in companies",
+  "blocks": [
+    {
+      "id": "header-14-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-14-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your investor categorisation has expired",
+        "body": "Hello {user_first_name},\n\nEvery 12 months we ask you to confirm your investor category with Abundance. You don’t need to do this immediately, but you will need to confirm your category before you next invest in company investments on Abundance."
+      }
+    },
+    {
+      "id": "buttonRow-14-2",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "UPDATE CATEGORISATION",
+        "ctaUrl": "https://www.abundanceinvesment.com/investor/classification",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "footerSystemMinimal-14-3",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

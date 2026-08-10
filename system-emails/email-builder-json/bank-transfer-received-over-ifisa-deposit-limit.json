@@ -1,0 +1,40 @@
+{
+  "name": "bank-transfer-received-over-ifisa-deposit-limit",
+  "subject": "We have received your bank deposit - ISA allowance exceeded",
+  "previewText": "The amount you have transferred will take you over your annual ISA allowance",
+  "blocks": [
+    {
+      "id": "header-10-0",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-10-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Deposit received - ISA allowance exceeded",
+        "body": "Hi {user_first_name},\n\nWe have received your deposit of {amount} to your IF ISA.\n\nHowever, your deposit exceeds your remaining ISA allowance for the current tax year. We have therefore added the maximum possible amount to your IF ISA and the excess of {excess_amounts} has been added to your General portfolio."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-10-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}
