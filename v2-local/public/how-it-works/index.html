@@ -2383,11 +2383,14 @@ long term low-risk income who also want to see their money making a positive dif
     const minimumInvestment = 5;
     let hasEditedRateInput = false;
 
-    function formatMoney(value) {
+    function formatMoney(value, options) {
+      const decimals = options && Number.isFinite(options.decimals) ? options.decimals : 0;
+
       return new Intl.NumberFormat("en-GB", {
         style: "currency",
         currency: "GBP",
-        maximumFractionDigits: 0
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
       }).format(value);
     }
 
@@ -2404,6 +2407,14 @@ long term low-risk income who also want to see their money making a positive dif
 
     function roundToNearestPound(value) {
       return Math.round(value);
+    }
+
+    function formatGrowthMoney(value, lifetimeValue) {
+      if (Math.abs(lifetimeValue) < 1000) {
+        return formatMoney(value, { decimals: 2 });
+      }
+
+      return formatMoney(roundToNearestPound(value));
     }
 
     function isBelowMinimumContribution(value) {
@@ -2581,9 +2592,9 @@ long term low-risk income who also want to see their money making a positive dif
 
       setText("[data-abv2-growth-term-label]", years + " years");
       updateGrowthRateLabel();
-      setText("[data-abv2-growth-paid-in]", formatMoney(roundToNearestPound(paidIn)));
-      setText("[data-abv2-growth-result]", formatMoney(roundToNearestPound(futureValue)));
-      setText("[data-abv2-growth-return]", formatMoney(roundToNearestPound(futureValue - paidIn)));
+      setText("[data-abv2-growth-paid-in]", formatGrowthMoney(paidIn, futureValue));
+      setText("[data-abv2-growth-result]", formatGrowthMoney(futureValue, futureValue));
+      setText("[data-abv2-growth-return]", formatGrowthMoney(futureValue - paidIn, futureValue));
     }
 
     function initGrowthCalculator() {
