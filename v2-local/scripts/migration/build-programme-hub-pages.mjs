@@ -348,7 +348,7 @@ function statBlock(label, field, fallback = "-") {
 function historySection(data, state) {
   const stateAttr = state === "open" ? "data-abv2-open-history" : "data-abv2-no-open-history";
   return `<div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true" ${stateAttr} hidden></div>
-  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="investment-history-${state}" ${stateAttr} hidden>
+  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="investment-history-${state}" ${stateAttr} hidden style="margin-top:-1px;">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="choke-600 m-x--auto text-center m-b-spacer-md">
         <h2 class="si-heading-2 text-color--primary m-b-spacer-0">
@@ -392,6 +392,7 @@ function calculatorSection() {
     data-term-years="5"
     data-interest-date-1="June"
     data-interest-date-2="December"
+    style="margin-top:-1px;"
     hidden>
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="row gx-lg gy-md align-items-center">
@@ -533,7 +534,7 @@ function programmePageTemplate(data) {
   </section>
 
   <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true" data-abv2-open-state hidden></div>
-  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="live-investment" data-abv2-open-state hidden>
+  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="live-investment" data-abv2-open-state hidden style="margin-top:-1px;">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="row gx-lg gy-md align-items-start">
         <div class="col-12 col-lg-6">
@@ -593,7 +594,7 @@ function programmePageTemplate(data) {
   <div class="abundance-mask abundance-mask--bottom bg-colour--pink" aria-hidden="true" data-abv2-open-state hidden></div>
 
   <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true" data-abv2-no-open-state hidden></div>
-  <section class="position-relative p-y-spacer-lg bg-colour--pink" data-abv2-no-open-state hidden>
+  <section class="position-relative p-y-spacer-lg bg-colour--pink" data-abv2-no-open-state hidden style="margin-top:-1px;">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="row gx-lg gy-md align-items-center">
         <div class="col-12 col-lg-6">
