@@ -207,8 +207,7 @@
           </h1>
 
           <p class="body--lg text-choke--640 m-t-spacer-sm m-b-spacer-0">
-            Municipal lending isn’t a novel idea. For centuries, citizens have been lending to local
-government, and now, we think it’s time that local lending made a comeback.
+            Municipal lending isn’t a novel idea. For centuries, citizens have been lending to local government and now it’s making a comeback.
           </p>
 
           <nav class="m-t-spacer-sm" aria-label="On this page">
@@ -310,7 +309,7 @@ government, and now, we think it’s time that local lending made a comeback.
             </p>
 
             <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-              Councils are the <a class="si-link si-link--accent" href="#foundation">bedrock of our society</a> - with over 1,200 statutory responsibilities to look after our communities, both now and in the future. Municipal lending means citizens can get involved in delivering that thriving future.
+              Councils are the <a class="si-link si-link--accent" href="#foundation">bedrock of our society</a>. They have over 1,200 statutory responsibilities to keep our communities running, and they invest to create a thriving future for our places. Municipal lending is a way that citizens can get involved in delivering that brighter future.
             </p>
 
             <div class="p-t-spacer-md" aria-hidden="true"></div>
@@ -369,16 +368,16 @@ government, and now, we think it’s time that local lending made a comeback.
         Reinventing municipal investing for the digital age
       </h2>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        It used to be common for UK councils to borrow money from their residents as an alternative to institutions or the government.
+        It used to be common for UK councils to borrow money from their residents as an alternative to banks, other institutions or the government.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        Throughout history, regional stock exchanges and municipal bonds have shaped and strengthened places across the UK; in cities such as Manchester, Liverpool, Glasgow and Bristol.
+        Regional stock exchanges and municipal bonds shaped and strengthened places across the UK in cities such as Manchester, Liverpool, Glasgow and Bristol.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        Municipal bonds have been used as far back as the 1500s to finance local infrastructure. They allowed councils to fund railway expansions, water supply systems and electric grids, and gave citizens the chance to have stake in the future growth and development of their places. At the start of the twentieth century, as much as 20% of council borrowing came from municipal bonds.
+        Municipal bonds have been used as far back as the 1500s to finance local infrastructure. They allowed councils to fund railway expansions, water supply systems and electric grids, and gave citizens the chance to have a stake in the future growth and development of their places. At the start of the twentieth century, as much as 20% of council borrowing came from municipal bonds.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        It is on these foundations that our own municipal investments are built. In this era of financial markets and opaque cryptocurrencies, we want to connect people with what their money is really doing.
+        It is on these foundations that our own municipal investments are built. In this era of unpredictable financial markets and opaque cryptocurrencies, we want to connect people with what their money is really doing.
       </p>
   <div class="p-t-spacer-xs" aria-hidden="true"></div>
 
@@ -405,7 +404,7 @@ government, and now, we think it’s time that local lending made a comeback.
           </div>
           <p class="abundance-body-compact m-b-spacer-0">
             In the late 19th and early 20th centuries, Bristol Council offered bonds to expand its port,
-            improve roads and develop public utilities. These bonds attracted local investors, who earned financial returns and made a tangible impact on key infrastructure of their growing city. Some perpetual
+            improve roads and develop public utilities. These bonds attracted local investors, who earned financial returns and made a tangible impact on key infrastructure in their growing city. Some perpetual
             bonds from the 1940s are still paying returns today.
           </p>
         </div>
@@ -514,7 +513,7 @@ government, and now, we think it’s time that local lending made a comeback.
                   Provide essential services
                 </p>
                 <p class="body-sm m-t-spacer-3xs">
-                  Local government has over 1,200 statutory responsibilities to provide services that keep our communities running.
+                  Local government has over 1,200 statutory responsibilities in their role to keep our communities running.
                 </p>
               </div>
             </div>
@@ -584,11 +583,11 @@ government, and now, we think it’s time that local lending made a comeback.
       </h2>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
         Councils have two primary types of outgoings: day-to-day spending - like social care, education, waste
-        management - and long term capital investment - like community infrastructure, housing and
+        management; and long term capital investment - like community infrastructure, housing and
         transport. Up to 20% of council budgets are typically capital investment.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        The money to fund this kind of investment typically comes from either the Public Works Loan Board, a Government backed institution, or from the conventional financial markets. Our municipal loans are another way for councils to borrow money for these project investments.
+        The money to fund capital investment typically comes from internal resources (such as capital receipts or reserves) or from government as capital grants, or borrowings from the Public Works Loan Board. Private finance is less used now than earlier this century. Our municipal loans are another way for councils to borrow money for these project investments.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
         Our vision is to create a future where more and more of these funds come from engaged citizens with a real
@@ -635,7 +634,7 @@ government, and now, we think it’s time that local lending made a comeback.
             >
               <div class="si-accordion-item__body">
                 <span>
-                  No. Any municipal loan from Abundance must be used for investment in infrastructure projects, in line
+                  No, any municipal loan from Abundance must be used for investment in infrastructure projects, in line
                   with the Green & Social Loan Principles.
                 </span>
               </div>
@@ -674,7 +673,7 @@ government, and now, we think it’s time that local lending made a comeback.
               <div class="si-accordion-item__body">
                 <span>
                   We ensure that our municipal investments are good value for councils while also providing a
-                  competitive return for investors. Councils also appreciate the opportunity to build deeper partnerships with local residents and businesses. Offering an investment like this can help councils to get everyone in the community involved in delivering projects, as well as helping them to shine a light on valuable work that can goes unnoticed.
+                  competitive return for investors. Councils also appreciate the opportunity to build deeper partnerships with local residents and businesses. Offering an investment like this can help councils to get more people in the community involved… as well as shining a light on valuable work that regularly goes unnoticed.
                 </span>
               </div>
             </div>
@@ -962,9 +961,64 @@ government, and now, we think it’s time that local lending made a comeback.
     return false;
   }
 
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Array.isArray(value) ? value.map(firstValue).filter(Boolean) : [firstValue(value)].filter(Boolean);
+  }
+
+  function loanHasLiveOrClosedStatus(record) {
+    const raiseStatus = getValue(record, "raiseStatus");
+    return includesStatus(raiseStatus, "open") || includesStatus(raiseStatus, "closed");
+  }
+
+  function loanCouncilIds(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function eligibleCouncilIdsFromLoans(loans) {
+    const ids = new Set();
+
+    loans
+      .filter(loanHasLiveOrClosedStatus)
+      .forEach(function (loan) {
+        loanCouncilIds(loan).forEach(function (id) {
+          ids.add(id);
+        });
+      });
+
+    return ids;
+  }
+
+  function filterCouncilsWithEligibleLoans(councils, loans) {
+    const eligibleCouncilIds = eligibleCouncilIdsFromLoans(loans || []);
+
+    return councils.filter(function (record) {
+      return record && record.id && eligibleCouncilIds.has(record.id);
+    });
+  }
+
   function shouldExcludeCouncil(record) {
     const hub = getValue(record, "councilHub");
-    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+    return !hub || String(hub).trim() === "";
   }
 
   function fetchRecords(endpoint, cacheKey) {
@@ -992,8 +1046,12 @@ government, and now, we think it’s time that local lending made a comeback.
     });
   }
 
-  function councilStats(records) {
-    const visibleCouncils = records.filter(function (record) {
+  function councilStats(records, loans) {
+    const eligibleCouncils = Array.isArray(loans)
+      ? filterCouncilsWithEligibleLoans(records, loans)
+      : records;
+
+    const visibleCouncils = eligibleCouncils.filter(function (record) {
       return !shouldExcludeCouncil(record);
     });
 
@@ -1067,9 +1125,12 @@ government, and now, we think it’s time that local lending made a comeback.
   function initCouncilStats() {
     if (!document.querySelector("[data-abv2-stat]")) return;
 
-    fetchRecords(COUNCILS_ENDPOINT, "councils")
-      .then(function (records) {
-        setStats(councilStats(records));
+    Promise.all([
+      fetchRecords(COUNCILS_ENDPOINT, "councils"),
+      fetchRecords(LOANS_ENDPOINT, "loans")
+    ])
+      .then(function ([councils, loans]) {
+        setStats(councilStats(councils, loans));
       })
       .catch(function (error) {
         console.error("Council stats failed:", error);
@@ -1081,6 +1142,8 @@ government, and now, we think it’s time that local lending made a comeback.
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
+    eligibleCouncilIdsFromLoans: eligibleCouncilIdsFromLoans,
+    filterCouncilsWithEligibleLoans: filterCouncilsWithEligibleLoans,
     fetchLoans: function () {
       return fetchRecords(LOANS_ENDPOINT, "loans");
     },

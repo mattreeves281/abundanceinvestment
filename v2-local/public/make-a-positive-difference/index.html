@@ -286,7 +286,7 @@
         Clear and transparent lending principles
       </h2>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        Our municipal investments make a positive impact (we have years of examples from real projects, which you can read about <a class="si-link si-link--accent" href="#real-stories"></a>.
+        Our municipal investments make a positive impact (we have years of examples from real projects, which you can read about <a class="si-link si-link--accent" href="#real-stories">here</a>.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
         Our investments are also aligned to the Green & Social Loan Principles, a set of internationally
@@ -1342,9 +1342,64 @@ How councils have spent the money</h3>
     return false;
   }
 
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Array.isArray(value) ? value.map(firstValue).filter(Boolean) : [firstValue(value)].filter(Boolean);
+  }
+
+  function loanHasLiveOrClosedStatus(record) {
+    const raiseStatus = getValue(record, "raiseStatus");
+    return includesStatus(raiseStatus, "open") || includesStatus(raiseStatus, "closed");
+  }
+
+  function loanCouncilIds(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function eligibleCouncilIdsFromLoans(loans) {
+    const ids = new Set();
+
+    loans
+      .filter(loanHasLiveOrClosedStatus)
+      .forEach(function (loan) {
+        loanCouncilIds(loan).forEach(function (id) {
+          ids.add(id);
+        });
+      });
+
+    return ids;
+  }
+
+  function filterCouncilsWithEligibleLoans(councils, loans) {
+    const eligibleCouncilIds = eligibleCouncilIdsFromLoans(loans || []);
+
+    return councils.filter(function (record) {
+      return record && record.id && eligibleCouncilIds.has(record.id);
+    });
+  }
+
   function shouldExcludeCouncil(record) {
     const hub = getValue(record, "councilHub");
-    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+    return !hub || String(hub).trim() === "";
   }
 
   function fetchRecords(endpoint, cacheKey) {
@@ -1372,8 +1427,12 @@ How councils have spent the money</h3>
     });
   }
 
-  function councilStats(records) {
-    const visibleCouncils = records.filter(function (record) {
+  function councilStats(records, loans) {
+    const eligibleCouncils = Array.isArray(loans)
+      ? filterCouncilsWithEligibleLoans(records, loans)
+      : records;
+
+    const visibleCouncils = eligibleCouncils.filter(function (record) {
       return !shouldExcludeCouncil(record);
     });
 
@@ -1447,9 +1506,12 @@ How councils have spent the money</h3>
   function initCouncilStats() {
     if (!document.querySelector("[data-abv2-stat]")) return;
 
-    fetchRecords(COUNCILS_ENDPOINT, "councils")
-      .then(function (records) {
-        setStats(councilStats(records));
+    Promise.all([
+      fetchRecords(COUNCILS_ENDPOINT, "councils"),
+      fetchRecords(LOANS_ENDPOINT, "loans")
+    ])
+      .then(function ([councils, loans]) {
+        setStats(councilStats(councils, loans));
       })
       .catch(function (error) {
         console.error("Council stats failed:", error);
@@ -1461,6 +1523,8 @@ How councils have spent the money</h3>
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
+    eligibleCouncilIdsFromLoans: eligibleCouncilIdsFromLoans,
+    filterCouncilsWithEligibleLoans: filterCouncilsWithEligibleLoans,
     fetchLoans: function () {
       return fetchRecords(LOANS_ENDPOINT, "loans");
     },
@@ -1478,6 +1542,7 @@ How councils have spent the money</h3>
 <script>
 (function () {
   var COUNCIL_DATA_URL = "https://data.abundanceinvestment.com/councils";
+  var LOANS_DATA_URL = "https://data.abundanceinvestment.com/loans";
 
   var ALL_COUNCILS_BADGE_LOGO =
     "https://cdn4.sharein.com/abundance/8d9c1ba3-6b73-4bfc-9671-ffc5cee387aa.png";
@@ -1521,7 +1586,7 @@ How councils have spent the money</h3>
     var components = document.querySelectorAll("[data-abv2-use-of-funds]");
     if (!components.length) return;
 
-    loadCouncilData(function (result) {
+    loadUseOfFundsData(function (result) {
       components.forEach(function (component) {
         var select = component.querySelector("[data-abv2-use-of-funds-select]");
         var summary = component.querySelector("[data-abv2-use-of-funds-summary]");
@@ -1542,30 +1607,28 @@ How councils have spent the money</h3>
     });
   }
 
-  function loadCouncilData(callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", COUNCIL_DATA_URL, true);
-
-    xhr.onload = function () {
-      try {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          callback(parseCouncilData(xhr.responseText));
-        } else {
-          console.error("Use of funds data load failed. Status:", xhr.status);
-          callback(emptyResult());
-        }
-      } catch (error) {
-        console.error("Use of funds data parse failed:", error);
+  function loadUseOfFundsData(callback) {
+    Promise.all([
+      loadJson(COUNCIL_DATA_URL),
+      loadJson(LOANS_DATA_URL)
+    ])
+      .then(function (responses) {
+        callback(parseCouncilData(responses[0], responses[1]));
+      })
+      .catch(function (error) {
+        console.error("Use of funds data load failed:", error);
         callback(emptyResult());
+      });
+  }
+
+  function loadJson(url) {
+    return fetch(url, { cache: "no-store" }).then(function (response) {
+      if (!response.ok) {
+        throw new Error(url + " returned " + response.status);
       }
-    };
 
-    xhr.onerror = function () {
-      console.error("Use of funds data network error.");
-      callback(emptyResult());
-    };
-
-    xhr.send();
+      return response.json();
+    });
   }
 
   function emptyResult() {
@@ -1576,9 +1639,15 @@ How councils have spent the money</h3>
     };
   }
 
-  function parseCouncilData(jsonText) {
-    var parsed = JSON.parse(jsonText);
-    var records = parsed.records || [];
+  function recordsFromResponse(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.records)) return data.records;
+    return [];
+  }
+
+  function parseCouncilData(councilResponse, loanResponse) {
+    var records = recordsFromResponse(councilResponse);
+    var closedCouncilIds = closedCouncilIdsFromLoans(recordsFromResponse(loanResponse));
 
     var dataByCouncil = {};
     var logosByCouncil = {};
@@ -1598,6 +1667,7 @@ How councils have spent the money</h3>
       var fields = record.fields || {};
 
       if (isComingSoonStatus(fields.raiseStatus)) return;
+      if (!record.id || !closedCouncilIds[record.id]) return;
 
       var council = String(fields.issuingCouncil || "").trim();
       if (!council) return;
@@ -1677,6 +1747,69 @@ How councils have spent the money</h3>
       logosByCouncil: logosByCouncil,
       logoLinksByCouncil: logoLinksByCouncil
     };
+  }
+
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Object.prototype.toString.call(value) === "[object Array]") {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Object.prototype.toString.call(value) === "[object Array]"
+      ? value.map(firstValue).filter(Boolean)
+      : [firstValue(value)].filter(Boolean);
+  }
+
+  function statusMatches(raiseStatus, target) {
+    var normalisedTarget = String(target || "").trim().toLowerCase();
+
+    if (!raiseStatus) return false;
+
+    if (typeof raiseStatus === "string") {
+      return String(raiseStatus).trim().toLowerCase() === normalisedTarget;
+    }
+
+    if (Object.prototype.toString.call(raiseStatus) === "[object Array]") {
+      return raiseStatus.some(function (item) {
+        return String(firstValue(item) || item || "").trim().toLowerCase() === normalisedTarget;
+      });
+    }
+
+    return String(firstValue(raiseStatus) || raiseStatus || "").trim().toLowerCase() === normalisedTarget;
+  }
+
+  function loanCouncilIds(record) {
+    var fields = record.fields || record || {};
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function closedCouncilIdsFromLoans(loans) {
+    var ids = {};
+
+    loans.forEach(function (loan) {
+      var fields = loan.fields || loan || {};
+      if (!statusMatches(fields.raiseStatus, "closed")) return;
+
+      loanCouncilIds(loan).forEach(function (id) {
+        ids[id] = true;
+      });
+    });
+
+    return ids;
   }
 
   function normalizeCouncilHubUrl(value) {

@@ -225,7 +225,7 @@
         Our story
       </h2>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        Back in 2012, we launched the first investment platform that would allow anyone to directly invest in green projects from £5. A low minimum investment is more common today, but it was revolutionary at the time. We spent the next decade raising over £135m for pioneering green businesses across the country - including wind, solar and energy efficiency - and becoming a major funder for the UK tidal industry.
+        Back in 2012, we launched the first investment platform that would allow anyone to directly invest in green projects from as little as £5, a low minimum investment that remains revolutionary. We spent the next decade raising over £135m for pioneering green businesses across the country - including wind, solar and energy efficiency - and becoming a major funder for the UK tidal industry.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
         We are proud to have helped pioneer the idea that that we should all take an interest in how our money is used, not just the returns we make.
@@ -288,14 +288,12 @@
         Since 2020, we have been working with councils to help improve places across the UK. The idea is a simple one. Citizens can lend money to councils and help finance real projects. That means every pound invested builds something real and long-lasting, and helps people become more connected to the places they care about.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        In this era of financial markets and opaque cryptocurrencies, we believe it’s more important than ever to connect people with what their money is really doing. Thousands of people are already
+        In this era of unpredictable financial markets and opaque cryptocurrencies, we believe it’s more important than ever to connect people with what their money is really doing. Thousands of people are already
         investing in councils with us, and we are only just getting started.
       </p>
 <blockquote class="brand-blockquote">
           <p class="body--lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+            Abundance has always been about enabling people to use their savings to deliver good things in their community. Now, with our municipal investments, we are taking the next step of that journey in partnership with councils up and down the land who are delivering a thriving future for the communities they serve.
           </p>
           <footer>
             <img
@@ -404,7 +402,7 @@
 
   <div class="abundance-mask abundance-mask--bottom bg-colour--secondary" aria-hidden="true">
   </div>
-  <section class="abundance-quote position-relative p-y-spacer-md bg-colour--white">
+  <section class="position-relative p-y-spacer-md bg-colour--white">
     <div class="container">
       <div class="choke-1000 m-x--auto">
         
@@ -740,9 +738,64 @@
     return false;
   }
 
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Array.isArray(value) ? value.map(firstValue).filter(Boolean) : [firstValue(value)].filter(Boolean);
+  }
+
+  function loanHasLiveOrClosedStatus(record) {
+    const raiseStatus = getValue(record, "raiseStatus");
+    return includesStatus(raiseStatus, "open") || includesStatus(raiseStatus, "closed");
+  }
+
+  function loanCouncilIds(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function eligibleCouncilIdsFromLoans(loans) {
+    const ids = new Set();
+
+    loans
+      .filter(loanHasLiveOrClosedStatus)
+      .forEach(function (loan) {
+        loanCouncilIds(loan).forEach(function (id) {
+          ids.add(id);
+        });
+      });
+
+    return ids;
+  }
+
+  function filterCouncilsWithEligibleLoans(councils, loans) {
+    const eligibleCouncilIds = eligibleCouncilIdsFromLoans(loans || []);
+
+    return councils.filter(function (record) {
+      return record && record.id && eligibleCouncilIds.has(record.id);
+    });
+  }
+
   function shouldExcludeCouncil(record) {
     const hub = getValue(record, "councilHub");
-    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+    return !hub || String(hub).trim() === "";
   }
 
   function fetchRecords(endpoint, cacheKey) {
@@ -770,8 +823,12 @@
     });
   }
 
-  function councilStats(records) {
-    const visibleCouncils = records.filter(function (record) {
+  function councilStats(records, loans) {
+    const eligibleCouncils = Array.isArray(loans)
+      ? filterCouncilsWithEligibleLoans(records, loans)
+      : records;
+
+    const visibleCouncils = eligibleCouncils.filter(function (record) {
       return !shouldExcludeCouncil(record);
     });
 
@@ -845,9 +902,12 @@
   function initCouncilStats() {
     if (!document.querySelector("[data-abv2-stat]")) return;
 
-    fetchRecords(COUNCILS_ENDPOINT, "councils")
-      .then(function (records) {
-        setStats(councilStats(records));
+    Promise.all([
+      fetchRecords(COUNCILS_ENDPOINT, "councils"),
+      fetchRecords(LOANS_ENDPOINT, "loans")
+    ])
+      .then(function ([councils, loans]) {
+        setStats(councilStats(councils, loans));
       })
       .catch(function (error) {
         console.error("Council stats failed:", error);
@@ -859,6 +919,8 @@
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
+    eligibleCouncilIdsFromLoans: eligibleCouncilIdsFromLoans,
+    filterCouncilsWithEligibleLoans: filterCouncilsWithEligibleLoans,
     fetchLoans: function () {
       return fetchRecords(LOANS_ENDPOINT, "loans");
     },

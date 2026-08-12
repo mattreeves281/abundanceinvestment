@@ -1,4 +1,5 @@
 (function () {
+  const forceNoOpenLoansForPreview = true;
   const list = document.querySelector("[data-abv2-open-investments-list]");
   if (!list || !window.AbundanceLiveStats) return;
 
@@ -138,7 +139,7 @@
     list.innerHTML = `
       <div class="col-12">
         <p class="body--lg text-center m-b-spacer-0">
-          There are no investments open at the moment.
+          There are no municipal investments open at the moment. Please check again soon.
         </p>
       </div>
     `;
@@ -229,7 +230,7 @@
           openCouncils.push(council);
         });
 
-      if (!openCouncils.length) {
+      if (forceNoOpenLoansForPreview || !openCouncils.length) {
         renderFallback();
         return;
       }

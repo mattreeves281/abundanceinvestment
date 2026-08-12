@@ -3,6 +3,7 @@
   const OPEN_GRID_ID = "abv2-council-grid";
   const OTHER_GRID_ID = "abv2-council-grid-2";
   const DEFAULT_ENDPOINT = "https://data.abundanceinvestment.com/councils";
+  const DEFAULT_LOANS_ENDPOINT = "https://data.abundanceinvestment.com/loans";
 
   const openGrid = document.getElementById(OPEN_GRID_ID);
   const otherGrid = document.getElementById(OTHER_GRID_ID);
@@ -47,6 +48,26 @@
     return "";
   }
 
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Array.isArray(value) ? value.map(firstValue).filter(Boolean) : [firstValue(value)].filter(Boolean);
+  }
+
   function normalizeCouncilHubUrl(value) {
     const raw = String(value || "").trim();
 
@@ -87,17 +108,10 @@
 
     if (!Number.isFinite(number) || number <= 0) return null;
 
-    if (number >= 1000000) {
-      const millions = number / 1000000;
-      return "£" + (millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1)) + "m";
-    }
+    const rounded = Math.max(100000, Math.round(number / 100000) * 100000);
+    const millions = rounded / 1000000;
 
-    if (number >= 1000) {
-      const thousands = number / 1000;
-      return "£" + (thousands % 1 === 0 ? thousands.toFixed(0) : thousands.toFixed(1)) + "k";
-    }
-
-    return "£" + Math.round(number).toLocaleString("en-GB");
+    return "£" + (millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1)) + "m";
   }
 
   function formatInt(value) {
@@ -131,17 +145,46 @@
     return includesStatus(getValue(record, "raiseStatus"), "open");
   }
 
-  function isComingSoon(record) {
-    return includesStatus(getValue(record, "raiseStatus"), "coming soon");
+  function isClosed(record) {
+    return includesStatus(getValue(record, "raiseStatus"), "closed");
   }
 
   function shouldExcludeCouncil(record) {
     const hub = getValue(record, "councilHub");
 
-    if (isComingSoon(record)) return true;
     if (!hub || String(hub).trim() === "") return true;
 
     return false;
+  }
+
+  function loanCouncilIds(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function councilIdsFromLoans(loans, matcher) {
+    const ids = new Set();
+
+    loans
+      .filter(matcher)
+      .forEach(function (loan) {
+        loanCouncilIds(loan).forEach(function (id) {
+          ids.add(id);
+        });
+      });
+
+    return ids;
+  }
+
+  function recordsFromResponse(data) {
+    return Array.isArray(data)
+      ? data
+      : Array.isArray(data.records)
+        ? data.records
+        : [];
   }
 
   function statRow(label, value) {
@@ -181,7 +224,7 @@
     const stats = [
       statRow("Raised", raised),
       projects > 0 ? statRow("Projects financed", formatInt(projects)) : "",
-      spent ? statRow("Spent so far", spent) : statRow("", "No spend reported so far")
+      spent ? statRow("Spent", spent) : statRow("", "No spend reported")
     ].filter(Boolean).join("");
 
     return `
@@ -268,9 +311,10 @@
     loadingState(otherGrid);
 
     try {
-      const records = window.AbundanceLiveStats && window.AbundanceLiveStats.fetchCouncils
-        ? await window.AbundanceLiveStats.fetchCouncils()
-        : await fetch(endpoint, { cache: "no-store" })
+      const [records, loans] = await Promise.all([
+        window.AbundanceLiveStats && window.AbundanceLiveStats.fetchCouncils
+          ? window.AbundanceLiveStats.fetchCouncils()
+          : fetch(endpoint, { cache: "no-store" })
           .then(function (response) {
             if (!response.ok) {
               throw new Error("Council endpoint returned " + response.status);
@@ -278,17 +322,31 @@
 
             return response.json();
           })
-          .then(function (data) {
-            return Array.isArray(data)
-              ? data
-              : Array.isArray(data.records)
-                ? data.records
-                : [];
-          });
+          .then(recordsFromResponse),
+        window.AbundanceLiveStats && window.AbundanceLiveStats.fetchLoans
+          ? window.AbundanceLiveStats.fetchLoans()
+          : fetch(DEFAULT_LOANS_ENDPOINT, { cache: "no-store" })
+            .then(function (response) {
+              if (!response.ok) {
+                throw new Error("Loans endpoint returned " + response.status);
+              }
+
+              return response.json();
+            })
+            .then(recordsFromResponse)
+      ]);
+
+      const eligibleCouncilIds = window.AbundanceLiveStats && window.AbundanceLiveStats.eligibleCouncilIdsFromLoans
+        ? window.AbundanceLiveStats.eligibleCouncilIdsFromLoans(loans)
+        : councilIdsFromLoans(loans, function (loan) {
+          return isOpen(loan) || isClosed(loan);
+        });
+
+      const openCouncilIds = councilIdsFromLoans(loans, isOpen);
 
       const visibleCouncils = records
         .filter(function (record) {
-          return !shouldExcludeCouncil(record);
+          return record && record.id && eligibleCouncilIds.has(record.id) && !shouldExcludeCouncil(record);
         })
         .sort(function (a, b) {
           const nameA = getValue(a, "issuingCouncil") || "";
@@ -296,9 +354,12 @@
           return nameA.localeCompare(nameB);
         });
 
-      const openCouncils = visibleCouncils.filter(isOpen);
+      const openCouncils = visibleCouncils.filter(function (record) {
+        return openCouncilIds.has(record.id);
+      });
+
       const otherCouncils = visibleCouncils.filter(function (record) {
-        return !isOpen(record);
+        return !openCouncilIds.has(record.id);
       });
 
       renderGrid(

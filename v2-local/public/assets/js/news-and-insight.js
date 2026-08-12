@@ -77,18 +77,14 @@
           <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
           <h2 class="si-heading-3 m-b-spacer-0">
-            ${title}
+            <a class="si-link si-link--accent" href="${url}">
+              ${title}
+            </a>
           </h2>
 
           <p class="body--md m-t-spacer-xs m-b-spacer-0">
             ${description}
           </p>
-
-          <div class="p-t-spacer-xs" aria-hidden="true"></div>
-
-          <a class="si-link si-link--accent body--lg type-bold d-inline-block" href="${url}">
-            Read more
-          </a>
         </div>
 
       </article>
