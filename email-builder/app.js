@@ -291,9 +291,9 @@ const blockSchemas = {
     defaults: {
       heading: "Get started investing today",
       stats: [
-        { label: "Interest rate", value: "{{ subscriber.email_rate }}", accent: "yellow" },
-        { label: "Term", value: "{{ subscriber.email_term }}", accent: "pink" },
-        { label: "Capital repaid", value: "{{ subscriber.email_capital }}", accent: "teal" }
+        { label: "Interest rate", value: "{{ subscriber.email_rate }}", accent: "pink" },
+        { label: "Term", value: "{{ subscriber.email_term }}", accent: "teal" },
+        { label: "Capital repaid", value: "{{ subscriber.email_capital }}", accent: "yellow" }
       ],
       ctaLabel: "Invest now",
       ctaUrl: "https://www.abundanceinvestment.com/invest",
@@ -930,9 +930,22 @@ function normalizeState(email) {
     ...item,
     customized: Boolean(item.customized),
     condition: item.condition || { mode: "none", tags: "" },
-    fields: structuredCloneSafe({ ...(blockSchemas[item.type]?.defaults || {}), ...(item.fields || {}) })
+    fields: normalizeBlockFields(item.type, { ...(blockSchemas[item.type]?.defaults || {}), ...(item.fields || {}) })
   }));
   return email;
+}
+
+function normalizeBlockFields(type, fields) {
+  const normalized = structuredCloneSafe(fields);
+  if (type === "investmentStatsCta" && Array.isArray(normalized.stats)) {
+    const accents = normalized.stats.slice(0, 3).map((item) => item.accent).join("|");
+    if (accents === "yellow|pink|teal") {
+      normalized.stats[0].accent = "pink";
+      normalized.stats[1].accent = "teal";
+      normalized.stats[2].accent = "yellow";
+    }
+  }
+  return normalized;
 }
 
 function persist() {
@@ -1533,10 +1546,10 @@ function renderInvestmentStatsCta(fields) {
   const statsHtml = grid(stats, 3, (item) => {
     const accent = palette(item.accent);
     return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#ffffff;border:1px solid #e2e2e2;border-radius:20px;border-collapse:separate !important;box-shadow:0 8px 24px #eeeeec;">
-      <tr><td style="padding:18px;">
+      <tr><td style="padding:14px;">
         <div style="height:5px;line-height:5px;font-size:0;background-color:${accent};border-radius:999px;margin:0 0 14px 0;">&nbsp;</div>
         <p style="margin:0 0 10px 0;font-family:Arial,sans-serif;font-size:12px;line-height:16px;color:${colors.ink};text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(item.label)}</p>
-        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:27px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
+        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:20px;line-height:23px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
       </td></tr>
     </table>`;
   });
