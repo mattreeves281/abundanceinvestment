@@ -370,6 +370,62 @@ textarea {
   border-bottom: 1px solid var(--line);
 }
 
+.liquid-preview {
+  display: grid;
+  gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.liquid-preview[hidden] {
+  display: none;
+}
+
+.liquid-preview-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.liquid-preview-title strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.liquid-preview-title span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tag-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: auto;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--body);
+  background: #faf8f8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tag-toggle input {
+  width: auto;
+}
+
 .toggle {
   display: flex;
   grid-template-columns: auto 1fr;

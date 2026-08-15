@@ -66,6 +66,7 @@ const blockGroups = {
   ctaCards: "CTAs",
   caseStudyRows: "Layouts",
   statsTable: "Layouts",
+  investmentStatsCta: "Layouts",
   statColorCards: "Layouts",
   impactStats: "CTAs",
   impactImageCta: "CTAs",
@@ -284,6 +285,35 @@ const blockSchemas = {
       field("stats", "Stats, one per line as Label|Value", "textarea"),
       field("bars", "Bars as Label|Value|Percent|Colour", "textarea")
     ]
+  },
+  investmentStatsCta: {
+    label: "Investment stats CTA - 3 up",
+    defaults: {
+      heading: "Get started investing today",
+      stats: [
+        { label: "Interest rate", value: "{{ subscriber.email_rate }}", accent: "yellow" },
+        { label: "Term", value: "{{ subscriber.email_term }}", accent: "pink" },
+        { label: "Capital repaid", value: "{{ subscriber.email_capital }}", accent: "teal" }
+      ],
+      ctaLabel: "Invest now",
+      ctaUrl: "https://www.abundanceinvestment.com/invest",
+      ctaAlign: "left"
+    },
+    fields: [
+      field("heading", "Heading"),
+      field("ctaLabel", "Button label"),
+      field("ctaUrl", "Button URL", "url"),
+      field("ctaAlign", "Button alignment", "select", [["left", "Left"], ["center", "Centre"]])
+    ],
+    repeats: [{
+      key: "stats",
+      label: "Stats",
+      itemFields: [
+        field("label", "Label"),
+        field("value", "Value"),
+        field("accent", "Accent colour", "select", [["pink", "Pink"], ["teal", "Teal"], ["yellow", "Yellow"], ["indigo", "Indigo"]])
+      ]
+    }]
   },
   statColorCards: {
     label: "Colour card stack",
@@ -678,6 +708,7 @@ const starterEmail = {
 let state = loadState();
 let selectedId = state.blocks[0]?.id || null;
 let draggedId = null;
+let previewTags = new Set();
 
 const els = {
   picker: document.getElementById("blockPicker"),
@@ -697,6 +728,7 @@ const els = {
   downloadHtmlButton: document.getElementById("downloadHtmlButton"),
   resetButton: document.getElementById("resetButton"),
   mobilePreview: document.getElementById("mobilePreview"),
+  liquidPreviewControls: document.getElementById("liquidPreviewControls"),
   previewPanel: document.querySelector(".preview-column"),
   toast: document.getElementById("toast")
 };
@@ -782,6 +814,7 @@ function applyDisplayTaxonomy() {
     rateCards: "Layouts",
     caseStudyRows: "Layouts",
     statsTable: "Layouts",
+    investmentStatsCta: "Layouts",
     statColorCards: "Layouts",
     investmentCard: "Layouts",
     twoUpImageCards: "Layouts",
@@ -820,6 +853,7 @@ function applyDisplayTaxonomy() {
     rateCards: "Coloured cards 4 up - short",
     caseStudyRows: "Card with image and content rows",
     statsTable: "Bar graph",
+    investmentStatsCta: "Investment stats CTA - 3 up",
     statColorCards: "Coloured cards 4 up - large",
     investmentChoices: "Large CTA with button",
     impactStats: "Large CTA with stats and button",
@@ -912,6 +946,7 @@ function render() {
   renderPicker();
   renderList();
   renderSelectedRowPreview();
+  renderLiquidPreviewControls();
   renderPreview();
   persist();
 }
@@ -1137,6 +1172,14 @@ document.addEventListener("click", (event) => {
   }
 });
 
+els.liquidPreviewControls.addEventListener("change", (event) => {
+  const tag = event.target.dataset.previewTag;
+  if (!tag) return;
+  if (event.target.checked) previewTags.add(tag);
+  else previewTags.delete(tag);
+  renderPreview();
+});
+
 document.addEventListener("input", handleFieldChange);
 document.addEventListener("change", handleFieldChange);
 
@@ -1151,6 +1194,7 @@ function handleFieldChange(event) {
     const item = state.blocks.find((entry) => entry.id === id);
     if (fieldPath.startsWith("fields.")) item.customized = true;
     setPath(item, fieldPath, event.target.value);
+    if (fieldPath.startsWith("condition.")) renderLiquidPreviewControls();
   }
   renderPreview();
   persist();
@@ -1204,7 +1248,7 @@ els.downloadHtmlButton.addEventListener("click", () => {
 
 els.openPreviewButton.addEventListener("click", () => {
   const previewKey = `abundance-email-preview-${Date.now()}`;
-  localStorage.setItem(previewKey, renderEmailHtml(state));
+  localStorage.setItem(previewKey, renderEmailHtml(state, { previewTags }));
   const preview = window.open(`preview.html#${encodeURIComponent(previewKey)}`, "_blank");
   if (!preview) {
     localStorage.removeItem(previewKey);
@@ -1277,7 +1321,36 @@ function setPath(item, path, value) {
 }
 
 function renderPreview() {
-  els.frame.srcdoc = renderEmailHtml(state);
+  els.frame.srcdoc = renderEmailHtml(state, { previewTags });
+}
+
+function renderLiquidPreviewControls() {
+  const tags = collectConditionTags(state);
+  previewTags = new Set([...previewTags].filter((tag) => tags.includes(tag)));
+  if (!tags.length) {
+    els.liquidPreviewControls.hidden = true;
+    els.liquidPreviewControls.innerHTML = "";
+    return;
+  }
+  els.liquidPreviewControls.hidden = false;
+  els.liquidPreviewControls.innerHTML = `
+    <div class="liquid-preview-title">
+      <strong>Preview tags</strong>
+      <span>Applies row show/hide logic in this preview only.</span>
+    </div>
+    <div class="tag-toggles">
+      ${tags.map((tag) => `
+        <label class="tag-toggle">
+          <input type="checkbox" data-preview-tag="${escapeAttr(tag)}"${previewTags.has(tag) ? " checked" : ""}>
+          ${escapeHtml(tag)}
+        </label>
+      `).join("")}
+    </div>
+  `;
+}
+
+function collectConditionTags(email) {
+  return [...new Set((email.blocks || []).flatMap((item) => parseTags(item.condition?.tags)))].sort((a, b) => a.localeCompare(b));
 }
 
 function renderSelectedRowPreview() {
@@ -1289,12 +1362,12 @@ function renderSelectedRowPreview() {
     subject: `${blockSchemas[type].label} preview`,
     previewText: "",
     blocks: [previewBlock]
-  });
+  }, { previewTags });
 }
 
-function renderEmailHtml(email) {
-  if (exactLibrary) return renderExactEmailHtml(email);
-  const body = email.blocks.map(renderBlock).join("\n");
+function renderEmailHtml(email, options = {}) {
+  if (exactLibrary) return renderExactEmailHtml(email, options);
+  const body = email.blocks.map((item) => renderBlock(item, options)).join("\n");
   return `<!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -1342,16 +1415,17 @@ ${body}
 </html>`;
 }
 
-function renderExactEmailHtml(email) {
+function renderExactEmailHtml(email, options = {}) {
   const blocks = email.blocks.map((item) => {
     const exactBlock = exactLibrary.blocks[item.type];
-    return exactBlock && !item.customized ? applyLiquidCondition(exactBlock.html, item.condition) : renderBlock(item);
+    return exactBlock && !item.customized ? applyLiquidCondition(exactBlock.html, item.condition, options) : renderBlock(item, options);
   }).join("");
   return `${exactLibrary.shellBefore}${blocks}${exactLibrary.shellAfter}`;
 }
 
-function renderBlock(item) {
-  if (exactLibrary?.blocks[item.type] && !item.customized) return applyLiquidCondition(exactLibrary.blocks[item.type].html, item.condition);
+function renderBlock(item, options = {}) {
+  if (options.previewTags && !shouldShowForPreview(item.condition, options.previewTags)) return "";
+  if (exactLibrary?.blocks[item.type] && !item.customized) return applyLiquidCondition(exactLibrary.blocks[item.type].html, item.condition, options);
   const fields = item.fields;
   const renderers = {
     header: () => row(`<td class="mobile-pad" style="padding:24px 32px 24px 32px;background-color:#ffffff;border-bottom:4px solid ${colors.ink};">
@@ -1385,6 +1459,7 @@ function renderBlock(item) {
     rateCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderRateCards(fields.cards)}</td>`),
     caseStudyRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderCaseRows(fields.stories)}</td>`),
     statsTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStats(fields.stats)}${renderBars(fields.bars)}`)}</td>`),
+    investmentStatsCta: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderInvestmentStatsCta(fields)}</td>`),
     statColorCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStatColorCards(fields.cards)}</td>`),
     investmentChoices: () => renderInvestmentChoices(fields),
     maskedCta: () => renderImpactStats(fields),
@@ -1417,7 +1492,7 @@ function renderBlock(item) {
     footerSystem: () => renderFooter(fields, false)
   };
   const rendered = renderers[item.type]?.() || exactLibrary?.blocks[item.type]?.html || "";
-  return applyLiquidCondition(rendered, item.condition);
+  return applyLiquidCondition(rendered, item.condition, options);
 }
 
 function renderFeatureCards(cards) {
@@ -1450,6 +1525,22 @@ function renderCaseRows(stories) {
 
 function renderStatColorCards(cards) {
   return grid(cards, 2, (item) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:${palette(item.color)};border-radius:18px;border-collapse:separate !important;"><tr><td style="padding:22px;"><p style="${textStyle("12px", "16px", colors.ink)}margin:0 0 8px 0;text-transform:uppercase;font-weight:bold;">${escapeHtml(item.eyebrow)}</p><p style="${headingStyle("34px", "36px")}margin:0 0 8px 0;">${escapeHtml(item.value)}</p>${paragraph(item.body, "", "14px", "21px", "0", colors.ink)}</td></tr></table>`);
+}
+
+function renderInvestmentStatsCta(fields) {
+  const stats = (fields.stats || []).slice(0, 3);
+  const buttonAlign = fields.ctaAlign === "center" ? "center" : "left";
+  const statsHtml = grid(stats, 3, (item) => {
+    const accent = palette(item.accent);
+    return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#ffffff;border:1px solid #e2e2e2;border-radius:20px;border-collapse:separate !important;box-shadow:0 8px 24px #eeeeec;">
+      <tr><td style="padding:18px;">
+        <div style="height:5px;line-height:5px;font-size:0;background-color:${accent};border-radius:999px;margin:0 0 14px 0;">&nbsp;</div>
+        <p style="margin:0 0 10px 0;font-family:Arial,sans-serif;font-size:12px;line-height:16px;color:${colors.ink};text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(item.label)}</p>
+        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:30px;line-height:33px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
+      </td></tr>
+    </table>`;
+  });
+  return card(`${fields.heading ? `<h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${statsHtml}<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:8px;"><tr><td align="${buttonAlign}">${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}</td></tr></table>`);
 }
 
 function renderCouncilStatCards(cards) {
@@ -1569,7 +1660,7 @@ function grid(items, columns, renderer) {
   const width = `${100 / columns}%`;
   const rows = [];
   for (let i = 0; i < items.length; i += columns) rows.push(items.slice(i, i + columns));
-  return rows.map((rowItems) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>${rowItems.map((item, index) => `<td class="mobile-stack" width="${width}" valign="top" style="width:${width};padding:${index === 0 ? "0 8px 16px 0" : index === columns - 1 ? "0 0 16px 8px" : "0 8px 16px 8px"};">${renderer(item, index)}</td>`).join("")}</tr></table>`).join("");
+  return rows.map((rowItems) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed;"><tr>${rowItems.map((item, index) => `<td class="mobile-stack" width="${width}" valign="top" style="width:${width};padding:${index === 0 ? "0 8px 16px 0" : index === columns - 1 ? "0 0 16px 8px" : "0 8px 16px 8px"};">${renderer(item, index)}</td>`).join("")}</tr></table>`).join("");
 }
 
 function card(content) {
@@ -1593,7 +1684,8 @@ function renderContents(lines) {
   return `<p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:13px;line-height:18px;color:${colors.muted};text-transform:uppercase;letter-spacing:0.05em;">In this email</p><p style="${textStyle("15px", "24px", colors.body)}margin:0 0 22px 0;">${items.map(escapeHtml).join(` <span style="color:#90908d;">/</span> `)}</p>`;
 }
 
-function applyLiquidCondition(html, condition = {}) {
+function applyLiquidCondition(html, condition = {}, options = {}) {
+  if (options.previewTags) return shouldShowForPreview(condition, options.previewTags) ? html : "";
   const mode = condition.mode || "none";
   const tags = parseTags(condition.tags);
   if (mode === "none" || !tags.length || !html) return html;
@@ -1607,6 +1699,16 @@ function applyLiquidCondition(html, condition = {}) {
   return html;
 }
 
+function shouldShowForPreview(condition = {}, activeTags = new Set()) {
+  const mode = condition.mode || "none";
+  const tags = parseTags(condition.tags);
+  if (mode === "none" || !tags.length) return true;
+  const hasMatchingTag = tags.some((tag) => activeTags.has(tag));
+  if (mode === "show") return hasMatchingTag;
+  if (mode === "hide") return !hasMatchingTag;
+  return true;
+}
+
 function parseTags(value) {
   return String(value || "").split(/[,\n]/).map((tag) => tag.trim()).filter(Boolean);
 }
@@ -1615,8 +1717,8 @@ function liquidString(value) {
   return String(value).replace(/\\/g, "\\\\").replace(/"/g, "\\\"");
 }
 
-function button(label, url, color = colors.pinkDark, border = colors.pink, blockButton = false) {
-  return `<a href="${escapeAttr(url || "#")}" class="cta-link" style="display:${blockButton ? "block" : "inline-block"};padding:14px 20px;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:15px;line-height:15px;font-weight:bold;color:${color};text-align:center;text-decoration:none;border:2px solid ${border};border-radius:999px;">${escapeHtml(label || "Read more")}</a>`;
+function button(label, url, color = colors.pinkDark, border = colors.pink, blockButton = false, background = "transparent") {
+  return `<a href="${escapeAttr(url || "#")}" class="cta-link" style="display:${blockButton ? "block" : "inline-block"};padding:14px 20px;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:15px;line-height:15px;font-weight:bold;color:${color};text-align:center;text-decoration:none;border:2px solid ${border};border-radius:999px;background-color:${background};">${escapeHtml(label || "Read more")}</a>`;
 }
 
 function palette(name) {
