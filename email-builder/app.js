@@ -1536,7 +1536,7 @@ function renderInvestmentStatsCta(fields) {
       <tr><td style="padding:18px;">
         <div style="height:5px;line-height:5px;font-size:0;background-color:${accent};border-radius:999px;margin:0 0 14px 0;">&nbsp;</div>
         <p style="margin:0 0 10px 0;font-family:Arial,sans-serif;font-size:12px;line-height:16px;color:${colors.ink};text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(item.label)}</p>
-        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:30px;line-height:33px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
+        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:27px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
       </td></tr>
     </table>`;
   });
