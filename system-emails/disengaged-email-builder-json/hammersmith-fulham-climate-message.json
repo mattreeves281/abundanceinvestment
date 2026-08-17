@@ -1,0 +1,113 @@
+{
+  "name": "hammersmith-fulham-climate-message",
+  "subject": "Building better places together: Hammersmith & Fulham",
+  "previewText": "Record 5m raised",
+  "blocks": [
+    {
+      "id": "hf-climate-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "hf-climate-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Investing in local futures",
+        "body": "“If people see that things can change...hopefully more will feel they can help.” - citizen investor\n\nClimate breakdown is one of the most pressing issues of our time. When it feels like national progress is slow, it’s good to be reminded that you can make real things happen on a local level, simply by moving your money."
+      }
+    },
+    {
+      "id": "hf-climate-story",
+      "type": "investmentChoices",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "body": "Our citizen investors raised a record £5 million for Hammersmith & Fulham - the most ever raised for a local council. This funded 10 green and social initiatives, which focused on transforming hard, grey spaces into vibrant green areas, increasing biodiversity, improving climate resilience and making the borough a more pleasant place to live and work.",
+        "ctaLabel": "Learn more",
+        "ctaUrl": "https://www.abundanceinvestment.com/make-a-positive-difference"
+      }
+    },
+    {
+      "id": "hf-climate-stat-row",
+      "type": "statRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Hammersmith & Fulham",
+        "stats": [
+          {
+            "label": "Amount raised",
+            "value": "£5m",
+            "accent": "pink"
+          },
+          {
+            "label": "Initiatives funded",
+            "value": "10",
+            "accent": "teal"
+          },
+          {
+            "label": "Focus",
+            "value": "Green and social",
+            "accent": "yellow"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hf-climate-divider",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-right-teal-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "hf-climate-local-action",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "Effective action begins locally",
+        "body": "Research shows that locally led climate initiatives are often far more effective than national strategies. Local approaches can have three times more impact per pound spent, and local councils influence anywhere between 30-82% of UK carbon emissions.\n\nIt’s exactly this type of action you support when you invest in our municipal investments.",
+        "ctaLabel": "Learn more",
+        "ctaUrl": "https://www.abundanceinvestment.com/how-it-works"
+      }
+    },
+    {
+      "id": "hf-climate-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

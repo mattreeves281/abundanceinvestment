@@ -1,0 +1,129 @@
+{
+  "name": "west-berkshire-growing-movement",
+  "subject": "Building better places together: West Berkshire",
+  "previewText": "1m raised for local projects",
+  "blocks": [
+    {
+      "id": "west-berkshire-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "west-berkshire-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Join the growing movement",
+        "body": "You haven't started your investment journey with us yet, but it’s not too late. You can be up and running in minutes, with investments from just £5.\n\nSince 2020, thousands of people from all walks of life have become investors in their places. And it is already starting to have a transformative effect."
+      }
+    },
+    {
+      "id": "west-berkshire-quote-one",
+      "type": "quoteBlock",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "quote": "“It’s changed how I see the council. It’s not just something in the background — it feels like a partnership.”",
+        "imageUrl": "",
+        "imageAlt": "",
+        "name": "Citizen investor",
+        "role": "Hammersmith & Fulham Council"
+      }
+    },
+    {
+      "id": "west-berkshire-story",
+      "type": "investmentChoices",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "body": "In West Berkshire, citizen investors’ loans have funded numerous energy upgrades, including retrofitting LEDs to traffic lights and installing solar panel roofs across six council owned buildings, two schools and a leisure centre.\n\nLoans have also funded greening projects, including tree and hedge row planting to protect over 570 properties from flooding whilst creating habitats for wildlife.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "west-berkshire-stat-row",
+      "type": "statRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Biodiversity, energy security and flood resilience in West Berkshire",
+        "stats": [
+          {
+            "label": "Amount raised",
+            "value": "£1m",
+            "accent": "pink"
+          },
+          {
+            "label": "Buildings upgraded",
+            "value": "9",
+            "accent": "teal"
+          },
+          {
+            "label": "Properties protected",
+            "value": "570+",
+            "accent": "yellow"
+          }
+        ]
+      }
+    },
+    {
+      "id": "west-berkshire-divider",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-left-pink-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "west-berkshire-quote-two",
+      "type": "quoteBlock",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "quote": "“It's great to see local authorities showing their capacity to undertake practical, ambitious climate change projects… when people see the benefits of climate change action in their own community - e.g. warmer homes/lower fuel bills - they are more likely to call for an increased pace of change towards net zero.”",
+        "imageUrl": "",
+        "imageAlt": "",
+        "name": "Citizen investor",
+        "role": ""
+      }
+    },
+    {
+      "id": "west-berkshire-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

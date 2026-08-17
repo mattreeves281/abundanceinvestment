@@ -1,0 +1,97 @@
+{
+  "name": "hackney-impact-message",
+  "subject": "Building better places together: Hackney",
+  "previewText": "Affordable renewable energy in Hackney",
+  "blocks": [
+    {
+      "id": "hackney-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "hackney-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your money could be making a bigger difference",
+        "body": "Our municipal investments offer a direct way to help build a better future for our places. Every pound you invest helps finance real projects across the country.\n\nIn this era of unpredictable financial markets and opaque cryptocurrencies, we believe it’s more important than ever to connect people with what their money is really doing."
+      }
+    },
+    {
+      "id": "hackney-divider",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-fall-left-yellow-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "hackney-story",
+      "type": "investmentChoices",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "body": "Hackney council has one of the most ambitious climate action programmes in the country. The borough has the lowest carbon emissions per person of any council in the UK, but Hackney Council wants to do more.\n\nThe funds raised in the first Hackney Green Investment have all been used to directly fund its Residential Solar PV Pilot, a first-of-its-kind initiative in the UK, bringing affordable renewable energy to residents in council-owned housing estates while supporting the council’s commitment to reach Net Zero by 2040. Overall, 1MW of solar PV is being installed across 28 residential buildings in Hackney.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "hackney-stat-row",
+      "type": "statRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Affordable renewable energy in Hackney",
+        "stats": [
+          {
+            "label": "Raised so far",
+            "value": "£1.1m",
+            "accent": "pink"
+          },
+          {
+            "label": "Solar capacity",
+            "value": "1MW",
+            "accent": "teal"
+          },
+          {
+            "label": "Residential buildings",
+            "value": "28",
+            "accent": "yellow"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hackney-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

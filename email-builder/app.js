@@ -67,6 +67,7 @@ const blockGroups = {
   ctaCards: "CTAs",
   caseStudyRows: "Layouts",
   statsTable: "Layouts",
+  statRow: "Layouts",
   investmentStatsCta: "Layouts",
   statColorCards: "Layouts",
   impactStats: "CTAs",
@@ -278,14 +279,29 @@ const blockSchemas = {
       heading: "How councils have spent the money",
       intro: "Hard-coded email-safe bars using all-caps report project allocations.",
       stats: "Amount spent|£9.68m\nProjects|66\nInvestors|32",
-      bars: "Renewable energy|£3.68m|92|pink\nEnergy efficiency|£1.88m|70|teal\nClean transportation|£994k|55|yellow\nClimate change adaptation|£861k|48|pink"
+      bars: "Renewable energy|£3.68m|92|pink\nEnergy efficiency|£1.88m|70|teal\nClean transportation|£994k|55|yellow\nClimate change adaptation|£861k|48|pink",
+      footnote: ""
     },
     fields: [
       field("heading", "Heading"),
       field("intro", "Intro", "textarea"),
       field("stats", "Stats, one per line as Label|Value", "textarea"),
-      field("bars", "Bars as Label|Value|Percent|Colour", "textarea")
+      field("bars", "Bars as Label|Value|Percent|Colour", "textarea"),
+      field("footnote", "Footnote", "textarea")
     ]
+  },
+  statRow: {
+    label: "Stat row - 3 up",
+    defaults: {
+      heading: "Hammersmith & Fulham",
+      stats: [
+        { label: "Amount raised", value: "£5m", accent: "pink" },
+        { label: "Initiatives funded", value: "10", accent: "teal" },
+        { label: "Focus", value: "Green and social", accent: "yellow" }
+      ]
+    },
+    fields: [field("heading", "Heading")],
+    repeats: [{ key: "stats", label: "Stats", itemFields: [field("label", "Label"), field("value", "Value"), field("accent", "Accent", "select", [["pink", "Pink"], ["teal", "Teal"], ["yellow", "Yellow"], ["indigo", "Indigo"]])] }]
   },
   investmentStatsCta: {
     label: "Investment stats CTA - 3 up",
@@ -831,6 +847,7 @@ function applyDisplayTaxonomy() {
     rateCards: "Layouts",
     caseStudyRows: "Layouts",
     statsTable: "Layouts",
+    statRow: "Layouts",
     investmentStatsCta: "Layouts",
     statColorCards: "Layouts",
     investmentCard: "Layouts",
@@ -871,6 +888,7 @@ function applyDisplayTaxonomy() {
     rateCards: "Coloured cards 4 up - short",
     caseStudyRows: "Card with image and content rows",
     statsTable: "Bar graph",
+    statRow: "Stat row - 3 up",
     investmentStatsCta: "Investment stats CTA - 3 up",
     statColorCards: "Coloured cards 4 up - large",
     investmentChoices: "Large CTA with button",
@@ -1489,7 +1507,8 @@ function renderBlock(item, options = {}) {
     stepsList: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 8px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "16px", "25px", "0 0 20px 0")}${renderSteps(fields.steps)}`)}</td>`),
     rateCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderRateCards(fields.cards)}</td>`),
     caseStudyRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderCaseRows(fields.stories)}</td>`),
-    statsTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStats(fields.stats)}${renderBars(fields.bars)}`)}</td>`),
+    statsTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStats(fields.stats)}${renderBars(fields.bars)}${fields.footnote ? paragraph(fields.footnote, "", "12px", "18px", "8px 0 0 0", colors.muted) : ""}`)}</td>`),
+    statRow: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderStatRow(fields)}</td>`),
     investmentStatsCta: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderInvestmentStatsCta(fields)}</td>`),
     statColorCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStatColorCards(fields.cards)}</td>`),
     investmentChoices: () => renderInvestmentChoices(fields),
@@ -1600,6 +1619,19 @@ function renderCouncilStatCards(cards) {
   });
 }
 
+function renderStatRow(fields) {
+  const statsHtml = grid((fields.stats || []).slice(0, 3), 3, (item) => {
+    const accent = palette(item.accent);
+    return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:4px solid ${accent};">
+      <tr><td style="padding:12px 0 0 0;">
+        <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:12px;line-height:16px;color:${colors.ink};text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(item.label || item.eyebrow)}</p>
+        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:27px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
+      </td></tr>
+    </table>`;
+  });
+  return card(`${fields.heading ? `<h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${statsHtml}`);
+}
+
 function renderStats(lines, textColor = colors.body, ruleColor = colors.line) {
   const items = parseLines(lines, 2);
   if (!items.length) return "";
@@ -1635,7 +1667,7 @@ function renderImpactImageCta(fields) {
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
       <tr>
         <td class="mobile-stack" width="268" valign="top" style="width:268px;padding:0 24px 0 0;">
-          <img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="246" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:246px;max-width:246px;height:auto;border-radius:24px;background-color:${colors.line};">
+          <img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="246" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:246px;max-width:246px;height:auto;border-radius:24px;background-color:#ffffff;">
         </td>
         <td class="mobile-stack" valign="top">
           <h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>

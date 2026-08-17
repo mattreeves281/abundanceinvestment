@@ -54,7 +54,8 @@
         "heading": "Every £ is spent on real projects",
         "intro": "A snapshot of how municipal investment money is connected to practical local work.",
         "stats": "Amount spent|£9.68m\nProjects|66\nInvestments|32",
-        "bars": "Renewable energy|£3.68m|92|pink\nEnergy efficiency|£1.88m|70|teal\nClean transportation|£994k|55|yellow\nClimate change adaptation|£861k|48|pink"
+        "bars": "Renewable energy|£3.60m|100|pink\nEnergy efficiency|£2.55m|71|teal\nClean transportation|£2.48m|69|yellow\nPollution prevention and control|£280k|8|yellow\nClimate change adaptation|£401k|11|pink\nLiving and natural resources|£377k|10|teal",
+        "footnote": "Data correct as of 17th August 2026"
       }
     },
     {
@@ -79,10 +80,10 @@
         "tags": ""
       },
       "fields": {
-        "imageUrl": "https://cdn4.sharein.com/abundance/assets/images/illustration-placeholder.png",
+        "imageUrl": "https://shareinmicrosite.blob.core.windows.net/abundance/0911a09f-3faf-47b8-8077-90e779fc8995.png",
         "imageAlt": "Project and place image",
         "heading": "Start investing now",
-        "body": "You can be up and running in minutes, starting from just £5.",
+        "body": "You can be up and running investing with us in minutes.  You can grow your pot starting from just £5.",
         "ctaLabel": "Invest now",
         "ctaUrl": "https://www.abundanceinvestment.com/invest-now"
       }
@@ -121,7 +122,7 @@
             "linkUrl": "https://www.lbhf.gov.uk/news/2026/06/hf-tops-ps5m-green-projects-uk-first"
           },
           {
-            "imageUrl": "https://cdn4.sharein.com/abundance/e535089b-3a08-41a2-bc8d-25f46f871368.jpg",
+            "imageUrl": "https://shareinmicrosite.blob.core.windows.net/abundance/d6585b03-d484-4f35-83f7-b01ff6c6bde7.jpg",
             "imageAlt": "Project story placeholder",
             "title": "Creating greener leisure facilities",
             "body": "                  When councils are planning for a greener future it’s important to look at everything. That's why Westminster Council has invested in cutting the environmental impact of its leisure centre facilities.",
@@ -129,7 +130,7 @@
             "linkUrl": "https://www.facebook.com/watch/?v=1864329171119602"
           },
           {
-            "imageUrl": "https://cdn4.sharein.com/abundance/e535089b-3a08-41a2-bc8d-25f46f871368.jpg",
+            "imageUrl": "https://shareinmicrosite.blob.core.windows.net/abundance/25a9a625-e5f4-45bf-b4ae-31e2c3f154e1.jpg",
             "imageAlt": "Project story placeholder",
             "title": "Driving greener in the Cotswolds",
             "body": "Cotswold District Council was quick to install electric vehicle chargers across the district. This initiative is part of the council’s broader commitment to reducing carbon emissions and making greener transport options more accessible to residents and visitors alike.",
