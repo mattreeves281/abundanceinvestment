@@ -1,5 +1,6 @@
 (function () {
   var COUNCIL_DATA_URL = "https://data.abundanceinvestment.com/councils";
+  var LOANS_DATA_URL = "https://data.abundanceinvestment.com/loans";
 
   var ALL_COUNCILS_BADGE_LOGO =
     "https://cdn4.sharein.com/abundance/8d9c1ba3-6b73-4bfc-9671-ffc5cee387aa.png";
@@ -43,7 +44,7 @@
     var components = document.querySelectorAll("[data-abv2-use-of-funds]");
     if (!components.length) return;
 
-    loadCouncilData(function (result) {
+    loadUseOfFundsData(function (result) {
       components.forEach(function (component) {
         var select = component.querySelector("[data-abv2-use-of-funds-select]");
         var summary = component.querySelector("[data-abv2-use-of-funds-summary]");
@@ -64,30 +65,28 @@
     });
   }
 
-  function loadCouncilData(callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", COUNCIL_DATA_URL, true);
-
-    xhr.onload = function () {
-      try {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          callback(parseCouncilData(xhr.responseText));
-        } else {
-          console.error("Use of funds data load failed. Status:", xhr.status);
-          callback(emptyResult());
-        }
-      } catch (error) {
-        console.error("Use of funds data parse failed:", error);
+  function loadUseOfFundsData(callback) {
+    Promise.all([
+      loadJson(COUNCIL_DATA_URL),
+      loadJson(LOANS_DATA_URL)
+    ])
+      .then(function (responses) {
+        callback(parseCouncilData(responses[0], responses[1]));
+      })
+      .catch(function (error) {
+        console.error("Use of funds data load failed:", error);
         callback(emptyResult());
+      });
+  }
+
+  function loadJson(url) {
+    return fetch(url, { cache: "no-store" }).then(function (response) {
+      if (!response.ok) {
+        throw new Error(url + " returned " + response.status);
       }
-    };
 
-    xhr.onerror = function () {
-      console.error("Use of funds data network error.");
-      callback(emptyResult());
-    };
-
-    xhr.send();
+      return response.json();
+    });
   }
 
   function emptyResult() {
@@ -98,9 +97,15 @@
     };
   }
 
-  function parseCouncilData(jsonText) {
-    var parsed = JSON.parse(jsonText);
-    var records = parsed.records || [];
+  function recordsFromResponse(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.records)) return data.records;
+    return [];
+  }
+
+  function parseCouncilData(councilResponse, loanResponse) {
+    var records = recordsFromResponse(councilResponse);
+    var closedCouncilIds = closedCouncilIdsFromLoans(recordsFromResponse(loanResponse));
 
     var dataByCouncil = {};
     var logosByCouncil = {};
@@ -120,6 +125,7 @@
       var fields = record.fields || {};
 
       if (isComingSoonStatus(fields.raiseStatus)) return;
+      if (!record.id || !closedCouncilIds[record.id]) return;
 
       var council = String(fields.issuingCouncil || "").trim();
       if (!council) return;
@@ -199,6 +205,69 @@
       logosByCouncil: logosByCouncil,
       logoLinksByCouncil: logoLinksByCouncil
     };
+  }
+
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Object.prototype.toString.call(value) === "[object Array]") {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Object.prototype.toString.call(value) === "[object Array]"
+      ? value.map(firstValue).filter(Boolean)
+      : [firstValue(value)].filter(Boolean);
+  }
+
+  function statusMatches(raiseStatus, target) {
+    var normalisedTarget = String(target || "").trim().toLowerCase();
+
+    if (!raiseStatus) return false;
+
+    if (typeof raiseStatus === "string") {
+      return String(raiseStatus).trim().toLowerCase() === normalisedTarget;
+    }
+
+    if (Object.prototype.toString.call(raiseStatus) === "[object Array]") {
+      return raiseStatus.some(function (item) {
+        return String(firstValue(item) || item || "").trim().toLowerCase() === normalisedTarget;
+      });
+    }
+
+    return String(firstValue(raiseStatus) || raiseStatus || "").trim().toLowerCase() === normalisedTarget;
+  }
+
+  function loanCouncilIds(record) {
+    var fields = record.fields || record || {};
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function closedCouncilIdsFromLoans(loans) {
+    var ids = {};
+
+    loans.forEach(function (loan) {
+      var fields = loan.fields || loan || {};
+      if (!statusMatches(fields.raiseStatus, "closed")) return;
+
+      loanCouncilIds(loan).forEach(function (id) {
+        ids[id] = true;
+      });
+    });
+
+    return ids;
   }
 
   function normalizeCouncilHubUrl(value) {

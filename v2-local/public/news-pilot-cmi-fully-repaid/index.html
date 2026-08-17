@@ -463,9 +463,64 @@
     return false;
   }
 
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Array.isArray(value) ? value.map(firstValue).filter(Boolean) : [firstValue(value)].filter(Boolean);
+  }
+
+  function loanHasLiveOrClosedStatus(record) {
+    const raiseStatus = getValue(record, "raiseStatus");
+    return includesStatus(raiseStatus, "open") || includesStatus(raiseStatus, "closed");
+  }
+
+  function loanCouncilIds(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function eligibleCouncilIdsFromLoans(loans) {
+    const ids = new Set();
+
+    loans
+      .filter(loanHasLiveOrClosedStatus)
+      .forEach(function (loan) {
+        loanCouncilIds(loan).forEach(function (id) {
+          ids.add(id);
+        });
+      });
+
+    return ids;
+  }
+
+  function filterCouncilsWithEligibleLoans(councils, loans) {
+    const eligibleCouncilIds = eligibleCouncilIdsFromLoans(loans || []);
+
+    return councils.filter(function (record) {
+      return record && record.id && eligibleCouncilIds.has(record.id);
+    });
+  }
+
   function shouldExcludeCouncil(record) {
     const hub = getValue(record, "councilHub");
-    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+    return !hub || String(hub).trim() === "";
   }
 
   function fetchRecords(endpoint, cacheKey) {
@@ -493,8 +548,12 @@
     });
   }
 
-  function councilStats(records) {
-    const visibleCouncils = records.filter(function (record) {
+  function councilStats(records, loans) {
+    const eligibleCouncils = Array.isArray(loans)
+      ? filterCouncilsWithEligibleLoans(records, loans)
+      : records;
+
+    const visibleCouncils = eligibleCouncils.filter(function (record) {
       return !shouldExcludeCouncil(record);
     });
 
@@ -568,9 +627,12 @@
   function initCouncilStats() {
     if (!document.querySelector("[data-abv2-stat]")) return;
 
-    fetchRecords(COUNCILS_ENDPOINT, "councils")
-      .then(function (records) {
-        setStats(councilStats(records));
+    Promise.all([
+      fetchRecords(COUNCILS_ENDPOINT, "councils"),
+      fetchRecords(LOANS_ENDPOINT, "loans")
+    ])
+      .then(function ([councils, loans]) {
+        setStats(councilStats(councils, loans));
       })
       .catch(function (error) {
         console.error("Council stats failed:", error);
@@ -582,6 +644,8 @@
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
+    eligibleCouncilIdsFromLoans: eligibleCouncilIdsFromLoans,
+    filterCouncilsWithEligibleLoans: filterCouncilsWithEligibleLoans,
     fetchLoans: function () {
       return fetchRecords(LOANS_ENDPOINT, "loans");
     },

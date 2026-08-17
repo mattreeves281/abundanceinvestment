@@ -1,5 +1,6 @@
 <script>
   (function () {
+    const forceNoOpenLoansForPreview = true;
     const keyTermsData = {
       "hammersmith-fulham": {
         investmentName: "H&F Green Investment",
@@ -245,12 +246,94 @@
           <h2 class="si-heading-2 m-b-spacer-0">
             Open municipal investments
           </h2>
+
+          <p class="body--lg m-t-spacer-md m-b-spacer-0">
+            There are no municipal investments open at the moment. Please check again soon.
+          </p>
         </div>
 
-        <p class="body--lg text-center m-t-spacer-md m-b-spacer-0">
-          There are no municipal investments open at the moment.
-        </p>
+        <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
+          <h3 class="si-heading-3 m-b-spacer-0">
+            Learn more about municipal investments
+          </h3>
+          <div class="p-t-spacer-sm" aria-hidden="true"></div>
+          <div class="row row-cols-1 row-cols-md-3 gx-2xs gy-2xs">
+            <div>
+              <a
+                class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+                href="/how-it-works#start-here"
+              >
+                <span class="abundance-blob abundance-blob--pink abundance-blob--md">
+                  1
+                </span>
+                <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+                <h4 class="si-heading-5 m-b-spacer-0">
+                  Range of benefits
+                </h4>
+                <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+                <p class="abundance-body-compact m-b-spacer-0">
+                  Our municipal investments are long-term, low-risk investments
+                </p>
+                <span class="abundance-action-text brand-primary m-t-spacer-xs">
+                  Learn more
+                </span>
+              </a>
+            </div>
+            <div>
+              <a
+                class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+                href="/how-it-works#growing-your-pot"
+              >
+                <span class="abundance-blob abundance-blob--yellow abundance-blob--md">
+                  2
+                </span>
+                <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+                <h4 class="si-heading-5 m-b-spacer-0">
+                  Grow your money
+                </h4>
+                <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+                <p class="abundance-body-compact m-b-spacer-0">
+                  It is a simple way to grow your money, if you have a little or a lot
+                </p>
+                <span class="abundance-action-text brand-primary m-t-spacer-xs">
+                  Learn more
+                </span>
+              </a>
+            </div>
+            <div>
+              <a
+                class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+                href="/how-it-works#how-to-invest"
+              >
+                <span class="abundance-blob abundance-blob--cyan abundance-blob--md">
+                  3
+                </span>
+                <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+                <h4 class="si-heading-5 m-b-spacer-0">
+                  How to invest
+                </h4>
+                <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+                <p class="abundance-body-compact m-b-spacer-0">
+                  It is easy to get started, you can be up and running in under 10 minutes
+                </p>
+                <span class="abundance-action-text brand-primary m-t-spacer-xs">
+                  Learn more
+                </span>
+              </a>
+            </div>
+          </div>
+        </article>
       `;
+    }
+
+    function setOpenLoanDependentSections(hasOpenLoans) {
+      document.querySelectorAll("[data-abv2-open-loans-dependent]").forEach(function (element) {
+        element.hidden = !hasOpenLoans;
+      });
+
+      document.querySelectorAll("[data-abv2-no-open-loans-dependent]").forEach(function (element) {
+        element.hidden = hasOpenLoans;
+      });
     }
 
     function renderLoanRow(loan, council) {
@@ -350,7 +433,13 @@
 
     function initOpenLoans() {
       const container = document.querySelector("[data-abv2-open-loans-list]");
-      if (!container || !window.AbundanceLiveStats) return;
+      if (!container) return;
+
+      if (!window.AbundanceLiveStats) {
+        renderOpenLoansFallback(container);
+        setOpenLoanDependentSections(false);
+        return;
+      }
 
       Promise.all([
         window.AbundanceLiveStats.fetchCouncils(),
@@ -366,10 +455,13 @@
             return hasStatus(getFields(loan).raiseStatus, "open");
           });
 
-          if (!openLoans.length) {
+          if (forceNoOpenLoansForPreview || !openLoans.length) {
             renderOpenLoansFallback(container);
+            setOpenLoanDependentSections(false);
             return;
           }
+
+          setOpenLoanDependentSections(true);
 
           const groups = new Map();
 
@@ -422,6 +514,7 @@
         .catch(function (error) {
           console.error("Open loans failed:", error);
           renderOpenLoansFallback(container);
+          setOpenLoanDependentSections(false);
         });
     }
 

@@ -198,7 +198,7 @@
 
   <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true">
   </div>
-  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="two-ways-to-invest">
+  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="two-ways-to-invest" style="margin-top:-1px;">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="choke-700">
         <h2 class="si-heading-2 text-color--primary m-b-spacer-0">
@@ -546,17 +546,18 @@
   </div>
 </dialog>
 
-  <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true">
+  <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true" data-abv2-open-loans-dependent>
   </div>
   <section
   class="position-relative p-y-spacer-lg bg-colour--pink"
   id="payment-example-helper-test"
   data-abv2-calc-config=""
+  data-abv2-open-loans-dependent
   data-rate="4.5"
   data-term-years="5"
   data-interest-date-1="June"
   data-interest-date-2="December"
->
+ style="margin-top:-1px;">
   <div class="choke-1200 m-x--auto p-x-spacer-xs">
     <div class="row gx-lg gy-md align-items-center">
 
@@ -733,7 +734,14 @@
   </div>
 </section>
 
-  <div class="abundance-mask abundance-mask--bottom bg-colour--pink" aria-hidden="true">
+  <div class="abundance-mask abundance-mask--bottom bg-colour--pink" aria-hidden="true" data-abv2-open-loans-dependent>
+  </div>
+  <div
+    class="abundance-dividers abundance-dividers--rise-left bg-colour--pink"
+    aria-hidden="true"
+    data-abv2-no-open-loans-dependent
+    hidden
+  >
   </div>
   <section class="position-relative p-y-spacer-xl">
     <div class="container">
@@ -816,7 +824,7 @@
 
   <div class="abundance-mask abundance-mask--top bg-colour--secondary" aria-hidden="true">
   </div>
-  <section class="position-relative p-y-spacer-lg bg-colour--secondary">
+  <section class="position-relative p-y-spacer-lg bg-colour--secondary" style="margin-top:-1px;">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="row gx-lg gy-md align-items-start">
         <div class="col-12 col-md-3">
@@ -1152,9 +1160,64 @@
     return false;
   }
 
+  function firstValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+      return value.length ? firstValue(value[0]) : "";
+    }
+
+    if (typeof value === "object") {
+      return value.id || value.url || value.src || value.name || value.value || "";
+    }
+
+    return String(value);
+  }
+
+  function valueList(value) {
+    if (!value) return [];
+    return Array.isArray(value) ? value.map(firstValue).filter(Boolean) : [firstValue(value)].filter(Boolean);
+  }
+
+  function loanHasLiveOrClosedStatus(record) {
+    const raiseStatus = getValue(record, "raiseStatus");
+    return includesStatus(raiseStatus, "open") || includesStatus(raiseStatus, "closed");
+  }
+
+  function loanCouncilIds(record) {
+    const fields = getFields(record);
+    return []
+      .concat(valueList(fields.councilID))
+      .concat(valueList(fields.councilIds))
+      .concat(valueList(fields.councilRecordId));
+  }
+
+  function eligibleCouncilIdsFromLoans(loans) {
+    const ids = new Set();
+
+    loans
+      .filter(loanHasLiveOrClosedStatus)
+      .forEach(function (loan) {
+        loanCouncilIds(loan).forEach(function (id) {
+          ids.add(id);
+        });
+      });
+
+    return ids;
+  }
+
+  function filterCouncilsWithEligibleLoans(councils, loans) {
+    const eligibleCouncilIds = eligibleCouncilIdsFromLoans(loans || []);
+
+    return councils.filter(function (record) {
+      return record && record.id && eligibleCouncilIds.has(record.id);
+    });
+  }
+
   function shouldExcludeCouncil(record) {
     const hub = getValue(record, "councilHub");
-    return includesStatus(getValue(record, "raiseStatus"), "coming soon") || !hub || String(hub).trim() === "";
+    return !hub || String(hub).trim() === "";
   }
 
   function fetchRecords(endpoint, cacheKey) {
@@ -1182,8 +1245,12 @@
     });
   }
 
-  function councilStats(records) {
-    const visibleCouncils = records.filter(function (record) {
+  function councilStats(records, loans) {
+    const eligibleCouncils = Array.isArray(loans)
+      ? filterCouncilsWithEligibleLoans(records, loans)
+      : records;
+
+    const visibleCouncils = eligibleCouncils.filter(function (record) {
       return !shouldExcludeCouncil(record);
     });
 
@@ -1257,9 +1324,12 @@
   function initCouncilStats() {
     if (!document.querySelector("[data-abv2-stat]")) return;
 
-    fetchRecords(COUNCILS_ENDPOINT, "councils")
-      .then(function (records) {
-        setStats(councilStats(records));
+    Promise.all([
+      fetchRecords(COUNCILS_ENDPOINT, "councils"),
+      fetchRecords(LOANS_ENDPOINT, "loans")
+    ])
+      .then(function ([councils, loans]) {
+        setStats(councilStats(councils, loans));
       })
       .catch(function (error) {
         console.error("Council stats failed:", error);
@@ -1271,6 +1341,8 @@
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
+    eligibleCouncilIdsFromLoans: eligibleCouncilIdsFromLoans,
+    filterCouncilsWithEligibleLoans: filterCouncilsWithEligibleLoans,
     fetchLoans: function () {
       return fetchRecords(LOANS_ENDPOINT, "loans");
     },
@@ -1287,6 +1359,7 @@
 </script>
 <script>
   (function () {
+    const forceNoOpenLoansForPreview = true;
     const keyTermsData = {
       "hammersmith-fulham": {
         investmentName: "H&F Green Investment",
@@ -1532,12 +1605,94 @@
           <h2 class="si-heading-2 m-b-spacer-0">
             Open municipal investments
           </h2>
+
+          <p class="body--lg m-t-spacer-md m-b-spacer-0">
+            There are no municipal investments open at the moment. Please check again soon.
+          </p>
         </div>
 
-        <p class="body--lg text-center m-t-spacer-md m-b-spacer-0">
-          There are no municipal investments open at the moment.
-        </p>
+        <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
+          <h3 class="si-heading-3 m-b-spacer-0">
+            Learn more about municipal investments
+          </h3>
+          <div class="p-t-spacer-sm" aria-hidden="true"></div>
+          <div class="row row-cols-1 row-cols-md-3 gx-2xs gy-2xs">
+            <div>
+              <a
+                class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+                href="/how-it-works#start-here"
+              >
+                <span class="abundance-blob abundance-blob--pink abundance-blob--md">
+                  1
+                </span>
+                <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+                <h4 class="si-heading-5 m-b-spacer-0">
+                  Range of benefits
+                </h4>
+                <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+                <p class="abundance-body-compact m-b-spacer-0">
+                  Our municipal investments are long-term, low-risk investments
+                </p>
+                <span class="abundance-action-text brand-primary m-t-spacer-xs">
+                  Learn more
+                </span>
+              </a>
+            </div>
+            <div>
+              <a
+                class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+                href="/how-it-works#growing-your-pot"
+              >
+                <span class="abundance-blob abundance-blob--yellow abundance-blob--md">
+                  2
+                </span>
+                <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+                <h4 class="si-heading-5 m-b-spacer-0">
+                  Grow your money
+                </h4>
+                <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+                <p class="abundance-body-compact m-b-spacer-0">
+                  It is a simple way to grow your money, if you have a little or a lot
+                </p>
+                <span class="abundance-action-text brand-primary m-t-spacer-xs">
+                  Learn more
+                </span>
+              </a>
+            </div>
+            <div>
+              <a
+                class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
+                href="/how-it-works#how-to-invest"
+              >
+                <span class="abundance-blob abundance-blob--cyan abundance-blob--md">
+                  3
+                </span>
+                <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+                <h4 class="si-heading-5 m-b-spacer-0">
+                  How to invest
+                </h4>
+                <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+                <p class="abundance-body-compact m-b-spacer-0">
+                  It is easy to get started, you can be up and running in under 10 minutes
+                </p>
+                <span class="abundance-action-text brand-primary m-t-spacer-xs">
+                  Learn more
+                </span>
+              </a>
+            </div>
+          </div>
+        </article>
       `;
+    }
+
+    function setOpenLoanDependentSections(hasOpenLoans) {
+      document.querySelectorAll("[data-abv2-open-loans-dependent]").forEach(function (element) {
+        element.hidden = !hasOpenLoans;
+      });
+
+      document.querySelectorAll("[data-abv2-no-open-loans-dependent]").forEach(function (element) {
+        element.hidden = hasOpenLoans;
+      });
     }
 
     function renderLoanRow(loan, council) {
@@ -1637,7 +1792,13 @@
 
     function initOpenLoans() {
       const container = document.querySelector("[data-abv2-open-loans-list]");
-      if (!container || !window.AbundanceLiveStats) return;
+      if (!container) return;
+
+      if (!window.AbundanceLiveStats) {
+        renderOpenLoansFallback(container);
+        setOpenLoanDependentSections(false);
+        return;
+      }
 
       Promise.all([
         window.AbundanceLiveStats.fetchCouncils(),
@@ -1653,10 +1814,13 @@
             return hasStatus(getFields(loan).raiseStatus, "open");
           });
 
-          if (!openLoans.length) {
+          if (forceNoOpenLoansForPreview || !openLoans.length) {
             renderOpenLoansFallback(container);
+            setOpenLoanDependentSections(false);
             return;
           }
+
+          setOpenLoanDependentSections(true);
 
           const groups = new Map();
 
@@ -1709,6 +1873,7 @@
         .catch(function (error) {
           console.error("Open loans failed:", error);
           renderOpenLoansFallback(container);
+          setOpenLoanDependentSections(false);
         });
     }
 

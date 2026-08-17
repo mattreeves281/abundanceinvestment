@@ -264,13 +264,13 @@
       setVisible("[data-abv2-no-spend-content]", !(totalSpent > 0));
     }
 
-    function renderInvestmentHistory(loans, showUseOfFunds) {
+    function renderInvestmentHistory(loans) {
       const bodies = document.querySelectorAll("[data-abv2-investment-history-body]");
       if (!bodies.length) return;
 
       if (!loans.length) {
         bodies.forEach(function (tbody) {
-          tbody.innerHTML = '<tr><td colspan="5">No previous investments to show yet.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="4">No previous investments to show yet.</td></tr>';
         });
         return;
       }
@@ -278,12 +278,10 @@
       const html = sortByDateDesc(loans, "closeDate").map(function (loan) {
         const fields = getFields(loan);
         const name = textValue(fields, ["investmentName", "name", "loanName"], "Investment");
-        const useOfFunds = textValue(fields, ["strapline", "useOfFunds", "loanUseOfFunds", "investmentUseOfFunds", "description"], "-");
 
         return `
           <tr>
             <td data-label="Investment">${name}</td>
-            ${showUseOfFunds ? '<td data-label="Use of funds">' + useOfFunds + "</td>" : ""}
             <td data-label="Interest rate">${formatPercentRate(fields.rateOfReturn)}</td>
             <td data-label="Amount raised">${formatMoney(loanAmount(loan))}</td>
             <td data-label="Close date">${formatMonthYear(fields.closeDate)}</td>
@@ -421,7 +419,6 @@
 
       const councilsEndpoint = config.dataset.councilsEndpoint || DEFAULT_COUNCILS_ENDPOINT;
       const loansEndpoint = config.dataset.loansEndpoint || DEFAULT_LOANS_ENDPOINT;
-      const showUseOfFundsColumn = config.dataset.historyUseOfFunds !== "false";
 
       try {
         const [councilsData, loansData] = await Promise.all([
@@ -465,9 +462,8 @@
         setVisible("[data-abv2-no-open-state]", !hasOpenLoan);
         updateOpenInvestment(openLoans[0], councilFields);
 
-        setVisible("[data-abv2-no-open-history]", !hasOpenLoan && closedLoans.length > 0);
-        setVisible("[data-abv2-open-history]", hasOpenLoan && closedLoans.length > 1);
-        renderInvestmentHistory(closedLoans, showUseOfFundsColumn);
+        setVisible("[data-abv2-investment-history]", closedLoans.length > 0);
+        renderInvestmentHistory(closedLoans);
         initPaymentCalculators();
         initNativeDialogs();
       } catch (error) {
