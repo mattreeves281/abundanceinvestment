@@ -1,0 +1,121 @@
+{
+  "name": "welcome-signups",
+  "subject": "Welcome to Abundance",
+  "previewText": "Building better places together",
+  "blocks": [
+    {
+      "id": "welcome-signups-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "welcome-signups-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Welcome to Abundance",
+        "body": "We’re glad you’ve joined us. You’re one of a growing number of people who want their money to be doing more.\n\nOur investments bring councils and citizens together to build a more sustainable, resilient and thriving future for our places.\n\nNow you’ve made an account, it’s quick and easy to start building your municipal investment portfolio. If you have any questions, you'll find full information on our website, or you can speak to us."
+      }
+    },
+    {
+      "id": "welcome-signups-divider",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-left-pink-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "welcome-signups-investment-stats",
+      "type": "investmentStatsCta",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Start investing today",
+        "stats": [
+          {
+            "label": "Interest rate",
+            "value": "{{ subscriber.email_rate }}",
+            "accent": "pink"
+          },
+          {
+            "label": "Term",
+            "value": "{{ subscriber.email_term }}",
+            "accent": "teal"
+          },
+          {
+            "label": "Capital repaid",
+            "value": "{{ subscriber.email_capital }}",
+            "accent": "yellow"
+          }
+        ],
+        "ctaLabel": "Invest now",
+        "ctaUrl": "https://www.abundanceinvestment.com/invest-now",
+        "ctaAlign": "left"
+      }
+    },
+    {
+      "id": "welcome-signups-three-reasons",
+      "type": "threeUpBlobCards",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Three good reasons to invest with us",
+        "intro": "",
+        "cards": [
+          {
+            "numberImage": "1.png",
+            "title": "Start from just £5",
+            "body": "Begin investing in minutes",
+            "linkLabel": "Learn how to invest",
+            "linkUrl": "https://www.abundanceinvestment.com/how-it-works/#how-to-invest"
+          },
+          {
+            "numberImage": "2.png",
+            "title": "Make a real difference",
+            "body": "Finance projects that make places better",
+            "linkLabel": "See the impact",
+            "linkUrl": "https://www.abundanceinvestment.com/make-a-positive-difference"
+          },
+          {
+            "numberImage": "3.png",
+            "title": "Tax free ISA returns",
+            "body": "Grow your nest egg with an IF ISA",
+            "linkLabel": "Explore our IF ISA",
+            "linkUrl": "https://www.abundanceinvestment.com/tax-free-isa-investing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "welcome-signups-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

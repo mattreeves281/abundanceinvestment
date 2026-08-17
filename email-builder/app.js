@@ -55,6 +55,7 @@ const blockGroups = {
   tableCard: "Layouts",
   warning: "Basic content",
   quoteBlock: "Layouts",
+  bulletCardCta: "Layouts",
   keyTerms: "Layouts",
   faqRows: "Layouts",
   featureCards: "Layouts",
@@ -494,6 +495,21 @@ const blockSchemas = {
     },
     fields: [field("quote", "Quote", "textarea"), field("imageUrl", "Headshot URL", "url"), field("imageAlt", "Headshot alt text"), field("name", "Name"), field("role", "Role")]
   },
+  bulletCardCta: {
+    label: "Bullet card with button",
+    defaults: {
+      heading: "Why it makes sense",
+      items: "Our municipal investments offer good value for councils and a competitive return for investors.\nYour loan must be used for infrastructure projects and can’t be used to cover day-to-day costs.\nIt is a low risk investment. There is no record of a council ever defaulting on debt repayment.",
+      ctaLabel: "Find out more",
+      ctaUrl: "https://www.abundanceinvestment.com/how-it-works"
+    },
+    fields: [
+      field("heading", "Heading"),
+      field("items", "Items, one per line", "textarea"),
+      field("ctaLabel", "Button label"),
+      field("ctaUrl", "Button URL", "url")
+    ]
+  },
   transferDetails: {
     label: "Transfer details",
     defaults: {
@@ -805,6 +821,7 @@ function applyDisplayTaxonomy() {
     systemInfo: "Basic content",
     tableCard: "Layouts",
     quoteBlock: "Layouts",
+    bulletCardCta: "Layouts",
     keyTerms: "Layouts",
     faqRows: "Layouts",
     featureCards: "Layouts",
@@ -841,6 +858,7 @@ function applyDisplayTaxonomy() {
     divider: "Divider",
     simpleContent: "Header and copy",
     quoteBlock: "Quote block",
+    bulletCardCta: "Bullet card with button",
     keyTerms: "Terms summary card",
     faqRows: "FAQs",
     tableCard: "Table inside card",
@@ -928,7 +946,7 @@ function loadState() {
 function normalizeState(email) {
   email.blocks = email.blocks.map((item) => ({
     ...item,
-    customized: Boolean(item.customized),
+    customized: Boolean(item.customized || (item.type === "caseStudyRows" && item.fields?.stories)),
     condition: item.condition || { mode: "none", tags: "" },
     fields: normalizeBlockFields(item.type, { ...(blockSchemas[item.type]?.defaults || {}), ...(item.fields || {}) })
   }));
@@ -1483,7 +1501,8 @@ function renderBlock(item, options = {}) {
     twoUpImageCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 42px 32px;background-color:#ffffff;">${renderTwoUpImageCards(fields.cards)}</td>`),
     nextSteps: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 18px 0;">${escapeHtml(fields.heading)}</h2>${renderNextSteps(fields.links)}</td>`),
     newsRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>${renderNewsRows(fields.articles)}</td>`),
-    quoteBlock: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderQuote(fields)}</td>`),
+    quoteBlock: () => row(`<td class="mobile-pad" style="padding:0 32px 34px 32px;background-color:#ffffff;">${renderQuote(fields)}</td>`),
+    bulletCardCta: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderBulletCardCta(fields)}</td>`),
     transferDetails: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderTransferDetails(fields.rows)}`)}</td>`),
     keyTerms: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 style="${headingStyle("27px", "31px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}`)}</td>`),
     dataTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderDataTable(fields.columns, fields.rows)}`)}</td>`),
@@ -1514,11 +1533,19 @@ function renderFeatureCards(cards) {
 }
 
 function renderTwoUpCards(cards) {
-  return grid(cards, 2, (item, index) => card(`<h3 style="${headingStyle("24px", "27px")}margin:0 0 10px 0;">${escapeHtml(item.title)}</h3>${paragraph(item.body, "", "14px", "22px", "0 0 18px 0")}${button(item.ctaLabel, item.ctaUrl, index % 2 ? colors.teal : colors.pinkDark, index % 2 ? colors.teal : colors.pink, true)}`));
+  return grid(cards, 2, (item, index) => card(`<h3 style="${headingStyle("24px", "27px")}margin:0 0 10px 0;">${escapeHtml(item.title)}</h3>${renderCardBody(item.body, item.ctaLabel ? "0 0 18px 0" : "0")}${item.ctaLabel ? button(item.ctaLabel, item.ctaUrl, index % 2 ? colors.teal : colors.pinkDark, index % 2 ? colors.teal : colors.pink, true) : ""}`));
+}
+
+function renderCardBody(value, margin = "0") {
+  const lines = String(value || "").split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  if (lines.length > 1) {
+    return `<ul style="margin:${margin};padding:0 0 0 18px;${textStyle("14px", "22px", colors.body)}">${lines.map((line, index) => `<li style="margin:0 0 ${index === lines.length - 1 ? "0" : "7px"} 0;">${formatInlineText(line)}</li>`).join("")}</ul>`;
+  }
+  return paragraph(value, "", "14px", "22px", margin);
 }
 
 function renderThreeUpCards(cards) {
-  return grid(cards, 3, (item) => card(`<img src="${CDN}/${escapeAttr(item.numberImage)}" width="58" height="58" alt="" role="presentation" style="display:block;width:58px;height:58px;border:0;margin:0 0 14px 0;"><h3 style="${headingStyle("21px", "24px")}margin:0 0 8px 0;">${escapeHtml(item.title)}</h3>${paragraph(item.body, "", "14px", "22px", "0 0 12px 0")}<a href="${escapeAttr(item.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(item.linkLabel)}</a>`));
+  return grid(cards, 3, (item) => card(`<img src="${CDN}/${escapeAttr(item.numberImage)}" width="58" height="58" alt="" role="presentation" style="display:block;width:58px;height:58px;border:0;margin:0 0 14px 0;"><h3 style="${headingStyle("21px", "24px")}margin:0 0 8px 0;">${escapeHtml(item.title)}</h3>${paragraph(item.body, "", "14px", "22px", item.linkLabel ? "0 0 12px 0" : "0")}${item.linkLabel ? `<a href="${escapeAttr(item.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(item.linkLabel)}</a>` : ""}`));
 }
 
 function renderSteps(steps) {
@@ -1533,7 +1560,10 @@ function renderRateCards(cards) {
 }
 
 function renderCaseRows(stories) {
-  return (stories || []).map((story) => card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="mobile-stack" width="156" valign="top" style="width:156px;padding:0 18px 0 0;"><img src="${escapeAttr(story.imageUrl)}" width="138" height="138" alt="${escapeAttr(story.imageAlt)}" style="display:block;width:138px;height:138px;border-radius:20px;background-color:${colors.line};object-fit:cover;object-position:center center;"></td><td class="mobile-stack" valign="top"><h3 style="${headingStyle("22px", "25px")}margin:0 0 8px 0;">${escapeHtml(story.title)}</h3>${paragraph(story.body, "", "14px", "21px", "0 0 8px 0")}<a href="${escapeAttr(story.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(story.linkLabel)}</a></td></tr></table>`)).map((html) => `<div style="margin:0 0 12px 0;">${html}</div>`).join("");
+  return (stories || []).map((story) => {
+    const imageUrl = String(story.imageUrl || "").trim();
+    return card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="mobile-stack" width="156" valign="top" style="width:156px;padding:0 18px 0 0;"><img src="${escapeAttr(imageUrl)}" width="138" height="138" alt="${escapeAttr(story.imageAlt)}" style="display:block;width:138px;height:138px;border-radius:20px;background-color:${colors.line};object-fit:cover;object-position:center center;"></td><td class="mobile-stack" valign="top"><h3 style="${headingStyle("22px", "25px")}margin:0 0 8px 0;">${escapeHtml(story.title)}</h3>${paragraph(story.body, "", "14px", "21px", "0 0 8px 0")}<a href="${escapeAttr(story.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(story.linkLabel)}</a></td></tr></table>`);
+  }).map((html) => `<div style="margin:0 0 12px 0;">${html}</div>`).join("");
 }
 
 function renderStatColorCards(cards) {
@@ -1586,8 +1616,8 @@ function renderBars(lines) {
 function renderInvestmentChoices(fields) {
   return row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">
     <h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
-    ${paragraph(fields.body, "body-lg", "18px", "29px", "0 0 22px 0")}
-    ${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}
+    ${paragraph(fields.body, "body-lg", "18px", "29px", fields.ctaLabel ? "0 0 22px 0" : "0")}
+    ${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}
   </td>`);
 }
 
@@ -1596,7 +1626,7 @@ function renderImpactStats(fields) {
     <h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
     ${paragraph(fields.body, "", "16px", "25px", "0 0 20px 0")}
     ${renderStats(`${fields.statOneLabel}|${fields.statOneValue}\n${fields.statTwoLabel}|${fields.statTwoValue}`, colors.ink, colors.pink)}
-    ${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}
+    ${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}
   </td>`);
 }
 
@@ -1618,7 +1648,7 @@ function renderImpactImageCta(fields) {
 }
 
 function renderInvestmentCard(fields) {
-  return card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="mobile-stack" width="246" valign="top" style="width:246px;padding:0 22px 0 0;"><img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="220" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:220px;max-width:220px;height:auto;border-radius:24px;background-color:${colors.line};"></td><td class="mobile-stack" valign="top"><h2 style="${headingStyle("29px", "32px")}margin:0 0 10px 0;">${escapeHtml(fields.title)}</h2>${paragraph(fields.body, "", "16px", "25px", "0 0 18px 0")}${renderStats(`${fields.statOneLabel}|${fields.statOneValue}\n${fields.statTwoLabel}|${fields.statTwoValue}`, colors.ink, colors.ink)}${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink, true)}</td></tr></table>`);
+  return card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed;"><tr><td class="mobile-stack" width="246" valign="top" style="width:246px;padding:0 22px 0 0;"><img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="220" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:220px;max-width:220px;height:auto;border-radius:24px;background-color:${colors.line};"></td><td class="mobile-stack" valign="top" style="overflow-wrap:anywhere;word-break:break-word;"><h2 style="${headingStyle("29px", "32px")}margin:0 0 10px 0;overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(fields.title)}</h2>${paragraph(fields.body, "", "16px", "25px", "0 0 18px 0")}${renderStats(`${fields.statOneLabel}|${fields.statOneValue}\n${fields.statTwoLabel}|${fields.statTwoValue}`, colors.ink, colors.ink)}${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink, true)}</td></tr></table>`);
 }
 
 function renderTwoUpImageCards(cards) {
@@ -1634,7 +1664,13 @@ function renderNewsRows(articles) {
 }
 
 function renderQuote(fields) {
-  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-radius:18px;border-collapse:separate !important;"><tr><td style="padding:22px;">${paragraph(fields.quote, "", "16px", "25px", "0 0 18px 0")}<table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr><td width="66" style="width:66px;padding:0 12px 0 0;"><img src="${escapeAttr(fields.imageUrl)}" width="56" height="56" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:56px;height:56px;border-radius:50%;"></td><td><p style="${textStyle("14px", "20px", colors.ink)}margin:0;font-weight:bold;">${escapeHtml(fields.name)}</p><p style="${textStyle("13px", "19px", colors.body)}margin:0;">${escapeHtml(fields.role)}</p></td></tr></table></td></tr></table>`;
+  const image = fields.imageUrl ? `<td width="56" valign="middle" style="width:56px;padding:0 14px 0 0;"><img src="${escapeAttr(fields.imageUrl)}" width="56" height="56" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:56px;height:56px;border-radius:50%;color:${colors.ink};font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:16px;"></td>` : "";
+  const credit = fields.name || fields.role ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>${image}<td valign="middle" style="padding:0;"><p style="${textStyle("14px", "20px", colors.ink)}margin:0;font-weight:bold;">${escapeHtml(fields.name)}</p><p style="${textStyle("13px", "19px", colors.body)}margin:2px 0 0 0;">${escapeHtml(fields.role)}</p></td></tr></table>` : "";
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:3px solid ${colors.ink};border-bottom:1px solid ${colors.line};"><tr><td style="padding:24px 0;">${paragraph(fields.quote, "", "18px", "29px", credit ? "0 0 18px 0" : "0", colors.ink)}${credit}</td></tr></table>`;
+}
+
+function renderBulletCardCta(fields) {
+  return card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderListItems(fields.items, "ul")}${fields.ctaLabel ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:20px;"><tr><td>${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}</td></tr></table>` : ""}`);
 }
 
 function renderTransferDetails(lines) {
@@ -1779,11 +1815,11 @@ function row(content) {
 }
 
 function headingStyle(fontSize, lineHeight) {
-  return `font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:${fontSize};line-height:${lineHeight};font-weight:bold;color:${colors.ink};`;
+  return `font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:${fontSize};line-height:${lineHeight};font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;`;
 }
 
 function textStyle(fontSize, lineHeight, color) {
-  return `font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:${fontSize};line-height:${lineHeight};color:${color};`;
+  return `font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:${fontSize};line-height:${lineHeight};color:${color};overflow-wrap:anywhere;word-break:break-word;`;
 }
 
 function parseLines(value, count) {

@@ -1,0 +1,119 @@
+{
+  "name": "open-investments",
+  "subject": "Our open investments",
+  "previewText": "{{ subscriber.email_open_strap }}",
+  "blocks": [
+    {
+      "id": "open-investments-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "open-investments-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Our open investments",
+        "body": "You’re nearly there. Now you’ve made an account, it couldn’t be easier to start building your investment portfolio and making a real difference to communities across the UK."
+      }
+    },
+    {
+      "id": "open-investments-card",
+      "type": "investmentCard",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "imageUrl": "https://shareinmicrosite.blob.core.windows.net/abundance/55020e0b-3912-47ac-bc9c-9a74669d31a7.png",
+        "imageAlt": "Open municipal investment",
+        "title": "Edinburgh City Council",
+        "body": "Invest to help finance tree-planting and sustainable urban drainage like rain gardens and rainwater planters.",
+        "statOneLabel": "Return",
+        "statOneValue": "4.60%",
+        "statTwoLabel": "Term",
+        "statTwoValue": "5 years",
+        "ctaLabel": "Invest now",
+        "ctaUrl": "https://www.abundanceinvestment.com/invest-now"
+      }
+    },
+    {
+      "id": "open-investments-divider",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-right-teal-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "impactImageCta-1786971936255-e5d88810b6ae6",
+      "type": "impactImageCta",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "imageUrl": "https://shareinmicrosite.blob.core.windows.net/abundance/ec913ed0-a588-487d-bfdb-4d81baf3f67f.jpg",
+        "imageAlt": "Project and place image",
+        "heading": "Deliver real projects",
+        "body": "See how your money is creating a better future across our towns, cities and villages.",
+        "ctaLabel": "Learn more",
+        "ctaUrl": "https://www.abundanceinvestment.com/make-a-positive-difference"
+      }
+    },
+    {
+      "id": "divider-1786972244351-4ae98c6597af4",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-fall-left-pink-to-transparent@6x.png",
+        "spacing": "26"
+      }
+    },
+    {
+      "id": "open-investments-match",
+      "type": "investmentChoices",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Double your impact with 100% match funding",
+        "body": "We’ve partnered with The Esmée Fairbairn Foundation, one of the UK's leading social and impact investors, to double the effect of local support for our municipal investments. Simply invest in your local council, and they’ll do the rest.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "open-investments-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}
