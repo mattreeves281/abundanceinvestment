@@ -190,7 +190,7 @@
         <div class="choke-600 m-x--auto abv2-editorial-hero-art">
           <img
             class="img-fluid"
-            src="https://shareinmicrosite.blob.core.windows.net/abundance/08948be0-4a0b-4a19-81aa-6991b7e0635e.png"
+            src="https://shareinmicrosite.blob.core.windows.net/abundance/5df612e6-5307-46b9-b3f8-0749cdd14b4d.png"
             alt=""
             loading="eager"
             decoding="async"
@@ -352,7 +352,7 @@
           "
       aria-hidden="true">
           <img class="d-none d-md-block"
-            src="https://cdn4.sharein.com/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+            src="https://shareinmicrosite.blob.core.windows.net/abundance/412525e1-f2ec-4bb6-9e54-b89cdd8cb911.png"
             alt=""
             loading="lazy"
             decoding="async"
@@ -388,7 +388,7 @@
           style="flex:0 0 168px; width:168px;">
           <img
             class="si-image si-image--1-1 border-radius--4xl"
-            src="https://cdn4.sharein.com/abundance/cms/8ed3dcbf-4d11-4c09-b98b-3f182d806203.png"
+            src="https://shareinmicrosite.blob.core.windows.net/abundance/c60a6c58-f154-4c54-bac6-521ba3e2aab9.png"
             alt=""
             loading="lazy"
             decoding="async"
@@ -463,11 +463,11 @@
 
   <blockquote class="abundance-quote m-b-spacer-0">
           <p class="body--xl m-b-spacer-0">
-            “It’s changed how I see the council. It’s not just something in the background — it feels like a partnership.”
+            “[I invested because I am] funding initiatives that mean something to me, in a place that means something to me.”
           </p>
 
           <cite class="body--md m-t-spacer-sm">
-            Citizen investor, Hammersmith & Fulham Council
+            Citizen investor
           </cite>
         </blockquote>
 
@@ -587,7 +587,7 @@
         transport. Up to 20% of council budgets are typically capital investment.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
-        The money to fund capital investment typically comes from internal resources (such as capital receipts or reserves) or from government as capital grants, or borrowings from the Public Works Loan Board. Private finance is less used now than earlier this century. Our municipal loans are another way for councils to borrow money for these project investments.
+        The money to fund capital investment typically comes from internal resources (such as revenues or from sale of assets) or from government as capital grants, or borrowings from the Public Works Loan Board (a public body that lends money to councils from central government) or other commercial or state lenders. Our municipal loans are another way for councils to borrow money for these project investments.
       </p>
       <p class="body--lg m-t-spacer-sm m-b-spacer-0">
         Our vision is to create a future where more and more of these funds come from engaged citizens with a real
@@ -673,7 +673,7 @@
               <div class="si-accordion-item__body">
                 <span>
                   We ensure that our municipal investments are good value for councils while also providing a
-                  competitive return for investors. Councils also appreciate the opportunity to build deeper partnerships with local residents and businesses. Offering an investment like this can help councils to get more people in the community involved… as well as shining a light on valuable work that regularly goes unnoticed.
+                  competitive return for investors. Councils also appreciate the opportunity to build deeper partnerships with local residents and businesses. Offering an investment like this can help councils to get more people in the community involved, as well as shining a light on valuable work that regularly goes unnoticed.
                 </span>
               </div>
             </div>
@@ -710,7 +710,7 @@
             >
               <div class="si-accordion-item__body">
                 <span>
-                  No, in fact it is one of the lowest risk investments you can make. This doesn’t mean councils don’t experience times when their finances are under pressure, but they must and they do repay their debts. There is no record of a council ever defaulting on debt repayment. <a class="si-link si-link--accent" href="/understanding-the-risks">Learn more</a>
+                  No, in fact it is one of the lowest risk investments you can make. This doesn’t mean councils don’t experience times when their finances are under pressure, but they must and they do repay their debts. There is no record of a council ever defaulting on debt repayment. Please make sure you have considered other features of the investment, like their fixed term nature, before investing. <a class="si-link si-link--accent" href="/understanding-the-risks">Learn more</a>
                 </span>
               </div>
             </div>
@@ -1113,9 +1113,28 @@
       return formatPercentFromDecimal(average);
     }
 
+    function averageForPastMonths(months) {
+      const end = new Date();
+      const start = new Date(end);
+      start.setMonth(start.getMonth() - months);
+
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate <= end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
       averageRate2024: averageForYear(2024)

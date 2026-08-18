@@ -224,7 +224,7 @@
     const stats = [
       statRow("Raised", raised),
       projects > 0 ? statRow("Projects financed", formatInt(projects)) : "",
-      spent ? statRow("Spent", spent) : statRow("", "No spend reported")
+      spent ? statRow("Spent", spent) : ""
     ].filter(Boolean).join("");
 
     return `

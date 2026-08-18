@@ -324,7 +324,7 @@
           <!-- Illustration -->
           <div class="d-none d-md-flex justify-content-md-end" aria-hidden="true">
             <img
-              src="https://cdn4.sharein.com/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+              src="https://shareinmicrosite.blob.core.windows.net/abundance/06464b28-ed61-4e46-a717-81d2a5c18c9b.png"
               alt=""
               loading="lazy"
               decoding="async"
@@ -849,9 +849,28 @@
       return formatPercentFromDecimal(average);
     }
 
+    function averageForPastMonths(months) {
+      const end = new Date();
+      const start = new Date(end);
+      start.setMonth(start.getMonth() - months);
+
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate <= end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
       averageRate2024: averageForYear(2024)
@@ -896,7 +915,7 @@
 </script>
 <script>
 (function () {
-  const forceNoOpenLoansForPreview = true;
+  const forceNoOpenLoansForPreview = false;
   const list = document.querySelector("[data-abv2-open-investments-list]");
   if (!list || !window.AbundanceLiveStats) return;
 

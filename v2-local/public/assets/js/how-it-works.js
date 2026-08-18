@@ -216,7 +216,6 @@
       });
 
       setText("[data-abv2-growth-term-label]", years + " years");
-      updateGrowthRateLabel();
       setText("[data-abv2-growth-paid-in]", formatGrowthMoney(paidIn, futureValue));
       setText("[data-abv2-growth-result]", formatGrowthMoney(futureValue, futureValue));
       setText("[data-abv2-growth-return]", formatGrowthMoney(futureValue - paidIn, futureValue));
@@ -279,23 +278,32 @@
       return normaliseStatusItem(value) === normalisedTarget;
     }
 
-    function weightedHistoricRate(records) {
-      const totals = records.reduce(function (acc, record) {
+    function historicRateSummary(records) {
+      const rates = records.reduce(function (acc, record) {
         if (hasStatus(field(record, "raiseStatus"), "Open")) return acc;
 
         const rate = parseRawNumber(field(record, "rateOfReturn"));
-        const amount = parseRawNumber(field(record, "loanAmount")) || parseRawNumber(field(record, "totalRaised"));
-        if (!(rate > 0) || !(amount > 0)) return acc;
+        if (!(rate > 0)) return acc;
 
-        acc.weightedRate += rate * amount;
-        acc.amount += amount;
+        acc.push(rate);
         return acc;
-      }, {
-        weightedRate: 0,
-        amount: 0
-      });
+      }, []);
 
-      return totals.amount > 0 ? totals.weightedRate / totals.amount : null;
+      if (!rates.length) {
+        return {
+          average: null,
+          min: null,
+          max: null
+        };
+      }
+
+      return {
+        average: rates.reduce(function (total, rate) {
+          return total + rate;
+        }, 0) / rates.length,
+        min: Math.min.apply(null, rates),
+        max: Math.max.apply(null, rates)
+      };
     }
 
     function setRateStat(key, value) {
@@ -308,6 +316,22 @@
 
     function defaultRateInputValue(rate) {
       return (rate * 100).toFixed(2).replace(/\.?0+$/, "");
+    }
+
+    function updateHistoricGrowthRateLabels(summary) {
+      if (!summary) return;
+
+      if (Number.isFinite(summary.average) && summary.average > 0) {
+        setText("[data-abv2-growth-rate-label]", defaultRateInputValue(summary.average) + "%");
+      }
+
+      if (Number.isFinite(summary.min) && summary.min > 0) {
+        setText("[data-abv2-growth-min-rate-label]", defaultRateInputValue(summary.min) + "%");
+      }
+
+      if (Number.isFinite(summary.max) && summary.max > 0) {
+        setText("[data-abv2-growth-max-rate-label]", defaultRateInputValue(summary.max) + "%");
+      }
     }
 
     function updateDefaultGrowthRate(rate) {
@@ -334,7 +358,9 @@
             setRateStat(key, stats[key]);
           });
 
-          updateDefaultGrowthRate(weightedHistoricRate(records));
+          const summary = historicRateSummary(records);
+          updateHistoricGrowthRateLabels(summary);
+          updateDefaultGrowthRate(summary.average);
         })
         .catch(function (error) {
           console.error("Historic rate stats failed:", error);

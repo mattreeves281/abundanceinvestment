@@ -1,6 +1,6 @@
 <script>
   (function () {
-    const forceNoOpenLoansForPreview = true;
+    const forceNoOpenLoansForPreview = false;
     const keyTermsData = {
       "hammersmith-fulham": {
         investmentName: "H&F Green Investment",
@@ -282,18 +282,18 @@
             <div>
               <a
                 class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
-                href="/how-it-works#growing-your-pot"
+                href="/tax-free-isa-investing"
               >
                 <span class="abundance-blob abundance-blob--yellow abundance-blob--md">
                   2
                 </span>
                 <div class="p-t-spacer-2xs" aria-hidden="true"></div>
                 <h4 class="si-heading-5 m-b-spacer-0">
-                  Grow your money
+                  Tax free investing
                 </h4>
                 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                 <p class="abundance-body-compact m-b-spacer-0">
-                  It is a simple way to grow your money, if you have a little or a lot
+                  Invest through an IF ISA and get tax free returns
                 </p>
                 <span class="abundance-action-text brand-primary m-t-spacer-xs">
                   Learn more

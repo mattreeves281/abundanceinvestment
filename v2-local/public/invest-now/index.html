@@ -219,20 +219,22 @@
 
             <hr>
 
-            <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+            <div class="p-t-spacer-4xs" aria-hidden="true"></div>
 
             <p class="body--md m-b-spacer-0">
-              Choose the councils you want to invest in, and decide how to use your interest payments. You can either invest or withdraw to spend.
+              Choose the councils you want to invest in, and decide how to use your investment returns. You can either re-invest or withdraw.
             </p>
 
             <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
             <ul class="body--md m-b-spacer-0">
-              <li class="m-b-spacer-3xs">Choose your councils</li>
-              <li class="m-b-spacer-3xs">Build your own portfolio</li>
+              <li>Choose your councils</li>
+              <div class="p-t-spacer-4xs" aria-hidden="true"></div>
+              <li>Build your own portfolio</li>
+              <div class="p-t-spacer-4xs" aria-hidden="true"></div>
               <li>Reinvest returns or withdraw available cash</li>
             </ul>
-            <div class="m-t-spacer-md">
+            <div class="m-t-spacer-sm">
               <a href="#open-investments" class="si-btn si-btn--secondary si-btn--md">
                 Browse investments
               </a>
@@ -248,20 +250,22 @@
 
             <hr>
 
-            <div class="p-t-spacer-2xs" aria-hidden="true"></div>
+            <div class="p-t-spacer-4xs" aria-hidden="true"></div>
 
             <p class="body--md m-b-spacer-0">
-              Our automatic investment option spreads your money evenly across available councils, and reinvests returns for you as soon as they arrive.
+              Our automatic investment option spreads your money evenly across open councils, and reinvests returns for you as soon as they arrive.
             </p>
 
             <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 
             <ul class="body--md m-b-spacer-0">
-              <li class="m-b-spacer-3xs">Use one-off payments or a regular standing order</li>
-              <li class="m-b-spacer-3xs">Deposits invested evenly across available councils</li>
+              <li>Make a one-off deposit or a regular standing order</li>
+              <div class="p-t-spacer-4xs" aria-hidden="true"></div>
+              <li>Deposits invested evenly across available councils</li>
+              <div class="p-t-spacer-4xs" aria-hidden="true"></div>
               <li>Keep your pot growing by reinvesting returns</li>
             </ul>
-            <div class="m-t-spacer-md">
+            <div class="m-t-spacer-sm">
               <a href="/how-it-works#automatic-investment" class="si-btn si-btn--primary si-btn--md">
                 Learn more
               </a>
@@ -602,7 +606,7 @@
 
       <!-- Right: assumptions + results -->
       <div class="col-12 col-md-6">
-  <article class="si-card abundance-card--soft p-all-spacer-md" aria-live="polite">
+  <div aria-live="polite">
 
     <!-- Terms box -->
     <article class="si-card si-card--secondary p-all-spacer-sm">
@@ -727,7 +731,7 @@
       </div>
 
     </div>
-  </article>
+  </div>
 </div>
 
     </div>
@@ -845,7 +849,7 @@
                     aria-describedby="homepage-related-link-1-desc"
                     style="color:#363635;"
                   >
-                    How the money has been spent
+                    How councils have used the money
                   </a>
                   <p id="homepage-related-link-1-desc" style="color:#363635;">
                     View latest data on the projects financed
@@ -882,7 +886,7 @@
                     ISA investing
                   </a>
                   <p id="homepage-related-link-3-desc" style="color:#363635;">
-                    Get tax-free returns for life with an IF ISA
+                    Get tax-free investment returns with an IF ISA
                   </p>
                 </div>
               </div>
@@ -903,15 +907,15 @@
         </h2>
         <p class="body--lg text-choke--640 m-t-spacer-xs">
           Our marketplace is where investors can buy and sell their existing investments. This gives sellers a
-          way to access their money before the end of the investment term. It also allows buyers diversify
+          way to access their money before the end of the investment term. It also allows buyers to diversify
           their portfolio with investments that are no longer open to new investors.
-          <a class ="si-link si-link--accent" href="#marketplace">
-            Learn more
+          <a class ="si-link si-link--accent" href="https://help.abundanceinvestment.com/en/collections/375244-marketplace" target="_blank">
+            Learn more in our help centre
           </a>
         </p>
         <div>
 <div class="p-t-spacer-sm" aria-hidden="true"></div>
-          <a href="#marketplace" class="si-btn si-btn--primary si-btn--lg">
+          <a href="/councils/marketplace" class="si-btn si-btn--primary si-btn--lg">
             View marketplace
           </a>
         </div>
@@ -1312,9 +1316,28 @@
       return formatPercentFromDecimal(average);
     }
 
+    function averageForPastMonths(months) {
+      const end = new Date();
+      const start = new Date(end);
+      start.setMonth(start.getMonth() - months);
+
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate <= end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
       averageRate2024: averageForYear(2024)
@@ -1359,7 +1382,7 @@
 </script>
 <script>
   (function () {
-    const forceNoOpenLoansForPreview = true;
+    const forceNoOpenLoansForPreview = false;
     const keyTermsData = {
       "hammersmith-fulham": {
         investmentName: "H&F Green Investment",
@@ -1641,18 +1664,18 @@
             <div>
               <a
                 class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
-                href="/how-it-works#growing-your-pot"
+                href="/tax-free-isa-investing"
               >
                 <span class="abundance-blob abundance-blob--yellow abundance-blob--md">
                   2
                 </span>
                 <div class="p-t-spacer-2xs" aria-hidden="true"></div>
                 <h4 class="si-heading-5 m-b-spacer-0">
-                  Grow your money
+                  Tax free investing
                 </h4>
                 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                 <p class="abundance-body-compact m-b-spacer-0">
-                  It is a simple way to grow your money, if you have a little or a lot
+                  Invest through an IF ISA and get tax free returns
                 </p>
                 <span class="abundance-action-text brand-primary m-t-spacer-xs">
                   Learn more

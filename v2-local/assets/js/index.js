@@ -1,5 +1,5 @@
 (function () {
-  const forceNoOpenLoansForPreview = true;
+  const forceNoOpenLoansForPreview = false;
   const list = document.querySelector("[data-abv2-open-investments-list]");
   if (!list || !window.AbundanceLiveStats) return;
 

@@ -196,7 +196,7 @@
               Invest to help finance tree-planting and sustainable urban drainage like rain gardens and rainwater planters.
             </p>
             <div
-              class="row row-cols-1 row-cols-sm-3 gx-xs gy-xs m-t-spacer-md choke-600"
+              class="row row-cols-1 row-cols-sm-3 gx-xs gy-xs m-t-spacer-sm choke-600"
               aria-label="Investment headline details"
             >
               <div>
@@ -246,9 +246,6 @@
         </div>
         <div class="col-12 col-lg-6">
           <article class="si-card abundance-card--soft p-all-spacer-md">
-            <p class="abundance-eyebrow brand-primary m-b-spacer-2xs">
-              Edinburgh Green Investment
-            </p>
             <h3 class="si-heading-3 m-b-spacer-0">
               Investment summary
             </h3>
@@ -414,8 +411,7 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <article class="si-card abundance-card--soft p-all-spacer-md" aria-live="polite">
-            <article class="si-card si-card--secondary p-all-spacer-sm">
+          <article class="si-card si-card--secondary p-all-spacer-sm">
               <div class="row row-cols-1 row-cols-md-2 gx-xs gy-xs align-items-stretch" aria-label="Payment example assumptions">
                 <div>
                   <div class="p-t-spacer-3xs" aria-hidden="true"></div>
@@ -447,7 +443,7 @@
                 <article class="si-card si-card--secondary p-all-spacer-sm h-100">
                   <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                   <p class="abundance-eyebrow brand-primary">
-                    Total returned over term
+                    Total returned
                   </p>
                   <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                   <p class="si-heading-3 m-b-spacer-0" data-abv2-calc-field="totalReturned">
@@ -507,9 +503,7 @@
                 </article>
               </div>
             </div>
-          </article>
-
-        </div>
+          </div>
       </div>
     </div>
   </section>
@@ -619,8 +613,7 @@
         </h2>
 
         <p class="body--md m-t-spacer-xs m-b-spacer-0 choke-700">
-          These key terms summarise the main investment terms. Together with the loan conditions,
-          they form part of the legal agreement that defines the terms of the investment.
+          Together with the Loan Conditions (available below), the Key Terms form the legal agreement that defines the terms of your investment.
         </p>
       </header>
 
@@ -1212,9 +1205,28 @@
       return formatPercentFromDecimal(average);
     }
 
+    function averageForPastMonths(months) {
+      const end = new Date();
+      const start = new Date(end);
+      start.setMonth(start.getMonth() - months);
+
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate <= end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
       averageRate2024: averageForYear(2024)
