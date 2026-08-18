@@ -575,7 +575,7 @@
       const interestDate2 = calculator.getAttribute("data-interest-date-2") || "December";
 
       const paymentCount = termYears * 2;
-      const interestPayment = amount * (rate / 100) / 2;
+      const interestPayment = Math.round((amount * (rate / 100) / 2) * 100) / 100;
       const totalInterest = interestPayment * paymentCount;
       const capitalRepaid = amount;
       const totalReturned = capitalRepaid + totalInterest;
