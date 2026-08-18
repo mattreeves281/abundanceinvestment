@@ -1223,12 +1223,27 @@
       return formatPercentFromDecimal(average);
     }
 
+    function averageForAllHistoric() {
+      const matches = loansWithRates.filter(function (loan) {
+        return !includesStatus(loan.raiseStatus, "open");
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
       averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
+      averageRateAllHistoric: averageForAllHistoric(),
       averageRate2024: averageForYear(2024)
     };
   }

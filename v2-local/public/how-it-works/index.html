@@ -1168,12 +1168,12 @@
               
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
 <p class="abundance-eyebrow">
-                Average 2024 interest rate
+                Avg of all investments
               </p>
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
               <div class="p-t-spacer-2xs" aria-hidden="true">
               </div>
-              <p class="abundance-stat m-b-spacer-0" data-abv2-rate-stat="averageRate2024">
+              <p class="abundance-stat m-b-spacer-0" data-abv2-rate-stat="averageRateAllHistoric">
                 4.1%
               </p>
             </div>
@@ -2381,12 +2381,27 @@ long term, low-risk income who also want to see their money making a positive di
       return formatPercentFromDecimal(average);
     }
 
+    function averageForAllHistoric() {
+      const matches = loansWithRates.filter(function (loan) {
+        return !includesStatus(loan.raiseStatus, "open");
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
       averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
+      averageRateAllHistoric: averageForAllHistoric(),
       averageRate2024: averageForYear(2024)
     };
   }
