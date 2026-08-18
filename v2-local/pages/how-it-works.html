@@ -347,7 +347,7 @@
       <div class="p-t-spacer-xs" aria-hidden="true">
       </div>
 
-<article class="si-card si-card--secondary p-all-spacer-md" data-abv2-growth-calculator>
+<article class="si-card si-card--secondary p-all-spacer-lg" data-abv2-growth-calculator>
   <h3 class="si-heading-3 m-b-spacer-0">
     How your money can grow
   </h3>
@@ -365,122 +365,112 @@
   >
   <div class="p-t-spacer-sm" aria-hidden="true"></div>
 
-  <div class="row row-cols-1 row-cols-sm-2 gx-2xs gy-2xs">
+  <div class="row row-cols-1 row-cols-md-2 gx-md gy-sm align-items-stretch">
     <div>
-      <div class="si-form-group abundance-form-group abundance-form-group--neutral">
-        <label class="si-input-label" for="abv2-growth-single-amount">
-          One-off deposit
-        </label>
+      <div class="display--flex flex-direction--column flex-gap--sm h-100">
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <label class="si-input-label" for="abv2-growth-single-amount">
+            One-off deposit
+          </label>
 
-        <div class="si-input-wrapper">
-          <input
-            class="si-input si-input--has-prefix"
-            id="abv2-growth-single-amount"
-            type="number"
-            min="0"
-            step="100"
-            value="10000"
-            inputmode="decimal"
-            currency="GBP"
-            aria-describedby="abv2-growth-single-error"
-            data-abv2-growth-single-input
-          >
-          <div class="si-input-prefix">£</div>
+          <div class="si-input-wrapper">
+            <input
+              class="si-input si-input--has-prefix"
+              id="abv2-growth-single-amount"
+              type="number"
+              min="0"
+              step="100"
+              value="10000"
+              inputmode="decimal"
+              currency="GBP"
+              aria-describedby="abv2-growth-single-error"
+              data-abv2-growth-single-input
+            >
+            <div class="si-input-prefix">£</div>
+          </div>
+
+          <p id="abv2-growth-single-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-single-error hidden>
+            Please enter £5 or more, or leave this as £0.
+          </p>
         </div>
 
-        <p id="abv2-growth-single-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-single-error hidden>
-          Please enter £5 or more, or leave this as £0.
-        </p>
-      </div>
-    </div>
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <label class="si-input-label" for="abv2-growth-regular-amount">
+            Monthly payment
+          </label>
 
-    <div>
-      <div class="si-form-group abundance-form-group abundance-form-group--neutral">
-        <label class="si-input-label" for="abv2-growth-regular-amount">
-          Monthly payment
-        </label>
+          <div class="si-input-wrapper">
+            <input
+              class="si-input si-input--has-prefix"
+              id="abv2-growth-regular-amount"
+              type="number"
+              min="0"
+              step="100"
+              value="100"
+              inputmode="decimal"
+              currency="GBP"
+              aria-describedby="abv2-growth-regular-error"
+              data-abv2-growth-regular-input
+            >
+            <div class="si-input-prefix">£</div>
+          </div>
 
-        <div class="si-input-wrapper">
-          <input
-            class="si-input si-input--has-prefix"
-            id="abv2-growth-regular-amount"
-            type="number"
-            min="0"
-            step="100"
-            value="100"
-            inputmode="decimal"
-            currency="GBP"
-            aria-describedby="abv2-growth-regular-error"
-            data-abv2-growth-regular-input
-          >
-          <div class="si-input-prefix">£</div>
+          <p id="abv2-growth-regular-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-regular-error hidden>
+            Please enter £5 or more, or leave this as £0.
+          </p>
         </div>
 
-        <p id="abv2-growth-regular-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-regular-error hidden>
-          Please enter £5 or more, or leave this as £0.
-        </p>
-      </div>
-    </div>
-  </div>
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <label class="si-input-label" for="abv2-growth-rate">
+            Interest rate (%)
+          </label>
 
-  <div class="row row-cols-1 row-cols-md-2 gx-2xs gy-2xs m-t-spacer-xs">
-    <div>
-      <div class="si-form-group abundance-form-group abundance-form-group--neutral">
-        <label class="si-input-label" for="abv2-growth-rate">
-          Interest rate (%)
-        </label>
-
-        <div class="si-input-wrapper" style="max-width:10rem;">
-          <input
-            class="si-input"
-            id="abv2-growth-rate"
-            type="number"
-            min="0"
-            step="0.1"
-            value="4.55"
-            inputmode="decimal"
-            aria-describedby="abv2-growth-rate-help"
-            data-abv2-growth-rate-input
-          >
+          <div class="si-input-wrapper" style="max-width:10rem;">
+            <input
+              class="si-input"
+              id="abv2-growth-rate"
+              type="number"
+              min="0"
+              step="0.1"
+              value="4.55"
+              inputmode="decimal"
+              aria-describedby="abv2-growth-rate-help"
+              data-abv2-growth-rate-input
+            >
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div>
-      <div class="si-form-group abundance-form-group abundance-form-group--neutral">
-        <p class="si-input-label m-b-spacer-2xs" id="abv2-growth-term-label">
-          Period of investment
-        </p>
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <p class="si-input-label m-b-spacer-2xs" id="abv2-growth-term-label">
+            Period of investment
+          </p>
 
-        <input type="hidden" value="10" data-abv2-growth-term-input>
+          <input type="hidden" value="10" data-abv2-growth-term-input>
 
-        <div class="abundance-chip-nav" role="group" aria-labelledby="abv2-growth-term-label">
-          <ul>
-            <li>
-              <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="3" aria-pressed="false">
-                3 years
-              </button>
-            </li>
-            <li>
-              <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="5" aria-pressed="false">
-                5 years
-              </button>
-            </li>
-            <li>
-              <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="10" aria-pressed="true">
-                10 years
-              </button>
-            </li>
-          </ul>
+          <div class="abundance-chip-nav" role="group" aria-labelledby="abv2-growth-term-label">
+            <ul>
+              <li>
+                <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="3" aria-pressed="false">
+                  3 years
+                </button>
+              </li>
+              <li>
+                <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="5" aria-pressed="false">
+                  5 years
+                </button>
+              </li>
+              <li>
+                <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="10" aria-pressed="true">
+                  10 years
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="p-t-spacer-sm" aria-hidden="true"></div>
-
-  <div class="row row-cols-1 row-cols-md-2 gx-2xs gy-2xs align-items-stretch" aria-live="polite">
-    <div>
+    <div aria-live="polite">
       <article class="si-card si-card--secondary p-all-spacer-sm h-100">
         <div class="p-t-spacer-3xs" aria-hidden="true"></div>
         <p class="abundance-eyebrow brand-secondary">
@@ -523,14 +513,6 @@
             £8,723
           </p>
         </div>
-      </article>
-    </div>
-
-    <div>
-      <article class="si-card si-card--secondary p-all-spacer-sm h-100">
-        <p class="abundance-body-compact m-b-spacer-0">
-          Based on your one-off deposit and monthly payments invested over the years, with all interest and repaid capital reinvested on a monthly basis.
-        </p>
       </article>
     </div>
   </div>
