@@ -157,26 +157,39 @@
         "intro": "The rates on our municipal investments are competitive with other long term saving and investment products of similar risk level. They remain fixed for the entire investment term.",
         "cards": [
           {
-            "label": "Today's rate",
+            "label": "Rate if you invest today",
             "value": "4.55%",
             "color": "pink"
           },
           {
-            "label": "2025 avg",
-            "value": "4.2%",
+            "label": "12 months avg interest rate",
+            "value": "4.09%",
             "color": "teal"
           },
           {
-            "label": "2024 avg",
-            "value": "4.2%",
+            "label": "2025 average rate",
+            "value": "4.10%",
             "color": "yellow"
           },
           {
-            "label": "2023 avg",
-            "value": "4.1%",
+            "label": "Avg of all investments",
+            "value": "3.70%",
             "color": "grey"
           }
         ]
+      }
+    },
+    {
+      "id": "warning-1787136096799-2981d40e07685",
+      "type": "warning",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "body": "Past performance is not a guide to future performance. Interest rates on future municipal investments will vary. Figures shown are an average of the rate on municipal investments opened in that period."
       }
     },
     {

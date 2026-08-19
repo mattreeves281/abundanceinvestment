@@ -1647,9 +1647,15 @@ function renderBars(lines) {
 
 function renderInvestmentChoices(fields) {
   return row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">
-    <h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
-    ${paragraph(fields.body, "body-lg", "18px", "29px", fields.ctaLabel ? "0 0 22px 0" : "0")}
-    ${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-left:5px solid ${colors.teal};border-collapse:separate !important;">
+      <tr>
+        <td style="padding:2px 0 2px 24px;">
+          <h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
+          ${paragraph(fields.body, "body-lg", "18px", "29px", fields.ctaLabel ? "0 0 22px 0" : "0")}
+          ${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}
+        </td>
+      </tr>
+    </table>
   </td>`);
 }
 
