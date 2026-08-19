@@ -332,8 +332,241 @@
         </div>
       </article>
 
+      <div class="p-t-spacer-xs" aria-hidden="true">
+      </div>
 
+<article class="si-card si-card--secondary p-all-spacer-lg" id="growth-calculator" data-abv2-growth-calculator>
+  <h3 class="si-heading-3 m-b-spacer-0">
+    How your money can grow
+  </h3>
+  <div class="p-t-spacer-2xs" aria-hidden="true"> </div>
 
+  <p>
+    Reinvesting your returns is an easy way to grow your pot. Use the calculator below to get an idea of how your money can grow when you keep it working.
+  </p>
+
+  <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+  <hr
+    class="si-horizontal-rule m-t-spacer-xs"
+    style="border-color:var(--abv2-pink, #f27fae); opacity:1;"
+  >
+  <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+  <div class="row row-cols-1 row-cols-md-2 gx-md gy-sm align-items-stretch">
+    <div>
+      <div class="display--flex flex-direction--column flex-gap--sm h-100">
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <label class="si-input-label" for="abv2-growth-single-amount">
+            One-off deposit
+          </label>
+
+          <div class="si-input-wrapper">
+            <input
+              class="si-input si-input--has-prefix"
+              id="abv2-growth-single-amount"
+              type="number"
+              min="0"
+              step="100"
+              value="10000"
+              inputmode="decimal"
+              currency="GBP"
+              aria-describedby="abv2-growth-single-error"
+              data-abv2-growth-single-input
+            >
+            <div class="si-input-prefix">£</div>
+          </div>
+
+          <p id="abv2-growth-single-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-single-error hidden>
+            Please enter £5 or more, or leave this as £0.
+          </p>
+        </div>
+
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <label class="si-input-label" for="abv2-growth-regular-amount">
+            Monthly payment
+          </label>
+
+          <div class="si-input-wrapper">
+            <input
+              class="si-input si-input--has-prefix"
+              id="abv2-growth-regular-amount"
+              type="number"
+              min="0"
+              step="100"
+              value="100"
+              inputmode="decimal"
+              currency="GBP"
+              aria-describedby="abv2-growth-regular-error"
+              data-abv2-growth-regular-input
+            >
+            <div class="si-input-prefix">£</div>
+          </div>
+
+          <p id="abv2-growth-regular-error" class="abundance-body-compact m-t-spacer-2xs m-b-spacer-0 brand-primary" data-abv2-growth-regular-error hidden>
+            Please enter £5 or more, or leave this as £0.
+          </p>
+        </div>
+
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <label class="si-input-label" for="abv2-growth-rate">
+            Interest rate (%)
+          </label>
+
+          <div class="si-input-wrapper" style="max-width:10rem;">
+            <input
+              class="si-input"
+              id="abv2-growth-rate"
+              type="number"
+              min="0"
+              step="0.1"
+              value="4.55"
+              inputmode="decimal"
+              aria-describedby="abv2-growth-rate-help"
+              data-abv2-growth-rate-input
+            >
+          </div>
+        </div>
+
+        <div class="si-form-group abundance-form-group abundance-form-group--neutral">
+          <p class="si-input-label m-b-spacer-2xs" id="abv2-growth-term-label">
+            Period of investment
+          </p>
+
+          <input type="hidden" value="10" data-abv2-growth-term-input>
+
+          <div class="abundance-chip-nav" role="group" aria-labelledby="abv2-growth-term-label">
+            <ul>
+              <li>
+                <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="3" aria-pressed="false">
+                  3 years
+                </button>
+              </li>
+              <li>
+                <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="5" aria-pressed="false">
+                  5 years
+                </button>
+              </li>
+              <li>
+                <button class="abundance-chip-link" type="button" data-abv2-growth-term-button data-term-years="10" aria-pressed="true">
+                  10 years
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div aria-live="polite">
+      <article class="si-card si-card--secondary p-all-spacer-sm h-100">
+        <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+        <div class="p-t-spacer-xs display--none display-mobile--block" aria-hidden="true"></div>
+        <p class="abundance-eyebrow brand-secondary">
+          Estimated value after <span data-abv2-growth-term-label>10 years</span>
+        </p>
+        <div class="p-t-spacer-3xs display-mobile--none" aria-hidden="true"></div>
+        <div class="p-t-spacer-xs display--none display-mobile--block" aria-hidden="true"></div>
+
+        <p class="si-heading-3 m-b-spacer-0" data-abv2-growth-result>
+          £30,723
+        </p>
+
+        <div class="p-t-spacer-xs display-mobile--none" aria-hidden="true"></div>
+        <div class="p-t-spacer-md display--none display-mobile--block" aria-hidden="true"></div>
+
+        <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-y-spacer-0">
+
+        <div class="p-t-spacer-3xs display-mobile--none" aria-hidden="true"></div>
+        <div class="p-t-spacer-sm display--none display-mobile--block" aria-hidden="true"></div>
+
+        <div>
+          <p class="abundance-eyebrow">
+            Total paid in
+          </p>
+          <div class="p-t-spacer-3xs display-mobile--none" aria-hidden="true"></div>
+          <div class="p-t-spacer-xs display--none display-mobile--block" aria-hidden="true"></div>
+
+          <p class="si-heading-4 m-b-spacer-2xs" data-abv2-growth-paid-in>
+            £22,000
+          </p>
+        </div>
+
+        <div class="p-t-spacer-xs display-mobile--none" aria-hidden="true"></div>
+        <div class="p-t-spacer-md display--none display-mobile--block" aria-hidden="true"></div>
+
+        <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-y-spacer-0">
+
+        <div class="p-t-spacer-3xs display-mobile--none" aria-hidden="true"></div>
+        <div class="p-t-spacer-sm display--none display-mobile--block" aria-hidden="true"></div>
+
+        <div>
+          <p class="abundance-eyebrow">
+            Estimated growth
+          </p>
+          <div class="p-t-spacer-3xs display-mobile--none" aria-hidden="true"></div>
+          <div class="p-t-spacer-xs display--none display-mobile--block" aria-hidden="true"></div>
+
+          <p class="si-heading-4 m-b-spacer-2xs" data-abv2-growth-return>
+            £8,723
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div id="abv2-growth-rate-help" class="abundance-disclaimer m-t-spacer-sm">
+    <p class="abundance-body-compact m-b-spacer-xs">
+      This is just an estimate of your future portfolio based on an example interest rate and the below assumptions. The interest rate on new municipal investments will vary over time. <a class="si-link si-link--accent" href="/loan-disclosures"><strong><span data-abv2-growth-rate-label>4.55%</span></strong> is the average interest rate of all historic municipal investments</a> to date, with a minimum rate of <strong><span data-abv2-growth-min-rate-label>4.1%</span></strong> and a maximum of <strong><span data-abv2-growth-max-rate-label>4.85%</span></strong>. Past performance is not a guide to future performance.
+    </p>
+
+    <div class="abundance-accordion--sm" id="abv2-growth-calculator-assumptions">
+      <div class="si-accordion-item" id="abv2-growth-calculator-assumptions-item-1">
+        <button
+          class="si-accordion-item__header-btn collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#abv2-growth-calculator-assumptions-collapse-1"
+          aria-expanded="false"
+          aria-controls="abv2-growth-calculator-assumptions-collapse-1">
+
+          <div class="si-accordion-item__header-interior">
+            <div class="si-accordion-item__header-text-container">
+              <div class="si-accordion-item__heading">
+                Assumptions
+              </div>
+            </div>
+
+            <div class="si-accordion-item__header-icon-container">
+              <div class="si-accordion-item__icon si-icon si-icon--sm"></div>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div
+        id="abv2-growth-calculator-assumptions-collapse-1"
+        class="accordion-collapse collapse"
+        aria-labelledby="abv2-growth-calculator-assumptions-item-1"
+        data-bs-parent="#abv2-growth-calculator-assumptions">
+
+        <div class="si-accordion-item__body">
+          <p class="abundance-body-compact m-b-spacer-xs">
+            The calculation is for illustrative purposes only and is based on the following assumptions:
+          </p>
+          <ul class="abundance-body-compact m-b-spacer-0">
+            <li>All municipal investments have the same interest rate, inputted above. In reality the interest rate will vary on new municipal investments and could be higher or lower than the figure entered.</li>
+            <li>Your one-off deposit is invested immediately. Any monthly deposit is invested each month, alongside any interest or capital repayment you’ve received back, provided the amount available to invest is at least £5.</li>
+            <li>All loans are 5 years, repay capital at maturity, and interest is paid every 6 months from the point of each investment.</li>
+            <li>There are always municipal investments available to invest in. If there are periods with no open investment, this would affect your portfolio growth.</li>
+            <li>No council defaults on a municipal investment. <a class="si-link si-link--accent" href="/understanding-the-risks">Historically a council has never defaulted on its debt</a>, but past performance is not a guide to future performance.</li>
+            <li>Figures shown are gross of any tax owed. Personal tax rates may apply which may affect your overall returns.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
 
     </div>
   </section>
