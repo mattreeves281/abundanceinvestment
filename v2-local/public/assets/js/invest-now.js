@@ -525,6 +525,10 @@
       return Number.isFinite(number) ? number : 0;
     }
 
+    function floorToPence(value) {
+      return Math.floor((value + Number.EPSILON) * 100) / 100;
+    }
+
     function formatRate(value) {
       const number = parseNumber(value);
       return number.toFixed(2).replace(/\.00$/, "") + "%";
@@ -577,7 +581,7 @@
       const interestDate2 = calculator.getAttribute("data-interest-date-2") || "December";
 
       const paymentCount = termYears * 2;
-      const interestPayment = Math.round((amount * (rate / 100) / 2) * 100) / 100;
+      const interestPayment = floorToPence(amount * (rate / 100) / 2);
       const totalInterest = interestPayment * paymentCount;
       const capitalRepaid = amount;
       const totalReturned = capitalRepaid + totalInterest;
