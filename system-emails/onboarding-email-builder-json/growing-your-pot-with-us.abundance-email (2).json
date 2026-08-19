@@ -1,0 +1,206 @@
+{
+  "name": "growing-your-pot-with-us",
+  "subject": "Growing your pot with us",
+  "previewText": "Earn a stable long-term income",
+  "blocks": [
+    {
+      "id": "growing-your-pot-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "growing-your-pot-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Growing your pot with us",
+        "body": "Whether you’re investing a little or a lot, we offer a simple way to grow your savings. You can either withdraw your cash as regular payments, or re-invest them to keep your money working."
+      }
+    },
+    {
+      "id": "divider-1786972402433-4f7b2ca2959878",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-right-teal-to-transparent@6x.png",
+        "spacing": "26"
+      }
+    },
+    {
+      "id": "growing-your-pot-comparison",
+      "type": "twoUpCards",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Two ways to build your pot with Abundance",
+        "intro": "",
+        "cards": [
+          {
+            "title": "Invest regularly",
+            "body": "Build your pot through regular standing order\n\nNo fees means all your money gets invested\n\nReinvest your returns to keep your pot growing",
+            "ctaLabel": "",
+            "ctaUrl": ""
+          },
+          {
+            "title": "Single deposit",
+            "body": "Add money to your account when it suits you\n\nInvest in one council or split across several\n\nReinvest returns to grow your pot, or withdraw cash to spend",
+            "ctaLabel": "",
+            "ctaUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "investmentChoices-1787135238403-adc1c2af2b7738",
+      "type": "investmentChoices",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "See how you can grow your pot",
+        "body": "Reinvesting your returns is an easy way to grow your pot. Use our calculator to get an idea of how your money can grow when you keep it working.",
+        "ctaLabel": "Try the calculator",
+        "ctaUrl": "https://www.abundanceinvestment.com/how-it-works#growth-calculator"
+      }
+    },
+    {
+      "id": "growing-your-pot-key-features",
+      "type": "threeUpBlobCards",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Municipal investment key features",
+        "intro": "",
+        "cards": [
+          {
+            "numberImage": "1.png",
+            "title": "Long-term and low-risk",
+            "body": "There is no record of a UK council defaulting on a debt",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "2.png",
+            "title": "Competitive rates of return",
+            "body": "Fixed returns for the full investment term",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "3.png",
+            "title": "Regular cash payments",
+            "body": "Interest paid every 6 months, withdraw as cash or reinvest",
+            "linkLabel": "",
+            "linkUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "growing-your-pot-learn-more",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "Learn more",
+        "ctaUrl": "https://www.abundanceinvestment.com/how-it-works",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "growing-your-pot-divider-features",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-fall-left-pink-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "growing-your-pot-rates",
+      "type": "rateCards",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "How our rates compare",
+        "intro": "The rates on our municipal investments are competitive with other long term saving and investment products of similar risk level. They remain fixed for the entire investment term.",
+        "cards": [
+          {
+            "label": "Rate if you invest today",
+            "value": "4.55%",
+            "color": "pink"
+          },
+          {
+            "label": "12 months avg interest rate",
+            "value": "4.09%",
+            "color": "teal"
+          },
+          {
+            "label": "2025 average rate",
+            "value": "4.10%",
+            "color": "yellow"
+          },
+          {
+            "label": "Avg of all investments",
+            "value": "3.70%",
+            "color": "grey"
+          }
+        ]
+      }
+    },
+    {
+      "id": "warning-1787136096799-2981d40e07685",
+      "type": "warning",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "body": "Past performance is not a guide to future performance. Interest rates on future municipal investments will vary. Figures shown are an average of the rate on municipal investments opened in that period."
+      }
+    },
+    {
+      "id": "growing-your-pot-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}
