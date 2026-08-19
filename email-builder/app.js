@@ -1469,7 +1469,16 @@ function renderExactEmailHtml(email, options = {}) {
     const exactBlock = exactLibrary.blocks[item.type];
     return exactBlock && !item.customized ? applyLiquidCondition(exactBlock.html, item.condition, options) : renderBlock(item, options);
   }).join("");
-  return `${exactLibrary.shellBefore}${blocks}${exactLibrary.shellAfter}`;
+  return `${prepareExactShellBefore(email)}${blocks}${exactLibrary.shellAfter}`;
+}
+
+function prepareExactShellBefore(email) {
+  const label = escapeAttr(email.name || "Abundance email");
+  const preheader = escapeHtml(email.previewText || "");
+  return exactLibrary.shellBefore
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(email.subject || email.name || "Abundance email")}</title>`)
+    .replace(/aria-label="[^"]*"/, `aria-label="${label}"`)
+    .replace(/<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;font-family:Arial,sans-serif;color:#faf8f8;">[\s\S]*?<\/div>/, `<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;font-family:Arial,sans-serif;color:#faf8f8;">${preheader}</div>`);
 }
 
 function renderBlock(item, options = {}) {
