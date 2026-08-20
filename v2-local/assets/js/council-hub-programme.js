@@ -32,6 +32,10 @@
       return 0;
     }
 
+    function floorToPence(value) {
+      return Math.floor((value + Number.EPSILON) * 100) / 100;
+    }
+
     function firstValue(value) {
       if (Array.isArray(value)) return value.length ? value[0] : "";
       return value || "";
@@ -305,7 +309,7 @@
       const interestDate2 = calculator.getAttribute("data-interest-date-2") || "December";
 
       const paymentCount = termYears * 2;
-      const interestPayment = amount * (rate / 100) / 2;
+      const interestPayment = floorToPence(amount * (rate / 100) / 2);
       const totalInterest = interestPayment * paymentCount;
       const capitalRepaid = amount;
       const totalReturned = capitalRepaid + totalInterest;

@@ -1,7 +1,11 @@
 (function () {
-  const forceNoOpenLoansForPreview = true;
-  const list = document.querySelector("[data-abv2-open-investments-list]");
-  if (!list || !window.AbundanceLiveStats) return;
+  const forceNoOpenLoansForPreview = false;
+  const listSelector = "[data-abv2-open-investments-list]";
+  let openInvestmentsObserver;
+
+  function getList() {
+    return document.querySelector(listSelector);
+  }
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -136,6 +140,9 @@
   }
 
   function renderFallback() {
+    const list = getList();
+    if (!list) return;
+
     list.innerHTML = `
       <div class="col-12">
         <p class="body--lg text-center m-b-spacer-0">
@@ -199,46 +206,100 @@
     return null;
   }
 
-  Promise.all([
-    window.AbundanceLiveStats.fetchCouncils(),
-    window.AbundanceLiveStats.fetchLoans()
-  ])
-    .then(function ([councils, loans]) {
-      const councilsById = new Map();
-      const councilsByName = new Map();
+  function renderOpenInvestments() {
+    const list = getList();
+    if (!list || !window.AbundanceLiveStats) return false;
 
-      councils.forEach(function (record) {
-        if (record && record.id) councilsById.set(record.id, record);
-        councilsByName.set(councilKey(record), record);
-      });
+    Promise.all([
+      window.AbundanceLiveStats.fetchCouncils(),
+      window.AbundanceLiveStats.fetchLoans()
+    ])
+      .then(function ([councils, loans]) {
+        const councilsById = new Map();
+        const councilsByName = new Map();
 
-      const openCouncils = [];
-      const seen = new Set();
-
-      loans
-        .filter(function (loan) {
-          return includesStatus(getValue(loan, "raiseStatus"), "open");
-        })
-        .forEach(function (loan) {
-          const council = findCouncilForLoan(loan, councilsById, councilsByName);
-          if (!council) return;
-
-          const key = council.id || councilKey(council);
-          if (seen.has(key)) return;
-
-          seen.add(key);
-          openCouncils.push(council);
+        councils.forEach(function (record) {
+          if (record && record.id) councilsById.set(record.id, record);
+          councilsByName.set(councilKey(record), record);
         });
 
-      if (forceNoOpenLoansForPreview || !openCouncils.length) {
+        const openCouncils = [];
+        const seen = new Set();
+
+        loans
+          .filter(function (loan) {
+            return includesStatus(getValue(loan, "raiseStatus"), "open");
+          })
+          .forEach(function (loan) {
+            const council = findCouncilForLoan(loan, councilsById, councilsByName);
+            if (!council) return;
+
+            const key = council.id || councilKey(council);
+            if (seen.has(key)) return;
+
+            seen.add(key);
+            openCouncils.push(council);
+          });
+
+        if (forceNoOpenLoansForPreview || !openCouncils.length) {
+          renderFallback();
+          return;
+        }
+
+        const currentList = getList();
+        if (currentList) currentList.innerHTML = openCouncils.map(renderTile).join("");
+      })
+      .catch(function (error) {
+        console.error("Open investments failed:", error);
         renderFallback();
-        return;
+      });
+
+    return true;
+  }
+
+  function refreshHomepageData() {
+    if (window.AbundanceLiveStats && window.AbundanceLiveStats.refreshCouncilStats) {
+      window.AbundanceLiveStats.refreshCouncilStats();
+    }
+
+    if (renderOpenInvestments()) {
+      if (openInvestmentsObserver) {
+        openInvestmentsObserver.disconnect();
+        openInvestmentsObserver = null;
       }
 
-      list.innerHTML = openCouncils.map(renderTile).join("");
-    })
-    .catch(function (error) {
-      console.error("Open investments failed:", error);
-      renderFallback();
+      return;
+    }
+
+    watchForOpenInvestmentsList();
+  }
+
+  function watchForOpenInvestmentsList() {
+    if (openInvestmentsObserver || !document.body) return;
+
+    openInvestmentsObserver = new MutationObserver(function () {
+      refreshHomepageData();
     });
+
+    openInvestmentsObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", refreshHomepageData);
+  } else {
+    refreshHomepageData();
+  }
+
+  window.addEventListener("pageshow", function () {
+    window.setTimeout(refreshHomepageData, 0);
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      window.setTimeout(refreshHomepageData, 0);
+    }
+  });
 })();

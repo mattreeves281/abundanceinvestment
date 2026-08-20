@@ -1,6 +1,6 @@
 <script>
   (function () {
-    const forceNoOpenLoansForPreview = true;
+    const forceNoOpenLoansForPreview = false;
     const keyTermsData = {
       "hammersmith-fulham": {
         investmentName: "H&F Green Investment",
@@ -49,24 +49,26 @@
       "glasgow": {
         investmentName: "Glasgow Green Investment",
         borrower: "Glasgow City Council",
-        useOfFunds: "Funding eligible green projects under the Green Finance Framework",
-        interestRate: "4.5%",
-        termPeriod: "5 years after the end of the initial interest period",
-        maturityDate: "30 June 2031",
-        capitalRepaid: "Original investment repaid on maturity date",
-        offerOpenDate: "2 March 2026",
-        offerCloseDate: "3 September 2026",
+        useOfFunds: "Funding Eligible Green Projects under the Green Finance Framework.",
+        interestRate: "4.55% a year",
+        interestRateNote: "This is the interest rate paid by the Borrower to lenders and does not include the cost of fees paid to Abundance in its role as Arranger and Agent.",
+        termPeriod: "5 years after end of 'Initial interest period'",
+        maturityDate: "30 September 2031",
+        capitalRepaid: "Lump sum on maturity",
+        offerOpenDate: "18 June 2026",
+        offerCloseDate: "2 September 2026",
+        offerCloseDateNote: "The Loan Opportunity may be withdrawn before the Offer Close Date at the Borrower's discretion subject to it posting notice of withdrawal on the Abundance website.",
         minimumBorrowingAmount: "£5.00",
-        maximumBorrowingAmount: "£1 million",
-        initialInterestPeriod: "This will start on the date the lender makes their investment and ends on 30 June 2026.",
-        interestPeriods: "From 1 July to 30 December and 1 January to 30 June each year, starting from 1 July 2026.",
-        returnStructure: "Semi-annual payments of Interest on the last day of each Interest Period. Capital is repaid as a lump sum on the Maturity Date.",
+        maximumBorrowingAmount: "£1,400,000",
+        initialInterestPeriod: "This will start on the date the lender makes their investment and ends on 30 September 2026.",
+        interestPeriods: "From 1 October to 31 March and 1 April to 30 September each year, starting from 1 October 2026.",
+        returnStructure: "10 semi-annual payments of Interest on the last day of each Interest Period. Capital is repaid as a lump sum on the Maturity Date.",
         arrangementFee: "1.20% of the total loan amount raised",
         arrangementFeeNote: "This is the fee paid to Abundance in its role as Arranger. The interest rate above is quoted after fees.",
         managementFee: "0.10% of the outstanding loan amount, per year",
         managementFeeNote: "This is the fee paid to Abundance in its role as Agent. The interest rate above is quoted after fees.",
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
-        loanConditionsUrl: "https://www.abundanceinvestment.com/example/glasgow-loan-conditions.pdf"
+        loanConditionsUrl: "https://cdn4.sharein.com/abundance/docs/e2ee5ec6-3b21-4a6a-bb9a-a28bfd5a113b.pdf?_gl=1*a3jccz*_gcl_au*MTg3NDIzMzQ5OS4xNzgwOTA2OTA5Li0uLS4xNzg0MjgxMDAxLjEyNjI4NjQyNTMuMTc4NzA4OTg1NS4xNzg3MDg5ODU0"
       },
       "southwark": {
         investmentName: "Southwark Green Investment",
@@ -282,18 +284,18 @@
             <div>
               <a
                 class="si-card si-card--xs abundance-card--interactive card-with-main-action h-100 text-decoration-none"
-                href="/how-it-works#growing-your-pot"
+                href="/tax-free-isa-investing"
               >
                 <span class="abundance-blob abundance-blob--yellow abundance-blob--md">
                   2
                 </span>
                 <div class="p-t-spacer-2xs" aria-hidden="true"></div>
                 <h4 class="si-heading-5 m-b-spacer-0">
-                  Grow your money
+                  Tax free investing
                 </h4>
                 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                 <p class="abundance-body-compact m-b-spacer-0">
-                  It is a simple way to grow your money, if you have a little or a lot
+                  Invest through an IF ISA and get tax free returns
                 </p>
                 <span class="abundance-action-text brand-primary m-t-spacer-xs">
                   Learn more
@@ -523,6 +525,10 @@
       return Number.isFinite(number) ? number : 0;
     }
 
+    function floorToPence(value) {
+      return Math.floor((value + Number.EPSILON) * 100) / 100;
+    }
+
     function formatRate(value) {
       const number = parseNumber(value);
       return number.toFixed(2).replace(/\.00$/, "") + "%";
@@ -575,7 +581,7 @@
       const interestDate2 = calculator.getAttribute("data-interest-date-2") || "December";
 
       const paymentCount = termYears * 2;
-      const interestPayment = amount * (rate / 100) / 2;
+      const interestPayment = floorToPence(amount * (rate / 100) / 2);
       const totalInterest = interestPayment * paymentCount;
       const capitalRepaid = amount;
       const totalReturned = capitalRepaid + totalInterest;

@@ -263,7 +263,7 @@
 <div class="p-t-spacer-2xs" aria-hidden="true">
         </div>
         <p class="m-t-spacer-0 m-b-spacer-0">
-          The investments are long term - usually five years - with rates fixed for the whole term. Check you are happy with this before you invest, remembering that interest rates on other financial products may go up and down during the investment term.
+          The investments are long term - usually five years - with the interest rate fixed for the whole term. You won’t be able to withdraw your money early if you need it (although you can try and sell your investment). Check you are happy with this before you invest, remembering that interest rates on other financial products may go up and down during the investment term.
         </p>
         <div class="p-t-spacer-md" aria-hidden="true">
         </div>
@@ -408,7 +408,7 @@
             >
               <div class="si-accordion-item__body">
                 <span>
-                  No, a savings account is a deposit product. A municipal investment is an investment where
+                  No, a savings account is a deposit product, typically with a bank. A municipal investment is an investment where
                   you lend money to a council.
                 </span>
               </div>
@@ -446,7 +446,7 @@
             >
               <div class="si-accordion-item__body">
                 <span>
-                  No, councils cannot go bankrupt. Bankruptcy is a concept that applies to companies. You can learn more about councils' financial controls, including what happens if they get into trouble <a class="si-link si-link--accent" href="#capital-risk" target="_blank" rel="noopener">here</a>.
+                  No, councils cannot go bankrupt. Bankruptcy is a concept that applies to companies. You can learn more about councils' financial controls, including what happens if they get into financial trouble <a class="si-link si-link--accent" href="#capital-risk" target="_blank" rel="noopener">here</a>.
                 </span>
               </div>
             </div>
@@ -520,7 +520,7 @@
           "
       aria-hidden="true">
           <img class="d-none d-md-block"
-            src="https://cdn4.sharein.com/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+            src="https://shareinmicrosite.blob.core.windows.net/abundance/c91da5c6-7e8f-4288-844b-d1181d8d0b73.png"
             alt=""
             loading="lazy"
             decoding="async"
@@ -989,17 +989,51 @@ budgets. But, crucially for investors, this process can’t be used to avoid pay
       return formatPercentFromDecimal(average);
     }
 
+    function averageForPastMonths(months) {
+      const end = new Date();
+      const start = new Date(end);
+      start.setMonth(start.getMonth() - months);
+
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate <= end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
+    function averageForAllHistoric() {
+      const matches = loansWithRates.filter(function (loan) {
+        return !includesStatus(loan.raiseStatus, "open");
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
+      averageRateAllHistoric: averageForAllHistoric(),
       averageRate2024: averageForYear(2024)
     };
   }
 
   function initCouncilStats() {
-    if (!document.querySelector("[data-abv2-stat]")) return;
+    if (!document.querySelector("[data-abv2-stat]")) return false;
 
     Promise.all([
       fetchRecords(COUNCILS_ENDPOINT, "councils"),
@@ -1011,10 +1045,37 @@ budgets. But, crucially for investors, this process can’t be used to avoid pay
       .catch(function (error) {
         console.error("Council stats failed:", error);
       });
+
+    return true;
+  }
+
+  let councilStatsObserver;
+
+  function initCouncilStatsWhenReady() {
+    if (initCouncilStats()) {
+      if (councilStatsObserver) {
+        councilStatsObserver.disconnect();
+        councilStatsObserver = null;
+      }
+
+      return;
+    }
+
+    if (councilStatsObserver || !document.body) return;
+
+    councilStatsObserver = new MutationObserver(function () {
+      initCouncilStatsWhenReady();
+    });
+
+    councilStatsObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 
   window.AbundanceLiveStats = {
     councilStats: councilStats,
+    refreshCouncilStats: initCouncilStatsWhenReady,
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
@@ -1028,10 +1089,20 @@ budgets. But, crucially for investors, this process can’t be used to avoid pay
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCouncilStats);
+    document.addEventListener("DOMContentLoaded", initCouncilStatsWhenReady);
   } else {
-    initCouncilStats();
+    initCouncilStatsWhenReady();
   }
+
+  window.addEventListener("pageshow", function () {
+    initCouncilStatsWhenReady();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      initCouncilStatsWhenReady();
+    }
+  });
 })();
 </script>
 

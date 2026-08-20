@@ -30,16 +30,19 @@
       return number >= minimumInvestment ? number : 0;
     }
 
-    function roundToNearestPound(value) {
-      return Math.round(value);
-    }
+    function roundedGrowthDisplayAmounts(paidIn, futureValue) {
+      const showPence = Math.abs(futureValue) < 1000;
+      const factor = showPence ? 100 : 1;
+      const decimals = showPence ? 2 : 0;
+      const paidInDisplayValue = Math.round(paidIn * factor) / factor;
+      const returnDisplayValue = Math.round((futureValue - paidIn) * factor) / factor;
+      const futureDisplayValue = paidInDisplayValue + returnDisplayValue;
 
-    function formatGrowthMoney(value, lifetimeValue) {
-      if (Math.abs(lifetimeValue) < 1000) {
-        return formatMoney(value, { decimals: 2 });
-      }
-
-      return formatMoney(roundToNearestPound(value));
+      return {
+        paidIn: formatMoney(paidInDisplayValue, { decimals: decimals }),
+        futureValue: formatMoney(futureDisplayValue, { decimals: decimals }),
+        returnValue: formatMoney(returnDisplayValue, { decimals: decimals })
+      };
     }
 
     function isBelowMinimumContribution(value) {
@@ -215,11 +218,12 @@
         years: years
       });
 
+      const displayAmounts = roundedGrowthDisplayAmounts(paidIn, futureValue);
+
       setText("[data-abv2-growth-term-label]", years + " years");
-      updateGrowthRateLabel();
-      setText("[data-abv2-growth-paid-in]", formatGrowthMoney(paidIn, futureValue));
-      setText("[data-abv2-growth-result]", formatGrowthMoney(futureValue, futureValue));
-      setText("[data-abv2-growth-return]", formatGrowthMoney(futureValue - paidIn, futureValue));
+      setText("[data-abv2-growth-paid-in]", displayAmounts.paidIn);
+      setText("[data-abv2-growth-result]", displayAmounts.futureValue);
+      setText("[data-abv2-growth-return]", displayAmounts.returnValue);
     }
 
     function initGrowthCalculator() {
@@ -279,23 +283,32 @@
       return normaliseStatusItem(value) === normalisedTarget;
     }
 
-    function weightedHistoricRate(records) {
-      const totals = records.reduce(function (acc, record) {
+    function historicRateSummary(records) {
+      const rates = records.reduce(function (acc, record) {
         if (hasStatus(field(record, "raiseStatus"), "Open")) return acc;
 
         const rate = parseRawNumber(field(record, "rateOfReturn"));
-        const amount = parseRawNumber(field(record, "loanAmount")) || parseRawNumber(field(record, "totalRaised"));
-        if (!(rate > 0) || !(amount > 0)) return acc;
+        if (!(rate > 0)) return acc;
 
-        acc.weightedRate += rate * amount;
-        acc.amount += amount;
+        acc.push(rate);
         return acc;
-      }, {
-        weightedRate: 0,
-        amount: 0
-      });
+      }, []);
 
-      return totals.amount > 0 ? totals.weightedRate / totals.amount : null;
+      if (!rates.length) {
+        return {
+          average: null,
+          min: null,
+          max: null
+        };
+      }
+
+      return {
+        average: rates.reduce(function (total, rate) {
+          return total + rate;
+        }, 0) / rates.length,
+        min: Math.min.apply(null, rates),
+        max: Math.max.apply(null, rates)
+      };
     }
 
     function setRateStat(key, value) {
@@ -308,6 +321,22 @@
 
     function defaultRateInputValue(rate) {
       return (rate * 100).toFixed(2).replace(/\.?0+$/, "");
+    }
+
+    function updateHistoricGrowthRateLabels(summary) {
+      if (!summary) return;
+
+      if (Number.isFinite(summary.average) && summary.average > 0) {
+        setText("[data-abv2-growth-rate-label]", defaultRateInputValue(summary.average) + "%");
+      }
+
+      if (Number.isFinite(summary.min) && summary.min > 0) {
+        setText("[data-abv2-growth-min-rate-label]", defaultRateInputValue(summary.min) + "%");
+      }
+
+      if (Number.isFinite(summary.max) && summary.max > 0) {
+        setText("[data-abv2-growth-max-rate-label]", defaultRateInputValue(summary.max) + "%");
+      }
     }
 
     function updateDefaultGrowthRate(rate) {
@@ -334,7 +363,9 @@
             setRateStat(key, stats[key]);
           });
 
-          updateDefaultGrowthRate(weightedHistoricRate(records));
+          const summary = historicRateSummary(records);
+          updateHistoricGrowthRateLabels(summary);
+          updateDefaultGrowthRate(summary.average);
         })
         .catch(function (error) {
           console.error("Historic rate stats failed:", error);

@@ -54,18 +54,37 @@
     const displayDate = escapeHTML(story.displayDate);
     const date = escapeHTML(story.date);
     const thumbnail = escapeHTML(story.thumbnail);
-
-    return `
-      <article class="row gx-sm gy-sm align-items-start">
-
-        <div class="col-5 col-sm-4 col-md-3">
-          <a href="${url}" aria-label="Read ${title}">
+    const imageFit = story.imageFit === "contain" ? "contain" : "cover";
+    const imageHTML = imageFit === "contain"
+      ? `
+            <div
+              class="border-radius--4xl d-flex align-items-center justify-content-center"
+              style="aspect-ratio:1 / 1; overflow:hidden;"
+            >
+              <img
+                class="img-fluid"
+                src="${thumbnail}"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                style="width:100%; height:100%; object-fit:contain;">
+            </div>
+        `
+      : `
             <img
               class="si-image si-image--1-1 border-radius--4xl"
               src="${thumbnail}"
               alt=""
               loading="lazy"
               decoding="async">
+        `;
+
+    return `
+      <article class="row gx-sm gy-sm align-items-start">
+
+        <div class="col-5 col-sm-4 col-md-3">
+          <a href="${url}" aria-label="Read ${title}">
+            ${imageHTML}
           </a>
         </div>
 

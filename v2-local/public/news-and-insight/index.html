@@ -287,7 +287,8 @@
     "url": "/news-pilot-cmi-fully-repaid",
     "date": "2025-11-17",
     "displayDate": "17 Nov 2025",
-    "thumbnail": "https://cdn4.sharein.com/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+    "thumbnail": "https://shareinmicrosite.blob.core.windows.net/abundance/dc1532f0-7d92-4a6f-bec4-ac05f4e013ba.png",
+    "imageFit": "contain"
   },
   {
     "title": "Glasgow issues first Scottish municipal investment",
@@ -303,7 +304,8 @@
     "url": "/news-16-million-boost-for-municipal-investments",
     "date": "2025-05-06",
     "displayDate": "6 May 2025",
-    "thumbnail": "https://cdn4.sharein.com/abundance/ba5ca050-8b1d-45a9-92fc-11dc39336f0e.png"
+    "thumbnail": "https://shareinmicrosite.blob.core.windows.net/abundance/7154f12b-868f-4b14-9199-0798ed5ff738.png",
+    "imageFit": "contain"
   },
   {
     "title": "Bristol launches first investment, supported by EU funding",
@@ -707,17 +709,51 @@
       return formatPercentFromDecimal(average);
     }
 
+    function averageForPastMonths(months) {
+      const end = new Date();
+      const start = new Date(end);
+      start.setMonth(start.getMonth() - months);
+
+      const matches = loansWithRates.filter(function (loan) {
+        return loan.openDate >= start && loan.openDate <= end;
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
+    function averageForAllHistoric() {
+      const matches = loansWithRates.filter(function (loan) {
+        return !includesStatus(loan.raiseStatus, "open");
+      });
+
+      if (!matches.length) return "";
+
+      const average = matches.reduce(function (total, loan) {
+        return total + loan.rateOfReturn;
+      }, 0) / matches.length;
+
+      return formatPercentFromDecimal(average);
+    }
+
     return {
       investTodayRate: mostRecentOpen ? formatPercentFromDecimal(mostRecentOpen.rateOfReturn) : "",
       investTodayRateDecimal: mostRecentOpen ? mostRecentOpen.rateOfReturn : null,
+      averageRatePast12Months: averageForPastMonths(12),
       averageRate2026: averageForYear(2026),
       averageRate2025: averageForYear(2025),
+      averageRateAllHistoric: averageForAllHistoric(),
       averageRate2024: averageForYear(2024)
     };
   }
 
   function initCouncilStats() {
-    if (!document.querySelector("[data-abv2-stat]")) return;
+    if (!document.querySelector("[data-abv2-stat]")) return false;
 
     Promise.all([
       fetchRecords(COUNCILS_ENDPOINT, "councils"),
@@ -729,10 +765,37 @@
       .catch(function (error) {
         console.error("Council stats failed:", error);
       });
+
+    return true;
+  }
+
+  let councilStatsObserver;
+
+  function initCouncilStatsWhenReady() {
+    if (initCouncilStats()) {
+      if (councilStatsObserver) {
+        councilStatsObserver.disconnect();
+        councilStatsObserver = null;
+      }
+
+      return;
+    }
+
+    if (councilStatsObserver || !document.body) return;
+
+    councilStatsObserver = new MutationObserver(function () {
+      initCouncilStatsWhenReady();
+    });
+
+    councilStatsObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 
   window.AbundanceLiveStats = {
     councilStats: councilStats,
+    refreshCouncilStats: initCouncilStatsWhenReady,
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
@@ -746,10 +809,20 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCouncilStats);
+    document.addEventListener("DOMContentLoaded", initCouncilStatsWhenReady);
   } else {
-    initCouncilStats();
+    initCouncilStatsWhenReady();
   }
+
+  window.addEventListener("pageshow", function () {
+    initCouncilStatsWhenReady();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      initCouncilStatsWhenReady();
+    }
+  });
 })();
 </script>
 <script>
@@ -808,18 +881,37 @@
     const displayDate = escapeHTML(story.displayDate);
     const date = escapeHTML(story.date);
     const thumbnail = escapeHTML(story.thumbnail);
-
-    return `
-      <article class="row gx-sm gy-sm align-items-start">
-
-        <div class="col-5 col-sm-4 col-md-3">
-          <a href="${url}" aria-label="Read ${title}">
+    const imageFit = story.imageFit === "contain" ? "contain" : "cover";
+    const imageHTML = imageFit === "contain"
+      ? `
+            <div
+              class="border-radius--4xl d-flex align-items-center justify-content-center"
+              style="aspect-ratio:1 / 1; overflow:hidden;"
+            >
+              <img
+                class="img-fluid"
+                src="${thumbnail}"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                style="width:100%; height:100%; object-fit:contain;">
+            </div>
+        `
+      : `
             <img
               class="si-image si-image--1-1 border-radius--4xl"
               src="${thumbnail}"
               alt=""
               loading="lazy"
               decoding="async">
+        `;
+
+    return `
+      <article class="row gx-sm gy-sm align-items-start">
+
+        <div class="col-5 col-sm-4 col-md-3">
+          <a href="${url}" aria-label="Read ${title}">
+            ${imageHTML}
           </a>
         </div>
 

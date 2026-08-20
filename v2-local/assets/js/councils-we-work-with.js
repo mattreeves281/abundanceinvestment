@@ -7,6 +7,8 @@
 
   const openGrid = document.getElementById(OPEN_GRID_ID);
   const otherGrid = document.getElementById(OTHER_GRID_ID);
+  const openCard = document.querySelector("[data-abv2-open-councils-card]");
+  const openCardSpacer = document.querySelector("[data-abv2-open-councils-card-spacer]");
 
   if (!openGrid || !otherGrid) return;
 
@@ -224,7 +226,7 @@
     const stats = [
       statRow("Raised", raised),
       projects > 0 ? statRow("Projects financed", formatInt(projects)) : "",
-      spent ? statRow("Spent", spent) : statRow("", "No spend reported")
+      spent ? statRow("Spent", spent) : ""
     ].filter(Boolean).join("");
 
     return `
@@ -306,6 +308,11 @@
     grid.innerHTML = councils.map(councilCard).join("");
   }
 
+  function setOpenCardVisible(isVisible) {
+    if (openCard) openCard.hidden = !isVisible;
+    if (openCardSpacer) openCardSpacer.hidden = !isVisible;
+  }
+
   async function init() {
     loadingState(openGrid);
     loadingState(otherGrid);
@@ -362,11 +369,15 @@
         return !openCouncilIds.has(record.id);
       });
 
-      renderGrid(
-        openGrid,
-        openCouncils,
-        "There are no councils with open investments right now. Please check again later."
-      );
+      setOpenCardVisible(openCouncils.length > 0);
+
+      if (openCouncils.length > 0) {
+        renderGrid(
+          openGrid,
+          openCouncils,
+          "There are no councils with open investments right now. Please check again later."
+        );
+      }
 
       renderGrid(
         otherGrid,
