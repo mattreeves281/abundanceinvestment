@@ -30,16 +30,19 @@
       return number >= minimumInvestment ? number : 0;
     }
 
-    function roundToNearestPound(value) {
-      return Math.round(value);
-    }
+    function roundedGrowthDisplayAmounts(paidIn, futureValue) {
+      const showPence = Math.abs(futureValue) < 1000;
+      const factor = showPence ? 100 : 1;
+      const decimals = showPence ? 2 : 0;
+      const paidInDisplayValue = Math.round(paidIn * factor) / factor;
+      const returnDisplayValue = Math.round((futureValue - paidIn) * factor) / factor;
+      const futureDisplayValue = paidInDisplayValue + returnDisplayValue;
 
-    function formatGrowthMoney(value, lifetimeValue) {
-      if (Math.abs(lifetimeValue) < 1000) {
-        return formatMoney(value, { decimals: 2 });
-      }
-
-      return formatMoney(roundToNearestPound(value));
+      return {
+        paidIn: formatMoney(paidInDisplayValue, { decimals: decimals }),
+        futureValue: formatMoney(futureDisplayValue, { decimals: decimals }),
+        returnValue: formatMoney(returnDisplayValue, { decimals: decimals })
+      };
     }
 
     function isBelowMinimumContribution(value) {
@@ -215,10 +218,12 @@
         years: years
       });
 
+      const displayAmounts = roundedGrowthDisplayAmounts(paidIn, futureValue);
+
       setText("[data-abv2-growth-term-label]", years + " years");
-      setText("[data-abv2-growth-paid-in]", formatGrowthMoney(paidIn, futureValue));
-      setText("[data-abv2-growth-result]", formatGrowthMoney(futureValue, futureValue));
-      setText("[data-abv2-growth-return]", formatGrowthMoney(futureValue - paidIn, futureValue));
+      setText("[data-abv2-growth-paid-in]", displayAmounts.paidIn);
+      setText("[data-abv2-growth-result]", displayAmounts.futureValue);
+      setText("[data-abv2-growth-return]", displayAmounts.returnValue);
     }
 
     function initGrowthCalculator() {
