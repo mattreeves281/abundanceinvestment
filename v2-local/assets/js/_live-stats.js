@@ -276,7 +276,7 @@
   }
 
   function initCouncilStats() {
-    if (!document.querySelector("[data-abv2-stat]")) return;
+    if (!document.querySelector("[data-abv2-stat]")) return false;
 
     Promise.all([
       fetchRecords(COUNCILS_ENDPOINT, "councils"),
@@ -288,10 +288,37 @@
       .catch(function (error) {
         console.error("Council stats failed:", error);
       });
+
+    return true;
+  }
+
+  let councilStatsObserver;
+
+  function initCouncilStatsWhenReady() {
+    if (initCouncilStats()) {
+      if (councilStatsObserver) {
+        councilStatsObserver.disconnect();
+        councilStatsObserver = null;
+      }
+
+      return;
+    }
+
+    if (councilStatsObserver || !document.body) return;
+
+    councilStatsObserver = new MutationObserver(function () {
+      initCouncilStatsWhenReady();
+    });
+
+    councilStatsObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 
   window.AbundanceLiveStats = {
     councilStats: councilStats,
+    refreshCouncilStats: initCouncilStatsWhenReady,
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
@@ -305,8 +332,18 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCouncilStats);
+    document.addEventListener("DOMContentLoaded", initCouncilStatsWhenReady);
   } else {
-    initCouncilStats();
+    initCouncilStatsWhenReady();
   }
+
+  window.addEventListener("pageshow", function () {
+    initCouncilStatsWhenReady();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      initCouncilStatsWhenReady();
+    }
+  });
 })();

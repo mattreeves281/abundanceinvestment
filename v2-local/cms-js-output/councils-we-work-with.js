@@ -1,4 +1,3 @@
-/* Shared live stats helper: _live-stats.js */
 (function () {
   const COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
   const LOANS_ENDPOINT = "https://data.abundanceinvestment.com/loans";
@@ -277,7 +276,7 @@
   }
 
   function initCouncilStats() {
-    if (!document.querySelector("[data-abv2-stat]")) return;
+    if (!document.querySelector("[data-abv2-stat]")) return false;
 
     Promise.all([
       fetchRecords(COUNCILS_ENDPOINT, "councils"),
@@ -289,10 +288,37 @@
       .catch(function (error) {
         console.error("Council stats failed:", error);
       });
+
+    return true;
+  }
+
+  let councilStatsObserver;
+
+  function initCouncilStatsWhenReady() {
+    if (initCouncilStats()) {
+      if (councilStatsObserver) {
+        councilStatsObserver.disconnect();
+        councilStatsObserver = null;
+      }
+
+      return;
+    }
+
+    if (councilStatsObserver || !document.body) return;
+
+    councilStatsObserver = new MutationObserver(function () {
+      initCouncilStatsWhenReady();
+    });
+
+    councilStatsObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 
   window.AbundanceLiveStats = {
     councilStats: councilStats,
+    refreshCouncilStats: initCouncilStatsWhenReady,
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
@@ -306,13 +332,23 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCouncilStats);
+    document.addEventListener("DOMContentLoaded", initCouncilStatsWhenReady);
   } else {
-    initCouncilStats();
+    initCouncilStatsWhenReady();
   }
+
+  window.addEventListener("pageshow", function () {
+    initCouncilStatsWhenReady();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      initCouncilStatsWhenReady();
+    }
+  });
 })();
 
-/* Page script: councils-we-work-with.js */
+<script>
 (function () {
   const OPEN_GRID_ID = "abv2-council-grid";
   const OTHER_GRID_ID = "abv2-council-grid-2";
@@ -321,6 +357,8 @@
 
   const openGrid = document.getElementById(OPEN_GRID_ID);
   const otherGrid = document.getElementById(OTHER_GRID_ID);
+  const openCard = document.querySelector("[data-abv2-open-councils-card]");
+  const openCardSpacer = document.querySelector("[data-abv2-open-councils-card-spacer]");
 
   if (!openGrid || !otherGrid) return;
 
@@ -620,6 +658,11 @@
     grid.innerHTML = councils.map(councilCard).join("");
   }
 
+  function setOpenCardVisible(isVisible) {
+    if (openCard) openCard.hidden = !isVisible;
+    if (openCardSpacer) openCardSpacer.hidden = !isVisible;
+  }
+
   async function init() {
     loadingState(openGrid);
     loadingState(otherGrid);
@@ -676,11 +719,15 @@
         return !openCouncilIds.has(record.id);
       });
 
-      renderGrid(
-        openGrid,
-        openCouncils,
-        "There are no councils with open investments right now. Please check again later."
-      );
+      setOpenCardVisible(openCouncils.length > 0);
+
+      if (openCouncils.length > 0) {
+        renderGrid(
+          openGrid,
+          openCouncils,
+          "There are no councils with open investments right now. Please check again later."
+        );
+      }
 
       renderGrid(
         otherGrid,
@@ -702,3 +749,4 @@
     init();
   }
 })();
+</script>

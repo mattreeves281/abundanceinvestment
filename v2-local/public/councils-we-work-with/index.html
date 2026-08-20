@@ -249,7 +249,7 @@
     <div class="container">
       <div class="choke-900 m-x--auto">
         <section class="p-y-spacer-sm">
-          <div class="container-medium p-x-spacer-xs">
+          <div class="container-medium p-x-spacer-xs" data-abv2-open-councils-card>
             <article class="si-card si-card--secondary p-all-spacer-md">
               <div class="m-b-spacer-md">
                 <h2 class="si-heading-3 m-b-spacer-0">
@@ -276,7 +276,7 @@
             </article>
 
           </div>
-<div class="p-t-spacer-md" aria-hidden="true">
+<div class="p-t-spacer-md" aria-hidden="true" data-abv2-open-councils-card-spacer>
                 </div>
 
           <div class="container-medium p-x-spacer-xs">
@@ -375,7 +375,6 @@
   </section>
 
 </div>
-
 
 
 </main>
@@ -813,7 +812,7 @@
   }
 
   function initCouncilStats() {
-    if (!document.querySelector("[data-abv2-stat]")) return;
+    if (!document.querySelector("[data-abv2-stat]")) return false;
 
     Promise.all([
       fetchRecords(COUNCILS_ENDPOINT, "councils"),
@@ -825,10 +824,37 @@
       .catch(function (error) {
         console.error("Council stats failed:", error);
       });
+
+    return true;
+  }
+
+  let councilStatsObserver;
+
+  function initCouncilStatsWhenReady() {
+    if (initCouncilStats()) {
+      if (councilStatsObserver) {
+        councilStatsObserver.disconnect();
+        councilStatsObserver = null;
+      }
+
+      return;
+    }
+
+    if (councilStatsObserver || !document.body) return;
+
+    councilStatsObserver = new MutationObserver(function () {
+      initCouncilStatsWhenReady();
+    });
+
+    councilStatsObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 
   window.AbundanceLiveStats = {
     councilStats: councilStats,
+    refreshCouncilStats: initCouncilStatsWhenReady,
     fetchCouncils: function () {
       return fetchRecords(COUNCILS_ENDPOINT, "councils");
     },
@@ -842,10 +868,20 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCouncilStats);
+    document.addEventListener("DOMContentLoaded", initCouncilStatsWhenReady);
   } else {
-    initCouncilStats();
+    initCouncilStatsWhenReady();
   }
+
+  window.addEventListener("pageshow", function () {
+    initCouncilStatsWhenReady();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      initCouncilStatsWhenReady();
+    }
+  });
 })();
 </script>
 <script>
@@ -857,6 +893,8 @@
 
   const openGrid = document.getElementById(OPEN_GRID_ID);
   const otherGrid = document.getElementById(OTHER_GRID_ID);
+  const openCard = document.querySelector("[data-abv2-open-councils-card]");
+  const openCardSpacer = document.querySelector("[data-abv2-open-councils-card-spacer]");
 
   if (!openGrid || !otherGrid) return;
 
@@ -1156,6 +1194,11 @@
     grid.innerHTML = councils.map(councilCard).join("");
   }
 
+  function setOpenCardVisible(isVisible) {
+    if (openCard) openCard.hidden = !isVisible;
+    if (openCardSpacer) openCardSpacer.hidden = !isVisible;
+  }
+
   async function init() {
     loadingState(openGrid);
     loadingState(otherGrid);
@@ -1212,11 +1255,15 @@
         return !openCouncilIds.has(record.id);
       });
 
-      renderGrid(
-        openGrid,
-        openCouncils,
-        "There are no councils with open investments right now. Please check again later."
-      );
+      setOpenCardVisible(openCouncils.length > 0);
+
+      if (openCouncils.length > 0) {
+        renderGrid(
+          openGrid,
+          openCouncils,
+          "There are no councils with open investments right now. Please check again later."
+        );
+      }
 
       renderGrid(
         otherGrid,
