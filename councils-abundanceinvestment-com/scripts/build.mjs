@@ -38,7 +38,7 @@ function renderPage(source, file, includes) {
     .replace("<!-- @include header -->", activateCurrentNav(includes.header, file))
     .replace("<!-- @include footer -->", includes.footer);
 
-  if (allowIndexing) {
+  if (allowIndexing && file !== "council-declaration.html") {
     html = html.replace(/\n\s*<meta name="robots" content="noindex, nofollow, noarchive">/g, "");
   }
 
