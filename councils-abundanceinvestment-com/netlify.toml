@@ -1,7 +1,3 @@
 [build]
-  publish = "."
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow, noarchive"
+  command = "npm run build"
+  publish = "public"

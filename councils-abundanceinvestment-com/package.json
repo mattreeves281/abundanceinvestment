@@ -1,0 +1,8 @@
+{
+  "name": "councils-abundanceinvestment-com",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/watch.mjs"
+  }
+}
