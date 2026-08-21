@@ -68,6 +68,7 @@ async function build() {
   await copyIfExists(path.join(root, "css"), path.join(publicDir, "css"));
   await copyIfExists(path.join(root, "img"), path.join(publicDir, "img"));
   await copyIfExists(path.join(root, "js"), path.join(publicDir, "js"));
+  await copyIfExists(path.join(root, "static"), publicDir);
 
   const files = (await readdir(srcDir)).filter((file) => file.endsWith(".html")).sort();
 
