@@ -250,7 +250,7 @@
           </h2>
 
           <p class="body--lg m-t-spacer-md m-b-spacer-0">
-            There are no municipal investments open at the moment. Please check again soon.
+            There are no municipal investments open at the moment. A new investment will be launching in early September. <a href="/register">Sign up for a free account</a> and we&rsquo;ll let you know when it is open.
           </p>
         </div>
 
