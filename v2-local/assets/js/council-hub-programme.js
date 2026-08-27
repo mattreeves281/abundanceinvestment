@@ -475,10 +475,61 @@
       }
     }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-    } else {
+    function initSignupPopupFallback() {
+      const triggers = document.querySelectorAll(
+        "#drip-council-updates-trigger, .drip-council-updates-trigger, [data-drip-council-updates-trigger]"
+      );
+      if (!triggers.length) return;
+
+      function popupLooksOpen() {
+        return Boolean(
+          document.querySelector("[id^='sleeknote-']") ||
+          document.querySelector("[data-sn-type]") ||
+          document.querySelector("[data-submit='submitSleeknoteBox']") ||
+          document.querySelector("form[action*='onsite-subscribe.getdrip.com']") ||
+          document.querySelector("input[name='email'][data-sn-subtype='input']")
+        );
+      }
+
+      triggers.forEach(function (trigger) {
+        if (trigger.dataset.abv2SignupFallbackBound === "true") return;
+        trigger.dataset.abv2SignupFallbackBound = "true";
+
+        trigger.addEventListener("click", function (event) {
+          const fallbackUrl = trigger.getAttribute("href");
+          if (!fallbackUrl || fallbackUrl === "#") return;
+
+          event.preventDefault();
+
+          let checks = 0;
+          const maxChecks = 12;
+
+          const popupCheck = window.setInterval(function () {
+            checks += 1;
+
+            if (popupLooksOpen()) {
+              window.clearInterval(popupCheck);
+              return;
+            }
+
+            if (checks >= maxChecks) {
+              window.clearInterval(popupCheck);
+              window.location.href = fallbackUrl;
+            }
+          }, 250);
+        });
+      });
+    }
+
+    function boot() {
       init();
+      initSignupPopupFallback();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
     }
   })();
 </script>
