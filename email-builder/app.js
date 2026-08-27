@@ -52,6 +52,7 @@ const blockGroups = {
   dividerIndigo: "Structure",
   dividerPink: "Structure",
   simpleContent: "Basic content",
+  imageCaption: "Basic content",
   tableCard: "Layouts",
   warning: "Basic content",
   quoteBlock: "Layouts",
@@ -171,6 +172,19 @@ const blockSchemas = {
       field("body", "Body", "textarea"),
       field("ctaLabel", "Button label"),
       field("ctaUrl", "Button URL", "url")
+    ]
+  },
+  imageCaption: {
+    label: "Image with caption",
+    defaults: {
+      imageUrl: sampleImages.place,
+      imageAlt: "Local project image",
+      caption: "A short caption describing the image."
+    },
+    fields: [
+      field("imageUrl", "Image URL", "url"),
+      field("imageAlt", "Image alt text"),
+      field("caption", "Caption", "textarea")
     ]
   },
   featureCards: {
@@ -829,6 +843,7 @@ function applyDisplayTaxonomy() {
     dividerIndigo: "Structure",
     dividerPink: "Structure",
     simpleContent: "Basic content",
+    imageCaption: "Basic content",
     warning: "Basic content",
     bulletList: "Basic content",
     numberedList: "Basic content",
@@ -874,6 +889,7 @@ function applyDisplayTaxonomy() {
     heroNoContents: "Hero - no contents",
     divider: "Divider",
     simpleContent: "Header and copy",
+    imageCaption: "Image with caption",
     quoteBlock: "Quote block",
     bulletCardCta: "Bullet card with button",
     keyTerms: "Terms summary card",
@@ -1507,6 +1523,10 @@ function renderBlock(item, options = {}) {
         <td class="mobile-stack" width="218" valign="top" style="width:218px;padding:0 24px 0 0;"><img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="172" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:172px;max-width:172px;height:auto;border:0;color:${colors.ink};font-family:Arial,sans-serif;font-size:13px;line-height:18px;"></td>
         <td class="mobile-stack" valign="top">${fields.heading ? `<h2 style="${headingStyle("27px", "31px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${paragraph(fields.body, "", "16px", "25px", "0 0 14px 0")}<a href="${escapeAttr(fields.linkUrl)}" style="${textStyle("15px", "22px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(fields.linkLabel)}</a></td>
       </tr></table>
+    </td>`),
+    imageCaption: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">
+      <img src="${escapeAttr(fields.imageUrl)}" width="576" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:100%;max-width:576px;height:auto;border:0;border-radius:24px;background-color:${colors.line};color:${colors.ink};font-family:Arial,sans-serif;font-size:14px;line-height:20px;">
+      ${fields.caption ? `<p style="${textStyle("13px", "19px", colors.muted)}margin:10px 0 0 0;">${formatInlineText(fields.caption)}</p>` : ""}
     </td>`),
     simpleContent: () => row(`<td class="mobile-pad" style="padding:12px 32px 34px 32px;background-color:#ffffff;">${fields.eyebrow ? eyebrow(fields.eyebrow) : ""}${fields.heading ? `<h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${paragraph(fields.body, "body-lg", "18px", "29px", fields.ctaLabel ? "0 0 22px 0" : "0")}${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}</td>`),
     featureCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "body-lg", "18px", "29px", "0 0 22px 0")}${renderFeatureCards(fields.cards)}</td>`),
