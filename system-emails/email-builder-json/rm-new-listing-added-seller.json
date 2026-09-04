@@ -5,7 +5,7 @@
   "blocks": [
     {
       "id": "header-46-0",
-      "type": "header",
+      "type": "systemHeader",
       "customized": false,
       "condition": {
         "mode": "none",

@@ -1,5 +1,6 @@
 const CDN = "https://cdn4.sharein.com/abundance/assets/images";
 const LOGO = `${CDN}/Abundance-Logo-2026-on-white-v2.png`;
+const EMBLEM = "https://shareinmicrosite.blob.core.windows.net/abundance/2eabc63d-317a-4fa9-8335-723d26cde6c0.png";
 const STORAGE_KEY = "abundance-email-builder-mega-v1";
 const exactLibrary = typeof window !== "undefined" ? window.AbundanceEmailLibrary : null;
 
@@ -44,6 +45,7 @@ const sampleImages = {
 
 const blockGroups = {
   header: "Structure",
+  systemHeader: "Structure",
   hero: "Structure",
   heroNoContents: "Structure",
   divider: "Structure",
@@ -101,6 +103,21 @@ const blockSchemas = {
     label: "Header - brand and login",
     defaults: { loginUrl: "https://www.abundanceinvestment.com/login", loginLabel: "Log in" },
     fields: [
+      field("loginLabel", "Login label"),
+      field("loginUrl", "Login URL", "url")
+    ]
+  },
+  systemHeader: {
+    label: "System header - emblem and login",
+    defaults: {
+      iconUrl: EMBLEM,
+      iconAlt: "Abundance",
+      loginUrl: "https://www.abundanceinvestment.com/login",
+      loginLabel: "Log in"
+    },
+    fields: [
+      field("iconUrl", "Icon URL", "url"),
+      field("iconAlt", "Icon alt text"),
       field("loginLabel", "Login label"),
       field("loginUrl", "Login URL", "url")
     ]
@@ -787,11 +804,10 @@ function field(key, label, type = "text", options = []) {
 
 function addSystemFooterVariant() {
   if (!exactLibrary?.blocks?.footerContent) return;
-  const html = `\n\n            <!-- BLOCK: Footer - system -->\n            <tr>\n              <td style="padding:18px 0;line-height:0;font-size:0;background-color:#ffffff;">\n                <img src="${CDN}/divider-rise-left-yellow-to-transparent@6x.png" width="640" height="74" alt="" role="presentation" style="display:block;width:100%;max-width:640px;height:auto;border:0;">\n              </td>\n            </tr>\n            <tr>\n              <td class="mobile-pad" style="padding:28px 32px 36px 32px;background-color:#ffffff;">\n                <img src="${LOGO}" width="150" alt="Abundance Investment" style="display:block;width:150px;max-width:150px;height:auto;border:0;margin:0 0 18px 0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:28px;font-weight:bold;color:#363635;">\n                <p style="margin:0 0 18px 0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">Abundance Investment Ltd, Hamilton House, Mabledon Place, London, WC1H 9BB</p>\n                <p style="margin:0 0 18px 0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">We are authorised and regulated by the Financial Conduct Authority (525432)</p>\n                <p style="margin:0 0 18px 0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">This email and all attachments transmitted with it are intended solely for the use of the addressee and may contain legally privileged and confidential information. If the reader of this message is not the intended recipient you are hereby notified that any dissemination, distribution, copying, or other use of this message or its attachments is strictly prohibited. If you have received this message in error, please delete it and notify Abundance immediately.</p>\n                <p style="margin:0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">Nothing in this message shall be considered an offer to sell, or a solicitation of an offer to buy, any investment to any person in any jurisdiction to whom or in which such offer, solicitation or sale is unlawful. Abundance does not provide legal, financial or tax advice of any kind, and nothing in this email constitutes such advice. To the extent permitted by law, Abundance does not accept any liability arising from the use of this communication.</p>\n              </td>\n            </tr>\n`;
   exactLibrary.blocks.footerSystemMinimal = {
     label: "Footer - system",
     group: "Structure",
-    html
+    html: renderSystemMinimalFooter()
   };
 }
 
@@ -835,6 +851,7 @@ function registerExactLibraryBlocks() {
 function applyDisplayTaxonomy() {
   const groups = {
     header: "Structure",
+    systemHeader: "Structure",
     hero: "Structure",
     heroNoContents: "Structure",
     divider: "Structure",
@@ -885,6 +902,7 @@ function applyDisplayTaxonomy() {
   };
   const labels = {
     header: "Header",
+    systemHeader: "Header - system icon",
     hero: "Hero",
     heroNoContents: "Hero - no contents",
     divider: "Divider",
@@ -1508,6 +1526,12 @@ function renderBlock(item, options = {}) {
         <td valign="middle" align="right" style="padding-left:16px;"><a href="${escapeAttr(fields.loginUrl)}" style="${textStyle("15px", "20px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(fields.loginLabel)}</a></td>
       </tr></table>
     </td>`),
+    systemHeader: () => row(`<td class="mobile-pad" style="padding:22px 32px 22px 32px;background-color:#ffffff;border-bottom:4px solid ${colors.ink};">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+        <td valign="middle" align="left"><a href="https://www.abundanceinvestment.com" style="text-decoration:none;"><img src="${escapeAttr(fields.iconUrl)}" width="58" alt="${escapeAttr(fields.iconAlt)}" style="display:block;width:58px;max-width:58px;height:auto;border:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:28px;font-weight:bold;color:${colors.ink};"></a></td>
+        <td valign="middle" align="right" style="padding-left:16px;"><a href="${escapeAttr(fields.loginUrl)}" style="${textStyle("15px", "20px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(fields.loginLabel)}</a></td>
+      </tr></table>
+    </td>`),
     hero: () => row(`<td class="mobile-pad" style="padding:40px 32px 30px 32px;background-color:#ffffff;">
       <h1 class="hero-title" style="${headingStyle("44px", "46px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h1>
       ${paragraph(fields.body, "body-lg", "18px", "29px", "0 0 20px 0")}
@@ -1569,7 +1593,8 @@ function renderBlock(item, options = {}) {
     systemInfo: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-left:4px solid ${colors.teal};border-radius:0 14px 14px 0;border-collapse:separate !important;"><tr><td style="padding:22px;"><h2 style="${headingStyle("30px", "33px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "", "16px", "25px", "0")}</td></tr></table></td>`),
     footer: () => renderFooter(fields, true),
     footerContent: () => renderFooter(fields, true),
-    footerSystem: () => renderFooter(fields, false)
+    footerSystem: () => renderFooter(fields, false),
+    footerSystemMinimal: () => renderSystemMinimalFooter()
   };
   const rendered = renderers[item.type]?.() || exactLibrary?.blocks[item.type]?.html || "";
   return applyLiquidCondition(rendered, item.condition, options);
@@ -1769,6 +1794,18 @@ ${row(`<td class="mobile-pad" style="padding:28px 32px 34px 32px;background-colo
   ${paragraph(fields.address, "", "12px", "18px", "0 0 18px 0", colors.body)}
   ${paragraph(fields.fca, "", "12px", "18px", "0 0 18px 0", colors.body)}
   ${paragraph(fields.legal, "", "11px", "16px", "0", colors.body)}
+</td>`)}`;
+}
+
+function renderSystemMinimalFooter() {
+  const address = "Abundance Investment Ltd, Hamilton House, Mabledon Place, London, WC1H 9BB.";
+  const fca = "We are authorised and regulated by the Financial Conduct Authority (525432)";
+  const legal = "This email and all attachments transmitted with it are intended solely for the use of the addressee and may contain legally privileged and confidential information. If the reader of this message is not the intended recipient you are hereby notified that any dissemination, distribution, copying, or other use of this message or its attachments is strictly prohibited. If you have received this message in error, please delete it and notify Abundance immediately. Nothing in this message shall be considered an offer to sell, or a solicitation of an offer to buy, any investment to any person in any jurisdiction to whom or in which such offer, solicitation or sale is unlawful. Abundance does not provide legal, financial or tax advice of any kind, and nothing in this email constitutes such advice. To the extent permitted by law, Abundance does not accept any liability arising from the use of this communication.";
+  return `${row(`<td style="padding:18px 0 0 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/divider-rise-left-yellow-to-transparent@6x.png" width="640" height="74" alt="" role="presentation" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`)}
+${row(`<td class="mobile-pad" style="padding:20px 32px 30px 32px;background-color:#ffffff;">
+  <img src="${LOGO}" width="150" alt="Abundance Investment" style="display:block;width:150px;max-width:150px;height:auto;border:0;margin:0 0 16px 0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:28px;font-weight:bold;color:${colors.ink};">
+  <p style="${textStyle("11px", "15px", colors.body)}margin:0 0 14px 0;">${address}<br>${fca}</p>
+  <p style="${textStyle("11px", "15px", colors.body)}margin:0;">${legal}</p>
 </td>`)}`;
 }
 
