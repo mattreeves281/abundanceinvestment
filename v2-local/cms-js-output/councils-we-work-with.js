@@ -347,8 +347,6 @@
     }
   });
 })();
-
-<script>
 (function () {
   const OPEN_GRID_ID = "abv2-council-grid";
   const OTHER_GRID_ID = "abv2-council-grid-2";
@@ -749,4 +747,3 @@
     init();
   }
 })();
-</script>

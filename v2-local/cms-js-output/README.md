@@ -10,7 +10,7 @@ Each `.js` file is paste-ready for the CMS and deliberately excludes wrapping `<
 | `council-bristol.html` | `council-bristol.js` | `council-hub-programme.js` |
 | `council-camden.html` | `council-camden.js` | `council-hub-legacy.js` |
 | `council-cotswold.html` | `council-cotswold.js` | `council-hub-legacy.js` |
-| `council-edinburgh.html` | `council-edinburgh.js` | `council-edinburgh.js` |
+| `council-edinburgh.html` | `council-edinburgh.js` | `_live-stats.js`, `council-hub-programme.js` |
 | `council-glasgow.html` | `council-glasgow.js` | `council-hub-programme.js` |
 | `council-greenwich.html` | `council-greenwich.js` | `council-hub-programme.js` |
 | `council-hackney.html` | `council-hackney.js` | `council-hub-programme.js` |

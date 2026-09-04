@@ -40,14 +40,14 @@ async function readIfExists(filePath) {
 }
 
 async function pageJsForSlug(slug, body = "") {
+  if (body.includes("data-abv2-programme-hub-config")) {
+    return readIfExists(path.join(assetsDir, "js", "council-hub-programme.js"));
+  }
+
   const pageJs = await readIfExists(path.join(assetsDir, "js", `${slug}.js`));
 
   if (pageJs) {
     return pageJs;
-  }
-
-  if (body.includes("data-abv2-programme-hub-config")) {
-    return readIfExists(path.join(assetsDir, "js", "council-hub-programme.js"));
   }
 
   if (slug.startsWith("council-") && !slug.startsWith("council-hub-")) {

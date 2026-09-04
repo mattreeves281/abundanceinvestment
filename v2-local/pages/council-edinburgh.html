@@ -4,13 +4,21 @@
   Replace the placeholder comments with snippets from ../homepage/.
 -->
 
-<div class="bg-white vw-100">
+<div class="bg-white min-vh-100" id="top">
+  <div
+    data-abv2-programme-hub-config
+    data-council-record-id="recCY9YiPV4QQSvJG"
+    data-councils-endpoint="https://data.abundanceinvestment.com/councils"
+    data-loans-endpoint="https://data.abundanceinvestment.com/loans"
+    hidden>
+  </div>
+
   <section class="position-relative p-y-spacer-xl bg-colour--white">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="row gx-md gy-md align-items-md-center align-items-start">
-        <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="col-12 col-sm-6 order-1">
           <div class="choke-800">
-            <h1 class="si-heading-1">
+            <h1 class="si-heading-1" data-abv2-programme-field="councilName">
               City of Edinburgh Council
             </h1>
             <p class="body--xl text-choke--640 m-t-spacer-xs">
@@ -19,16 +27,15 @@
             </p>
           </div>
         </div>
-        <div class="d-none d-md-block col-md-1 order-md-2" aria-hidden="true">
-        </div>
-        <div class="col-12 col-md-5 order-1 order-md-3">
-          <div class="choke-500 m-x--auto m-b-spacer-md">
+        <div class="d-none d-sm-block col-sm-5 offset-sm-1 order-2">
+          <div class="m-b-spacer-sm ms-md-auto" style="width:100%;max-width:520px;">
             <img
-              class="img-fluid"
+              class="img-fluid d-block ms-md-auto"
               src="https://shareinmicrosite.blob.core.windows.net/abundance/84107e9d-a56d-49e1-bc60-4fe07cc4f074.jpg"
               alt="City of Edinburgh Council logo"
               loading="lazy"
               decoding="async"
+              data-abv2-council-logo
             >
           </div>
         </div>
@@ -36,17 +43,17 @@
     </div>
   </section>
 
-  <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true">
+  <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true" data-abv2-open-state hidden>
   </div>
-  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="live-investment" style="margin-top:-1px;">
+  <section class="position-relative p-y-spacer-lg bg-colour--pink" id="live-investment" data-abv2-open-state hidden style="margin-top:-1px;">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="row gx-lg gy-md align-items-start">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-sm-6">
           <div class="choke-700">
-            <h2 class="si-heading-2 text-color--primary m-b-spacer-0">
+            <h2 class="si-heading-2 text-color--primary m-b-spacer-0" data-abv2-programme-field="openInvestmentName">
               Edinburgh Green Investment 1
             </h2>
-            <p class="body--lg text-color--primary m-t-spacer-xs m-b-spacer-0 choke-500">
+            <p class="body--lg text-color--primary m-t-spacer-xs m-b-spacer-0 choke-500" data-abv2-programme-field="openInvestmentCopy">
               Invest to help finance tree-planting and sustainable urban drainage like rain gardens and rainwater planters.
             </p>
             <div
@@ -63,8 +70,8 @@
                   Interest rate
                 </div>
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
-                <div class="abundance-stat text-color--primary">
-                  4.85%
+                <div class="abundance-stat text-color--primary" data-abv2-programme-field="currentInterestRate">
+                  4.84%
                 </div>
               </div>
               <div>
@@ -77,7 +84,7 @@
                   Investment term
                 </div>
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
-                <div class="abundance-stat text-color--primary">
+                <div class="abundance-stat text-color--primary" data-abv2-programme-field="investmentTerm">
                   5 years
                 </div>
               </div>
@@ -91,14 +98,15 @@
                   Capital repaid
                 </div>
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
-                <div class="abundance-stat text-color--primary">
+                <div class="abundance-stat text-color--primary" data-abv2-programme-field="capitalRepaid">
                   At maturity
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-sm-6">
+          <div class="p-t-spacer-xs d-sm-none" aria-hidden="true"></div>
           <article class="si-card abundance-card--soft p-all-spacer-md">
             <h3 class="si-heading-3 m-b-spacer-0">
               Investment summary
@@ -115,7 +123,7 @@
                       Borrower
                     </span>
                     <p class="body--md m-t-spacer-3xs m-b-spacer-0">
-                      City of Edinburgh Council
+                      <span data-abv2-programme-field="councilName">City of Edinburgh Council</span>
                     </p>
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                   </div>
@@ -156,7 +164,7 @@
                       Close date
                     </span>
                     <p class="body--md m-t-spacer-3xs m-b-spacer-0">
-                      1 December 2026
+                      <span data-abv2-programme-field="offerCloseDate">30 November 2026</span>
                     </p>
 <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                   </div>
@@ -166,7 +174,7 @@
             <div class="p-t-spacer-sm" aria-hidden="">
             </div>
             <div class="display--flex flex-wrap--wrap flex-align-content--center flex-gap--xs">
-              <a class="si-btn si-btn--primary si-btn--lg" href="/invest-now">
+              <a class="si-btn si-btn--primary si-btn--lg" href="/invest/edinburgh-green-investment-1" data-abv2-invest-button>
                 Invest now
               </a>
               <a
@@ -188,7 +196,47 @@
     </div>
   </section>
 
-  <div class="abundance-mask abundance-mask--bottom bg-colour--pink" aria-hidden="true">
+  <div class="abundance-mask abundance-mask--bottom bg-colour--pink" aria-hidden="true" data-abv2-open-state hidden>
+  </div>
+  <div class="abundance-mask abundance-mask--top bg-colour--pink" aria-hidden="true" data-abv2-no-open-state hidden>
+  </div>
+  <section class="position-relative p-y-spacer-lg bg-colour--pink" data-abv2-no-open-state hidden style="margin-top:-1px;">
+    <div class="choke-1200 m-x--auto p-x-spacer-xs">
+      <div class="row gx-lg gy-md align-items-center">
+        <div class="col-12 col-sm-6">
+          <h2 class="si-heading-2 text-color--primary m-b-spacer-0">
+            Learn more about Edinburgh Green Investment
+          </h2>
+          <p class="body--lg text-color--primary m-t-spacer-xs m-b-spacer-0 choke-600">
+            Sign up for updates to hear when Edinburgh Green Investment launches.
+          </p>
+          <div class="p-t-spacer-sm" aria-hidden="true"></div>
+          <a class="si-btn si-btn--tertiary si-btn--lg" id="drip-council-updates-trigger" href="/signup-for-updates">
+            Sign up for updates
+          </a>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="row row-cols-1 row-cols-sm-2 gx-xs gy-xs">
+            <div>
+              <hr class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs">
+              <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+              <div class="abundance-eyebrow text-color--primary">Amount raised so far</div>
+              <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+              <div class="abundance-stat text-color--primary" data-abv2-programme-field="amountRaised">£0</div>
+            </div>
+            <div>
+              <hr class="si-horizontal-rule si-horizontal-rule--thick abundance-horizontal-rule--ink si-horizontal-rule--2xs">
+              <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+              <div class="abundance-eyebrow text-color--primary">Last investment closed</div>
+              <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+              <div class="abundance-stat text-color--primary" data-abv2-programme-field="investmentClosed">-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="abundance-mask abundance-mask--bottom bg-colour--pink" aria-hidden="true" data-abv2-no-open-state hidden>
   </div>
   <section class="position-relative p-y-spacer-lg bg-colour--white">
     <div class="container">
@@ -217,16 +265,18 @@
     </div>
   </section>
 
-  <div class="abundance-mask abundance-mask--top bg-colour--secondary" aria-hidden="true">
+  <div class="abundance-mask abundance-mask--top bg-colour--secondary" aria-hidden="true" data-abv2-open-state hidden>
   </div>
   <section
     class="position-relative p-y-spacer-lg bg-colour--secondary"
     id="payment-example-helper-test"
+    data-abv2-open-state
     data-abv2-calc-config=""
-    data-rate="4.85"
+    data-rate="4.84"
     data-term-years="5"
     data-interest-date-1="June"
     data-interest-date-2="December"
+    hidden
    style="margin-top:-1px;">
     <div class="choke-1200 m-x--auto p-x-spacer-xs">
       <div class="row gx-lg gy-md align-items-center">
@@ -274,7 +324,7 @@
                   </div>
                   <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                   <div class="abundance-stat text-color--primary">
-                    <span data-abv2-calc-field="rate">4.85%</span>
+                    <span data-abv2-calc-field="rate">4.84%</span>
                   </div>
                 </div>
                 <div>
@@ -301,7 +351,7 @@
                   </p>
                   <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                   <p class="si-heading-3 m-b-spacer-0" data-abv2-calc-field="totalReturned">
-                    £6,212.50
+                    £6,210
                   </p>
                   <div class="p-t-spacer-xs" aria-hidden="true"></div>
                   <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-t-spacer-sm m-b-spacer-sm">
@@ -326,7 +376,7 @@
                     </p>
                     <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                     <p class="si-heading-4 m-b-spacer-2xs" data-abv2-calc-field="totalInterest">
-                      £1,212.50
+                      £1,210
                     </p>
                   </div>
                 </article>
@@ -339,7 +389,7 @@
                   </p>
                   <div class="p-t-spacer-3xs" aria-hidden="true"></div>
                   <p class="si-heading-3 m-b-spacer-0">
-                    <span data-abv2-calc-field="interestPayment">£121.25</span>
+                    <span data-abv2-calc-field="interestPayment">£121</span>
                   </p>
                   <div class="p-t-spacer-xs" aria-hidden="true"></div>
                   <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-t-spacer-sm m-b-spacer-sm">
@@ -362,7 +412,13 @@
     </div>
   </section>
 
-  <div class="abundance-mask abundance-mask--bottom bg-colour--secondary" aria-hidden="true">
+  <div class="abundance-mask abundance-mask--bottom bg-colour--secondary" aria-hidden="true" data-abv2-open-state hidden>
+  </div>
+  <div
+    class="abundance-dividers abundance-dividers--rise-left bg-colour--yellow"
+    aria-hidden="true"
+    data-abv2-no-open-state
+    hidden>
   </div>
   <section class="position-relative p-y-spacer-xl bg-colour--white" id="use-of-funds">
     <div class="container-medium p-x-spacer-xs text-center">
@@ -449,218 +505,46 @@
   </section>
 
   <dialog class="si-modal si-modal--large" id="keyterms-modal" aria-labelledby="keyterms-modal-title">
-
     <form method="dialog" class="si-modal__close-button-form">
-      <button class="si-btn si-btn--tertiary si-btn--sm" type="submit" aria-label="Close key terms">
-        Close
-      </button>
+      <button class="si-btn si-btn--tertiary si-btn--sm" type="submit" aria-label="Close key terms">Close</button>
     </form>
 
     <div class="si-modal__interior">
       <header>
-        <p class="abundance-eyebrow brand-primary m-b-spacer-2xs" data-keyterms-field="investmentName">
-          Edinburgh Green Investment
-        </p>
-
-        <h2 id="keyterms-modal-title" class="si-heading-2 m-b-spacer-0">
-          Key terms
-        </h2>
-
-        <p class="body--md m-t-spacer-xs m-b-spacer-0 choke-700">
-          Together with the Loan Conditions (available below), the Key Terms form the legal agreement that defines the terms of your investment.
-        </p>
+        <p class="abundance-eyebrow brand-primary m-b-spacer-2xs" data-keyterms-field="investmentName">Edinburgh Green Investment 1</p>
+        <h2 id="keyterms-modal-title" class="si-heading-2 m-b-spacer-0">Key terms</h2>
+        <p class="body--md m-t-spacer-xs m-b-spacer-0 choke-700">Together with the Loan Conditions (available below), the Key Terms form the legal agreement that defines the terms of your investment.</p>
       </header>
 
       <div class="si-modal__scroll-content">
         <div class="p-t-spacer-sm" aria-hidden="true"></div>
 
         <div class="row row-cols-1 row-cols-md-2 gx-2xs gy-0">
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Borrower</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="borrower">City of Edinburgh Council</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Use of funds</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="useOfFunds">Tree planting and sustainable urban drainage projects</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Interest rate</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="interestRate">4.85%</p>
-              <p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="interestRateNote"></p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Term period</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="termPeriod">5 years after the end of the initial interest period</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Maturity date</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="maturityDate">31 December 2031</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Capital repayment</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="capitalRepaid">Original investment repaid on maturity date</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Offer open date</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="offerOpenDate">1 June 2026</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Offer close date</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="offerCloseDate">1 December 2026</p>
-              <p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="offerCloseDateNote"></p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Minimum borrowing amount</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="minimumBorrowingAmount">£5.00</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Maximum borrowing amount</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="maximumBorrowingAmount">£1 million</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Initial interest period</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="initialInterestPeriod">This will start on the date the lender makes their investment and ends on 31 December 2026.</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Interest periods</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="interestPeriods">From 1 January to 30 June and 1 July to 31 December each year, starting from 1 January 2027.</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Return structure</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="returnStructure">Semi-annual payments of Interest on the last day of each Interest Period. Capital is repaid as a lump sum on the Maturity Date.</p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Arrangement fee</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="arrangementFee">1.20% of the total loan amount raised</p>
-              <p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="arrangementFeeNote"></p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Management fee</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="managementFee">0.10% of the outstanding loan amount, per year</p>
-              <p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="managementFeeNote"></p>
-            </div>
-          </div>
-
-          <div>
-            <div style="border-top:1px solid #e2e2e2;">
-
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-<span class="abundance-eyebrow d-block">Early repayment options</span>
-<div class="p-t-spacer-3xs" aria-hidden="true"></div>
-              <p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="earlyRepaymentOptions">The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance.</p>
-            </div>
-          </div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Borrower</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="borrower">City of Edinburgh Council</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Use of funds</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="useOfFunds">Funding Eligible Green Projects under the Green Finance Framework.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Interest rate</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="interestRate">4.84% a year</p><p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="interestRateNote">This is the interest rate paid by the Borrower to lenders and does not include the cost of fees paid to Abundance in its role as Arranger and Agent.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Term period</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="termPeriod">5 years after end of 'Initial interest period'</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Maturity date</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="maturityDate">31 December 2031</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Capital repayment</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="capitalRepaid">Lump sum on maturity</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Offer open date</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="offerOpenDate">1 September 2026</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Offer close date</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="offerCloseDate">30 November 2026</p><p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="offerCloseDateNote">The Loan Opportunity may be withdrawn before the Offer Close Date at the Borrower's discretion subject to it posting notice of withdrawal on the Abundance website.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Minimum borrowing amount</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="minimumBorrowingAmount">£5.00</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Maximum borrowing amount</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="maximumBorrowingAmount">£1,000,000</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Initial interest period</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="initialInterestPeriod">This will start on the date the lender makes their investment and ends on 31 December 2026.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Interest periods</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="interestPeriods">From 1 January to 30 June and 1 July to 31 December each year, starting from 1 January 2027.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Return structure</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="returnStructure">10 semi-annual payments of Interest on the last day of each Interest Period. Capital is repaid as a lump sum on the Maturity Date.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Arrangement fee</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="arrangementFee">1.20% of the total loan amount raised</p><p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="arrangementFeeNote">This is the fee paid to Abundance in its role as Arranger. The interest rate above is quoted after fees.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Management fee</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="managementFee">0.10% of the outstanding loan amount, per year</p><p class="body--xs m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="managementFeeNote">This is the fee paid to Abundance in its role as Agent. The interest rate above is quoted after fees.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
+          <div><div style="border-top:1px solid #e2e2e2"><div class="p-t-spacer-3xs" aria-hidden="true"></div><span class="abundance-eyebrow">Early repayment options</span><p class="body--md m-t-spacer-3xs m-b-spacer-0" data-keyterms-field="earlyRepaymentOptions">The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.</p><div class="p-t-spacer-3xs" aria-hidden="true"></div></div></div>
         </div>
 
         <div class="p-t-spacer-sm" aria-hidden="true"></div>
 
         <div class="si-card si-card--xs abundance-card--color-neutral-light">
-          <h3 class="si-heading-5 m-b-spacer-0">
-            Loan conditions
-          </h3>
-
-          <p class="body--xs m-t-spacer-2xs m-b-spacer-0">
-            Together with the key terms, the loan conditions form the legal agreement that define the terms of the investment.
-          </p>
-
+          <h3 class="si-heading-5 m-b-spacer-0">Loan conditions</h3>
+          <p class="body--xs m-t-spacer-2xs m-b-spacer-0">Together with the key terms, the loan conditions form the legal agreement that define the terms of the investment.</p>
           <div class="p-t-spacer-xs" aria-hidden="true"></div>
-
-          <a
-            class="si-btn-link body--md"
-            href="#"
-            target="_blank"
-            rel="noopener"
-            data-keyterms-href="loanConditionsUrl">
-            Download PDF
-          </a>
+          <a class="si-btn-link body--md" href="https://cdn4.sharein.com/abundance/docs/b15d1f6f-48ee-49fe-9efb-4f6c54191d48.pdf?_gl=1*1bpcbpr*_gcl_au*MTg3NDIzMzQ5OS4xNzgwOTA2OTA5Li0uLS4xNzg3MjIzMzM0LjE1MTMxMTA4NDAuMTc4ODEyNDg1MS4xNzg4MTI0ODUx" target="_blank" rel="noopener" data-keyterms-href="loanConditionsUrl">Download PDF</a>
         </div>
       </div>
     </div>

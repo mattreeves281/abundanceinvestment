@@ -1,4 +1,3 @@
-<script>
   (function () {
     const CONFIG_SELECTOR = "[data-abv2-programme-hub-config]";
     const DEFAULT_COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
@@ -213,7 +212,7 @@
 
       if (!logo) return;
 
-      document.querySelectorAll("[data-abv2-council-logo]").forEach(function (image) {
+      document.querySelectorAll("[data-abv2-council-logo-tile] [data-abv2-council-logo]").forEach(function (image) {
         image.src = logo;
         image.alt = name;
       });
@@ -443,21 +442,21 @@
           return hasStatus(getFields(loan).raiseStatus, "Open");
         }), "openDate");
         const closedLoans = councilLoans.filter(function (loan) {
-          return !hasStatus(getFields(loan).raiseStatus, "Open") && getFields(loan).closeDate;
+          return hasStatus(getFields(loan).raiseStatus, "Closed");
         });
         const hasOpenLoan = openLoans.length > 0;
-        const amountRaised = councilLoans.reduce(function (total, loan) {
+        const amountRaised = closedLoans.reduce(function (total, loan) {
           return total + loanAmount(loan);
         }, 0);
         const spentSoFar = computedSpent(councilFields);
 
         setText("councilName", councilFields.issuingCouncil || "Council");
         setText("amountRaised", formatShortMoney(amountRaised));
-        setText("investmentClosed", formatMonthYear(latestCloseDate(councilLoans)));
+        setText("investmentClosed", formatMonthYear(latestCloseDate(closedLoans)));
         setText("spentSoFar", formatShortMoney(spentSoFar));
         setText("amountSpent", formatShortMoney(spentSoFar));
         setText("projectsFinanced", Math.round(safeNumber(councilFields.projectsFunded)).toLocaleString("en-GB"));
-        setText("investmentsCount", councilLoans.length.toLocaleString("en-GB"));
+        setText("investmentsCount", closedLoans.length.toLocaleString("en-GB"));
         setLogo(councilFields);
         setUseOfFundsState(spentSoFar);
         renderChart(councilFields, spentSoFar);
@@ -532,4 +531,3 @@
       boot();
     }
   })();
-</script>

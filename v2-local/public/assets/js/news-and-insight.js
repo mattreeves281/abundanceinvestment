@@ -1,4 +1,3 @@
-<script>
 (function () {
   function escapeHTML(value) {
     return String(value || "")
@@ -205,4 +204,3 @@
 
   renderNewsList();
 })();
-</script>

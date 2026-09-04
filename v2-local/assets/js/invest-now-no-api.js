@@ -1,4 +1,3 @@
-<script>
   (function () {
     const keyTermsData = {
       "hammersmith-fulham": {
@@ -243,4 +242,3 @@
       initPaymentCalculator();
     }
   })();
-</script>

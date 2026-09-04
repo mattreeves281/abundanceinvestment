@@ -1,4 +1,3 @@
-<script>
   (function () {
     const defaultAnnualRate = 0.0455;
     const defaultAnnualRatePercent = "4.55";
@@ -285,7 +284,7 @@
 
     function historicRateSummary(records) {
       const rates = records.reduce(function (acc, record) {
-        if (hasStatus(field(record, "raiseStatus"), "Open")) return acc;
+        if (!hasStatus(field(record, "raiseStatus"), "Closed")) return acc;
 
         const rate = parseRawNumber(field(record, "rateOfReturn"));
         if (!(rate > 0)) return acc;
@@ -383,4 +382,3 @@
       initPage();
     }
   })();
-</script>

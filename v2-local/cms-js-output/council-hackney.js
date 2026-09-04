@@ -347,8 +347,6 @@
     }
   });
 })();
-
-<script>
   (function () {
     const CONFIG_SELECTOR = "[data-abv2-programme-hub-config]";
     const DEFAULT_COUNCILS_ENDPOINT = "https://data.abundanceinvestment.com/councils";
@@ -882,4 +880,3 @@
       boot();
     }
   })();
-</script>

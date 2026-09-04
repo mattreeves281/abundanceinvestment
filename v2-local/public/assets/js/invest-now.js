@@ -1,8 +1,7 @@
-<script>
   (function () {
     const forceNoOpenLoansForPreview = false;
     const keyTermsData = {
-      "hammersmith-fulham": {
+      "Hammersmith & Fulham Council": {
         investmentName: "H&F Green Investment",
         borrower: "Hammersmith & Fulham Council",
         useOfFunds: "Urban greening projects and green energy",
@@ -24,7 +23,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
         loanConditionsUrl: "https://www.abundanceinvestment.com/example/hf-loan-conditions.pdf"
       },
-      "west-berkshire": {
+      "West Berkshire Council": {
         investmentName: "West Berkshire Green Investment",
         borrower: "West Berkshire Council",
         useOfFunds: "Solar power, building retrofit and low-carbon transport projects",
@@ -46,7 +45,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
         loanConditionsUrl: "https://www.abundanceinvestment.com/example/west-berkshire-loan-conditions.pdf"
       },
-      "glasgow": {
+      "Glasgow City Council": {
         investmentName: "Glasgow Green Investment",
         borrower: "Glasgow City Council",
         useOfFunds: "Funding Eligible Green Projects under the Green Finance Framework.",
@@ -70,7 +69,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
         loanConditionsUrl: "https://cdn4.sharein.com/abundance/docs/e2ee5ec6-3b21-4a6a-bb9a-a28bfd5a113b.pdf?_gl=1*a3jccz*_gcl_au*MTg3NDIzMzQ5OS4xNzgwOTA2OTA5Li0uLS4xNzg0MjgxMDAxLjEyNjI4NjQyNTMuMTc4NzA4OTg1NS4xNzg3MDg5ODU0"
       },
-      "southwark": {
+      "London Borough of Southwark": {
         investmentName: "Southwark Green Investment",
         borrower: "London Borough of Southwark",
         useOfFunds: "Energy efficiency upgrades, heat network improvements and green infrastructure",
@@ -92,7 +91,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 9 months' Interest will apply.",
         loanConditionsUrl: "https://www.abundanceinvestment.com/example/southwark-loan-conditions.pdf"
       },
-      "hackney": {
+      "London Borough of Hackney": {
         investmentName: "Hackney Green Investment",
         borrower: "London Borough of Hackney",
         useOfFunds: "School energy upgrades, public building retrofit and community climate projects",
@@ -116,9 +115,36 @@
       }
     };
 
+    function fallbackKeyTerms(councilName) {
+      const name = councilName || "This council";
+      return {
+        investmentName: name + " investment",
+        borrower: name,
+        useOfFunds: "Key terms for this investment will be available shortly.",
+        interestRate: "-",
+        interestRateNote: "",
+        termPeriod: "-",
+        maturityDate: "-",
+        capitalRepaid: "-",
+        offerOpenDate: "-",
+        offerCloseDate: "-",
+        offerCloseDateNote: "",
+        minimumBorrowingAmount: "-",
+        maximumBorrowingAmount: "-",
+        initialInterestPeriod: "-",
+        interestPeriods: "-",
+        returnStructure: "-",
+        arrangementFee: "-",
+        arrangementFeeNote: "",
+        managementFee: "-",
+        managementFeeNote: "",
+        earlyRepaymentOptions: "-",
+        loanConditionsUrl: "#"
+      };
+    }
+
     function renderKeyTerms(key) {
-      const data = keyTermsData[key];
-      if (!data) return;
+      const data = keyTermsData[key] || fallbackKeyTerms(key);
 
       document.querySelectorAll("[data-keyterms-field]").forEach(function (el) {
         const field = el.getAttribute("data-keyterms-field");
@@ -347,6 +373,7 @@
       const hex = firstValue(fields.hex) || firstValue(councilFields.hex) || "#f1eeed";
       const logo = firstValue(fields.whiteLogo) || firstValue(councilFields.whiteLogo);
       const aboutUrl = councilUrl(council, councilName);
+      const keyTermsKey = councilName;
 
       return `
         <article class="si-card si-card--2xs h-100">
@@ -377,7 +404,7 @@
               }
             </div>
             <div class="col-12 col-md-2">
-              <a class="si-btn-link body--md d-block" href="#keyterms-modal" role="button" data-modal-open="keyterms-modal" data-keyterms-trigger="glasgow" aria-haspopup="dialog" aria-controls="keyterms-modal">View key terms</a>
+              <a class="si-btn-link body--md d-block" href="#keyterms-modal" role="button" data-modal-open="keyterms-modal" data-keyterms-trigger="${escapeHtml(keyTermsKey)}" aria-haspopup="dialog" aria-controls="keyterms-modal">View key terms</a>
               <a class="si-btn-link body--md d-block m-t-spacer-3xs" href="${escapeHtml(aboutUrl)}">About council</a>
             </div>
           </div>
@@ -640,4 +667,3 @@
       initInvestNowPage();
     }
   })();
-</script>

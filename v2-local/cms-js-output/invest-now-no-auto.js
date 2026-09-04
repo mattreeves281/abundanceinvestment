@@ -348,11 +348,10 @@
   });
 })();
 
-<script>
-  (function () {
+(function () {
     const forceNoOpenLoansForPreview = false;
     const keyTermsData = {
-      "hammersmith-fulham": {
+      "Hammersmith & Fulham Council": {
         investmentName: "H&F Green Investment",
         borrower: "Hammersmith & Fulham Council",
         useOfFunds: "Urban greening projects and green energy",
@@ -374,7 +373,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
         loanConditionsUrl: "https://www.abundanceinvestment.com/example/hf-loan-conditions.pdf"
       },
-      "west-berkshire": {
+      "West Berkshire Council": {
         investmentName: "West Berkshire Green Investment",
         borrower: "West Berkshire Council",
         useOfFunds: "Solar power, building retrofit and low-carbon transport projects",
@@ -396,7 +395,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
         loanConditionsUrl: "https://www.abundanceinvestment.com/example/west-berkshire-loan-conditions.pdf"
       },
-      "glasgow": {
+      "Glasgow City Council": {
         investmentName: "Glasgow Green Investment",
         borrower: "Glasgow City Council",
         useOfFunds: "Funding Eligible Green Projects under the Green Finance Framework.",
@@ -420,7 +419,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
         loanConditionsUrl: "https://cdn4.sharein.com/abundance/docs/e2ee5ec6-3b21-4a6a-bb9a-a28bfd5a113b.pdf?_gl=1*a3jccz*_gcl_au*MTg3NDIzMzQ5OS4xNzgwOTA2OTA5Li0uLS4xNzg0MjgxMDAxLjEyNjI4NjQyNTMuMTc4NzA4OTg1NS4xNzg3MDg5ODU0"
       },
-      "southwark": {
+      "London Borough of Southwark": {
         investmentName: "Southwark Green Investment",
         borrower: "London Borough of Southwark",
         useOfFunds: "Energy efficiency upgrades, heat network improvements and green infrastructure",
@@ -442,7 +441,7 @@
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 9 months' Interest will apply.",
         loanConditionsUrl: "https://www.abundanceinvestment.com/example/southwark-loan-conditions.pdf"
       },
-      "hackney": {
+      "London Borough of Hackney": {
         investmentName: "Hackney Green Investment",
         borrower: "London Borough of Hackney",
         useOfFunds: "School energy upgrades, public building retrofit and community climate projects",
@@ -463,12 +462,63 @@
         managementFeeNote: "This is the fee paid to Abundance in its role as Agent. The interest rate above is quoted after fees.",
         earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 6 months' Interest will apply.",
         loanConditionsUrl: "https://www.abundanceinvestment.com/example/hackney-loan-conditions.pdf"
+      },
+      "City of Edinburgh Council": {
+        investmentName: "Edinburgh Green Investment 1",
+        borrower: "City of Edinburgh Council",
+        useOfFunds: "Funding Eligible Green Projects under the Green Finance Framework.",
+        interestRate: "4.84% a year",
+        interestRateNote: "This is the interest rate paid by the Borrower to lenders and does not include the cost of fees paid to Abundance in its role as Arranger and Agent.",
+        termPeriod: "5 years after end of 'Initial interest period'",
+        maturityDate: "31 December 2031",
+        capitalRepaid: "Lump sum on maturity",
+        offerOpenDate: "1 September 2026",
+        offerCloseDate: "30 November 2026",
+        offerCloseDateNote: "The Loan Opportunity may be withdrawn before the Offer Close Date at the Borrower's discretion subject to it posting notice of withdrawal on the Abundance website.",
+        minimumBorrowingAmount: "£5.00",
+        maximumBorrowingAmount: "£1,000,000",
+        initialInterestPeriod: "This will start on the date the lender makes their investment and ends on 31 December 2026.",
+        interestPeriods: "From 1 January to 30 June and 1 July to 31 December each year, starting from 1 January 2027.",
+        returnStructure: "10 semi-annual payments of Interest on the last day of each Interest Period. Capital is repaid as a lump sum on the Maturity Date.",
+        arrangementFee: "1.20% of the total loan amount raised",
+        arrangementFeeNote: "This is the fee paid to Abundance in its role as Arranger. The interest rate above is quoted after fees.",
+        managementFee: "0.10% of the outstanding loan amount, per year",
+        managementFeeNote: "This is the fee paid to Abundance in its role as Agent. The interest rate above is quoted after fees.",
+        earlyRepaymentOptions: "The Borrower has the option to make a full early repayment of the Loans by giving notice to Abundance. An early repayment fee equal to 12 months' Interest will apply.",
+        loanConditionsUrl: "https://cdn4.sharein.com/abundance/docs/b15d1f6f-48ee-49fe-9efb-4f6c54191d48.pdf?_gl=1*1bpcbpr*_gcl_au*MTg3NDIzMzQ5OS4xNzgwOTA2OTA5Li0uLS4xNzg3MjIzMzM0LjE1MTMxMTA4NDAuMTc4ODEyNDg1MS4xNzg4MTI0ODUx"
       }
     };
 
+    function fallbackKeyTerms(councilName) {
+      const name = councilName || "This council";
+      return {
+        investmentName: name + " investment",
+        borrower: name,
+        useOfFunds: "Key terms for this investment will be available shortly.",
+        interestRate: "-",
+        interestRateNote: "",
+        termPeriod: "-",
+        maturityDate: "-",
+        capitalRepaid: "-",
+        offerOpenDate: "-",
+        offerCloseDate: "-",
+        offerCloseDateNote: "",
+        minimumBorrowingAmount: "-",
+        maximumBorrowingAmount: "-",
+        initialInterestPeriod: "-",
+        interestPeriods: "-",
+        returnStructure: "-",
+        arrangementFee: "-",
+        arrangementFeeNote: "",
+        managementFee: "-",
+        managementFeeNote: "",
+        earlyRepaymentOptions: "-",
+        loanConditionsUrl: "#"
+      };
+    }
+
     function renderKeyTerms(key) {
-      const data = keyTermsData[key];
-      if (!data) return;
+      const data = keyTermsData[key] || fallbackKeyTerms(key);
 
       document.querySelectorAll("[data-keyterms-field]").forEach(function (el) {
         const field = el.getAttribute("data-keyterms-field");
@@ -697,6 +747,7 @@
       const hex = firstValue(fields.hex) || firstValue(councilFields.hex) || "#f1eeed";
       const logo = firstValue(fields.whiteLogo) || firstValue(councilFields.whiteLogo);
       const aboutUrl = councilUrl(council, councilName);
+      const keyTermsKey = councilName;
 
       return `
         <article class="si-card si-card--2xs h-100">
@@ -727,7 +778,7 @@
               }
             </div>
             <div class="col-12 col-md-2">
-              <a class="si-btn-link body--md d-block" href="#keyterms-modal" role="button" data-modal-open="keyterms-modal" data-keyterms-trigger="glasgow" aria-haspopup="dialog" aria-controls="keyterms-modal">View key terms</a>
+              <a class="si-btn-link body--md d-block" href="#keyterms-modal" role="button" data-modal-open="keyterms-modal" data-keyterms-trigger="${escapeHtml(keyTermsKey)}" aria-haspopup="dialog" aria-controls="keyterms-modal">View key terms</a>
               <a class="si-btn-link body--md d-block m-t-spacer-3xs" href="${escapeHtml(aboutUrl)}">About council</a>
             </div>
           </div>
@@ -736,7 +787,8 @@
     }
 
     function renderLoanGroup(group) {
-      const investUrl = "https://abundance-buy-journey.netlify.app/";
+      const firstLoanFields = getFields(group.loans[0]);
+      const investUrl = normalizeUrl(firstLoanFields.investmentUrl, "/invest/edinburgh-green-investment-1");
 
       return `
         <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
@@ -802,7 +854,6 @@
           councils.forEach(function (council) {
             if (council && council.id) councilsById.set(council.id, council);
           });
-
           const openLoans = loans.filter(function (loan) {
             return hasStatus(getFields(loan).raiseStatus, "open");
           });
@@ -990,4 +1041,3 @@
       initInvestNowPage();
     }
   })();
-</script>
