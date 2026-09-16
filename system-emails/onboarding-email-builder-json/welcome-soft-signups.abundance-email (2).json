@@ -1,0 +1,152 @@
+{
+  "name": "welcome-soft-signups",
+  "subject": "Welcome to Abundance",
+  "previewText": "Building better places together",
+  "blocks": [
+    {
+      "id": "welcome-soft-signups-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "welcome-soft-signups-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Learn more about {{ subscriber.au_ss_council_pretty_name }}",
+        "body": "{{ subscriber.au_ss_council_intro }}"
+      }
+    },
+    {
+      "id": "buttonRow-1786965956085-1ca8803dd5e138",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "Learn more",
+        "ctaUrl": "{{ subscriber.au_ss_council_action_url }}",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "divider-1786965635437-d10ce3e4c360c8",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-fall-left-pink-to-transparent@6x.png",
+        "spacing": "26"
+      }
+    },
+    {
+      "id": "simpleContent-1787154308552-8e7755bb43ae5",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "Getting started with Abundance",
+        "body": "Over the coming weeks, we'll send you a series of emails explaining how our municipal investments work. They’ll show how these can benefit local communities while supporting your own finances too.\n\nOnce you're ready to invest, you just need to set up a free Abundance account, and be up and running in minutes.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "welcome-soft-signups-investment-stats",
+      "type": "investmentStatsCta",
+      "customized": true,
+      "condition": {
+        "mode": "hide",
+        "tags": "AU_FLAG_NO_OPEN_LOANS"
+      },
+      "fields": {
+        "heading": "Start investing today",
+        "stats": [
+          {
+            "label": "Interest rate",
+            "value": "{{ subscriber.email_rate }}",
+            "accent": "pink"
+          },
+          {
+            "label": "Term",
+            "value": "{{ subscriber.email_term }}",
+            "accent": "teal"
+          },
+          {
+            "label": "Capital repaid",
+            "value": "{{ subscriber.email_capital }}",
+            "accent": "yellow"
+          }
+        ],
+        "ctaLabel": "Invest now",
+        "ctaUrl": "https://www.abundanceinvestment.com/invest-now",
+        "ctaAlign": "left"
+      },
+      "conditionOpen": true
+    },
+    {
+      "id": "welcome-soft-signups-three-reasons",
+      "type": "threeUpBlobCards",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Three good reasons to invest with us",
+        "intro": "",
+        "cards": [
+          {
+            "numberImage": "1.png",
+            "title": "Start from just £5",
+            "body": "Begin investing in minutes",
+            "linkLabel": "Learn how to invest",
+            "linkUrl": "https://www.abundanceinvestment.com/how-it-works/#how-to-invest"
+          },
+          {
+            "numberImage": "2.png",
+            "title": "Make a real difference",
+            "body": "Finance projects that make places better",
+            "linkLabel": "See the impact",
+            "linkUrl": "https://www.abundanceinvestment.com/make-a-positive-difference"
+          },
+          {
+            "numberImage": "3.png",
+            "title": "Tax free ISA returns",
+            "body": "Grow your nest egg with an IF ISA",
+            "linkLabel": "About our IF ISA",
+            "linkUrl": "https://www.abundanceinvestment.com/tax-free-isa-investing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "welcome-soft-signups-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}

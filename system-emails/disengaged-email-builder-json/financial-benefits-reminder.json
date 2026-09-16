@@ -1,0 +1,136 @@
+{
+  "name": "financial-benefits-reminder",
+  "subject": "Growing your pot with us",
+  "previewText": "Earn a stable long-term income",
+  "blocks": [
+    {
+      "id": "financial-benefits-header",
+      "type": "header",
+      "customized": false,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {}
+    },
+    {
+      "id": "financial-benefits-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "Growing your pot with us",
+        "body": "Earn a stable long-term income\n\nWhether you’re investing a little or a lot, we offer a simple way to grow your savings.\n\nYou can either withdraw your returns as regular payments, or re-invest them to keep your money working."
+      }
+    },
+    {
+      "id": "financial-benefits-comparison",
+      "type": "twoUpCards",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "Two ways to build your pot with Abundance",
+        "intro": "Use our calculator to find out how your money can grow when you reinvest your returns.",
+        "cards": [
+          {
+            "title": "Invest regularly",
+            "body": "Build your pot through regular standing order\nNo fees means all your money gets invested\nUse automatic investment to spread your money evenly across open investments\nReturns automatically reinvested to keep your pot growing",
+            "ctaLabel": "",
+            "ctaUrl": ""
+          },
+          {
+            "title": "Make a single deposit",
+            "body": "Add money to your account when it suits you\nInvest in one council or split across several\nReinvest returns to grow your pot, or withdraw cash to spend",
+            "ctaLabel": "",
+            "ctaUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "financial-benefits-calculator",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "ctaLabel": "Calculator",
+        "ctaUrl": "https://www.abundanceinvestment.com/calculator",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "financial-benefits-divider-features",
+      "type": "divider",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "image": "divider-rise-right-teal-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "financial-benefits-features",
+      "type": "threeUpBlobCards",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "Municipal investment key features",
+        "intro": "",
+        "cards": [
+          {
+            "numberImage": "1.png",
+            "title": "Long term and low risk",
+            "body": "",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "2.png",
+            "title": "Competitive rates of return",
+            "body": "",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "3.png",
+            "title": "Get regular payments every 6 months, or reinvest returns",
+            "body": "",
+            "linkLabel": "",
+            "linkUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "financial-benefits-learn-more",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "ctaLabel": "Learn more",
+        "ctaUrl": "https://www.abundanceinvestment.com/how-it-works",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "financial-benefits-rates",
+      "type": "rateCards",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "How our rates compare",
+        "intro": "The rates on our municipal investments are competitive with other long term saving and investment products of similar risk level. They remain fixed for the entire investment term.\n\nOur historic interest rates",
+        "cards": [
+          { "label": "Today", "value": "{{ subscriber.email_rate }}", "color": "pink" },
+          { "label": "2025 avg", "value": "4.2%", "color": "teal" },
+          { "label": "2024 avg", "value": "4.2%", "color": "yellow" },
+          { "label": "2023 avg", "value": "4.1%", "color": "grey" }
+        ]
+      }
+    },
+    {
+      "id": "financial-benefits-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {}
+    }
+  ]
+}

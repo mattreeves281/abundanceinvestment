@@ -1,0 +1,169 @@
+{
+  "name": "municipal-lending-digital-age",
+  "subject": "Join a new generation of citizen investors",
+  "previewText": "Be part of a thriving future for our places",
+  "blocks": [
+    {
+      "id": "municipal-lending-header",
+      "type": "header",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "loginUrl": "https://www.abundanceinvestment.com/login",
+        "loginLabel": "Log in"
+      }
+    },
+    {
+      "id": "municipal-lending-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "A new generation of citizen investors",
+        "body": "Municipal investments are loans to UK councils. You lend money to UK councils for a fixed period to fund real projects, and in return you earn a stable income for the investment term.\n\nIt used to be common for UK councils to borrow money from their residents, but it fell from popularity. Now we’re helping to bring it back, once again giving citizens an active role in the future of their local places."
+      }
+    },
+    {
+      "id": "municipal-lending-quote",
+      "type": "quoteBlock",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "quote": "“I’ve actually stood in places where the work has been done and thought: my money helped make this happen. That’s a really good feeling.”",
+        "imageUrl": "",
+        "imageAlt": "",
+        "name": "Citizen investor",
+        "role": "Hammersmith & Fulham Council"
+      }
+    },
+    {
+      "id": "municipal-lending-divider",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-right-teal-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "municipal-lending-reinventing",
+      "type": "simpleContent",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "eyebrow": "",
+        "heading": "Reinventing municipal investing for the digital age",
+        "body": "Municipal bonds have been used as far back as the 1500s to finance local infrastructure across the country. They allowed councils to fund railway expansions, water supply systems and electric grids.\n\nIt is on these foundations that our own municipal investments are built. In this era of financial markets and opaque cryptocurrencies, we want to connect people with what their money is really doing.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "buttonRow-1786971792257-a3f892b542661",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "ctaLabel": "Learn more",
+        "ctaUrl": "https://www.abundanceinvestment.com/about-municipal-lending",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "municipal-lending-why",
+      "type": "bulletCardCta",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Why it makes sense",
+        "items": "Our municipal investments offer good value for councils and a competitive return for investors.\nYour loan must be used for infrastructure projects and can’t be used to cover day-to-day costs.\nIt is a low risk investment. There is no record of a council ever defaulting on debt repayment.",
+        "ctaLabel": "",
+        "ctaUrl": ""
+      }
+    },
+    {
+      "id": "municipal-lending-divider-cards",
+      "type": "divider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-fall-left-pink-to-transparent@6x.png",
+        "spacing": "24"
+      }
+    },
+    {
+      "id": "municipal-lending-coloured-cards",
+      "type": "featureCards",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Benefits at a glance",
+        "intro": "Municipal investments are designed for people looking for long-term investments with fixed cash interest payments.",
+        "cards": [
+          {
+            "title": "Regular interest payments",
+            "body": "Cash payments every 6 months to reinvest or withdraw.",
+            "color": "pink"
+          },
+          {
+            "title": "£5 minimum investment",
+            "body": "Everyone invests on the same terms.",
+            "color": "teal"
+          },
+          {
+            "title": "ISA eligible",
+            "body": "Invest through an Innovative Finance ISA.",
+            "color": "yellow"
+          },
+          {
+            "title": "No fees",
+            "body": "The rates you see are the rates you get.",
+            "color": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "municipal-lending-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "address": "{{ html_postal_address }}",
+        "fca": "We are authorised and regulated by the Financial Conduct Authority (525432)",
+        "legal": "This email and all attachments transmitted with it are intended solely for the use of the addressee and may contain legally privileged and confidential information. If the reader of this message is not the intended recipient you are hereby notified that any dissemination, distribution, copying, or other use of this message or its attachments is strictly prohibited. If you have received this message in error, please delete it and notify Abundance immediately.\n\nNothing in this message shall be considered an offer to sell, or a solicitation of an offer to buy, any investment to any person in any jurisdiction to whom or in which such offer, solicitation or sale is unlawful. Abundance does not provide legal, financial or tax advice of any kind, and nothing in this email constitutes such advice. To the extent permitted by law, Abundance does not accept any liability arising from the use of this communication.\n\nYou received this email because you are an Abundance account holder."
+      }
+    }
+  ]
+}

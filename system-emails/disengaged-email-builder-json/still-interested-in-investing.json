@@ -1,0 +1,75 @@
+{
+  "name": "still-interested-in-investing",
+  "subject": "Are you still interested in investing?",
+  "previewText": "Back real green and social projects, starting from £5",
+  "blocks": [
+    {
+      "id": "still-interested-header",
+      "type": "header",
+      "customized": false,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {}
+    },
+    {
+      "id": "still-interested-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "Are you still interested in investing?",
+        "body": "Back real green and social projects, starting from £5\n\nYou’ve made an account, but you haven’t yet added an investment.\n\nThis is the last reminder you’ll get from us, so if you’re still interested then simply login to add your first deposit. All you need is £5 and a few spare minutes.\n\nAbundance is the UK’s platform for local investment. Our municipal investments are an easy way to add a low-risk option to your financial plans, and every pound invested will make a positive impact in the places you care about."
+      }
+    },
+    {
+      "id": "still-interested-ready",
+      "type": "threeUpBlobCards",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "Ready to invest?",
+        "intro": "",
+        "cards": [
+          {
+            "numberImage": "1.png",
+            "title": "Start from just £5",
+            "body": "You can start investing in minutes",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "2.png",
+            "title": "Competitive rates",
+            "body": "Finance real green and social projects",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "3.png",
+            "title": "Tax free ISA returns",
+            "body": "Grow your pot with an IF ISA",
+            "linkLabel": "",
+            "linkUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "still-interested-invest-now",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "ctaLabel": "Invest now",
+        "ctaUrl": "https://www.abundanceinvestment.com/invest-now",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "still-interested-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {}
+    }
+  ]
+}

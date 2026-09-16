@@ -1,5 +1,6 @@
 const CDN = "https://cdn4.sharein.com/abundance/assets/images";
 const LOGO = `${CDN}/Abundance-Logo-2026-on-white-v2.png`;
+const EMBLEM = "https://shareinmicrosite.blob.core.windows.net/abundance/2eabc63d-317a-4fa9-8335-723d26cde6c0.png";
 const STORAGE_KEY = "abundance-email-builder-mega-v1";
 const exactLibrary = typeof window !== "undefined" ? window.AbundanceEmailLibrary : null;
 
@@ -44,6 +45,7 @@ const sampleImages = {
 
 const blockGroups = {
   header: "Structure",
+  systemHeader: "Structure",
   hero: "Structure",
   heroNoContents: "Structure",
   divider: "Structure",
@@ -52,9 +54,11 @@ const blockGroups = {
   dividerIndigo: "Structure",
   dividerPink: "Structure",
   simpleContent: "Basic content",
+  imageCaption: "Basic content",
   tableCard: "Layouts",
   warning: "Basic content",
   quoteBlock: "Layouts",
+  bulletCardCta: "Layouts",
   keyTerms: "Layouts",
   faqRows: "Layouts",
   featureCards: "Layouts",
@@ -66,6 +70,8 @@ const blockGroups = {
   ctaCards: "CTAs",
   caseStudyRows: "Layouts",
   statsTable: "Layouts",
+  statRow: "Layouts",
+  investmentStatsCta: "Layouts",
   statColorCards: "Layouts",
   impactStats: "CTAs",
   impactImageCta: "CTAs",
@@ -97,6 +103,21 @@ const blockSchemas = {
     label: "Header - brand and login",
     defaults: { loginUrl: "https://www.abundanceinvestment.com/login", loginLabel: "Log in" },
     fields: [
+      field("loginLabel", "Login label"),
+      field("loginUrl", "Login URL", "url")
+    ]
+  },
+  systemHeader: {
+    label: "System header - emblem and login",
+    defaults: {
+      iconUrl: EMBLEM,
+      iconAlt: "Abundance",
+      loginUrl: "https://www.abundanceinvestment.com/login",
+      loginLabel: "Log in"
+    },
+    fields: [
+      field("iconUrl", "Icon URL", "url"),
+      field("iconAlt", "Icon alt text"),
       field("loginLabel", "Login label"),
       field("loginUrl", "Login URL", "url")
     ]
@@ -168,6 +189,19 @@ const blockSchemas = {
       field("body", "Body", "textarea"),
       field("ctaLabel", "Button label"),
       field("ctaUrl", "Button URL", "url")
+    ]
+  },
+  imageCaption: {
+    label: "Image with caption",
+    defaults: {
+      imageUrl: sampleImages.place,
+      imageAlt: "Local project image",
+      caption: "A short caption describing the image."
+    },
+    fields: [
+      field("imageUrl", "Image URL", "url"),
+      field("imageAlt", "Image alt text"),
+      field("caption", "Caption", "textarea")
     ]
   },
   featureCards: {
@@ -276,14 +310,58 @@ const blockSchemas = {
       heading: "How councils have spent the money",
       intro: "Hard-coded email-safe bars using all-caps report project allocations.",
       stats: "Amount spent|£9.68m\nProjects|66\nInvestors|32",
-      bars: "Renewable energy|£3.68m|92|pink\nEnergy efficiency|£1.88m|70|teal\nClean transportation|£994k|55|yellow\nClimate change adaptation|£861k|48|pink"
+      bars: "Renewable energy|£3.68m|92|pink\nEnergy efficiency|£1.88m|70|teal\nClean transportation|£994k|55|yellow\nClimate change adaptation|£861k|48|pink",
+      footnote: ""
     },
     fields: [
       field("heading", "Heading"),
       field("intro", "Intro", "textarea"),
       field("stats", "Stats, one per line as Label|Value", "textarea"),
-      field("bars", "Bars as Label|Value|Percent|Colour", "textarea")
+      field("bars", "Bars as Label|Value|Percent|Colour", "textarea"),
+      field("footnote", "Footnote", "textarea")
     ]
+  },
+  statRow: {
+    label: "Stat row - 3 up",
+    defaults: {
+      heading: "Hammersmith & Fulham",
+      stats: [
+        { label: "Amount raised", value: "£5m", accent: "pink" },
+        { label: "Initiatives funded", value: "10", accent: "teal" },
+        { label: "Focus", value: "Green and social", accent: "yellow" }
+      ]
+    },
+    fields: [field("heading", "Heading")],
+    repeats: [{ key: "stats", label: "Stats", itemFields: [field("label", "Label"), field("value", "Value"), field("accent", "Accent", "select", [["pink", "Pink"], ["teal", "Teal"], ["yellow", "Yellow"], ["indigo", "Indigo"]])] }]
+  },
+  investmentStatsCta: {
+    label: "Investment stats CTA - 3 up",
+    defaults: {
+      heading: "Get started investing today",
+      stats: [
+        { label: "Interest rate", value: "{{ subscriber.email_rate }}", accent: "pink" },
+        { label: "Term", value: "{{ subscriber.email_term }}", accent: "teal" },
+        { label: "Capital repaid", value: "{{ subscriber.email_capital }}", accent: "yellow" }
+      ],
+      ctaLabel: "Invest now",
+      ctaUrl: "https://www.abundanceinvestment.com/invest",
+      ctaAlign: "left"
+    },
+    fields: [
+      field("heading", "Heading"),
+      field("ctaLabel", "Button label"),
+      field("ctaUrl", "Button URL", "url"),
+      field("ctaAlign", "Button alignment", "select", [["left", "Left"], ["center", "Centre"]])
+    ],
+    repeats: [{
+      key: "stats",
+      label: "Stats",
+      itemFields: [
+        field("label", "Label"),
+        field("value", "Value"),
+        field("accent", "Accent colour", "select", [["pink", "Pink"], ["teal", "Teal"], ["yellow", "Yellow"], ["indigo", "Indigo"]])
+      ]
+    }]
   },
   statColorCards: {
     label: "Colour card stack",
@@ -463,6 +541,21 @@ const blockSchemas = {
       role: "Council spokesperson"
     },
     fields: [field("quote", "Quote", "textarea"), field("imageUrl", "Headshot URL", "url"), field("imageAlt", "Headshot alt text"), field("name", "Name"), field("role", "Role")]
+  },
+  bulletCardCta: {
+    label: "Bullet card with button",
+    defaults: {
+      heading: "Why it makes sense",
+      items: "Our municipal investments offer good value for councils and a competitive return for investors.\nYour loan must be used for infrastructure projects and can’t be used to cover day-to-day costs.\nIt is a low risk investment. There is no record of a council ever defaulting on debt repayment.",
+      ctaLabel: "Find out more",
+      ctaUrl: "https://www.abundanceinvestment.com/how-it-works"
+    },
+    fields: [
+      field("heading", "Heading"),
+      field("items", "Items, one per line", "textarea"),
+      field("ctaLabel", "Button label"),
+      field("ctaUrl", "Button URL", "url")
+    ]
   },
   transferDetails: {
     label: "Transfer details",
@@ -678,6 +771,7 @@ const starterEmail = {
 let state = loadState();
 let selectedId = state.blocks[0]?.id || null;
 let draggedId = null;
+let previewTags = new Set();
 
 const els = {
   picker: document.getElementById("blockPicker"),
@@ -697,6 +791,7 @@ const els = {
   downloadHtmlButton: document.getElementById("downloadHtmlButton"),
   resetButton: document.getElementById("resetButton"),
   mobilePreview: document.getElementById("mobilePreview"),
+  liquidPreviewControls: document.getElementById("liquidPreviewControls"),
   previewPanel: document.querySelector(".preview-column"),
   toast: document.getElementById("toast")
 };
@@ -709,11 +804,10 @@ function field(key, label, type = "text", options = []) {
 
 function addSystemFooterVariant() {
   if (!exactLibrary?.blocks?.footerContent) return;
-  const html = `\n\n            <!-- BLOCK: Footer - system -->\n            <tr>\n              <td style="padding:18px 0;line-height:0;font-size:0;background-color:#ffffff;">\n                <img src="${CDN}/divider-rise-left-yellow-to-transparent@6x.png" width="640" height="74" alt="" role="presentation" style="display:block;width:100%;max-width:640px;height:auto;border:0;">\n              </td>\n            </tr>\n            <tr>\n              <td class="mobile-pad" style="padding:28px 32px 36px 32px;background-color:#ffffff;">\n                <img src="${LOGO}" width="150" alt="Abundance Investment" style="display:block;width:150px;max-width:150px;height:auto;border:0;margin:0 0 18px 0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:28px;font-weight:bold;color:#363635;">\n                <p style="margin:0 0 18px 0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">Abundance Investment Ltd, Hamilton House, Mabledon Place, London, WC1H 9BB</p>\n                <p style="margin:0 0 18px 0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">We are authorised and regulated by the Financial Conduct Authority (525432)</p>\n                <p style="margin:0 0 18px 0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">This email and all attachments transmitted with it are intended solely for the use of the addressee and may contain legally privileged and confidential information. If the reader of this message is not the intended recipient you are hereby notified that any dissemination, distribution, copying, or other use of this message or its attachments is strictly prohibited. If you have received this message in error, please delete it and notify Abundance immediately.</p>\n                <p style="margin:0;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:18px;color:#363635;">Nothing in this message shall be considered an offer to sell, or a solicitation of an offer to buy, any investment to any person in any jurisdiction to whom or in which such offer, solicitation or sale is unlawful. Abundance does not provide legal, financial or tax advice of any kind, and nothing in this email constitutes such advice. To the extent permitted by law, Abundance does not accept any liability arising from the use of this communication.</p>\n              </td>\n            </tr>\n`;
   exactLibrary.blocks.footerSystemMinimal = {
     label: "Footer - system",
     group: "Structure",
-    html
+    html: renderSystemMinimalFooter()
   };
 }
 
@@ -757,6 +851,7 @@ function registerExactLibraryBlocks() {
 function applyDisplayTaxonomy() {
   const groups = {
     header: "Structure",
+    systemHeader: "Structure",
     hero: "Structure",
     heroNoContents: "Structure",
     divider: "Structure",
@@ -765,6 +860,7 @@ function applyDisplayTaxonomy() {
     dividerIndigo: "Structure",
     dividerPink: "Structure",
     simpleContent: "Basic content",
+    imageCaption: "Basic content",
     warning: "Basic content",
     bulletList: "Basic content",
     numberedList: "Basic content",
@@ -773,6 +869,7 @@ function applyDisplayTaxonomy() {
     systemInfo: "Basic content",
     tableCard: "Layouts",
     quoteBlock: "Layouts",
+    bulletCardCta: "Layouts",
     keyTerms: "Layouts",
     faqRows: "Layouts",
     featureCards: "Layouts",
@@ -782,6 +879,8 @@ function applyDisplayTaxonomy() {
     rateCards: "Layouts",
     caseStudyRows: "Layouts",
     statsTable: "Layouts",
+    statRow: "Layouts",
+    investmentStatsCta: "Layouts",
     statColorCards: "Layouts",
     investmentCard: "Layouts",
     twoUpImageCards: "Layouts",
@@ -803,11 +902,14 @@ function applyDisplayTaxonomy() {
   };
   const labels = {
     header: "Header",
+    systemHeader: "Header - system icon",
     hero: "Hero",
     heroNoContents: "Hero - no contents",
     divider: "Divider",
     simpleContent: "Header and copy",
+    imageCaption: "Image with caption",
     quoteBlock: "Quote block",
+    bulletCardCta: "Bullet card with button",
     keyTerms: "Terms summary card",
     faqRows: "FAQs",
     tableCard: "Table inside card",
@@ -820,6 +922,8 @@ function applyDisplayTaxonomy() {
     rateCards: "Coloured cards 4 up - short",
     caseStudyRows: "Card with image and content rows",
     statsTable: "Bar graph",
+    statRow: "Stat row - 3 up",
+    investmentStatsCta: "Investment stats CTA - 3 up",
     statColorCards: "Coloured cards 4 up - large",
     investmentChoices: "Large CTA with button",
     impactStats: "Large CTA with stats and button",
@@ -894,11 +998,24 @@ function loadState() {
 function normalizeState(email) {
   email.blocks = email.blocks.map((item) => ({
     ...item,
-    customized: Boolean(item.customized),
+    customized: Boolean(item.customized || (item.type === "caseStudyRows" && item.fields?.stories)),
     condition: item.condition || { mode: "none", tags: "" },
-    fields: structuredCloneSafe({ ...(blockSchemas[item.type]?.defaults || {}), ...(item.fields || {}) })
+    fields: normalizeBlockFields(item.type, { ...(blockSchemas[item.type]?.defaults || {}), ...(item.fields || {}) })
   }));
   return email;
+}
+
+function normalizeBlockFields(type, fields) {
+  const normalized = structuredCloneSafe(fields);
+  if (type === "investmentStatsCta" && Array.isArray(normalized.stats)) {
+    const accents = normalized.stats.slice(0, 3).map((item) => item.accent).join("|");
+    if (accents === "yellow|pink|teal") {
+      normalized.stats[0].accent = "pink";
+      normalized.stats[1].accent = "teal";
+      normalized.stats[2].accent = "yellow";
+    }
+  }
+  return normalized;
 }
 
 function persist() {
@@ -912,6 +1029,7 @@ function render() {
   renderPicker();
   renderList();
   renderSelectedRowPreview();
+  renderLiquidPreviewControls();
   renderPreview();
   persist();
 }
@@ -1137,6 +1255,14 @@ document.addEventListener("click", (event) => {
   }
 });
 
+els.liquidPreviewControls.addEventListener("change", (event) => {
+  const tag = event.target.dataset.previewTag;
+  if (!tag) return;
+  if (event.target.checked) previewTags.add(tag);
+  else previewTags.delete(tag);
+  renderPreview();
+});
+
 document.addEventListener("input", handleFieldChange);
 document.addEventListener("change", handleFieldChange);
 
@@ -1151,6 +1277,7 @@ function handleFieldChange(event) {
     const item = state.blocks.find((entry) => entry.id === id);
     if (fieldPath.startsWith("fields.")) item.customized = true;
     setPath(item, fieldPath, event.target.value);
+    if (fieldPath.startsWith("condition.")) renderLiquidPreviewControls();
   }
   renderPreview();
   persist();
@@ -1204,7 +1331,7 @@ els.downloadHtmlButton.addEventListener("click", () => {
 
 els.openPreviewButton.addEventListener("click", () => {
   const previewKey = `abundance-email-preview-${Date.now()}`;
-  localStorage.setItem(previewKey, renderEmailHtml(state));
+  localStorage.setItem(previewKey, renderEmailHtml(state, { previewTags }));
   const preview = window.open(`preview.html#${encodeURIComponent(previewKey)}`, "_blank");
   if (!preview) {
     localStorage.removeItem(previewKey);
@@ -1277,7 +1404,36 @@ function setPath(item, path, value) {
 }
 
 function renderPreview() {
-  els.frame.srcdoc = renderEmailHtml(state);
+  els.frame.srcdoc = renderEmailHtml(state, { previewTags });
+}
+
+function renderLiquidPreviewControls() {
+  const tags = collectConditionTags(state);
+  previewTags = new Set([...previewTags].filter((tag) => tags.includes(tag)));
+  if (!tags.length) {
+    els.liquidPreviewControls.hidden = true;
+    els.liquidPreviewControls.innerHTML = "";
+    return;
+  }
+  els.liquidPreviewControls.hidden = false;
+  els.liquidPreviewControls.innerHTML = `
+    <div class="liquid-preview-title">
+      <strong>Preview tags</strong>
+      <span>Applies row show/hide logic in this preview only.</span>
+    </div>
+    <div class="tag-toggles">
+      ${tags.map((tag) => `
+        <label class="tag-toggle">
+          <input type="checkbox" data-preview-tag="${escapeAttr(tag)}"${previewTags.has(tag) ? " checked" : ""}>
+          ${escapeHtml(tag)}
+        </label>
+      `).join("")}
+    </div>
+  `;
+}
+
+function collectConditionTags(email) {
+  return [...new Set((email.blocks || []).flatMap((item) => parseTags(item.condition?.tags)))].sort((a, b) => a.localeCompare(b));
 }
 
 function renderSelectedRowPreview() {
@@ -1289,12 +1445,12 @@ function renderSelectedRowPreview() {
     subject: `${blockSchemas[type].label} preview`,
     previewText: "",
     blocks: [previewBlock]
-  });
+  }, { previewTags });
 }
 
-function renderEmailHtml(email) {
-  if (exactLibrary) return renderExactEmailHtml(email);
-  const body = email.blocks.map(renderBlock).join("\n");
+function renderEmailHtml(email, options = {}) {
+  if (exactLibrary) return renderExactEmailHtml(email, options);
+  const body = email.blocks.map((item) => renderBlock(item, options)).join("\n");
   return `<!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -1342,21 +1498,37 @@ ${body}
 </html>`;
 }
 
-function renderExactEmailHtml(email) {
+function renderExactEmailHtml(email, options = {}) {
   const blocks = email.blocks.map((item) => {
     const exactBlock = exactLibrary.blocks[item.type];
-    return exactBlock && !item.customized ? applyLiquidCondition(exactBlock.html, item.condition) : renderBlock(item);
+    return exactBlock && !item.customized ? applyLiquidCondition(exactBlock.html, item.condition, options) : renderBlock(item, options);
   }).join("");
-  return `${exactLibrary.shellBefore}${blocks}${exactLibrary.shellAfter}`;
+  return `${prepareExactShellBefore(email)}${blocks}${exactLibrary.shellAfter}`;
 }
 
-function renderBlock(item) {
-  if (exactLibrary?.blocks[item.type] && !item.customized) return applyLiquidCondition(exactLibrary.blocks[item.type].html, item.condition);
+function prepareExactShellBefore(email) {
+  const label = escapeAttr(email.name || "Abundance email");
+  const preheader = escapeHtml(email.previewText || "");
+  return exactLibrary.shellBefore
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(email.subject || email.name || "Abundance email")}</title>`)
+    .replace(/aria-label="[^"]*"/, `aria-label="${label}"`)
+    .replace(/<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;font-family:Arial,sans-serif;color:#faf8f8;">[\s\S]*?<\/div>/, `<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;font-family:Arial,sans-serif;color:#faf8f8;">${preheader}</div>`);
+}
+
+function renderBlock(item, options = {}) {
+  if (options.previewTags && !shouldShowForPreview(item.condition, options.previewTags)) return "";
+  if (exactLibrary?.blocks[item.type] && !item.customized) return applyLiquidCondition(exactLibrary.blocks[item.type].html, item.condition, options);
   const fields = item.fields;
   const renderers = {
     header: () => row(`<td class="mobile-pad" style="padding:24px 32px 24px 32px;background-color:#ffffff;border-bottom:4px solid ${colors.ink};">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
         <td valign="middle" align="left"><a href="https://www.abundanceinvestment.com" style="text-decoration:none;"><img src="${LOGO}" width="172" alt="Abundance Investment" style="display:block;width:172px;max-width:172px;height:auto;border:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:26px;line-height:30px;font-weight:bold;color:${colors.ink};"></a></td>
+        <td valign="middle" align="right" style="padding-left:16px;"><a href="${escapeAttr(fields.loginUrl)}" style="${textStyle("15px", "20px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(fields.loginLabel)}</a></td>
+      </tr></table>
+    </td>`),
+    systemHeader: () => row(`<td class="mobile-pad" style="padding:22px 32px 22px 32px;background-color:#ffffff;border-bottom:4px solid ${colors.ink};">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+        <td valign="middle" align="left"><a href="https://www.abundanceinvestment.com" style="text-decoration:none;"><img src="${escapeAttr(fields.iconUrl)}" width="58" alt="${escapeAttr(fields.iconAlt)}" style="display:block;width:58px;max-width:58px;height:auto;border:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:28px;font-weight:bold;color:${colors.ink};"></a></td>
         <td valign="middle" align="right" style="padding-left:16px;"><a href="${escapeAttr(fields.loginUrl)}" style="${textStyle("15px", "20px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(fields.loginLabel)}</a></td>
       </tr></table>
     </td>`),
@@ -1373,10 +1545,14 @@ function renderBlock(item) {
     imageText: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
         <td class="mobile-stack" width="218" valign="top" style="width:218px;padding:0 24px 0 0;"><img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="172" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:172px;max-width:172px;height:auto;border:0;color:${colors.ink};font-family:Arial,sans-serif;font-size:13px;line-height:18px;"></td>
-        <td class="mobile-stack" valign="top"><h2 style="${headingStyle("27px", "31px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "", "16px", "25px", "0 0 14px 0")}<a href="${escapeAttr(fields.linkUrl)}" style="${textStyle("15px", "22px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(fields.linkLabel)}</a></td>
+        <td class="mobile-stack" valign="top">${fields.heading ? `<h2 style="${headingStyle("27px", "31px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${paragraph(fields.body, "", "16px", "25px", "0 0 14px 0")}<a href="${escapeAttr(fields.linkUrl)}" style="${textStyle("15px", "22px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(fields.linkLabel)}</a></td>
       </tr></table>
     </td>`),
-    simpleContent: () => row(`<td class="mobile-pad" style="padding:12px 32px 34px 32px;background-color:#ffffff;">${fields.eyebrow ? eyebrow(fields.eyebrow) : ""}<h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "body-lg", "18px", "29px", fields.ctaLabel ? "0 0 22px 0" : "0")}${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}</td>`),
+    imageCaption: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">
+      <img src="${escapeAttr(fields.imageUrl)}" width="576" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:100%;max-width:576px;height:auto;border:0;border-radius:24px;background-color:${colors.line};color:${colors.ink};font-family:Arial,sans-serif;font-size:14px;line-height:20px;">
+      ${fields.caption ? `<p style="${textStyle("13px", "19px", colors.muted)}margin:10px 0 0 0;">${formatInlineText(fields.caption)}</p>` : ""}
+    </td>`),
+    simpleContent: () => row(`<td class="mobile-pad" style="padding:12px 32px 34px 32px;background-color:#ffffff;">${fields.eyebrow ? eyebrow(fields.eyebrow) : ""}${fields.heading ? `<h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${paragraph(fields.body, "body-lg", "18px", "29px", fields.ctaLabel ? "0 0 22px 0" : "0")}${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}</td>`),
     featureCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "body-lg", "18px", "29px", "0 0 22px 0")}${renderFeatureCards(fields.cards)}</td>`),
     twoUpCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 42px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderTwoUpCards(fields.cards)}</td>`),
     ctaCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 42px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderTwoUpCards(fields.cards)}</td>`),
@@ -1384,7 +1560,9 @@ function renderBlock(item) {
     stepsList: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 8px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "16px", "25px", "0 0 20px 0")}${renderSteps(fields.steps)}`)}</td>`),
     rateCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderRateCards(fields.cards)}</td>`),
     caseStudyRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderCaseRows(fields.stories)}</td>`),
-    statsTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStats(fields.stats)}${renderBars(fields.bars)}`)}</td>`),
+    statsTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStats(fields.stats)}${renderBars(fields.bars)}${fields.footnote ? paragraph(fields.footnote, "", "12px", "18px", "8px 0 0 0", colors.muted) : ""}`)}</td>`),
+    statRow: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderStatRow(fields)}</td>`),
+    investmentStatsCta: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderInvestmentStatsCta(fields)}</td>`),
     statColorCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderStatColorCards(fields.cards)}</td>`),
     investmentChoices: () => renderInvestmentChoices(fields),
     maskedCta: () => renderImpactStats(fields),
@@ -1395,14 +1573,15 @@ function renderBlock(item) {
     twoUpImageCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 42px 32px;background-color:#ffffff;">${renderTwoUpImageCards(fields.cards)}</td>`),
     nextSteps: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 18px 0;">${escapeHtml(fields.heading)}</h2>${renderNextSteps(fields.links)}</td>`),
     newsRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>${renderNewsRows(fields.articles)}</td>`),
-    quoteBlock: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderQuote(fields)}</td>`),
+    quoteBlock: () => row(`<td class="mobile-pad" style="padding:0 32px 34px 32px;background-color:#ffffff;">${renderQuote(fields)}</td>`),
+    bulletCardCta: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderBulletCardCta(fields)}</td>`),
     transferDetails: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderTransferDetails(fields.rows)}`)}</td>`),
     keyTerms: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 style="${headingStyle("27px", "31px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}`)}</td>`),
     dataTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderDataTable(fields.columns, fields.rows)}`)}</td>`),
     faqRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 18px 0;">${escapeHtml(fields.heading)}</h2>${renderFaqRows(fields.faqs)}</td>`),
     systemHeading: () => row(`<td class="mobile-pad" style="padding:34px 32px 24px 32px;background-color:#ffffff;"><h1 class="hero-title" style="${headingStyle("38px", "41px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h1>${paragraph(fields.body, "", "16px", "25px", "0 0 18px 0")}</td>`),
-    bulletList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;"><h2 style="${headingStyle("24px", "27px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${renderListItems(fields.items, "ul")}</td>`),
-    numberedList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderListItems(fields.items, "ol")}</td>`),
+    bulletList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">${fields.heading ? `<h2 style="${headingStyle("24px", "27px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${renderListItems(fields.items, "ul")}</td>`),
+    numberedList: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">${fields.heading ? `<h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${renderListItems(fields.items, "ol")}</td>`),
     buttonRow: () => row(`<td class="mobile-pad" style="padding:0 32px 38px 32px;background-color:#ffffff;">${button(fields.ctaLabel, fields.ctaUrl, buttonColor(fields.color).text, buttonColor(fields.color).border)}</td>`),
     tableCard: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 style="${headingStyle("27px", "31px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}`)}</td>`),
     warning: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-left:4px solid ${colors.pink};border-radius:0 14px 14px 0;border-collapse:separate !important;"><tr><td style="padding:22px;"><h2 style="${headingStyle("30px", "33px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "", "16px", "25px", "0")}</td></tr></table></td>`),
@@ -1414,10 +1593,11 @@ function renderBlock(item) {
     systemInfo: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-left:4px solid ${colors.teal};border-radius:0 14px 14px 0;border-collapse:separate !important;"><tr><td style="padding:22px;"><h2 style="${headingStyle("30px", "33px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "", "16px", "25px", "0")}</td></tr></table></td>`),
     footer: () => renderFooter(fields, true),
     footerContent: () => renderFooter(fields, true),
-    footerSystem: () => renderFooter(fields, false)
+    footerSystem: () => renderFooter(fields, false),
+    footerSystemMinimal: () => renderSystemMinimalFooter()
   };
   const rendered = renderers[item.type]?.() || exactLibrary?.blocks[item.type]?.html || "";
-  return applyLiquidCondition(rendered, item.condition);
+  return applyLiquidCondition(rendered, item.condition, options);
 }
 
 function renderFeatureCards(cards) {
@@ -1426,11 +1606,19 @@ function renderFeatureCards(cards) {
 }
 
 function renderTwoUpCards(cards) {
-  return grid(cards, 2, (item, index) => card(`<h3 style="${headingStyle("24px", "27px")}margin:0 0 10px 0;">${escapeHtml(item.title)}</h3>${paragraph(item.body, "", "14px", "22px", "0 0 18px 0")}${button(item.ctaLabel, item.ctaUrl, index % 2 ? colors.teal : colors.pinkDark, index % 2 ? colors.teal : colors.pink, true)}`));
+  return grid(cards, 2, (item, index) => card(`<h3 style="${headingStyle("24px", "27px")}margin:0 0 10px 0;">${escapeHtml(item.title)}</h3>${renderCardBody(item.body, item.ctaLabel ? "0 0 18px 0" : "0")}${item.ctaLabel ? button(item.ctaLabel, item.ctaUrl, index % 2 ? colors.teal : colors.pinkDark, index % 2 ? colors.teal : colors.pink, true) : ""}`));
+}
+
+function renderCardBody(value, margin = "0") {
+  const lines = String(value || "").split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  if (lines.length > 1) {
+    return `<ul style="margin:${margin};padding:0 0 0 18px;${textStyle("14px", "22px", colors.body)}">${lines.map((line, index) => `<li style="margin:0 0 ${index === lines.length - 1 ? "0" : "7px"} 0;">${formatInlineText(line)}</li>`).join("")}</ul>`;
+  }
+  return paragraph(value, "", "14px", "22px", margin);
 }
 
 function renderThreeUpCards(cards) {
-  return grid(cards, 3, (item) => card(`<img src="${CDN}/${escapeAttr(item.numberImage)}" width="58" height="58" alt="" role="presentation" style="display:block;width:58px;height:58px;border:0;margin:0 0 14px 0;"><h3 style="${headingStyle("21px", "24px")}margin:0 0 8px 0;">${escapeHtml(item.title)}</h3>${paragraph(item.body, "", "14px", "22px", "0 0 12px 0")}<a href="${escapeAttr(item.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(item.linkLabel)}</a>`));
+  return grid(cards, 3, (item) => card(`<img src="${CDN}/${escapeAttr(item.numberImage)}" width="58" height="58" alt="" role="presentation" style="display:block;width:58px;height:58px;border:0;margin:0 0 14px 0;"><h3 style="${headingStyle("21px", "24px")}margin:0 0 8px 0;">${escapeHtml(item.title)}</h3>${paragraph(item.body, "", "14px", "22px", item.linkLabel ? "0 0 12px 0" : "0")}${item.linkLabel ? `<a href="${escapeAttr(item.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(item.linkLabel)}</a>` : ""}`));
 }
 
 function renderSteps(steps) {
@@ -1445,11 +1633,30 @@ function renderRateCards(cards) {
 }
 
 function renderCaseRows(stories) {
-  return (stories || []).map((story) => card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="mobile-stack" width="156" valign="top" style="width:156px;padding:0 18px 0 0;"><img src="${escapeAttr(story.imageUrl)}" width="138" height="138" alt="${escapeAttr(story.imageAlt)}" style="display:block;width:138px;height:138px;border-radius:20px;background-color:${colors.line};object-fit:cover;object-position:center center;"></td><td class="mobile-stack" valign="top"><h3 style="${headingStyle("22px", "25px")}margin:0 0 8px 0;">${escapeHtml(story.title)}</h3>${paragraph(story.body, "", "14px", "21px", "0 0 8px 0")}<a href="${escapeAttr(story.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(story.linkLabel)}</a></td></tr></table>`)).map((html) => `<div style="margin:0 0 12px 0;">${html}</div>`).join("");
+  return (stories || []).map((story) => {
+    const imageUrl = String(story.imageUrl || "").trim();
+    return card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="mobile-stack" width="156" valign="top" style="width:156px;padding:0 18px 0 0;"><img src="${escapeAttr(imageUrl)}" width="138" height="138" alt="${escapeAttr(story.imageAlt)}" style="display:block;width:138px;height:138px;border-radius:20px;background-color:${colors.line};object-fit:cover;object-position:center center;"></td><td class="mobile-stack" valign="top"><h3 style="${headingStyle("22px", "25px")}margin:0 0 8px 0;">${escapeHtml(story.title)}</h3>${paragraph(story.body, "", "14px", "21px", "0 0 8px 0")}<a href="${escapeAttr(story.linkUrl)}" style="${textStyle("14px", "21px", colors.pinkDark)}font-weight:bold;text-decoration:underline;">${escapeHtml(story.linkLabel)}</a></td></tr></table>`);
+  }).map((html) => `<div style="margin:0 0 12px 0;">${html}</div>`).join("");
 }
 
 function renderStatColorCards(cards) {
   return grid(cards, 2, (item) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:${palette(item.color)};border-radius:18px;border-collapse:separate !important;"><tr><td style="padding:22px;"><p style="${textStyle("12px", "16px", colors.ink)}margin:0 0 8px 0;text-transform:uppercase;font-weight:bold;">${escapeHtml(item.eyebrow)}</p><p style="${headingStyle("34px", "36px")}margin:0 0 8px 0;">${escapeHtml(item.value)}</p>${paragraph(item.body, "", "14px", "21px", "0", colors.ink)}</td></tr></table>`);
+}
+
+function renderInvestmentStatsCta(fields) {
+  const stats = (fields.stats || []).slice(0, 3);
+  const buttonAlign = fields.ctaAlign === "center" ? "center" : "left";
+  const statsHtml = grid(stats, 3, (item) => {
+    const accent = palette(item.accent);
+    return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#ffffff;border:1px solid #e2e2e2;border-radius:20px;border-collapse:separate !important;box-shadow:0 8px 24px #eeeeec;">
+      <tr><td style="padding:14px;">
+        <div style="height:5px;line-height:5px;font-size:0;background-color:${accent};border-radius:999px;margin:0 0 14px 0;">&nbsp;</div>
+        <p style="margin:0 0 10px 0;font-family:Arial,sans-serif;font-size:12px;line-height:16px;color:${colors.ink};text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(item.label)}</p>
+        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:20px;line-height:23px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
+      </td></tr>
+    </table>`;
+  });
+  return card(`${fields.heading ? `<h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${statsHtml}<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:8px;"><tr><td align="${buttonAlign}">${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}</td></tr></table>`);
 }
 
 function renderCouncilStatCards(cards) {
@@ -1464,6 +1671,19 @@ function renderCouncilStatCards(cards) {
       </td></tr>
     </table>`;
   });
+}
+
+function renderStatRow(fields) {
+  const statsHtml = grid((fields.stats || []).slice(0, 3), 3, (item) => {
+    const accent = palette(item.accent);
+    return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:4px solid ${accent};">
+      <tr><td style="padding:12px 0 0 0;">
+        <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:12px;line-height:16px;color:${colors.ink};text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(item.label || item.eyebrow)}</p>
+        <p style="margin:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:27px;font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(item.value)}</p>
+      </td></tr>
+    </table>`;
+  });
+  return card(`${fields.heading ? `<h2 class="section-title" style="${headingStyle("30px", "33px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${statsHtml}`);
 }
 
 function renderStats(lines, textColor = colors.body, ruleColor = colors.line) {
@@ -1481,9 +1701,15 @@ function renderBars(lines) {
 
 function renderInvestmentChoices(fields) {
   return row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">
-    <h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
-    ${paragraph(fields.body, "body-lg", "18px", "29px", "0 0 22px 0")}
-    ${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-left:5px solid ${colors.teal};border-collapse:separate !important;">
+      <tr>
+        <td style="padding:2px 0 2px 24px;">
+          <h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
+          ${paragraph(fields.body, "body-lg", "18px", "29px", fields.ctaLabel ? "0 0 22px 0" : "0")}
+          ${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}
+        </td>
+      </tr>
+    </table>
   </td>`);
 }
 
@@ -1492,7 +1718,7 @@ function renderImpactStats(fields) {
     <h2 class="section-title" style="${headingStyle("36px", "39px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
     ${paragraph(fields.body, "", "16px", "25px", "0 0 20px 0")}
     ${renderStats(`${fields.statOneLabel}|${fields.statOneValue}\n${fields.statTwoLabel}|${fields.statTwoValue}`, colors.ink, colors.pink)}
-    ${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}
+    ${fields.ctaLabel ? button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink) : ""}
   </td>`);
 }
 
@@ -1501,7 +1727,7 @@ function renderImpactImageCta(fields) {
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
       <tr>
         <td class="mobile-stack" width="268" valign="top" style="width:268px;padding:0 24px 0 0;">
-          <img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="246" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:246px;max-width:246px;height:auto;border-radius:24px;background-color:${colors.line};">
+          <img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="246" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:246px;max-width:246px;height:auto;border-radius:24px;background-color:#ffffff;">
         </td>
         <td class="mobile-stack" valign="top">
           <h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>
@@ -1514,7 +1740,7 @@ function renderImpactImageCta(fields) {
 }
 
 function renderInvestmentCard(fields) {
-  return card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="mobile-stack" width="246" valign="top" style="width:246px;padding:0 22px 0 0;"><img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="220" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:220px;max-width:220px;height:auto;border-radius:24px;background-color:${colors.line};"></td><td class="mobile-stack" valign="top"><h2 style="${headingStyle("29px", "32px")}margin:0 0 10px 0;">${escapeHtml(fields.title)}</h2>${paragraph(fields.body, "", "16px", "25px", "0 0 18px 0")}${renderStats(`${fields.statOneLabel}|${fields.statOneValue}\n${fields.statTwoLabel}|${fields.statTwoValue}`, colors.ink, colors.ink)}${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink, true)}</td></tr></table>`);
+  return card(`<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed;"><tr><td class="mobile-stack" width="246" valign="top" style="width:246px;padding:0 22px 0 0;"><img class="mobile-image" src="${escapeAttr(fields.imageUrl)}" width="220" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:220px;max-width:220px;height:auto;border-radius:24px;background-color:${colors.line};"></td><td class="mobile-stack" valign="top" style="overflow-wrap:anywhere;word-break:break-word;"><h2 style="${headingStyle("29px", "32px")}margin:0 0 10px 0;overflow-wrap:anywhere;word-break:break-word;">${formatInlineText(fields.title)}</h2>${paragraph(fields.body, "", "16px", "25px", "0 0 18px 0")}${renderStats(`${fields.statOneLabel}|${fields.statOneValue}\n${fields.statTwoLabel}|${fields.statTwoValue}`, colors.ink, colors.ink)}${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink, true)}</td></tr></table>`);
 }
 
 function renderTwoUpImageCards(cards) {
@@ -1530,7 +1756,13 @@ function renderNewsRows(articles) {
 }
 
 function renderQuote(fields) {
-  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-radius:18px;border-collapse:separate !important;"><tr><td style="padding:22px;">${paragraph(fields.quote, "", "16px", "25px", "0 0 18px 0")}<table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr><td width="66" style="width:66px;padding:0 12px 0 0;"><img src="${escapeAttr(fields.imageUrl)}" width="56" height="56" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:56px;height:56px;border-radius:50%;"></td><td><p style="${textStyle("14px", "20px", colors.ink)}margin:0;font-weight:bold;">${escapeHtml(fields.name)}</p><p style="${textStyle("13px", "19px", colors.body)}margin:0;">${escapeHtml(fields.role)}</p></td></tr></table></td></tr></table>`;
+  const image = fields.imageUrl ? `<td width="56" valign="middle" style="width:56px;padding:0 14px 0 0;"><img src="${escapeAttr(fields.imageUrl)}" width="56" height="56" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:56px;height:56px;border-radius:50%;color:${colors.ink};font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:16px;"></td>` : "";
+  const credit = fields.name || fields.role ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>${image}<td valign="middle" style="padding:0;"><p style="${textStyle("14px", "20px", colors.ink)}margin:0;font-weight:bold;">${escapeHtml(fields.name)}</p><p style="${textStyle("13px", "19px", colors.body)}margin:2px 0 0 0;">${escapeHtml(fields.role)}</p></td></tr></table>` : "";
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:3px solid ${colors.ink};border-bottom:1px solid ${colors.line};"><tr><td style="padding:24px 0;">${paragraph(fields.quote, "", "18px", "29px", credit ? "0 0 18px 0" : "0", colors.ink)}${credit}</td></tr></table>`;
+}
+
+function renderBulletCardCta(fields) {
+  return card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderListItems(fields.items, "ul")}${fields.ctaLabel ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:20px;"><tr><td>${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}</td></tr></table>` : ""}`);
 }
 
 function renderTransferDetails(lines) {
@@ -1549,7 +1781,7 @@ function renderFaqRows(faqs) {
 
 function renderListItems(items, tag) {
   const rows = String(items || "").split("\n").filter(Boolean);
-  return `<${tag} style="margin:0;padding:0 0 0 22px;${textStyle("16px", "25px", colors.body)}">${rows.map((item, index) => `<li style="margin:0 0 ${index === rows.length - 1 ? "0" : "8px"} 0;">${escapeHtml(item)}</li>`).join("")}</${tag}>`;
+  return `<${tag} style="margin:0;padding:0 0 0 22px;${textStyle("16px", "25px", colors.body)}">${rows.map((item, index) => `<li style="margin:0 0 ${index === rows.length - 1 ? "0" : "8px"} 0;">${formatInlineText(item)}</li>`).join("")}</${tag}>`;
 }
 
 function renderFooter(fields, includeRiskWarning = true) {
@@ -1565,11 +1797,23 @@ ${row(`<td class="mobile-pad" style="padding:28px 32px 34px 32px;background-colo
 </td>`)}`;
 }
 
+function renderSystemMinimalFooter() {
+  const address = "Abundance Investment Ltd, Hamilton House, Mabledon Place, London, WC1H 9BB.";
+  const fca = "We are authorised and regulated by the Financial Conduct Authority (525432)";
+  const legal = "This email and all attachments transmitted with it are intended solely for the use of the addressee and may contain legally privileged and confidential information. If the reader of this message is not the intended recipient you are hereby notified that any dissemination, distribution, copying, or other use of this message or its attachments is strictly prohibited. If you have received this message in error, please delete it and notify Abundance immediately. Nothing in this message shall be considered an offer to sell, or a solicitation of an offer to buy, any investment to any person in any jurisdiction to whom or in which such offer, solicitation or sale is unlawful. Abundance does not provide legal, financial or tax advice of any kind, and nothing in this email constitutes such advice. To the extent permitted by law, Abundance does not accept any liability arising from the use of this communication.";
+  return `${row(`<td style="padding:18px 0 0 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/divider-rise-left-yellow-to-transparent@6x.png" width="640" height="74" alt="" role="presentation" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`)}
+${row(`<td class="mobile-pad" style="padding:20px 32px 30px 32px;background-color:#ffffff;">
+  <img src="${LOGO}" width="150" alt="Abundance Investment" style="display:block;width:150px;max-width:150px;height:auto;border:0;margin:0 0 16px 0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:24px;line-height:28px;font-weight:bold;color:${colors.ink};">
+  <p style="${textStyle("11px", "15px", colors.body)}margin:0 0 14px 0;">${address}<br>${fca}</p>
+  <p style="${textStyle("11px", "15px", colors.body)}margin:0;">${legal}</p>
+</td>`)}`;
+}
+
 function grid(items, columns, renderer) {
   const width = `${100 / columns}%`;
   const rows = [];
   for (let i = 0; i < items.length; i += columns) rows.push(items.slice(i, i + columns));
-  return rows.map((rowItems) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>${rowItems.map((item, index) => `<td class="mobile-stack" width="${width}" valign="top" style="width:${width};padding:${index === 0 ? "0 8px 16px 0" : index === columns - 1 ? "0 0 16px 8px" : "0 8px 16px 8px"};">${renderer(item, index)}</td>`).join("")}</tr></table>`).join("");
+  return rows.map((rowItems) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed;"><tr>${rowItems.map((item, index) => `<td class="mobile-stack" width="${width}" valign="top" style="width:${width};padding:${index === 0 ? "0 8px 16px 0" : index === columns - 1 ? "0 0 16px 8px" : "0 8px 16px 8px"};">${renderer(item, index)}</td>`).join("")}</tr></table>`).join("");
 }
 
 function card(content) {
@@ -1593,7 +1837,8 @@ function renderContents(lines) {
   return `<p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:13px;line-height:18px;color:${colors.muted};text-transform:uppercase;letter-spacing:0.05em;">In this email</p><p style="${textStyle("15px", "24px", colors.body)}margin:0 0 22px 0;">${items.map(escapeHtml).join(` <span style="color:#90908d;">/</span> `)}</p>`;
 }
 
-function applyLiquidCondition(html, condition = {}) {
+function applyLiquidCondition(html, condition = {}, options = {}) {
+  if (options.previewTags) return shouldShowForPreview(condition, options.previewTags) ? html : "";
   const mode = condition.mode || "none";
   const tags = parseTags(condition.tags);
   if (mode === "none" || !tags.length || !html) return html;
@@ -1607,6 +1852,16 @@ function applyLiquidCondition(html, condition = {}) {
   return html;
 }
 
+function shouldShowForPreview(condition = {}, activeTags = new Set()) {
+  const mode = condition.mode || "none";
+  const tags = parseTags(condition.tags);
+  if (mode === "none" || !tags.length) return true;
+  const hasMatchingTag = tags.some((tag) => activeTags.has(tag));
+  if (mode === "show") return hasMatchingTag;
+  if (mode === "hide") return !hasMatchingTag;
+  return true;
+}
+
 function parseTags(value) {
   return String(value || "").split(/[,\n]/).map((tag) => tag.trim()).filter(Boolean);
 }
@@ -1615,8 +1870,8 @@ function liquidString(value) {
   return String(value).replace(/\\/g, "\\\\").replace(/"/g, "\\\"");
 }
 
-function button(label, url, color = colors.pinkDark, border = colors.pink, blockButton = false) {
-  return `<a href="${escapeAttr(url || "#")}" class="cta-link" style="display:${blockButton ? "block" : "inline-block"};padding:14px 20px;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:15px;line-height:15px;font-weight:bold;color:${color};text-align:center;text-decoration:none;border:2px solid ${border};border-radius:999px;">${escapeHtml(label || "Read more")}</a>`;
+function button(label, url, color = colors.pinkDark, border = colors.pink, blockButton = false, background = "transparent") {
+  return `<a href="${escapeAttr(url || "#")}" class="cta-link" style="display:${blockButton ? "block" : "inline-block"};padding:14px 20px;font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:15px;line-height:15px;font-weight:bold;color:${color};text-align:center;text-decoration:none;border:2px solid ${border};border-radius:999px;background-color:${background};">${escapeHtml(label || "Read more")}</a>`;
 }
 
 function palette(name) {
@@ -1640,7 +1895,17 @@ function buttonColor(name) {
 }
 
 function paragraph(value, className = "", fontSize = "16px", lineHeight = "25px", margin = "0", color = colors.body) {
-  return String(value || "").split(/\n{2,}/).filter(Boolean).map((text) => `<p${className ? ` class="${className}"` : ""} style="${textStyle(fontSize, lineHeight, color)}margin:${margin};">${escapeHtml(text).replace(/\n/g, "<br>")}</p>`).join("");
+  const paragraphs = String(value || "").split(/\n{2,}/).map((text) => text.trim()).filter(Boolean);
+  return paragraphs.map((text, index) => {
+    const paragraphMargin = index < paragraphs.length - 1 ? "0 0 14px 0" : margin;
+    return `<p${className ? ` class="${className}"` : ""} style="${textStyle(fontSize, lineHeight, color)}margin:${paragraphMargin};">${formatInlineText(text).replace(/\n/g, "<br>")}</p>`;
+  }).join("");
+}
+
+function formatInlineText(value) {
+  return escapeHtml(value).replace(/\b([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})(?=[.,;:]?(\s|<br>|$))/gi, (match, email) => {
+    return `<a href="mailto:${escapeAttr(email)}" style="color:${colors.pinkDark};text-decoration:underline;">${email}</a>`;
+  });
 }
 
 function eyebrow(value) {
@@ -1654,11 +1919,11 @@ function row(content) {
 }
 
 function headingStyle(fontSize, lineHeight) {
-  return `font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:${fontSize};line-height:${lineHeight};font-weight:bold;color:${colors.ink};`;
+  return `font-family:Georgia,Cambria,'Times New Roman',Times,serif;letter-spacing:-0.02em;font-size:${fontSize};line-height:${lineHeight};font-weight:bold;color:${colors.ink};overflow-wrap:anywhere;word-break:break-word;`;
 }
 
 function textStyle(fontSize, lineHeight, color) {
-  return `font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:${fontSize};line-height:${lineHeight};color:${color};`;
+  return `font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:${fontSize};line-height:${lineHeight};color:${color};overflow-wrap:anywhere;word-break:break-word;`;
 }
 
 function parseLines(value, count) {

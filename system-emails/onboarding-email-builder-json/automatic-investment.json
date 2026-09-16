@@ -1,0 +1,75 @@
+{
+  "name": "automatic-investment",
+  "subject": "Automatic investment",
+  "previewText": "Introducing our automatic investment tool",
+  "blocks": [
+    {
+      "id": "automatic-investment-header",
+      "type": "header",
+      "customized": false,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {}
+    },
+    {
+      "id": "automatic-investment-hero",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "Introducing our automatic investment tool",
+        "body": "Automatic investment is a convenient way to keep your money earning while delivering positive change.\n\nWhen you enable automatic investment for your account, any money you deposit will be split evenly across open investments.\n\nEither deposit using a regular standing order, or make one-off deposits when it suits you. When you receive investment returns, these will be reinvested in the same way.\n\nAnd it is simple to turn off - so you can switch to cash payments whenever it suits you."
+      }
+    },
+    {
+      "id": "automatic-investment-how",
+      "type": "threeUpBlobCards",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "heading": "How it works",
+        "intro": "",
+        "cards": [
+          {
+            "numberImage": "1.png",
+            "title": "Spread your investments",
+            "body": "When you add money to your Abundance account it is invested evenly across open investments.",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "2.png",
+            "title": "Interest payments reinvested",
+            "body": "Your regular interest payments will also be swept into open investments in the same way.",
+            "linkLabel": "",
+            "linkUrl": ""
+          },
+          {
+            "numberImage": "3.png",
+            "title": "Keep your money working",
+            "body": "Your money will always be earning a return for you and helping fund real projects that improve our places.",
+            "linkLabel": "",
+            "linkUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "automatic-investment-button",
+      "type": "buttonRow",
+      "customized": true,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {
+        "ctaLabel": "Invest now",
+        "ctaUrl": "https://www.abundanceinvestment.com/invest-now",
+        "color": "pink"
+      }
+    },
+    {
+      "id": "automatic-investment-footer",
+      "type": "footerContent",
+      "customized": false,
+      "condition": { "mode": "none", "tags": "" },
+      "fields": {}
+    }
+  ]
+}
