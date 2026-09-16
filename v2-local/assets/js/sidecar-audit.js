@@ -134,6 +134,7 @@
       stat("Investor ID", payload.investor_id || "n.a."),
       stat("Drip ID", holdings.drip_id || impact.drip_id || demographics.dripid || "n.a."),
       stat("Current value", money(holdings.investor_current_value || impact.investor_current_value)),
+      stat("Original investment value", money(holdings.investor_original_value || impact.investor_original_value)),
       stat("Councils", holdings.council_count || impact.council_count || "0"),
       stat("Loans", holdings.loan_count || impact.loan_count || "0"),
       stat("Latest investment", date(holdings.latest_investment_created_at || impact.latest_investment_created_at)),
@@ -183,6 +184,7 @@
       renderProjects(impact.top_projects || []),
       '</div>',
       '</div>',
+      renderMostRecentProject(impact),
       '</section>'
     ].join("");
   }
@@ -193,6 +195,8 @@
       '<h2>Demographics</h2>',
       '<div class="audit-grid">',
       stat("Home council", demographics.council_name || "n.a."),
+      stat("Local investor, not council recruited", formatBooleanish(demographics.local_investor_not_council_recruited)),
+      stat("Council recruited investor", formatBooleanish(demographics.council_recruited_investor)),
       stat("Registration date", date(demographics.registrationdate)),
       stat("Found from", demographics.foundfrom || "n.a."),
       stat("Councils invested in", demographics.councilsinvestedin || "0"),
@@ -331,6 +335,32 @@
     ].join("");
   }
 
+  function renderMostRecentProject(impact) {
+    if (!impact.most_recent_project_id && !impact.most_recent_project) return "";
+
+    var project = impact.most_recent_project || {};
+    var name = impact.most_recent_project_name || project.project_name || "n.a.";
+    var category = impact.most_recent_project_category || project.category || "n.a.";
+    var detail = impact.most_recent_project_description || project.project_description || "";
+    var sourceDate = impact.most_recent_project_source_created_at || project.source_created_at;
+    var council = impact.most_recent_project_council_name || project.council_name || "";
+    var loan = impact.most_recent_project_loan_name || project.loan_name || "";
+    var amount = impact.most_recent_project_attributed_spent_amount || project.attributed_spent_amount;
+    var percent = impact.most_recent_project_pct_of_original_investment || project.pct_of_original_investment;
+
+    return [
+      '<div class="audit-section">',
+      '<h3 class="audit-card__label">Most recent project update</h3>',
+      '<div class="audit-row audit-project">',
+      '<div class="audit-row__head"><span>', escapeHtml(name), '</span><span>', date(sourceDate), '</span></div>',
+      '<div class="audit-row__meta">', escapeHtml(category), council ? ' · ' + escapeHtml(council) : '', loan ? ' · ' + escapeHtml(loan) : '', '</div>',
+      '<div class="audit-row__meta">', money(amount), ' attributed · ', pct(percent), ' of original value</div>',
+      detail ? '<div class="audit-row__meta">' + escapeHtml(detail) + '</div>' : '',
+      '</div>',
+      '</div>'
+    ].join("");
+  }
+
   function stat(label, value) {
     return [
       '<div class="audit-card">',
@@ -370,6 +400,13 @@
     var parsed = new Date(value);
     if (Number.isNaN(parsed.getTime())) return String(value);
     return parsed.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  }
+
+  function formatBooleanish(value) {
+    if (value == null || value === "") return "n.a.";
+    if (value === true || value === "true" || value === "t" || value === "1" || value === 1) return "Yes";
+    if (value === false || value === "false" || value === "f" || value === "0" || value === 0) return "No";
+    return String(value);
   }
 
   function escapeHtml(value) {
