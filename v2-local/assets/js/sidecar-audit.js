@@ -100,6 +100,7 @@
     results.innerHTML = [
       payload.found ? "" : renderNotFound(payload),
       renderSummary(payload, holdings, impact, demographics),
+      renderCouncilTiles(payload.councils || []),
       renderHoldings(holdings),
       renderImpact(impact),
       renderDemographics(demographics),
@@ -202,6 +203,36 @@
       stat("Councils invested in", demographics.councilsinvestedin || "0"),
       '</div>',
       '</section>'
+    ].join("");
+  }
+
+  function renderCouncilTiles(councils) {
+    if (!councils.length) return "";
+
+    return [
+      '<section class="audit-section">',
+      '<h2>Councils</h2>',
+      '<div class="audit-council-tiles">',
+      councils.map(renderCouncilTile).join(""),
+      '</div>',
+      '</section>'
+    ].join("");
+  }
+
+  function renderCouncilTile(council) {
+    var background = normaliseHex(council.hex) || "#363635";
+    var logo = council.white_logo_url || "";
+    var name = council.issuing_council || "Council";
+    var hub = council.council_hub || "";
+
+    return [
+      '<article class="audit-council-tile" style="--audit-council-bg:', escapeHtml(background), '">',
+      logo ? '<img src="' + escapeAttribute(logo) + '" alt="' + escapeAttribute(name) + ' logo">' : '<span class="audit-council-tile__fallback">' + escapeHtml(name.slice(0, 2)) + '</span>',
+      '<div>',
+      '<h3>', escapeHtml(name), '</h3>',
+      hub ? '<p>' + escapeHtml(hub) + '</p>' : '',
+      '</div>',
+      '</article>'
     ].join("");
   }
 
@@ -316,7 +347,7 @@
         '<div class="audit-row audit-project">',
         '<div class="audit-row__head"><span>', escapeHtml(project.project_name || "n.a."), '</span><span>', money(project.attributed_spent_amount), '</span></div>',
         '<div class="audit-row__meta">', escapeHtml(project.category || ""), ' · ', pct(project.pct_of_original_investment), '</div>',
-        '<div class="audit-row__meta">', escapeHtml((project.project_description || "").slice(0, 220)), '</div>',
+        '<div class="audit-row__meta">', escapeHtml(project.project_description || ""), '</div>',
         '</div>'
       ].join("");
     }).join("") + '</div>';
@@ -409,6 +440,14 @@
     return String(value);
   }
 
+  function normaliseHex(value) {
+    if (!value) return "";
+    var text = String(value).trim();
+    if (/^#[0-9a-f]{3}([0-9a-f]{3})?$/i.test(text)) return text;
+    if (/^[0-9a-f]{3}([0-9a-f]{3})?$/i.test(text)) return "#" + text;
+    return "";
+  }
+
   function escapeHtml(value) {
     return String(value)
       .replace(/&/g, "&amp;")
@@ -416,6 +455,10 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
+  }
+
+  function escapeAttribute(value) {
+    return escapeHtml(value).replace(/`/g, "&#096;");
   }
 
   function setBusy(form, busy) {
