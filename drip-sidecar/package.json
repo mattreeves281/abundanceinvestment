@@ -1,0 +1,16 @@
+{
+  "name": "abundance-drip-sidecar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "import:use-of-funds": "node scripts/import-use-of-funds.mjs",
+    "test:update-subscriber": "node scripts/push-test-subscriber-update.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.16.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

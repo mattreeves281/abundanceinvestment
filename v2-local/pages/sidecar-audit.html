@@ -1,0 +1,277 @@
+<style>
+  .audit-page {
+    background: #faf8f8;
+  }
+
+  .audit-shell {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 48px 20px 72px;
+  }
+
+  .audit-topbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .audit-eyebrow {
+    margin: 0 0 8px;
+    color: #c1658b;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+  }
+
+  .audit-title {
+    margin: 0;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1;
+  }
+
+  .audit-subtitle {
+    max-width: 680px;
+    margin: 12px 0 0;
+    color: #4d4a46;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .audit-panel,
+  .audit-card {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .audit-panel {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .audit-form {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) auto;
+    gap: 12px;
+    align-items: end;
+  }
+
+  .audit-form--password {
+    max-width: 560px;
+    grid-template-columns: 1fr auto;
+  }
+
+  .audit-field label {
+    display: block;
+    margin-bottom: 6px;
+    color: #4d4a46;
+    font-size: 0.875rem;
+  }
+
+  .audit-input {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #90908d;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #363635;
+    background: #fff;
+    font: inherit;
+  }
+
+  .audit-button {
+    min-height: 48px;
+    border: 2px solid #c1658b;
+    border-radius: 999px;
+    padding: 10px 18px;
+    color: #c1658b;
+    background: #fff;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    cursor: pointer;
+  }
+
+  .audit-button:hover,
+  .audit-button:focus {
+    background: #f7d9e8;
+  }
+
+  .audit-button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+  }
+
+  .audit-message {
+    margin: 12px 0 0;
+    color: #4d4a46;
+    font-size: 0.95rem;
+  }
+
+  .audit-message--error {
+    color: #9e1f2b;
+  }
+
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+
+  .audit-card {
+    padding: 16px;
+  }
+
+  .audit-card__label {
+    margin: 0 0 8px;
+    color: #4d4a46;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .audit-card__value {
+    margin: 0;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.75rem;
+    line-height: 1.08;
+  }
+
+  .audit-section {
+    margin-top: 28px;
+  }
+
+  .audit-section h2 {
+    margin: 0 0 14px;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.75rem;
+  }
+
+  .audit-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .audit-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .audit-row {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fff;
+  }
+
+  .audit-row__head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+  }
+
+  .audit-row__meta {
+    margin-top: 4px;
+    color: #4d4a46;
+    font-size: 0.9rem;
+  }
+
+  .audit-bar {
+    height: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e9e4e3;
+  }
+
+  .audit-bar span {
+    display: block;
+    height: 100%;
+    width: var(--audit-bar-width, 0%);
+    background: #c1658b;
+  }
+
+  .audit-project {
+    border-left: 6px solid #c1658b;
+  }
+
+  .audit-json {
+    max-height: 360px;
+    overflow: auto;
+    border-radius: 8px;
+    padding: 14px;
+    background: #151943;
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .audit-hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 900px) {
+    .audit-topbar,
+    .audit-columns,
+    .audit-form,
+    .audit-form--password {
+      grid-template-columns: 1fr;
+      display: grid;
+    }
+
+    .audit-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .audit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="audit-page">
+  <div class="audit-shell" data-sidecar-audit>
+    <div class="audit-topbar">
+      <div>
+        <p class="audit-eyebrow">Internal audit</p>
+        <h1 class="audit-title">Sidecar data preview</h1>
+        <p class="audit-subtitle">
+          Enter an investor ID to preview the Drip personalisation fields, holdings summary, impact summary and demographic signals currently available in the sidecar views.
+        </p>
+      </div>
+    </div>
+
+    <section class="audit-panel" data-auth-panel>
+      <form class="audit-form audit-form--password" data-auth-form>
+        <div class="audit-field">
+          <label for="audit-password">Password</label>
+          <input class="audit-input" id="audit-password" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="audit-button" type="submit">Unlock</button>
+      </form>
+      <p class="audit-message" data-auth-message>Access is limited to internal testers.</p>
+    </section>
+
+    <section class="audit-panel audit-hidden" data-lookup-panel>
+      <form class="audit-form" data-lookup-form>
+        <div class="audit-field">
+          <label for="audit-investor-id">Investor ID</label>
+          <input class="audit-input" id="audit-investor-id" inputmode="numeric" pattern="[0-9]+" placeholder="e.g. 143032" required>
+        </div>
+        <button class="audit-button" type="submit">Load preview</button>
+      </form>
+      <p class="audit-message" data-lookup-message>Use a numeric investor ID from the warehouse.</p>
+    </section>
+
+    <section class="audit-hidden" data-results aria-live="polite"></section>
+  </div>
+</div>
