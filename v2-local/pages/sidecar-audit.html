@@ -213,6 +213,91 @@
     line-height: 1.45;
   }
 
+  .audit-full-data {
+    display: grid;
+    gap: 14px;
+  }
+
+  .audit-dump {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .audit-dump summary {
+    padding: 14px 16px;
+    color: #363635;
+    background: #f7f1f4;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    cursor: pointer;
+  }
+
+  .audit-dump summary span {
+    color: #4d4a46;
+    font-family: system-ui, sans-serif;
+    font-size: 0.85rem;
+  }
+
+  .audit-dump__group {
+    padding: 14px;
+    border-top: 1px solid #e9e4e3;
+  }
+
+  .audit-dump__group h3 {
+    margin: 0 0 10px;
+    color: #4d4a46;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+  }
+
+  .audit-field-table {
+    display: grid;
+    border-top: 1px solid #e9e4e3;
+  }
+
+  .audit-field-row {
+    display: grid;
+    grid-template-columns: minmax(220px, 32%) minmax(0, 1fr);
+    border-bottom: 1px solid #e9e4e3;
+  }
+
+  .audit-field-name,
+  .audit-field-value {
+    min-width: 0;
+    padding: 10px 12px;
+    overflow-wrap: anywhere;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .audit-field-name {
+    color: #363635;
+    background: #faf8f8;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+  }
+
+  .audit-field-value {
+    color: #4d4a46;
+  }
+
+  .audit-inline-json {
+    max-height: 420px;
+    margin: 0;
+    overflow: auto;
+    border-radius: 6px;
+    padding: 10px;
+    background: #f4f1f1;
+    color: #363635;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+  }
+
+  .audit-muted {
+    color: #90908d;
+  }
+
   .audit-hidden {
     display: none !important;
   }
@@ -228,6 +313,10 @@
 
     .audit-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .audit-field-row {
+      grid-template-columns: 1fr;
     }
   }
 

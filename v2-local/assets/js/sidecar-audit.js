@@ -103,6 +103,7 @@
       renderHoldings(holdings),
       renderImpact(impact),
       renderDemographics(demographics),
+      renderAllViewData(payload),
       renderRaw(payload)
     ].join("");
 
@@ -209,6 +210,85 @@
       '</pre>',
       '</section>'
     ].join("");
+  }
+
+  function renderAllViewData(payload) {
+    return [
+      '<section class="audit-section">',
+      '<h2>All view data</h2>',
+      '<div class="audit-full-data">',
+      renderFieldDump("Holdings summary view", payload.holdings),
+      renderFieldDump("Impact summary view", payload.impact),
+      renderFieldDump("Demographics view", payload.demographics),
+      renderFieldDump("Council enrichments", payload.councils),
+      renderFieldDump("Lookup diagnostics", payload.diagnostics),
+      '</div>',
+      '</section>'
+    ].join("");
+  }
+
+  function renderFieldDump(title, record) {
+    if (record == null || (Array.isArray(record) && record.length === 0)) {
+      return [
+        '<details class="audit-dump" open>',
+        '<summary>', escapeHtml(title), '</summary>',
+        '<p class="audit-message">No data returned.</p>',
+        '</details>'
+      ].join("");
+    }
+
+    if (Array.isArray(record)) {
+      return [
+        '<details class="audit-dump" open>',
+        '<summary>', escapeHtml(title), ' <span>', record.length, ' rows</span></summary>',
+        record.map(function (item, index) {
+          return [
+            '<div class="audit-dump__group">',
+            '<h3>Row ', index + 1, '</h3>',
+            renderFieldTable(item),
+            '</div>'
+          ].join("");
+        }).join(""),
+        '</details>'
+      ].join("");
+    }
+
+    return [
+      '<details class="audit-dump" open>',
+      '<summary>', escapeHtml(title), '</summary>',
+      renderFieldTable(record),
+      '</details>'
+    ].join("");
+  }
+
+  function renderFieldTable(record) {
+    var entries = Object.entries(record || {});
+    if (!entries.length) return '<p class="audit-message">No fields returned.</p>';
+
+    return [
+      '<div class="audit-field-table">',
+      entries.map(function (entry) {
+        return [
+          '<div class="audit-field-row">',
+          '<div class="audit-field-name">', escapeHtml(entry[0]), '</div>',
+          '<div class="audit-field-value">', renderFieldValue(entry[1]), '</div>',
+          '</div>'
+        ].join("");
+      }).join(""),
+      '</div>'
+    ].join("");
+  }
+
+  function renderFieldValue(value) {
+    if (value == null || value === "") return '<span class="audit-muted">null</span>';
+    if (typeof value === "object") {
+      return [
+        '<pre class="audit-inline-json">',
+        escapeHtml(JSON.stringify(value, null, 2)),
+        '</pre>'
+      ].join("");
+    }
+    return escapeHtml(String(value));
   }
 
   function renderRankedList(items, labelKey, valueKey, pctKey, metaKey, metaSuffix) {
