@@ -25,7 +25,7 @@ export async function handler(event) {
   });
 
   try {
-    const [holdings, impact, demographics] = await Promise.all([
+    const [holdings, impact, demographics, rawCoverage] = await Promise.all([
       pool.query(
         "select * from sidecar_publish.investor_holdings_summary where investor_id = $1",
         [investorId]
@@ -43,6 +43,20 @@ export async function handler(event) {
         limit 1
         `,
         [investorId]
+      ),
+      pool.query(
+        `
+        select
+          count(*)::int as raw_holding_rows,
+          count(*) filter (where m.mapping_status = 'mapped')::int as mapped_holding_rows,
+          coalesce(sum(h.current_value), 0)::text as raw_current_value,
+          coalesce(sum(h.current_value) filter (where m.mapping_status = 'mapped'), 0)::text as mapped_current_value
+        from sidecar_ingest.investment_holdings_current h
+        left join sidecar_ingest.offer_api_loan_map m
+          on m.offer_name = h.offer_name
+        where h.investor_id = $1
+        `,
+        [investorId]
       )
     ]);
 
@@ -53,9 +67,9 @@ export async function handler(event) {
           select
             api_council_id,
             issuing_council,
-            hex,
+            fields->>'hex' as hex,
             fields->>'whiteLogo' as white_logo_url,
-            fields->>'councilHub' as council_hub
+            council_hub
           from sidecar_ingest.councils_current
           where issuing_council = any($1::text[])
           order by issuing_council
@@ -64,13 +78,26 @@ export async function handler(event) {
         )
       : { rows: [] };
 
+    const found = Boolean(holdings.rows[0] || impact.rows[0] || demographics.rows[0]);
+    const coverage = rawCoverage.rows[0] || null;
+
     return jsonResponse(200, {
       ok: true,
+      found,
       investor_id: investorId,
       holdings: holdings.rows[0] || null,
       impact: impact.rows[0] || null,
       demographics: demographics.rows[0] || null,
-      councils: councils.rows
+      councils: councils.rows,
+      diagnostics: {
+        holdings_summary_rows: holdings.rowCount,
+        impact_summary_rows: impact.rowCount,
+        demographics_rows: demographics.rowCount,
+        raw_holding_rows: coverage?.raw_holding_rows || 0,
+        mapped_holding_rows: coverage?.mapped_holding_rows || 0,
+        raw_current_value: coverage?.raw_current_value || "0",
+        mapped_current_value: coverage?.mapped_current_value || "0"
+      }
     });
   } catch (error) {
     return jsonResponse(500, {

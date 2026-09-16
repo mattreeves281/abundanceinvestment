@@ -70,12 +70,18 @@
           sessionStorage.removeItem(tokenKey);
           throw new Error("Session expired. Refresh the page and unlock again.");
         }
-        if (!response.ok) throw new Error("Could not load this investor.");
-        return response.json();
+        return response.json().then(function (payload) {
+          if (!response.ok) {
+            throw new Error(payload.message || payload.error || "Could not load this investor.");
+          }
+          return payload;
+        });
       })
       .then(function (payload) {
         renderResults(payload);
-        lookupMessage.textContent = "Preview loaded.";
+        lookupMessage.textContent = payload.found
+          ? "Preview loaded."
+          : "No matching sidecar preview rows found for this investor.";
       })
       .catch(function (error) {
         lookupMessage.textContent = error.message;
@@ -92,6 +98,7 @@
     var demographics = payload.demographics || {};
 
     results.innerHTML = [
+      payload.found ? "" : renderNotFound(payload),
       renderSummary(payload, holdings, impact, demographics),
       renderHoldings(holdings),
       renderImpact(impact),
@@ -100,6 +107,22 @@
     ].join("");
 
     results.classList.remove("audit-hidden");
+  }
+
+  function renderNotFound(payload) {
+    var diagnostics = payload.diagnostics || {};
+    return [
+      '<section class="audit-section audit-panel">',
+      '<h2>No preview rows found</h2>',
+      '<p class="audit-message">The lookup reached the database, but this investor did not return data from the published sidecar views.</p>',
+      '<div class="audit-grid">',
+      stat("Raw holding rows", diagnostics.raw_holding_rows || "0"),
+      stat("Mapped holding rows", diagnostics.mapped_holding_rows || "0"),
+      stat("Raw current value", money(diagnostics.raw_current_value)),
+      stat("Mapped current value", money(diagnostics.mapped_current_value)),
+      '</div>',
+      '</section>'
+    ].join("");
   }
 
   function renderSummary(payload, holdings, impact, demographics) {
