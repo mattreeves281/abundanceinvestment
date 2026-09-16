@@ -19,6 +19,7 @@ investor_loan as (
   select
     mh.*,
     l.investment_name,
+    l.loan_amount,
     l.council_api_id,
     c.issuing_council
   from mapped_holdings mh
@@ -26,14 +27,6 @@ investor_loan as (
     on l.api_loan_id = mh.api_loan_id
   left join sidecar_ingest.councils_current c
     on c.api_council_id = l.council_api_id
-),
-loan_totals as (
-  select
-    api_loan_id,
-    sum(investor_loan_current_value) as loan_current_value,
-    sum(investor_loan_original_value) as loan_original_value
-  from investor_loan
-  group by api_loan_id
 ),
 investor_totals as (
   select
@@ -58,24 +51,21 @@ project_allocations as (
     il.issuing_council,
     il.investor_loan_current_value,
     il.investor_loan_original_value,
-    lt.loan_current_value,
-    lt.loan_original_value,
+    il.loan_amount,
+    il.investor_loan_current_value / nullif(it.investor_current_value, 0) as portfolio_weight,
     p.api_project_id,
     p.source_created_at as project_source_created_at,
     p.project_name,
     p.description as project_description,
     p.category,
     p.total_spent as project_total_spent,
-    case
-      when lt.loan_original_value > 0 then
-        p.total_spent * il.investor_loan_original_value / lt.loan_original_value
-      else null
-    end as attributed_spent_amount
+    least(coalesce(p.total_spent / nullif(il.loan_amount, 0), 0), 1) as loan_project_spend_pct,
+    il.investor_loan_current_value
+      * least(coalesce(p.total_spent / nullif(il.loan_amount, 0), 0), 1)
+      as attributed_spent_amount
   from investor_loan il
   join investor_totals it
     on it.investor_id = il.investor_id
-  join loan_totals lt
-    on lt.api_loan_id = il.api_loan_id
   join sidecar_ingest.projects_current p
     on p.api_loan_id = il.api_loan_id
   where coalesce(p.total_spent, 0) > 0
@@ -92,8 +82,8 @@ category_rollup as (
     investor_id,
     coalesce(category, 'Uncategorised') as category,
     sum(attributed_spent_amount) as attributed_spent_amount,
-    sum(attributed_spent_amount) / nullif(max(investor_original_value), 0) as pct_of_original_investment,
-    sum(attributed_spent_amount) / nullif(max(investor_current_value), 0) as pct_of_current_portfolio
+    least(coalesce(sum(attributed_spent_amount) / nullif(max(investor_current_value), 0), 0), 1) as pct_of_original_investment,
+    least(coalesce(sum(attributed_spent_amount) / nullif(max(investor_current_value), 0), 0), 1) as pct_of_current_portfolio
   from project_allocations
   group by investor_id, coalesce(category, 'Uncategorised')
 ),
@@ -102,16 +92,22 @@ category_columns as (
     investor_id,
     coalesce(sum(attributed_spent_amount) filter (where category = 'Renewable Energy'), 0) as renewable_energy_spent_amount,
     coalesce(sum(pct_of_original_investment) filter (where category = 'Renewable Energy'), 0) as renewable_energy_pct_of_original_investment,
+    coalesce(sum(pct_of_current_portfolio) filter (where category = 'Renewable Energy'), 0) as renewable_energy_pct_of_current_portfolio,
     coalesce(sum(attributed_spent_amount) filter (where category = 'Energy Efficiency'), 0) as energy_efficiency_spent_amount,
     coalesce(sum(pct_of_original_investment) filter (where category = 'Energy Efficiency'), 0) as energy_efficiency_pct_of_original_investment,
+    coalesce(sum(pct_of_current_portfolio) filter (where category = 'Energy Efficiency'), 0) as energy_efficiency_pct_of_current_portfolio,
     coalesce(sum(attributed_spent_amount) filter (where category = 'Clean Transportation'), 0) as clean_transportation_spent_amount,
     coalesce(sum(pct_of_original_investment) filter (where category = 'Clean Transportation'), 0) as clean_transportation_pct_of_original_investment,
+    coalesce(sum(pct_of_current_portfolio) filter (where category = 'Clean Transportation'), 0) as clean_transportation_pct_of_current_portfolio,
     coalesce(sum(attributed_spent_amount) filter (where category = 'Pollution Prevention and Control'), 0) as pollution_prevention_spent_amount,
     coalesce(sum(pct_of_original_investment) filter (where category = 'Pollution Prevention and Control'), 0) as pollution_prevention_pct_of_original_investment,
+    coalesce(sum(pct_of_current_portfolio) filter (where category = 'Pollution Prevention and Control'), 0) as pollution_prevention_pct_of_current_portfolio,
     coalesce(sum(attributed_spent_amount) filter (where category = 'Climate Change Adaptation'), 0) as climate_change_adaptation_spent_amount,
     coalesce(sum(pct_of_original_investment) filter (where category = 'Climate Change Adaptation'), 0) as climate_change_adaptation_pct_of_original_investment,
+    coalesce(sum(pct_of_current_portfolio) filter (where category = 'Climate Change Adaptation'), 0) as climate_change_adaptation_pct_of_current_portfolio,
     coalesce(sum(attributed_spent_amount) filter (where category = 'Living and Natural Resources'), 0) as living_natural_resources_spent_amount,
-    coalesce(sum(pct_of_original_investment) filter (where category = 'Living and Natural Resources'), 0) as living_natural_resources_pct_of_original_investment
+    coalesce(sum(pct_of_original_investment) filter (where category = 'Living and Natural Resources'), 0) as living_natural_resources_pct_of_original_investment,
+    coalesce(sum(pct_of_current_portfolio) filter (where category = 'Living and Natural Resources'), 0) as living_natural_resources_pct_of_current_portfolio
   from category_rollup
   group by investor_id
 ),
@@ -133,8 +129,8 @@ category_json as (
 project_ranked as (
   select
     pa.*,
-    pa.attributed_spent_amount / nullif(pa.investor_original_value, 0) as pct_of_original_investment,
-    pa.attributed_spent_amount / nullif(pa.investor_current_value, 0) as pct_of_current_portfolio,
+    least(coalesce(pa.attributed_spent_amount / nullif(pa.investor_current_value, 0), 0), 1) as pct_of_original_investment,
+    least(coalesce(pa.attributed_spent_amount / nullif(pa.investor_current_value, 0), 0), 1) as pct_of_current_portfolio,
     pa.attributed_spent_amount / nullif(sum(pa.attributed_spent_amount) over (partition by pa.investor_id), 0) as pct_of_attributed_spend,
     row_number() over (
       partition by pa.investor_id
@@ -156,6 +152,8 @@ top_projects_json as (
         'loan_name', investment_name,
         'api_council_id', council_api_id,
         'council_name', issuing_council,
+        'portfolio_weight', portfolio_weight,
+        'loan_project_spend_pct', loan_project_spend_pct,
         'attributed_spent_amount', attributed_spent_amount,
         'pct_of_original_investment', pct_of_original_investment,
         'pct_of_current_portfolio', pct_of_current_portfolio,
@@ -169,8 +167,8 @@ top_projects_json as (
 recent_project_ranked as (
   select
     pa.*,
-    pa.attributed_spent_amount / nullif(pa.investor_original_value, 0) as pct_of_original_investment,
-    pa.attributed_spent_amount / nullif(pa.investor_current_value, 0) as pct_of_current_portfolio,
+    least(coalesce(pa.attributed_spent_amount / nullif(pa.investor_current_value, 0), 0), 1) as pct_of_original_investment,
+    least(coalesce(pa.attributed_spent_amount / nullif(pa.investor_current_value, 0), 0), 1) as pct_of_current_portfolio,
     row_number() over (
       partition by pa.investor_id
       order by pa.project_source_created_at desc nulls last, pa.attributed_spent_amount desc nulls last, pa.project_name, pa.api_project_id
@@ -202,6 +200,8 @@ recent_project as (
       'loan_name', max(investment_name) filter (where recent_project_rank = 1),
       'api_council_id', max(council_api_id) filter (where recent_project_rank = 1),
       'council_name', max(issuing_council) filter (where recent_project_rank = 1),
+      'portfolio_weight', max(portfolio_weight) filter (where recent_project_rank = 1),
+      'loan_project_spend_pct', max(loan_project_spend_pct) filter (where recent_project_rank = 1),
       'attributed_spent_amount', max(attributed_spent_amount) filter (where recent_project_rank = 1),
       'pct_of_original_investment', max(pct_of_original_investment) filter (where recent_project_rank = 1),
       'pct_of_current_portfolio', max(pct_of_current_portfolio) filter (where recent_project_rank = 1)
@@ -251,20 +251,26 @@ select
   it.council_count,
   it.investment_count,
   coalesce(impact_totals.attributed_spent_amount, 0) as attributed_spent_amount,
-  coalesce(impact_totals.attributed_spent_amount, 0) / nullif(it.investor_original_value, 0) as weighted_spent_pct_of_original_investment,
-  coalesce(impact_totals.attributed_spent_amount, 0) / nullif(it.investor_current_value, 0) as weighted_spent_pct_of_current_portfolio,
+  least(coalesce(coalesce(impact_totals.attributed_spent_amount, 0) / nullif(it.investor_current_value, 0), 0), 1) as weighted_spent_pct_of_original_investment,
+  least(coalesce(coalesce(impact_totals.attributed_spent_amount, 0) / nullif(it.investor_current_value, 0), 0), 1) as weighted_spent_pct_of_current_portfolio,
   coalesce(category_columns.renewable_energy_spent_amount, 0) as renewable_energy_spent_amount,
   coalesce(category_columns.renewable_energy_pct_of_original_investment, 0) as renewable_energy_pct_of_original_investment,
+  coalesce(category_columns.renewable_energy_pct_of_current_portfolio, 0) as renewable_energy_pct_of_current_portfolio,
   coalesce(category_columns.energy_efficiency_spent_amount, 0) as energy_efficiency_spent_amount,
   coalesce(category_columns.energy_efficiency_pct_of_original_investment, 0) as energy_efficiency_pct_of_original_investment,
+  coalesce(category_columns.energy_efficiency_pct_of_current_portfolio, 0) as energy_efficiency_pct_of_current_portfolio,
   coalesce(category_columns.clean_transportation_spent_amount, 0) as clean_transportation_spent_amount,
   coalesce(category_columns.clean_transportation_pct_of_original_investment, 0) as clean_transportation_pct_of_original_investment,
+  coalesce(category_columns.clean_transportation_pct_of_current_portfolio, 0) as clean_transportation_pct_of_current_portfolio,
   coalesce(category_columns.pollution_prevention_spent_amount, 0) as pollution_prevention_spent_amount,
   coalesce(category_columns.pollution_prevention_pct_of_original_investment, 0) as pollution_prevention_pct_of_original_investment,
+  coalesce(category_columns.pollution_prevention_pct_of_current_portfolio, 0) as pollution_prevention_pct_of_current_portfolio,
   coalesce(category_columns.climate_change_adaptation_spent_amount, 0) as climate_change_adaptation_spent_amount,
   coalesce(category_columns.climate_change_adaptation_pct_of_original_investment, 0) as climate_change_adaptation_pct_of_original_investment,
+  coalesce(category_columns.climate_change_adaptation_pct_of_current_portfolio, 0) as climate_change_adaptation_pct_of_current_portfolio,
   coalesce(category_columns.living_natural_resources_spent_amount, 0) as living_natural_resources_spent_amount,
   coalesce(category_columns.living_natural_resources_pct_of_original_investment, 0) as living_natural_resources_pct_of_original_investment,
+  coalesce(category_columns.living_natural_resources_pct_of_current_portfolio, 0) as living_natural_resources_pct_of_current_portfolio,
   coalesce(category_json.category_breakdown, '[]'::jsonb) as category_breakdown,
   recent_project.most_recent_project,
   recent_project.most_recent_project_id,

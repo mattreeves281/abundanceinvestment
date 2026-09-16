@@ -139,8 +139,8 @@
       stat("Councils", holdings.council_count || impact.council_count || "0"),
       stat("Loans", holdings.loan_count || impact.loan_count || "0"),
       stat("Latest investment", date(holdings.latest_investment_created_at || impact.latest_investment_created_at)),
-      stat("Attributed spend", money(impact.attributed_spent_amount)),
-      stat("Spent %", pct(impact.weighted_spent_pct_of_original_investment)),
+      stat("Current-weighted spend", money(impact.attributed_spent_amount)),
+      stat("Spent proportion", pct(impact.weighted_spent_pct_of_current_portfolio)),
       '</div>',
       '</section>'
     ].join("");
@@ -165,12 +165,12 @@
 
   function renderImpact(impact) {
     var categories = [
-      ["Renewable Energy", impact.renewable_energy_spent_amount, impact.renewable_energy_pct_of_original_investment],
-      ["Energy Efficiency", impact.energy_efficiency_spent_amount, impact.energy_efficiency_pct_of_original_investment],
-      ["Clean Transportation", impact.clean_transportation_spent_amount, impact.clean_transportation_pct_of_original_investment],
-      ["Pollution Prevention", impact.pollution_prevention_spent_amount, impact.pollution_prevention_pct_of_original_investment],
-      ["Climate Change Adaptation", impact.climate_change_adaptation_spent_amount, impact.climate_change_adaptation_pct_of_original_investment],
-      ["Living Natural Resources", impact.living_natural_resources_spent_amount, impact.living_natural_resources_pct_of_original_investment]
+      ["Renewable Energy", impact.renewable_energy_spent_amount, impact.renewable_energy_pct_of_current_portfolio || impact.renewable_energy_pct_of_original_investment],
+      ["Energy Efficiency", impact.energy_efficiency_spent_amount, impact.energy_efficiency_pct_of_current_portfolio || impact.energy_efficiency_pct_of_original_investment],
+      ["Clean Transportation", impact.clean_transportation_spent_amount, impact.clean_transportation_pct_of_current_portfolio || impact.clean_transportation_pct_of_original_investment],
+      ["Pollution Prevention", impact.pollution_prevention_spent_amount, impact.pollution_prevention_pct_of_current_portfolio || impact.pollution_prevention_pct_of_original_investment],
+      ["Climate Change Adaptation", impact.climate_change_adaptation_spent_amount, impact.climate_change_adaptation_pct_of_current_portfolio || impact.climate_change_adaptation_pct_of_original_investment],
+      ["Living Natural Resources", impact.living_natural_resources_spent_amount, impact.living_natural_resources_pct_of_current_portfolio || impact.living_natural_resources_pct_of_original_investment]
     ];
     return [
       '<section class="audit-section">',
@@ -346,7 +346,7 @@
       return [
         '<div class="audit-row audit-project">',
         '<div class="audit-row__head"><span>', escapeHtml(project.project_name || "n.a."), '</span><span>', money(project.attributed_spent_amount), '</span></div>',
-        '<div class="audit-row__meta">', escapeHtml(project.category || ""), ' · ', pct(project.pct_of_original_investment), '</div>',
+        '<div class="audit-row__meta">', escapeHtml(project.category || ""), ' · ', pct(project.pct_of_current_portfolio || project.pct_of_original_investment), ' of current portfolio</div>',
         '<div class="audit-row__meta">', escapeHtml(project.project_description || ""), '</div>',
         '</div>'
       ].join("");
@@ -377,7 +377,7 @@
     var council = impact.most_recent_project_council_name || project.council_name || "";
     var loan = impact.most_recent_project_loan_name || project.loan_name || "";
     var amount = impact.most_recent_project_attributed_spent_amount || project.attributed_spent_amount;
-    var percent = impact.most_recent_project_pct_of_original_investment || project.pct_of_original_investment;
+    var percent = impact.most_recent_project_pct_of_current_portfolio || project.pct_of_current_portfolio || impact.most_recent_project_pct_of_original_investment || project.pct_of_original_investment;
 
     return [
       '<div class="audit-section">',
@@ -385,7 +385,7 @@
       '<div class="audit-row audit-project">',
       '<div class="audit-row__head"><span>', escapeHtml(name), '</span><span>', date(sourceDate), '</span></div>',
       '<div class="audit-row__meta">', escapeHtml(category), council ? ' · ' + escapeHtml(council) : '', loan ? ' · ' + escapeHtml(loan) : '', '</div>',
-      '<div class="audit-row__meta">', money(amount), ' attributed · ', pct(percent), ' of original value</div>',
+      '<div class="audit-row__meta">', money(amount), ' current-weighted · ', pct(percent), ' of current portfolio</div>',
       detail ? '<div class="audit-row__meta">' + escapeHtml(detail) + '</div>' : '',
       '</div>',
       '</div>'
