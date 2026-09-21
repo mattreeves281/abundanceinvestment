@@ -48,6 +48,7 @@ const blockGroups = {
   systemHeader: "Structure",
   hero: "Structure",
   heroNoContents: "Structure",
+  headerImage: "Structure",
   divider: "Structure",
   dividerYellow: "Structure",
   dividerTeal: "Structure",
@@ -58,6 +59,7 @@ const blockGroups = {
   tableCard: "Layouts",
   warning: "Basic content",
   quoteBlock: "Layouts",
+  sideRuleQuote: "Layouts",
   bulletCardCta: "Layouts",
   keyTerms: "Layouts",
   faqRows: "Layouts",
@@ -212,6 +214,17 @@ const blockSchemas = {
       field("imageUrl", "Image URL", "url"),
       field("imageAlt", "Image alt text"),
       field("caption", "Caption", "textarea")
+    ]
+  },
+  headerImage: {
+    label: "Header image",
+    defaults: {
+      imageUrl: sampleImages.place,
+      imageAlt: "Issuer update image"
+    },
+    fields: [
+      field("imageUrl", "Image URL", "url"),
+      field("imageAlt", "Image alt text")
     ]
   },
   nethuntHeader: {
@@ -684,6 +697,19 @@ const blockSchemas = {
     },
     fields: [field("quote", "Quote", "textarea"), field("imageUrl", "Headshot URL", "url"), field("imageAlt", "Headshot alt text"), field("name", "Name"), field("role", "Role")]
   },
+  sideRuleQuote: {
+    label: "Quote with side rule",
+    defaults: {
+      quote: "Use this block for a longer quoted section that needs visual emphasis without becoming a card.",
+      name: "",
+      role: ""
+    },
+    fields: [
+      field("quote", "Quote", "textarea"),
+      field("name", "Name"),
+      field("role", "Role")
+    ]
+  },
   bulletCardCta: {
     label: "Bullet card with button",
     defaults: {
@@ -996,6 +1022,7 @@ function applyDisplayTaxonomy() {
     systemHeader: "Structure",
     hero: "Structure",
     heroNoContents: "Structure",
+    headerImage: "Structure",
     divider: "Structure",
     dividerYellow: "Structure",
     dividerTeal: "Structure",
@@ -1011,6 +1038,7 @@ function applyDisplayTaxonomy() {
     systemInfo: "Basic content",
     tableCard: "Layouts",
     quoteBlock: "Layouts",
+    sideRuleQuote: "Layouts",
     bulletCardCta: "Layouts",
     keyTerms: "Layouts",
     faqRows: "Layouts",
@@ -1057,10 +1085,12 @@ function applyDisplayTaxonomy() {
     systemHeader: "Header - system icon",
     hero: "Hero",
     heroNoContents: "Hero - no contents",
+    headerImage: "Header image",
     divider: "Divider",
     simpleContent: "Header and copy",
     imageCaption: "Image with caption",
     quoteBlock: "Quote block",
+    sideRuleQuote: "Quote with side rule",
     bulletCardCta: "Bullet card with button",
     keyTerms: "Terms summary card",
     faqRows: "FAQs",
@@ -1703,6 +1733,9 @@ function renderBlock(item, options = {}) {
       <h1 class="hero-title" style="${headingStyle("44px", "46px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h1>
       ${paragraph(fields.body, "body-lg", "18px", "29px", "0")}
     </td>`),
+    headerImage: () => row(`<td style="padding:0;background-color:#ffffff;line-height:0;font-size:0;">
+      <img src="${escapeAttr(fields.imageUrl)}" width="640" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:100%;max-width:640px;height:auto;border:0;color:${colors.ink};font-family:Arial,sans-serif;font-size:14px;line-height:20px;">
+    </td>`),
     divider: () => row(`<td style="padding:${number(fields.spacing, 18)}px 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/${escapeAttr(fields.image)}" width="640" height="74" alt="" role="presentation" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`),
     imageText: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
@@ -1736,6 +1769,7 @@ function renderBlock(item, options = {}) {
     nextSteps: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 18px 0;">${escapeHtml(fields.heading)}</h2>${renderNextSteps(fields.links)}</td>`),
     newsRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>${renderNewsRows(fields.articles)}</td>`),
     quoteBlock: () => row(`<td class="mobile-pad" style="padding:0 32px 34px 32px;background-color:#ffffff;">${renderQuote(fields)}</td>`),
+    sideRuleQuote: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderSideRuleQuote(fields)}</td>`),
     bulletCardCta: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderBulletCardCta(fields)}</td>`),
     transferDetails: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderTransferDetails(fields.rows)}`)}</td>`),
     keyTerms: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 style="${headingStyle("27px", "31px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}`)}</td>`),
@@ -1931,6 +1965,16 @@ function renderQuote(fields) {
   const image = fields.imageUrl ? `<td width="56" valign="middle" style="width:56px;padding:0 14px 0 0;"><img src="${escapeAttr(fields.imageUrl)}" width="56" height="56" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:56px;height:56px;border-radius:50%;color:${colors.ink};font-family:Arial,sans-serif;letter-spacing:0.005em;font-size:12px;line-height:16px;"></td>` : "";
   const credit = fields.name || fields.role ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>${image}<td valign="middle" style="padding:0;"><p style="${textStyle("14px", "20px", colors.ink)}margin:0;font-weight:bold;">${escapeHtml(fields.name)}</p><p style="${textStyle("13px", "19px", colors.body)}margin:2px 0 0 0;">${escapeHtml(fields.role)}</p></td></tr></table>` : "";
   return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:3px solid ${colors.ink};border-bottom:1px solid ${colors.line};"><tr><td style="padding:24px 0;">${paragraph(fields.quote, "", "18px", "29px", credit ? "0 0 18px 0" : "0", colors.ink)}${credit}</td></tr></table>`;
+}
+
+function renderSideRuleQuote(fields) {
+  const credit = fields.name || fields.role ? `<p style="${textStyle("14px", "20px", colors.ink)}margin:16px 0 0 0;font-weight:bold;">${escapeHtml(fields.name)}</p><p style="${textStyle("13px", "19px", colors.body)}margin:2px 0 0 0;">${escapeHtml(fields.role)}</p>` : "";
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="5" style="width:5px;background-color:${colors.pink};font-size:0;line-height:0;">&nbsp;</td>
+      <td style="padding:0 0 0 18px;">${paragraph(fields.quote, "", "18px", "29px", "0", colors.ink)}${credit}</td>
+    </tr>
+  </table>`;
 }
 
 function renderBulletCardCta(fields) {
