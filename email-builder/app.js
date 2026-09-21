@@ -2011,9 +2011,11 @@ function renderNethuntTableMarkup(columns, rows, showHeaderRow = true) {
   const cols = explicitCols.length ? explicitCols : Array.from({ length: Math.max(...String(rows || "").split("\n").map((line) => line.split("|").length), 0) }, (_, index) => `Column ${index + 1}`);
   const data = parseNethuntTableRows(rows, cols.length);
   if (!cols.length || !data.length) return "";
+  const headerCellStyle = `padding:8px 9px;border-right:1px solid ${colors.ink};border-bottom:1px solid ${colors.ink};${textStyle("14px", "19px", colors.ink)}font-weight:bold;word-break:normal;overflow-wrap:normal;`;
+  const bodyCellStyle = `padding:8px 9px;border-right:1px solid ${colors.ink};border-bottom:1px solid ${colors.ink};${textStyle("14px", "20px", colors.body)}word-break:normal;overflow-wrap:normal;`;
   return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:1px solid ${colors.ink};border-left:1px solid ${colors.ink};">
-    ${showHeaderRow ? `<tr>${cols.map((col) => `<td valign="top" style="padding:8px 9px;border-right:1px solid ${colors.ink};border-bottom:1px solid ${colors.ink};${textStyle("14px", "19px", colors.ink)}font-weight:bold;">${escapeHtml(col)}</td>`).join("")}</tr>` : ""}
-    ${data.map((rowData) => `<tr>${cols.map((_, colIndex) => `<td valign="top" style="padding:8px 9px;border-right:1px solid ${colors.ink};border-bottom:1px solid ${colors.ink};${textStyle("14px", "20px", colors.body)}">${formatInlineText(rowData[colIndex] || "")}</td>`).join("")}</tr>`).join("")}
+    ${showHeaderRow ? `<tr>${cols.map((col) => `<td valign="top" style="${headerCellStyle}">${escapeHtml(col)}</td>`).join("")}</tr>` : ""}
+    ${data.map((rowData) => `<tr>${cols.map((_, colIndex) => `<td valign="top" style="${bodyCellStyle}">${formatInlineText(rowData[colIndex] || "")}</td>`).join("")}</tr>`).join("")}
   </table>`;
 }
 
@@ -2048,8 +2050,8 @@ function renderNethuntFooter(fields) {
   return `${row(`<td style="padding:16px 0 0 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/divider-rise-left-yellow-to-transparent@6x.png" width="640" height="74" alt="" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`)}
 ${row(`<td style="padding:20px 32px 30px 32px;background-color:#ffffff;">
   <img src="${LOGO}" width="150" alt="Abundance Investment" style="display:block;width:150px;max-width:150px;height:auto;border:0;margin:0 0 16px 0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;font-size:24px;line-height:28px;font-weight:bold;color:${colors.ink};">
-  <p style="${textStyle("11px", "15px", colors.body)}margin:0 0 14px 0;">${formatInlineText(fields.address)}<br>${formatInlineText(fields.fca)}</p>
-  <p style="color: #e26da6; font-size: 16px;"><a target="_blank" style="color: #e26da6; text-decoration: underline;" nh-unsubscribe>Unsubscribe</a></p>
+  <p style="${textStyle("11px", "15px", colors.body)}margin:0;">${formatInlineText(fields.address)}<br>${formatInlineText(fields.fca)}</p>
+  <p style="color: #e26da6; font-size: 12px; line-height: 16px; font-family: Arial, sans-serif; margin: 12px 0 14px 0;"><a target="_blank" style="color: #e26da6; text-decoration: underline;" nh-unsubscribe>Unsubscribe</a></p>
   <p style="${textStyle("11px", "15px", colors.body)}margin:0;">${formatInlineText(fields.legal)}</p>
 </td>`)}`;
 }
