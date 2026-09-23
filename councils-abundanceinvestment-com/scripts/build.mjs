@@ -15,7 +15,9 @@ const sitemapPages = [
   "benefits-today.html",
   "how-it-works.html",
   "case-studies.html",
-  "about-abundance.html"
+  "about-abundance.html",
+  "research.html",
+  "lending-data.html"
 ];
 
 function pagePathForHref(file) {
