@@ -48,6 +48,7 @@ const blockGroups = {
   systemHeader: "Structure",
   hero: "Structure",
   heroNoContents: "Structure",
+  headerImage: "Structure",
   divider: "Structure",
   dividerYellow: "Structure",
   dividerTeal: "Structure",
@@ -58,6 +59,7 @@ const blockGroups = {
   tableCard: "Layouts",
   warning: "Basic content",
   quoteBlock: "Layouts",
+  sideRuleQuote: "Layouts",
   bulletCardCta: "Layouts",
   keyTerms: "Layouts",
   faqRows: "Layouts",
@@ -93,10 +95,20 @@ const blockGroups = {
   buttonRow: "Basic content",
   footerContent: "Structure",
   footerSystem: "Structure",
-  footerSystemMinimal: "Structure"
+  footerSystemMinimal: "Structure",
+  nethuntHeader: "NetHunt",
+  nethuntIntro: "NetHunt",
+  nethuntCopy: "NetHunt",
+  nethuntNews: "NetHunt",
+  nethuntDivider: "NetHunt",
+  nethuntTable: "NetHunt",
+  nethuntKeyValueTable: "NetHunt",
+  nethuntCallout: "NetHunt",
+  nethuntButton: "NetHunt",
+  nethuntFooter: "NetHunt"
 };
 
-const groupOrder = ["Structure", "Basic content", "CTAs", "Layouts", "Council specific"];
+const groupOrder = ["Structure", "Basic content", "CTAs", "Layouts", "Council specific", "NetHunt"];
 
 const blockSchemas = {
   header: {
@@ -202,6 +214,149 @@ const blockSchemas = {
       field("imageUrl", "Image URL", "url"),
       field("imageAlt", "Image alt text"),
       field("caption", "Caption", "textarea")
+    ]
+  },
+  headerImage: {
+    label: "Header image",
+    defaults: {
+      imageUrl: sampleImages.place,
+      imageAlt: "Issuer update image"
+    },
+    fields: [
+      field("imageUrl", "Image URL", "url"),
+      field("imageAlt", "Image alt text")
+    ]
+  },
+  nethuntHeader: {
+    label: "NetHunt header",
+    defaults: {
+      logoUrl: LOGO,
+      logoAlt: "Abundance Investment"
+    },
+    fields: [
+      field("logoUrl", "Logo URL", "url"),
+      field("logoAlt", "Logo alt text")
+    ]
+  },
+  nethuntIntro: {
+    label: "NetHunt intro",
+    defaults: {
+      greeting: "Hi {name},",
+      body: "Welcome to our roundup of recent activity and developments. I hope you find the update useful."
+    },
+    fields: [
+      field("greeting", "Greeting"),
+      field("body", "Intro copy", "textarea")
+    ]
+  },
+  nethuntCopy: {
+    label: "NetHunt copy section",
+    defaults: {
+      heading: "Section heading",
+      body: "Add plain copy here.",
+      linkLabel: "",
+      linkUrl: ""
+    },
+    fields: [
+      field("heading", "Heading"),
+      field("body", "Body", "textarea"),
+      field("linkLabel", "Link label"),
+      field("linkUrl", "Link URL", "url")
+    ]
+  },
+  nethuntNews: {
+    label: "NetHunt news list",
+    defaults: {
+      heading: "News",
+      stories: [
+        { title: "Story title", body: "Short story copy.", headline: "Headline finding goes here.", linkLabel: "Read more", linkUrl: "#" }
+      ]
+    },
+    fields: [field("heading", "Heading")],
+    repeats: [{ key: "stories", label: "Stories", itemFields: [field("title", "Title"), field("body", "Body", "textarea"), field("headline", "Headline / key finding", "textarea"), field("linkLabel", "Link label"), field("linkUrl", "Link URL", "url")] }]
+  },
+  nethuntDivider: {
+    label: "NetHunt divider",
+    defaults: { image: "divider-rise-left-yellow-to-transparent@6x.png", spacing: "18" },
+    fields: [
+      field("image", "Divider image", "select", dividerOptions),
+      field("spacing", "Vertical padding")
+    ]
+  },
+  nethuntTable: {
+    label: "NetHunt table",
+    defaults: {
+      sectionHeading: "",
+      heading: "Activity report",
+      subheading: "",
+      intro: "",
+      columns: "Council|Raised|Total number of loans raised to date",
+      rows: "Glasgow City Council|£2.5m|3\nHammersmith and Fulham|£1m|6",
+      footnote: ""
+    },
+    fields: [
+      field("sectionHeading", "Section heading"),
+      field("heading", "Heading"),
+      field("subheading", "Subheading / period"),
+      field("intro", "Intro", "textarea"),
+      field("columns", "Columns as Heading|Heading|Heading", "textarea"),
+      field("rows", "Rows as Cell|Cell|Cell", "textarea"),
+      field("footnote", "Footnote", "textarea")
+    ]
+  },
+  nethuntKeyValueTable: {
+    label: "NetHunt table - no header row",
+    defaults: {
+      sectionHeading: "",
+      heading: "Table heading",
+      subheading: "",
+      intro: "",
+      columns: "Label|Value",
+      rows: "Metric|Value\nMetric|Value",
+      footnote: ""
+    },
+    fields: [
+      field("sectionHeading", "Section heading"),
+      field("heading", "Heading"),
+      field("subheading", "Subheading / period"),
+      field("intro", "Intro", "textarea"),
+      field("rows", "Rows as Label|Value", "textarea"),
+      field("footnote", "Footnote", "textarea")
+    ]
+  },
+  nethuntCallout: {
+    label: "NetHunt callout",
+    defaults: {
+      heading: "Current window",
+      body: "Add a short note or bullet-style copy here."
+    },
+    fields: [
+      field("heading", "Heading"),
+      field("body", "Body", "textarea")
+    ]
+  },
+  nethuntButton: {
+    label: "NetHunt button",
+    defaults: {
+      ctaLabel: "Read more",
+      ctaUrl: "#"
+    },
+    fields: [
+      field("ctaLabel", "Button label"),
+      field("ctaUrl", "Button URL", "url")
+    ]
+  },
+  nethuntFooter: {
+    label: "NetHunt footer",
+    defaults: {
+      address: "Abundance Investment Ltd, Hamilton House, Mabledon Place, London, WC1H 9BB.",
+      fca: "We are authorised and regulated by the Financial Conduct Authority (525432)",
+      legal: "This email and all attachments transmitted with it are intended solely for the use of the addressee and may contain legally privileged and confidential information. If the reader of this message is not the intended recipient you are hereby notified that any dissemination, distribution, copying, or other use of this message or its attachments is strictly prohibited. If you have received this message in error, please delete it and notify Abundance immediately. Nothing in this message shall be considered an offer to sell, or a solicitation of an offer to buy, any investment to any person in any jurisdiction to whom or in which such offer, solicitation or sale is unlawful. Abundance does not provide legal, financial or tax advice of any kind, and nothing in this email constitutes such advice. To the extent permitted by law, Abundance does not accept any liability arising from the use of this communication."
+    },
+    fields: [
+      field("address", "Address", "textarea"),
+      field("fca", "FCA copy", "textarea"),
+      field("legal", "Legal copy", "textarea")
     ]
   },
   featureCards: {
@@ -542,6 +697,19 @@ const blockSchemas = {
     },
     fields: [field("quote", "Quote", "textarea"), field("imageUrl", "Headshot URL", "url"), field("imageAlt", "Headshot alt text"), field("name", "Name"), field("role", "Role")]
   },
+  sideRuleQuote: {
+    label: "Quote with side rule",
+    defaults: {
+      quote: "Use this block for a longer quoted section that needs visual emphasis without becoming a card.",
+      name: "",
+      role: ""
+    },
+    fields: [
+      field("quote", "Quote", "textarea"),
+      field("name", "Name"),
+      field("role", "Role")
+    ]
+  },
   bulletCardCta: {
     label: "Bullet card with button",
     defaults: {
@@ -854,6 +1022,7 @@ function applyDisplayTaxonomy() {
     systemHeader: "Structure",
     hero: "Structure",
     heroNoContents: "Structure",
+    headerImage: "Structure",
     divider: "Structure",
     dividerYellow: "Structure",
     dividerTeal: "Structure",
@@ -869,6 +1038,7 @@ function applyDisplayTaxonomy() {
     systemInfo: "Basic content",
     tableCard: "Layouts",
     quoteBlock: "Layouts",
+    sideRuleQuote: "Layouts",
     bulletCardCta: "Layouts",
     keyTerms: "Layouts",
     faqRows: "Layouts",
@@ -898,17 +1068,29 @@ function applyDisplayTaxonomy() {
     councilStatColorCards: "Council specific",
     footerContent: "Structure",
     footerSystem: "Structure",
-    footerSystemMinimal: "Structure"
+    footerSystemMinimal: "Structure",
+    nethuntHeader: "NetHunt",
+    nethuntIntro: "NetHunt",
+    nethuntCopy: "NetHunt",
+    nethuntNews: "NetHunt",
+    nethuntDivider: "NetHunt",
+    nethuntTable: "NetHunt",
+    nethuntKeyValueTable: "NetHunt",
+    nethuntCallout: "NetHunt",
+    nethuntButton: "NetHunt",
+    nethuntFooter: "NetHunt"
   };
   const labels = {
     header: "Header",
     systemHeader: "Header - system icon",
     hero: "Hero",
     heroNoContents: "Hero - no contents",
+    headerImage: "Header image",
     divider: "Divider",
     simpleContent: "Header and copy",
     imageCaption: "Image with caption",
     quoteBlock: "Quote block",
+    sideRuleQuote: "Quote with side rule",
     bulletCardCta: "Bullet card with button",
     keyTerms: "Terms summary card",
     faqRows: "FAQs",
@@ -945,7 +1127,17 @@ function applyDisplayTaxonomy() {
     systemInfo: "Callout - long",
     footerContent: "Footer with risk warning",
     footerSystem: "Footer with no risk warning",
-    footerSystemMinimal: "Footer - system"
+    footerSystemMinimal: "Footer - system",
+    nethuntHeader: "NetHunt header",
+    nethuntIntro: "NetHunt intro",
+    nethuntCopy: "NetHunt copy section",
+    nethuntNews: "NetHunt news list",
+    nethuntDivider: "NetHunt divider",
+    nethuntTable: "NetHunt table",
+    nethuntKeyValueTable: "NetHunt table - no header row",
+    nethuntCallout: "NetHunt callout",
+    nethuntButton: "NetHunt button",
+    nethuntFooter: "NetHunt footer"
   };
   Object.entries(groups).forEach(([type, group]) => {
     if (blockSchemas[type]) blockGroups[type] = group;
@@ -1541,6 +1733,9 @@ function renderBlock(item, options = {}) {
       <h1 class="hero-title" style="${headingStyle("44px", "46px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h1>
       ${paragraph(fields.body, "body-lg", "18px", "29px", "0")}
     </td>`),
+    headerImage: () => row(`<td style="padding:0;background-color:#ffffff;line-height:0;font-size:0;">
+      <img src="${escapeAttr(fields.imageUrl)}" width="640" alt="${escapeAttr(fields.imageAlt)}" style="display:block;width:100%;max-width:640px;height:auto;border:0;color:${colors.ink};font-family:Arial,sans-serif;font-size:14px;line-height:20px;">
+    </td>`),
     divider: () => row(`<td style="padding:${number(fields.spacing, 18)}px 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/${escapeAttr(fields.image)}" width="640" height="74" alt="" role="presentation" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`),
     imageText: () => row(`<td class="mobile-pad" style="padding:8px 32px 28px 32px;background-color:#ffffff;">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
@@ -1574,6 +1769,7 @@ function renderBlock(item, options = {}) {
     nextSteps: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 18px 0;">${escapeHtml(fields.heading)}</h2>${renderNextSteps(fields.links)}</td>`),
     newsRows: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>${renderNewsRows(fields.articles)}</td>`),
     quoteBlock: () => row(`<td class="mobile-pad" style="padding:0 32px 34px 32px;background-color:#ffffff;">${renderQuote(fields)}</td>`),
+    sideRuleQuote: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderSideRuleQuote(fields)}</td>`),
     bulletCardCta: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${renderBulletCardCta(fields)}</td>`),
     transferDetails: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderTransferDetails(fields.rows)}`)}</td>`),
     keyTerms: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${card(`<h2 style="${headingStyle("27px", "31px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}`)}</td>`),
@@ -1591,6 +1787,16 @@ function renderBlock(item, options = {}) {
     councilStatColorCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderCouncilStatCards(fields.cards)}</td>`),
     systemTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 style="${headingStyle("24px", "27px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}</td>`),
     systemInfo: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-left:4px solid ${colors.teal};border-radius:0 14px 14px 0;border-collapse:separate !important;"><tr><td style="padding:22px;"><h2 style="${headingStyle("30px", "33px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "", "16px", "25px", "0")}</td></tr></table></td>`),
+    nethuntHeader: () => renderNethuntHeader(fields),
+    nethuntIntro: () => renderNethuntIntro(fields),
+    nethuntCopy: () => renderNethuntCopy(fields),
+    nethuntNews: () => renderNethuntNews(fields),
+    nethuntDivider: () => row(`<td style="padding:${number(fields.spacing, 18)}px 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/${escapeAttr(fields.image)}" width="640" height="74" alt="" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`),
+    nethuntTable: () => renderNethuntTable(fields),
+    nethuntKeyValueTable: () => renderNethuntTable(fields, false),
+    nethuntCallout: () => renderNethuntCallout(fields),
+    nethuntButton: () => row(`<td style="padding:4px 32px 30px 32px;background-color:#ffffff;">${renderNethuntButton(fields.ctaLabel, fields.ctaUrl)}</td>`),
+    nethuntFooter: () => renderNethuntFooter(fields),
     footer: () => renderFooter(fields, true),
     footerContent: () => renderFooter(fields, true),
     footerSystem: () => renderFooter(fields, false),
@@ -1761,6 +1967,16 @@ function renderQuote(fields) {
   return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:3px solid ${colors.ink};border-bottom:1px solid ${colors.line};"><tr><td style="padding:24px 0;">${paragraph(fields.quote, "", "18px", "29px", credit ? "0 0 18px 0" : "0", colors.ink)}${credit}</td></tr></table>`;
 }
 
+function renderSideRuleQuote(fields) {
+  const credit = fields.name || fields.role ? `<p style="${textStyle("14px", "20px", colors.ink)}margin:16px 0 0 0;font-weight:bold;">${escapeHtml(fields.name)}</p><p style="${textStyle("13px", "19px", colors.body)}margin:2px 0 0 0;">${escapeHtml(fields.role)}</p>` : "";
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="5" style="width:5px;background-color:${colors.pink};font-size:0;line-height:0;">&nbsp;</td>
+      <td style="padding:0 0 0 18px;">${paragraph(fields.quote, "", "18px", "29px", "0", colors.ink)}${credit}</td>
+    </tr>
+  </table>`;
+}
+
 function renderBulletCardCta(fields) {
   return card(`<h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${renderListItems(fields.items, "ul")}${fields.ctaLabel ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:20px;"><tr><td>${button(fields.ctaLabel, fields.ctaUrl, colors.pinkDark, colors.pink)}</td></tr></table>` : ""}`);
 }
@@ -1782,6 +1998,106 @@ function renderFaqRows(faqs) {
 function renderListItems(items, tag) {
   const rows = String(items || "").split("\n").filter(Boolean);
   return `<${tag} style="margin:0;padding:0 0 0 22px;${textStyle("16px", "25px", colors.body)}">${rows.map((item, index) => `<li style="margin:0 0 ${index === rows.length - 1 ? "0" : "8px"} 0;">${formatInlineText(item)}</li>`).join("")}</${tag}>`;
+}
+
+function renderNethuntHeader(fields) {
+  return row(`<td style="padding:24px 32px 22px 32px;background-color:#ffffff;border-bottom:4px solid ${colors.ink};">
+  <a href="https://www.abundanceinvestment.com" target="_blank" style="text-decoration:none;"><img src="${escapeAttr(fields.logoUrl)}" width="168" alt="${escapeAttr(fields.logoAlt)}" style="display:block;width:168px;max-width:168px;height:auto;border:0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;font-size:24px;line-height:28px;font-weight:bold;color:${colors.ink};"></a>
+</td>`);
+}
+
+function renderNethuntIntro(fields) {
+  return row(`<td style="padding:34px 32px 24px 32px;background-color:#ffffff;">
+  ${fields.greeting ? `<p style="${textStyle("16px", "25px", colors.body)}margin:0 0 16px 0;">${formatInlineText(fields.greeting)}</p>` : ""}
+  ${paragraph(fields.body, "", "16px", "25px", "0", colors.body)}
+</td>`);
+}
+
+function renderNethuntCopy(fields) {
+  return row(`<td style="padding:10px 32px 24px 32px;background-color:#ffffff;">
+  ${fields.heading ? `<h2 style="${headingStyle("28px", "31px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>` : ""}
+  ${paragraph(fields.body, "", "16px", "25px", fields.linkLabel ? "0 0 14px 0" : "0", colors.body)}
+  ${fields.linkLabel ? `<p style="${textStyle("16px", "24px", colors.pinkDark)}margin:0;"><a href="${escapeAttr(fields.linkUrl || "#")}" target="_blank" style="color:${colors.pinkDark};text-decoration:underline;font-weight:bold;">${escapeHtml(fields.linkLabel)}</a></p>` : ""}
+</td>`);
+}
+
+function renderNethuntNews(fields) {
+  const stories = fields.stories || [];
+  const storyHtml = stories.map((story, index) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td style="padding:${index ? "4px" : "0"} 0 30px 0;">
+        <h3 style="${headingStyle("25px", "28px")}margin:0 0 10px 0;">${escapeHtml(story.title)}</h3>
+        ${paragraph(story.body, "", "15px", "24px", story.headline || story.linkLabel ? "0 0 12px 0" : "0", colors.body)}
+        ${story.headline ? `<p style="${textStyle("15px", "23px", colors.ink)}margin:0 0 12px 0;"><strong>${formatInlineText(story.headline)}</strong></p>` : ""}
+        ${story.linkLabel ? `<p style="${textStyle("15px", "23px", colors.pinkDark)}margin:0;"><a href="${escapeAttr(story.linkUrl || "#")}" target="_blank" style="color:${colors.pinkDark};text-decoration:underline;font-weight:bold;">${escapeHtml(story.linkLabel)}</a></p>` : ""}
+      </td>
+    </tr>
+  </table>`).join("");
+  return row(`<td style="padding:10px 32px 26px 32px;background-color:#ffffff;">
+  ${fields.heading ? `<h2 style="${headingStyle("32px", "35px")}margin:0 0 20px 0;">${escapeHtml(fields.heading)}</h2>` : ""}
+  ${storyHtml}
+</td>`);
+}
+
+function renderNethuntTable(fields, showHeaderRow = true) {
+  return row(`<td style="padding:12px 32px 32px 32px;background-color:#ffffff;">
+  ${fields.sectionHeading ? `<h2 style="${headingStyle("32px", "35px")}margin:0 0 24px 0;">${escapeHtml(fields.sectionHeading)}</h2>` : ""}
+  ${fields.heading ? `<h3 style="${headingStyle("25px", "28px")}margin:0 0 ${fields.subheading ? "4px" : "18px"} 0;">${escapeHtml(fields.heading)}</h3>` : ""}
+  ${fields.subheading ? `<p style="${textStyle("15px", "22px", colors.body)}margin:0 0 20px 0;">${escapeHtml(fields.subheading)}</p>` : ""}
+  ${fields.intro ? paragraph(fields.intro, "", "15px", "24px", "0 0 14px 0", colors.body) : ""}
+  ${renderNethuntTableMarkup(fields.columns, fields.rows, showHeaderRow)}
+  ${fields.footnote ? paragraph(fields.footnote, "", "12px", "18px", "12px 0 0 0", colors.muted) : ""}
+</td>`);
+}
+
+function renderNethuntTableMarkup(columns, rows, showHeaderRow = true) {
+  const explicitCols = parseLines(columns, 1)[0] || [];
+  const cols = explicitCols.length ? explicitCols : Array.from({ length: Math.max(...String(rows || "").split("\n").map((line) => line.split("|").length), 0) }, (_, index) => `Column ${index + 1}`);
+  const data = parseNethuntTableRows(rows, cols.length);
+  if (!cols.length || !data.length) return "";
+  const headerCellStyle = `padding:8px 9px;border-right:1px solid ${colors.ink};border-bottom:1px solid ${colors.ink};${textStyle("14px", "19px", colors.ink)}font-weight:bold;word-break:normal;overflow-wrap:normal;`;
+  const bodyCellStyle = `padding:8px 9px;border-right:1px solid ${colors.ink};border-bottom:1px solid ${colors.ink};${textStyle("14px", "20px", colors.body)}word-break:normal;overflow-wrap:normal;`;
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:1px solid ${colors.ink};border-left:1px solid ${colors.ink};">
+    ${showHeaderRow ? `<tr>${cols.map((col) => `<td valign="top" style="${headerCellStyle}">${escapeHtml(col)}</td>`).join("")}</tr>` : ""}
+    ${data.map((rowData) => `<tr>${cols.map((_, colIndex) => `<td valign="top" style="${bodyCellStyle}">${formatInlineText(rowData[colIndex] || "")}</td>`).join("")}</tr>`).join("")}
+  </table>`;
+}
+
+function parseNethuntTableRows(value, columnCount) {
+  return String(value || "").split("\n").map((line) => {
+    const parts = line.split("|").map((part) => part.trim());
+    if (columnCount > 1 && parts.length > columnCount) {
+      return [...parts.slice(0, columnCount - 1), parts.slice(columnCount - 1).join(" | ")];
+    }
+    return parts;
+  }).filter((parts) => parts[0]);
+}
+
+function renderNethuntCallout(fields) {
+  return row(`<td style="padding:10px 32px 28px 32px;background-color:#ffffff;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-left:4px solid ${colors.teal};">
+    <tr>
+      <td style="padding:18px 20px;">
+        ${fields.heading ? `<h2 style="${headingStyle("24px", "27px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>` : ""}
+        ${paragraph(fields.body, "", "15px", "24px", "0", colors.body)}
+      </td>
+    </tr>
+  </table>
+</td>`);
+}
+
+function renderNethuntButton(label, url) {
+  return `<a href="${escapeAttr(url || "#")}" target="_blank" style="display:inline-block;padding:13px 22px;font-family:Arial,sans-serif;font-size:15px;line-height:15px;font-weight:bold;color:${colors.pinkDark};text-align:center;text-decoration:none;border:2px solid ${colors.pink};border-radius:999px;background-color:#ffffff;">${escapeHtml(label || "Read more")}</a>`;
+}
+
+function renderNethuntFooter(fields) {
+  return `${row(`<td style="padding:16px 0 0 0;line-height:0;font-size:0;background-color:#ffffff;"><img src="${CDN}/divider-rise-left-yellow-to-transparent@6x.png" width="640" height="74" alt="" style="display:block;width:100%;max-width:640px;height:auto;border:0;"></td>`)}
+${row(`<td style="padding:20px 32px 30px 32px;background-color:#ffffff;">
+  <img src="${LOGO}" width="150" alt="Abundance Investment" style="display:block;width:150px;max-width:150px;height:auto;border:0;margin:0 0 16px 0;font-family:Georgia,Cambria,'Times New Roman',Times,serif;font-size:24px;line-height:28px;font-weight:bold;color:${colors.ink};">
+  <p style="${textStyle("11px", "15px", colors.body)}margin:0;">${formatInlineText(fields.address)}<br>${formatInlineText(fields.fca)}</p>
+  <p style="color: #e26da6; font-size: 12px; line-height: 16px; font-family: Arial, sans-serif; margin: 12px 0 14px 0;"><a target="_blank" style="color: #e26da6; text-decoration: underline;" nh-unsubscribe>Unsubscribe</a></p>
+  <p style="${textStyle("11px", "15px", colors.body)}margin:0;">${formatInlineText(fields.legal)}</p>
+</td>`)}`;
 }
 
 function renderFooter(fields, includeRiskWarning = true) {

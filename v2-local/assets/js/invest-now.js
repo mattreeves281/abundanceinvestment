@@ -1,5 +1,5 @@
   (function () {
-    const forceNoOpenLoansForPreview = false;
+    const forceNoOpenLoansForPreview = true;
     const keyTermsData = {
       "Hammersmith & Fulham Council": {
         investmentName: "H&F Green Investment",
@@ -242,6 +242,32 @@
       }).format(new Date(time));
     }
 
+    function parseLoanDate(value) {
+      const raw = firstValue(value);
+      if (!raw) return null;
+      const time = Date.parse(raw);
+      return Number.isFinite(time) ? new Date(time) : null;
+    }
+
+    function isRecentlyClosedLoan(loan) {
+      const closeDate = parseLoanDate(getFields(loan).closeDate);
+      if (!closeDate) return false;
+
+      const today = new Date();
+      today.setHours(23, 59, 59, 999);
+
+      const threeMonthsAgo = new Date(today);
+      threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+      threeMonthsAgo.setHours(0, 0, 0, 0);
+
+      return closeDate >= threeMonthsAgo && closeDate <= today;
+    }
+
+    function loanAmount(loan) {
+      const fields = getFields(loan);
+      return safeNumber(fields.totalRaised || fields.loanAmount || fields.targetAmount);
+    }
+
     function councilIdForLoan(loan) {
       return firstValue(getFields(loan).councilID);
     }
@@ -268,7 +294,12 @@
       return slug ? "/council/" + slug : "#";
     }
 
-    function renderOpenLoansFallback(container) {
+    function renderOpenLoansFallback(container, recentClosedLoans, councilsById) {
+      const recentLoans = Array.isArray(recentClosedLoans) ? recentClosedLoans : [];
+      const recentClosedHTML = recentLoans.length
+        ? renderRecentlyClosedInvestments(recentLoans, councilsById || new Map())
+        : renderNoOpenLearningCard();
+
       container.innerHTML = `
         <div class="choke-700">
           <h2 class="si-heading-2 m-b-spacer-0">
@@ -280,6 +311,12 @@
           </p>
         </div>
 
+        ${recentClosedHTML}
+      `;
+    }
+
+    function renderNoOpenLearningCard() {
+      return `
         <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
           <h3 class="si-heading-3 m-b-spacer-0">
             Learn more about municipal investments
@@ -348,6 +385,88 @@
                   Learn more
                 </span>
               </a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderRecentlyClosedInvestments(recentClosedLoans, councilsById) {
+      return `
+        <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
+          <h3 class="si-heading-3 m-b-spacer-0">
+            Recently closed investments
+          </h3>
+
+          <div class="p-t-spacer-sm" aria-hidden="true"></div>
+
+          ${recentClosedLoans.map(function (loan, index) {
+            const council = councilsById.get(councilIdForLoan(loan)) || {};
+            const row = renderRecentlyClosedLoanRow(loan, council);
+            return index === 0 ? row : '<div class="p-t-spacer-xs" aria-hidden="true"></div>' + row;
+          }).join("")}
+        </article>
+      `;
+    }
+
+    function renderClosedLoanStat(label, value) {
+      return `
+        <div>
+          <hr class="si-horizontal-rule abundance-horizontal-rule--ink m-y-spacer-0">
+          <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+          <p class="abundance-eyebrow">${escapeHtml(label)}</p>
+          <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+          <p class="body--md type-bold m-b-spacer-0">${escapeHtml(value)}</p>
+        </div>
+      `;
+    }
+
+    function renderRecentlyClosedLoanRow(loan, council) {
+      const fields = getFields(loan);
+      const councilFields = getFields(council);
+      const name = firstValue(fields.investmentName) || "Municipal investment";
+      const councilName = councilNameForLoan(loan, council);
+      const strapline = firstValue(fields.strapline) || firstValue(fields.useOfFunds) || "";
+      const hex = firstValue(fields.hex) || firstValue(councilFields.hex) || "#f1eeed";
+      const logo = firstValue(fields.whiteLogo) || firstValue(councilFields.whiteLogo);
+      const aboutUrl = councilUrl(council, councilName);
+      const amount = loanAmount(loan);
+
+      return `
+        <article class="si-card si-card--2xs h-100">
+          <div class="row gx-xs gy-sm align-items-start">
+            <div class="col-12 col-md-2">
+              <div
+                class="d-flex align-items-center justify-content-center border-radius--lg p-all-spacer-2xs p-y-spacer-xs"
+                style="height:160px; background:${escapeHtml(hex)};"
+              >
+                <div class="m-x--auto d-flex align-items-center justify-content-center" style="width:112px; height:112px;">
+                  ${
+                    logo
+                      ? `<img src="${escapeHtml(logo)}" alt="${escapeHtml(councilName)}" loading="lazy" decoding="async" style="max-width:100%; max-height:100%; object-fit:contain;">`
+                      : ""
+                  }
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-5">
+              <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+              <p class="abundance-eyebrow brand-primary">${escapeHtml(name)}</p>
+              <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+              <h4 class="si-heading-5 m-b-spacer-0">${escapeHtml(councilName)}</h4>
+              ${
+                strapline
+                  ? `<p class="body--md m-t-spacer-2xs m-b-spacer-0">${escapeHtml(strapline)}</p>`
+                  : ""
+              }
+              <a class="si-btn-link body--md d-block m-t-spacer-xs" href="${escapeHtml(aboutUrl)}">About council</a>
+            </div>
+            <div class="col-12 col-md-5">
+              <div class="row row-cols-1 row-cols-sm-3 gx-2xs gy-2xs">
+                ${renderClosedLoanStat("Date closed", formatLongDate(fields.closeDate))}
+                ${renderClosedLoanStat("Interest rate", formatLoanRate(fields.rateOfReturn))}
+                ${renderClosedLoanStat("Total invested", amount ? formatGBP(amount, { decimals: 0 }) : "-")}
+              </div>
             </div>
           </div>
         </article>
@@ -485,7 +604,13 @@
           });
 
           if (forceNoOpenLoansForPreview || !openLoans.length) {
-            renderOpenLoansFallback(container);
+            const recentClosedLoans = loans
+              .filter(isRecentlyClosedLoan)
+              .sort(function (a, b) {
+                return parseLoanDate(getFields(b).closeDate) - parseLoanDate(getFields(a).closeDate);
+              });
+
+            renderOpenLoansFallback(container, recentClosedLoans, councilsById);
             setOpenLoanDependentSections(false);
             return;
           }

@@ -1,0 +1,182 @@
+{
+  "name": "council-activity-roundup",
+  "subject": "Council municipal investment update",
+  "previewText": "Recent CMI news and activity",
+  "blocks": [
+    {
+      "id": "nethunt-roundup-header",
+      "type": "nethuntHeader",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "logoUrl": "https://cdn4.sharein.com/abundance/assets/images/Abundance-Logo-2026-on-white-v2.png",
+        "logoAlt": "Abundance Investment"
+      }
+    },
+    {
+      "id": "nethunt-roundup-intro",
+      "type": "nethuntIntro",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "greeting": "Hi {name},",
+        "body": "Welcome to our roundup of recent activity and developments. I hope you find the update useful.\n\nBest wishes,\n\nKarl Harder"
+      }
+    },
+    {
+      "id": "nethunt-roundup-divider-before-news",
+      "type": "nethuntDivider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-rise-left-indigo-to-transparent@6x.png",
+        "spacing": "18"
+      }
+    },
+    {
+      "id": "nethunt-roundup-news",
+      "type": "nethuntNews",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Municipal investment news",
+        "stories": [
+          {
+            "title": "University of Leeds report",
+            "body": "The University of Leeds report explores the social case for CMIs, considering, amongst other things, how resident investors’ views of their council change post investment.",
+            "headline": "Headline finding: 55% of local investors say they trust councils that issue CMIs more than those who do not.",
+            "linkLabel": "Read the report",
+            "linkUrl": "#"
+          },
+          {
+            "title": "Green Finance Institute report",
+            "body": "The Green Finance Institute report explores the financial case for CMIs. Using historic PWLB borrowing and historic saving rates, as well as interviews with council treasury managers, it identifies credible use cases for CMIs today and a pathway for growing the model to scale.",
+            "headline": "Headline finding: the report suggests that, at scale, total cost of capital for councils could get consistently close to the Gilt Rate.",
+            "linkLabel": "Read the report",
+            "linkUrl": "#"
+          },
+          {
+            "title": "New Abundance website",
+            "body": "We recently launched a new version of the Abundance website. The platform is now 100% focused on councils and has more space to explain how local government works and its role in making communities better. We have also updated the look and feel of the platform to make it relevant to funding a broader range of the capital programme and, in turn, making CMIs more attractive to a broader cross section of the community. Please let us know what you think.",
+            "headline": "",
+            "linkLabel": "Visit the website",
+            "linkUrl": "https://www.abundanceinvestment.com"
+          },
+          {
+            "title": "CMIs deliver local government funding below Gilt Rate",
+            "body": "During the March to June window, £1.70m was raised across the period with an average weighted saving of 81 basis points on the PWLB Certainty Rate, effectively below the Gilt Rate.\n\nThe window was priced 24 hours before the start of the Iran war, which then drove a steep increase in the cost of borrowing for councils. This demonstrates the diversification and resilience benefits of growing a citizen investor base for local government, generating the same benefits NS&I provides central government.",
+            "headline": "",
+            "linkLabel": "",
+            "linkUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "nethunt-roundup-divider",
+      "type": "nethuntDivider",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "image": "divider-fall-left-teal-to-transparent@6x.png",
+        "spacing": "18"
+      }
+    },
+    {
+      "id": "nethunt-roundup-activity-table",
+      "type": "nethuntTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "sectionHeading": "Activity report",
+        "heading": "Previous window loans",
+        "subheading": "1 June - 1 Sept 2026",
+        "intro": "",
+        "columns": "Council|Raised|Total number of loans raised to date",
+        "rows": "Glasgow City Council|£2.5m|3\nHammersmith and Fulham|£1m|6",
+        "footnote": ""
+      }
+    },
+    {
+      "id": "nethunt-roundup-savings-table",
+      "type": "nethuntKeyValueTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "sectionHeading": "",
+        "heading": "Savings vs PWLB Certainty Rate (after fees)",
+        "subheading": "",
+        "intro": "",
+        "columns": "Label|Value",
+        "rows": "Total raised|£3.5m\nSaving on day of launch|18 bps\nWeighted mean saving|59 bps",
+        "footnote": "Savings worked out comparing PWLB rates across the period with Municipal Investment rate and inflows of investment. Money is transferred to councils at least every two weeks during the window. Councils retain the right to close an offer if savings turn negative."
+      }
+    },
+    {
+      "id": "nethunt-roundup-current-window-table",
+      "type": "nethuntKeyValueTable",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "sectionHeading": "",
+        "heading": "Current window terms",
+        "subheading": "1 Sept - 30 Nov 2026",
+        "intro": "",
+        "columns": "Label|Value",
+        "rows": "Window dates|Opened 2 September, closes 30 November\nOffer|4.84% fixed interest | 5-year maturity\nSaving vs PWLB Certainty Rate on pricing day|0.20%",
+        "footnote": ""
+      }
+    },
+    {
+      "id": "nethunt-roundup-current-window-note",
+      "type": "nethuntCallout",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "",
+        "body": "There are four launch windows each year, with a fixed interest rate set per window. Upcoming launch windows are 30 November 2026, 1 March 2027, 1 June 2027 and 1 September 2027.\n\n\nCouncils can launch an offer at any point during a window and, thanks to institutional lender backing led by Unity Trust Bank, all loans launched are fully funded."
+      }
+    },
+    {
+      "id": "nethunt-roundup-footer",
+      "type": "nethuntFooter",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "address": "Abundance Investment Ltd, Hamilton House, Mabledon Place, London, WC1H 9BB.",
+        "fca": "We are authorised and regulated by the Financial Conduct Authority (525432)",
+        "legal": "This email and all attachments transmitted with it are intended solely for the use of the addressee and may contain legally privileged and confidential information. If the reader of this message is not the intended recipient you are hereby notified that any dissemination, distribution, copying, or other use of this message or its attachments is strictly prohibited. If you have received this message in error, please delete it and notify Abundance immediately. Nothing in this message shall be considered an offer to sell, or a solicitation of an offer to buy, any investment to any person in any jurisdiction to whom or in which such offer, solicitation or sale is unlawful. Abundance does not provide legal, financial or tax advice of any kind, and nothing in this email constitutes such advice. To the extent permitted by law, Abundance does not accept any liability arising from the use of this communication."
+      }
+    }
+  ]
+}
