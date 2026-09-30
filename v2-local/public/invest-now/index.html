@@ -1842,12 +1842,16 @@
       container.innerHTML = `
         <div class="choke-700">
           <h2 class="si-heading-2 m-b-spacer-0">
-            Open municipal investments
+            Recently closed investments
           </h2>
 
-          <p class="body--lg m-t-spacer-md m-b-spacer-0">
-            There are no municipal investments open at the moment. Please check again soon.
-          </p>
+          <div class="p-t-spacer-md" aria-hidden="true"></div>
+
+          <blockquote class="abundance-quote m-b-spacer-0">
+            <p class="body--lg m-b-spacer-0">
+              There are no municipal investments open at the moment. We are expecting to launch new investments with a number of councils on 2 December 2026.
+            </p>
+          </blockquote>
         </div>
 
         ${recentClosedHTML}
@@ -1932,19 +1936,13 @@
 
     function renderRecentlyClosedInvestments(recentClosedLoans, councilsById) {
       return `
-        <article class="si-card si-card--secondary p-all-spacer-md m-t-spacer-md">
-          <h3 class="si-heading-3 m-b-spacer-0">
-            Recently closed investments
-          </h3>
-
-          <div class="p-t-spacer-sm" aria-hidden="true"></div>
-
+        <div class="m-t-spacer-md">
           ${recentClosedLoans.map(function (loan, index) {
             const council = councilsById.get(councilIdForLoan(loan)) || {};
             const row = renderRecentlyClosedLoanRow(loan, council);
             return index === 0 ? row : '<div class="p-t-spacer-xs" aria-hidden="true"></div>' + row;
           }).join("")}
-        </article>
+        </div>
       `;
     }
 
@@ -1973,7 +1971,7 @@
 
       return `
         <article class="si-card si-card--2xs h-100">
-          <div class="row gx-xs gy-sm align-items-start">
+          <div class="row gx-xs gy-sm align-items-end">
             <div class="col-12 col-md-2">
               <div
                 class="d-flex align-items-center justify-content-center border-radius--lg p-all-spacer-2xs p-y-spacer-xs"
