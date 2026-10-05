@@ -1788,18 +1788,14 @@
       return Number.isFinite(time) ? new Date(time) : null;
     }
 
-    function isRecentlyClosedLoan(loan) {
+    function isClosedLoanWithPastCloseDate(loan) {
       const closeDate = parseLoanDate(getFields(loan).closeDate);
       if (!closeDate) return false;
 
       const today = new Date();
       today.setHours(23, 59, 59, 999);
 
-      const threeMonthsAgo = new Date(today);
-      threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
-      threeMonthsAgo.setHours(0, 0, 0, 0);
-
-      return closeDate >= threeMonthsAgo && closeDate <= today;
+      return closeDate <= today;
     }
 
     function loanAmount(loan) {
@@ -2142,10 +2138,20 @@
 
           if (forceNoOpenLoansForPreview || !openLoans.length) {
             const recentClosedLoans = loans
-              .filter(isRecentlyClosedLoan)
+              .filter(isClosedLoanWithPastCloseDate)
               .sort(function (a, b) {
-                return parseLoanDate(getFields(b).closeDate) - parseLoanDate(getFields(a).closeDate);
-              });
+                const dateDiff = parseLoanDate(getFields(b).closeDate) - parseLoanDate(getFields(a).closeDate);
+                if (dateDiff) return dateDiff;
+
+                const councilA = councilsById.get(councilIdForLoan(a)) || {};
+                const councilB = councilsById.get(councilIdForLoan(b)) || {};
+                const nameA = councilNameForLoan(a, councilA);
+                const nameB = councilNameForLoan(b, councilB);
+
+                return nameB.localeCompare(nameA, "en-GB", { sensitivity: "base" }) ||
+                  firstValue(getFields(b).investmentName).localeCompare(firstValue(getFields(a).investmentName), "en-GB", { sensitivity: "base" });
+              })
+              .slice(0, 3);
 
             renderOpenLoansFallback(container, recentClosedLoans, councilsById);
             setOpenLoanDependentSections(false);

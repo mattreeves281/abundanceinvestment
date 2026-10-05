@@ -967,7 +967,7 @@
 </script>
 <script>
 (function () {
-  const forceNoOpenLoansForPreview = false;
+  const forceNoOpenLoansForPreview = true;
   const listSelector = "[data-abv2-open-investments-list]";
   let openInvestmentsObserver;
 
@@ -1110,13 +1110,188 @@
   function renderFallback() {
     const list = getList();
     if (!list) return;
+    setInvestmentsHeading("Recent investments");
 
     list.innerHTML = `
       <div class="col-12">
-        <p class="body--lg text-center m-b-spacer-0">
-          There are no municipal investments open at the moment. Please check again soon.
+        <p class="body--lg text-center choke-800 m-x--auto m-b-spacer-sm">
+          There are no municipal investments open at the moment. We are expecting to launch new investments with a number of councils on 2 December 2026.
         </p>
       </div>
+    `;
+  }
+
+  function setInvestmentsHeading(text) {
+    const wrapper = document.querySelector("[data-abv2-open-investments]");
+    const section = wrapper ? wrapper.closest("section") : null;
+    const heading = section ? section.querySelector("h2") : null;
+    if (heading) heading.textContent = text;
+  }
+
+  function parseLoanDate(value) {
+    const raw = firstValue(value);
+    if (!raw) return null;
+    const time = Date.parse(raw);
+    return Number.isFinite(time) ? new Date(time) : null;
+  }
+
+  function formatLongDate(value) {
+    const date = parseLoanDate(value);
+    if (!date) return "-";
+
+    return new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).format(date);
+  }
+
+  function safeNumber(value) {
+    if (typeof value === "number" && Number.isFinite(value)) return value;
+    const number = parseFloat(String(firstValue(value)).replace(/[^\d.-]/g, ""));
+    return Number.isFinite(number) ? number : 0;
+  }
+
+  function formatLoanRate(value) {
+    const number = safeNumber(value);
+    const rate = number > 0 && number < 1 ? number * 100 : number;
+    return rate.toFixed(2).replace(/\.00$/, "").replace(/0$/, "") + "%";
+  }
+
+  function formatShortMoney(value) {
+    const number = safeNumber(value);
+    const abs = Math.abs(number);
+
+    if (abs >= 1000000000) return "£" + (number / 1000000000).toFixed(1).replace(/\.0$/, "") + "bn";
+    if (abs >= 1000000) return "£" + (number / 1000000).toFixed(1).replace(/\.0$/, "") + "m";
+    if (abs >= 1000) return "£" + (number / 1000).toFixed(1).replace(/\.0$/, "") + "k";
+    return "£" + Math.round(number).toLocaleString("en-GB");
+  }
+
+  function loanAmount(record) {
+    const fields = getFields(record);
+    return safeNumber(fields.totalRaised || fields.loanAmount || fields.targetAmount);
+  }
+
+  function statRow(label, value) {
+    if (value === null || value === undefined || value === "") return "";
+
+    return `
+      <p
+        class="abundance-body-compact m-b-spacer-3xs"
+        style="display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:.75rem; align-items:baseline;"
+      >
+        <span>${escapeHtml(label)}</span>
+        <strong style="text-align:right;">${escapeHtml(value)}</strong>
+      </p>
+    `;
+  }
+
+  function isClosedLoanWithPastCloseDate(loan) {
+    if (!includesStatus(getValue(loan, "raiseStatus"), "closed")) return false;
+
+    const closeDate = parseLoanDate(getValue(loan, "closeDate"));
+    if (!closeDate) return false;
+
+    const today = new Date();
+    today.setHours(23, 59, 59, 999);
+
+    return closeDate <= today;
+  }
+
+  function renderRecentlyClosedTile(loan, council) {
+    const fields = getFields(loan);
+    const councilFields = getFields(council);
+    const name = firstValue(fields.investmentName) || "Municipal investment";
+    const councilTitle = council ? councilName(council) : firstValue(fields.issuingCouncil) || "Council";
+    const url = normaliseCouncilUrl(firstValue(councilFields.councilHub), councilTitle);
+    const bgHex = firstValue(fields.hex) || firstValue(councilFields.hex) || "#363635";
+    const logo = firstValue(fields.whiteLogo) || firstValue(councilFields.whiteLogo);
+    const amount = loanAmount(loan);
+    const stats = [
+      statRow("Closed", formatLongDate(fields.closeDate)),
+      statRow("Interest rate", formatLoanRate(fields.rateOfReturn)),
+      amount ? statRow("Invested", formatShortMoney(amount)) : ""
+    ].filter(Boolean).join("");
+
+    return `
+      <div class="col d-flex">
+        <a
+          class="si-card si-card--2xs abundance-card--interactive card-with-main-action h-100 w-100 d-flex flex-column text-start text-decoration-none"
+          href="${escapeHtml(url)}"
+          aria-label="View ${escapeHtml(councilTitle)}"
+        >
+          <div
+            class="d-flex align-items-center justify-content-center border-radius--lg p-all-spacer-xs"
+            style="height:104px; background:${escapeHtml(bgHex)};"
+          >
+            ${
+              logo
+                ? `
+                  <img
+                    src="${escapeHtml(logo)}"
+                    alt="${escapeHtml(councilTitle)}"
+                    loading="lazy"
+                    decoding="async"
+                    class="img-fluid"
+                    style="max-height:58px; max-width:78%; object-fit:contain;"
+                  >
+                `
+                : `<span class="abundance-action-text text-color--invert-primary">${escapeHtml(initials(councilTitle))}</span>`
+            }
+          </div>
+
+          <div class="p-t-spacer-sm" aria-hidden="true"></div>
+          <p class="abundance-eyebrow brand-primary">${escapeHtml(name)}</p>
+          <div class="p-t-spacer-3xs" aria-hidden="true"></div>
+          <h3 class="si-heading-5 m-b-spacer-0" style="min-height:2.35em;">
+            ${escapeHtml(councilTitle)}
+          </h3>
+
+          <div class="m-t-spacer-xs" style="min-height:5.8em;">
+            ${stats}
+          </div>
+        </a>
+      </div>
+    `;
+  }
+
+  function renderRecentlyClosedInvestments(loans, councilsById, councilsByName) {
+    const list = getList();
+    if (!list) return;
+    setInvestmentsHeading("Recent investments");
+
+    const closedLoans = loans
+      .filter(isClosedLoanWithPastCloseDate)
+      .sort(function (a, b) {
+        const dateDiff = parseLoanDate(getValue(b, "closeDate")) - parseLoanDate(getValue(a, "closeDate"));
+        if (dateDiff) return dateDiff;
+
+        const councilA = findCouncilForLoan(a, councilsById, councilsByName);
+        const councilB = findCouncilForLoan(b, councilsById, councilsByName);
+        const nameA = councilA ? councilName(councilA) : firstValue(getValue(a, "issuingCouncil"));
+        const nameB = councilB ? councilName(councilB) : firstValue(getValue(b, "issuingCouncil"));
+
+        return nameB.localeCompare(nameA, "en-GB", { sensitivity: "base" }) ||
+          firstValue(getValue(b, "investmentName")).localeCompare(firstValue(getValue(a, "investmentName")), "en-GB", { sensitivity: "base" });
+      })
+      .slice(0, 3);
+
+    if (!closedLoans.length) {
+      renderFallback();
+      return;
+    }
+
+    list.innerHTML = `
+      <div class="col-12">
+        <p class="body--lg text-center choke-800 m-x--auto m-b-spacer-sm">
+          There are no municipal investments open at the moment. We are expecting to launch new investments with a number of councils on 2 December 2026.
+        </p>
+      </div>
+
+      ${closedLoans.map(function (loan) {
+        return renderRecentlyClosedTile(loan, findCouncilForLoan(loan, councilsById, councilsByName));
+      }).join("")}
     `;
   }
 
@@ -1210,9 +1385,11 @@
           });
 
         if (forceNoOpenLoansForPreview || !openCouncils.length) {
-          renderFallback();
+          renderRecentlyClosedInvestments(loans, councilsById, councilsByName);
           return;
         }
+
+        setInvestmentsHeading("Investments open now");
 
         const currentList = getList();
         if (currentList) currentList.innerHTML = openCouncils.map(renderTile).join("");
