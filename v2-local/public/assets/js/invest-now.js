@@ -1,5 +1,5 @@
   (function () {
-    const forceNoOpenLoansForPreview = true;
+    const forceNoOpenLoansForPreview = false;
     const keyTermsData = {
       "Hammersmith & Fulham Council": {
         investmentName: "H&F Green Investment",

@@ -1,5 +1,5 @@
 (function () {
-  const forceNoOpenLoansForPreview = true;
+  const forceNoOpenLoansForPreview = false;
   const listSelector = "[data-abv2-open-investments-list]";
   let openInvestmentsObserver;
 

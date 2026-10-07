@@ -1,0 +1,494 @@
+<style>
+  .seg-page {
+    background: #faf8f8;
+  }
+
+  .seg-shell {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  .seg-topbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 24px;
+  }
+
+  .seg-eyebrow {
+    margin: 0 0 8px;
+    color: #c1658b;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+  }
+
+  .seg-title {
+    margin: 0;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .seg-subtitle {
+    max-width: 760px;
+    margin: 12px 0 0;
+    color: #4d4a46;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .seg-panel,
+  .seg-card,
+  .seg-segment,
+  .seg-table-wrap,
+  .seg-flow,
+  .seg-detail {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .seg-panel {
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+
+  .seg-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .seg-field label {
+    display: block;
+    margin-bottom: 6px;
+    color: #4d4a46;
+    font-size: 0.85rem;
+  }
+
+  .seg-select {
+    width: 100%;
+    min-height: 46px;
+    border: 1px solid #90908d;
+    border-radius: 8px;
+    padding: 10px 36px 10px 12px;
+    color: #363635;
+    background-color: #fff;
+    font: inherit;
+  }
+
+  .seg-lock {
+    margin: 6px 0 0;
+    color: #74716d;
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .seg-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .seg-button {
+    min-height: 40px;
+    border: 2px solid #c1658b;
+    border-radius: 999px;
+    padding: 8px 14px;
+    color: #c1658b;
+    background: #fff;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    cursor: pointer;
+  }
+
+  .seg-button:hover,
+  .seg-button:focus,
+  .seg-button.is-active {
+    background: #f7d9e8;
+  }
+
+  .seg-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+
+  .seg-card {
+    padding: 16px;
+  }
+
+  .seg-card__label {
+    margin: 0 0 8px;
+    color: #4d4a46;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+
+  .seg-card__value {
+    margin: 0;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.75rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .seg-section {
+    margin-top: 28px;
+  }
+
+  .seg-section h2 {
+    margin: 0 0 14px;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.75rem;
+    letter-spacing: 0;
+  }
+
+  .seg-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
+    gap: 18px;
+    align-items: start;
+  }
+
+  .seg-flow {
+    min-height: 420px;
+    padding: 18px;
+    overflow-x: auto;
+  }
+
+  .seg-definition {
+    display: none;
+    margin-bottom: 12px;
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 14px;
+    background: #fff;
+  }
+
+  .seg-definition.is-visible {
+    display: block;
+  }
+
+  .seg-definition__top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  .seg-definition__top h3 {
+    margin: 0;
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .seg-definition__top p {
+    margin: 0;
+    color: #74716d;
+    font-size: 0.82rem;
+  }
+
+  .seg-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .seg-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 36px;
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 7px 10px;
+    background: #faf8f8;
+    color: #363635;
+    font-size: 0.86rem;
+  }
+
+  .seg-chip span {
+    color: #74716d;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+  }
+
+  .seg-flow__inner {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(170px, 1fr);
+    gap: 14px;
+    min-width: 840px;
+  }
+
+  .seg-flow-col {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+  }
+
+  .seg-flow-col h3 {
+    margin: 0 0 2px;
+    color: #4d4a46;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+
+  .seg-node {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 10px;
+    background: #faf8f8;
+    color: #363635;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .seg-node:hover,
+  .seg-node:focus {
+    border-color: #c1658b;
+  }
+
+  .seg-node.is-active {
+    border-color: #c1658b;
+    background: #f7d9e8;
+  }
+
+  .seg-node__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .seg-node__meta {
+    margin-top: 4px;
+    color: #4d4a46;
+    font-size: 0.78rem;
+  }
+
+  .seg-bar {
+    height: 9px;
+    margin-top: 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e9e4e3;
+  }
+
+  .seg-bar span {
+    display: block;
+    width: var(--seg-width, 0%);
+    height: 100%;
+    background: #c1658b;
+  }
+
+  .seg-detail {
+    padding: 18px;
+    position: sticky;
+    top: 18px;
+  }
+
+  .seg-detail h3 {
+    margin: 0 0 8px;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.45rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .seg-detail p {
+    margin: 0 0 12px;
+    color: #4d4a46;
+    line-height: 1.5;
+  }
+
+  .seg-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .seg-mini {
+    border-radius: 8px;
+    padding: 12px;
+    background: #faf8f8;
+  }
+
+  .seg-mini span {
+    display: block;
+    color: #4d4a46;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .seg-mini strong {
+    display: block;
+    margin-top: 4px;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .seg-segments {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .seg-segment {
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .seg-segment:hover,
+  .seg-segment:focus,
+  .seg-segment.is-active {
+    border-color: #c1658b;
+    background: #f7f1f4;
+  }
+
+  .seg-segment h3 {
+    margin: 0 0 8px;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .seg-segment p {
+    margin: 0;
+    color: #4d4a46;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .seg-table-wrap {
+    overflow: auto;
+  }
+
+  .seg-table {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+    color: #363635;
+  }
+
+  .seg-table th,
+  .seg-table td {
+    border-bottom: 1px solid #e9e4e3;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .seg-table th {
+    color: #4d4a46;
+    background: #faf8f8;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+
+  .seg-table td[data-align="right"],
+  .seg-table th[data-align="right"] {
+    text-align: right;
+  }
+
+  .seg-muted {
+    color: #90908d;
+  }
+
+  .seg-hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 1060px) {
+    .seg-layout,
+    .seg-topbar {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .seg-detail {
+      position: static;
+    }
+
+    .seg-controls,
+    .seg-segments {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 620px) {
+    .seg-controls,
+    .seg-grid,
+    .seg-segments {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="seg-page">
+  <div class="seg-shell" data-segmentation-explorer>
+    <div class="seg-topbar">
+      <div>
+        <p class="seg-eyebrow">Internal segmentation</p>
+        <h1 class="seg-title">Investor segmentation explorer</h1>
+        <p class="seg-subtitle">
+          Aggregated view of local and category investor segments, with lifetime sales, council depth and recent engagement signals.
+        </p>
+      </div>
+    </div>
+
+    <section class="seg-panel">
+      <div class="seg-controls" data-controls></div>
+      <div class="seg-actions">
+        <button class="seg-button" type="button" data-reset>Reset filters</button>
+        <button class="seg-button is-active" type="button" data-metric="people">People</button>
+        <button class="seg-button" type="button" data-metric="total_lifetime_sales">Sales</button>
+      </div>
+    </section>
+
+    <section class="seg-grid" data-kpis></section>
+
+    <section class="seg-section">
+      <h2>Named action segments</h2>
+      <div class="seg-segments" data-action-segments></div>
+    </section>
+
+    <section class="seg-section seg-layout">
+      <div>
+        <h2>Segment flow</h2>
+        <div class="seg-definition" data-segment-definition></div>
+        <div class="seg-flow" data-flow></div>
+      </div>
+      <aside class="seg-detail" data-detail></aside>
+    </section>
+
+    <section class="seg-section">
+      <h2>Segment cells</h2>
+      <div class="seg-table-wrap">
+        <table class="seg-table" data-table></table>
+      </div>
+    </section>
+  </div>
+</div>
