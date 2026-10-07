@@ -171,6 +171,8 @@
     root.querySelector("[data-kpis]").innerHTML = [
       stat("People", number(totals.people), showComparison ? relativeDelta(totals.people, base.people) + " vs base" : ""),
       stat("Lifetime sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
+      stat("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
+      stat("2026 sales share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
       stat("Average portfolio", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
       stat("Average councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs base" : ""),
       stat("<£250 avg/council", amountBandSplitValue("<£250"), showComparison ? pointDelta(amountBandRate("<£250"), amountBandRate("<£250", {})) + " vs base" : ""),
@@ -191,7 +193,7 @@
       return [
         '<button class="seg-segment', state.activeSegmentId === segment.id ? " is-active" : "", '" type="button" data-action-segment="', escapeAttribute(segment.id), '">',
         '<h3>', escapeHtml(segment.name), '</h3>',
-        '<p>', number(totals.people), ' people · ', money(totals.total_lifetime_sales), '</p>',
+        '<p>', number(totals.people), ' people · ', money(totals.total_lifetime_sales), ' · ', shareOf2026(totals), ' of 2026 sales</p>',
         '</button>'
       ].join("");
     }).join("");
@@ -284,6 +286,8 @@
       '<th>Definition</th>',
       '<th data-align="right">People</th>',
       '<th data-align="right">Sales</th>',
+      '<th data-align="right">2026 sales</th>',
+      '<th data-align="right">2026 share</th>',
       '<th data-align="right">Avg portfolio</th>',
       '<th data-align="right">Avg councils</th>',
       '<th data-align="right">3+ councils</th>',
@@ -302,6 +306,8 @@
           '<td>', escapeHtml(formatFilterDefinition(segment.filters || {})), '</td>',
           '<td data-align="right">', number(totals.people), '</td>',
           '<td data-align="right">', money(totals.total_lifetime_sales), '</td>',
+          '<td data-align="right">', money(totals.sales_2026), '</td>',
+          '<td data-align="right">', shareOf2026(totals), '</td>',
           '<td data-align="right">', money(totals.avgPortfolio), '</td>',
           '<td data-align="right">', decimal(totals.avgCouncils), '</td>',
           '<td data-align="right">', countAndPct(totals.people_3plus_councils, totals.people), '</td>',
@@ -398,6 +404,8 @@
       '<div class="seg-mini-grid">',
       mini("People", number(totals.people), showComparison ? relativeDelta(totals.people, base.people) + " vs base" : ""),
       mini("Sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
+      mini("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
+      mini("2026 share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
       mini("Average", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
       mini("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
       mini("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
@@ -420,6 +428,7 @@
       '<th>Activity</th>',
       '<th data-align="right">People</th>',
       '<th data-align="right">Sales</th>',
+      '<th data-align="right">2026 share</th>',
       '<th data-align="right">Avg portfolio</th>',
       '<th data-align="right">Avg councils</th>',
       '</tr></thead>',
@@ -435,6 +444,7 @@
           '<td>', escapeHtml(row.invested_6m), ' · ', escapeHtml(row.deposited_6m), '</td>',
           '<td data-align="right">', number(row.people), '</td>',
           '<td data-align="right">', money(row.total_lifetime_sales), '</td>',
+          '<td data-align="right">', shareOf2026(row), '</td>',
           '<td data-align="right">', money(Number(row.total_lifetime_sales || 0) / Math.max(Number(row.people || 0), 1)), '</td>',
           '<td data-align="right">', decimal(Number(row.councils_total || 0) / Math.max(Number(row.people || 0), 1)), '</td>',
           '</tr>'
@@ -485,6 +495,7 @@
     return {
       people: 0,
       total_lifetime_sales: 0,
+      sales_2026: 0,
       councils_total: 0,
       people_3plus_councils: 0,
       invested_past_6m: 0,
@@ -496,6 +507,7 @@
   function addRecord(summary, record) {
     summary.people += Number(record.people || 0);
     summary.total_lifetime_sales += Number(record.total_lifetime_sales || 0);
+    summary.sales_2026 += Number(record.sales_2026 || 0);
     summary.councils_total += Number(record.councils_total || 0);
     summary.people_3plus_councils += Number(record.people_3plus_councils || 0);
     summary.invested_past_6m += Number(record.invested_past_6m || 0);
@@ -585,8 +597,17 @@
     return number(count) + " / " + pct.toLocaleString("en-GB", { maximumFractionDigits: 1 }) + "%";
   }
 
+  function shareOf2026(summary, baseSummary) {
+    var base = baseSummary || summarise(data.records || []);
+    return percent(rate(Number(summary.sales_2026 || 0), Number(base.sales_2026 || 0)));
+  }
+
   function rate(count, total) {
     return total ? Number(count || 0) / Number(total) : 0;
+  }
+
+  function percent(value) {
+    return (Number(value || 0) * 100).toLocaleString("en-GB", { maximumFractionDigits: 1 }) + "%";
   }
 
   function relativeDelta(value, base) {
