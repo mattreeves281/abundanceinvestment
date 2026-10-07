@@ -140,6 +140,13 @@
     letter-spacing: 0;
   }
 
+  .seg-card__delta {
+    margin: 8px 0 0;
+    color: #74716d;
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
   .seg-section {
     margin-top: 28px;
   }
@@ -366,6 +373,15 @@
     letter-spacing: 0;
   }
 
+  .seg-mini em {
+    display: block;
+    margin-top: 5px;
+    color: #74716d;
+    font-style: normal;
+    font-size: 0.74rem;
+    line-height: 1.3;
+  }
+
   .seg-segments {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -399,6 +415,50 @@
     color: #4d4a46;
     font-size: 0.9rem;
     line-height: 1.45;
+  }
+
+  .seg-buckets {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .seg-bucket {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 14px;
+    background: #fff;
+    color: #363635;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .seg-bucket:hover,
+  .seg-bucket:focus,
+  .seg-bucket.is-active {
+    border-color: #c1658b;
+    background: #f7f1f4;
+  }
+
+  .seg-bucket__section {
+    display: block;
+  }
+
+  .seg-bucket__section {
+    margin-bottom: 8px;
+    color: #c1658b;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+  }
+
+  .seg-bucket strong {
+    display: block;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.2rem;
+    line-height: 1.08;
+    letter-spacing: 0;
   }
 
   .seg-table-wrap {
@@ -458,7 +518,8 @@
     }
 
     .seg-controls,
-    .seg-segments {
+    .seg-segments,
+    .seg-buckets {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
@@ -466,7 +527,8 @@
   @media (max-width: 620px) {
     .seg-controls,
     .seg-grid,
-    .seg-segments {
+    .seg-segments,
+    .seg-buckets {
       grid-template-columns: 1fr;
     }
   }
@@ -490,10 +552,8 @@
     </section>
 
     <section class="seg-section">
-      <h2>Big bucket summary</h2>
-      <div class="seg-table-wrap">
-        <table class="seg-table" data-big-bucket-summary></table>
-      </div>
+      <h2>Key segment buckets</h2>
+      <div class="seg-buckets" data-big-buckets></div>
     </section>
 
     <section class="seg-section">

@@ -86,6 +86,19 @@
       return;
     }
 
+    var bucket = event.target.closest("[data-big-bucket]");
+    if (bucket) {
+      var bucketIndex = Number(bucket.getAttribute("data-big-bucket"));
+      var bucketItem = getBigBuckets()[bucketIndex];
+      if (!bucketItem) return;
+      state.filters = Object.assign({}, bucketItem.filters);
+      state.activeSegmentFilters = {};
+      state.activeSegmentId = "";
+      state.selectedNode = null;
+      render();
+      return;
+    }
+
     var node = event.target.closest("[data-node-key]");
     if (node) {
       var key = node.getAttribute("data-node-key");
@@ -100,11 +113,10 @@
     if (!data) return;
     var filtered = filteredRecords();
     var totals = summarise(filtered);
-    var overallTotals = summarise(data.records || []);
 
     renderControls();
-    renderKpis(overallTotals);
-    renderBigBucketSummary();
+    renderKpis(totals);
+    renderBigBucketCards();
     renderActionSegments();
     renderActionSegmentSummary();
     renderSegmentDefinition();
@@ -154,15 +166,18 @@
   }
 
   function renderKpis(totals) {
+    var base = summarise(data.records || []);
+    var showComparison = !isTotalBaseSelection();
     root.querySelector("[data-kpis]").innerHTML = [
-      stat("People", number(totals.people)),
-      stat("Lifetime sales", money(totals.total_lifetime_sales)),
-      stat("Average portfolio", money(totals.avgPortfolio)),
-      stat("Average councils", decimal(totals.avgCouncils)),
-      stat("3+ councils", countAndPct(totals.people_3plus_councils, totals.people)),
-      stat("Invested 6m", countAndPct(totals.invested_past_6m, totals.people)),
-      stat("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people)),
-      stat("Cells", number(totals.cells))
+      stat("People", number(totals.people), showComparison ? relativeDelta(totals.people, base.people) + " vs base" : ""),
+      stat("Lifetime sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
+      stat("Average portfolio", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
+      stat("Average councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs base" : ""),
+      stat("<£250 avg/council", amountBandSplitValue("<£250"), showComparison ? pointDelta(amountBandRate("<£250"), amountBandRate("<£250", {})) + " vs base" : ""),
+      stat("£250+ avg/council", amountBandSplitValue("£250+"), showComparison ? pointDelta(amountBandRate("£250+"), amountBandRate("£250+", {})) + " vs base" : ""),
+      stat("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
+      stat("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
+      stat("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs base" : "")
     ].join("");
   }
 
@@ -182,9 +197,9 @@
     }).join("");
   }
 
-  function renderBigBucketSummary() {
-    var table = root.querySelector("[data-big-bucket-summary]");
-    var buckets = [
+  function getBigBuckets() {
+    return [
+      { section: "Base", name: "Total base", filters: {} },
       { section: "Universe", name: "Local", filters: { universe: "Local" } },
       { section: "Universe", name: "Category", filters: { universe: "Category" } },
       { section: "Local source", name: "Local / New", filters: { universe: "Local", local_source: "New" } },
@@ -200,48 +215,29 @@
       { section: "Avg per council", name: "Category / <£250", filters: { universe: "Category", amount_band: "<£250" } },
       { section: "Avg per council", name: "Category / £250+", filters: { universe: "Category", amount_band: "£250+" } }
     ];
+  }
 
-    table.innerHTML = [
-      '<thead><tr>',
-      '<th>Group</th>',
-      '<th>Bucket</th>',
-      '<th data-align="right">People</th>',
-      '<th data-align="right"><£250</th>',
-      '<th data-align="right">£250+</th>',
-      '<th data-align="right">Sales</th>',
-      '<th data-align="right">Avg portfolio</th>',
-      '<th data-align="right">Avg councils</th>',
-      '<th data-align="right">3+ councils</th>',
-      '<th data-align="right">Invested 6m</th>',
-      '<th data-align="right">Deposited 6m</th>',
-      '</tr></thead>',
-      '<tbody>',
-      buckets.map(function (bucket) {
-        var records = data.records.filter(function (record) {
-          return matchesFilters(record, bucket.filters);
-        });
-        var totals = summarise(records);
-        var isAmountBucket = Boolean(bucket.filters.amount_band);
-        var under250 = isAmountBucket ? "" : amountBandPct(bucket.filters, "<£250", totals.people);
-        var over250 = isAmountBucket ? "" : amountBandPct(bucket.filters, "£250+", totals.people);
+  function renderBigBucketCards() {
+    var wrap = root.querySelector("[data-big-buckets]");
+    if (!wrap) return;
+    wrap.innerHTML = getBigBuckets().map(function (bucket, index) {
+        var active = matchesStateFilters(bucket.filters);
         return [
-          '<tr>',
-          '<td>', escapeHtml(bucket.section), '</td>',
-          '<td>', escapeHtml(bucket.name), '</td>',
-          '<td data-align="right">', number(totals.people), '</td>',
-          '<td data-align="right">', isAmountBucket ? '<span class="seg-muted">—</span>' : escapeHtml(under250), '</td>',
-          '<td data-align="right">', isAmountBucket ? '<span class="seg-muted">—</span>' : escapeHtml(over250), '</td>',
-          '<td data-align="right">', money(totals.total_lifetime_sales), '</td>',
-          '<td data-align="right">', money(totals.avgPortfolio), '</td>',
-          '<td data-align="right">', decimal(totals.avgCouncils), '</td>',
-          '<td data-align="right">', countAndPct(totals.people_3plus_councils, totals.people), '</td>',
-          '<td data-align="right">', countAndPct(totals.invested_past_6m, totals.people), '</td>',
-          '<td data-align="right">', countAndPct(totals.deposited_past_6m, totals.people), '</td>',
-          '</tr>'
+          '<button class="seg-bucket', active ? " is-active" : "", '" type="button" data-big-bucket="', index, '">',
+          '<span class="seg-bucket__section">', escapeHtml(bucket.section), '</span>',
+          '<strong>', escapeHtml(bucket.name), '</strong>',
+          '</button>'
         ].join("");
-      }).join(""),
-      '</tbody>'
-    ].join("");
+      }).join("");
+  }
+
+  function matchesStateFilters(filters) {
+    var keys = Object.keys(config);
+    var hasActiveSegment = Object.keys(state.activeSegmentFilters).length > 0;
+    if (hasActiveSegment) return false;
+    return keys.every(function (key) {
+      return (state.filters[key] || "") === (filters[key] || "");
+    });
   }
 
   function amountBandPct(filters, amountBand, totalPeople) {
@@ -252,6 +248,32 @@
     var people = summarise(records).people;
     var pct = totalPeople ? (people / totalPeople) * 100 : 0;
     return pct.toLocaleString("en-GB", { maximumFractionDigits: 1 }) + "%";
+  }
+
+  function amountBandSplitValue(amountBand) {
+    var baseFilters = Object.assign({}, state.activeSegmentFilters, state.filters);
+    var records = data.records.filter(function (record) {
+      return matchesFilters(record, baseFilters);
+    });
+    var totalPeople = summarise(records).people;
+    var amountFilters = Object.assign({}, baseFilters, { amount_band: amountBand });
+    var amountPeople = summarise(data.records.filter(function (record) {
+      return matchesFilters(record, amountFilters);
+    })).people;
+    return countAndPct(amountPeople, totalPeople);
+  }
+
+  function amountBandRate(amountBand, filters) {
+    var baseFilters = filters || Object.assign({}, state.activeSegmentFilters, state.filters);
+    var records = data.records.filter(function (record) {
+      return matchesFilters(record, baseFilters);
+    });
+    var totalPeople = summarise(records).people;
+    var amountFilters = Object.assign({}, baseFilters, { amount_band: amountBand });
+    var amountPeople = summarise(data.records.filter(function (record) {
+      return matchesFilters(record, amountFilters);
+    })).people;
+    return rate(amountPeople, totalPeople);
   }
 
   function renderActionSegmentSummary() {
@@ -359,6 +381,8 @@
 
   function renderDetail(records, totals) {
     var activeSegment = data.actionSegments.find(function (segment) { return segment.id === state.activeSegmentId; });
+    var base = summarise(data.records || []);
+    var showComparison = !isTotalBaseSelection();
     var title = activeSegment ? activeSegment.name : "Current selection";
     var description = activeSegment
       ? activeSegment.description
@@ -372,12 +396,12 @@
       strategy ? '<p>' + escapeHtml(strategy) + '</p>' : '',
       definition ? '<p><strong>Definition:</strong> ' + escapeHtml(definition) + '</p>' : '',
       '<div class="seg-mini-grid">',
-      mini("People", number(totals.people)),
-      mini("Sales", money(totals.total_lifetime_sales)),
-      mini("Average", money(totals.avgPortfolio)),
-      mini("3+ councils", countAndPct(totals.people_3plus_councils, totals.people)),
-      mini("Invested 6m", countAndPct(totals.invested_past_6m, totals.people)),
-      mini("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people)),
+      mini("People", number(totals.people), showComparison ? relativeDelta(totals.people, base.people) + " vs base" : ""),
+      mini("Sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
+      mini("Average", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
+      mini("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
+      mini("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
+      mini("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs base" : ""),
       '</div>'
     ].join("");
   }
@@ -517,17 +541,24 @@
     }).join("; ");
   }
 
-  function stat(label, value) {
+  function stat(label, value, comparison) {
     return [
       '<div class="seg-card">',
       '<p class="seg-card__label">', escapeHtml(label), '</p>',
       '<p class="seg-card__value">', escapeHtml(String(value)), '</p>',
+      comparison ? '<p class="seg-card__delta">' + escapeHtml(comparison) + '</p>' : '',
       '</div>'
     ].join("");
   }
 
-  function mini(label, value) {
-    return '<div class="seg-mini"><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(String(value)) + '</strong></div>';
+  function mini(label, value, comparison) {
+    return [
+      '<div class="seg-mini">',
+      '<span>', escapeHtml(label), '</span>',
+      '<strong>', escapeHtml(String(value)), '</strong>',
+      comparison ? '<em>' + escapeHtml(comparison) + '</em>' : '',
+      '</div>'
+    ].join("");
   }
 
   function number(value) {
@@ -552,6 +583,32 @@
   function countAndPct(count, total) {
     var pct = total ? (Number(count || 0) / Number(total)) * 100 : 0;
     return number(count) + " / " + pct.toLocaleString("en-GB", { maximumFractionDigits: 1 }) + "%";
+  }
+
+  function rate(count, total) {
+    return total ? Number(count || 0) / Number(total) : 0;
+  }
+
+  function relativeDelta(value, base) {
+    if (!base) return "n/a";
+    var pct = ((Number(value || 0) - Number(base)) / Number(base)) * 100;
+    return signed(pct) + "%";
+  }
+
+  function pointDelta(value, base) {
+    var points = (Number(value || 0) - Number(base || 0)) * 100;
+    return signed(points) + "pts";
+  }
+
+  function signed(value) {
+    var rounded = Number(value || 0).toLocaleString("en-GB", { maximumFractionDigits: 1 });
+    return Number(value || 0) > 0 ? "+" + rounded : rounded;
+  }
+
+  function isTotalBaseSelection() {
+    return Object.keys(state.activeSegmentFilters).length === 0 && Object.keys(config).every(function (key) {
+      return !state.filters[key];
+    });
   }
 
   function unique(values) {
