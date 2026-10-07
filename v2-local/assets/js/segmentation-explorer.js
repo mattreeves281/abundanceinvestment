@@ -14,7 +14,7 @@
     universe: { label: "Universe", all: "All universes" },
     local_source: { label: "Local source", all: "All sources" },
     holding_type: { label: "Holding type", all: "All holding types" },
-    amount_band: { label: "Average per council", all: "All amount bands" },
+    amount_band: { label: "Avg per council", all: "All avg per council bands" },
     imd_group: { label: "IMD", all: "All IMD groups" },
     depth_band: { label: "Council depth", all: "All council depths" },
     invested_6m: { label: "Investment recency", all: "All investment recency" },
@@ -25,7 +25,7 @@
     universe: "Universe",
     local_source: "Source",
     holding_type: "Holding",
-    amount_band: "Amount",
+    amount_band: "Avg per council",
     imd_group: "IMD",
     depth_band: "Depth",
     invested_6m: "Invested",
@@ -100,10 +100,13 @@
     if (!data) return;
     var filtered = filteredRecords();
     var totals = summarise(filtered);
+    var overallTotals = summarise(data.records || []);
 
     renderControls();
-    renderKpis(totals);
+    renderKpis(overallTotals);
+    renderBigBucketSummary();
     renderActionSegments();
+    renderActionSegmentSummary();
     renderSegmentDefinition();
     renderFlow(filtered);
     renderDetail(filtered, totals);
@@ -122,6 +125,12 @@
 
   function renderControls() {
     var controls = root.querySelector("[data-controls]");
+    if (!controls) {
+      root.querySelectorAll("[data-metric]").forEach(function (button) {
+        button.classList.toggle("is-active", button.getAttribute("data-metric") === state.metric);
+      });
+      return;
+    }
     controls.innerHTML = Object.keys(config).map(function (key) {
       var values = uniqueValues(key);
       var segmentValue = state.activeSegmentFilters[key];
@@ -171,6 +180,112 @@
         '</button>'
       ].join("");
     }).join("");
+  }
+
+  function renderBigBucketSummary() {
+    var table = root.querySelector("[data-big-bucket-summary]");
+    var buckets = [
+      { section: "Universe", name: "Local", filters: { universe: "Local" } },
+      { section: "Universe", name: "Category", filters: { universe: "Category" } },
+      { section: "Local source", name: "Local / New", filters: { universe: "Local", local_source: "New" } },
+      { section: "Local source", name: "Local / Legacy", filters: { universe: "Local", local_source: "Legacy" } },
+      { section: "Category holding", name: "Category / Council only", filters: { universe: "Category", holding_type: "Council only" } },
+      { section: "Category holding", name: "Category / Company + council", filters: { universe: "Category", holding_type: "Company + council" } },
+      { section: "Avg per council", name: "Local / <£250", filters: { universe: "Local", amount_band: "<£250" } },
+      { section: "Avg per council", name: "Local / £250+", filters: { universe: "Local", amount_band: "£250+" } },
+      { section: "Avg per council", name: "Category / <£250", filters: { universe: "Category", amount_band: "<£250" } },
+      { section: "Avg per council", name: "Category / £250+", filters: { universe: "Category", amount_band: "£250+" } }
+    ];
+
+    table.innerHTML = [
+      '<thead><tr>',
+      '<th>Group</th>',
+      '<th>Bucket</th>',
+      '<th data-align="right">People</th>',
+      '<th data-align="right"><£250</th>',
+      '<th data-align="right">£250+</th>',
+      '<th data-align="right">Sales</th>',
+      '<th data-align="right">Avg portfolio</th>',
+      '<th data-align="right">Avg councils</th>',
+      '<th data-align="right">3+ councils</th>',
+      '<th data-align="right">Invested 6m</th>',
+      '<th data-align="right">Deposited 6m</th>',
+      '</tr></thead>',
+      '<tbody>',
+      buckets.map(function (bucket) {
+        var records = data.records.filter(function (record) {
+          return matchesFilters(record, bucket.filters);
+        });
+        var totals = summarise(records);
+        var isAmountBucket = Boolean(bucket.filters.amount_band);
+        var under250 = isAmountBucket ? "" : amountBandPct(bucket.filters, "<£250", totals.people);
+        var over250 = isAmountBucket ? "" : amountBandPct(bucket.filters, "£250+", totals.people);
+        return [
+          '<tr>',
+          '<td>', escapeHtml(bucket.section), '</td>',
+          '<td>', escapeHtml(bucket.name), '</td>',
+          '<td data-align="right">', number(totals.people), '</td>',
+          '<td data-align="right">', isAmountBucket ? '<span class="seg-muted">—</span>' : escapeHtml(under250), '</td>',
+          '<td data-align="right">', isAmountBucket ? '<span class="seg-muted">—</span>' : escapeHtml(over250), '</td>',
+          '<td data-align="right">', money(totals.total_lifetime_sales), '</td>',
+          '<td data-align="right">', money(totals.avgPortfolio), '</td>',
+          '<td data-align="right">', decimal(totals.avgCouncils), '</td>',
+          '<td data-align="right">', countAndPct(totals.people_3plus_councils, totals.people), '</td>',
+          '<td data-align="right">', countAndPct(totals.invested_past_6m, totals.people), '</td>',
+          '<td data-align="right">', countAndPct(totals.deposited_past_6m, totals.people), '</td>',
+          '</tr>'
+        ].join("");
+      }).join(""),
+      '</tbody>'
+    ].join("");
+  }
+
+  function amountBandPct(filters, amountBand, totalPeople) {
+    var amountFilters = Object.assign({}, filters, { amount_band: amountBand });
+    var records = data.records.filter(function (record) {
+      return matchesFilters(record, amountFilters);
+    });
+    var people = summarise(records).people;
+    var pct = totalPeople ? (people / totalPeople) * 100 : 0;
+    return pct.toLocaleString("en-GB", { maximumFractionDigits: 1 }) + "%";
+  }
+
+  function renderActionSegmentSummary() {
+    var table = root.querySelector("[data-action-segment-summary]");
+    table.innerHTML = [
+      '<thead><tr>',
+      '<th>Action segment</th>',
+      '<th>Definition</th>',
+      '<th data-align="right">People</th>',
+      '<th data-align="right">Sales</th>',
+      '<th data-align="right">Avg portfolio</th>',
+      '<th data-align="right">Avg councils</th>',
+      '<th data-align="right">3+ councils</th>',
+      '<th data-align="right">Invested 6m</th>',
+      '<th data-align="right">Deposited 6m</th>',
+      '</tr></thead>',
+      '<tbody>',
+      (data.actionSegments || []).map(function (segment) {
+        var records = data.records.filter(function (record) {
+          return matchesFilters(record, segment.filters || {});
+        });
+        var totals = summarise(records);
+        return [
+          '<tr>',
+          '<td>', escapeHtml(segment.name), '</td>',
+          '<td>', escapeHtml(formatFilterDefinition(segment.filters || {})), '</td>',
+          '<td data-align="right">', number(totals.people), '</td>',
+          '<td data-align="right">', money(totals.total_lifetime_sales), '</td>',
+          '<td data-align="right">', money(totals.avgPortfolio), '</td>',
+          '<td data-align="right">', decimal(totals.avgCouncils), '</td>',
+          '<td data-align="right">', countAndPct(totals.people_3plus_councils, totals.people), '</td>',
+          '<td data-align="right">', countAndPct(totals.invested_past_6m, totals.people), '</td>',
+          '<td data-align="right">', countAndPct(totals.deposited_past_6m, totals.people), '</td>',
+          '</tr>'
+        ].join("");
+      }).join(""),
+      '</tbody>'
+    ].join("");
   }
 
   function renderSegmentDefinition() {
@@ -271,7 +386,7 @@
       '<thead><tr>',
       '<th>Universe</th>',
       '<th>Source / holding</th>',
-      '<th>Amount</th>',
+      '<th>Avg per council</th>',
       '<th>IMD</th>',
       '<th>Depth</th>',
       '<th>Activity</th>',

@@ -1398,11 +1398,46 @@
   "generatedAt": "2026-10-07T08:20:14.109951+00:00",
   "actionSegments": [
     {
-      "id": "local_new_supporters",
-      "name": "New local supporters",
+      "id": "category_legacy_disengaged",
+      "name": "Category buyer: legacy, disengaged",
+      "universe": "Category",
+      "description": "Category buyers who also hold company investments but have not made a council investment in the past six months.",
+      "strategy": "Use reactivation journeys, portfolio reminders and timely new council launches to bring them back into the council category.",
+      "filters": {
+        "universe": "Category",
+        "holding_type": "Company + council",
+        "invested_6m": "No investment 6m"
+      }
+    },
+    {
+      "id": "category_legacy_engaged",
+      "name": "Category buyer: legacy, engaged",
+      "universe": "Category",
+      "description": "Category buyers who also hold company investments and have made a council investment in the past six months.",
+      "strategy": "Treat as a live category audience for launch priority, portfolio-wrapped impact stories and repeat investment prompts.",
+      "filters": {
+        "universe": "Category",
+        "holding_type": "Company + council",
+        "invested_6m": "Invested 6m"
+      }
+    },
+    {
+      "id": "category_councils_only",
+      "name": "Category buyer: councils only",
+      "universe": "Category",
+      "description": "Non-local council investors who do not also hold company investments.",
+      "strategy": "Explain the council investment category clearly and build confidence around repeat participation across places.",
+      "filters": {
+        "universe": "Category",
+        "holding_type": "Council only"
+      }
+    },
+    {
+      "id": "local_new_supporter",
+      "name": "Local: new supporter",
       "universe": "Local",
-      "description": "Newly acquired local investors making low-ticket council investments. Useful as a participation and community-support segment.",
-      "strategy": "Project updates, local proof points and simple second-step journeys into another council offer.",
+      "description": "New local investors with lower average council investment values, likely to include community participation and support-led behaviour.",
+      "strategy": "Use local proof points, project updates and simple second-step journeys into another council investment.",
       "filters": {
         "universe": "Local",
         "local_source": "New",
@@ -1410,11 +1445,11 @@
       }
     },
     {
-      "id": "local_new_investors",
-      "name": "New local investors",
+      "id": "local_new_investor",
+      "name": "Local: new investor",
       "universe": "Local",
-      "description": "New local investors making larger average council investments. This is the strongest local acquisition value segment.",
-      "strategy": "Confidence-building, portfolio education and invitations to diversify beyond the first local council.",
+      "description": "New local investors with higher average council investment values.",
+      "strategy": "Build confidence, show portfolio-level impact and encourage diversification beyond the first local council.",
       "filters": {
         "universe": "Local",
         "local_source": "New",
@@ -1422,109 +1457,27 @@
       }
     },
     {
-      "id": "local_legacy_supporters",
-      "name": "Legacy local supporters",
+      "id": "local_legacy_engaged",
+      "name": "Local: legacy, engaged",
       "universe": "Local",
-      "description": "Existing Abundance accounts from issuing areas with smaller average council investments. Some may be reinvesting cash returns.",
-      "strategy": "Light-touch impact updates and nudges into repeat participation without over-selling the financial case.",
+      "description": "Existing Abundance investors from issuing areas who have made a council investment in the past six months.",
+      "strategy": "Use richer loyalty comms, reinvestment prompts and early visibility of the wider council pipeline.",
       "filters": {
         "universe": "Local",
         "local_source": "Legacy",
-        "amount_band": "<£250"
+        "invested_6m": "Invested 6m"
       }
     },
     {
-      "id": "local_legacy_investors",
-      "name": "Legacy local investors",
+      "id": "local_legacy_disengaged",
+      "name": "Local: legacy, disengaged",
       "universe": "Local",
-      "description": "Existing Abundance investors living in issuing areas with larger council investment behaviour.",
-      "strategy": "Treat as high-value loyal investors: richer impact evidence, broader council pipeline, and reinvestment journeys.",
+      "description": "Existing Abundance investors from issuing areas who have not made a council investment in the past six months.",
+      "strategy": "Use low-pressure reactivation, local outcome updates and reminders of open council opportunities.",
       "filters": {
         "universe": "Local",
         "local_source": "Legacy",
-        "amount_band": "£250+"
-      }
-    },
-    {
-      "id": "category_dabblers",
-      "name": "Category dabblers",
-      "universe": "Category",
-      "description": "Non-local investors with one or two councils and smaller average tickets.",
-      "strategy": "Explain the category, show simple evidence, and create a low-friction path to second or third council investment.",
-      "filters": {
-        "universe": "Category",
-        "depth_band": "1-2 councils",
-        "amount_band": "<£250"
-      }
-    },
-    {
-      "id": "category_investors",
-      "name": "Category investors",
-      "universe": "Category",
-      "description": "Non-local investors with one or two councils but larger average ticket sizes.",
-      "strategy": "Encourage repeat council participation and explain diversification across councils.",
-      "filters": {
-        "universe": "Category",
-        "depth_band": "1-2 councils",
-        "amount_band": "£250+"
-      }
-    },
-    {
-      "id": "category_engaged_supporters",
-      "name": "Engaged category supporters",
-      "universe": "Category",
-      "description": "Non-local investors with three or more councils and smaller average tickets. High engagement, lower ticket size.",
-      "strategy": "Use portfolio-wrapped impact stories and frequent project updates to sustain engagement.",
-      "filters": {
-        "universe": "Category",
-        "depth_band": "3+ councils",
-        "amount_band": "<£250"
-      }
-    },
-    {
-      "id": "category_power_users",
-      "name": "Category power users",
-      "universe": "Category",
-      "description": "Highly engaged non-local investors with three or more councils and larger tickets. The clearest category-investor cell.",
-      "strategy": "Priority segment for loyalty, new council launches, portfolio insight and deeper product development.",
-      "filters": {
-        "universe": "Category",
-        "depth_band": "3+ councils",
-        "amount_band": "£250+"
-      }
-    },
-    {
-      "id": "local_active_investors",
-      "name": "Local active investors",
-      "universe": "Local",
-      "description": "Local investors with meaningful average council investment, across both new and legacy sources.",
-      "strategy": "Use as a broader loyalty and reinvestment audience without forcing the source and IMD cuts into tiny cells.",
-      "filters": {
-        "universe": "Local",
-        "local_source": [
-          "New",
-          "Legacy"
-        ],
-        "amount_band": "£250+",
-        "imd_group": [
-          "IMD 1-5",
-          "IMD 6-10"
-        ]
-      }
-    },
-    {
-      "id": "category_engaged_all",
-      "name": "Engaged category investors",
-      "universe": "Category",
-      "description": "Non-local investors with deeper council diversification, regardless of whether they also hold company investments.",
-      "strategy": "Good candidate group for portfolio-style updates and new council launch comms.",
-      "filters": {
-        "universe": "Category",
-        "depth_band": "3+ councils",
-        "holding_type": [
-          "Council only",
-          "Company + council"
-        ]
+        "invested_6m": "No investment 6m"
       }
     }
   ]
