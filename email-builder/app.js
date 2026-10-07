@@ -1785,7 +1785,7 @@ function renderBlock(item, options = {}) {
     councilThreeUpBlobCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 10px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 20px 0")}${renderThreeUpCards(fields.cards)}</td>`),
     councilRateCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("34px", "37px")}margin:0 0 16px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderCouncilStatCards(fields.cards)}</td>`),
     councilStatColorCards: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 class="section-title" style="${headingStyle("32px", "35px")}margin:0 0 12px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.intro, "", "15px", "23px", "0 0 18px 0")}${renderCouncilStatCards(fields.cards)}</td>`),
-    systemTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><h2 style="${headingStyle("24px", "27px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${renderTableRows(fields.rows)}</td>`),
+    systemTable: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;">${fields.heading ? `<h2 style="${headingStyle("24px", "27px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>` : ""}${renderSystemTableRows(fields.rows)}</td>`),
     systemInfo: () => row(`<td class="mobile-pad" style="padding:8px 32px 34px 32px;background-color:#ffffff;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f8;border-left:4px solid ${colors.teal};border-radius:0 14px 14px 0;border-collapse:separate !important;"><tr><td style="padding:22px;"><h2 style="${headingStyle("30px", "33px")}margin:0 0 14px 0;">${escapeHtml(fields.heading)}</h2>${paragraph(fields.body, "", "16px", "25px", "0")}</td></tr></table></td>`),
     nethuntHeader: () => renderNethuntHeader(fields),
     nethuntIntro: () => renderNethuntIntro(fields),
@@ -2139,6 +2139,16 @@ function card(content) {
 function renderTableRows(lines) {
   const rows = parseLines(lines, 2);
   return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">${rows.map(([label, value], index) => `<tr><td style="padding:12px 12px 12px 0;${index < rows.length - 1 ? `border-bottom:1px solid ${colors.line};` : ""}${textStyle("14px", "21px", colors.body)}font-weight:bold;">${escapeHtml(label)}</td><td align="right" style="padding:12px 0;${index < rows.length - 1 ? `border-bottom:1px solid ${colors.line};` : ""}${textStyle("14px", "21px", colors.body)}">${escapeHtml(value)}</td></tr>`).join("")}</table>`;
+}
+
+function renderSystemTableRows(lines) {
+  const rows = parseLines(lines, 2);
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:3px solid ${colors.ink};">
+    ${rows.map(([label, value], index) => `<tr>
+      <td width="42%" valign="top" style="width:42%;padding:15px 18px 15px 0;${index < rows.length - 1 ? `border-bottom:1px solid ${colors.line};` : ""}${textStyle("16px", "25px", colors.body)}font-weight:bold;word-break:normal;overflow-wrap:normal;">${escapeHtml(label)}</td>
+      <td width="58%" valign="top" style="width:58%;padding:15px 0;${index < rows.length - 1 ? `border-bottom:1px solid ${colors.line};` : ""}${textStyle("16px", "25px", colors.body)}word-break:normal;overflow-wrap:normal;">${escapeHtml(value)}</td>
+    </tr>`).join("")}
+  </table>`;
 }
 
 function renderInlineLinks(lines) {

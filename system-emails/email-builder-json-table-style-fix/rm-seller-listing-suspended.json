@@ -1,0 +1,40 @@
+{
+  "name": "rm-seller-listing-suspended",
+  "subject": "Your listing to sell an investment has been cancelled",
+  "previewText": "Trading of this investment has been suspended",
+  "blocks": [
+    {
+      "id": "header-52-0",
+      "type": "systemHeader",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    },
+    {
+      "id": "simpleContent-52-1",
+      "type": "heroNoContents",
+      "customized": true,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {
+        "heading": "Your listing has been cancelled",
+        "body": "Hello {first_name}, Trading of {pitch_title} on the marketplace has been temporarily suspended as this investment has an upcoming return payment. We have therefore had to withdraw your sell listing from the marketplace. Once the investment return has been paid you can re-list your investment for sale if you wish."
+      }
+    },
+    {
+      "id": "footerSystemMinimal-52-2",
+      "type": "footerSystemMinimal",
+      "customized": false,
+      "condition": {
+        "mode": "none",
+        "tags": ""
+      },
+      "fields": {}
+    }
+  ]
+}
