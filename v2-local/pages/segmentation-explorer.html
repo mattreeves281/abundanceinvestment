@@ -159,6 +159,19 @@
     align-items: start;
   }
 
+  .seg-action-explorer {
+    margin-top: 18px;
+  }
+
+  .seg-subheading {
+    margin: 0 0 10px;
+    color: #363635;
+    font-family: "New Kansas", Georgia, serif;
+    font-size: 1.45rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
   .seg-flow {
     min-height: 420px;
     padding: 18px;
@@ -486,26 +499,27 @@
     <section class="seg-section">
       <h2>Named action segments</h2>
       <div class="seg-segments" data-action-segments></div>
+
+      <div class="seg-action-explorer seg-layout">
+        <div>
+          <h3 class="seg-subheading">Segment flow</h3>
+          <p class="seg-flow-note">Select segments below to filter the view. Each column shows a different way of slicing the currently selected investor group.</p>
+          <section class="seg-panel">
+            <div class="seg-actions">
+              <button class="seg-button" type="button" data-reset>Reset filters</button>
+              <button class="seg-button is-active" type="button" data-metric="people">People</button>
+              <button class="seg-button" type="button" data-metric="total_lifetime_sales">Sales</button>
+            </div>
+          </section>
+          <div class="seg-definition" data-segment-definition></div>
+          <div class="seg-flow" data-flow></div>
+        </div>
+        <aside class="seg-detail" data-detail></aside>
+      </div>
+
       <div class="seg-table-wrap seg-summary-table">
         <table class="seg-table" data-action-segment-summary></table>
       </div>
-    </section>
-
-    <section class="seg-section seg-layout">
-      <div>
-        <h2>Segment flow</h2>
-        <p class="seg-flow-note">Select segments below to filter the view. Each column shows a different way of slicing the currently selected investor group.</p>
-        <section class="seg-panel">
-          <div class="seg-actions">
-            <button class="seg-button" type="button" data-reset>Reset filters</button>
-            <button class="seg-button is-active" type="button" data-metric="people">People</button>
-            <button class="seg-button" type="button" data-metric="total_lifetime_sales">Sales</button>
-          </div>
-        </section>
-        <div class="seg-definition" data-segment-definition></div>
-        <div class="seg-flow" data-flow></div>
-      </div>
-      <aside class="seg-detail" data-detail></aside>
     </section>
 
     <section class="seg-section">
