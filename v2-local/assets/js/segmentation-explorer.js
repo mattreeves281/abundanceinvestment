@@ -5,6 +5,7 @@
   var state = {
     metric: "people",
     actionStackMetric: "people",
+    kpiBucketIndex: 0,
     filters: {},
     activeSegmentFilters: {},
     activeSegmentId: "",
@@ -56,10 +57,7 @@
       if (bucketSelect.value === "") return;
       var bucketItem = getBigBuckets()[Number(bucketSelect.value)];
       if (!bucketItem) return;
-      state.filters = Object.assign({}, bucketItem.filters);
-      state.activeSegmentFilters = {};
-      state.activeSegmentId = "";
-      state.selectedNode = null;
+      state.kpiBucketIndex = Number(bucketSelect.value);
       render();
       return;
     }
@@ -149,9 +147,13 @@
     if (!data) return;
     var filtered = filteredRecords();
     var totals = summarise(filtered);
+    var kpiBucket = getBigBuckets()[state.kpiBucketIndex] || getBigBuckets()[0];
+    var kpiTotals = summarise(data.records.filter(function (record) {
+      return matchesFilters(record, kpiBucket.filters || {});
+    }));
 
     renderControls();
-    renderKpis(totals);
+    renderKpis(kpiTotals, kpiBucket);
     renderBigBucketSelector();
     renderActionStack();
     renderActionSegments();
@@ -204,19 +206,24 @@
     });
   }
 
-  function renderKpis(totals) {
+  function renderKpis(totals, bucket) {
     var base = summarise(data.records || []);
-    var showComparison = !isTotalBaseSelection();
+    var selectedFilters = (bucket && bucket.filters) || {};
+    var showComparison = Object.keys(selectedFilters).length > 0;
+    var title = root.querySelector("[data-kpi-title]");
+    if (title) {
+      title.textContent = "Key data: " + ((bucket && bucket.name) || "Council base");
+    }
     root.querySelector("[data-kpis]").innerHTML = [
-      stat("People", number(totals.people), showComparison ? relativeDelta(totals.people, base.people) + " vs base" : ""),
-      stat("Lifetime sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
+      stat("People", number(totals.people), showComparison ? percent(rate(totals.people, base.people)) + " of base" : ""),
+      stat("Lifetime sales", money(totals.total_lifetime_sales), showComparison ? percent(rate(totals.total_lifetime_sales, base.total_lifetime_sales)) + " of lifetime sales" : ""),
       stat("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
       stat("2026 sales share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
       stat("2026 sales index", sales2026Index(totals, base), "sales share / people share"),
       stat("Average portfolio", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
       stat("Average councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs base" : ""),
-      stat("<£250 avg/council", amountBandSplitValue("<£250"), showComparison ? pointDelta(amountBandRate("<£250"), amountBandRate("<£250", {})) + " vs base" : ""),
-      stat("£250+ avg/council", amountBandSplitValue("£250+"), showComparison ? pointDelta(amountBandRate("£250+"), amountBandRate("£250+", {})) + " vs base" : ""),
+      stat("<£250 avg/council", amountBandSplitValue("<£250", selectedFilters), showComparison ? pointDelta(amountBandRate("<£250", selectedFilters), amountBandRate("<£250", {})) + " vs base" : ""),
+      stat("£250+ avg/council", amountBandSplitValue("£250+", selectedFilters), showComparison ? pointDelta(amountBandRate("£250+", selectedFilters), amountBandRate("£250+", {})) + " vs base" : ""),
       stat("Invested in target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs base" : ""),
       stat("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
       stat("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
@@ -226,20 +233,62 @@
 
   function renderActionSegments() {
     var wrap = root.querySelector("[data-action-segments]");
-    wrap.innerHTML = (data.actionSegments || []).map(function (segment) {
-      var records = data.records.filter(function (record) {
-        return matchesFilters(record, segment.filters || {});
+    wrap.innerHTML = actionSegmentGroups().map(function (group) {
+      var segments = (data.actionSegments || []).filter(function (segment) {
+        return actionSegmentPriority(segment) === group.key;
       });
-      var totals = summarise(records);
+      if (!segments.length) return "";
+      var groupTotals = summarise(actionSegmentGroupRecords(segments));
       return [
-        '<button class="seg-segment', state.activeSegmentId === segment.id ? " is-active" : "", '" type="button" data-action-segment="', escapeAttribute(segment.id), '">',
-        '<h3>', escapeHtml(segment.name), '</h3>',
-        '<p class="seg-segment__description">', escapeHtml(segment.description || ""), '</p>',
-        '<div class="seg-chips seg-segment__criteria">', filterChips(segment.filters || {}), '</div>',
-        '<p>', number(totals.people), ' people · ', money(totals.total_lifetime_sales), ' · ', shareOf2026(totals), ' of 2026 sales · ', sales2026Index(totals), ' index</p>',
-        '</button>'
+        '<section class="seg-segment-group ', escapeAttribute(group.className), '">',
+        '<div class="seg-segment-group__header">',
+        '<div>',
+        '<h3>', escapeHtml(group.label), '</h3>',
+        '<p>', escapeHtml(group.description), '</p>',
+        '</div>',
+        '<p class="seg-segment-group__totals">',
+        number(groupTotals.people), ' investors · ',
+        decimal(groupTotals.avgCouncils), ' avg councils · ',
+        money(groupTotals.sales_2026), ' 2026 sales · ',
+        money(groupTotals.total_lifetime_sales), ' total sales',
+        '</p>',
+        '</div>',
+        '<div class="seg-segment-group__grid">',
+        segments.map(function (segment) {
+          return [
+            '<button class="seg-segment', state.activeSegmentId === segment.id ? " is-active" : "", '" type="button" data-action-segment="', escapeAttribute(segment.id), '">',
+            '<h3>', escapeHtml(segment.name), '</h3>',
+            '<p class="seg-segment__description">', escapeHtml(segment.description || ""), '</p>',
+            '<div class="seg-chips seg-segment__criteria">', filterChips(segment.filters || {}), '</div>',
+            '</button>'
+          ].join("");
+        }).join(""),
+        '</div>',
+        '</section>'
       ].join("");
     }).join("");
+  }
+
+  function actionSegmentGroupRecords(segments) {
+    return (data.records || []).filter(function (record) {
+      return segments.some(function (segment) {
+        return matchesFilters(record, segment.filters || {});
+      });
+    });
+  }
+
+  function actionSegmentGroups() {
+    return [
+      { key: "primary", label: "Primary auto-invest target segment", className: "is-primary", description: "Clear current behavioural hook, fewer barriers to engagement." },
+      { key: "secondary", label: "Secondary auto-invest target segment", className: "is-secondary", description: "Less current behavioural hook, but some barriers to overcome." },
+      { key: "tertiary", label: "Tertiary auto-invest target segment", className: "is-tertiary", description: "Less current behavioural hook, and barriers to overcome." },
+      { key: "none", label: "Non-target for auto-invest launch", className: "is-none", description: "Not currently prioritised for the auto-invest launch." }
+    ];
+  }
+
+  function actionSegmentPriority(segment) {
+    var priority = String(segment.autoInvestLaunchPriority || "").toLowerCase();
+    return priority === "primary" || priority === "secondary" || priority === "tertiary" ? priority : "none";
   }
 
   function renderActionStack() {
@@ -285,6 +334,16 @@
         ].join("");
       }).join(""),
       '</div>',
+      '<div class="seg-action-stack__groups" aria-hidden="true">',
+      actionStackGroups(segments, baseValue).map(function (group) {
+        var width = Math.max(group.share * 100, group.value ? 0.4 : 0);
+        return [
+          '<div class="seg-action-stack__group" style="width:', width.toFixed(2), '%">',
+          escapeHtml(group.name),
+          '</div>'
+        ].join("");
+      }).join(""),
+      '</div>',
       '<div class="seg-action-stack__legend">',
       segments.map(function (item) {
         return [
@@ -297,6 +356,25 @@
       }).join(""),
       '</div>'
     ].join("");
+  }
+
+  function actionStackGroups(segments, baseValue) {
+    var order = ["Category", "Local"];
+    var groups = {};
+    segments.forEach(function (item) {
+      var name = item.segment.universe || "Other";
+      if (!groups[name]) groups[name] = { name: name, value: 0, share: 0 };
+      groups[name].value += item.value;
+    });
+
+    return order.concat(Object.keys(groups).filter(function (name) {
+      return order.indexOf(name) === -1;
+    })).filter(function (name) {
+      return groups[name];
+    }).map(function (name) {
+      groups[name].share = baseValue ? groups[name].value / baseValue : 0;
+      return groups[name];
+    });
   }
 
   function actionStackToggle(metric, label) {
@@ -330,12 +408,8 @@
   function renderBigBucketSelector() {
     var select = root.querySelector("[data-big-bucket-select]");
     if (!select) return;
-    var hasMatch = getBigBuckets().some(function (bucket) {
-      return matchesStateFilters(bucket.filters);
-    });
-    select.innerHTML = (hasMatch ? "" : '<option value="" selected>Current custom selection</option>') + getBigBuckets().map(function (bucket, index) {
-        var active = matchesStateFilters(bucket.filters);
-        return '<option value="' + index + '"' + (active ? " selected" : "") + ">" + escapeHtml(bucket.section + " - " + bucket.name) + "</option>";
+    select.innerHTML = getBigBuckets().map(function (bucket, index) {
+        return '<option value="' + index + '"' + (index === state.kpiBucketIndex ? " selected" : "") + ">" + escapeHtml(bucket.section + " - " + bucket.name) + "</option>";
       }).join("");
   }
 
@@ -358,8 +432,8 @@
     return pct.toLocaleString("en-GB", { maximumFractionDigits: 1 }) + "%";
   }
 
-  function amountBandSplitValue(amountBand) {
-    var baseFilters = Object.assign({}, state.activeSegmentFilters, state.filters);
+  function amountBandSplitValue(amountBand, filters) {
+    var baseFilters = filters || Object.assign({}, state.activeSegmentFilters, state.filters);
     var records = data.records.filter(function (record) {
       return matchesFilters(record, baseFilters);
     });
@@ -545,16 +619,17 @@
 
     root.querySelector("[data-detail]").innerHTML = [
       '<h3>', escapeHtml(title), '</h3>',
-      '<p>', escapeHtml(description), '</p>',
+      '<p class="seg-strapline">', escapeHtml(description), '</p>',
       strategy ? '<p>' + escapeHtml(strategy) + '</p>' : '',
       definition ? '<p><strong>Definition:</strong> ' + escapeHtml(definition) + '</p>' : '',
       '<div class="seg-mini-grid">',
-      mini("People", number(totals.people), showComparison ? relativeDelta(totals.people, base.people) + " vs base" : ""),
-      mini("Sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
+      mini("People", number(totals.people), showComparison ? percent(rate(totals.people, base.people)) + " of base" : ""),
+      mini("Sales", money(totals.total_lifetime_sales), showComparison ? percent(rate(totals.total_lifetime_sales, base.total_lifetime_sales)) + " of lifetime sales" : ""),
       mini("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
       mini("2026 share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
       mini("2026 index", sales2026Index(totals, base), "sales share / people share"),
       mini("Average", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
+      mini("Avg councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs base" : ""),
       mini("Target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs base" : ""),
       mini("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
       mini("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
@@ -567,6 +642,7 @@
     var activeSegment = data.actionSegments.find(function (segment) { return segment.id === state.activeSegmentId; });
     var wrap = root.querySelector("[data-auto-invest]");
     if (!wrap) return;
+    wrap.classList.remove("is-primary", "is-secondary");
 
     if (!activeSegment) {
       wrap.innerHTML = [
@@ -584,7 +660,12 @@
       return;
     }
 
+    var priority = activeSegment.autoInvestLaunchPriority || "";
+    var priorityClass = priority ? "is-" + priority.toLowerCase() : "";
+    if (priorityClass) wrap.classList.add(priorityClass);
+
     wrap.innerHTML = [
+      priority ? '<span class="seg-priority-badge ' + priorityClass + '">' + escapeHtml(priority) + ' launch target</span>' : '',
       '<h3>Auto-invest launch strategy</h3>',
       '<p>', escapeHtml(activeSegment.name), '</p>',
       '<div class="seg-strategy-block">',

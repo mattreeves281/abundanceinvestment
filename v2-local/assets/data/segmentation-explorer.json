@@ -1562,101 +1562,106 @@
   "generatedAt": "2026-10-07T15:06:02.171Z",
   "actionSegments": [
     {
-      "id": "category_legacy_disengaged",
-      "name": "Category buyer: legacy, disengaged",
-      "universe": "Category",
-      "description": "Category buyers who also hold company investments but have not made a council investment in the past six months.",
-      "strategy": "Use reactivation journeys, portfolio reminders and timely new council launches to bring them back into the council category.",
-      "filters": {
-        "universe": "Category",
-        "holding_type": "Company + council",
-        "invested_6m": "No investment 6m"
-      },
-      "autoInvestBenefit": "Keeps them visible to new council launches without needing to actively monitor the market.",
-      "autoInvestStrategy": "Position auto-invest as a low-effort way to rejoin the council category, with clear controls and reminders that they can pause or edit their settings."
-    },
-    {
       "id": "category_legacy_engaged",
       "name": "Category buyer: legacy, engaged",
       "universe": "Category",
-      "description": "Category buyers who also hold company investments and have made a council investment in the past six months.",
-      "strategy": "Treat as a live category audience for launch priority, portfolio-wrapped impact stories and repeat investment prompts.",
+      "description": "Core Abundance brand fans",
+      "strategy": "These people have stayed with Abundance across the shift from companies to councils. They are investing regularly and engaged, our task is to keep them feeling good about the brand and our council offer and, ideally, have more of them bringing new money to the platform again.",
+      "autoInvestLaunchPriority": "Primary",
       "filters": {
         "universe": "Category",
         "holding_type": "Company + council",
         "invested_6m": "Invested 6m"
       },
-      "autoInvestBenefit": "Turns existing category momentum into repeat participation across future council offers.",
-      "autoInvestStrategy": "Frame auto-invest as a convenience upgrade for people already showing recent appetite, with emphasis on staying allocated to the municipal pipeline."
+      "autoInvestBenefit": "Makes it easy to do what you are already doing",
+      "autoInvestStrategy": "This is one of the segments where the convenience sell works. They are already investing in councils. We can approach them with auto invest as a new feature launch, that should directly benefit them in what they want to do (keep their money working by investing in councils). Relevant to our goal of increasing deposit levels."
     },
     {
       "id": "category_councils_only",
       "name": "Category buyer: councils only",
       "universe": "Category",
-      "description": "Non-local council investors who do not also hold company investments.",
-      "strategy": "Explain the council investment category clearly and build confidence around repeat participation across places.",
+      "description": "Early stage council portfolio builders",
+      "strategy": "Lock in long term brand engagement. Build a case for council investments becoming core in their financial plans.",
+      "autoInvestLaunchPriority": "Primary",
       "filters": {
         "universe": "Category",
         "holding_type": "Council only"
       },
-      "autoInvestBenefit": "Helps them build a broader council portfolio without needing to pick every individual place.",
-      "autoInvestStrategy": "Use simple education: auto-invest as a way to participate in the category while keeping investment choices bounded and transparent."
+      "autoInvestBenefit": "An easy way to grow your portfolio",
+      "autoInvestStrategy": "This segment should find the convenience sell relevant. They are growing their position with Abundance, we can use auto invest as a way of encouraging this. Lack of control shouldn't be a barrier given no obvious local link to their buying behaviour. Potential for the 'local NS&I' parallel to unlock wider regular saving behaviour given lack of past Abundance crowdfunding baggage."
+    },
+    {
+      "id": "category_legacy_disengaged",
+      "name": "Category buyer: legacy, disengaged",
+      "universe": "Category",
+      "description": "Reluctant council buyers",
+      "strategy": "Core task for this group is reactivation. There are many potential reasons for lower engagement in this cohort. Company investment performance may be a factor, or they may simply have not yet made a case for migrating their previous Abundance brand engagement fully to councils.",
+      "autoInvestLaunchPriority": "Secondary",
+      "filters": {
+        "universe": "Category",
+        "holding_type": "Company + council",
+        "invested_6m": "No investment 6m"
+      },
+      "autoInvestBenefit": "A new way to invest in councils",
+      "autoInvestStrategy": "These people haven't bought into council investing in the DIY way. Perhaps auto invest changes the game. It will need to be positioned as a new way to invest in councils, not an automation of existing behaviour (as they don't have an automatic invest in councils mindset)."
     },
     {
       "id": "local_new_supporter",
-      "name": "Local: new supporter",
+      "name": "Local: new <£250 avg",
       "universe": "Local",
-      "description": "New local investors with lower average council investment values, likely to include community participation and support-led behaviour.",
-      "strategy": "Use local proof points, project updates and simple second-step journeys into another council investment.",
+      "description": "Locally driven CMI supporters",
+      "strategy": "Deepen engagement and positive feeling. Demonstrate increasing engagement with councils. This is a core segment for councils to reach, but not necessarily commercially valuable for Abundance.",
       "filters": {
         "universe": "Local",
         "local_source": "New",
         "amount_band": "<£250"
       },
-      "autoInvestBenefit": "Lets a first local investment become a small ongoing habit without asking for a large next decision.",
-      "autoInvestStrategy": "Lead with ease and participation: small regular settings, local proof points, and the option to support future council investments automatically."
+      "autoInvestBenefit": "No core auto invest benefit",
+      "autoInvestStrategy": "These people are not automating their buying behaviour. Auto invest is unlikely to be relevant."
     },
     {
       "id": "local_new_investor",
-      "name": "Local: new investor",
+      "name": "Local: new >£250 avg",
       "universe": "Local",
-      "description": "New local investors with higher average council investment values.",
-      "strategy": "Build confidence, show portfolio-level impact and encourage diversification beyond the first local council.",
+      "description": "The local NS&I builders",
+      "strategy": "This cohort has the potential to become engaged, council category buyers with a strong local anchor. However their current behaviour is not engaged, we need to expand their horizons beyond their first loan into the value the category.",
       "filters": {
         "universe": "Local",
         "local_source": "New",
         "amount_band": "£250+"
       },
-      "autoInvestBenefit": "Helps them diversify beyond their first local council while keeping a similar investment discipline.",
-      "autoInvestStrategy": "Position auto-invest as portfolio-building: a way to keep deploying into council investments as new opportunities open."
+      "autoInvestBenefit": "Low auto invest benefit",
+      "autoInvestStrategy": "Despite relatively high avg investment values, this group has not bought many councils on average at this point. Auto invest is unlikely to be relevant with day one MVP feature set (auto invest into 'my' council in future might change that)."
     },
     {
       "id": "local_legacy_engaged",
       "name": "Local: legacy, engaged",
       "universe": "Local",
-      "description": "Existing Abundance investors from issuing areas who have made a council investment in the past six months.",
-      "strategy": "Use richer loyalty comms, reinvestment prompts and early visibility of the wider council pipeline.",
+      "description": "Local Abundance brand advocates",
+      "strategy": "This is a core, high value segment, with a local lens on their engagement. This group should react positively to place based story-telling and engagement, and have the potential for becoming RAF/brand amplifiers in places.",
+      "autoInvestLaunchPriority": "Primary",
       "filters": {
         "universe": "Local",
         "local_source": "Legacy",
         "invested_6m": "Invested 6m"
       },
-      "autoInvestBenefit": "Makes reinvesting into the council pipeline easier for people already active again.",
-      "autoInvestStrategy": "Treat as a loyalty/convenience message: auto-invest reduces friction and helps them keep cash moving into relevant new offers."
+      "autoInvestBenefit": "Makes it easy to invest, and potentially automates deposit",
+      "autoInvestStrategy": "This group is displaying regular buying behaviour, so auto invest should be relevant. They are also the most likely to be depositing to invest, which increases relevance. Question: will the Abundance brand relationship be more powerful than their local anchor (AKA will they want more control that auto invest MVP offers?)."
     },
     {
       "id": "local_legacy_disengaged",
       "name": "Local: legacy, disengaged",
       "universe": "Local",
-      "description": "Existing Abundance investors from issuing areas who have not made a council investment in the past six months.",
-      "strategy": "Use low-pressure reactivation, local outcome updates and reminders of open council opportunities.",
+      "description": "Irregular local investors",
+      "strategy": "This group have a patchier commitment to council investing, despite a local relevance. A more powerful place and brand connection is needed, and frictions (such as company investment performance) may also be a factor given legacy Abundance brand relationship.",
+      "autoInvestLaunchPriority": "Secondary",
       "filters": {
         "universe": "Local",
         "local_source": "Legacy",
         "invested_6m": "No investment 6m"
       },
-      "autoInvestBenefit": "Creates a simple route back into council investing without requiring them to follow every launch.",
-      "autoInvestStrategy": "Use as a reactivation prompt alongside local impact updates, with a soft ask to set a modest auto-invest preference."
+      "autoInvestBenefit": "Reframes what council investing can do, but lacks local anchor.",
+      "autoInvestStrategy": "Auto invest will need to re-energise this cohort into council investing. This will be a challenge if a local anchor is stronger than prior Abundance brand relationship. But given that a majority of this group haven't invested in their 'home CMI' we have an opportunity to reactivate around existing brand relationship."
     }
   ]
 }

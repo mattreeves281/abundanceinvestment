@@ -25,15 +25,6 @@
     text-transform: uppercase;
   }
 
-  .seg-title {
-    margin: 0;
-    color: #363635;
-    font-family: "New Kansas", Georgia, serif;
-    font-size: clamp(2rem, 4vw, 4rem);
-    line-height: 1;
-    letter-spacing: 0;
-  }
-
   .seg-subtitle {
     max-width: 760px;
     margin: 12px 0 0;
@@ -95,7 +86,15 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 12px;
-    margin-top: 14px;
+    margin-top: 12px;
+  }
+
+  .seg-flow-control-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px 16px;
   }
 
   .seg-current-view {
@@ -108,6 +107,22 @@
   .seg-current-view strong {
     color: #363635;
     font-family: "Sohne Kraftig", system-ui, sans-serif;
+  }
+
+  .seg-reset-link {
+    border: 0;
+    padding: 0;
+    color: #c1658b;
+    background: transparent;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.88rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .seg-reset-link:hover,
+  .seg-reset-link:focus {
+    text-decoration-thickness: max(2px, 0.12em);
   }
 
   .seg-toggle-group {
@@ -190,6 +205,36 @@
     filter: brightness(0.92);
     outline: 2px solid #363635;
     outline-offset: -2px;
+  }
+
+  .seg-action-stack__groups {
+    display: flex;
+    gap: 2px;
+    margin-top: 9px;
+  }
+
+  .seg-action-stack__group {
+    position: relative;
+    min-width: 42px;
+    padding-top: 12px;
+    color: #4d4a46;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .seg-action-stack__group::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 4px;
+    left: 4px;
+    height: 8px;
+    border-top: 2px solid #c1658b;
+    border-right: 2px solid #c1658b;
+    border-left: 2px solid #c1658b;
+    border-radius: 8px 8px 0 0;
   }
 
   .seg-action-stack__legend {
@@ -318,10 +363,6 @@
 
   .seg-section h2 {
     margin: 0 0 14px;
-    color: #363635;
-    font-family: "New Kansas", Georgia, serif;
-    font-size: 1.75rem;
-    letter-spacing: 0;
   }
 
   .seg-layout {
@@ -345,11 +386,6 @@
 
   .seg-subheading {
     margin: 0 0 10px;
-    color: #363635;
-    font-family: "New Kansas", Georgia, serif;
-    font-size: 1.45rem;
-    line-height: 1.08;
-    letter-spacing: 0;
   }
 
   .seg-flow {
@@ -501,7 +537,60 @@
   }
 
   .seg-strategy-card {
+    position: relative;
+    overflow: hidden;
     padding: 18px;
+  }
+
+  .seg-strategy-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 7px;
+    background: #e9e4e3;
+  }
+
+  .seg-strategy-card.is-primary::before {
+    background: #c1658b;
+  }
+
+  .seg-strategy-card.is-secondary::before {
+    background: #e0a23c;
+  }
+
+  .seg-strategy-card.is-tertiary::before {
+    background: #6d777d;
+  }
+
+  .seg-priority-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    border-radius: 999px;
+    padding: 5px 10px;
+    margin: 0 0 12px;
+    background: #f2eeee;
+    color: #4d4a46;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+  }
+
+  .seg-priority-badge.is-primary {
+    background: #f7d9e8;
+    color: #a93d6b;
+  }
+
+  .seg-priority-badge.is-secondary {
+    background: #f7ead0;
+    color: #8a5d13;
+  }
+
+  .seg-priority-badge.is-tertiary {
+    background: #e8ecef;
+    color: #4f5960;
   }
 
   .seg-detail h3,
@@ -519,6 +608,13 @@
     margin: 0 0 12px;
     color: #4d4a46;
     line-height: 1.5;
+  }
+
+  .seg-strapline {
+    color: #c1658b;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.35;
   }
 
   .seg-strategy-block {
@@ -587,12 +683,71 @@
 
   .seg-segments {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
+    gap: 16px;
+  }
+
+  .seg-segment-group {
+    border: 1px solid #e9e4e3;
+    border-left: 7px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 14px;
+    background: #fff;
+  }
+
+  .seg-segment-group.is-primary {
+    border-left-color: #c1658b;
+  }
+
+  .seg-segment-group.is-secondary {
+    border-left-color: #e0a23c;
+  }
+
+  .seg-segment-group.is-tertiary {
+    border-left-color: #6d777d;
+  }
+
+  .seg-segment-group__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 12px;
+  }
+
+  .seg-segment-group__header h3 {
+    margin: 0;
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.92rem;
+  }
+
+  .seg-segment-group__header p {
+    margin: 0;
+    color: #4d4a46;
+    font-size: 0.86rem;
+    line-height: 1.35;
+  }
+
+  .seg-segment-group__header .seg-segment-group__totals {
+    flex: 0 0 auto;
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .seg-segment-group__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .seg-segment {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    background: #fff;
     padding: 15px;
+    color: #363635;
     text-align: left;
     cursor: pointer;
     display: flex;
@@ -626,6 +781,10 @@
 
   .seg-segment .seg-segment__description {
     margin-bottom: 10px;
+    color: #c1658b;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.3;
   }
 
   .seg-segment .seg-segment__criteria {
@@ -765,7 +924,7 @@
     }
 
     .seg-controls,
-    .seg-segments,
+    .seg-segment-group__grid,
     .seg-buckets,
     .seg-action-stack__legend,
     .seg-explainer {
@@ -776,11 +935,19 @@
   @media (max-width: 620px) {
     .seg-controls,
     .seg-grid,
-    .seg-segments,
+    .seg-segment-group__grid,
     .seg-buckets,
     .seg-action-stack__legend,
     .seg-explainer {
       grid-template-columns: 1fr;
+    }
+
+    .seg-segment-group__header {
+      display: block;
+    }
+
+    .seg-segment-group__header p {
+      margin-top: 6px;
     }
   }
 </style>
@@ -789,46 +956,40 @@
   <div class="seg-shell" data-segmentation-explorer>
     <div class="seg-topbar">
       <div>
-        <p class="seg-eyebrow">Internal segmentation</p>
-        <h1 class="seg-title">Investor segmentation explorer</h1>
+        <h1 class="si-heading-1 m-b-spacer-0">Investor segmentation explorer</h1>
         <p class="seg-subtitle">
-          Aggregated view of local and category investor segments, with lifetime sales, council depth and recent engagement signals.
+          View key engagement data using our new segmentation approach. We have also identified <b>audience action segments</b>, which are used for comms targetting, marketing and product engagement strategy.
         </p>
       </div>
     </div>
 
-    <section class="seg-intro-copy">
-      <p>
-        Use this page to explore the main council investor segments, compare their value and engagement, and test how the proposed action segments behave against the wider investor base.
-      </p>
-    </section>
 
     <section class="seg-section">
-      <h2>How to read this</h2>
+      <h2 class="si-heading-2 m-b-spacer-0">Terminology defitions</h2>
       <div class="seg-explainer">
         <div>
           <h3>Local investors</h3>
-          <p>People linked to an issuing council, either because they were council-recruited or because they live in an issuing council area.</p>
+          <p>These are people linked to an issuing council, either because they were council-recruited or because they live in an issuing council area.</p>
         </div>
         <div>
           <h3>Category investors</h3>
-          <p>Non-local council investors. Their behaviour is read as engagement with the council investment category rather than one place.</p>
+          <p>These people have no apparent connection to an issuing council. They do not live in a place that has issued a CMI, and did not mention a council when they signed up.</p>
         </div>
         <div>
           <h3>New vs legacy</h3>
-          <p>New local investors signed up after their council's first investment opened. Legacy local investors already had an Abundance relationship.</p>
+          <p>This distinction is important for local investors. A legacy investor is a person who had already signed up for Abundance prior to their council issuing a CMI, so they have an existing brand relationship with us. New investors signed up after their council issued a CMI.</p>
         </div>
         <div>
-          <h3>Council only</h3>
-          <p>Category investors whose council investments are not paired with company investments in the current segmentation view.</p>
+          <h3>Council only / company + council</h3>
+          <p>This disinction is important for category investors. People who hold company investments as well as council investments, have brand relationship pre CMI and have some particular behaviours to consider (e.g. reinvestment of company investment returns). People with only council investments have a clean brand relationship around councils.</p>
         </div>
         <div>
-          <h3>Company + council</h3>
-          <p>Category investors who also hold company investments, often pointing to a broader existing Abundance portfolio.</p>
+          <h3>IMD buckets</h3>
+          <p>For local investors we see distinct behavioural differences between people that live in areas not traditionally associated with investing (deciles 1-5) vs those in higher deciles (6-10). No such distinction exists in category investors, so this data is only presented for local cohorts.</p>
         </div>
         <div>
-          <h3>£250 split</h3>
-          <p>Average lifetime council investment per council. The lower band is used as a proxy for lower-ticket participation behaviour.</p>
+          <h3>£250+/<£250</h3>
+          <p>This is the average investment per council for a user. Our analysis has shown that <£250 is associated with more of a supporter mentality towards the CMI model, rather than an overt financial needs based decision. The motivations behind this need to be understood, but the data does clearly split along these lines.</p>
         </div>
       </div>
     </section>
@@ -836,7 +997,7 @@
     <div class="seg-divider abundance-dividers abundance-dividers--rise-left bg-colour--pink" aria-hidden="true"></div>
 
     <section class="seg-section">
-      <h2>Overall council investor base</h2>
+      <h2 class="si-heading-2 m-b-spacer-0" data-kpi-title>Key data: Council base</h2>
       <div class="seg-view-select">
         <label for="seg-bucket-view">Show stats for</label>
         <select class="seg-select" id="seg-bucket-view" data-big-bucket-select></select>
@@ -847,9 +1008,12 @@
     <div class="seg-divider abundance-dividers abundance-dividers--rise-right bg-colour--yellow" aria-hidden="true"></div>
 
     <section class="seg-section">
-      <h2>Named action segments</h2>
+      <h2 class="si-heading-2 m-b-spacer-0">Named action segments</h2>
       <p class="seg-section-copy">
-        These are the proposed working segments for planning campaigns and journeys. Select a segment to update the flow and compare that audience against the overall base.
+        Using a combination of these datapoints, we have defined seven core customer action segments. These segments are the practical deployment of this segmentation: they allow us to define key strategic focus, identify core targets, and create precise plans to deepen engagement according to people's actual current engagement state.
+      </p>
+      <p class="seg-section-copy">
+        Using a combination of these datapoints, we have defined seven core customer action segments. These segments are the practical deployment of this segmentation: they allow us to define key strategic focus, identify core targets, and create precise plans to deepen engagement according to people's actual current engagement state. In the next section you can explore these segments, potential strategies, and how we would use this segmentation to plan our approach to auto-invest, as a relevant current comms strategy task.
       </p>
       <div class="seg-action-stack" data-action-stack></div>
       <div class="seg-segments" data-action-segments></div>
@@ -860,12 +1024,14 @@
       </div>
 
       <div class="seg-action-explorer">
-        <h3 class="seg-subheading">Segment flow</h3>
-        <p class="seg-flow-note">Select segments below to filter the view. Each column shows a different way of slicing the currently selected investor group.</p>
+        <h3 class="seg-subheading si-heading-2 m-b-spacer-0">Segment flow</h3>
+        <p class="seg-flow-note">The breakdown of your chosen segment. You can reset to the whole base using the button below, and click the segment boxes to build your own custom segments.</p>
         <section class="seg-panel">
-          <p class="seg-current-view" data-current-view></p>
+          <div class="seg-flow-control-header">
+            <p class="seg-current-view" data-current-view></p>
+            <button class="seg-reset-link" type="button" data-reset>Show whole customer base</button>
+          </div>
           <div class="seg-actions">
-            <button class="seg-button" type="button" data-reset>Show whole customer base</button>
             <div class="seg-toggle-group" aria-label="Flow display metric">
               <span class="seg-toggle-label">Show flow by</span>
               <button class="seg-button is-active" type="button" data-metric="people">People</button>
@@ -885,7 +1051,7 @@
     <div class="seg-divider abundance-dividers abundance-dividers--rise-left bg-colour--pink" aria-hidden="true"></div>
 
     <section class="seg-section">
-      <h2>Segment cells</h2>
+      <h2 class="si-heading-2 m-b-spacer-0">Segment cells</h2>
       <div class="seg-table-wrap">
         <table class="seg-table" data-table></table>
       </div>
