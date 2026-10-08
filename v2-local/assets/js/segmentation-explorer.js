@@ -4,6 +4,7 @@
 
   var state = {
     metric: "people",
+    actionStackMetric: "people",
     filters: {},
     activeSegmentFilters: {},
     activeSegmentId: "",
@@ -34,6 +35,8 @@
 
   var data = null;
 
+  var actionStackColours = ["#c1658b", "#4f7f9f", "#e0a23c", "#688f4e", "#8f6fb3", "#d66a4d", "#6d777d"];
+
   fetch("/assets/data/segmentation-explorer.json")
     .then(function (response) {
       if (!response.ok) throw new Error("Could not load segmentation data.");
@@ -48,6 +51,19 @@
     });
 
   root.addEventListener("change", function (event) {
+    var bucketSelect = event.target.closest("[data-big-bucket-select]");
+    if (bucketSelect) {
+      if (bucketSelect.value === "") return;
+      var bucketItem = getBigBuckets()[Number(bucketSelect.value)];
+      if (!bucketItem) return;
+      state.filters = Object.assign({}, bucketItem.filters);
+      state.activeSegmentFilters = {};
+      state.activeSegmentId = "";
+      state.selectedNode = null;
+      render();
+      return;
+    }
+
     var select = event.target.closest("[data-filter]");
     if (!select) return;
     var key = select.getAttribute("data-filter");
@@ -57,6 +73,26 @@
   });
 
   root.addEventListener("click", function (event) {
+    var actionStackMetric = event.target.closest("[data-action-stack-metric]");
+    if (actionStackMetric) {
+      state.actionStackMetric = actionStackMetric.getAttribute("data-action-stack-metric");
+      render();
+      return;
+    }
+
+    var actionStackSegment = event.target.closest("[data-action-stack-segment]");
+    if (actionStackSegment) {
+      var stackSegmentId = actionStackSegment.getAttribute("data-action-stack-segment");
+      var stackItem = data.actionSegments.find(function (candidate) { return candidate.id === stackSegmentId; });
+      if (!stackItem) return;
+      state.filters = {};
+      state.activeSegmentFilters = Object.assign({}, stackItem.filters);
+      state.activeSegmentId = stackSegmentId;
+      state.selectedNode = null;
+      render();
+      return;
+    }
+
     var metric = event.target.closest("[data-metric]");
     if (metric) {
       state.metric = metric.getAttribute("data-metric");
@@ -116,12 +152,15 @@
 
     renderControls();
     renderKpis(totals);
-    renderBigBucketCards();
+    renderBigBucketSelector();
+    renderActionStack();
     renderActionSegments();
     renderActionSegmentSummary();
     renderSegmentDefinition();
-    renderFlow(filtered);
     renderDetail(filtered, totals);
+    renderAutoInvestStrategy();
+    renderCurrentView();
+    renderFlow(filtered);
     renderTable(filtered);
   }
 
@@ -173,10 +212,12 @@
       stat("Lifetime sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
       stat("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
       stat("2026 sales share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
+      stat("2026 sales index", sales2026Index(totals, base), "sales share / people share"),
       stat("Average portfolio", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
       stat("Average councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs base" : ""),
       stat("<£250 avg/council", amountBandSplitValue("<£250"), showComparison ? pointDelta(amountBandRate("<£250"), amountBandRate("<£250", {})) + " vs base" : ""),
       stat("£250+ avg/council", amountBandSplitValue("£250+"), showComparison ? pointDelta(amountBandRate("£250+"), amountBandRate("£250+", {})) + " vs base" : ""),
+      stat("Invested in target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs base" : ""),
       stat("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
       stat("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
       stat("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs base" : "")
@@ -193,10 +234,77 @@
       return [
         '<button class="seg-segment', state.activeSegmentId === segment.id ? " is-active" : "", '" type="button" data-action-segment="', escapeAttribute(segment.id), '">',
         '<h3>', escapeHtml(segment.name), '</h3>',
-        '<p>', number(totals.people), ' people · ', money(totals.total_lifetime_sales), ' · ', shareOf2026(totals), ' of 2026 sales</p>',
+        '<p class="seg-segment__description">', escapeHtml(segment.description || ""), '</p>',
+        '<div class="seg-chips seg-segment__criteria">', filterChips(segment.filters || {}), '</div>',
+        '<p>', number(totals.people), ' people · ', money(totals.total_lifetime_sales), ' · ', shareOf2026(totals), ' of 2026 sales · ', sales2026Index(totals), ' index</p>',
         '</button>'
       ].join("");
     }).join("");
+  }
+
+  function renderActionStack() {
+    var wrap = root.querySelector("[data-action-stack]");
+    if (!wrap) return;
+
+    var metric = state.actionStackMetric || "people";
+    var base = summarise(data.records || []);
+    var baseValue = actionStackMetricValue(base, metric);
+    var segments = (data.actionSegments || []).map(function (segment, index) {
+      var records = data.records.filter(function (record) {
+        return matchesFilters(record, segment.filters || {});
+      });
+      var totals = summarise(records);
+      return {
+        segment: segment,
+        totals: totals,
+        colour: actionStackColours[index % actionStackColours.length],
+        value: actionStackMetricValue(totals, metric),
+        share: baseValue ? actionStackMetricValue(totals, metric) / baseValue : 0
+      };
+    });
+
+    wrap.innerHTML = [
+      '<div class="seg-action-stack__top">',
+      '<h3>Action segment proportions</h3>',
+      '<div class="seg-toggle-group" aria-label="Action segment proportion metric">',
+      '<span class="seg-toggle-label">Show proportions by</span>',
+      actionStackToggle("people", "People"),
+      actionStackToggle("total_lifetime_sales", "Lifetime sales"),
+      actionStackToggle("sales_2026", "2026 sales"),
+      '</div>',
+      '</div>',
+      '<div class="seg-action-stack__bar" role="img" aria-label="Action segment proportions">',
+      segments.map(function (item) {
+        var width = Math.max(item.share * 100, item.value ? 0.4 : 0);
+        return [
+          '<button class="seg-action-stack__slice', state.activeSegmentId === item.segment.id ? " is-active" : "", '" type="button" ',
+          'style="--seg-colour:', item.colour, '; width:', width.toFixed(2), '%" ',
+          'title="', escapeAttribute(item.segment.name + " - " + actionStackValueLabel(item.value, metric) + " / " + percent(item.share)), '" ',
+          'aria-label="', escapeAttribute(item.segment.name + " - " + percent(item.share)), '" ',
+          'data-action-stack-segment="', escapeAttribute(item.segment.id), '"></button>'
+        ].join("");
+      }).join(""),
+      '</div>',
+      '<div class="seg-action-stack__legend">',
+      segments.map(function (item) {
+        return [
+          '<button class="', state.activeSegmentId === item.segment.id ? "is-active" : "", '" type="button" data-action-stack-segment="', escapeAttribute(item.segment.id), '">',
+          '<i class="seg-action-stack__dot" style="--seg-colour:', item.colour, '" aria-hidden="true"></i>',
+          '<span><strong>', escapeHtml(item.segment.name), '</strong>',
+          '<span>', escapeHtml(actionStackValueLabel(item.value, metric)), ' · ', escapeHtml(percent(item.share)), '</span></span>',
+          '</button>'
+        ].join("");
+      }).join(""),
+      '</div>'
+    ].join("");
+  }
+
+  function actionStackToggle(metric, label) {
+    return [
+      '<button class="seg-button', state.actionStackMetric === metric ? " is-active" : "", '" type="button" data-action-stack-metric="', metric, '">',
+      escapeHtml(label),
+      '</button>'
+    ].join("");
   }
 
   function getBigBuckets() {
@@ -219,17 +327,15 @@
     ];
   }
 
-  function renderBigBucketCards() {
-    var wrap = root.querySelector("[data-big-buckets]");
-    if (!wrap) return;
-    wrap.innerHTML = getBigBuckets().map(function (bucket, index) {
+  function renderBigBucketSelector() {
+    var select = root.querySelector("[data-big-bucket-select]");
+    if (!select) return;
+    var hasMatch = getBigBuckets().some(function (bucket) {
+      return matchesStateFilters(bucket.filters);
+    });
+    select.innerHTML = (hasMatch ? "" : '<option value="" selected>Current custom selection</option>') + getBigBuckets().map(function (bucket, index) {
         var active = matchesStateFilters(bucket.filters);
-        return [
-          '<button class="seg-bucket', active ? " is-active" : "", '" type="button" data-big-bucket="', index, '">',
-          '<span class="seg-bucket__section">', escapeHtml(bucket.section), '</span>',
-          '<strong>', escapeHtml(bucket.name), '</strong>',
-          '</button>'
-        ].join("");
+        return '<option value="' + index + '"' + (active ? " selected" : "") + ">" + escapeHtml(bucket.section + " - " + bucket.name) + "</option>";
       }).join("");
   }
 
@@ -288,6 +394,8 @@
       '<th data-align="right">Sales</th>',
       '<th data-align="right">2026 sales</th>',
       '<th data-align="right">2026 share</th>',
+      '<th data-align="right">2026 index</th>',
+      '<th data-align="right">Target council</th>',
       '<th data-align="right">Avg portfolio</th>',
       '<th data-align="right">Avg councils</th>',
       '<th data-align="right">3+ councils</th>',
@@ -308,6 +416,8 @@
           '<td data-align="right">', money(totals.total_lifetime_sales), '</td>',
           '<td data-align="right">', money(totals.sales_2026), '</td>',
           '<td data-align="right">', shareOf2026(totals), '</td>',
+          '<td data-align="right">', sales2026Index(totals), '</td>',
+          '<td data-align="right">', targetCouncilValue(totals), '</td>',
           '<td data-align="right">', money(totals.avgPortfolio), '</td>',
           '<td data-align="right">', decimal(totals.avgCouncils), '</td>',
           '<td data-align="right">', countAndPct(totals.people_3plus_councils, totals.people), '</td>',
@@ -348,6 +458,43 @@
       }).join(""),
       '</div>'
     ].join("");
+  }
+
+  function renderCurrentView() {
+    var wrap = root.querySelector("[data-current-view]");
+    if (!wrap) return;
+    wrap.innerHTML = 'Currently viewing: <strong>' + escapeHtml(currentViewLabel()) + '</strong>';
+  }
+
+  function currentViewLabel() {
+    var activeSegment = data.actionSegments.find(function (segment) { return segment.id === state.activeSegmentId; });
+    var filterLabel = currentFilterDefinition();
+
+    if (activeSegment) {
+      return filterLabel ? activeSegment.name + " + " + filterLabel : activeSegment.name;
+    }
+
+    if (isTotalBaseSelection()) {
+      return "Whole customer base";
+    }
+
+    var matchingBucket = getBigBuckets().find(function (bucket) {
+      return matchesStateFilters(bucket.filters);
+    });
+
+    if (matchingBucket) {
+      return matchingBucket.name === "Total base" ? "Whole customer base" : matchingBucket.name;
+    }
+
+    return filterLabel || "Custom selection";
+  }
+
+  function currentFilterDefinition() {
+    var filters = {};
+    Object.keys(config).forEach(function (key) {
+      if (state.filters[key]) filters[key] = state.filters[key];
+    });
+    return Object.keys(filters).length ? formatFilterDefinition(filters) : "";
   }
 
   function renderFlow(records) {
@@ -406,10 +553,47 @@
       mini("Sales", money(totals.total_lifetime_sales), showComparison ? relativeDelta(totals.total_lifetime_sales, base.total_lifetime_sales) + " vs base" : ""),
       mini("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
       mini("2026 share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
+      mini("2026 index", sales2026Index(totals, base), "sales share / people share"),
       mini("Average", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
+      mini("Target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs base" : ""),
       mini("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
       mini("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
       mini("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs base" : ""),
+      '</div>'
+    ].join("");
+  }
+
+  function renderAutoInvestStrategy() {
+    var activeSegment = data.actionSegments.find(function (segment) { return segment.id === state.activeSegmentId; });
+    var wrap = root.querySelector("[data-auto-invest]");
+    if (!wrap) return;
+
+    if (!activeSegment) {
+      wrap.innerHTML = [
+        '<h3>Auto-invest launch strategy</h3>',
+        '<p>Select an action segment to show the proposed auto-invest benefit and launch messaging angle for that audience.</p>',
+        '<div class="seg-strategy-block">',
+        '<span>Benefit</span>',
+        '<p>Choose a named action segment above.</p>',
+        '</div>',
+        '<div class="seg-strategy-block">',
+        '<span>Comms strategy</span>',
+        '<p>Choose a named action segment above.</p>',
+        '</div>'
+      ].join("");
+      return;
+    }
+
+    wrap.innerHTML = [
+      '<h3>Auto-invest launch strategy</h3>',
+      '<p>', escapeHtml(activeSegment.name), '</p>',
+      '<div class="seg-strategy-block">',
+      '<span>Benefit</span>',
+      '<p>', escapeHtml(activeSegment.autoInvestBenefit || "Add benefit copy in the segment JSON."), '</p>',
+      '</div>',
+      '<div class="seg-strategy-block">',
+      '<span>Comms strategy</span>',
+      '<p>', escapeHtml(activeSegment.autoInvestStrategy || "Add comms strategy copy in the segment JSON."), '</p>',
       '</div>'
     ].join("");
   }
@@ -429,6 +613,8 @@
       '<th data-align="right">People</th>',
       '<th data-align="right">Sales</th>',
       '<th data-align="right">2026 share</th>',
+      '<th data-align="right">2026 index</th>',
+      '<th data-align="right">Target council</th>',
       '<th data-align="right">Avg portfolio</th>',
       '<th data-align="right">Avg councils</th>',
       '</tr></thead>',
@@ -445,6 +631,8 @@
           '<td data-align="right">', number(row.people), '</td>',
           '<td data-align="right">', money(row.total_lifetime_sales), '</td>',
           '<td data-align="right">', shareOf2026(row), '</td>',
+          '<td data-align="right">', sales2026Index(row), '</td>',
+          '<td data-align="right">', targetCouncilValue(row), '</td>',
           '<td data-align="right">', money(Number(row.total_lifetime_sales || 0) / Math.max(Number(row.people || 0), 1)), '</td>',
           '<td data-align="right">', decimal(Number(row.councils_total || 0) / Math.max(Number(row.people || 0), 1)), '</td>',
           '</tr>'
@@ -496,8 +684,10 @@
       people: 0,
       total_lifetime_sales: 0,
       sales_2026: 0,
+      local_people: 0,
       councils_total: 0,
       people_3plus_councils: 0,
+      people_invested_target_council: 0,
       invested_past_6m: 0,
       deposited_past_6m: 0,
       cells: 0
@@ -508,8 +698,12 @@
     summary.people += Number(record.people || 0);
     summary.total_lifetime_sales += Number(record.total_lifetime_sales || 0);
     summary.sales_2026 += Number(record.sales_2026 || 0);
+    if (record.universe === "Local") {
+      summary.local_people += Number(record.people || 0);
+    }
     summary.councils_total += Number(record.councils_total || 0);
     summary.people_3plus_councils += Number(record.people_3plus_councils || 0);
+    summary.people_invested_target_council += Number(record.people_invested_target_council || 0);
     summary.invested_past_6m += Number(record.invested_past_6m || 0);
     summary.deposited_past_6m += Number(record.deposited_past_6m || 0);
     summary.cells += 1;
@@ -527,6 +721,14 @@
 
   function formatMetric(summary) {
     return state.metric === "total_lifetime_sales" ? money(summary.total_lifetime_sales) : number(summary.people);
+  }
+
+  function actionStackMetricValue(summary, metric) {
+    return Number(summary[metric] || 0);
+  }
+
+  function actionStackValueLabel(value, metric) {
+    return metric === "people" ? number(value) + " people" : money(value);
   }
 
   function uniqueValues(key) {
@@ -551,6 +753,18 @@
       var label = (config[key] && config[key].label) || flowLabels[key] || key;
       return label + " = " + filterValueLabel(filters[key]);
     }).join("; ");
+  }
+
+  function filterChips(filters) {
+    return Object.keys(filters).map(function (key) {
+      var label = (config[key] && config[key].label) || flowLabels[key] || key;
+      return [
+        '<span class="seg-chip">',
+        '<span>', escapeHtml(label), '</span>',
+        escapeHtml(filterValueLabel(filters[key])),
+        '</span>'
+      ].join("");
+    }).join("");
   }
 
   function stat(label, value, comparison) {
@@ -600,6 +814,23 @@
   function shareOf2026(summary, baseSummary) {
     var base = baseSummary || summarise(data.records || []);
     return percent(rate(Number(summary.sales_2026 || 0), Number(base.sales_2026 || 0)));
+  }
+
+  function sales2026Index(summary, baseSummary) {
+    var base = baseSummary || summarise(data.records || []);
+    var salesShare = rate(Number(summary.sales_2026 || 0), Number(base.sales_2026 || 0));
+    var peopleShare = rate(Number(summary.people || 0), Number(base.people || 0));
+    if (!peopleShare) return "n/a";
+    return (salesShare / peopleShare).toLocaleString("en-GB", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "x";
+  }
+
+  function targetCouncilValue(summary) {
+    if (!Number(summary.local_people || 0)) return "n/a";
+    return countAndPct(summary.people_invested_target_council, summary.local_people);
+  }
+
+  function targetCouncilRate(summary) {
+    return rate(summary.people_invested_target_council, summary.local_people);
   }
 
   function rate(count, total) {

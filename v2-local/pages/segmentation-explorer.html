@@ -47,6 +47,7 @@
   .seg-segment,
   .seg-table-wrap,
   .seg-flow,
+  .seg-strategy-card,
   .seg-detail {
     border: 1px solid #e9e4e3;
     border-radius: 8px;
@@ -92,8 +93,33 @@
   .seg-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
     margin-top: 14px;
+  }
+
+  .seg-current-view {
+    margin: 0;
+    color: #4d4a46;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .seg-current-view strong {
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+  }
+
+  .seg-toggle-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .seg-toggle-label {
+    color: #4d4a46;
+    font-size: 0.82rem;
   }
 
   .seg-button {
@@ -111,6 +137,110 @@
   .seg-button:focus,
   .seg-button.is-active {
     background: #f7d9e8;
+  }
+
+  .seg-action-stack {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0 0 16px;
+    background: #fff;
+  }
+
+  .seg-action-stack__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .seg-action-stack__top h3 {
+    margin: 0;
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .seg-action-stack__bar {
+    display: flex;
+    width: 100%;
+    min-height: 42px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f2eeee;
+  }
+
+  .seg-action-stack__slice {
+    min-width: 2px;
+    border: 0;
+    border-right: 2px solid #fff;
+    padding: 0;
+    background: var(--seg-colour);
+    cursor: pointer;
+  }
+
+  .seg-action-stack__slice:last-child {
+    border-right: 0;
+  }
+
+  .seg-action-stack__slice:hover,
+  .seg-action-stack__slice:focus,
+  .seg-action-stack__slice.is-active {
+    filter: brightness(0.92);
+    outline: 2px solid #363635;
+    outline-offset: -2px;
+  }
+
+  .seg-action-stack__legend {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px 14px;
+    margin-top: 12px;
+  }
+
+  .seg-action-stack__legend button {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #363635;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .seg-action-stack__legend button:hover strong,
+  .seg-action-stack__legend button:focus strong,
+  .seg-action-stack__legend button.is-active strong {
+    color: #c1658b;
+  }
+
+  .seg-action-stack__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    margin-top: 4px;
+    background: var(--seg-colour);
+  }
+
+  .seg-action-stack__legend strong {
+    display: block;
+    overflow: hidden;
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .seg-action-stack__legend span {
+    display: block;
+    color: #74716d;
+    font-size: 0.76rem;
+    line-height: 1.3;
   }
 
   .seg-grid {
@@ -151,6 +281,41 @@
     margin-top: 28px;
   }
 
+  .seg-divider {
+    width: 100vw;
+    margin: 38px calc(50% - 50vw) 14px;
+  }
+
+  .seg-intro-copy {
+    max-width: 900px;
+    margin-top: 24px;
+  }
+
+  .seg-intro-copy p,
+  .seg-section-copy {
+    margin: 0;
+    max-width: 850px;
+    color: #4d4a46;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .seg-section-copy {
+    margin-bottom: 16px;
+  }
+
+  .seg-view-select {
+    max-width: 420px;
+    margin: 12px 0 2px;
+  }
+
+  .seg-view-select label {
+    display: block;
+    margin-bottom: 6px;
+    color: #4d4a46;
+    font-size: 0.85rem;
+  }
+
   .seg-section h2 {
     margin: 0 0 14px;
     color: #363635;
@@ -167,6 +332,14 @@
   }
 
   .seg-action-explorer {
+    margin-top: 18px;
+  }
+
+  .seg-strategy-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+    gap: 18px;
+    align-items: start;
     margin-top: 18px;
   }
 
@@ -325,11 +498,14 @@
 
   .seg-detail {
     padding: 18px;
-    position: sticky;
-    top: 18px;
   }
 
-  .seg-detail h3 {
+  .seg-strategy-card {
+    padding: 18px;
+  }
+
+  .seg-detail h3,
+  .seg-strategy-card h3 {
     margin: 0 0 8px;
     color: #363635;
     font-family: "New Kansas", Georgia, serif;
@@ -338,10 +514,33 @@
     letter-spacing: 0;
   }
 
-  .seg-detail p {
+  .seg-detail p,
+  .seg-strategy-card p {
     margin: 0 0 12px;
     color: #4d4a46;
     line-height: 1.5;
+  }
+
+  .seg-strategy-block {
+    border-radius: 8px;
+    padding: 12px;
+    background: #faf8f8;
+  }
+
+  .seg-strategy-block + .seg-strategy-block {
+    margin-top: 10px;
+  }
+
+  .seg-strategy-block span {
+    display: block;
+    margin-bottom: 5px;
+    color: #4d4a46;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .seg-strategy-block p {
+    margin: 0;
   }
 
   .seg-mini-grid {
@@ -349,6 +548,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     margin-top: 14px;
+  }
+
+  .seg-detail .seg-mini-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .seg-mini {
@@ -392,6 +595,10 @@
     padding: 15px;
     text-align: left;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
   }
 
   .seg-segment:hover,
@@ -415,6 +622,14 @@
     color: #4d4a46;
     font-size: 0.9rem;
     line-height: 1.45;
+  }
+
+  .seg-segment .seg-segment__description {
+    margin-bottom: 10px;
+  }
+
+  .seg-segment .seg-segment__criteria {
+    margin-bottom: 12px;
   }
 
   .seg-buckets {
@@ -459,6 +674,33 @@
     font-size: 1.2rem;
     line-height: 1.08;
     letter-spacing: 0;
+  }
+
+  .seg-explainer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .seg-explainer div {
+    border: 1px solid #e9e4e3;
+    border-radius: 8px;
+    padding: 13px;
+    background: #fff;
+  }
+
+  .seg-explainer h3 {
+    margin: 0 0 6px;
+    color: #363635;
+    font-family: "Sohne Kraftig", system-ui, sans-serif;
+    font-size: 0.86rem;
+  }
+
+  .seg-explainer p {
+    margin: 0;
+    color: #4d4a46;
+    font-size: 0.86rem;
+    line-height: 1.45;
   }
 
   .seg-table-wrap {
@@ -508,6 +750,7 @@
 
   @media (max-width: 1060px) {
     .seg-layout,
+    .seg-strategy-grid,
     .seg-topbar {
       display: grid;
       grid-template-columns: 1fr;
@@ -517,9 +760,15 @@
       position: static;
     }
 
+    .seg-detail .seg-mini-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .seg-controls,
     .seg-segments,
-    .seg-buckets {
+    .seg-buckets,
+    .seg-action-stack__legend,
+    .seg-explainer {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
@@ -528,7 +777,9 @@
     .seg-controls,
     .seg-grid,
     .seg-segments,
-    .seg-buckets {
+    .seg-buckets,
+    .seg-action-stack__legend,
+    .seg-explainer {
       grid-template-columns: 1fr;
     }
   }
@@ -546,41 +797,92 @@
       </div>
     </div>
 
+    <section class="seg-intro-copy">
+      <p>
+        Use this page to explore the main council investor segments, compare their value and engagement, and test how the proposed action segments behave against the wider investor base.
+      </p>
+    </section>
+
+    <section class="seg-section">
+      <h2>How to read this</h2>
+      <div class="seg-explainer">
+        <div>
+          <h3>Local investors</h3>
+          <p>People linked to an issuing council, either because they were council-recruited or because they live in an issuing council area.</p>
+        </div>
+        <div>
+          <h3>Category investors</h3>
+          <p>Non-local council investors. Their behaviour is read as engagement with the council investment category rather than one place.</p>
+        </div>
+        <div>
+          <h3>New vs legacy</h3>
+          <p>New local investors signed up after their council's first investment opened. Legacy local investors already had an Abundance relationship.</p>
+        </div>
+        <div>
+          <h3>Council only</h3>
+          <p>Category investors whose council investments are not paired with company investments in the current segmentation view.</p>
+        </div>
+        <div>
+          <h3>Company + council</h3>
+          <p>Category investors who also hold company investments, often pointing to a broader existing Abundance portfolio.</p>
+        </div>
+        <div>
+          <h3>£250 split</h3>
+          <p>Average lifetime council investment per council. The lower band is used as a proxy for lower-ticket participation behaviour.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="seg-divider abundance-dividers abundance-dividers--rise-left bg-colour--pink" aria-hidden="true"></div>
+
     <section class="seg-section">
       <h2>Overall council investor base</h2>
+      <div class="seg-view-select">
+        <label for="seg-bucket-view">Show stats for</label>
+        <select class="seg-select" id="seg-bucket-view" data-big-bucket-select></select>
+      </div>
       <section class="seg-grid" data-kpis></section>
     </section>
 
-    <section class="seg-section">
-      <h2>Key segment buckets</h2>
-      <div class="seg-buckets" data-big-buckets></div>
-    </section>
+    <div class="seg-divider abundance-dividers abundance-dividers--rise-right bg-colour--yellow" aria-hidden="true"></div>
 
     <section class="seg-section">
       <h2>Named action segments</h2>
+      <p class="seg-section-copy">
+        These are the proposed working segments for planning campaigns and journeys. Select a segment to update the flow and compare that audience against the overall base.
+      </p>
+      <div class="seg-action-stack" data-action-stack></div>
       <div class="seg-segments" data-action-segments></div>
 
-      <div class="seg-action-explorer seg-layout">
-        <div>
-          <h3 class="seg-subheading">Segment flow</h3>
-          <p class="seg-flow-note">Select segments below to filter the view. Each column shows a different way of slicing the currently selected investor group.</p>
-          <section class="seg-panel">
-            <div class="seg-actions">
-              <button class="seg-button" type="button" data-reset>Reset filters</button>
+      <div class="seg-strategy-grid">
+        <aside class="seg-detail" data-detail></aside>
+        <aside class="seg-strategy-card" data-auto-invest></aside>
+      </div>
+
+      <div class="seg-action-explorer">
+        <h3 class="seg-subheading">Segment flow</h3>
+        <p class="seg-flow-note">Select segments below to filter the view. Each column shows a different way of slicing the currently selected investor group.</p>
+        <section class="seg-panel">
+          <p class="seg-current-view" data-current-view></p>
+          <div class="seg-actions">
+            <button class="seg-button" type="button" data-reset>Show whole customer base</button>
+            <div class="seg-toggle-group" aria-label="Flow display metric">
+              <span class="seg-toggle-label">Show flow by</span>
               <button class="seg-button is-active" type="button" data-metric="people">People</button>
               <button class="seg-button" type="button" data-metric="total_lifetime_sales">Sales</button>
             </div>
-          </section>
-          <div class="seg-definition" data-segment-definition></div>
-          <div class="seg-flow" data-flow></div>
-        </div>
-        <aside class="seg-detail" data-detail></aside>
+          </div>
+        </section>
+        <div class="seg-definition" data-segment-definition></div>
+        <div class="seg-flow" data-flow></div>
       </div>
 
       <div class="seg-table-wrap seg-summary-table">
         <table class="seg-table" data-action-segment-summary></table>
       </div>
     </section>
+
+    <div class="seg-divider abundance-dividers abundance-dividers--rise-left bg-colour--pink" aria-hidden="true"></div>
 
     <section class="seg-section">
       <h2>Segment cells</h2>
