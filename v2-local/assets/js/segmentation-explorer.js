@@ -88,6 +88,7 @@
       state.activeSegmentId = stackSegmentId;
       state.selectedNode = null;
       render();
+      scrollToSegmentOutput();
       return;
     }
 
@@ -117,6 +118,7 @@
       state.activeSegmentId = id;
       state.selectedNode = null;
       render();
+      scrollToSegmentOutput();
       return;
     }
 
@@ -164,6 +166,14 @@
     renderCurrentView();
     renderFlow(filtered);
     renderTable(filtered);
+  }
+
+  function scrollToSegmentOutput() {
+    window.requestAnimationFrame(function () {
+      var target = root.querySelector("[data-segment-output]");
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   }
 
   function filteredRecords() {
