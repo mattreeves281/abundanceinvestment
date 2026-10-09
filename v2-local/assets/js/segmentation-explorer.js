@@ -224,7 +224,7 @@
     if (title) {
       title.textContent = "Key data: " + ((bucket && bucket.name) || "All investors");
     }
-    root.querySelector("[data-kpis]").innerHTML = [
+    var cards = [
       stat("People", number(totals.people), showComparison ? percent(rate(totals.people, base.people)) + " of all investors" : ""),
       stat("Lifetime sales", money(totals.total_lifetime_sales), showComparison ? percent(rate(totals.total_lifetime_sales, base.total_lifetime_sales)) + " of lifetime sales" : ""),
       stat("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
@@ -234,11 +234,16 @@
       stat("Average councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs all investors" : ""),
       stat("<£250 avg/council", amountBandSplitValue("<£250", selectedFilters), showComparison ? pointDelta(amountBandRate("<£250", selectedFilters), amountBandRate("<£250", {})) + " vs all investors" : ""),
       stat("£250+ avg/council", amountBandSplitValue("£250+", selectedFilters), showComparison ? pointDelta(amountBandRate("£250+", selectedFilters), amountBandRate("£250+", {})) + " vs all investors" : ""),
-      stat("Invested in target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs all investors" : ""),
       stat("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs all investors" : ""),
       stat("Invested in last 6 months", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs all investors" : ""),
       stat("Deposited in last 6 months", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs all investors" : "")
-    ].join("");
+    ];
+
+    if (isTargetCouncilApplicable(selectedFilters)) {
+      cards.splice(9, 0, stat("Invested in target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs all investors" : ""));
+    }
+
+    root.querySelector("[data-kpis]").innerHTML = cards.join("");
   }
 
   function renderActionSegments() {
@@ -937,6 +942,10 @@
 
   function targetCouncilRate(summary) {
     return rate(summary.people_invested_target_council, summary.local_people);
+  }
+
+  function isTargetCouncilApplicable(filters) {
+    return filters && filters.universe === "Local";
   }
 
   function rate(count, total) {
