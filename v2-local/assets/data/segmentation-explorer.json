@@ -1646,7 +1646,7 @@
         "invested_6m": "Invested 6m"
       },
       "autoInvestBenefit": "Makes it easy to invest, and potentially automates deposit",
-      "autoInvestStrategy": "This group is displaying regular buying behaviour, so auto invest should be relevant. They are also the most likely to be depositing to invest, which increases relevance. Question: will the Abundance brand relationship be more powerful than their local anchor (AKA will they want more control that auto invest MVP offers?)."
+      "autoInvestStrategy": "This group is displaying regular buying behaviour, so auto invest should be relevant. They are also the most likely to be depositing to invest, which increases relevance. As a legacy user group, some are reinvesting returns, which can create some smaller avg investment values. Question: will the Abundance brand relationship be more powerful than their local anchor (AKA will they want more control that auto invest MVP offers?)."
     },
     {
       "id": "local_legacy_disengaged",
