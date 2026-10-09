@@ -1581,14 +1581,14 @@
       "name": "Category buyer: councils only",
       "universe": "Category",
       "description": "Early stage council portfolio builders",
-      "strategy": "Lock in long term brand engagement. Build a case for council investments becoming core in their financial plans.",
-      "autoInvestLaunchPriority": "Primary",
+      "strategy": "Lock in long term brand engagement. Build a case for council investments becoming core. Get them investing more widely.",
+      "autoInvestLaunchPriority": "Secondary",
       "filters": {
         "universe": "Category",
         "holding_type": "Council only"
       },
       "autoInvestBenefit": "An easy way to grow your portfolio",
-      "autoInvestStrategy": "This segment should find the convenience sell relevant. They are growing their position with Abundance, we can use auto invest as a way of encouraging this. Lack of control shouldn't be a barrier given no obvious local link to their buying behaviour. Potential for the 'local NS&I' parallel to unlock wider regular saving behaviour given lack of past Abundance crowdfunding baggage."
+      "autoInvestStrategy": "This segment should find the convenience sell relevant. They are growing their position with Abundance, we can use auto invest as a way of encouraging this. Lack of control shouldn't be a barrier given no obvious local link to their buying behaviour. Potential for the 'local NS&I' parallel to unlock wider regular saving behaviour given lack of past Abundance crowdfunding baggage. However this group is not currently invested across many councils, so they do require extra sell to get there."
     },
     {
       "id": "category_legacy_disengaged",
