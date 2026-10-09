@@ -30,8 +30,8 @@
     amount_band: "Avg per council",
     imd_group: "IMD",
     depth_band: "Depth",
-    invested_6m: "Invested",
-    deposited_6m: "Deposited"
+    invested_6m: "Invested in last 6 months",
+    deposited_6m: "Deposited in last 6 months"
   };
 
   var data = null;
@@ -203,7 +203,7 @@
         '<select class="seg-select" id="seg-', key, '" data-filter="', key, '">',
         '<option value="">', escapeHtml(config[key].all), '</option>',
         values.map(function (value) {
-          return '<option value="' + escapeAttribute(value) + '"' + (state.filters[key] === value ? " selected" : "") + ">" + escapeHtml(value) + "</option>";
+          return '<option value="' + escapeAttribute(value) + '"' + (state.filters[key] === value ? " selected" : "") + ">" + escapeHtml(displayValue(value)) + "</option>";
         }).join(""),
         "</select>",
         segmentValue ? '<p class="seg-lock">Segment: ' + escapeHtml(filterValueLabel(segmentValue)) + '</p>' : '',
@@ -222,22 +222,22 @@
     var showComparison = Object.keys(selectedFilters).length > 0;
     var title = root.querySelector("[data-kpi-title]");
     if (title) {
-      title.textContent = "Key data: " + ((bucket && bucket.name) || "Council base");
+      title.textContent = "Key data: " + ((bucket && bucket.name) || "All investors");
     }
     root.querySelector("[data-kpis]").innerHTML = [
-      stat("People", number(totals.people), showComparison ? percent(rate(totals.people, base.people)) + " of base" : ""),
+      stat("People", number(totals.people), showComparison ? percent(rate(totals.people, base.people)) + " of all investors" : ""),
       stat("Lifetime sales", money(totals.total_lifetime_sales), showComparison ? percent(rate(totals.total_lifetime_sales, base.total_lifetime_sales)) + " of lifetime sales" : ""),
       stat("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
       stat("2026 sales share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
       stat("2026 sales index", sales2026Index(totals, base), "sales share / people share"),
-      stat("Average portfolio", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
-      stat("Average councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs base" : ""),
-      stat("<£250 avg/council", amountBandSplitValue("<£250", selectedFilters), showComparison ? pointDelta(amountBandRate("<£250", selectedFilters), amountBandRate("<£250", {})) + " vs base" : ""),
-      stat("£250+ avg/council", amountBandSplitValue("£250+", selectedFilters), showComparison ? pointDelta(amountBandRate("£250+", selectedFilters), amountBandRate("£250+", {})) + " vs base" : ""),
-      stat("Invested in target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs base" : ""),
-      stat("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
-      stat("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
-      stat("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs base" : "")
+      stat("Average portfolio", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs all investors" : ""),
+      stat("Average councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs all investors" : ""),
+      stat("<£250 avg/council", amountBandSplitValue("<£250", selectedFilters), showComparison ? pointDelta(amountBandRate("<£250", selectedFilters), amountBandRate("<£250", {})) + " vs all investors" : ""),
+      stat("£250+ avg/council", amountBandSplitValue("£250+", selectedFilters), showComparison ? pointDelta(amountBandRate("£250+", selectedFilters), amountBandRate("£250+", {})) + " vs all investors" : ""),
+      stat("Invested in target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs all investors" : ""),
+      stat("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs all investors" : ""),
+      stat("Invested in last 6 months", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs all investors" : ""),
+      stat("Deposited in last 6 months", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs all investors" : "")
     ].join("");
   }
 
@@ -397,7 +397,7 @@
 
   function getBigBuckets() {
     return [
-      { section: "Base", name: "Total base", filters: {} },
+      { section: "All investors", name: "All investors", filters: {} },
       { section: "Universe", name: "Local", filters: { universe: "Local" } },
       { section: "Universe", name: "Category", filters: { universe: "Category" } },
       { section: "Local source", name: "Local / New", filters: { universe: "Local", local_source: "New" } },
@@ -419,8 +419,13 @@
     var select = root.querySelector("[data-big-bucket-select]");
     if (!select) return;
     select.innerHTML = getBigBuckets().map(function (bucket, index) {
-        return '<option value="' + index + '"' + (index === state.kpiBucketIndex ? " selected" : "") + ">" + escapeHtml(bucket.section + " - " + bucket.name) + "</option>";
+        return '<option value="' + index + '"' + (index === state.kpiBucketIndex ? " selected" : "") + ">" + escapeHtml(bigBucketLabel(bucket)) + "</option>";
       }).join("");
+  }
+
+  function bigBucketLabel(bucket) {
+    if (!bucket || bucket.name === "All investors") return "All investors";
+    return bucket.section + " - " + bucket.name;
   }
 
   function matchesStateFilters(filters) {
@@ -479,12 +484,12 @@
       '<th data-align="right">2026 sales</th>',
       '<th data-align="right">2026 share</th>',
       '<th data-align="right">2026 index</th>',
-      '<th data-align="right">Target council</th>',
+      '<th data-align="right">Invested in target council</th>',
       '<th data-align="right">Avg portfolio</th>',
       '<th data-align="right">Avg councils</th>',
       '<th data-align="right">3+ councils</th>',
-      '<th data-align="right">Invested 6m</th>',
-      '<th data-align="right">Deposited 6m</th>',
+      '<th data-align="right">Invested in last 6 months</th>',
+      '<th data-align="right">Deposited in last 6 months</th>',
       '</tr></thead>',
       '<tbody>',
       (data.actionSegments || []).map(function (segment) {
@@ -559,7 +564,7 @@
     }
 
     if (isTotalBaseSelection()) {
-      return "Whole customer base";
+      return "All investors";
     }
 
     var matchingBucket = getBigBuckets().find(function (bucket) {
@@ -567,7 +572,7 @@
     });
 
     if (matchingBucket) {
-      return matchingBucket.name === "Total base" ? "Whole customer base" : matchingBucket.name;
+      return matchingBucket.name === "All investors" ? "All investors" : matchingBucket.name;
     }
 
     return filterLabel || "Custom selection";
@@ -603,7 +608,7 @@
             var width = maxMetric ? (metricValue(row) / maxMetric) * 100 : 0;
             return [
               '<button class="seg-node', active ? " is-active" : "", '" type="button" data-node-key="', key, '" data-node-value="', escapeAttribute(row.value), '">',
-              '<span class="seg-node__top"><span>', escapeHtml(row.value), '</span><span>', formatMetric(row), '</span></span>',
+              '<span class="seg-node__top"><span>', escapeHtml(displayValue(row.value)), '</span><span>', formatMetric(row), '</span></span>',
               '<span class="seg-node__meta">', number(row.people), ' people · ', money(row.total_lifetime_sales), '</span>',
               '<span class="seg-bar"><span style="--seg-width:', width.toFixed(2), '%"></span></span>',
               '</button>'
@@ -633,17 +638,17 @@
       strategy ? '<p>' + escapeHtml(strategy) + '</p>' : '',
       definition ? '<p><strong>Definition:</strong> ' + escapeHtml(definition) + '</p>' : '',
       '<div class="seg-mini-grid">',
-      mini("People", number(totals.people), showComparison ? percent(rate(totals.people, base.people)) + " of base" : ""),
+      mini("People", number(totals.people), showComparison ? percent(rate(totals.people, base.people)) + " of all investors" : ""),
       mini("Sales", money(totals.total_lifetime_sales), showComparison ? percent(rate(totals.total_lifetime_sales, base.total_lifetime_sales)) + " of lifetime sales" : ""),
       mini("2026 sales", money(totals.sales_2026), showComparison ? shareOf2026(totals, base) + " of 2026 sales" : ""),
       mini("2026 share", shareOf2026(totals, base), showComparison ? money(totals.sales_2026) + " in 2026" : ""),
       mini("2026 index", sales2026Index(totals, base), "sales share / people share"),
-      mini("Average", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs base" : ""),
-      mini("Avg councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs base" : ""),
-      mini("Target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs base" : ""),
-      mini("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs base" : ""),
-      mini("Invested 6m", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs base" : ""),
-      mini("Deposited 6m", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs base" : ""),
+      mini("Average", money(totals.avgPortfolio), showComparison ? relativeDelta(totals.avgPortfolio, base.avgPortfolio) + " vs all investors" : ""),
+      mini("Avg councils", decimal(totals.avgCouncils), showComparison ? relativeDelta(totals.avgCouncils, base.avgCouncils) + " vs all investors" : ""),
+      mini("Invested in target council", targetCouncilValue(totals), showComparison && totals.local_people ? pointDelta(targetCouncilRate(totals), targetCouncilRate(base)) + " vs all investors" : ""),
+      mini("3+ councils", countAndPct(totals.people_3plus_councils, totals.people), showComparison ? pointDelta(rate(totals.people_3plus_councils, totals.people), rate(base.people_3plus_councils, base.people)) + " vs all investors" : ""),
+      mini("Invested in last 6 months", countAndPct(totals.invested_past_6m, totals.people), showComparison ? pointDelta(rate(totals.invested_past_6m, totals.people), rate(base.invested_past_6m, base.people)) + " vs all investors" : ""),
+      mini("Deposited in last 6 months", countAndPct(totals.deposited_past_6m, totals.people), showComparison ? pointDelta(rate(totals.deposited_past_6m, totals.people), rate(base.deposited_past_6m, base.people)) + " vs all investors" : ""),
       '</div>'
     ].join("");
   }
@@ -705,7 +710,7 @@
       '<th data-align="right">Sales</th>',
       '<th data-align="right">2026 share</th>',
       '<th data-align="right">2026 index</th>',
-      '<th data-align="right">Target council</th>',
+      '<th data-align="right">Invested in target council</th>',
       '<th data-align="right">Avg portfolio</th>',
       '<th data-align="right">Avg councils</th>',
       '</tr></thead>',
@@ -718,7 +723,7 @@
           '<td>', escapeHtml(row.amount_band), '</td>',
           '<td>', escapeHtml(row.imd_group), '</td>',
           '<td>', escapeHtml(row.depth_band), '</td>',
-          '<td>', escapeHtml(row.invested_6m), ' · ', escapeHtml(row.deposited_6m), '</td>',
+          '<td>', escapeHtml(displayValue(row.invested_6m)), ' · ', escapeHtml(displayValue(row.deposited_6m)), '</td>',
           '<td data-align="right">', number(row.people), '</td>',
           '<td data-align="right">', money(row.total_lifetime_sales), '</td>',
           '<td data-align="right">', shareOf2026(row), '</td>',
@@ -835,8 +840,18 @@
   }
 
   function filterValueLabel(value) {
-    if (Array.isArray(value)) return value.join(" or ");
-    return String(value);
+    if (Array.isArray(value)) return value.map(displayValue).join(" or ");
+    return displayValue(value);
+  }
+
+  function displayValue(value) {
+    var labels = {
+      "Invested 6m": "Invested in last 6 months",
+      "No investment 6m": "No investment in last 6 months",
+      "Deposited 6m": "Deposited in last 6 months",
+      "No deposit 6m": "No deposit in last 6 months"
+    };
+    return labels[value] || String(value);
   }
 
   function formatFilterDefinition(filters) {
